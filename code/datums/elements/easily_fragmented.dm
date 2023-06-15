@@ -4,8 +4,8 @@
  */
 
 /datum/element/easily_fragmented
-	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
-	id_arg_index = 2
+	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH_ON_HOST_DESTROY
+	argument_hash_start_idx = 2
 
 	var/break_chance
 

@@ -1173,13 +1173,13 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	var/list/arctargets = list()
 	//Making a new copy so additons further down the recursion do not mess with other arcs
 	//Lets put this ourself into the do not hit list, so we don't curve back to hit the same thing twice with one arc
-	for(var/test in oview(zapstart, range))
+	for(var/atom/test in oview(zapstart, range))
 		if(!(zap_flags & ZAP_ALLOW_DUPLICATES) && LAZYACCESS(targets_hit, test))
 			continue
 
 		if(istype(test, /obj/vehicle/ridden/bicycle/))
 			var/obj/vehicle/ridden/bicycle/bike = test
-			if(!(bike.obj_flags & BEING_SHOCKED) && bike.can_buckle)//God's not on our side cause he hates idiots.
+			if(!HAS_TRAIT(bike, TRAIT_BEING_SHOCKED) && bike.can_buckle)//God's not on our side cause he hates idiots.
 				if(target_type != BIKE)
 					arctargets = list()
 				arctargets += test
@@ -1190,7 +1190,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 		if(istype(test, /obj/machinery/power/tesla_coil/))
 			var/obj/machinery/power/tesla_coil/coil = test
-			if(coil.anchored && !(coil.obj_flags & BEING_SHOCKED) && !coil.panel_open && prob(70))//Diversity of death
+			if(coil.anchored && !HAS_TRAIT(coil, TRAIT_BEING_SHOCKED) && !coil.panel_open && prob(70))//Diversity of death
 				if(target_type != COIL)
 					arctargets = list()
 				arctargets += test
@@ -1213,7 +1213,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 		if(istype(test, /mob/living/))
 			var/mob/living/alive = test
-			if(!(HAS_TRAIT(alive, TRAIT_TESLA_SHOCKIMMUNE)) && !(alive.flags_1 & SHOCKED_1) && alive.stat != DEAD && prob(20))//let's not hit all the engineers with every beam and/or segment of the arc
+			if(!(HAS_TRAIT(alive, TRAIT_TESLA_SHOCKIMMUNE)) && !HAS_TRAIT(alive, TRAIT_BEING_SHOCKED) && alive.stat != DEAD && prob(20))//let's not hit all the engineers with every beam and/or segment of the arc
 				if(target_type != LIVING)
 					arctargets = list()
 				arctargets += test
@@ -1223,8 +1223,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 			continue
 
 		if(istype(test, /obj/machinery/))
-			var/obj/machinery/machine = test
-			if(!(machine.obj_flags & BEING_SHOCKED) && prob(40))
+			if(!(HAS_TRAIT(test, TRAIT_BEING_SHOCKED)) && prob(40))
 				if(target_type != MACHINERY)
 					arctargets = list()
 				arctargets += test
@@ -1234,8 +1233,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 			continue
 
 		if(istype(test, /obj/))
-			var/obj/object = test
-			if(!(object.obj_flags & BEING_SHOCKED))
+			if(!HAS_TRAIT(test, TRAIT_BEING_SHOCKED))
 				if(target_type != OBJECT)
 					arctargets = list()
 				arctargets += test
@@ -1270,8 +1268,8 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 		else if(isliving(target))//If we got a fleshbag on our hands
 			var/mob/living/creature = target
-			creature.set_shocked()
-			addtimer(CALLBACK(creature, /mob/living/proc/reset_shocked), 10)
+			ADD_TRAIT(creature, TRAIT_BEING_SHOCKED, WAS_SHOCKED)
+			addtimer(TRAIT_CALLBACK_REMOVE(creature, TRAIT_BEING_SHOCKED, WAS_SHOCKED), 1 SECONDS)
 			//3 shots a human with no resistance. 2 to crit, one to death. This is at at least 10000 power.
 			//There's no increase after that because the input power is effectivly capped at 10k
 			//Does 1.5 damage at the least

@@ -103,8 +103,6 @@
 // /atom signals
 ///from base of atom/proc/Initialize(): sent any time a new atom is created
 #define COMSIG_ATOM_CREATED "atom_created"
-//from SSatoms InitAtom - Only if the  atom was not deleted or failed initialization
-#define COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZE "atom_init_success"
 ///from base of atom/attackby(): (/obj/item, /mob/living, params)
 #define COMSIG_PARENT_ATTACKBY "atom_attackby"
 /// From base of [atom/proc/attacby_secondary()]: (/obj/item/weapon, /mob/user, params)
@@ -119,58 +117,9 @@
 #define COMSIG_ATOM_ATTACK_ANIMAL "attack_animal"
 ///from base of atom/examine(): (/mob, list/examine_text)
 #define COMSIG_PARENT_EXAMINE "atom_examine"
-///from base of atom/get_examine_name(): (/mob, list/overrides)
-#define COMSIG_ATOM_GET_EXAMINE_NAME "atom_examine_name"
 #define COMSIG_PARENT_EXAMINE_MORE "atom_examine_more"                    ///from base of atom/examine_more(): (/mob)
-	//Positions for overrides list
-	#define EXAMINE_POSITION_ARTICLE (1<<0)
-	#define EXAMINE_POSITION_BEFORE (1<<1)
-	//End positions
-	#define COMPONENT_EXNAME_CHANGED (1<<0)
 //from base of atom/attack_basic_mob(): (/mob/user)
 #define COMSIG_ATOM_ATTACK_BASIC_MOB "attack_basic_mob"
-
-///from base of [/atom/proc/update_appearance]: (updates)
-#define COMSIG_ATOM_UPDATE_APPEARANCE "atom_update_appearance"
-	/// If returned from [COMSIG_ATOM_UPDATE_APPEARANCE] it prevents the atom from updating its name.
-	#define COMSIG_ATOM_NO_UPDATE_NAME UPDATE_NAME
-	/// If returned from [COMSIG_ATOM_UPDATE_APPEARANCE] it prevents the atom from updating its desc.
-	#define COMSIG_ATOM_NO_UPDATE_DESC UPDATE_DESC
-	/// If returned from [COMSIG_ATOM_UPDATE_APPEARANCE] it prevents the atom from updating its icon.
-	#define COMSIG_ATOM_NO_UPDATE_ICON UPDATE_ICON
-///from base of [/atom/proc/update_name]: (updates)
-#define COMSIG_ATOM_UPDATE_NAME "atom_update_name"
-///from base of [/atom/proc/update_desc]: (updates)
-#define COMSIG_ATOM_UPDATE_DESC "atom_update_desc"
-///from base of [/atom/update_icon]: ()
-#define COMSIG_ATOM_UPDATE_ICON "atom_update_icon"
-	/// If returned from [COMSIG_ATOM_UPDATE_ICON] it prevents the atom from updating its icon state.
-	#define COMSIG_ATOM_NO_UPDATE_ICON_STATE UPDATE_ICON_STATE
-	/// If returned from [COMSIG_ATOM_UPDATE_ICON] it prevents the atom from updating its overlays.
-	#define COMSIG_ATOM_NO_UPDATE_OVERLAYS UPDATE_OVERLAYS
-///from base of [atom/update_icon_state]: ()
-#define COMSIG_ATOM_UPDATE_ICON_STATE "atom_update_icon_state"
-///from base of [/atom/update_overlays]: (list/new_overlays)
-#define COMSIG_ATOM_UPDATE_OVERLAYS "atom_update_overlays"
-///from base of [/atom/update_icon]: (signalOut, did_anything)
-#define COMSIG_ATOM_UPDATED_ICON "atom_updated_icon"
-///from base of [/atom/proc/smooth_icon]: ()
-#define COMSIG_ATOM_SMOOTHED_ICON "atom_smoothed_icon"
-///from base of atom/Entered(): (atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-#define COMSIG_ATOM_ENTERED "atom_entered"
-///from base of atom/movable/Moved(): (atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-#define COMSIG_ATOM_ABSTRACT_ENTERED "atom_abstract_entered"
-/// Sent from the atom that just Entered src. From base of atom/Entered(): (/atom/destination, atom/old_loc, list/atom/old_locs)
-#define COMSIG_ATOM_ENTERING "atom_entering"
-///from base of atom/Exit(): (/atom/movable/leaving, direction)
-#define COMSIG_ATOM_EXIT "atom_exit"
-	#define COMPONENT_ATOM_BLOCK_EXIT (1<<0)
-///from base of atom/Exited(): (atom/movable/gone, direction)
-#define COMSIG_ATOM_EXITED "atom_exited"
-///from base of atom/movable/Moved(): (atom/movable/gone, direction)
-#define COMSIG_ATOM_ABSTRACT_EXITED "atom_abstract_exited"
-///from base of atom/Bumped(): (/atom/movable)
-#define COMSIG_ATOM_BUMPED "atom_bumped"
 ///from base of atom/ex_act(): (severity, target)
 #define COMSIG_ATOM_EX_ACT "atom_ex_act"
 ///from base of atom/emp_act(): (severity)
@@ -220,10 +169,6 @@
 
 ///from base of atom/setDir(): (old_dir, new_dir). Called before the direction changes.
 #define COMSIG_ATOM_DIR_CHANGE "atom_dir_change"
-///from base of atom/handle_atom_del(): (atom/deleted)
-#define COMSIG_ATOM_CONTENTS_DEL "atom_contents_del"
-///from base of atom/has_gravity(): (turf/location, list/forced_gravities)
-#define COMSIG_ATOM_HAS_GRAVITY "atom_has_gravity"
 ///from proc/get_rad_contents(): ()
 #define COMSIG_ATOM_RAD_PROBE "atom_rad_probe"
 	#define COMPONENT_BLOCK_RADIATION (1<<0)
@@ -233,34 +178,11 @@
 ///from base of datum/radiation_wave/check_obstructions(): (datum/radiation_wave, width)
 #define COMSIG_ATOM_RAD_WAVE_PASSING "atom_rad_wave_pass"
 	#define COMPONENT_RAD_WAVE_HANDLED (1<<0)
-///from internal loop in atom/movable/proc/CanReach(): (list/next)
-#define COMSIG_ATOM_CANREACH "atom_can_reach"
-	#define COMPONENT_ALLOW_REACH (1<<0)
 ///for any tool behaviors: (mob/living/user, obj/item/I, list/recipes)
 #define COMSIG_ATOM_TOOL_ACT(tooltype) "tool_act_[tooltype]"
 	#define COMPONENT_BLOCK_TOOL_ATTACK (1<<0)
 ///for any rightclick tool behaviors: (mob/living/user, obj/item/I)
 #define COMSIG_ATOM_SECONDARY_TOOL_ACT(tooltype) "tool_secondary_act_[tooltype]"
-	// We have the same returns here as COMSIG_ATOM_TOOL_ACT
-	// #define COMPONENT_BLOCK_TOOL_ATTACK (1<<0)
-///for when an atom has been created through processing (atom/original_atom, list/chosen_processing_option)
-#define COMSIG_ATOM_CREATEDBY_PROCESSING "atom_createdby_processing"
-///when an atom is processed (mob/living/user, obj/item/I, list/atom/results)
-#define COMSIG_ATOM_PROCESSED "atom_processed"
-///called when teleporting into a protected turf: (channel, turf/origin)
-#define COMSIG_ATOM_INTERCEPT_TELEPORT "intercept_teleport"
-	#define COMPONENT_BLOCK_TELEPORT (1<<0)
-///called when an atom is added to the hearers on get_hearers_in_view(): (list/processing_list, list/hearers)
-#define COMSIG_ATOM_HEARER_IN_VIEW "atom_hearer_in_view"
-///called when an atom starts orbiting another atom: (atom)
-#define COMSIG_ATOM_ORBIT_BEGIN "atom_orbit_begin"
-///called when an atom stops orbiting another atom: (atom)
-#define COMSIG_ATOM_ORBIT_STOP "atom_orbit_stop"
-///from base of atom/set_opacity(): (new_opacity)
-#define COMSIG_ATOM_SET_OPACITY "atom_set_opacity"
-///from base of atom/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
-#define COMSIG_ATOM_HITBY "atom_hitby"
-
 ///from base of atom/expose_reagents(): (/list, /datum/reagents, methods, volume_modifier, show_message)
 #define COMSIG_ATOM_EXPOSE_REAGENTS "atom_expose_reagents"
 	/// Prevents the atom from being exposed to reagents if returned on [COMSIG_ATOM_EXPOSE_REAGENTS]
@@ -389,102 +311,6 @@
 #define COMSIG_AREA_ENTERED "area_entered"
 ///from base of area/Exited(): (atom/movable/gone, direction)
 #define COMSIG_AREA_EXITED "area_exited"
-
-// /atom/movable signals
-
-///from base of atom/movable/Moved(): (/atom)
-#define COMSIG_MOVABLE_PRE_MOVE "movable_pre_move"
-	#define COMPONENT_MOVABLE_BLOCK_PRE_MOVE (1<<0)
-///from base of atom/movable/Moved(): (atom/old_loc, dir, forced, list/old_locs)
-#define COMSIG_MOVABLE_MOVED "movable_moved"
-///from base of atom/movable/update_loc(): (/atom/oldloc)
-#define COMSIG_MOVABLE_LOCATION_CHANGE "location_changed"
-///from base of atom/movable/Cross(): (/atom/movable)
-#define COMSIG_MOVABLE_CROSS "movable_cross"
-///from base of atom/movable/Move(): (/atom/movable)
-#define COMSIG_MOVABLE_CROSS_OVER "movable_cross_am"
-///from base of atom/movable/Bump(): (/atom)
-#define COMSIG_MOVABLE_BUMP "movable_bump"
-///from base of atom/movable/newtonian_move(): (inertia_direction)
-#define COMSIG_MOVABLE_NEWTONIAN_MOVE "movable_newtonian_move"
-	#define COMPONENT_MOVABLE_NEWTONIAN_BLOCK (1<<0)
-///from datum/component/drift/apply_initial_visuals(): ()
-#define COMSIG_MOVABLE_DRIFT_VISUAL_ATTEMPT "movable_drift_visual_attempt"
-	#define DRIFT_VISUAL_FAILED (1<<0)
-///from datum/component/drift/allow_final_movement(): ()
-#define COMSIG_MOVABLE_DRIFT_BLOCK_INPUT "movable_drift_block_input"
-	#define DRIFT_ALLOW_INPUT (1<<0)
-///from base of atom/movable/throw_impact(): (/atom/hit_atom, /datum/thrownthing/throwingdatum)
-#define COMSIG_MOVABLE_IMPACT "movable_impact"
-	#define COMPONENT_MOVABLE_IMPACT_FLIP_HITPUSH (1<<0) //if true, flip if the impact will push what it hits
-	#define COMPONENT_MOVABLE_IMPACT_NEVERMIND (1<<1) //return true if you destroyed whatever it was you're impacting and there won't be anything for hitby() to run on
-///from base of mob/living/hitby(): (mob/living/target, hit_zone)
-#define COMSIG_MOVABLE_IMPACT_ZONE "item_impact_zone"
-///from /atom/movable/proc/buckle_mob(): (mob/living/M, force, check_loc, buckle_mob_flags)
-#define COMSIG_MOVABLE_PREBUCKLE "prebuckle" // this is the last chance to interrupt and block a buckle before it finishes
-	#define COMPONENT_BLOCK_BUCKLE (1<<0)
-///from base of atom/movable/buckle_mob(): (mob, force)
-#define COMSIG_MOVABLE_BUCKLE "buckle"
-///from base of atom/movable/unbuckle_mob(): (mob, force)
-#define COMSIG_MOVABLE_UNBUCKLE "unbuckle"
-///from /obj/vehicle/proc/driver_move, caught by the riding component to check and execute the driver trying to drive the vehicle
-#define COMSIG_RIDDEN_DRIVER_MOVE "driver_move"
-	#define COMPONENT_DRIVER_BLOCK_MOVE (1<<0)
-///from base of atom/movable/throw_at(): (list/args)
-#define COMSIG_MOVABLE_PRE_THROW "movable_pre_throw"
-	#define COMPONENT_CANCEL_THROW (1<<0)
-///from base of atom/movable/throw_at(): (datum/thrownthing, spin)
-#define COMSIG_MOVABLE_POST_THROW "movable_post_throw"
-///from base of datum/thrownthing/finalize(): (obj/thrown_object, datum/thrownthing) used for when a throw is finished
-#define COMSIG_MOVABLE_THROW_LANDED "movable_throw_landed"
-///from base of atom/movable/on_changed_z_level(): (turf/old_turf, turf/new_turf)
-#define COMSIG_MOVABLE_Z_CHANGED "movable_ztransit"
-///called when the movable is placed in an unaccessible area, used for stationloving: ()
-#define COMSIG_MOVABLE_SECLUDED_LOCATION "movable_secluded"
-///from base of atom/movable/Hear(): (proc args list(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list()))
-#define COMSIG_MOVABLE_HEAR "movable_hear"
-	#define HEARING_MESSAGE 1
-	#define HEARING_SPEAKER 2
-	#define HEARING_LANGUAGE 3
-	#define HEARING_RAW_MESSAGE 4
-	/* #define HEARING_RADIO_FREQ 5
-	#define HEARING_SPANS 6
-	#define HEARING_MESSAGE_MODE 7 */
-
-///called when the movable is added to a disposal holder object for disposal movement: (obj/structure/disposalholder/holder, obj/machinery/disposal/source)
-#define COMSIG_MOVABLE_DISPOSING "movable_disposing"
-// called when movable is expelled from a disposal pipe, bin or outlet on obj/pipe_eject: (direction)
-#define COMSIG_MOVABLE_PIPE_EJECTING "movable_pipe_ejecting"
-///called when the movable sucessfully has it's anchored var changed, from base atom/movable/set_anchored(): (value)
-#define COMSIG_MOVABLE_SET_ANCHORED "movable_set_anchored"
-///from base of atom/movable/setGrabState(): (newstate)
-#define COMSIG_MOVABLE_SET_GRAB_STATE "living_set_grab_state"
-///Called when the movable tries to change its dynamic light color setting, from base atom/movable/lighting_overlay_set_color(): (color)
-#define COMSIG_MOVABLE_LIGHT_OVERLAY_SET_RANGE "movable_light_overlay_set_color"
-///Called when the movable tries to change its dynamic light power setting, from base atom/movable/lighting_overlay_set_power(): (power)
-#define COMSIG_MOVABLE_LIGHT_OVERLAY_SET_POWER "movable_light_overlay_set_power"
-///Called when the movable tries to change its dynamic light range setting, from base atom/movable/lighting_overlay_set_range(): (range)
-#define COMSIG_MOVABLE_LIGHT_OVERLAY_SET_COLOR "movable_light_overlay_set_range"
-///Called when the movable tries to toggle its dynamic light LIGHTING_ON status, from base atom/movable/lighting_overlay_toggle_on(): (new_state)
-#define COMSIG_MOVABLE_LIGHT_OVERLAY_TOGGLE_ON "movable_light_overlay_toggle_on"
-///called when the movable's glide size is updated: (new_glide_size)
-#define COMSIG_MOVABLE_UPDATE_GLIDE_SIZE "movable_glide_size"
-///Called when a movable is hit by a plunger in layer mode, from /obj/item/plunger/attack_obj()
-#define COMSIG_MOVABLE_CHANGE_DUCT_LAYER "movable_change_duct_layer"
-/// from /mob/living/can_z_move, sent to whatever the mob is buckled to. Only ridable movables should be ridden up or down btw.
-#define COMSIG_BUCKLED_CAN_Z_MOVE "ridden_pre_can_z_move"
-	#define COMPONENT_RIDDEN_STOP_Z_MOVE 1
-	#define COMPONENT_RIDDEN_ALLOW_Z_MOVE 2
-/// from base of atom/movable/Process_Spacemove(): (movement_dir, continuous_move)
-#define COMSIG_MOVABLE_SPACEMOVE "spacemove"
-	#define COMSIG_MOVABLE_STOP_SPACEMOVE (1<<0)
-///Called when a movable is teleported from `do_teleport()`: (destination, channel)
-#define COMSIG_MOVABLE_TELEPORTED "movable_teleported"
-
-/// Sent from /obj/item/radio/talk_into(): (obj/item/radio/used_radio)
-#define COMSIG_MOVABLE_USING_RADIO "movable_radio"
-	/// Return to prevent the movable from talking into the radio.
-	#define COMPONENT_CANNOT_USE_RADIO (1<<0)
 
 // /mob signals
 
@@ -1086,9 +912,6 @@
 ///sent to the instrument when tempo changes, skipped on new. (datum/song)
 #define COMSIG_INSTRUMENT_TEMPO_CHANGE "instrument_tempo_change"
 
-///when an atom starts playing a song datum (datum/song)
-#define COMSIG_ATOM_STARTING_INSTRUMENT "atom_starting_instrument"
-
 /*******Component Specific Signals*******/
 //Janitor
 
@@ -1616,9 +1439,6 @@
 #define COMSIG_IGNITER_ACTIVATE "igniter_activate"
 
 #define COMSIG_ATOM_FRIENDLY_WAVED "friendly_waved"
-
-/// generally called before temporary non-parallel animate()s on the atom (animation_duration)
-#define COMSIG_ATOM_TEMPORARY_ANIMATION_START "atom_temp_animate_start"
 
 /// Called when a techweb design is researched (datum/design/researched_design, custom)
 #define COMSIG_TECHWEB_ADD_DESIGN "techweb_add_design"

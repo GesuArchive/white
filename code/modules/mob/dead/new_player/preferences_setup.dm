@@ -132,6 +132,5 @@
 		previewJob.equip(mannequin, TRUE, preference_source = parent)
 		previewJob.equip_gear(mannequin, parent, TRUE)
 
-	COMPILE_OVERLAYS(mannequin)
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 	return getFlatIcon(mannequin, defdir = SOUTH)

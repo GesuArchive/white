@@ -3,8 +3,8 @@
 /// If a user is protected with something like leather gloves, they can handle them normally.
 /// If they're not protected properly, we invoke a callback on the user, harming or inconveniencing them.
 /datum/element/plant_backfire
-	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
-	id_arg_index = 2
+	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH_ON_HOST_DESTROY
+	argument_hash_start_idx = 2
 	/// Whether we stop the current action if backfire is triggered (EX: returning CANCEL_ATTACK_CHAIN)
 	var/cancel_action = FALSE
 	/// The callback of the backfire effect of the plant.

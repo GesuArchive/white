@@ -4,7 +4,7 @@
  * Used by sparring sect!
  */
 /datum/element/tenacious
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/tenacious/Attach(datum/target)
 	. = ..()

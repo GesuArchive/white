@@ -55,7 +55,7 @@
 	picture_icon = ic
 
 /datum/picture/serialize_list(list/options)
-	. = list()
+	. = ..()
 	.["id"] = id
 	.["desc"] = picture_desc
 	.["name"] = picture_name
@@ -65,7 +65,13 @@
 	.["blueprints"] = has_blueprints
 	.["logpath"] = logpath
 
+	return .
+
 /datum/picture/deserialize_list(list/input, list/options)
+	. = ..()
+	if(!.)
+		return .
+
 	if(!input["logpath"] || !fexists(input["logpath"]) || !input["id"] || !input["pixel_size_x"] || !input["pixel_size_y"])
 		return
 	picture_image = icon(file(input["logpath"]))

@@ -1,68 +1,30 @@
 SUBSYSTEM_DEF(overlays)
 	name = "Overlay"
-	flags = SS_TICKER
-	wait = 1
-	priority = FIRE_PRIORITY_OVERLAYS
-	init_order = INIT_ORDER_OVERLAY
-
-	var/list/queue
+	flags = SS_NO_FIRE|SS_NO_INIT
 	var/list/stats
 
 /datum/controller/subsystem/overlays/PreInit()
-	queue = list()
 	stats = list()
-
-/datum/controller/subsystem/overlays/Initialize()
-	initialized = TRUE
-	fire(mc_check = FALSE)
-	return SS_INIT_SUCCESS
-
-
-/datum/controller/subsystem/overlays/stat_entry(msg)
-	msg = "Ov:[length(queue)]"
-	return ..()
-
 
 /datum/controller/subsystem/overlays/Shutdown()
 	text2file(render_stats(stats), "[GLOB.log_directory]/overlay.log")
 
-
 /datum/controller/subsystem/overlays/Recover()
-	queue = SSoverlays.queue
+	stats = SSoverlays.stats
 
-
-/datum/controller/subsystem/overlays/fire(resumed = FALSE, mc_check = TRUE)
-	var/list/queue = src.queue
-	var/static/count = 0
-	if (count)
-		var/c = count
-		count = 0 //so if we runtime on the Cut, we don't try again.
-		queue.Cut(1,c+1)
-
-	for (var/thing in queue)
-		count++
-		if(thing)
-			var/atom/A = thing
-			if(A.overlays.len >= MAX_ATOM_OVERLAYS)
-				//Break it real GOOD
-				stack_trace("Too many overlays on [A.type] - [A.overlays.len], refusing to update and cutting")
-				A.overlays.Cut()
-				continue
-			STAT_START_STOPWATCH
-			COMPILE_OVERLAYS(A)
-			UNSETEMPTY(A.add_overlays)
-			UNSETEMPTY(A.remove_overlays)
-			STAT_STOP_STOPWATCH
-			STAT_LOG_ENTRY(stats, A.type)
-		if(mc_check)
-			if(MC_TICK_CHECK)
-				break
-		else
-			CHECK_TICK
-	if (count)
-		queue.Cut(1,count+1)
-		count = 0
-
+/// Converts an overlay list into text for debug printing
+/// Of note: overlays aren't actually mutable appearances, they're just appearances
+/// Don't have access to that type tho, so this is the best you're gonna get
+/proc/overlays2text(list/overlays)
+	var/list/unique_overlays = list()
+	// As anything because we're basically doing type coerrsion, rather then actually filtering for mutable apperances
+	for(var/mutable_appearance/overlay as anything in overlays)
+		var/key = "[overlay.icon]-[overlay.icon_state]-[overlay.dir]"
+		unique_overlays[key] += 1
+	var/list/output_text = list()
+	for(var/key in unique_overlays)
+		output_text += "([key]) = [unique_overlays[key]]"
+	return output_text.Join("\n")
 
 /proc/iconstate2appearance(icon, iconstate)
 	var/static/image/stringbro = new()
@@ -83,14 +45,7 @@ SUBSYSTEM_DEF(overlays)
 			build_overlays -= overlay
 			continue
 		if (istext(overlay))
-#ifdef UNIT_TESTS
 			// This is too expensive to run normally but running it during CI is a good test
-			var/list/icon_states_available = icon_states(icon)
-			if(!(overlay in icon_states_available))
-				var/icon_file = "[icon]" || "Unknown Generated Icon"
-				stack_trace("Invalid overlay: Icon object '[icon_file]' [REF(icon)] used in '[src]' [type] is missing icon state [overlay].")
-				continue
-#endif
 			var/index = build_overlays.Find(overlay)
 			build_overlays[index] = iconstate2appearance(icon, overlay)
 		else if(isicon(overlay))
@@ -98,49 +53,31 @@ SUBSYSTEM_DEF(overlays)
 			build_overlays[index] = icon2appearance(overlay)
 	return build_overlays
 
-#define NOT_QUEUED_ALREADY (!(flags_1 & OVERLAY_QUEUED_1))
-#define QUEUE_FOR_COMPILE flags_1 |= OVERLAY_QUEUED_1; SSoverlays.queue += src;
 /atom/proc/cut_overlays()
-	LAZYINITLIST(remove_overlays)
-	remove_overlays = overlays.Copy()
-	add_overlays = null
+	STAT_START_STOPWATCH
+	overlays = null
+	POST_OVERLAY_CHANGE(src)
+	STAT_STOP_STOPWATCH
+	STAT_LOG_ENTRY(SSoverlays.stats, type)
 
-	//If not already queued for work and there are overlays to remove
-	if(NOT_QUEUED_ALREADY && remove_overlays.len)
-		QUEUE_FOR_COMPILE
-
-/atom/proc/cut_overlay(list/overlays)
+/atom/proc/cut_overlay(list/remove_overlays)
 	if(!overlays)
 		return
-	overlays = build_appearance_list(overlays)
-	LAZYINITLIST(add_overlays)
-	LAZYINITLIST(remove_overlays)
-	var/a_len = add_overlays.len
-	var/r_len = remove_overlays.len
-	remove_overlays += overlays
-	add_overlays -= overlays
+	STAT_START_STOPWATCH
+	overlays -= build_appearance_list(remove_overlays)
+	POST_OVERLAY_CHANGE(src)
+	STAT_STOP_STOPWATCH
+	STAT_LOG_ENTRY(SSoverlays.stats, type)
 
-	var/fa_len = add_overlays.len
-	var/fr_len = remove_overlays.len
-
-	//If not already queued and there is work to be done
-	if(NOT_QUEUED_ALREADY && (fa_len != a_len || fr_len != r_len ))
-		QUEUE_FOR_COMPILE
-	UNSETEMPTY(add_overlays)
-
-/atom/proc/add_overlay(list/overlays)
+/atom/proc/add_overlay(list/add_overlays)
 	if(!overlays)
 		return
-
-	overlays = build_appearance_list(overlays)
-
-	LAZYINITLIST(add_overlays) //always initialized after this point
-	var/a_len = add_overlays.len
-
-	add_overlays += overlays
-	var/fa_len = add_overlays.len
-	if(NOT_QUEUED_ALREADY && fa_len != a_len)
-		QUEUE_FOR_COMPILE
+	STAT_START_STOPWATCH
+	overlays += build_appearance_list(add_overlays)
+	VALIDATE_OVERLAY_LIMIT(src)
+	POST_OVERLAY_CHANGE(src)
+	STAT_STOP_STOPWATCH
+	STAT_LOG_ENTRY(SSoverlays.stats, type)
 
 /atom/proc/copy_overlays(atom/other, cut_old) //copys our_overlays from another atom
 	if(!other)
@@ -148,18 +85,23 @@ SUBSYSTEM_DEF(overlays)
 			cut_overlays()
 		return
 
+	STAT_START_STOPWATCH
 	var/list/cached_other = other.overlays.Copy()
-	if(cached_other)
-		if(cut_old || !LAZYLEN(overlays))
-			remove_overlays = overlays
-		add_overlays = cached_other
-		if(NOT_QUEUED_ALREADY)
-			QUEUE_FOR_COMPILE
-	else if(cut_old)
-		cut_overlays()
-
-#undef NOT_QUEUED_ALREADY
-#undef QUEUE_FOR_COMPILE
+	if(cut_old)
+		if(cached_other)
+			overlays = cached_other
+		else
+			overlays = null
+		VALIDATE_OVERLAY_LIMIT(src)
+		POST_OVERLAY_CHANGE(src)
+		STAT_STOP_STOPWATCH
+		STAT_LOG_ENTRY(SSoverlays.stats, type)
+	else if(cached_other)
+		overlays += cached_other
+		VALIDATE_OVERLAY_LIMIT(src)
+		POST_OVERLAY_CHANGE(src)
+		STAT_STOP_STOPWATCH
+		STAT_LOG_ENTRY(SSoverlays.stats, type)
 
 //TODO: Better solution for these?
 /image/proc/add_overlay(x)
@@ -262,7 +204,7 @@ SUBSYSTEM_DEF(overlays)
 			continue
 		if(name == "vars") // Go away
 			continue
-		if(name == "comp_lookup") // This is just gonna happen with marked datums, don't care
+		if(name == "_listen_lookup") // This is just gonna happen with marked datums, don't care
 			continue
 		if(name == "overlays")
 			first.realize_overlays()

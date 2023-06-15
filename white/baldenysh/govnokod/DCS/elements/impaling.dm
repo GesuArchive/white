@@ -1,6 +1,6 @@
 /datum/element/impaling
 	element_flags = ELEMENT_BESPOKE
-	id_arg_index = 2
+	argument_hash_start_idx = 2
 	var/throw_range
 	var/throw_force
 	var/obj/impaler

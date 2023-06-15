@@ -5,8 +5,8 @@
  * basically you will see VARIETY in a batch of simplemobs.
  */
 /datum/element/animal_variety
-	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH
-	id_arg_index = 2
+	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH_ON_HOST_DESTROY
+	argument_hash_start_idx = 2
 
 	/// prefix for the icon state, this will always stay the same
 	var/icon_prefix

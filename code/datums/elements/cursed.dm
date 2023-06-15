@@ -4,7 +4,7 @@
  *Attaching this element to something will make it float, and get a special ai controller!
  */
 /datum/element/cursed
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/cursed/Attach(datum/target, slot)
 	. = ..()

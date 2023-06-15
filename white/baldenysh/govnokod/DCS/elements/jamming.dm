@@ -5,7 +5,7 @@
 //как етой хуйней пользоваца написана в компоненте заклинивания
 /datum/element/jamming
 	element_flags = ELEMENT_BESPOKE
-	id_arg_index = 2
+	argument_hash_start_idx = 2
 	var/jamming_chance
 	var/jammed_component_type = /datum/component/jammed
 

@@ -298,7 +298,7 @@
 
 /obj/item/mechcomp/delay/proc/sendmessage(var/datum/mechcompMessage/msg)
 	SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_MSG, msg)
-	if(!active_timers.len)
+	if(!_active_timers.len)
 		_deactivate()
 
 /obj/item/mechcomp/delay/unanchor()
@@ -306,7 +306,7 @@
 	remove_all_pending_messages()
 
 /obj/item/mechcomp/delay/proc/remove_all_pending_messages()
-	for(var/timer in active_timers)
+	for(var/timer in _active_timers)
 		deltimer(timer)
 
 

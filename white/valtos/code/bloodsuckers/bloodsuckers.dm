@@ -391,7 +391,7 @@
 		if(istype(user) && owner.assigned_role == JOB_CLOWN)
 			user.dna.add_mutation(CLOWNMUT)
 	/// Remove ALL Traits, as long as its from BLOODSUCKER_TRAIT's source. - This is because of unique cases like Nosferatu getting Ventcrawling.
-	for(var/all_status_traits in owner.current.status_traits)
+	for(var/all_status_traits in owner.current._status_traits)
 		REMOVE_TRAIT(owner.current, all_status_traits, BLOODSUCKER_TRAIT)
 	/// Update Health
 	owner.current.setMaxHealth(100)

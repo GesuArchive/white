@@ -1133,7 +1133,7 @@
 		to_chat(D, span_warning("<b>Вы покинули арену. [pick("Очень глупо с вашей стороны.", "Мнда.", "Лох..")]</b>"))
 		return TRUE
 
-	if( (D.status_traits.Find("floored") && stun_is_deadly) || HAS_TRAIT(D, TRAIT_CRITICAL_CONDITION) || D.stat == DEAD)
+	if( (D._status_traits.Find("floored") && stun_is_deadly) || HAS_TRAIT(D, TRAIT_CRITICAL_CONDITION) || D.stat == DEAD)
 		if(duel_status == DUEL_PENDING)
 			announce("<b>Вы проиграли до начала дуэли. [pick("Впечатляюще.", "Поразительно.", "Поздравляю...")]</b>")
 			return TRUE

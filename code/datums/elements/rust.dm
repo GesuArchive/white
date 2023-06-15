@@ -3,8 +3,8 @@
  * The overlay can be specified in new as the first paramter; if not set it defaults to rust_overlay's rust_default
  */
 /datum/element/rust
-	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH
-	id_arg_index = 2
+	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH_ON_HOST_DESTROY
+	argument_hash_start_idx = 2
 	/// The rust image itself, since the icon and icon state are only used as an argument
 	var/image/rust_overlay
 
@@ -17,7 +17,7 @@
 	ADD_TRAIT(target, TRAIT_RUSTY, ELEMENT_TRAIT(type))
 	RegisterSignal(target, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(apply_rust_overlay))
 	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(handle_examine))
-	RegisterSignal(target, list(COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_WELDER), COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_RUSTSCRAPER)), PROC_REF(secondary_tool_act))
+	RegisterSignals(target, list(COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_WELDER), COMSIG_ATOM_SECONDARY_TOOL_ACT(TOOL_RUSTSCRAPER)), PROC_REF(secondary_tool_act))
 	// Unfortunately registering with parent sometimes doesn't cause an overlay update
 	target.update_icon(UPDATE_OVERLAYS)
 

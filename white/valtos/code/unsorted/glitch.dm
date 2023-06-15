@@ -1,6 +1,6 @@
 /datum/element/glitch
-	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH
-	id_arg_index = 2
+	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH_ON_HOST_DESTROY
+	argument_hash_start_idx = 2
 
 /datum/element/glitch/Attach(datum/target, amount = 4, speed_min = 1, speed_max = 2, count = 1)
 	if(!isatom(target))

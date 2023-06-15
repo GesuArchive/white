@@ -167,7 +167,7 @@
 		for(var/i in 1 to 4)
 			var/mob/living/target = boss
 			var/atom/active_cogscarab = new /mob/living/simple_animal/hostile/clockwork/cogscarab(get_step(target,pick_n_take(directions)))
-			RegisterSignal(active_cogscarab, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(lost_cogscarab))
+			RegisterSignals(active_cogscarab, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(lost_cogscarab))
 			summoned_cogscarabs++
 	else
 		boss.atb.refund(boss_cost)

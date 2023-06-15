@@ -3,7 +3,7 @@
 //необходимо отключать INTERACT_ATOM_ATTACK_HAND в interaction_flags_atom чтоб работало как надо, может отключение вообще в элемент напрямую впилить...
 /datum/element/border_reach_check
 	element_flags = ELEMENT_BESPOKE
-	id_arg_index = 2
+	argument_hash_start_idx = 2
 
 	//отвечает за перекидывание действия с заблоченной пограничной хрени на блокирующий атом
 	var/blocker_interact = FALSE

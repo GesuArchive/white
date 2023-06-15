@@ -24,47 +24,48 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define CONDUCT_1 (1<<1)
 /// For machines and structures that should not break into parts, eg, holodeck stuff
 #define NODECONSTRUCT_1 (1<<2)
-/// atom queued to SSoverlay
-#define OVERLAY_QUEUED_1 (1<<3)
 /// item has priority to check when entering or leaving
-#define ON_BORDER_1 (1<<4)
+#define ON_BORDER_1 (1<<3)
 ///Whether or not this atom shows screentips when hovered over
-#define NO_SCREENTIPS_1 (1<<5)
+#define NO_SCREENTIPS_1 (1<<4)
 /// Prevent clicking things below it on the same turf eg. doors/ fulltile windows
-#define PREVENT_CLICK_UNDER_1 (1<<6)
+#define PREVENT_CLICK_UNDER_1 (1<<5)
 ///specifies that this atom is a hologram that isnt real
-#define HOLOGRAM_1 (1<<7)
-/// Prevents mobs from getting chainshocked by teslas and the supermatter
-#define SHOCKED_1 (1<<8)
+#define HOLOGRAM_1 (1<<6)
 ///Whether /atom/Initialize() has already run for the object
-#define INITIALIZED_1 (1<<9)
+#define INITIALIZED_1 (1<<7)
 /// was this spawned by an admin? used for stat tracking stuff.
-#define ADMIN_SPAWNED_1 (1<<10)
+#define ADMIN_SPAWNED_1 (1<<8)
 /// should not get harmed if this gets caught by an explosion?
-#define PREVENT_CONTENTS_EXPLOSION_1 (1<<11)
+#define PREVENT_CONTENTS_EXPLOSION_1 (1<<9)
 /// should the contents of this atom be acted upon
-#define RAD_PROTECT_CONTENTS_1 (1<<12)
+#define RAD_PROTECT_CONTENTS_1 (1<<10)
 /// should this object be allowed to be contaminated
-#define RAD_NO_CONTAMINATE_1 (1<<13)
+#define RAD_NO_CONTAMINATE_1 (1<<11)
 /// Should this object be paintable with very dark colors?
-#define ALLOW_DARK_PAINTS_1 (1<<14)
+#define ALLOW_DARK_PAINTS_1 (1<<12)
 /// Should this object be unpaintable?
-#define UNPAINTABLE_1 (1<<15)
+#define UNPAINTABLE_1 (1<<13)
 /// Is the thing currently spinning?
-#define IS_SPINNING_1 (1<<16)
-#define IS_ONTOP_1 (1<<17)
-#define SUPERMATTER_IGNORES_1 (1<<18)
+#define IS_SPINNING_1 (1<<14)
+#define IS_ONTOP_1 (1<<15)
+#define SUPERMATTER_IGNORES_1 (1<<16)
 /// If a turf can be made dirty at roundstart. This is also used in areas.
-#define CAN_BE_DIRTY_1 (1<<19)
+#define CAN_BE_DIRTY_1 (1<<17)
 /// Should we use the initial icon for display? Mostly used by overlay only objects
-#define HTML_USE_INITAL_ICON_1 (1<<20)
+#define HTML_USE_INITAL_ICON_1 (1<<18)
 /// Can players recolor this in-game via vendors (and maybe more if support is added)?
-#define IS_PLAYER_COLORABLE_1 (1<<21)
-#define KEEP_ON_ARENA_1 (1<<22)
+#define IS_PLAYER_COLORABLE_1 (1<<19)
+#define KEEP_ON_ARENA_1 (1<<20)
 /// Whether or not this atom has contextual screentips when hovered OVER
-#define HAS_CONTEXTUAL_SCREENTIPS_1 (1<<23)
+#define HAS_CONTEXTUAL_SCREENTIPS_1 (1<<21)
 /// Whether or not this atom is storing contents for a disassociated storage object
-#define HAS_DISASSOCIATED_STORAGE_1 (1<<24)
+#define HAS_DISASSOCIATED_STORAGE_1 (1<<22)
+/// If this atom has experienced a decal element "init finished" sourced appearance update
+/// We use this to ensure stacked decals don't double up appearance updates for no rasin
+/// Flag as an optimization, don't make this a trait without profiling
+/// Yes I know this is a stupid flag, no you can't take him from me
+#define DECAL_INIT_UPDATE_EXPERIENCED_1 (1<<23)
 
 // Update flags for [/atom/proc/update_appearance]
 /// Update the atom's name
@@ -178,6 +179,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define ZAP_MOB_DAMAGE (1<<3)
 #define ZAP_MOB_STUN (1<<4)
 #define ZAP_GENERATES_POWER (1<<5)
+/// Zaps with this flag will generate less power through tesla coils
+#define ZAP_LOW_POWER_GEN (1<<6)
 
 #define ZAP_DEFAULT_FLAGS ZAP_MOB_STUN | ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE
 #define ZAP_FUSION_FLAGS ZAP_OBJ_DAMAGE | ZAP_MOB_DAMAGE | ZAP_MOB_STUN

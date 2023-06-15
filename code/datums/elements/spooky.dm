@@ -1,6 +1,6 @@
 /datum/element/spooky
-	element_flags = ELEMENT_DETACH|ELEMENT_BESPOKE
-	id_arg_index = 2
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY|ELEMENT_BESPOKE
+	argument_hash_start_idx = 2
 	var/too_spooky = TRUE //will it spawn a new instrument?
 
 /datum/element/spooky/Attach(datum/target, too_spooky = TRUE)

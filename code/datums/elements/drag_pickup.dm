@@ -4,7 +4,7 @@
  * Used for paper bins.
  */
 /datum/element/drag_pickup
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/drag_pickup/Attach(datum/target)
 	if(!ismovable(target))

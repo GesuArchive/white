@@ -3,7 +3,7 @@
  * having to pixelhunt for portions not occupied by object or mob visuals.
  */
 /datum/element/openspace_item_click_handler
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/openspace_item_click_handler/Attach(datum/target)
 	. = ..()

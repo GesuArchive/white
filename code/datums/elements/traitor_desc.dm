@@ -1,6 +1,6 @@
 /datum/element/traitor_desc
-	element_flags = ELEMENT_DETACH | ELEMENT_BESPOKE
-	id_arg_index = 2
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY | ELEMENT_BESPOKE
+	argument_hash_start_idx = 2
 	var/desc
 	var/sabotage_target
 

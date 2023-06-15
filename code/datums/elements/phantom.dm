@@ -1,6 +1,6 @@
 
 /datum/element/phantom
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 	var/ghost_timer = 1 SECONDS
 	var/dir_last = 0
 

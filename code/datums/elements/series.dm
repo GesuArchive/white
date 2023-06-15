@@ -5,8 +5,8 @@
  * used for mechas and rare collectable hats, should totally be used for way more ;)
  */
 /datum/element/series
-	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH
-	id_arg_index = 2
+	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH_ON_HOST_DESTROY
+	argument_hash_start_idx = 2
 	var/list/subtype_list
 	var/series_name
 

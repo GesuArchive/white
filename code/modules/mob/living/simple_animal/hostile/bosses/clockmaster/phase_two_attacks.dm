@@ -127,7 +127,7 @@
 		for(var/obj/effect/landmark/clockworkmarauder_spawn/spawner in GLOB.landmarks_list)
 			if(spawner.id == id)
 				var/atom/marauder = new /mob/living/simple_animal/hostile/clockwork/marauder/weak(get_turf(spawner))
-				RegisterSignal(marauder, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(lost_marauder))
+				RegisterSignals(marauder, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(lost_marauder))
 				active_marauders = 8
 	else
 		boss.atb.refund(boss_cost)

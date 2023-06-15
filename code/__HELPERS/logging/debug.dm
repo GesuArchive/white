@@ -45,6 +45,9 @@
 /proc/log_topic(text)
 	WRITE_LOG(GLOB.world_game_log, "TOPIC: [text]")
 
+/proc/log_signal(text)
+	WRITE_LOG(GLOB.signals_log, text)
+
 /* Log to the logfile only. */
 /proc/log_runtime(text)
 	WRITE_LOG(GLOB.world_runtime_log, text)

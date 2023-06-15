@@ -1,6 +1,6 @@
 /// Allows an item to  be used to initiate surgeries.
 /datum/element/surgery_initiator
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/surgery_initiator/Attach(datum/target)
 	. = ..()

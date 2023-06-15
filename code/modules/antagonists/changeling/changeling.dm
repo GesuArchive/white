@@ -400,7 +400,7 @@
 		if(B)
 			B.organ_flags &= ~ORGAN_VITAL
 			B.decoy_override = TRUE
-		RegisterSignal(C, list(COMSIG_MOB_MIDDLECLICKON, COMSIG_MOB_ALTCLICKON), PROC_REF(stingAtom))
+		RegisterSignals(C, list(COMSIG_MOB_MIDDLECLICKON, COMSIG_MOB_ALTCLICKON), PROC_REF(stingAtom))
 	var/mob/living/M = mob_override || owner.current
 	handle_clown_mutation(M, "Нам удалось вознестись над нашей клоунской натурой в прошлом, теперь мы способны использовать оружие без вреда себе.")
 

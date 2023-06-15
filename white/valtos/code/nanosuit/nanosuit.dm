@@ -684,7 +684,7 @@
 		Wearer.equipOutfit(outfit)
 		ADD_TRAIT(Wearer, TRAIT_NODISMEMBER, "Nanosuit")
 		ADD_TRAIT(Wearer, TRAIT_NEVER_WOUNDED, "Nanosuit")
-		RegisterSignal(Wearer, list(COMSIG_MOB_ITEM_ATTACK,COMSIG_MOB_ITEM_AFTERATTACK,COMSIG_MOB_THROW,COMSIG_MOB_ATTACK_HAND), PROC_REF(kill_cloak),TRUE)
+		RegisterSignals(Wearer, list(COMSIG_MOB_ITEM_ATTACK,COMSIG_MOB_ITEM_AFTERATTACK,COMSIG_MOB_THROW,COMSIG_MOB_ATTACK_HAND), PROC_REF(kill_cloak),TRUE)
 		if(is_station_level(T.z))
 			priority_announce("[user] использовал[user.ru_a()] запрещённый нанокостюм в [A.name]!", "Экстренное сообщение!", sound('white/valtos/sounds/nanosuitengage.ogg'))
 		log_game("[user] has engaged [src]")

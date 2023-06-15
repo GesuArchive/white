@@ -2,8 +2,8 @@
 /// A "Type B" interaction.
 /// This stacks with other contextual screentip elements, though you may want to register the signal/flag manually at that point for performance.
 /datum/element/contextual_screentip_item_typechecks
-	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
-	id_arg_index = 2
+	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH_ON_HOST_DESTROY
+	argument_hash_start_idx = 2
 
 	/// Map of item paths to contexts to usages
 	var/list/item_paths_to_contexts

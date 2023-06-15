@@ -32,11 +32,11 @@
 		handled = FALSE
 
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(handle_movement))
-	RegisterSignal(parent, list(
+	RegisterSignals(parent, list(
 		COMSIG_ITEM_PICKUP, //person picks up an item
 		COMSIG_ATOM_ENTERED), //Object enters a storage object (boxes, etc.)
 		PROC_REF(picked_up))
-	RegisterSignal(parent, list(
+	RegisterSignals(parent, list(
 		COMSIG_ITEM_DROPPED, //Object is dropped anywhere
 		COMSIG_ATOM_EXITED), //Object exits a storage object (boxes, etc)
 		PROC_REF(dropped))
@@ -84,7 +84,7 @@
 	return ..()
 
 /datum/component/decomposition/proc/remove_timer()
-	if(active_timers) // Makes sure there's an active timer to delete.
+	if(_active_timers) // Makes sure there's an active timer to delete.
 		time_remaining = timeleft(timerid)
 		deltimer(timerid)
 
@@ -115,7 +115,7 @@
 /datum/component/decomposition/proc/examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	var/time_d = 0
-	if(active_timers) // Is the timer currently applied to this?
+	if(_active_timers) // Is the timer currently applied to this?
 		time_d = timeleft(timerid)
 	else
 		time_d = time_remaining

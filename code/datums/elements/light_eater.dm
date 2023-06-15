@@ -4,7 +4,7 @@
  * The temporary equivalent is [/datum/component/light_eater]
  */
 /datum/element/light_eater
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/light_eater/Attach(datum/target)
 	if(isatom(target))

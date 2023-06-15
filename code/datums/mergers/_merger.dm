@@ -52,7 +52,7 @@
 
 /datum/merger/proc/AddMember(atom/thing, connected_dir) // note that this fires for the origin of the merger as well
 	SEND_SIGNAL(thing, COMSIG_MERGER_ADDING, src)
-	RegisterSignal(thing, refresh_signals, PROC_REF(QueueRefresh))
+	RegisterSignals(thing, refresh_signals, PROC_REF(QueueRefresh))
 	RegisterSignal(thing, COMSIG_PARENT_QDELETING, PROC_REF(HandleMemberDel))
 	if(!thing.mergers)
 		thing.mergers = list()

@@ -1,6 +1,6 @@
 /// An element which enables certain items to tap people on their knees to measure brain health
 /datum/element/kneejerk
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/kneejerk/Attach(datum/target)
 	. = ..()

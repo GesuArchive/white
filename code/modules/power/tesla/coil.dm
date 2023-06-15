@@ -1,3 +1,8 @@
+// zap needs to be over this amount to get power
+#define TESLA_COIL_THRESHOLD 80
+// each zap power unit produces 400 joules
+#define ZAP_TO_ENERGY(p) (joules_to_energy((p) * 400))
+
 /obj/machinery/power/tesla_coil
 	name = "Катушка Теслы"
 	desc = "Преобразует удары шаровой молнии в энергию. Используйте отвертку для переключения между режимами производства электроэнергии и очков исследования."
@@ -81,26 +86,19 @@
 	return ..()
 
 /obj/machinery/power/tesla_coil/zap_act(power, zap_flags)
-	if(anchored && !panel_open)
-		//don't lose arc power when it's not connected to anything
-		//please place tesla coils all around the station to maximize effectiveness
-		obj_flags |= BEING_SHOCKED
-		addtimer(CALLBACK(src, PROC_REF(reset_shocked)), 1 SECONDS)
-		zap_buckle_check(power)
-		if(zap_flags & ZAP_GENERATES_POWER) //I don't want no tesla revolver making 8GW you hear
-			return power / 2
-		var/power_produced = powernet ? power * input_power_multiplier : power
-		add_avail(power_produced)
-		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_ENG)
-		if(D)
-			D.adjust_money(min(power_produced, 1))
-		if(istype(linked_techweb))
-			linked_techweb.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = min(power_produced, 1))) // x4 coils = ~240/m point bonus for R&D
-		flick("coilhit", src)
-		playsound(src.loc, 'sound/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
-		return power - power_produced //You get back the amount we didn't use
-	else
-		. = ..()
+	if(!anchored || panel_open)
+		return ..()
+	ADD_TRAIT(src, TRAIT_BEING_SHOCKED, WAS_SHOCKED)
+	addtimer(TRAIT_CALLBACK_REMOVE(src, TRAIT_BEING_SHOCKED, WAS_SHOCKED), 1 SECONDS)
+	flick("coilhit", src)
+	if(!(zap_flags & ZAP_GENERATES_POWER)) //Prevent infinite recursive power
+		return 0
+	if(zap_flags & ZAP_LOW_POWER_GEN)
+		power /= 10
+	zap_buckle_check(power)
+	var/power_removed = powernet ? power * input_power_multiplier : power
+	power += max(ZAP_TO_ENERGY(power_removed - TESLA_COIL_THRESHOLD), 0)
+	return max(power - power_removed, 0) //You get back the amount we didn't use
 
 /obj/machinery/power/tesla_coil/proc/zap()
 	if((last_zap + zap_cooldown) > world.time || !powernet)
@@ -123,22 +121,14 @@
 	power_loss = 20 // something something, high voltage + resistance
 
 /obj/machinery/power/tesla_coil/research/zap_act(power, zap_flags, shocked_targets)
-	if(anchored && !panel_open)
-		obj_flags |= BEING_SHOCKED
-		var/power_produced = powernet ? power / power_loss : power
-		add_avail(power_produced*input_power_multiplier)
-		flick("rpcoilhit", src)
-		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_ENG)
-		if(D)
-			D.adjust_money(min(power_produced, 3))
-		if(istype(linked_techweb))
-			linked_techweb.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = min(power_produced, 12))) // x4 coils with a pulse per second or so = ~720/m point bonus for R&D
-		addtimer(CALLBACK(src, PROC_REF(reset_shocked)), 10)
-		zap_buckle_check(power)
-		playsound(src.loc, 'sound/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
-		return power_produced
-	else
-		. = ..()
+	. = ..()
+	if(!.)
+		return
+	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_ENG)
+	if(D)
+		D.adjust_money(min(., 3))
+	if(istype(linked_techweb))
+		linked_techweb.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = min(., 12))) // x4 coils with a pulse per second or so = ~720/m point bonus for R&D
 
 /obj/machinery/power/tesla_coil/research/default_unfasten_wrench(mob/user, obj/item/wrench/W, time = 20)
 	. = ..()
@@ -196,3 +186,6 @@
 		return 0
 	else
 		. = ..()
+
+#undef ZAP_TO_ENERGY
+#undef TESLA_COIL_THRESHOLD

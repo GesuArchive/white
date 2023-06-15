@@ -15,7 +15,6 @@
 
 	owner = parent
 	assigned_channel = open_sound_channel_for_tts()
-	. = ..()
 
 /datum/component/tts/RegisterWithParent()
 	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(handle_speech))

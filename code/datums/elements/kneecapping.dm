@@ -15,7 +15,7 @@
  * Passing all the checks will cancel the entire attack chain.
  */
 /datum/element/kneecapping
-	element_flags = ELEMENT_DETACH
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/kneecapping/Attach(datum/target)
 	if(!isitem(target))

@@ -86,7 +86,7 @@
 
 	limb.embedded_objects |= weapon // on the inside... on the inside...
 	weapon.forceMove(victim)
-	RegisterSignal(weapon, list(COMSIG_MOVABLE_MOVED, COMSIG_PARENT_QDELETING), PROC_REF(weaponDeleted))
+	RegisterSignals(weapon, list(COMSIG_MOVABLE_MOVED, COMSIG_PARENT_QDELETING), PROC_REF(weaponDeleted))
 	victim.visible_message(span_danger("<b>[capitalize(weapon.name)]</b> [harmful ? "впивается в [ru_parse_zone(limb.name)]" : "приклеивается к [ru_gde_zone(limb.name)]"] <b>[victim]</b>!") , span_userdanger("<b>[capitalize(weapon.name)]</b> [harmful ? "впивается в мою [ru_parse_zone(limb.name)]" : "приклеивается к моей [ru_gde_zone(limb.name)]"]!"))
 
 	var/damage = weapon.throwforce
