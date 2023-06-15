@@ -689,8 +689,8 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/chem_mass_spec
-	name = "плата хим-раздатчика"
-	desc = "Создает и выдает химикаты."
+	name = "химический хроматограф"
+	desc = "Машина разделяющая реагенты основываясь на молярной массе"
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/chem_mass_spec
 	req_components = list(

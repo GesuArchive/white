@@ -233,7 +233,7 @@
 	sub_category = list("Химпроизводство")
 
 /datum/design/board/chem_mass_spec
-	name = "химический хроматограф"
+	name = "Химический хроматограф"
 	desc = "Машина разделяющая реагенты основываясь на молярной массе"
 	id = "chem_mass_spec"
 	build_type = PROTOLATHE | MECHFAB
