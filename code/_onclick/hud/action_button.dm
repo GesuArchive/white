@@ -213,8 +213,7 @@
  */
 /mob/proc/hide_other_mob_action_buttons(mob/take_from)
 	for(var/datum/action/action as anything in take_from.actions)
-		if(action.owner != take_from)
-			action.HideFrom(src)
+		action.HideFrom(src)
 	UnregisterSignal(take_from, list(COMSIG_MOB_GRANTED_ACTION, COMSIG_MOB_REMOVED_ACTION))
 
 /// Signal proc for [COMSIG_MOB_GRANTED_ACTION] - If we're viewing another mob's action buttons,

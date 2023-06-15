@@ -985,7 +985,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		if(ismob(client.eye) && (client.eye != src))
 			var/mob/target = client.eye
 			observetarget = null
-			hide_other_mob_action_buttons(src)
+			hide_other_mob_action_buttons(target)
 			if(target.observers)
 				target.observers -= src
 				UNSETEMPTY(target.observers)
