@@ -138,25 +138,25 @@
 	max_players = 32
 	theme = VIOLENCE_THEME_CYBER
 
-/datum/map_template/violence/forestbor
-	name = "Лесной бор"
-	description = "Довольно просторная заруба в тематике леса, имеются баррикады."
+/datum/map_template/violence/caveforest
+	name = "Лесные пещеры"
+	description = "Пещеры?"
 	mappath = "_maps/violence/violence14.dmm"
 	weight = 5
 	min_players = 16
 	max_players = 32
 	theme = VIOLENCE_THEME_STD
+	map_color = "#050509"
+	map_alpha = 5
 
 /datum/map_template/violence/iwannaplayagame
 	name = "I wanna play a game"
-	description = "Пещеры."
+	description = "Ну типо карта. Там чёт есть. Даже есть укрытия. И дофига мешающего дерьма. Потому что тот, кто играет в вайленс, должен страдать."
 	mappath = "_maps/violence/violence15.dmm"
 	weight = 5
 	min_players = 32
 	max_players = 64
 	theme = VIOLENCE_THEME_STD
-	map_color = "#050509"
-	map_alpha = 5
 
 /datum/map_template/violence/battleforsaratov
 	name = "Битва в Саратове"
