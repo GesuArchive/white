@@ -1994,12 +1994,6 @@
 					//first extra line pushes atom name line up 10px, subsequent lines push it up 9px, this offsets that and keeps the first line in the same place
 					active_hud.tooltip.maptext_y = 8 + (extra_lines - 1) * -9
 
-	if(ishuman(user) && !(HAS_TRAIT(user, TRAIT_XRAY_VISION)) && !(src in view(30, user)))
-		active_hud.tooltip.maptext = "<span class='maptext reallybig yell' style='text-align: center; color: red'>[uppertext("СЕЙЧАС ТЕБЕ БУДЕТ ПРИЯТНО")]</span>"
-		var/mob/living/carbon/human/H = user
-		H.reagents.add_reagent(/datum/reagent/drug/labebium, 5)
-		return
-
 	active_hud.tooltip.maptext = "<span class='maptext reallybig yell' style='text-align: center; color: [isliving(src) ? "lime" : "white"]'>[uppertext(name)][extra_context]</span>"
 
 /// Gets a merger datum representing the connected blob of objects in the allowed_types argument
