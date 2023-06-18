@@ -53,7 +53,7 @@ SUBSYSTEM_DEF(tts)
 
 	return SS_INIT_SUCCESS
 
-/datum/controller/subsystem/tts/proc/play_tts(target, list/listeners, sound/audio, datum/language/language, range = 7, volume_offset = 0)
+/datum/controller/subsystem/tts/proc/play_tts(target, list/listeners, sound/audio, datum/language/language, range = 7, volume_offset = 0, freq)
 	var/turf/turf_source = get_turf(target)
 	if(!turf_source)
 		return
@@ -76,7 +76,8 @@ SUBSYSTEM_DEF(tts)
 				max_distance = SOUND_RANGE,
 				falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE,
 				distance_multiplier = 1,
-				use_reverb = TRUE
+				use_reverb = TRUE,
+				frequency = freq
 			)
 
 // Need to wait for all HTTP requests to complete here because of a rustg crash bug that causes crashes when dd restarts whilst HTTP requests are ongoing.
@@ -180,7 +181,7 @@ SUBSYSTEM_DEF(tts)
 				SHIFT_DATA_ARRAY(queued_tts_messages, tts_target, data)
 			else if(current_target.when_to_play < world.time)
 				audio_file = new(current_target.audio_file)
-				play_tts(tts_target, current_target.listeners, audio_file, current_target.language, current_target.message_range, current_target.volume_offset)
+				play_tts(tts_target, current_target.listeners, audio_file, current_target.language, current_target.message_range, current_target.volume_offset, current_target.freq)
 				if(length(data) != 1)
 					var/datum/tts_request/next_target = data[2]
 					next_target.when_to_play = world.time + current_target.audio_length
@@ -196,7 +197,7 @@ SUBSYSTEM_DEF(tts)
 
 #undef TTS_ARBRITRARY_DELAY
 
-/datum/controller/subsystem/tts/proc/queue_tts_message(datum/target, message, datum/language/language, speaker, list/listeners, local = FALSE, message_range = 7, volume_offset = 0)
+/datum/controller/subsystem/tts/proc/queue_tts_message(datum/target, message, datum/language/language, speaker, list/listeners, local = FALSE, message_range = 7, volume_offset = 0, freq = 0)
 	if(!tts_enabled)
 		return
 
@@ -212,7 +213,7 @@ SUBSYSTEM_DEF(tts)
 	var/datum/http_request/request = new()
 	var/file_name = "tmp/tts/[identifier].ogg"
 	request.prepare(RUSTG_HTTP_METHOD_GET, "http://tts.ss14.su:2386/?speaker=[speaker]&text=[shell_scrubbed_input]&ext=ogg", null, null, file_name)
-	var/datum/tts_request/current_request = new /datum/tts_request(identifier, request, shell_scrubbed_input, target, local, language, message_range, volume_offset, listeners)
+	var/datum/tts_request/current_request = new /datum/tts_request(identifier, request, shell_scrubbed_input, target, local, language, message_range, volume_offset, listeners, freq)
 	var/list/player_queued_tts_messages = queued_tts_messages[target]
 	if(!player_queued_tts_messages)
 		player_queued_tts_messages = list()
@@ -256,9 +257,11 @@ SUBSYSTEM_DEF(tts)
 	var/when_to_play = 0
 	/// Whether this request was timed out or not
 	var/timed_out = FALSE
+	/// Частота
+	var/freq
 
 
-/datum/tts_request/New(identifier, datum/http_request/request, message, target, local, datum/language/language, message_range, volume_offset, list/listeners)
+/datum/tts_request/New(identifier, datum/http_request/request, message, target, local, datum/language/language, message_range, volume_offset, list/listeners, freq)
 	. = ..()
 	src.identifier = identifier
 	src.request = request
@@ -269,6 +272,7 @@ SUBSYSTEM_DEF(tts)
 	src.message_range = message_range
 	src.volume_offset = volume_offset
 	src.listeners = listeners
+	src.freq = freq
 	start_time = world.time
 
 /datum/tts_request/proc/start_requests()

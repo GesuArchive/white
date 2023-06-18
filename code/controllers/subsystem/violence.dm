@@ -126,9 +126,6 @@ SUBSYSTEM_DEF(violence)
 	var/obj/effect/landmark/violence/V = GLOB.violence_landmark
 	V.load_map()
 	message_admins(span_nezbere("VM: Map loaded!"))
-	// включаем ТТС
-	GLOB.tts = TRUE
-	message_admins(span_nezbere("VM: TTS enabled!"))
 	// включаем киллкаунтер
 	GLOB.prikol_mode = TRUE
 	message_admins(span_nezbere("VM: KC enabled!"))

@@ -1,7 +1,5 @@
  //needs gtts python module
 
-GLOBAL_VAR_INIT(tts, FALSE)
-
 GLOBAL_LIST_INIT(tts_voices, list(
 	"aidar" = "Айдар",
 	"baya" = "Байя",
@@ -39,9 +37,9 @@ GLOBAL_LIST_INIT(tts_voices, list(
 			return
 
 		if("Toggle TTS")
-			GLOB.tts = !GLOB.tts
+			SStts.tts_enabled = !SStts.tts_enabled
 
-			if(GLOB.tts)
+			if(SStts.tts_enabled)
 				message_admins("[key] toggled anime voiceover on.")
 			else
 				message_admins("[key] toggled anime voiceover off.")

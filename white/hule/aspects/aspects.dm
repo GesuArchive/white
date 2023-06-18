@@ -371,7 +371,7 @@
 	weight = 16
 
 /datum/round_aspect/tts/run_aspect()
-	GLOB.tts = !GLOB.tts
+	SStts.tts_enabled = TRUE
 	..()
 
 /datum/round_aspect/nogirlssky
