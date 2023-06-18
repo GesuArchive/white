@@ -7,11 +7,11 @@
 
 /obj/item/organ/ears/cat/tts/Insert(mob/living/carbon/C, special = 0, drop_if_replaced = TRUE)
 	..()
-	C?.tts_comp?.creation = TRUE
+	//C?.tts_comp?.creation = TRUE
 
 /obj/item/organ/ears/cat/tts/Remove(mob/living/carbon/C,  special = 0)
 	..()
-	C?.tts_comp?.creation = FALSE
+	//C?.tts_comp?.creation = FALSE
 
 /obj/item/organ/ears/cat/tts/attack(mob/living/carbon/C, mob/living/carbon/human/user, obj/target)
 	if(C == user && istype(C))

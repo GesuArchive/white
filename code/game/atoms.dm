@@ -163,8 +163,6 @@
 	var/datum/forensics/forensics
 	/// the datum handler for our contents - see create_storage() for creation method
 	var/datum/storage/atom_storage
-	//TTS component just in case we use one
-	var/datum/component/tts/tts_comp
 	/// How this atom should react to having its astar blocking checked
 	var/can_astar_pass = CANASTARPASS_DENSITY
 

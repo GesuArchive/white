@@ -92,7 +92,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/randomise = list(RANDOM_UNDERWEAR = TRUE, RANDOM_UNDERWEAR_COLOR = TRUE, RANDOM_UNDERSHIRT = TRUE, RANDOM_SOCKS = TRUE, RANDOM_BACKPACK = TRUE, RANDOM_JUMPSUIT_STYLE = TRUE, RANDOM_HAIRSTYLE = TRUE, RANDOM_HAIR_COLOR = TRUE, RANDOM_FACIAL_HAIRSTYLE = TRUE, RANDOM_FACIAL_HAIR_COLOR = TRUE, RANDOM_SKIN_TONE = TRUE, RANDOM_EYE_COLOR = TRUE)
 	var/phobia = "spiders"
 
-	var/forced_voice = "auto"
+	var/forced_voice = "papa"
 
 	var/list/custom_names = list()
 	var/preferred_ai_core_display = "Blue"
@@ -328,7 +328,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += SETUP_NODE_INPUT("Возраст", "age", age)
 
-			dat += SETUP_NODE_INPUT("Голос", "tts_voice", forced_voice)
+			dat += SETUP_NODE_INPUT("Голос", "tts_voice", GLOB.tts_voices[forced_voice])
 
 			if(randomise[RANDOM_BODY] || randomise[RANDOM_BODY_ANTAG]) //doesn't work unless random body
 				dat += SETUP_NODE_RANDOM("Всегда случайный возраст", RANDOM_AGE)
@@ -1563,10 +1563,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						features["moth_markings"] = new_moth_markings
 
 				if("tts_voice")
-					var/new_voice = tgui_input_list(user, "Выбери голос:", "Настройки персонажа", GLOB.gtts_voices)
+					var/new_voice = tgui_input_list(user, "Выбери голос:", "Настройки персонажа", GLOB.tts_voices)
 					if(new_voice)
-						forced_voice = GLOB.gtts_voices[new_voice]
-						user?.tts_comp?.tts_speaker = forced_voice
+						forced_voice = new_voice
+						user?.voice = forced_voice
 
 				if("s_tone")
 					var/new_s_tone = tgui_input_list(user, "Choose your character's skin-tone:", "Настройки персонажа", GLOB.skin_tones)

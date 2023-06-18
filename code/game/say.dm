@@ -42,15 +42,22 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	return 1
 
 /atom/movable/proc/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language, list/message_mods = list())
+	var/found_client = FALSE
+	var/list/listeners = get_hearers_in_view(range, source)
+	var/list/listened = list()
 	var/rendered = compose_message(src, message_language, message, , spans, message_mods)
-	var/list/hearers_in_view = get_hearers_in_view(range, source)
-	for(var/atom/movable/hearing_movable as anything in hearers_in_view)
+	for(var/atom/movable/hearing_movable as anything in listeners)
 		if(!hearing_movable)//theoretically this should use as anything because it shouldnt be able to get nulls but there are reports that it does.
 			stack_trace("somehow theres a null returned from get_hearers_in_view() in send_speech!")
 			continue
 		hearing_movable.Hear(rendered, src, message_language, message, , spans, message_mods)
+		if(!found_client && length(hearing_movable.client_mobs_in_contents))
+			found_client = TRUE
 
-	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay), image('icons/mob/talk.dmi', src, "machine[say_test(message)]",MOB_LAYER+1), hearers_in_view, 30)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay), image('icons/mob/talk.dmi', src, "machine[say_test(message)]",MOB_LAYER+1), listeners, 30)
+
+	if(voice && found_client)
+		INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), src, html_decode(message), message_language, voice, listened, range)
 
 /atom/movable/proc/compose_message(atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), face_name = FALSE)
 	//This proc uses text() because it is faster than appending strings. Thanks BYOND.

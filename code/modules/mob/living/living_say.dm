@@ -329,6 +329,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		eavesrendered = compose_message(src, message_language, eavesdropping, , spans, message_mods)
 
 	var/rendered = compose_message(src, message_language, message, , spans, message_mods)
+	var/list/listened = list()
 	for(var/atom/movable/listening_movable as anything in listening)
 		if(!listening_movable)
 			stack_trace("somehow theres a null returned from get_hearers_in_view() in send_speech!")
@@ -337,13 +338,20 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 			listening_movable.Hear(eavesrendered, src, message_language, eavesdropping, , spans, message_mods)
 		else
 			listening_movable.Hear(rendered, src, message_language, message, , spans, message_mods)
+		listened += listening_movable
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_LIVING_SAY_SPECIAL, src, message)
 
 	//speech bubble
 	var/list/speech_bubble_recipients = list()
+	var/found_client = FALSE
 	for(var/mob/M in listening)
 		if(M.client || (SSlag_switch.measures[DISABLE_RUNECHAT] && !HAS_TRAIT(src, TRAIT_BYPASS_MEASURES)))
 			speech_bubble_recipients.Add(M.client)
+			found_client = TRUE
+
+	if(found_client && !HAS_TRAIT(src, TRAIT_SIGN_LANG))
+		INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), src, html_decode(message), message_language, voice, listened, message_range)
+
 	var/image/say_popup = image('icons/mob/talk.dmi', src, "[bubble_type][say_test(message)]", FLY_LAYER)
 	SET_PLANE_EXPLICIT(say_popup, ABOVE_GAME_PLANE, src)
 	say_popup.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA

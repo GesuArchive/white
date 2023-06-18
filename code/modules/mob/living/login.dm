@@ -36,6 +36,12 @@
 
 	update_fov_client()
 
+	if(SStts.tts_enabled)
+		if(client?.prefs?.forced_voice)
+			voice = client.prefs.forced_voice
+		else
+			voice = pick(GLOB.tts_voices)
+
 /mob/living/carbon/Login()
 	. = ..()
 	if(!. || !client)
