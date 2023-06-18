@@ -1,5 +1,14 @@
  //needs gtts python module
 
+GLOBAL_LIST_INIT(tts_lowfreq, list(
+	"aidar",
+	"baya",
+	"kseniya",
+	"xenia",
+	"eugene",
+	"mykyta"
+))
+
 GLOBAL_LIST_INIT(tts_voices, list(
 	"aidar" = "Айдар",
 	"baya" = "Байя",

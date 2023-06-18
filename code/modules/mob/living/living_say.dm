@@ -351,9 +351,10 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	if(found_client && !HAS_TRAIT(src, TRAIT_SIGN_LANG))
 		var/frequency = 0
+		var/lowfreq = (voice in GLOB.tts_lowfreq)
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
-			frequency = 32000 - (H.age * 200)
+			frequency = lowfreq ? 32000 - (H.age * 200) : 64000 - (H.age * 400)
 		if(HAS_TRAIT(src, TRAIT_CLUMSY) || isfelinid(src))
 			frequency *= 1.5
 		INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), src, html_decode(message), message_language, voice, listened, message_range = message_range, freq = frequency)
