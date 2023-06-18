@@ -60,7 +60,7 @@ SUBSYSTEM_DEF(tts)
 
 	var/channel = open_sound_channel_for_tts()
 	for(var/mob/listening_mob in listeners | SSmobs.dead_players_by_zlevel[turf_source.z])//observers always hear through walls
-		var/sound_volume = ((listening_mob == target)? 60 : 85) + volume_offset
+		var/sound_volume = ((listening_mob == target)? 30 : 45) + volume_offset
 		var/datum/language_holder/holder = listening_mob.get_language_holder()
 		var/audio_to_use = audio
 		if(!holder.has_language(language, spoken = FALSE))
