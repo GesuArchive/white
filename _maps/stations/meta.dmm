@@ -57989,6 +57989,7 @@
 /area/science/storage)
 "geL" = (
 /obj/machinery/power/smes,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/solars/starboard/aft)
 "geT" = (
@@ -64391,7 +64392,6 @@
 	freq = 1400;
 	location = "Kitchen"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},

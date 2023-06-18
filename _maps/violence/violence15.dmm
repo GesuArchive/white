@@ -12,12 +12,6 @@
 /obj/item/flasher_portable_item,
 /turf/open/floor/pod/dark,
 /area/violence)
-"iu" = (
-/obj/machinery/door/airlock/highsecurity,
-/obj/machinery/door/airlock/highsecurity,
-/obj/structure/barricade/wooden/snowed,
-/turf/open/floor/pod/dark,
-/area/violence)
 "ju" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/access/all,
@@ -54,11 +48,6 @@
 "oG" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/structure/barricade/wooden/snowed,
-/turf/open/floor/pod/dark,
-/area/violence)
-"oM" = (
-/obj/structure/barricade/sandbags,
-/obj/structure/barricade/sandbags,
 /turf/open/floor/pod/dark,
 /area/violence)
 "pq" = (
@@ -136,12 +125,6 @@
 /obj/structure/table/rolling,
 /turf/open/floor/pod/dark,
 /area/violence)
-"Gx" = (
-/obj/structure/barricade/sandbags,
-/obj/structure/barricade/sandbags,
-/obj/structure/barricade/sandbags,
-/turf/open/floor/pod/dark,
-/area/violence)
 "IS" = (
 /obj/machinery/door/poddoor/multi_tile/four_tile_ver{
 	resistance_flags = 115
@@ -167,12 +150,6 @@
 /obj/effect/turf_decal/box/red/corners{
 	dir = 1
 	},
-/turf/open/floor/pod/dark,
-/area/violence)
-"PK" = (
-/obj/effect/spawner/random/medical/injector,
-/obj/structure/table/rolling,
-/obj/structure/table/rolling,
 /turf/open/floor/pod/dark,
 /area/violence)
 "PN" = (
@@ -428,7 +405,7 @@ ml
 VQ
 sk
 sk
-PK
+Gc
 VQ
 XS
 sk
@@ -635,11 +612,11 @@ sk
 sk
 VQ
 sk
-oM
 DB
 DB
 DB
-oM
+DB
+DB
 sk
 sk
 ZQ
@@ -648,11 +625,11 @@ ZQ
 ZQ
 sk
 sk
-oM
 DB
 DB
 DB
-Gx
+DB
+DB
 sk
 VQ
 sk
@@ -1927,11 +1904,11 @@ sk
 sk
 VQ
 sk
-oM
 DB
 DB
 DB
-oM
+DB
+DB
 sk
 PN
 Vq
@@ -1940,11 +1917,11 @@ Vq
 Vq
 PN
 sk
-oM
 DB
 DB
 DB
-oM
+DB
+DB
 sk
 VQ
 sk
@@ -1995,11 +1972,11 @@ sk
 sk
 VQ
 sk
-oM
+DB
 sk
 sk
 sk
-oM
+DB
 sk
 sk
 Vq
@@ -2008,11 +1985,11 @@ Vq
 Vq
 sk
 sk
-oM
+DB
 sk
 sk
 sk
-oM
+DB
 sk
 VQ
 sk
@@ -2289,7 +2266,7 @@ VQ
 VQ
 VQ
 VQ
-iu
+oG
 VQ
 ml
 "}

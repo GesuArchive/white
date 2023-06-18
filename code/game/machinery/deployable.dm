@@ -97,7 +97,7 @@
 	new /obj/item/stack/sheet/mineral/wood(get_turf(src), drop_amount)
 
 /obj/structure/barricade/sandbags
-	name = "мешки с песокм"
+	name = "мешки с песком"
 	desc = "Стена из мешков с песком - дешево и сердито."
 	icon = 'icons/obj/smooth_structures/sandbags.dmi'
 	icon_state = "sandbags-0"
