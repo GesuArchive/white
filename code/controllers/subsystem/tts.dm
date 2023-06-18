@@ -78,7 +78,7 @@ SUBSYSTEM_DEF(tts)
 				distance_multiplier = 1,
 				use_reverb = TRUE,
 				frequency = freq,
-				vary = freq ? vary : FALSE
+				vary = freq ? TRUE : FALSE
 			)
 
 // Need to wait for all HTTP requests to complete here because of a rustg crash bug that causes crashes when dd restarts whilst HTTP requests are ongoing.
