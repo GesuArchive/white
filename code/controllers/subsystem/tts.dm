@@ -77,7 +77,8 @@ SUBSYSTEM_DEF(tts)
 				falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE,
 				distance_multiplier = 1,
 				use_reverb = TRUE,
-				frequency = freq
+				frequency = freq,
+				vary = freq ? vary : FALSE
 			)
 
 // Need to wait for all HTTP requests to complete here because of a rustg crash bug that causes crashes when dd restarts whilst HTTP requests are ongoing.
