@@ -5,7 +5,7 @@
 	desc = "A projectile fired from someone else"
 	icon_state = "84mm-hedp"
 	movement_type = FLYING
-	range = 120
+	range = 30
 	reflectable = NONE
 
 	//Turf damage factor
