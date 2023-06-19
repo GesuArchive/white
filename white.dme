@@ -4453,7 +4453,6 @@
 #include "white\baldenysh\govnokod\DCS\components\impaled.dm"
 #include "white\baldenysh\govnokod\DCS\components\rotating_shield.dm"
 #include "white\baldenysh\govnokod\DCS\components\soundplayer.dm"
-#include "white\baldenysh\govnokod\DCS\components\tts_comp.dm"
 #include "white\baldenysh\govnokod\DCS\components\zombie_weapon.dm"
 #include "white\baldenysh\govnokod\DCS\components\funny_movement\funny_movement.dm"
 #include "white\baldenysh\govnokod\DCS\components\funny_movement\human_rocket.dm"
