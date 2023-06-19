@@ -24,11 +24,6 @@
 
 	force_no_gravity = TRUE
 
-/turf/open/space/basic/New() //Do not convert to Initialize
-	SHOULD_CALL_PARENT(FALSE)
-	//This is used to optimize the map loader
-	return
-
 /**
  * Space Initialize
  *
