@@ -5,7 +5,7 @@
 // You do not need to raise this if you are adding new values that have sane defaults.
 // Only raise this value when changing the meaning/format/name/layout of an existing value
 // where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX 61
+#define SAVEFILE_VERSION_MAX 62
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -83,6 +83,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			UI_style = "Neoscreen"
 			retro_hud = FALSE
 			parent?.mob?.hud_used?.update_ui_style(ui_style2icon(UI_style))
+
+	if (current_version < 61)
+		if(!(forced_voice in GLOB.tts_voices))
+			forced_voice = pick(GLOB.tts_voices)
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	return

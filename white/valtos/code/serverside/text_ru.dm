@@ -189,18 +189,23 @@
 	medical_record_text = "Пациент не может проговаривать букву \"Р\"."
 
 
-/mob/living/carbon/human/proc/get_race_text()
+/mob/living/carbon/human/proc/get_race_text(viewer_skin_tone)
 	switch(skin_tone)
 		if("asian1", "asian2")
-			return pick("ускоглазый", "узкопленочный", "чалма", "чурка", "чучмек", "кырдым-бырдым", "самурай")
+			. = pick("ускоглазый", "узкопленочный", "чалма", "чурка", "чучмек", "кырдым-бырдым", "самурай")
 		if("arab")
-			return pick("хач", "сарацин", "палестинец")
+			. = pick("хач", "сарацин", "палестинец")
 		if("indian")
-			return pick("цыган", "индус")
+			. = pick("цыган", "индус")
 		if("african1", "african2")
-			return pick("негр", "черномазый", "уголёк", "черножопая гнида", "негативчик", "сникерс", "черный", "копченый", "негритос", "мумба-юмба", "трюфель")
-		else
-			return null
+			. = pick("негр", "черномазый", "уголёк", "черножопая гнида", "негативчик", "сникерс", "черный", "копченый", "негритос", "мумба-юмба", "трюфель")
+
+	if(viewer_skin_tone && .)
+		var/static/regex/remove_fucking_numbas_regex = new(@"[0-9]","g")
+		if(replacetext(viewer_skin_tone, remove_fucking_numbas_regex, "") == replacetext(skin_tone, remove_fucking_numbas_regex, ""))
+			. = pick("браток", "братан", "брат")
+
+	return .
 
 /mob/living/carbon/human/proc/get_age_text()
 	switch(age)

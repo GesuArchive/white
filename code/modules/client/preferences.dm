@@ -1563,9 +1563,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						features["moth_markings"] = new_moth_markings
 
 				if("tts_voice")
-					var/new_voice = tgui_input_list(user, "Выбери голос:", "Настройки персонажа", GLOB.tts_voices)
+					var/list/tts_list = list()
+					for(var/vc in GLOB.tts_voices)
+						tts_list[GLOB.tts_voices[vc]] = vc
+
+					var/new_voice = tgui_input_list(user, "Выбери голос:", "Настройки персонажа", tts_list)
 					if(new_voice)
-						forced_voice = new_voice
+						forced_voice = tts_list[new_voice]
 						user?.voice = forced_voice
 
 				if("s_tone")

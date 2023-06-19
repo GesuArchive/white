@@ -24,8 +24,7 @@
 		var/racetext
 		if (ishuman(user))
 			var/mob/living/carbon/human/human_user = user
-			if(human_user.skin_tone != skin_tone)
-				racetext = get_race_text()
+			racetext = get_race_text(human_user.skin_tone)
 		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Неизвестный"]</EM>, [racetext ? "<big class='interface'>[racetext]</big>" : "[get_age_text()]"]!<hr>"
 
 	if(user?.stat == CONSCIOUS && ishuman(user))
