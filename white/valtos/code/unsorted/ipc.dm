@@ -71,6 +71,7 @@
 	RegisterSignal(H, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	for(var/X in H.bodyparts)
 		var/obj/item/bodypart/O = X
+		O.should_draw_ipc = TRUE
 		O.change_bodypart_status(BODYPART_ROBOTIC, FALSE, TRUE)
 	H.set_safe_hunger_level()
 
@@ -79,6 +80,7 @@
 	UnregisterSignal(H, COMSIG_MOB_SAY)
 	for(var/X in H.bodyparts)
 		var/obj/item/bodypart/O = X
+		O.should_draw_ipc = FALSE
 		O.change_bodypart_status(BODYPART_ORGANIC, FALSE, TRUE)
 
 /datum/species/ipc/proc/assume_disguise(datum/species/S, mob/living/carbon/human/H)

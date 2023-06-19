@@ -1,5 +1,3 @@
-/obj/item/bodypart/var/should_draw_custom_android = FALSE
-
 /mob/living/carbon/proc/draw_white_parts(undo = FALSE)
 	if(!undo)
 		for(var/O in bodyparts)

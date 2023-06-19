@@ -17,6 +17,8 @@
 
 	var/draw_robot_hair = FALSE
 	var/should_draw_custom_races = FALSE
+	var/should_draw_custom_android = FALSE
+	var/should_draw_ipc = FALSE
 
 	var/body_zone //BODY_ZONE_CHEST, BODY_ZONE_L_ARM, etc , used for def_zone
 	var/aux_zone // used for hands
@@ -909,6 +911,9 @@
 		if(should_draw_custom_android)
 			limb.icon = 'white/valtos/icons/android_skins.dmi'
 			limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
+		else if(should_draw_ipc)
+			limb.icon = 'icons/mob/human_parts.dmi'
+			limb.icon_state = "[species_id]_[body_zone]"
 		return
 
 	if(should_draw_greyscale)
