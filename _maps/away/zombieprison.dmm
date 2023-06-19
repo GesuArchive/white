@@ -2934,7 +2934,6 @@
 /turf/open/floor/plasteel,
 /area/awaymission/prison/med)
 "pQ" = (
-/obj/effect/cult_turf/overlay/floor,
 /mob/living/simple_animal/hostile/construct/juggernaut/noncult{
 	health = 350
 	},
@@ -3516,7 +3515,7 @@
 	name = "Warden's Office";
 	req_access_txt = "3"
 	},
-/obj/machinery/door/poddoor/shutters/indestructible/prison/stage6,
+/obj/machinery/door/poddoor/shutters/indestructible/prison/stage5,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/guard)
 "tq" = (
@@ -4841,10 +4840,6 @@
 /obj/machinery/vending/cola/pwr_game,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/guard)
-"AF" = (
-/obj/effect/cult_turf/overlay/floor,
-/turf/open/floor/plasteel/cult,
-/area/awaymission/prison/secret)
 "AG" = (
 /obj/structure/table/reinforced,
 /obj/item/laser_pointer/upgraded,
@@ -66625,13 +66620,13 @@ bR
 bR
 tw
 pl
-AF
-AF
-AF
-AF
-AF
-AF
-AF
+Ud
+Ud
+Ud
+Ud
+Ud
+Ud
+Ud
 oK
 tw
 bR
@@ -66883,12 +66878,12 @@ bR
 tw
 ej
 pQ
-AF
-AF
-AF
-AF
-AF
-AF
+Ud
+Ud
+Ud
+Ud
+Ud
+Ud
 Ud
 tw
 bR
@@ -67139,13 +67134,13 @@ bR
 bR
 tw
 pl
-AF
-AF
-AF
-AF
-AF
-AF
-AF
+Ud
+Ud
+Ud
+Ud
+Ud
+Ud
+Ud
 oK
 tw
 bR
