@@ -55,6 +55,7 @@
 /obj/item/tank/internals/tactical,
 /obj/item/tank/internals/tactical,
 /obj/item/tank/internals/tactical,
+/obj/item/tank/jetpack/oxygen,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
@@ -100,9 +101,9 @@
 "ln" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/airalarm{
+	locked = 0;
 	pixel_y = 23;
-	req_access = null;
-	locked = 0
+	req_access = null
 	},
 /obj/machinery/light{
 	dir = 8
@@ -224,9 +225,9 @@
 "rZ" = (
 /obj/machinery/airalarm{
 	dir = 1;
+	locked = 0;
 	pixel_y = -22;
-	req_access = null;
-	locked = 0
+	req_access = null
 	},
 /obj/machinery/light{
 	dir = 8
@@ -302,8 +303,8 @@
 	},
 /obj/item/gps/mining/exploration{
 	gpstag = "Шаттл рейнджеров";
-	pixel_y = -1;
-	pixel_x = 16
+	pixel_x = 16;
+	pixel_y = -1
 	},
 /obj/item/dice/d6,
 /turf/open/floor/mineral/titanium/purple,
