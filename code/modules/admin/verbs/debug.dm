@@ -1035,7 +1035,7 @@ GLOBAL_VAR_INIT(is_theme_applied, FALSE)
 
 	var/list/themes = list("onyx", "lfwb")
 
-	var/which_theme = tgui_input_list(usr, "Выберем тему", "Ммм? ОПЕРАЦИЯ НЕОБРАТИМА!", sort_list(themes))
+	var/which_theme = tgui_input_list(usr, "Выберем тему", "Ммм? ОПЕРАЦИЯ НЕОБРАТИМА!", themes)
 	if(!(which_theme in themes))
 		return
 
