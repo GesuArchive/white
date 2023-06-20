@@ -349,7 +349,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 			speech_bubble_recipients.Add(M.client)
 			found_client = TRUE
 
-	if(found_client && !HAS_TRAIT(src, TRAIT_SIGN_LANG) && eavesdrop_range == 0)
+	if(found_client && !HAS_TRAIT(src, TRAIT_SIGN_LANG) && !message_mods[MODE_HEADSET])
 		var/frequency = 0
 		var/lowfreq = (voice in GLOB.tts_lowfreq)
 		if(ishuman(src))
