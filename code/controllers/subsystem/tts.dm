@@ -53,7 +53,7 @@ SUBSYSTEM_DEF(tts)
 
 	return SS_INIT_SUCCESS
 
-/datum/controller/subsystem/tts/proc/play_tts(target, list/listeners, sound/audio, datum/language/language, range = 7, volume_offset = 0, freq)
+/datum/controller/subsystem/tts/proc/play_tts(target, list/listeners, sound/audio, datum/language/language, range = 7, volume_offset = 0, freq, is_radio = FALSE)
 	var/turf/turf_source = get_turf(target)
 	if(!turf_source)
 		return
@@ -77,6 +77,15 @@ SUBSYSTEM_DEF(tts)
 				falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE,
 				distance_multiplier = 1,
 				use_reverb = TRUE,
+				frequency = freq,
+				vary = freq ? TRUE : FALSE
+			)
+		else if (is_radio && listening_mob != target)
+			listening_mob.playsound_local(
+				null,
+				vol = 30,
+				channel = channel,
+				sound_to_use = audio_to_use,
 				frequency = freq,
 				vary = freq ? TRUE : FALSE
 			)
@@ -182,7 +191,7 @@ SUBSYSTEM_DEF(tts)
 				SHIFT_DATA_ARRAY(queued_tts_messages, tts_target, data)
 			else if(current_target.when_to_play < world.time)
 				audio_file = new(current_target.audio_file)
-				play_tts(tts_target, current_target.listeners, audio_file, current_target.language, current_target.message_range, current_target.volume_offset, current_target.freq)
+				play_tts(tts_target, current_target.listeners, audio_file, current_target.language, current_target.message_range, current_target.volume_offset, current_target.freq, current_target.is_radio)
 				if(length(data) != 1)
 					var/datum/tts_request/next_target = data[2]
 					next_target.when_to_play = world.time + current_target.audio_length
@@ -207,14 +216,14 @@ SUBSYSTEM_DEF(tts)
 		rustg_file_write("rustg HTTP requests can't write to folders that don't exist, so we need to make it exist.", "tmp/tts/init.txt")
 
 	var/shell_scrubbed_input = copytext_char(message, 1, 140)
-	var/identifier = "[sha1(speaker + shell_scrubbed_input)].[world.time]"
+	var/identifier = "[sha1(speaker + effect + shell_scrubbed_input)].[world.time]"
 	if(!(speaker in GLOB.tts_voices))
 		return
 
 	var/datum/http_request/request = new()
 	var/file_name = "tmp/tts/[identifier].ogg"
 	request.prepare(RUSTG_HTTP_METHOD_GET, "http://tts.ss14.su:2386/?speaker=[speaker]&effect=[effect]&text=[shell_scrubbed_input]&ext=ogg", null, null, file_name)
-	var/datum/tts_request/current_request = new /datum/tts_request(identifier, request, shell_scrubbed_input, target, local, language, message_range, volume_offset, listeners, freq)
+	var/datum/tts_request/current_request = new /datum/tts_request(identifier, request, shell_scrubbed_input, target, local, language, message_range, volume_offset, listeners, freq, is_radio = (effect == "radio"))
 	var/list/player_queued_tts_messages = queued_tts_messages[target]
 	if(!player_queued_tts_messages)
 		player_queued_tts_messages = list()
@@ -260,9 +269,11 @@ SUBSYSTEM_DEF(tts)
 	var/timed_out = FALSE
 	/// Частота
 	var/freq
+	/// Это радио?
+	var/is_radio
 
 
-/datum/tts_request/New(identifier, datum/http_request/request, message, target, local, datum/language/language, message_range, volume_offset, list/listeners, freq)
+/datum/tts_request/New(identifier, datum/http_request/request, message, target, local, datum/language/language, message_range, volume_offset, list/listeners, freq, is_radio)
 	. = ..()
 	src.identifier = identifier
 	src.request = request
@@ -274,6 +285,7 @@ SUBSYSTEM_DEF(tts)
 	src.volume_offset = volume_offset
 	src.listeners = listeners
 	src.freq = freq
+	src.is_radio = is_radio
 	start_time = world.time
 
 /datum/tts_request/proc/start_requests()
