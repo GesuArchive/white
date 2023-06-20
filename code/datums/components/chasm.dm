@@ -99,6 +99,7 @@ GLOBAL_LIST_INIT(chasm_storage, list())
 		return FALSE
 	if(is_type_in_typecache(dropped_thing, forbidden_types) || dropped_thing.throwing || (dropped_thing.movement_type & (FLOATING|FLYING)))
 		return FALSE
+
 	//Flies right over the chasm
 	if(ismob(dropped_thing))
 		var/mob/M = dropped_thing
@@ -107,13 +108,14 @@ GLOBAL_LIST_INIT(chasm_storage, list())
 			if((!ismob(M.buckled) || (buckled_to.buckled != M)) && !droppable(M.buckled))
 				return FALSE
 		if(ishuman(dropped_thing))
-			var/mob/living/carbon/human/H = dropped_thing
-			if(istype(H.belt, /obj/item/wormhole_jaunter))
-				var/obj/item/wormhole_jaunter/J = H.belt
-				//To freak out any bystanders
-				H.visible_message(span_boldwarning("[H] falls into [parent]!"))
-				J.chasm_react(H)
-				return FALSE
+			var/mob/living/carbon/human/victim = dropped_thing
+			if(istype(victim.belt, /obj/item/wormhole_jaunter))
+				var/obj/item/wormhole_jaunter/jaunter = victim.belt
+				var/turf/chasm = get_turf(victim)
+				var/fall_into_chasm = jaunter.chasm_react(victim)
+				if(!fall_into_chasm)
+					chasm.visible_message(span_boldwarning("[victim] падает в [chasm]!")) //To freak out any bystanders
+				return fall_into_chasm
 	return TRUE
 
 /datum/component/chasm/proc/drop(atom/movable/dropped_thing)
