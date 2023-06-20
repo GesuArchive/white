@@ -203,7 +203,7 @@ SUBSYSTEM_DEF(mapping)
 			unused_turfs["[T.z]"] |= T
 			var/area/old_area = T.loc
 			old_area.turfs_to_uncontain += T
-			T.flags_1 |= UNUSED_RESERVATION_TURF
+			T.turf_flags |= UNUSED_RESERVATION_TURF
 			world_contents += T
 			world_turf_contents += T
 			packet.len--
@@ -714,7 +714,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 	var/block = block(A, B)
 	for(var/turf/T as anything in block)
 		// No need to empty() these, because they just got created and are already /turf/open/space/basic.
-		T.flags_1 |= UNUSED_RESERVATION_TURF
+		T.turf_flags |= UNUSED_RESERVATION_TURF
 		CHECK_TICK
 
 	// Gotta create these suckers if we've not done so already
@@ -735,17 +735,17 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 //DO NOT CALL THIS PROC DIRECTLY, CALL wipe_reservations().
 /datum/controller/subsystem/mapping/proc/do_wipe_turf_reservations()
 	PRIVATE_PROC(TRUE)
-	UNTIL(initialized)							//This proc is for AFTER init, before init turf reservations won't even exist and using this will likely break things.
+	UNTIL(initialized) //This proc is for AFTER init, before init turf reservations won't even exist and using this will likely break things.
 	for(var/i in turf_reservations)
 		var/datum/turf_reservation/TR = i
 		if(!QDELETED(TR))
 			qdel(TR, TRUE)
 	UNSETEMPTY(turf_reservations)
 	var/list/clearing = list()
-	for(var/l in unused_turfs)			//unused_turfs is an assoc list by z = list(turfs)
+	for(var/l in unused_turfs) //unused_turfs is an assoc list by z = list(turfs)
 		if(islist(unused_turfs[l]))
 			clearing |= unused_turfs[l]
-	clearing |= used_turfs		//used turfs is an associative list, BUT, reserve_turfs() can still handle it. If the code above works properly, this won't even be needed as the turfs would be freed already.
+	clearing |= used_turfs //used turfs is an associative list, BUT, reserve_turfs() can still handle it. If the code above works properly, this won't even be needed as the turfs would be freed already.
 	unused_turfs.Cut()
 	used_turfs.Cut()
 	reserve_turfs(clearing, await = TRUE)
