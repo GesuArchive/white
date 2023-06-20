@@ -361,6 +361,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 			if(HAS_TRAIT(src, TRAIT_CLUMSY) || isfelinid(src))
 				frequency *= 1.25
 
+		last_freq = frequency
+
 		if(voice != "sentrybot" && (isbot(src) || issilicon(src) || isandroid(src) || is_ipc(src)))
 			voice = "sentrybot"
 

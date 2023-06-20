@@ -198,7 +198,7 @@ SUBSYSTEM_DEF(tts)
 
 #undef TTS_ARBRITRARY_DELAY
 
-/datum/controller/subsystem/tts/proc/queue_tts_message(datum/target, message, datum/language/language, speaker, list/listeners, local = FALSE, message_range = 7, volume_offset = 0, freq = 0)
+/datum/controller/subsystem/tts/proc/queue_tts_message(datum/target, message, datum/language/language, speaker, list/listeners, local = FALSE, message_range = 7, volume_offset = 0, freq = 0, effect = null)
 	if(!tts_enabled)
 		return
 
@@ -213,7 +213,7 @@ SUBSYSTEM_DEF(tts)
 
 	var/datum/http_request/request = new()
 	var/file_name = "tmp/tts/[identifier].ogg"
-	request.prepare(RUSTG_HTTP_METHOD_GET, "http://tts.ss14.su:2386/?speaker=[speaker]&text=[shell_scrubbed_input]&ext=ogg", null, null, file_name)
+	request.prepare(RUSTG_HTTP_METHOD_GET, "http://tts.ss14.su:2386/?speaker=[speaker]&effect=[effect]&text=[shell_scrubbed_input]&ext=ogg", null, null, file_name)
 	var/datum/tts_request/current_request = new /datum/tts_request(identifier, request, shell_scrubbed_input, target, local, language, message_range, volume_offset, listeners, freq)
 	var/list/player_queued_tts_messages = queued_tts_messages[target]
 	if(!player_queued_tts_messages)

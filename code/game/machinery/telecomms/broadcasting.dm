@@ -194,6 +194,8 @@
 			continue
 		hearer.Hear(rendered, virt, language, message, frequency, spans, message_mods)
 
+	INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), virt, html_decode(message), language, virt.voice, receive, message_range = 1, freq = virt.last_freq, effect = "radio")
+
 	// This following recording is intended for research and feedback in the use of department radio channels
 	if(length(receive))
 		SSblackbox.LogBroadcast(frequency)
