@@ -1452,7 +1452,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(user.ckey in GLOB.donators_list["race"])
 						custom_races = list("golem", "jelly", "shadow", "abductor", "zombie", "slime", "pod", "military_synth", "mush", "snail", "monkey") // GLOB.donators_list["race"][user.ckey]
 
-					var/result = tgui_input_list(user, "Select a species", "Species Selection", GLOB.roundstart_races)
+					var/result = tgui_input_list(user, "Select a species", "Species Selection", GLOB.roundstart_races + custom_races)
 
 					if(result)
 						var/newtype = GLOB.species_list[result]
