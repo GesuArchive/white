@@ -80,7 +80,7 @@ SUBSYSTEM_DEF(tts)
 				frequency = freq,
 				vary = freq ? TRUE : FALSE
 			)
-		else if (is_radio)
+		else if (is_radio && listening_mob != target)
 			listening_mob.playsound_local(
 				null,
 				vol = 30,
