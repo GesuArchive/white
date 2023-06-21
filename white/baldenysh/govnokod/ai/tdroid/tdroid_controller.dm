@@ -21,7 +21,7 @@
 	RegisterSignal(new_pawn, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_bullet_act))
 	RegisterSignal(new_pawn, COMSIG_ATOM_HITBY, PROC_REF(on_hitby))
 	RegisterSignal(new_pawn, COMSIG_LIVING_START_PULL, PROC_REF(on_startpulling))
-	RegisterSignal(new_pawn, TDROID_SIMPLE_AGRESSION_SIGNALS, PROC_REF(on_simple_agression))
+	RegisterSignals(new_pawn, TDROID_SIMPLE_AGRESSION_SIGNALS, PROC_REF(on_simple_agression))
 
 	RegisterSignal(new_pawn, COMSIG_MOB_MOVESPEED_UPDATED, PROC_REF(update_movespeed))
 
@@ -133,7 +133,7 @@
 	RegisterSignal(commander, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_bullet_act))
 	RegisterSignal(commander, COMSIG_ATOM_HITBY, PROC_REF(on_hitby))
 	RegisterSignal(commander, COMSIG_LIVING_START_PULL, PROC_REF(on_startpulling))
-	RegisterSignal(commander, TDROID_SIMPLE_AGRESSION_SIGNALS, PROC_REF(on_simple_agression))
+	RegisterSignals(commander, TDROID_SIMPLE_AGRESSION_SIGNALS, PROC_REF(on_simple_agression))
 
 /datum/ai_controller/tdroid/proc/UnregisterCommander()
 	var/mob/living/commander = blackboard[BB_TDROID_COMMANDER]
