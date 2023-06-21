@@ -133,7 +133,7 @@
 
 	if(target_datum)
 		// We override because an admin may try registering a signal on the same object/datum again, so this prevents any runtimes from occuring
-		RegisterSignal(target_datum, registered_signal, PROC_REF(handle_signal_received), override = TRUE)
+		RegisterSignals(target_datum, registered_signal, PROC_REF(handle_signal_received), override = TRUE)
 		registered_entities |= WEAKREF(target_datum)
 
 /obj/item/circuit_component/signal_handler/proc/load_new_ports(list/ports_to_load)
