@@ -1,4 +1,4 @@
- //needs gtts python module
+// TODO: перенести это всё в жсон и добавить кэширование
 
 GLOBAL_LIST_INIT(tts_lowfreq, list(
 	"aidar",
@@ -25,7 +25,8 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"mana" = "Мана",
 	"soldier" = "Солдат",
 	"planya" = "Планя",
-	"amina" = "Амина"
+	"amina" = "Амина",
+	"neco" = "Неко"
 ))
 
 /proc/open_sound_channel_for_tts()
