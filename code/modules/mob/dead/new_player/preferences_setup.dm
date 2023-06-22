@@ -132,5 +132,7 @@
 		previewJob.equip(mannequin, TRUE, preference_source = parent)
 		previewJob.equip_gear(mannequin, parent, TRUE)
 
+	var/icon/preview_icon = getFlatIcon(mannequin, defdir = SOUTH)
+
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
-	return getFlatIcon(mannequin, defdir = SOUTH)
+	return preview_icon
