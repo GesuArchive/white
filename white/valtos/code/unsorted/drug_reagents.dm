@@ -39,9 +39,9 @@
 	return ..()
 
 /datum/reagent/drug/crank/on_mob_life(mob/living/M)
-	var/high_message = pick("Я чувствую скорость.", "Меня никто не остановит!", "Я чувствую, что могу взять мир в свои руки.")
+	var/high_message = pick("чувствую скорость", "меня никто не остановит", "я сейчас пробью стену")
 	if(prob(5))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, span_notice("<i> ... [high_message] ... </i>"))
 	M.AdjustStun(-20, 0)
 	M.AdjustParalyzed(-20, 0)
 	M.AdjustUnconscious(-20, 0)
@@ -50,9 +50,9 @@
 	return FINISHONMOBLIFE(M)
 
 /datum/reagent/drug/bath_salts/on_mob_life(mob/living/M)
-	var/high_message = pick("Я чувствую, что у меня есть силы.", "Я готов.", "Я чувствую, что могу довести это до предела.")
+	var/high_message = pick("чувствую силу", "время действовать", "я сейчас пробью стену")
 	if(prob(5))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, span_notice("<i> ... [high_message] ... </i>"))
 	M.AdjustUnconscious(-100, 0)
 	M.AdjustStun(-100, 0)
 	M.AdjustParalyzed(-100, 0)
@@ -77,13 +77,13 @@
 
 
 /datum/reagent/drug/flipout/on_mob_life(mob/living/M)
-	var/high_message = pick("У меня есть неконтролируемое, всепоглощающее желание перевернуться!", "Я чувствую, как будто я перехожу на более высокий уровень существования.", "Я просто не могу остановить перевороты.")
+	var/high_message = pick("нужно перевернуться", "нужно переворачиваться", "я сейчас перевернусь")
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(prob(80))
 			H.SpinAnimation(10,1)
 		if(prob(10))
-			to_chat(M, span_notice("[high_message]."))
+			to_chat(M, span_notice("<i> ... [high_message] ... </i>"))
 
 	..()
 	return
@@ -116,9 +116,9 @@
 	color = "#fffae0"
 
 /datum/reagent/drug/yespowder/on_mob_life(mob/living/M)
-	var/high_message = pick("Соглашение наполняет мой разум.", "'Нет' - прошлый век. 'Да' - это модно.", "Да.")
+	var/high_message = pick("хочу соглашаться", "да", "да-а")
 	if(prob(5))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, span_notice("<i> ... [high_message] ... </i>"))
 	if(prob(20))
 		M.say("Да.", forced = "yes powder")
 	..()
@@ -131,8 +131,8 @@
 
 /datum/reagent/drug/pupupipi/on_mob_life(mob/living/M)
 	if(prob(5))
-		var/high_message = pick("Мне нужен сладкий коричневый сок...", "Мои кишки дрожат...", "Я чувствую себя легкомысленным...")
-		to_chat(M, span_notice("[high_message]"))
+		var/high_message = pick("мне нужен сладкий коричневый сок", "мои кишки дрожат", "гы")
+		to_chat(M, span_notice("<i> ... [high_message] ... </i>"))
 	M.Jitter(30)
 	if(prob(15)) //once every six-ish ticks. is that ok?
 		M.emote("burp")
@@ -612,7 +612,7 @@
 	var/high_message = pick("ЗВЁЗДОЧКИ", "КАЙФ")
 
 	if(prob(15))
-		to_chat(M, span_notice(" ... [high_message] ... "))
+		to_chat(M, span_notice("<i> ... [high_message] ... </i>"))
 		M.adjustToxLoss(-4 * REM, 0)
 		M.adjustBruteLoss(-4 * REM, 0)
 		M.adjustFireLoss(-4 * REM, 0)

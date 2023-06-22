@@ -159,8 +159,8 @@
 
 /datum/reagent/drug/crank/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(2.5, delta_time))
-		var/high_message = pick("You feel jittery.", "You feel like you gotta go fast.", "You feel like you need to step it up.")
-		to_chat(M, span_notice("[high_message]"))
+		var/high_message = pick("трясёт", "надо бежать", "надо двигаться.")
+		to_chat(M, span_notice("<i> ... [high_message] ... </i>"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "tweaking", /datum/mood_event/stimulant_medium, name)
 	M.AdjustStun(-20 * REM * delta_time)
 	M.AdjustKnockdown(-20 * REM * delta_time)
@@ -191,13 +191,13 @@
 
 
 /datum/reagent/drug/krokodil/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/high_message = pick("You feel calm.", "You feel collected.", "You feel like you need to relax.")
+	var/high_message = pick("заебись", "поебать", "расслабон")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, span_notice("<i> ... [high_message] ... </i>"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "smacked out", /datum/mood_event/narcotic_heavy, name)
 	if(current_cycle == 35 && creation_purity <= 0.6)
 		if(!istype(M.dna.species, /datum/species/krokodil_addict))
-			to_chat(M, span_userdanger("Your skin falls off easily!"))
+			to_chat(M, span_userdanger("Кожа отваливается!"))
 			M.adjustBruteLoss(50*REM, 0) // holy shit your skin just FELL THE FUCK OFF
 			M.set_species(/datum/species/krokodil_addict)
 	..()
@@ -232,9 +232,9 @@
 	..()
 
 /datum/reagent/drug/methamphetamine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/high_message = pick("Я чувствую скорость.", "Меня никто не остановит!", "Я чувствую, что могу взять мир в свои руки.")
+	var/high_message = pick("чувствую скорость", "меня никто не остановит", "я сейчас пробью стену")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, span_notice("<i> ... [high_message] ... </i>"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "tweaking", /datum/mood_event/stimulant_medium, name)
 	M.AdjustStun(-40 * REM * delta_time)
 	M.AdjustKnockdown(-40 * REM * delta_time)
@@ -294,9 +294,9 @@
 	..()
 
 /datum/reagent/drug/bath_salts/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/high_message = pick("You feel amped up.", "You feel ready.", "You feel like you can push it to the limit.")
+	var/high_message = pick("не могу стоять на месте", "нужно двигаться", "я сейчас пробью стену")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, span_deadsay("... [high_message] ..."))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "salted", /datum/mood_event/stimulant_heavy, name)
 	M.adjustStaminaLoss(-5 * REM * delta_time, 0)
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 4 * REM * delta_time)
@@ -329,9 +329,9 @@
 	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/drug/aranesp/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/high_message = pick("You feel amped up.", "You feel ready.", "You feel like you can push it to the limit.")
+	var/high_message = pick("не могу стоять на месте", "нужно двигаться", "я сейчас пробью стену")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, span_notice("<i> ... [high_message] ... </i>"))
 	M.adjustStaminaLoss(-18 * REM * delta_time, 0)
 	M.adjustToxLoss(0.5 * REM * delta_time, 0)
 	if(DT_PROB(30, delta_time))
