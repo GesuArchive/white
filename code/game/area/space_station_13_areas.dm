@@ -56,6 +56,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 
 /area/testroom
+	static_lighting = FALSE
+	base_lighting_alpha = 255
+	base_lighting_color = COLOR_WHITE
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
 	name = "Тестовая комната"
