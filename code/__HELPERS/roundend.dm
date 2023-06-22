@@ -372,8 +372,6 @@
 	parts += goal_report()
 	//Economy & Money
 	parts += market_report()
-	//Ambitions
-	parts += ambitions_report()
 
 	list_clear_nulls(parts)
 
@@ -647,41 +645,6 @@
 		parts += "Самый богатый член экипажа был <b>[mr_moneybags.account_holder] с [mr_moneybags.account_balance]</b> заработанными кредитами!</div>"
 	else
 		parts += "Чудесным образом никто не заработал кредиты за эту смену! Придётся резать бюджеты...</div>"
-	return parts
-
-/datum/controller/subsystem/ticker/proc/ambitions_report()
-	var/list/parts = list()
-	parts += "<div class='panel stationborder'><span class='header'>Отчёт по амбициям</span></br>"
-
-	for(var/datum/mind/employee in SSticker.minds)
-
-		if(!employee.ambition_objectives.len)//If the employee had no objectives, don't need to process this.
-			continue
-
-		if(employee.assigned_role == employee.special_role) //If the character is an offstation character, skip them.
-			continue
-
-		parts += "<b>[employee.name]</b> на должности <b>[employee.assigned_role]</b>:</br>"
-
-		var/ambitions_completed = FALSE
-
-		var/count = 1
-		for(var/datum/ambition_objective/objective in employee.ambition_objectives)
-			if(objective.completed)
-				parts += "[FOURSPACES] - <B>Амбиция №[count]</B>: [objective.description] <font color='green'><B> реализована!</B></font></br>"
-				SSblackbox.record_feedback("nested tally", "employee_objective", 1, list("[objective.type]", "SUCCESS"))
-				ambitions_completed = TRUE
-			else
-				parts += "[FOURSPACES] - <B>Амбиция №[count]</B>: [objective.description] <font color='red'><b> не осуществлена.</b></font></br>"
-				SSblackbox.record_feedback("nested tally", "employee_objective", 1, list("[objective.type]", "FAIL"))
-			count++
-
-		if(ambitions_completed)
-			parts += "[FOURSPACES] - <font color='green'><B>[employee.name] реализует свои амбиции!</B></font></br>"
-			SSblackbox.record_feedback("tally", "employee_success", 1, "SUCCESS")
-		else
-			SSblackbox.record_feedback("tally", "employee_success", 1, "FAIL")
-
 	return parts
 
 /**
