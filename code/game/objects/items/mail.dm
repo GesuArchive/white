@@ -207,6 +207,9 @@
 	name = "почтовый ящик"
 	desc = "Сертифицированный почтовый ящик от ЦК."
 	icon_state = "mail"
+	lid_icon_state = "maillid"
+	lid_x = -26
+	lid_y = 2
 
 /// Crate for mail that automatically generates a lot of mail. Usually only normal mail, but on lowpop it may end up just being junk.
 /obj/structure/closet/crate/mail/full
