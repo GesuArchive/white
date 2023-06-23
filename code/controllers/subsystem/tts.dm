@@ -216,12 +216,17 @@ SUBSYSTEM_DEF(tts)
 		rustg_file_write("rustg HTTP requests can't write to folders that don't exist, so we need to make it exist.", "tmp/tts/init.txt")
 
 	var/shell_scrubbed_input = copytext_char(message, 1, 140)
-	var/identifier = "[sha1(speaker + effect + shell_scrubbed_input)].[world.time]"
+	var/identifier = "[sha1(speaker + effect + shell_scrubbed_input)]"
 	if(!(speaker in GLOB.tts_voices))
 		return
 
 	var/datum/http_request/request = new()
 	var/file_name = "tmp/tts/[identifier].ogg"
+	if(fexists(file_name))
+		var/sound/audio_file = new(file_name)
+		play_tts(target, listeners, audio_file, language, message_range, volume_offset, freq, (effect == "radio"))
+		return
+
 	request.prepare(RUSTG_HTTP_METHOD_GET, "http://tts.ss14.su:2386/?speaker=[speaker]&effect=[effect]&text=[shell_scrubbed_input]&ext=ogg", null, null, file_name)
 	var/datum/tts_request/current_request = new /datum/tts_request(identifier, request, shell_scrubbed_input, target, local, language, message_range, volume_offset, listeners, freq, is_radio = (effect == "radio"))
 	var/list/player_queued_tts_messages = queued_tts_messages[target]
@@ -290,9 +295,6 @@ SUBSYSTEM_DEF(tts)
 
 /datum/tts_request/proc/start_requests()
 	request.begin_async()
-
-/datum/tts_request/proc/get_primary_request()
-	return request
 
 /datum/tts_request/proc/get_primary_response()
 	return request.into_response()
