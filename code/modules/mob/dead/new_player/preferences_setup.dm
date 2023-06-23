@@ -132,25 +132,10 @@
 		previewJob.equip(mannequin, TRUE, preference_source = parent)
 		previewJob.equip_gear(mannequin, parent, TRUE)
 
-	CHECK_TICK
 	var/icon/preview_icon = icon('icons/effects/effects.dmi', "nothing")
-	preview_icon.Scale(48+32, 16+32)
-	CHECK_TICK
-	mannequin.setDir(NORTH)
-	var/icon/stamp = getFlatIcon(mannequin)
-	CHECK_TICK
-	preview_icon.Blend(stamp, ICON_OVERLAY, 25, 17)
-	CHECK_TICK
-	mannequin.setDir(WEST)
-	stamp = getFlatIcon(mannequin)
-	CHECK_TICK
-	preview_icon.Blend(stamp, ICON_OVERLAY, 1, 9)
-	CHECK_TICK
-	mannequin.setDir(SOUTH)
-	stamp = getFlatIcon(mannequin)
-	CHECK_TICK
-	preview_icon.Blend(stamp, ICON_OVERLAY, 49, 1)
-	CHECK_TICK
+	for(var/cur_dir in GLOB.cardinals)
+		var/icon/partial = getFlatIcon(mannequin, defdir = cur_dir)
+		preview_icon.Insert(partial, dir = cur_dir)
 
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 	return preview_icon

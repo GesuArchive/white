@@ -84,7 +84,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			retro_hud = FALSE
 			parent?.mob?.hud_used?.update_ui_style(ui_style2icon(UI_style))
 
-	if (current_version < 63)
+	if (current_version < 64)
 		if(!(forced_voice in GLOB.tts_voices))
 			forced_voice = pick(GLOB.tts_voices)
 

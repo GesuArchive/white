@@ -1573,6 +1573,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						forced_voice = tts_list[new_voice]
 						user?.voice = forced_voice
 
+					var/random_text = pick("Привет, это мой голос.", "Помогите, Александр Роули убивает в техах!", "Корабли лавировали, лавировали, да не вылавировали.")
+					INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), user.client, random_text, speaker = forced_voice, local = TRUE)
+
 				if("s_tone")
 					var/new_s_tone = tgui_input_list(user, "Choose your character's skin-tone:", "Настройки персонажа", GLOB.skin_tones)
 					if(new_s_tone)
