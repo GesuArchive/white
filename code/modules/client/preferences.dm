@@ -305,7 +305,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Тело</div><div class='csetup_nodes'>"
 
-			dat += "<div class='csetup_character_node'><img class='wideimage icon icon-misc' src='data:image/png;base64,[icon2base64html(get_preview_icon())]'></div>"
+			dat += "<div class='csetup_character_node'><img class='wideimage icon icon-misc' src='data:image/png;base64,[icon2base64(get_preview_icon())]'></div>"
 
 			if(!(AGENDER in pref_species.species_traits))
 				var/dispGender
