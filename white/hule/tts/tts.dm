@@ -26,7 +26,12 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"soldier" = "Солдат",
 	"planya" = "Планя",
 	"amina" = "Амина",
-	"kleiner" = "Кляйнер"
+	"kleiner" = "Кляйнер",
+	"dbkn" = "Добакин",
+	"neco" = "Неко",
+	"gman" = "G-Man",
+	"obama" = "Обама",
+	"trump" = "Трамп"
 ))
 
 /proc/open_sound_channel_for_tts()
