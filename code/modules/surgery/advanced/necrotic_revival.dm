@@ -12,7 +12,7 @@
 
 /datum/surgery/advanced/necrotic_revival/can_start(mob/user, mob/living/carbon/target)
 	. = ..()
-	var/obj/item/organ/zombie_infection/ZI = target.getorganslot(ORGAN_SLOT_ZOMBIE)
+	var/obj/item/organ/zombie_infection/ZI = target.get_organ_slot(ORGAN_SLOT_ZOMBIE)
 	if(ZI)
 		return FALSE
 
@@ -32,7 +32,7 @@
 	display_results(user, target, span_notice("Успешно стимулировал рост опухоли Ромерола в мозгу [target].") ,
 		span_notice("[user] успешно вырастил опухоль Ромерола в мозгу [target]!") ,
 		span_notice("[user] завершил операцию на мозге [target]."))
-	if(!target.getorganslot(ORGAN_SLOT_ZOMBIE))
+	if(!target.get_organ_slot(ORGAN_SLOT_ZOMBIE))
 		var/obj/item/organ/zombie_infection/ZI = new()
 		ZI.Insert(target)
 	return ..()

@@ -463,7 +463,7 @@
 	else
 		if(!ignore_stomach && (methods & INGEST) && istype(target, /mob/living/carbon))
 			var/mob/living/carbon/eater = target
-			var/obj/item/organ/stomach/belly = eater.getorganslot(ORGAN_SLOT_STOMACH)
+			var/obj/item/organ/stomach/belly = eater.get_organ_slot(ORGAN_SLOT_STOMACH)
 			if(!belly)
 				eater.expel_ingested(my_atom, amount)
 				return

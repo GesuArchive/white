@@ -9,7 +9,7 @@
 	glass_desc = "Стакан полный вкусной настойки боярышника."
 
 /datum/reagent/consumable/ethanol/boyarka/on_mob_life(mob/living/M)
-	var/obj/item/organ/liver/liver = M.getorganslot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/liver = M.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(liver && HAS_TRAIT(liver, TRAIT_BOMJ_METABOLISM))
 		M.heal_bodypart_damage(brute = 5, burn = 5)
 		. = TRUE
@@ -23,7 +23,7 @@
 
 /datum/reagent/consumable/ethanol/boyarka/traitor/on_mob_add(mob/living/M)
 	. = ..()
-	var/obj/item/organ/liver/liver = M.getorganslot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/liver = M.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(liver && HAS_TRAIT(liver, TRAIT_BOMJ_METABOLISM))
 		M.emote("agony")
 		to_chat(M, span_userdanger("ОЩУЩАЮ МОЩНЕЙШИЙ ПРИЛИВ СИЛ!!!"))
@@ -31,7 +31,7 @@
 			addtimer(CALLBACK(M, /atom/proc/add_atom_colour, (i % 2)? "#FF00FF" : "#00FFFF", ADMIN_COLOUR_PRIORITY), i)
 
 /datum/reagent/consumable/ethanol/boyarka/traitor/on_mob_life(mob/living/M)
-	var/obj/item/organ/liver/liver = M.getorganslot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/liver = M.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(liver && HAS_TRAIT(liver, TRAIT_BOMJ_METABOLISM))
 		M.heal_bodypart_damage(brute = 15, burn = 15)
 		. = TRUE

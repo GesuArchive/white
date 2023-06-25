@@ -74,7 +74,7 @@
 
 //	Протекание и лечение
 /datum/reagent/medicine/raccoon/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/obj/item/organ/zombie_infection/zed_ozz = M.getorganslot(ORGAN_SLOT_ZOMBIE)
+	var/obj/item/organ/zombie_infection/zed_ozz = M.get_organ_slot(ORGAN_SLOT_ZOMBIE)
 	M.adjustToxLoss(-1, 0)
 	if(current_cycle > 20)
 		if(zed_ozz)
@@ -115,7 +115,7 @@
 
 //	Протекание и лечение
 /datum/reagent/medicine/nostromo/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/obj/item/organ/body_egg/parasite_egg = M.getorganslot(ORGAN_SLOT_PARASITE_EGG)
+	var/obj/item/organ/body_egg/parasite_egg = M.get_organ_slot(ORGAN_SLOT_PARASITE_EGG)
 	if(current_cycle > 20)
 		if(parasite_egg)
 			qdel(parasite_egg)

@@ -53,7 +53,7 @@ GLOBAL_VAR_INIT(apply_execution_protocol, FALSE)
 
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
-			var/obj/item/organ/tongue/tongue = H.getorganslot(ORGAN_SLOT_TONGUE)
+			var/obj/item/organ/tongue/tongue = H.get_organ_slot(ORGAN_SLOT_TONGUE)
 			if(tongue)
 				tongue.Remove(H, special = TRUE)
 				playsound(get_turf(H), 'white/valtos/sounds/gibpart.ogg', 80, TRUE)

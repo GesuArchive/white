@@ -81,6 +81,12 @@
 	//...and display them.
 	add_to_all_human_data_huds()
 
+/mob/living/carbon/human/reset_perspective(atom/new_eye, force_reset = FALSE)
+	if(dna?.species?.prevent_perspective_change && !force_reset) // This is in case a species needs to prevent perspective changes in certain cases, like Dullahans preventing perspective changes when they're looking through their head.
+		update_fullscreen()
+		return
+	return ..()
+
 /mob/living/carbon/human/get_status_tab_items()
 	. = ..()
 	. += ""
@@ -504,7 +510,7 @@
 			to_chat(src, span_warning("Снять бы с н[ru_ego()] маску сначала!"))
 			return FALSE
 
-		if (!getorganslot(ORGAN_SLOT_LUNGS))
+		if (!get_organ_slot(ORGAN_SLOT_LUNGS))
 			to_chat(src, span_warning("У меня нет лёгких для проведения данной процедуры!"))
 			return FALSE
 
@@ -528,7 +534,7 @@
 
 		if (HAS_TRAIT(target, TRAIT_NOBREATH))
 			to_chat(target, span_unconscious("Чувствую, как глоток свежего воздуха входит в мои легкие..."))
-		else if (!target.getorganslot(ORGAN_SLOT_LUNGS))
+		else if (!target.get_organ_slot(ORGAN_SLOT_LUNGS))
 			to_chat(target, span_unconscious("Чувствую глоток свежего воздуха... но мне не лучше..."))
 		else
 			target.adjustOxyLoss(-min(target.getOxyLoss(), 7))

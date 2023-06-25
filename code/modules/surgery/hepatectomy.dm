@@ -13,12 +13,12 @@
 		)
 /*
 /datum/surgery/hepatectomy/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/liver/L = target.getorganslot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/L = target.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(L?.damage > 50 && !(L.organ_flags & ORGAN_FAILING))
 		return TRUE
 */
 /datum/surgery/hepatectomy/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/liver/L = target.getorganslot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/L = target.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(L)
 		if(L.damage > 60 && !L.operated)
 			return TRUE
@@ -41,7 +41,7 @@
 
 /datum/surgery_step/hepatectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/H = target
-	var/obj/item/organ/liver/L = H.getorganslot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/L = H.get_organ_slot(ORGAN_SLOT_LIVER)
 	L.operated = TRUE
 	H.setOrganLoss(ORGAN_SLOT_LIVER, 60) //not bad, not great
 	display_results(user, target, span_notice("Вы успешно удалили поврежденную долю печени [skloname(target.name, RODITELNI, target.gender)].") ,

@@ -90,7 +90,7 @@
 		sleep(surgerytime)
 		if(!processing)
 			return
-		var/obj/item/organ/currentorgan = C.getorganslot(storedorgan.slot)
+		var/obj/item/organ/currentorgan = C.get_organ_slot(storedorgan.slot)
 		if(currentorgan)
 			currentorgan.Remove(C)
 			currentorgan.forceMove(get_turf(src))

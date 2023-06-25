@@ -16,7 +16,7 @@
 
 	// Скилчип хирурга Т3
 	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
-		var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
+		var/obj/item/organ/brain/B = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(!B)
 			return FALSE
 		return TRUE

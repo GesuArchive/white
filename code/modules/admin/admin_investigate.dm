@@ -29,7 +29,8 @@
 								INVESTIGATE_NANITES,
 								INVESTIGATE_PRESENTS,
 								INVESTIGATE_HYPERTORUS,
-								INVESTIGATE_ACCESSCHANGES)
+								INVESTIGATE_ACCESSCHANGES,
+								INVESTIGATE_DEATHS)
 
 	var/list/logs_present = list("notes, memos, watchlist")
 	var/list/logs_missing = list("---")

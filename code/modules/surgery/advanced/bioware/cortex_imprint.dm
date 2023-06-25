@@ -13,7 +13,7 @@
 	bioware_target = BIOWARE_CORTEX
 
 /datum/surgery/advanced/bioware/cortex_imprint/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/B = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!B)
 		return FALSE
 	return ..()
@@ -36,7 +36,7 @@
 	return ..()
 
 /datum/surgery_step/imprint_cortex/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	if(target.getorganslot(ORGAN_SLOT_BRAIN))
+	if(target.get_organ_slot(ORGAN_SLOT_BRAIN))
 		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, повредив мозг!") ,
 			span_warning("[user] облажался, повредив мозг!") ,
 			span_notice("[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)]"))

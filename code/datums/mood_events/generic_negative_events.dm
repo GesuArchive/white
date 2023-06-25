@@ -380,7 +380,7 @@
 		qdel(src)
 		return
 	var/mob/living/carbon/human/H = owner
-	var/obj/item/organ/heart/heart = H.getorganslot(ORGAN_SLOT_HEART)
+	var/obj/item/organ/heart/heart = H.get_organ_slot(ORGAN_SLOT_HEART)
 	if(!heart)
 		return
 	H.emote("agony")

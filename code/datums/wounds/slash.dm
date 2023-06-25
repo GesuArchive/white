@@ -160,7 +160,7 @@
 	if(user.is_mouth_covered())
 		to_chat(user, "<span class='warning'Мой рот закрыт и не может достать до ран [victim]!</span>")
 		return
-	if(!user.getorganslot(ORGAN_SLOT_TONGUE))
+	if(!user.get_organ_slot(ORGAN_SLOT_TONGUE))
 		to_chat(user, span_warning("А чем лизать-то?!")) // f in chat
 		return
 

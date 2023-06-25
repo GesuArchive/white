@@ -14,13 +14,13 @@
 		)
 /*
 /datum/surgery/gastrectomy/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/stomach/L = target.getorganslot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/stomach/L = target.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(L?.damage > 50 && !(L.organ_flags & ORGAN_FAILING))
 		return TRUE
 */
 
 /datum/surgery/gastrectomy/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/stomach/L = target.getorganslot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/stomach/L = target.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(L)
 		if(L.damage > 60 && !L.operated)
 			return TRUE
@@ -43,7 +43,7 @@
 
 /datum/surgery_step/gastrectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/H = target
-	var/obj/item/organ/stomach/L = H.getorganslot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/stomach/L = H.get_organ_slot(ORGAN_SLOT_STOMACH)
 	L.operated = TRUE
 	H.setOrganLoss(ORGAN_SLOT_STOMACH, 60) // Stomachs have a threshold for being able to even digest food, so I might tweak this number
 	display_results(user, target, span_notice("Успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)].") ,

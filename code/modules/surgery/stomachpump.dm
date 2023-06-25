@@ -14,7 +14,7 @@
 	var/accumulated_experience = 0
 
 /datum/surgery/stomach_pump/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/stomach/S = target.getorganslot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/stomach/S = target.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(HAS_TRAIT(target, TRAIT_HUSK))
 		return FALSE
 	if(!S)

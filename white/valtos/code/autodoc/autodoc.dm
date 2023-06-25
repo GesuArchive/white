@@ -449,7 +449,7 @@
 	return TRUE
 
 /datum/surgery_step/fix_eyes/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
-	var/obj/item/organ/eyes/E = target.getorganslot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
 	target.cure_blind(list(EYE_DAMAGE))
 	target.set_blindness(0)
 	target.cure_nearsighted(list(EYE_DAMAGE))

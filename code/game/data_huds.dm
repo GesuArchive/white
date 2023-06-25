@@ -197,7 +197,7 @@ Medical HUD! Basic mode needs suit sensors on.
 	holder.pixel_y = I.Height() - world.icon_size
 
 	var/obj/item/organ/zombie_infection/infection
-	infection = getorganslot(ORGAN_SLOT_ZOMBIE)
+	infection = get_organ_slot(ORGAN_SLOT_ZOMBIE)
 	if(infection)
 		holder.icon_state = "hudzed"
 
@@ -236,7 +236,7 @@ Medical HUD! Basic mode needs suit sensors on.
 /mob/living/carbon/proc/check_cerebrals()
 	var/psychosis
 	var/psychosis_max
-	var/obj/item/organ/brain/B = getorganslot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/B = get_organ_slot(ORGAN_SLOT_BRAIN)
 
 	if(mind?.has_antag_datum(/datum/antagonist/brainwashed) || mind?.has_antag_datum(/datum/antagonist/abductee))
 		psychosis = 15

@@ -126,7 +126,7 @@ SUBSYSTEM_DEF(eventmaster)
 		if(iszombie(H))
 			fuckers += H
 			continue
-		if(H.getorganslot(ORGAN_SLOT_ZOMBIE))
+		if(H.get_organ_slot(ORGAN_SLOT_ZOMBIE))
 			suckers += H
 			continue
 		else

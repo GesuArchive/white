@@ -334,7 +334,7 @@ GLOBAL_VAR_INIT(is_cargo_sabotaged, FALSE)
 /datum/objective/protect/check_completion()
 	var/obj/item/organ/brain/brain_target
 	if(human_check)
-		brain_target = target.current?.getorganslot(ORGAN_SLOT_BRAIN)
+		brain_target = target.current?.get_organ_slot(ORGAN_SLOT_BRAIN)
 	//Protect will always suceed when someone suicides
 	return !target || considered_alive(target, enforce_human = human_check) || brain_target?.suicided
 

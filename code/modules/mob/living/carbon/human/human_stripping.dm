@@ -223,7 +223,7 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 
 		// This isn't meant to be FALSE, it correlates to the icon's name.
 	else if (!QDELETED(item))
-		if((carbon_source.wear_mask?.clothing_flags & MASKINTERNALS) || carbon_source.getorganslot(ORGAN_SLOT_BREATHING_TUBE))
+		if((carbon_source.wear_mask?.clothing_flags & MASKINTERNALS) || carbon_source.get_organ_slot(ORGAN_SLOT_BREATHING_TUBE))
 			carbon_source.internal = item
 
 	carbon_source.visible_message(

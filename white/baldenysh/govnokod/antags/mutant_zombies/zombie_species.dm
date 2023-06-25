@@ -216,7 +216,7 @@
 		return FALSE
 	if(!H.get_bodypart(BODY_ZONE_HEAD))
 		return FALSE
-	if(H.getorganslot(ORGAN_SLOT_ZOMBIE))
+	if(H.get_organ_slot(ORGAN_SLOT_ZOMBIE))
 		return FALSE
 	CHECK_DNA_AND_SPECIES(H)
 	if(istype(H.dna.species, /datum/species/zombie))

@@ -22,7 +22,7 @@
 
 	explosion(user, light_impact_range = 2, adminlog = TRUE, explosion_cause = src)
 	for(var/mob/living/carbon/human/H in range(2,user))
-		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
+		var/obj/item/organ/eyes/eyes = H.get_organ_slot(ORGAN_SLOT_EYES)
 		to_chat(H, span_userdanger("Меня ослепило душем из крови!"))
 		H.Stun(20)
 		H.blur_eyes(20)

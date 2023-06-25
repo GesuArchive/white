@@ -735,6 +735,9 @@
 		else if(status == BODYPART_ROBOTIC)
 			icon = DEFAULT_BODYPART_ICON_ROBOTIC
 
+	if(should_draw_ipc)
+		icon = 'icons/mob/human_parts.dmi'
+
 	if(owner)
 		owner.updatehealth()
 		owner.update_body() //if our head becomes robotic, we remove the lizard horns and human hair.

@@ -20,7 +20,7 @@
 				span_hear("Слышу как что-то органическое разрывается!"))
 			C.emote("agony")
 			C.regenerate_limbs(1)
-		if(!user.getorganslot(ORGAN_SLOT_BRAIN))
+		if(!user.get_organ_slot(ORGAN_SLOT_BRAIN))
 			var/obj/item/organ/brain/B
 			if(C.has_dna() && C.dna.species.mutantbrain)
 				B = new C.dna.species.mutantbrain()
@@ -33,7 +33,7 @@
 		for(var/i in C.all_wounds)
 			var/datum/wound/iter_wound = i
 			iter_wound.remove_wound()
-		var/obj/item/organ/brain/B = user.getorganslot(ORGAN_SLOT_BRAIN)
+		var/obj/item/organ/brain/B = user.get_organ_slot(ORGAN_SLOT_BRAIN)
 		B.decoy_override = TRUE
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

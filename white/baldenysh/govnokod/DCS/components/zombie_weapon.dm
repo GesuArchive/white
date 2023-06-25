@@ -36,7 +36,7 @@
 	if(HAS_TRAIT(target, TRAIT_PARASITE_IMMUNE))
 		return
 	var/obj/item/organ/zombie_infection/infection
-	infection = target.getorganslot(ORGAN_SLOT_ZOMBIE)
+	infection = target.get_organ_slot(ORGAN_SLOT_ZOMBIE)
 	if(!infection)
 		var/tumor_type = pick(possible_tumors)
 		infection = new tumor_type()

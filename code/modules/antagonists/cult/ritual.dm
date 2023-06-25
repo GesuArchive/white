@@ -31,7 +31,7 @@ This file contains the cult dagger and rune list code
 			//For carbons we also want to clear out the stomach of any holywater
 			if(iscarbon(M))
 				var/mob/living/carbon/carboy = M
-				var/obj/item/organ/stomach/belly = carboy.getorganslot(ORGAN_SLOT_STOMACH)
+				var/obj/item/organ/stomach/belly = carboy.get_organ_slot(ORGAN_SLOT_STOMACH)
 				if(belly)
 					holy2unholy += belly.reagents.get_reagent_amount(/datum/reagent/water/holywater)
 					belly.reagents.del_reagent(/datum/reagent/water/holywater)

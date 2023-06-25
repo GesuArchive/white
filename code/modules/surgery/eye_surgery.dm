@@ -12,7 +12,7 @@
 	time = 64
 
 /datum/surgery/eye_surgery/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/eyes/E = target.getorganslot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
 	if(!E)
 		to_chat(user, span_warning("Довольно сложно оперировать чьи-то глаза, если у [target.ru_who()] их нет."))
 		return FALSE
@@ -25,7 +25,7 @@
 	display_pain(target, "Чувствую резкую боль в глазах!")
 
 /datum/surgery_step/fix_eyes/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	var/obj/item/organ/eyes/E = target.getorganslot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/eyes/E = target.get_organ_slot(ORGAN_SLOT_EYES)
 	user.visible_message(span_notice("[user] успешно исправил [target.ru_who()] глаза!") , span_notice("Успешно исправил глаза [skloname(target.name, RODITELNI, target.gender)]."))
 	display_results(user, target, span_notice("Успешно исправил глаза [skloname(target.name, RODITELNI, target.gender)].") ,
 		span_notice("[user] успешно исправил глаза [target.ru_who()]!") ,

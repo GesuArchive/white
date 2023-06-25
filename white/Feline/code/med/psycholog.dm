@@ -236,7 +236,7 @@
 
 //	Удачное завершение сеанса
 /obj/item/hypno_watch/proc/on_cast_finished(mob/living/carbon/human/target, mob/living/carbon/human/user)
-	var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/B = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	for(var/i in B.traumas)
 		var/datum/brain_trauma/trauma = i
 

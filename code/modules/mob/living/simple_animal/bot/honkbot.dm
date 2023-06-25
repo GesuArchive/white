@@ -202,7 +202,7 @@ Status: []<BR>
 	if(limiting_spam == 0)
 		if(ishuman(C))
 			C.stuttering = 20
-			var/obj/item/organ/ears/ears = C.getorganslot(ORGAN_SLOT_EARS)
+			var/obj/item/organ/ears/ears = C.get_organ_slot(ORGAN_SLOT_EARS)
 			if (ears && !HAS_TRAIT_FROM(C, TRAIT_DEAF, CLOTHING_TRAIT))
 				ears.adjustEarDamage(0, 5) //far less damage than the H.O.N.K.
 			C.Jitter(50)

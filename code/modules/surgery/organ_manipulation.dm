@@ -91,7 +91,7 @@
 	if(isorgan(tool))
 		current_type = "insert"
 		I = tool
-		if(target_zone != I.zone || target.getorganslot(I.slot))
+		if(target_zone != I.zone || target.get_organ_slot(I.slot))
 			to_chat(user, span_warning("В [parse_zone(target_zone)] [target] нет места под [I]!"))
 			return -1
 		var/obj/item/organ/meatslab = tool

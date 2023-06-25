@@ -10,7 +10,7 @@
 		return FALSE
 
 	// Do we have a jetpack implant (and is it on)?
-	var/obj/item/organ/cyberimp/chest/thrusters/T = getorganslot(ORGAN_SLOT_THRUSTERS)
+	var/obj/item/organ/cyberimp/chest/thrusters/T = get_organ_slot(ORGAN_SLOT_THRUSTERS)
 	if(istype(T) && movement_dir && T.on)
 		return TRUE
 

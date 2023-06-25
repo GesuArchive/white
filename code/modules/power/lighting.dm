@@ -745,7 +745,7 @@
 	var/mob/living/carbon/human/electrician = user
 
 	if(istype(electrician))
-		var/obj/item/organ/stomach/maybe_stomach = electrician.getorganslot(ORGAN_SLOT_STOMACH)
+		var/obj/item/organ/stomach/maybe_stomach = electrician.get_organ_slot(ORGAN_SLOT_STOMACH)
 		if(istype(maybe_stomach, /obj/item/organ/stomach/ethereal))
 			var/obj/item/organ/stomach/ethereal/stomach = maybe_stomach
 			if(stomach.drain_time > world.time)

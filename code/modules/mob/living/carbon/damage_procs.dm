@@ -122,7 +122,7 @@
  * * maximum - currently an arbitrarily large number, can be set so as to limit damage
  */
 /mob/living/carbon/adjustOrganLoss(slot, amount, maximum)
-	var/obj/item/organ/O = getorganslot(slot)
+	var/obj/item/organ/O = get_organ_slot(slot)
 	if(O && !(status_flags & GODMODE))
 		O.applyOrganDamage(amount, maximum)
 
@@ -135,7 +135,7 @@
  * * amount - damage to be set to
  */
 /mob/living/carbon/setOrganLoss(slot, amount)
-	var/obj/item/organ/O = getorganslot(slot)
+	var/obj/item/organ/O = get_organ_slot(slot)
 	if(O && !(status_flags & GODMODE))
 		O.setOrganDamage(amount)
 
@@ -146,7 +146,7 @@
  * * slot - organ slot, like [ORGAN_SLOT_HEART]
  */
 /mob/living/carbon/getOrganLoss(slot)
-	var/obj/item/organ/O = getorganslot(slot)
+	var/obj/item/organ/O = get_organ_slot(slot)
 	if(O)
 		return O.damage
 

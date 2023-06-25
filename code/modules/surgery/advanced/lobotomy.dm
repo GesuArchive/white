@@ -17,14 +17,14 @@
 
 	// Скилчип хирурга Т2 Т3
 	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
-		var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
+		var/obj/item/organ/brain/B = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(!B)
 			return FALSE
 		return TRUE
 	else
 		if(!..())
 			return FALSE
-	var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/B = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!B)
 		return FALSE
 	return TRUE
@@ -65,7 +65,7 @@
 	return ..()
 
 /datum/surgery_step/lobotomize/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/B = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(B)
 		display_results(user, target, span_warning("Извлек неверную часть, что привело к большим повреждениям!") ,
 			span_notice("[user] успешно выполнил лоботомию [skloname(target.name, RODITELNI, target.gender)]!") ,

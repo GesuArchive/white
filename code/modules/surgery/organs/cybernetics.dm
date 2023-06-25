@@ -80,7 +80,7 @@
  * If it fails to meet that criteria, than it is incompatible and this proc returns FALSE. If it is compatibile returns TRUE
  */
 /obj/item/organ/cyberimp/proc/check_compatibility()
-	var/obj/item/organ/cyberimp/cyberlink/link = owner.getorganslot(ORGAN_SLOT_LINK)
+	var/obj/item/organ/cyberimp/cyberlink/link = owner.get_organ_slot(ORGAN_SLOT_LINK)
 
 	for(var/info in encode_info)
 		// We check if encode_info for this protocol categoru is NO_PROTOCOL meaning it is compatible with anything.

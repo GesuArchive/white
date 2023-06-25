@@ -130,7 +130,7 @@
 		for(var/t in mind_traits)
 			ADD_TRAIT(H.mind, t, JOB_TRAIT)
 
-	var/obj/item/organ/liver/liver = H.getorganslot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/liver = H.get_organ_slot(ORGAN_SLOT_LIVER)
 
 	if(liver)
 		for(var/t in liver_traits)

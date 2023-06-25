@@ -185,7 +185,7 @@
 		possibilities += "temphot"
 	if(!HAS_TRAIT(affected_carbon, TRAIT_RESISTCOLD))
 		possibilities += "tempcold"
-	var/obj/item/organ/lungs/lungs = affected_carbon.getorganslot(ORGAN_SLOT_LUNGS)
+	var/obj/item/organ/lungs/lungs = affected_carbon.get_organ_slot(ORGAN_SLOT_LUNGS)
 	if(lungs)
 		if(lungs.safe_breath_min)
 			possibilities += "not_enough_oxy"
