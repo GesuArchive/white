@@ -81,6 +81,8 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
 	/// WARNING: Currently to use a density shortcircuiting this does not support dense turfs with special allow through function
 	var/pathing_pass_method = TURF_PATHING_PASS_DENSITY
 
+	var/apply_grain = TRUE
+
 /turf/vv_edit_var(var_name, new_value)
 	var/static/list/banned_edits = list(NAMEOF_STATIC(src, x), NAMEOF_STATIC(src, y), NAMEOF_STATIC(src, z))
 	if(var_name in banned_edits)
@@ -148,6 +150,9 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
 
 	// apply materials properly from the default custom_materials value
 	set_custom_materials(custom_materials)
+
+	if(apply_grain)
+		overlays += image('white/valtos/icons/lifeweb/noise.dmi', icon_state = "[rand(1, 9)]")
 
 	ComponentInitialize()
 	if(isopenturf(src))
