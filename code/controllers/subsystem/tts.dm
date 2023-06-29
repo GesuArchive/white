@@ -218,7 +218,7 @@ SUBSYSTEM_DEF(tts)
 
 	// TGS updates can clear out the tmp folder, so we need to create the folder again if it no longer exists.
 	if(!fexists("tmp/tts/[current_date]/init.txt"))
-		rustg_file_write("rustg HTTP requests can't write to folders that don't exist, so we need to make it exist.", "tmp/tts/init.txt")
+		rustg_file_write("rustg HTTP requests can't write to folders that don't exist, so we need to make it exist.", "tmp/tts/[current_date]/init.txt")
 
 	var/shell_scrubbed_input = copytext_char(message, 1, 140)
 	var/identifier = "[sha1(speaker + effect + shell_scrubbed_input)]"
