@@ -34,6 +34,9 @@ SUBSYSTEM_DEF(tts)
 	/// 7 seconds (or whatever the value of message_timeout is) to receive back a response.
 	var/average_tts_messages_time = 0
 
+	/// Used for caching
+	var/current_date = "NULL"
+
 /datum/controller/subsystem/tts/vv_edit_var(var_name, var_value)
 	// tts being enabled depends on whether it actually exists
 	if(NAMEOF(src, tts_enabled) == var_name)
@@ -50,6 +53,8 @@ SUBSYSTEM_DEF(tts)
 /datum/controller/subsystem/tts/Initialize()
 
 	queued_http_messages = new /datum/heap(GLOBAL_PROC_REF(cmp_word_length_asc))
+
+	current_date = time2text(world.timeofday, "YYYY/MM/DD")
 
 	return SS_INIT_SUCCESS
 
@@ -212,7 +217,7 @@ SUBSYSTEM_DEF(tts)
 		return
 
 	// TGS updates can clear out the tmp folder, so we need to create the folder again if it no longer exists.
-	if(!fexists("tmp/tts/init.txt"))
+	if(!fexists("tmp/tts/[current_date]/init.txt"))
 		rustg_file_write("rustg HTTP requests can't write to folders that don't exist, so we need to make it exist.", "tmp/tts/init.txt")
 
 	var/shell_scrubbed_input = copytext_char(message, 1, 140)
@@ -221,7 +226,7 @@ SUBSYSTEM_DEF(tts)
 		return
 
 	var/datum/http_request/request = new()
-	var/file_name = "tmp/tts/[identifier].ogg"
+	var/file_name = "tmp/tts/[current_date]/[identifier].ogg"
 	if(fexists(file_name))
 		var/sound/audio_file = new(file_name)
 		play_tts(target, listeners, audio_file, language, message_range, volume_offset, freq, (effect == "radio"))
