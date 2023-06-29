@@ -152,7 +152,7 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
 	set_custom_materials(custom_materials)
 
 	if(apply_grain)
-		overlays += image('white/valtos/icons/lifeweb/noise.dmi', icon_state = "[rand(1, 9)]", layer = FLY_LAYER)
+		overlays += image('white/valtos/icons/lifeweb/noise.dmi', icon_state = "[rand(1, 9)]")
 
 	ComponentInitialize()
 	if(isopenturf(src))
