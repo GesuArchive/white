@@ -49,7 +49,6 @@
 	. = ..()
 	if(!latejoin && SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer/medium))
 		H.forceMove(get_spawnpoint())
-		GLOB.freelancer_shuttles = GLOB.freelancer_shuttles + 1
 
 /datum/job/freelancer/proc/get_spawnpoint()
 	for(var/_sloc in GLOB.start_landmarks_list)
@@ -68,6 +67,9 @@
 	..()
 	if(visualsOnly)
 		return
+
+	GLOB.freelancer_shuttles = GLOB.freelancer_shuttles + 1
+
 	spawn(50)
 		var/obj/item/card/id/ID = H.get_idcard()
 		if(ID)
