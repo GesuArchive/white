@@ -27,6 +27,7 @@
 /turf/open/space/basic/New() //Do not convert to Initialize
 	SHOULD_CALL_PARENT(FALSE)
 	//This is used to optimize the map loader
+	flags_1 |= INITIALIZED_1 // should have this flag in some dumb cases
 	return
 
 /**
