@@ -319,8 +319,8 @@
 	intercepttext += generate_station_trait_report()
 	print_command_report(intercepttext, "Отчёт Безопасности Центрального Командования", announce=FALSE)
 	priority_announce("Сводная информация была скопирована и распечатана на всех коммуникационных консолях.", "Вражеская связь перехвачена. Уровень безопасности повышен.", ANNOUNCER_INTERCEPT)
-	if(SSsecurity_level.current_level < SEC_LEVEL_BLUE)
-		set_security_level(SEC_LEVEL_BLUE)
+	if(SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_BLUE)
+		SSsecurity_level.set_level(SEC_LEVEL_BLUE)
 
 
 // This is a frequency selection system. You may imagine it like a raffle where each player can have some number of tickets. The more tickets you have the more likely you are to

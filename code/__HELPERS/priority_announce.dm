@@ -91,7 +91,7 @@
 
 	SScommunications.send_message(M)
 
-/proc/minor_announce(message, title = "Внимание!", alert, html_encode = TRUE)
+/proc/minor_announce(message, title = "Внимание!", alert, html_encode = TRUE, sound_override)
 	if(!message)
 		return
 
@@ -104,7 +104,9 @@
 		if(!isnewplayer(M) && M.can_hear() && (is_station_level(T.z) || is_mining_level(T.z) || is_centcom_level(T.z)))
 			to_chat(M, "<h1 class='alert'>[title]</h1><span class='alert'><big>[message]</big></span>\n\n")
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
-				if(alert)
+				if(sound_override)
+					SEND_SOUND(M, sound(sound_override))
+				else if(alert)
 					SEND_SOUND(M, sound('sound/misc/notice1.ogg'))
 				else
 					SEND_SOUND(M, sound('sound/misc/notice2.ogg'))

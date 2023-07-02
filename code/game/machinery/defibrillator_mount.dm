@@ -69,7 +69,7 @@
 	. = ..()
 	if(defib)
 		. += "<hr><span class='notice'>Тут зафиксирован дефибриллятор. ПКМ чтоб открепить.</span>"
-		if(SSsecurity_level.current_level >= SEC_LEVEL_RED)
+		if(SSsecurity_level.get_current_level_as_number() >= SEC_LEVEL_RED)
 			. += "<hr><span class='notice'>В связи с Красным кодом фиксаторы могут быть разблокированы картой с любым уровнем доступа.</span>"
 		else
 			. += "<hr><span class='notice'>Фиксаторы могут быть [clamps_locked ? "разблокированы" : "заблокированы"], картой с требуемым доступом.</span>"
@@ -134,7 +134,7 @@
 		return
 	var/obj/item/card/id = I.GetID()
 	if(id)
-		if(check_access(id) || SSsecurity_level.current_level >= SEC_LEVEL_RED) //anyone can toggle the clamps in red alert!
+		if(check_access(id) || SSsecurity_level.get_current_level_as_number() >= SEC_LEVEL_RED) //anyone can toggle the clamps in red alert!
 			if(!defib)
 				to_chat(user, span_warning("Не могу заблокировать крепления дефибриллятора когда его самого нет."))
 				return

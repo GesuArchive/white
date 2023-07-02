@@ -15,9 +15,9 @@
 	desc = "<i>\"In case of emergency, please use the stairs.\"</i> Thus, always use the stairs."
 	density = FALSE
 
-	icon = 'icons/obj/airlock_machines.dmi'
-	icon_state = "airlock_control_standby"
-	base_icon_state = "airlock_control"
+	icon = 'icons/obj/stationobjs.dmi'
+	icon_state = "elevpanel0"
+	base_icon_state = "elevpanel"
 
 	power_channel = AREA_USAGE_ENVIRON
 	// Indestructible until someone wants to make these constructible, with all the chaos that implies
@@ -38,12 +38,18 @@
 	/// If you want to override what each floor is named as, you can do so with this list.
 	/// Make this an assoc list of "z level you want to rename" to "desired name".
 	/// So, if you want the z-level 2 destination to be named "Cargo", you would do list("2" = "Cargo").
+	/// (Reminder: Z1 gets loaded as Central Command, so your map's bottom Z will be Z2!)
 	var/list/preset_destination_names
 
 	/// What z-level did we move to last? Used for showing the user in the UI which direction we're moving.
 	var/last_move_target
 	/// TimerID to our door reset timer, made by emergency opening doors
 	var/door_reset_timerid
+	/// The light mask overlay we use
+	light_power = 0.5 // Minimums, we want the button to glow if it has a mask, not light an area
+	light_range = 1.5
+	light_color = LIGHT_COLOR_DARK_BLUE
+	var/light_mask = "elev-light-mask"
 
 /obj/machinery/elevator_control_panel/Initialize(mapload)
 	. = ..()
@@ -64,12 +70,7 @@
 		return
 
 	// And non-mapload panels link in Initialize
-	var/datum/lift_master/lift = get_associated_lift()
-	if(!lift)
-		return
-
-	lift_weakref = WEAKREF(lift)
-	populate_destinations_list(lift)
+	link_with_lift(log_error = FALSE)
 
 /obj/machinery/elevator_control_panel/LateInitialize()
 	. = ..()
@@ -79,17 +80,27 @@
 
 	// This is exclusively for linking in mapload, just to ensure all elevator parts are created,
 	// and also so we can throw mapping errors to let people know if they messed up setup.
+	link_with_lift(log_error = TRUE)
+
+/// Link with associated lift objects, only log failure to find a lift in LateInit because those are mapped in
+/obj/machinery/elevator_control_panel/proc/link_with_lift(log_error = FALSE)
 	var/datum/lift_master/lift = get_associated_lift()
 	if(!lift)
-		log_mapping("Elevator control panel at [AREACOORD(src)] found no associated lift to link with, this may be a mapping error.")
+		if (log_error)
+			log_mapping("Elevator control panel at [AREACOORD(src)] found no associated lift to link with, this may be a mapping error.")
 		return
 
 	lift_weakref = WEAKREF(lift)
 	populate_destinations_list(lift)
+	if ((linked_elevator_id in GLOB.elevator_music))
+		var/obj/effect/abstract/elevator_music_zone/music = GLOB.elevator_music[linked_elevator_id]
+		music.link_to_panel(src)
 
 /obj/machinery/elevator_control_panel/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
 		return
+
+	obj_flags |= EMAGGED
 
 	var/datum/lift_master/lift = lift_weakref?.resolve()
 	if(!lift)
@@ -100,9 +111,17 @@
 		lift_platform.warns_on_down_movement = FALSE
 		lift_platform.elevator_vertical_speed = initial(lift_platform.elevator_vertical_speed) * 0.5
 
+	for(var/obj/machinery/door/elevator_door as anything in GLOB.elevator_doors)
+		if(elevator_door.elevator_linked_id != linked_elevator_id)
+			continue
+		if(elevator_door.obj_flags & EMAGGED)
+			continue
+		elevator_door.elevator_status = LIFT_PLATFORM_UNLOCKED
+		INVOKE_ASYNC(elevator_door, TYPE_PROC_REF(/obj/machinery/door, open))
+		elevator_door.obj_flags |= EMAGGED
+
 	playsound(src, SFX_SPARKS, 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	balloon_alert(user, "safeties overridden")
-	obj_flags |= EMAGGED
 
 /obj/machinery/elevator_control_panel/multitool_act(mob/living/user)
 	var/datum/lift_master/lift = lift_weakref?.resolve()
@@ -124,6 +143,14 @@
 			lift_platform.violent_landing = initial(lift_platform.violent_landing)
 			lift_platform.warns_on_down_movement = initial(lift_platform.warns_on_down_movement)
 			lift_platform.elevator_vertical_speed = initial(lift_platform.elevator_vertical_speed)
+
+		for(var/obj/machinery/door/elevator_door as anything in GLOB.elevator_doors)
+			if(elevator_door.elevator_linked_id != linked_elevator_id)
+				continue
+			if(!(elevator_door.obj_flags & EMAGGED))
+				continue
+			elevator_door.obj_flags &= ~EMAGGED
+			INVOKE_ASYNC(elevator_door, TYPE_PROC_REF(/obj/machinery/door, close))
 
 		obj_flags &= ~EMAGGED
 
@@ -245,8 +272,8 @@
 /obj/machinery/elevator_control_panel/ui_data(mob/user)
 	var/list/data = list()
 
-	data["emergency_level"] = capitalize(get_security_level())
-	data["is_emergency"] = SSsecurity_level.current_level >= SEC_LEVEL_RED
+	data["emergency_level"] = capitalize(SSsecurity_level.get_current_level_as_text())
+	data["is_emergency"] = SSsecurity_level.get_current_level_as_number() >= SEC_LEVEL_RED
 	data["doors_open"] = !!door_reset_timerid
 
 	var/datum/lift_master/lift = lift_weakref?.resolve()
@@ -309,7 +336,7 @@
 
 			// The emergency door button is only available at red alert or higher.
 			// This is so people don't keep it in emergency mode 100% of the time.
-			if(SSsecurity_level.current_level < SEC_LEVEL_RED)
+			if(SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_RED)
 				return TRUE // The security level might have been lowered since last update, so update UI
 
 			// Open all lift doors, it's an emergency dang it!
@@ -358,4 +385,12 @@
 
 	door_reset_timerid = null
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/elevator_control_panel, 30)
+/obj/machinery/elevator_control_panel/update_overlays()
+	. = ..()
+	if(!light_mask)
+		return
+
+	if(!(machine_stat & (NOPOWER|BROKEN)) && !panel_open)
+		. += emissive_appearance(icon, light_mask, src, alpha = alpha)
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/elevator_control_panel, 31)

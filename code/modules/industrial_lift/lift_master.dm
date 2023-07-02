@@ -389,6 +389,8 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 
 	// Lock controls, to prevent moving-while-moving memes
 	set_controls(LIFT_PLATFORM_LOCKED)
+	// Send out a signal that we're going
+	SEND_SIGNAL(src, COMSIG_LIFT_SET_DIRECTION, direction)
 	// Close all lift doors
 	update_lift_doors(action = CLOSE_DOORS)
 
@@ -409,8 +411,15 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 		user = user,
 	)
 
-	addtimer(CALLBACK(src, PROC_REF(set_controls), LIFT_PLATFORM_UNLOCKED), lift_move_duration * 1.5)
+	addtimer(CALLBACK(src, PROC_REF(finish_simple_move_wrapper)), lift_move_duration * 1.5)
 	return TRUE
+
+/**
+ * Wrap everything up from simple_move_wrapper finishing its movement
+ */
+/datum/lift_master/proc/finish_simple_move_wrapper()
+	SEND_SIGNAL(src, COMSIG_LIFT_SET_DIRECTION, 0)
+	set_controls(LIFT_PLATFORM_UNLOCKED)
 
 /**
  * Moves the lift to the passed z-level.
@@ -447,6 +456,8 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 
 	// Okay we're ready to start moving now.
 	set_controls(LIFT_PLATFORM_LOCKED)
+	// Send out a signal that we're going
+	SEND_SIGNAL(src, COMSIG_LIFT_SET_DIRECTION, direction)
 	var/travel_speed = prime_lift.elevator_vertical_speed
 
 	// Close all lift doors
@@ -469,6 +480,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 			return
 
 	addtimer(CALLBACK(src, PROC_REF(open_lift_doors_callback)), 2 SECONDS)
+	SEND_SIGNAL(src, COMSIG_LIFT_SET_DIRECTION, 0)
 	set_controls(LIFT_PLATFORM_UNLOCKED)
 	return TRUE
 
@@ -485,25 +497,23 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 		on_z_level = list(on_z_level)
 
 	var/played_ding = FALSE
-	for(var/obj/machinery/door/poddoor/elevator_door in GLOB.machines)
-		if(elevator_door.id != specific_lift_id)
+	for(var/obj/machinery/door/elevator_door as anything in GLOB.elevator_doors)
+		if(elevator_door.elevator_linked_id != specific_lift_id)
 			continue
 		if(on_z_level && !(elevator_door.z in on_z_level))
 			continue
-
 		switch(action)
 			if(OPEN_DOORS)
-				INVOKE_ASYNC(elevator_door, TYPE_PROC_REF(/obj/machinery/door/poddoor, open))
-
+				elevator_door.elevator_status = LIFT_PLATFORM_UNLOCKED
+				if(!played_ding)
+					playsound(elevator_door, 'sound/machines/ping.ogg', 50, TRUE)
+					played_ding = TRUE
+				addtimer(CALLBACK(elevator_door, TYPE_PROC_REF(/obj/machinery/door, open)), 0.7 SECONDS)
 			if(CLOSE_DOORS)
-				INVOKE_ASYNC(elevator_door, TYPE_PROC_REF(/obj/machinery/door/poddoor, close))
-
+				elevator_door.elevator_status = LIFT_PLATFORM_LOCKED
+				INVOKE_ASYNC(elevator_door, TYPE_PROC_REF(/obj/machinery/door, close))
 			else
 				stack_trace("Elevator lift update_lift_doors called with an improper action ([action]).")
-
-		if(!played_ding)
-			playsound(elevator_door, 'sound/machines/ding.ogg', 50, TRUE)
-			played_ding = TRUE
 
 /// Helper used in callbacks to open all the doors our lift is on
 /datum/lift_master/proc/open_lift_doors_callback()

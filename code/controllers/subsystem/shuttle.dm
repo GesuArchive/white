@@ -251,14 +251,13 @@ SUBSYSTEM_DEF(shuttle)
 
 	call_reason = trim(html_encode(call_reason))
 
-	if(length(call_reason) < CALL_SHUTTLE_REASON_LENGTH && seclevel2num(get_security_level()) > SEC_LEVEL_GREEN)
+	if(length(call_reason) < CALL_SHUTTLE_REASON_LENGTH && SSsecurity_level.get_current_level_as_number() > SEC_LEVEL_GREEN)
 		to_chat(user, span_alert("You must provide a reason."))
 		return
 
 	var/area/signal_origin = get_area(user)
 	var/emergency_reason = "\nПричина:\n\n[call_reason]"
-	var/security_num = seclevel2num(get_security_level())
-	switch(security_num)
+	switch(SSsecurity_level.get_current_level_as_number())
 		if(SEC_LEVEL_RED,SEC_LEVEL_DELTA)
 			emergency.request(null, signal_origin, html_decode(emergency_reason), 1) //There is a serious threat we gotta move no time to give them five minutes.
 		else
@@ -279,10 +278,10 @@ SUBSYSTEM_DEF(shuttle)
 	if(call_reason)
 		SSblackbox.record_feedback("text", "shuttle_reason", 1, "[call_reason]")
 		log_shuttle("Shuttle call reason: [call_reason]")
-		webhook_send_roundstatus("shuttle called", list("reason" = call_reason, "seclevel" = get_security_level()))
+		webhook_send_roundstatus("shuttle called", list("reason" = call_reason, "seclevel" = SSsecurity_level.get_current_level_as_text()))
 		SSticker.emergency_reason = call_reason
 	else
-		webhook_send_roundstatus("shuttle called", list("reason" = "none", "seclevel" = get_security_level()))
+		webhook_send_roundstatus("shuttle called", list("reason" = "none", "seclevel" = SSsecurity_level.get_current_level_as_text()))
 	message_admins("[ADMIN_LOOKUPFLW(user)] has called the shuttle. (<A HREF='?_src_=holder;[HrefToken()];trigger_centcom_recall=1'>TRIGGER CENTCOM RECALL</A>)")
 
 /datum/controller/subsystem/shuttle/proc/centcom_recall(old_timer, admiral_message)
@@ -325,8 +324,7 @@ SUBSYSTEM_DEF(shuttle)
 /datum/controller/subsystem/shuttle/proc/canRecall()
 	if(!emergency || emergency.mode != SHUTTLE_CALL || adminEmergencyNoRecall || emergencyNoRecall || SSticker.mode.name == "meteor")
 		return
-	var/security_num = seclevel2num(get_security_level())
-	switch(security_num)
+	switch(SSsecurity_level.get_current_level_as_number())
 		if(SEC_LEVEL_GREEN)
 			if(emergency.timeLeft(1) < emergencyCallTime)
 				return

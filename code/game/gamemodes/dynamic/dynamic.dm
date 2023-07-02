@@ -343,7 +343,7 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 		priority_announce("Благодаря неустанным усилиям наших подразделений безопасности и разведки, в настоящее время нет никаких реальных угроз для [station_name()]. Все проекты строительства на станции были утверждены. Удачной смены!", "Отчёт отдела безопасности", SSstation.announcer.get_rand_report_sound())
 	else
 		priority_announce("Сводная информация была скопирована и распечатана на всех коммуникационных консолях.", "Вражеская связь перехвачена. Уровень безопасности повышен.", ANNOUNCER_INTERCEPT)
-		if(SSsecurity_level.current_level < SEC_LEVEL_BLUE)
+		if(SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_BLUE)
 			SSsecurity_level.set_level(SEC_LEVEL_BLUE)
 
 // Yes, this is copy pasted from game_mode

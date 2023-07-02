@@ -318,8 +318,7 @@
 
 /obj/docking_port/mobile/emergency/request(obj/docking_port/stationary/S, area/signalOrigin, reason, redAlert, set_coefficient=null)
 	if(!isnum(set_coefficient))
-		var/security_num = seclevel2num(get_security_level())
-		switch(security_num)
+		switch(SSsecurity_level.get_current_level_as_number())
 			if(SEC_LEVEL_GREEN)
 				set_coefficient = 2
 			if(SEC_LEVEL_BLUE)
@@ -583,7 +582,7 @@
 	var/obj/machinery/computer/shuttle_flight/C = getControlConsole()
 	if(!istype(C, /obj/machinery/computer/shuttle_flight/pod) || !istype(S, /obj/docking_port/stationary/transit))
 		return ..()
-	if(SSsecurity_level.current_level >= SEC_LEVEL_RED || (C && (C.obj_flags & EMAGGED)))
+	if(SSsecurity_level.get_current_level_as_number() >= SEC_LEVEL_RED || (C && (C.obj_flags & EMAGGED)))
 		if(launch_status == UNLAUNCHED)
 			launch_status = EARLY_LAUNCHED
 			return ..()
@@ -606,7 +605,7 @@
 	AddElement(/datum/element/update_icon_blocker)
 
 /obj/machinery/computer/shuttle_flight/pod/ui_interact(mob/user, datum/tgui/ui)
-	if(isliving(user) && SSsecurity_level.current_level < SEC_LEVEL_RED && !(obj_flags & EMAGGED))
+	if(isliving(user) && SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_RED && !(obj_flags & EMAGGED))
 		say("Управление заблокировано: аварийный доступ к спасательному челноку возможен только при уровне \"Красной\" тревоги или выше")
 		return
 	. = ..()
@@ -740,7 +739,7 @@ GLOBAL_LIST_EMPTY(emergency_storages)
 /obj/item/storage/pod/can_interact(mob/user)
 	if(!..())
 		return FALSE
-	if(SSsecurity_level.current_level >= SEC_LEVEL_RED || unlocked)
+	if(SSsecurity_level.get_current_level_as_number() >= SEC_LEVEL_RED || unlocked)
 		return TRUE
 	to_chat(user, "Блок хранения разблокируется только во время предупреждения системы безопасности Красного или Дельта кода.")
 

@@ -96,19 +96,19 @@
 /obj/effect/landmark/tram/caves/upper
 	name = "Delta Outpost Mining Dock"
 	specific_lift_id = "caves 1st floor tram"
-	destination_id = "caves_upper"
+	platform_code = "caves_upper"
 	tgui_icons = list("Arrivals" = "plane-arrival")
 
 /obj/effect/landmark/tram/caves/middle
 	name = "Delta Outpost Storage & Robotics"
 	specific_lift_id = "caves 1st floor tram"
-	destination_id = "caves_middle"
+	platform_code = "caves_middle"
 	tgui_icons = list("Arrivals" = "plane-arrival")
 
 /obj/effect/landmark/tram/caves/lower
 	name = "Delta Outpost Research Division"
 	specific_lift_id = "caves 1st floor tram"
-	destination_id = "caves_lower"
+	platform_code = "caves_lower"
 	tgui_icons = list("Arrivals" = "plane-arrival")
 
 //Mech used by the clockwork miners

@@ -129,7 +129,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	else if(!victory_in_progress && (blobs_legit.len >= blobwincount))
 		victory_in_progress = TRUE
 		priority_announce("Угроза достигла критической массы. Потеря станции неизбежна.", "Биологическая тревога")
-		set_security_level("delta")
+		SSsecurity_level.set_level("delta")
 		max_blob_points = INFINITY
 		blob_points = INFINITY
 		addtimer(CALLBACK(src, PROC_REF(victory)), 450)

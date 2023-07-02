@@ -98,12 +98,7 @@
 // Used by PDA's Notekeeper.
 // Used by NewsCaster and NewsPaper.
 // Used by Modular Computers
-#define PEN_FONT "Verdana"
-#define FOUNTAIN_PEN_FONT "Segoe Script"
-#define CRAYON_FONT "Comic Sans MS"
-#define PRINTER_FONT "Times New Roman"
 #define SIGNFONT "Times New Roman"
-#define CHARCOAL_FONT "Candara"
 
 #define RESIZE_DEFAULT_SIZE 1
 
@@ -526,9 +521,6 @@ GLOBAL_LIST_INIT(pda_styles, sort_list(list(MONO, VT, ORBITRON, SHARE)))
 //while using the SKILLCHIP_RESTRICTED_CATEGORIES flag
 #define SKILLCHIP_CATEGORY_GENERAL "general"
 #define SKILLCHIP_CATEGORY_JOB "job"
-
-/// Emoji icon set
-#define EMOJI_SET 'icons/emoji.dmi'
 
 
 #define CABLE_COLOR_BLUE "blue"

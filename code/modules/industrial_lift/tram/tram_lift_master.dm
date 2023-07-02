@@ -6,6 +6,8 @@
 	var/travel_direction = NONE
 	///if we're travelling, how far do we have to go
 	var/travel_distance = 0
+	///how far in total we'll be travelling
+	var/travel_trip_length = 0
 
 	///multiplier on how much damage/force the tram imparts on things it hits
 	var/collision_lethality = 1
@@ -13,7 +15,7 @@
 	/// reference to the destination landmark we consider ourselves "at". since we potentially span multiple z levels we dont actually
 	/// know where on us this platform is. as long as we know THAT its on us we can just move the distance and direction between this
 	/// and the destination landmark.
-	var/obj/effect/landmark/tram/from_where
+	var/obj/effect/landmark/tram/idle_platform
 
 	///decisecond delay between horizontal movement. cannot make the tram move faster than 1 movement per world.tick_lag.
 	///this var is poorly named its actually horizontal movement delay but whatever.
@@ -34,6 +36,8 @@
 
 	///how many times we moved while costing less than 0.5 * SStramprocess.max_time milliseconds per movement
 	var/times_below = 0
+
+	var/is_operational = TRUE
 
 /datum/lift_master/tram/New(obj/structure/industrial_lift/tram/lift_platform)
 	. = ..()
@@ -57,10 +61,10 @@
 		var/obj/effect/landmark/tram/initial_destination = locate() in platform_loc
 
 		if(initial_destination)
-			from_where = initial_destination
+			idle_platform = initial_destination
 
 /datum/lift_master/tram/proc/check_starting_landmark()
-	if(!from_where)
+	if(!idle_platform)
 		CRASH("a tram lift_master was initialized without any tram landmark to give it direction!")
 
 	SStramprocess.can_fire = TRUE
@@ -76,35 +80,56 @@
 /datum/lift_master/tram/proc/gracefully_break(atom/bumped_atom)
 	SIGNAL_HANDLER
 
-	if(istype(bumped_atom, /obj/machinery/field))
-		return
-
 	travel_distance = 0
-
-	bumped_atom.visible_message(span_userdanger("[src] crashes into the field violently!"))
+	bumped_atom.visible_message(span_userdanger("The [bumped_atom.name] crashes into the field violently!"))
 	for(var/obj/structure/industrial_lift/tram/tram_part as anything in lift_platforms)
 		tram_part.set_travelling(FALSE)
-		if(prob(15) || locate(/mob/living) in tram_part.lift_load) //always go boom on people on the track
-			explosion(tram_part, devastation_range = rand(0, 1), heavy_impact_range = 2, light_impact_range = 3) //50% chance of gib
-		qdel(tram_part)
+		for(var/tram_contents in tram_part.lift_load)
+			if(iseffect(tram_contents))
+				continue
+
+			if(isliving(tram_contents))
+				explosion(tram_contents, devastation_range = rand(0, 1), heavy_impact_range = 2, light_impact_range = 3) //50% chance of gib
+
+			else if(prob(9))
+				explosion(tram_contents, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3)
+
+			explosion(tram_part, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3)
+			qdel(tram_part)
+
+		for(var/obj/machinery/destination_sign/desto as anything in GLOB.tram_signs)
+			desto.icon_state = "[desto.base_icon_state][DESTINATION_NOT_IN_SERVICE]"
+
+		for(var/obj/machinery/crossing_signal/xing as anything in GLOB.tram_signals)
+			xing.set_signal_state(XING_STATE_MALF)
+			xing.update_appearance()
 
 /**
  * Handles moving the tram
  *
- * Tells the individual tram parts where to actually go and has an extra safety check
+ * Tells the individual tram parts where to actually go and has an extra safety checks
  * incase multiple inputs get through, preventing conflicting directions and the tram
  * literally ripping itself apart. all of the actual movement is handled by SStramprocess
+ * Arguments: destination platform, rapid (bypass some safety checks)
  */
-/datum/lift_master/tram/proc/tram_travel(obj/effect/landmark/tram/to_where)
-	if(to_where == from_where)
+/datum/lift_master/tram/proc/tram_travel(obj/effect/landmark/tram/destination_platform, rapid = FALSE)
+	if(destination_platform == idle_platform)
 		return
 
-	travel_direction = get_dir(from_where, to_where)
-	travel_distance = get_dist(from_where, to_where)
-	from_where = to_where
+	travel_direction = get_dir(idle_platform, destination_platform)
+	travel_distance = get_dist(idle_platform, destination_platform)
+	travel_trip_length = travel_distance
+	idle_platform = destination_platform
 	set_travelling(TRUE)
 	set_controls(LIFT_PLATFORM_LOCKED)
-	SEND_SIGNAL(src, COMSIG_TRAM_TRAVEL, from_where, to_where)
+	if(rapid) // bypass for unsafe, rapid departure
+		dispatch_tram(destination_platform)
+	else
+		update_tram_doors(CLOSE_DOORS)
+		addtimer(CALLBACK(src, PROC_REF(dispatch_tram), destination_platform), 3 SECONDS)
+
+/datum/lift_master/tram/proc/dispatch_tram(obj/effect/landmark/tram/destination_platform)
+	SEND_SIGNAL(src, COMSIG_TRAM_TRAVEL, idle_platform, destination_platform)
 
 	for(var/obj/structure/industrial_lift/tram/tram_part as anything in lift_platforms) //only thing everyone needs to know is the new location.
 		if(tram_part.travelling) //wee woo wee woo there was a double action queued. damn multi tile structs
@@ -117,9 +142,10 @@
 
 	START_PROCESSING(SStramprocess, src)
 
-/datum/lift_master/tram/process(delta_time)
+/datum/lift_master/tram/process(seconds_per_tick)
 	if(!travel_distance)
-		addtimer(CALLBACK(src, PROC_REF(unlock_controls)), 3 SECONDS)
+		update_tram_doors(OPEN_DOORS)
+		addtimer(CALLBACK(src, PROC_REF(unlock_controls)), 2 SECONDS)
 		return PROCESS_KILL
 	else if(world.time >= next_move)
 		var/start_time = TICK_USAGE
@@ -172,3 +198,24 @@
 
 	travelling = new_travelling
 	SEND_SIGNAL(src, COMSIG_TRAM_SET_TRAVELLING, travelling)
+
+/**
+ * Controls the doors of the tram when it departs and arrives at stations.
+ * The tram doors are in a list of airlocks and we apply the proc on that list.
+ */
+/datum/lift_master/tram/proc/update_tram_doors(action)
+	for(var/obj/machinery/door/window/tram/tram_door in GLOB.airlocks)
+		if(tram_door.associated_lift != specific_lift_id)
+			continue
+		set_door_state(tram_door, action)
+
+/datum/lift_master/tram/proc/set_door_state(tram_door, action)
+	switch(action)
+		if(OPEN_DOORS)
+			INVOKE_ASYNC(tram_door, TYPE_PROC_REF(/obj/machinery/door/window/tram, cycle_doors), action)
+
+		if(CLOSE_DOORS)
+			INVOKE_ASYNC(tram_door, TYPE_PROC_REF(/obj/machinery/door/window/tram, cycle_doors), action)
+
+		else
+			stack_trace("Tram doors update_tram_doors called with an improper action ([action]).")

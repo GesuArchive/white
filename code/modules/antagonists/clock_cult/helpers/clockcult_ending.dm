@@ -1,7 +1,7 @@
 /proc/trigger_clockcult_victory(hostile)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(clockcult_gg)), 700)
 	sleep(50)
-	set_security_level("delta")
+	SSsecurity_level.set_level("delta")
 	priority_announce("Обнаружен огромный всплеск гравитационной энергии, исходящий от нейтронной звезды недалеко от сектора. Было определено, что событие можно выжить с 0% жизни. РАСЧЕТНОЕ ВРЕМЯ, КОГДА ЭНЕРГОИМПУЛЬС ДОЙДЁТ ДО [GLOB.station_name]: 56 СЕКУНД. Успехов и слава NanoTrasen! - Адмирал Телвиг.", "Отделение аномальных материалов Центрального командования", 'sound/misc/bloblarm.ogg')
 	for(var/client/C in GLOB.clients)
 		SEND_SOUND(C, sound('sound/misc/airraid.ogg', 1))

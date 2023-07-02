@@ -738,7 +738,7 @@
 		to_chat(usr, span_warning("Похоже, камень слишком крепок, чтобы его уничтожить. Может быть, я смогу сломать его, когда стану главным шахтёром."))
 
 
-/turf/closed/mineral/strong/gets_drilled(mob/user)
+/turf/closed/mineral/strong/gets_drilled(user, give_exp = FALSE, triggered_by_explosion = FALSE, override_bonus = FALSE)
 	if(!ishuman(user))
 		return // see attackby
 	var/mob/living/carbon/human/H = user

@@ -23,6 +23,7 @@
 	var/rods = 2
 	var/cable = 1
 	var/list/debris = list()
+	opens_with_door_remote = TRUE
 
 /obj/machinery/door/window/Initialize(mapload, set_dir)
 	. = ..()
@@ -89,6 +90,9 @@
 			var/obj/vehicle/sealed/mecha/mecha = AM
 			for(var/O in mecha.occupants)
 				var/mob/living/occupant = O
+				if(elevator_mode && elevator_status == LIFT_PLATFORM_UNLOCKED)
+					open()
+					return
 				if(allowed(occupant))
 					open_and_close()
 					return
@@ -104,14 +108,20 @@
 /obj/machinery/door/window/bumpopen(mob/user)
 	if(operating || !density)
 		return
+
 	add_fingerprint(user)
 	if(!requiresID())
 		user = null
 
-	if(allowed(user))
+	if(elevator_mode && elevator_status == LIFT_PLATFORM_UNLOCKED)
+		open()
+
+	else if(allowed(user))
 		open_and_close()
+
 	else
 		do_animate("deny")
+
 	return
 
 /obj/machinery/door/window/CanAllowThrough(atom/movable/mover, border_dir)
