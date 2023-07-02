@@ -5111,7 +5111,6 @@
 #include "interface\interface.dm"
 #include "interface\menu.dm"
 #include "interface\stylesheet.dm"
-#include "interface\fonts\6x9.dm"
 #include "interface\fonts\fonts_datum.dm"
 #include "interface\fonts\grand_9k.dm"
 #include "interface\fonts\tiny_unicode.dm"
