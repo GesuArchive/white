@@ -72,7 +72,7 @@
 			if(YOHEI_MISSION_COMPLETED)
 				internal_radio.talk_into(src, "Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...", FREQ_YOHEI)
 				for(var/mob/living/carbon/human/H in action_guys)
-					inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
+					///inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
 					SEND_SIGNAL(H, COMSIG_CLEAR_MOOD_EVENT, "killed_innocent") //И скольких жизней это стоило?
 					var/obj/item/card/id/cardid = H.get_idcard(FALSE)
 					cardid?.registered_account?.adjust_money(rand(5000, 10000))
@@ -117,7 +117,7 @@
 	switch(tgui_alert(user, "Ты правда хочешь сменить эту задачу? За это будет наложен штраф!", "Сменить задачу", list("Да", "Нет")))
 		if("Да")
 			internal_radio.talk_into(src, "Задание отменено [skloname(user.real_name, TVORITELNI, user.gender)]. На подтвердившего отмену наложен штраф. Получение следующего задания...", FREQ_YOHEI)
-			inc_metabalance(user, rand(-15, -5), reason = "Отмена задания.")
+			//inc_metabalance(user, rand(-15, -5), reason = "Отмена задания.")
 			QDEL_NULL(current_task)
 			return
 		if("Нет")
@@ -131,7 +131,7 @@
 			return ..()
 		P.charge_left = 50
 		P.update_icon()
-		inc_metabalance(user, -10, reason = "Небольшая жертва.")
+		//inc_metabalance(user, -10, reason = "Небольшая жертва.")
 		say("Полевой автоматический медицинский комплект был заряжен на половину от максимальной емкости. Приятной работы.")
 	else
 		return ..()
