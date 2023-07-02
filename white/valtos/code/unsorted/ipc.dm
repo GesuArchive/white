@@ -57,12 +57,12 @@
 	..()
 
 /datum/species/ipc/military
-	name = "Military IPC"
+	name = "Corrupted IPC"
 	id = "military_synth"
-	armor = 25
-	punchdamagelow = 10
-	punchdamagehigh = 19
-	punchstunthreshold = 14 //about 50% chance to stun
+	armor = -25
+	punchdamagelow = 2
+	punchdamagehigh = 1
+	punchstunthreshold = 0 //about 0% chance to stun
 	disguise_fail_health = 50
 	changesource_flags = MIRROR_BADMIN | WABBAJACK
 
