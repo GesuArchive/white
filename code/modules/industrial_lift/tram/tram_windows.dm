@@ -4,8 +4,8 @@
 	icon = 'icons/obj/smooth_structures/tram_window.dmi'
 	icon_state = "tram_mid"
 	smoothing_flags = SMOOTH_BITMASK
-	canSmoothWith = SMOOTH_GROUP_WINDOW_DIRECTIONAL_TRAM
-	smoothing_groups = SMOOTH_GROUP_WINDOW_DIRECTIONAL_TRAM
+	canSmoothWith = list(SMOOTH_GROUP_WINDOW_DIRECTIONAL_TRAM)
+	smoothing_groups = list(SMOOTH_GROUP_WINDOW_DIRECTIONAL_TRAM)
 	reinf = TRUE
 	heat_resistance = 1600
 	armor = list(MELEE = 50, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 80, ACID = 50)
@@ -55,7 +55,7 @@
 	fulltile = TRUE
 	smoothing_flags = NONE
 	canSmoothWith = null
-	smoothing_groups = SMOOTH_GROUP_WINDOW_DIRECTIONAL_TRAM
+	smoothing_groups = list(SMOOTH_GROUP_WINDOW_DIRECTIONAL_TRAM)
 	flags_1 = PREVENT_CLICK_UNDER_1
 	explosion_block = 3
 	glass_amount = 2
