@@ -23,13 +23,12 @@
 	vis_flags = VIS_INHERIT_ID	//when this be added to vis_contents of something it be associated with something on clicking, important for visualisation of turf in openspace and interraction with openspace that show you turf.
 
 	force_no_gravity = TRUE
-
+/*
 /turf/open/space/basic/New() //Do not convert to Initialize
 	SHOULD_CALL_PARENT(FALSE)
 	//This is used to optimize the map loader
-	flags_1 |= INITIALIZED_1 // should have this flag in some dumb cases
 	return
-
+*/
 /**
  * Space Initialize
  *
