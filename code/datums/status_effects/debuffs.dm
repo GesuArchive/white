@@ -1487,7 +1487,6 @@
 /datum/status_effect/incapacitating/headrape/proc/update_rape_filters(time = 4 SECONDS)
 	for(var/filter_name in filters_handled)
 		var/list/filter_params = filters_handled[filter_name].Copy()
-		filter_params -= "type"
 		filter_params -= "render_source"
 		filter_plate.transition_filter(filter_name, time, filter_params, LINEAR_EASING, FALSE)
 

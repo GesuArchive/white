@@ -30,7 +30,7 @@
 	var/postfix = "[sobject][saddition][hp]"
 
 	var/message = "[what_done] [starget][postfix]"
-	user.log_message(message, LOG_ATTACK, color="red")
+	user?.log_message(message, LOG_ATTACK, color="red")
 
 	if(user != target)
 		var/reverse_message = "was [what_done] by [ssource][postfix]"

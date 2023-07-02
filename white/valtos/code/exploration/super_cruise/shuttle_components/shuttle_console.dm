@@ -389,7 +389,7 @@
 			//Special check
 			if(params["port"] == "custom_location")
 				//Open up internal docking computer if any location is allowed.
-				if(shuttleObject.docking_target.can_dock_anywhere)
+				if(shuttleObject?.docking_target?.can_dock_anywhere)
 					var/obj/docking_port/mobile/mobile_port = SSshuttle.getShuttle(shuttleId)
 					if(!mobile_port)
 						say("Не обнаружен шаттл.")
@@ -405,7 +405,7 @@
 					eyeobj.forceMove(locate(world.maxx * 0.5, world.maxy * 0.5, shuttleObject.docking_target.linked_z_level[1].z_value))
 					return
 				//If random dropping is allowed, random drop.
-				if(shuttleObject.docking_target.random_docking)
+				if(shuttleObject?.docking_target?.random_docking)
 					shuttleObject.random_drop()
 					return
 				//Report exploit
@@ -420,7 +420,7 @@
 	if(check_banned_contents())
 		say("ВНИМАНИЕ! На борту обнаружен ксенопаразит! Активирован протокол сдерживания! В случае заражения экипажа вколите пострадавшему антипаразитный препарат из чрезвычайного хранилища!")
 		return
-	if(!shuttle_data.check_can_launch())
+	if(shuttle_data && !shuttle_data.check_can_launch())
 		say("Недостаточная сила двигателей для запуска.")
 		shuttle_data.recalculate_stats()
 		return

@@ -14,7 +14,7 @@
 			for(var/R in roles)
 				if(R in C.ban_cache)
 					return TRUE //they're banned from at least one role, no need to keep checking
-		else if(roles in C.ban_cache)
+		else if(roles in C?.ban_cache)
 			return TRUE
 
 		if(ROLE_OPERATIVE in roles) //:flushed:
