@@ -6,7 +6,11 @@ GLOBAL_LIST_INIT(tts_lowfreq, list(
 	"kseniya",
 	"xenia",
 	"eugene",
-	"mykyta"
+	"mykyta",
+	"briman_vits",
+	"alyx_vits",
+	"kleiner_vits",
+	"father grigori_vits"
 ))
 
 GLOBAL_LIST_INIT(tts_voices, list(
