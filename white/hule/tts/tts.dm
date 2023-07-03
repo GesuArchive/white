@@ -34,7 +34,11 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"neco" = "Аниме: Неко",
 	"gman" = "HL2: G-Man",
 	"obama" = "Разное: Обама",
-	"trump" = "Разное: Трамп"
+	"trump" = "Разное: Трамп",
+	"briman_vits" = "VITS HL2: Уоллес Брин",
+	"alyx_vits" = "VITS HL2: Аликс Вэнс",
+	"kleiner_vits" = "VITS HL2: Айзек Кляйнер",
+	"father grigori_vits" = "VITS HL2: Отец Григорий"
 ))
 
 /proc/open_sound_channel_for_tts()
