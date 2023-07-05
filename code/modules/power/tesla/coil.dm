@@ -96,9 +96,9 @@
 	if(zap_flags & ZAP_LOW_POWER_GEN)
 		power /= 10
 	zap_buckle_check(power)
-	var/power_removed = powernet ? power * input_power_multiplier : power
-	power += max(ZAP_TO_ENERGY(power_removed - TESLA_COIL_THRESHOLD), 0)
-	return max(power - power_removed, 0) //You get back the amount we didn't use
+	var/power_produced = powernet ? power / power_loss : power
+	add_avail(power_produced * input_power_multiplier)
+	return max(power - power_produced, 0) //You get back the amount we didn't use
 
 /obj/machinery/power/tesla_coil/proc/zap()
 	if((last_zap + zap_cooldown) > world.time || !powernet)

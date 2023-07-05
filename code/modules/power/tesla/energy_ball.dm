@@ -1,5 +1,5 @@
-#define TESLA_DEFAULT_POWER 1738260
-#define TESLA_MINI_POWER 869130
+#define TESLA_DEFAULT_POWER 2172825
+#define TESLA_MINI_POWER 1086412
 //Zap constants, speeds up targeting
 #define BIKE (COIL + 1)
 #define COIL (ROD + 1)
@@ -83,7 +83,7 @@
 		pixel_y = 0
 		shocked_things.Cut(1, shocked_things.len / 1.3)
 		var/list/shocking_info = list()
-		tesla_zap(src, 3, TESLA_DEFAULT_POWER, shocked_targets = shocking_info)
+		tesla_zap(src, 7, TESLA_DEFAULT_POWER, zap_flags = ZAP_TESLA_FLAGS, shocked_targets = shocking_info)
 
 		pixel_x = -32
 		pixel_y = -32
@@ -91,7 +91,7 @@
 			var/range = rand(1, clamp(orbiting_balls.len, 2, 3))
 			var/list/temp_shock = list()
 			//We zap off the main ball instead of ourselves to make things looks proper
-			tesla_zap(src, range, TESLA_MINI_POWER/7*range, shocked_targets = temp_shock)
+			tesla_zap(src, range, TESLA_MINI_POWER/7*range, zap_flags = ZAP_TESLA_FLAGS, shocked_targets = temp_shock)
 			shocking_info += temp_shock
 		shocked_things += shocking_info
 
@@ -121,12 +121,12 @@
 	if (!to_move)
 		return FALSE
 
-	GLOB.is_engine_sabotaged = TRUE
-
 	for (var/_thing in to_move)
 		var/atom/thing = _thing
 		if (SEND_SIGNAL(thing, COMSIG_ATOM_SINGULARITY_TRY_MOVE) & SINGULARITY_TRY_MOVE_BLOCK)
 			return FALSE
+
+	GLOB.is_engine_sabotaged = TRUE
 
 	return TRUE
 

@@ -39,6 +39,9 @@
 		else if(istype(A, /obj/machinery/the_singularitygen))
 			var/obj/machinery/the_singularitygen/S = A
 			S.energy += energy
+		else if(istype(A, /obj/energy_ball))
+			var/obj/energy_ball/S = A
+			S.energy += energy
 		else if(istype(A, /obj/singularity))
 			var/obj/singularity/S = A
 			S.energy += energy
