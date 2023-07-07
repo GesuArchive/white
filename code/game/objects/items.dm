@@ -463,6 +463,9 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 	. = TRUE
 
+	if(user in contents)
+		return
+
 	if(resistance_flags & ON_FIRE)
 		var/mob/living/carbon/C = user
 		var/can_handle_hot = FALSE

@@ -151,6 +151,9 @@
 	if(contents.len >= mob_storage_capacity / 2)
 		to_chat(usr, span_warning("Внутри [src] слишком много вещей, чтобы сложить его!"))
 		return
+	if(the_folder in src)
+		to_chat(usr, span_warning("А как?")  )
+		return
 	for(var/obj/item/bodybag/bluespace/B in src)
 		to_chat(usr, span_warning("Вы не можете складывать блюспейс мешки для трупов друг в друга")  )
 		return
