@@ -96,6 +96,10 @@
 	RegisterSignal(src, COMSIG_SWOOP_INVULNERABILITY_STARTED, PROC_REF(swoop_invulnerability_started))
 	RegisterSignal(src, COMSIG_LAVA_ARENA_FAILED, PROC_REF(on_arena_fail))
 
+/mob/living/simple_animal/hostile/megafauna/dragon/set_name()
+	name = pick(GLOB.dragon_names)
+	real_name = name
+
 /mob/living/simple_animal/hostile/megafauna/dragon/Destroy()
 	QDEL_NULL(fire_cone)
 	QDEL_NULL(meteors)

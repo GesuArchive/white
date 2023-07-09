@@ -26,6 +26,7 @@ GLOBAL_LIST_INIT(posibrain_names, world.file2list("strings/names/posibrain.txt")
 GLOBAL_LIST_INIT(nightmare_names, world.file2list("strings/names/nightmare.txt"))
 GLOBAL_LIST_INIT(megacarp_first_names, world.file2list("strings/names/megacarp1.txt"))
 GLOBAL_LIST_INIT(megacarp_last_names, world.file2list("strings/names/megacarp2.txt"))
+GLOBAL_LIST_INIT(dragon_names, world.file2list("strings/names/dragon.txt"))
 
 GLOBAL_LIST_INIT(last_names_slavic, world.file2list("strings/names/last_slav.txt")) // surnames for sobr/omon
 
