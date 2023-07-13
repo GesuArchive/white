@@ -205,7 +205,7 @@
 /obj/structure/window/reinforced/survival_pod{
 	dir = 1
 	},
-/obj/structure/shuttle/engine/propulsion/in_wall/tram{
+/obj/structure/shuttle/engine/propulsion{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -922,7 +922,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced/survival_pod,
-/obj/structure/shuttle/engine/propulsion/in_wall/tram{
+/obj/structure/shuttle/engine/propulsion{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -1526,7 +1526,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced/survival_pod,
-/obj/structure/shuttle/engine/propulsion/in_wall/tram{
+/obj/structure/shuttle/engine/propulsion{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -2196,7 +2196,7 @@
 /obj/structure/window/reinforced/survival_pod{
 	dir = 1
 	},
-/obj/structure/shuttle/engine/propulsion/in_wall/tram{
+/obj/structure/shuttle/engine/propulsion{
 	dir = 8;
 	pixel_x = -32
 	},

@@ -3136,11 +3136,11 @@
 	icon_state = "plating"
 	},
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 1
 	},
-/obj/structure/window/reinforced/shuttle/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram,
+/obj/structure/window/reinforced/tram{
 	dir = 8
 	},
 /turf/open/openspace,
@@ -4252,14 +4252,14 @@
 	icon_state = "plating"
 	},
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram,
+/obj/structure/window/reinforced/tram{
 	dir = 1
 	},
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 4
 	},
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 8
 	},
 /turf/open/openspace,
@@ -7458,11 +7458,11 @@
 	icon_state = "plating"
 	},
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 1
 	},
-/obj/structure/window/reinforced/shuttle/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram,
+/obj/structure/window/reinforced/tram{
 	dir = 4
 	},
 /turf/open/openspace,
@@ -9386,8 +9386,8 @@
 	dir = 2;
 	dwidth = 11;
 	height = 22;
-	name = "SS13: Auxiliary Dock, Station-Port";
 	id = "whiteship_home";
+	name = "SS13: Auxiliary Dock, Station-Port";
 	width = 35
 	},
 /turf/open/space/openspace,
@@ -10422,13 +10422,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/cargo/storage)
-"dFz" = (
-/obj/structure/industrial_lift/tram{
-	icon_state = "titanium_white"
-	},
-/obj/machinery/door/window/right/tram,
-/turf/open/openspace,
-/area/hallway/primary/tram/center)
 "dFG" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 4
@@ -14523,11 +14516,11 @@
 	pixel_x = 20
 	},
 /obj/machinery/door/window{
-	obj_integrity = 300;
 	base_state = "rightsecure";
 	dir = 1;
 	icon_state = "rightsecure";
 	name = "Primary AI Core Access";
+	obj_integrity = 300;
 	req_access = list("ai_upload")
 	},
 /obj/structure/cable,
@@ -14750,11 +14743,11 @@
 	icon_state = "plating"
 	},
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram,
+/obj/structure/window/reinforced/tram{
 	dir = 1
 	},
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 4
 	},
 /turf/open/openspace,
@@ -16384,6 +16377,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/security/brig)
+"fQC" = (
+/obj/structure/industrial_lift/tram{
+	icon_state = "titanium_white"
+	},
+/obj/machinery/door/window/tram/right/directional/north,
+/turf/open/openspace,
+/area/hallway/primary/tram/center)
 "fQK" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
@@ -17492,9 +17492,9 @@
 /obj/docking_port/stationary{
 	dwidth = 2;
 	height = 5;
+	id = "laborcamp_home";
 	name = "fore bay 1";
 	roundstart_template = /datum/map_template/shuttle/labour/box;
-	id = "laborcamp_home";
 	width = 9
 	},
 /turf/open/floor/plating/asteroid/airless,
@@ -21563,9 +21563,9 @@
 	dir = 8;
 	dwidth = 3;
 	height = 15;
+	id = "arrivals_stationary";
 	name = "arrivals";
 	roundstart_template = /datum/map_template/shuttle/arrival/box;
-	id = "arrivals_stationary";
 	width = 7
 	},
 /turf/open/space/openspace,
@@ -25216,10 +25216,10 @@
 	dir = 4
 	},
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 4
 	},
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 8
 	},
 /turf/open/floor/vault,
@@ -25728,11 +25728,11 @@
 	icon_state = "plating"
 	},
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram,
+/obj/structure/window/reinforced/tram{
 	dir = 1
 	},
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 8
 	},
 /turf/open/openspace,
@@ -26683,8 +26683,8 @@
 /area/medical/pharmacy)
 "jyM" = (
 /obj/machinery/power/turbine{
-	luminosity = 2;
-	dir = 4
+	dir = 4;
+	luminosity = 2
 	},
 /turf/open/floor/engine,
 /area/maintenance/disposal/incinerator)
@@ -31865,8 +31865,8 @@
 "lpg" = (
 /obj/docking_port/stationary/random{
 	dir = 4;
-	name = "lavaland";
-	id = "pod_lavaland"
+	id = "pod_lavaland";
+	name = "lavaland"
 	},
 /turf/open/floor/plating/asteroid/airless,
 /area/mine/explored)
@@ -32299,8 +32299,8 @@
 "lvO" = (
 /obj/docking_port/stationary/random{
 	dir = 8;
-	name = "lavaland";
-	id = "pod_lavaland"
+	id = "pod_lavaland";
+	name = "lavaland"
 	},
 /turf/open/space/openspace,
 /area/space)
@@ -33940,7 +33940,7 @@
 	icon_state = "plating"
 	},
 /obj/structure/tramwall/titanium,
-/obj/structure/shuttle/engine/propulsion/in_wall/tram{
+/obj/structure/shuttle/engine/propulsion{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -33977,8 +33977,8 @@
 "mbe" = (
 /obj/machinery/camera/motion/directional/south{
 	c_tag = "Secure - AI Lower External North";
-	network = list("ss13","minisat");
-	dir = 10
+	dir = 10;
+	network = list("ss13","minisat")
 	},
 /turf/open/space/basic,
 /area/ai_monitored/turret_protected/aisat/foyer)
@@ -36636,6 +36636,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/security/prison/safe)
+"mQC" = (
+/obj/structure/industrial_lift/tram{
+	icon_state = "titanium_white"
+	},
+/obj/machinery/door/window/tram/left/directional/south,
+/turf/open/openspace,
+/area/hallway/primary/tram/center)
 "mQE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -38094,8 +38101,8 @@
 	dir = 8;
 	dwidth = 2;
 	height = 13;
-	name = "port bay 2";
 	id = "ferry_home";
+	name = "port bay 2";
 	width = 5
 	},
 /turf/open/space/openspace,
@@ -41866,7 +41873,7 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "titanium_white"
 	},
-/obj/machinery/door/window/left/tram,
+/obj/machinery/door/window/tram/left/directional/north,
 /turf/open/openspace,
 /area/hallway/primary/tram/center)
 "oPw" = (
@@ -42227,7 +42234,7 @@
 	icon_state = "plating"
 	},
 /obj/structure/tramwall/titanium,
-/obj/structure/shuttle/engine/propulsion/in_wall/tram{
+/obj/structure/shuttle/engine/propulsion{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -43496,8 +43503,8 @@
 /obj/docking_port/stationary{
 	dwidth = 5;
 	height = 7;
-	name = "Cargo Bay";
 	id = "cargo_home";
+	name = "Cargo Bay";
 	width = 12
 	},
 /turf/open/floor/plating/asteroid/airless,
@@ -48629,10 +48636,10 @@
 	dir = 8
 	},
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 8
 	},
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 4
 	},
 /turf/open/floor/vault,
@@ -49413,8 +49420,8 @@
 "rva" = (
 /obj/machinery/camera/motion/directional/south{
 	c_tag = "Secure - AI Upper External North";
-	network = list("aicore");
-	dir = 1
+	dir = 1;
+	network = list("aicore")
 	},
 /turf/open/floor/engine/hull/reinforced,
 /area/ai_monitored/turret_protected/aisat/hallway)
@@ -52001,10 +52008,10 @@
 	dir = 1
 	},
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 4
 	},
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 8
 	},
 /turf/open/openspace,
@@ -52504,13 +52511,6 @@
 "syv" = (
 /turf/closed/wall/r_wall,
 /area/security/checkpoint/science)
-"syy" = (
-/obj/structure/industrial_lift/tram{
-	icon_state = "titanium_white"
-	},
-/obj/machinery/door/window/left/tram/directional/north,
-/turf/open/openspace,
-/area/hallway/primary/tram/center)
 "syF" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
@@ -52717,14 +52717,14 @@
 	icon_state = "plating"
 	},
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 1
 	},
-/obj/structure/window/reinforced/shuttle/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram,
+/obj/structure/window/reinforced/tram{
 	dir = 4
 	},
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 8
 	},
 /turf/open/openspace,
@@ -52774,10 +52774,10 @@
 	},
 /obj/structure/fluff/tram_rail,
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 8
 	},
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 4
 	},
 /turf/open/openspace,
@@ -61572,8 +61572,8 @@
 	dir = 4;
 	dwidth = 12;
 	height = 18;
-	name = "Tramstation emergency evac bay";
 	id = "emergency_home";
+	name = "Tramstation emergency evac bay";
 	width = 32
 	},
 /turf/open/space/openspace,
@@ -62264,13 +62264,6 @@
 "wbb" = (
 /turf/open/floor/plasteel,
 /area/commons/dorms)
-"wbt" = (
-/obj/structure/industrial_lift/tram{
-	icon_state = "titanium_white"
-	},
-/obj/machinery/door/window/right/tram/directional/north,
-/turf/open/openspace,
-/area/hallway/primary/tram/center)
 "wbx" = (
 /obj/effect/turf_decal/trimline/brown/filled/corner{
 	dir = 1
@@ -66306,10 +66299,10 @@
 	dir = 1
 	},
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 8
 	},
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 4
 	},
 /turf/open/openspace,
@@ -66452,6 +66445,13 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plasteel/tg/white,
 /area/science/lab)
+"xxP" = (
+/obj/structure/industrial_lift/tram{
+	icon_state = "titanium_white"
+	},
+/obj/machinery/door/window/tram/right/directional/south,
+/turf/open/openspace,
+/area/hallway/primary/tram/center)
 "xxR" = (
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -67737,10 +67737,10 @@
 	},
 /obj/structure/fluff/tram_rail,
 /obj/structure/grille/tram,
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 4
 	},
-/obj/structure/window/reinforced/shuttle/tram{
+/obj/structure/window/reinforced/tram{
 	dir = 8
 	},
 /turf/open/openspace,
@@ -165615,11 +165615,11 @@ mlx
 nfD
 dTr
 hmY
-syy
+oPr
 rPU
 sOY
 biX
-oPr
+mQC
 gqS
 lNQ
 vJF
@@ -165872,11 +165872,11 @@ beW
 vrF
 dhw
 vSM
-wbt
+fQC
 rPU
 kld
 biX
-dFz
+xxP
 vIq
 mMY
 eHk
@@ -166386,11 +166386,11 @@ beW
 gKo
 dTr
 jJV
-syy
+oPr
 rPU
 sOY
 biX
-oPr
+mQC
 oCC
 pWt
 buT
@@ -166643,11 +166643,11 @@ gWq
 wMY
 dhw
 uvD
-wbt
+fQC
 rPU
 sOY
 biX
-dFz
+xxP
 mnV
 dvI
 vJF
