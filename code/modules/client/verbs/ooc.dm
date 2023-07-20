@@ -98,15 +98,15 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sran
 						to_chat(C, span_adminobserverooc(span_prefix("[tagmsg]</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]")))
 				else
 					if(GLOB.OOC_COLOR)
-						to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'>[tagmsg]</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span></b></font>")
+						to_chat(C, span_ooc("<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'>[tagmsg]</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span></b></font>"))
 					else
 						to_chat(C, span_ooc(span_prefix("[tagmsg]</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]")))
 
 			else if(!(key in C.prefs.ignoring))
 				if(check_donations(ckey) >= 100)
-					to_chat(C, "<font color='[prefs.ooccolor ? prefs.ooccolor : GLOB.normal_ooc_colour]'><b><span class='prefix'>[tagmsg]</span> <EM>[random_emoji()] [keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
+					to_chat(C, span_ooc("<font color='[prefs.ooccolor ? prefs.ooccolor : GLOB.normal_ooc_colour]'><b><span class='prefix'>[tagmsg]</span> <EM>[random_emoji()] [keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>"))
 				else if(GLOB.OOC_COLOR)
-					to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'>[tagmsg]</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
+					to_chat(C, span_ooc("<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'>[tagmsg]</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>"))
 				else
 					to_chat(C, span_ooc(span_prefix("[tagmsg]</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]")))
 	if(isnewplayer(mob))
