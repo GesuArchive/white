@@ -282,6 +282,13 @@ em {
   font-weight: bold;
 }
 
+.adminooc .prefix, .ooc .prefix, .adminobserverooc .prefix {
+  background: #cca300;
+  padding: 1px 3px;
+  color: #000000;
+  border-radius: 3px;
+}
+
 .ooc {
   color: #cca300;
   font-weight: bold;
@@ -441,9 +448,23 @@ em {
   color: #d82020;
 }
 
+.userdanger::before {
+  content: "!";
+  background: #d82020;
+  color: #000000;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-left: 4px;
+  margin-right: 4px;
+  font-size: 100%;
+  font-weight: bold;
+  border-radius: 3px;
+  animation: udbgfade 5s ease-out;
+}
+
 .userdanger {
   color: #d82020;
-  font-size: 135%;
+  font-size: 125%;
   animation: udfade 5s ease-out;
 }
 
@@ -453,6 +474,15 @@ em {
   }
   to {
     color: #d82020;
+  }
+}
+
+@keyframes udbgfade {
+  from {
+    background: #ff62f2;
+  }
+  to {
+    background: #d82020;
   }
 }
 
