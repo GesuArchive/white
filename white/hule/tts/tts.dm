@@ -17,7 +17,8 @@ GLOBAL_LIST_INIT(tts_lowfreq, list(
 	"mossman",
 	"bandit",
 	"papich_alt",
-	"bebey_alt"
+	"bebey_alt",
+	"glados_alt"
 ))
 
 GLOBAL_LIST_INIT(tts_voices, list(
@@ -30,6 +31,8 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"obama" 	= "Разное: Обама",
 	"trump" 	= "Разное: Трамп",
 	"mykyta" 	= "Разное: Микита",
+	"adolf" 	= "Разное: Адольф",
+	"adolf2" 	= "Разное: Адольф 2",
 
 	"charlotte" = "Медиа: Шарлотта",
 	"bebey" 	= "Медиа: Бэбэй",
@@ -45,6 +48,7 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"adventure_core" = "Portal: Приключенец",
 	"space_core" 	 = "Portal: Космонавт",
 	"fact_core" 	 = "Portal: Фактовик",
+	"glados_alt" 	 = "Portal: Гладос Альт.",
 
 	"sentrybot" = "Fallout: Сентрибот",
 
