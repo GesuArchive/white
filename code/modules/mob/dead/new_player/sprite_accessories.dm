@@ -875,7 +875,7 @@
 	name = "Striped Vertical"
 	icon_state = "striped_vertical"
 
-// white dream hair
+// aleph hair
 
 /datum/sprite_accessory/hair/white
 	icon = 'white/valtos/icons/ohairs.dmi'

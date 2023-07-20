@@ -18,15 +18,12 @@
 			client.crawler_sanity_check()
 
 	var/motd = global.config.motd
-	if(motd && !SSviolence.active)
-		to_chat(src, "<div class=\"motd\">[motd]</div>")
-
 	var/version = global.config.current_version_string
-	if(version && !SSviolence.active)
-		to_chat(src, span_nzcrentr("[version]"))
-
-	if(GLOB.changelog_json && !SSviolence.active)
-		to_chat(src, span_nzcrentr("-- <a href='byond://winset?command=view-changelog'>Список изменений</a> --"))
+	if(!SSviolence.active)
+		if(motd)
+			to_chat(src, "<div class=\"motd\">[motd]</div>")
+		if(version && GLOB.changelog_json)
+			to_chat(src, span_nzcrentr("[version] - <a href='byond://winset?command=view-changelog'>Список изменений</a>"))
 
 	if(GLOB.admin_notice)
 		to_chat(src, span_notice("<b>ВАЖНАЯ ЗАМЕТКА:</b>\n \t [GLOB.admin_notice]"))

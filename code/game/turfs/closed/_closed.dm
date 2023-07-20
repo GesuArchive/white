@@ -130,7 +130,7 @@
 	smoothing_flags = SMOOTH_CORNERS
 
 /turf/closed/indestructible/splashscreen
-	name = "White Dream"
+	name = "Aleph"
 	desc = "Поколение странных увлечений."
 	icon = null
 	icon_state = "station_intact"

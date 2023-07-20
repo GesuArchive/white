@@ -178,10 +178,10 @@
 	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
 
 	if(prefs && (prefs.toggles & SOUND_LOBBY) && prefs.iconsent)
-		var/track_name = replacetext(pop(splittext(SSticker.login_music, "/")), ".ogg", "")
-		spawn(10)
-			if(track_name != "lobby")
-				to_chat(src, "\n<center><b>Сейчас играет: <i>[track_name]</i></b></center>\n")
+		//var/track_name = replacetext(pop(splittext(SSticker.login_music, "/")), ".ogg", "")
+		//spawn(10)
+		//	if(track_name != "lobby")
+		//		to_chat(src, "\n<center><b>Сейчас играет: <i>[track_name]</i></b></center>\n")
 		SEND_SOUND(src, sound(SSticker.login_music, repeat = TRUE, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
 /proc/get_rand_frequency()

@@ -59,7 +59,7 @@ MMMMMMMMMMMNNNMMMMMMMMMMMMMMMyoo+so/..-/++osssyyyyyyyyyyyyyyyyssysyyysssyyysyysy
 	view = "15x15"
 	hub = "Exadv1.spacestation13"
 	hub_password = "kMZy3U5jJHSiBQjr"
-	name = "White Dream" // 白い夢
+	name = "Aleph" // NO 白い夢
 	fps = 20
 	map_format = SIDE_MAP
 #ifdef FIND_REF_NO_CHECK_TICK

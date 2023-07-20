@@ -423,7 +423,7 @@ Example config:
 
 	if(!isnull(info_file) && info_file?.len)
 		var/version_text = "[info_file[3][1]].[info_file[3][2]][info_file[3][3]][info_file[3][4]].[info_file[3][5]]"
-		current_version_string = "-- #<b>Версия</b>:> [version_text] (<a href='https://github.com/frosty-dev/white/commit/[info_file[1]]'>[uppertext(info_file[2])]</a>) --"
+		current_version_string = "<b>Версия</b>: [version_text] (<a href='https://github.com/frosty-dev/white/commit/[info_file[1]]'>[uppertext(info_file[2])]</a>)"
 		current_version_less = info_file[3]
 
 /datum/controller/configuration/proc/load_assblast()

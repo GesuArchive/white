@@ -14,7 +14,7 @@
 	add_verb(src, /client/proc/ClearCredits)
 	var/static/list/credit_order_for_this_round
 	if(isnull(credit_order_for_this_round))
-		credit_order_for_this_round = list("Спасибо за игру!") + shuffle(icon_states(credits_icon)) + list("White Dream: Legacy 2023")
+		credit_order_for_this_round = list("Спасибо за игру!") + shuffle(icon_states(credits_icon)) + list("Aleph 2023")
 	for(var/I in credit_order_for_this_round)
 		if(!credits)
 			return
