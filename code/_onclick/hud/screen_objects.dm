@@ -636,7 +636,6 @@
 	icon = 'icons/hud/neoscreen64.dmi'
 	layer = HUD_ABOVE_BG_LAYER
 	icon_state = "nh0"
-	blend_mode = BLEND_ADD
 	screen_loc = UI_HEALTH
 
 /atom/movable/screen/healths/alien
@@ -756,7 +755,6 @@
 	icon = 'icons/hud/neoscreen64.dmi'
 	layer = HUD_ABOVE_BG_LAYER
 	icon_state = "ns0"
-	blend_mode = BLEND_ADD
 	screen_loc = UI_STAMINA
 
 
