@@ -13,8 +13,8 @@
 	data["locked"] = locked
 	data["complexity"] = complexity
 	data["selected_module"] = selected_module?.name
-	data["wearer_name"] = wearer ? (wearer.get_authentification_name("Unknown") || "Unknown") : "No Occupant"
-	data["wearer_job"] = wearer ? wearer.get_assignment("Unknown", "Unknown", FALSE) : "No Job"
+	data["wearer_name"] = wearer ? (wearer.get_authentification_name("Неизвестный") || "Неизвестный") : "Пустой"
+	data["wearer_job"] = wearer ? wearer.get_assignment("Неизвестный", "Неизвестный", FALSE) : "Безработный"
 	data[JOB_AI] = ai?.name
 	data["core"] = core?.name
 	data["charge"] = get_charge_percent()

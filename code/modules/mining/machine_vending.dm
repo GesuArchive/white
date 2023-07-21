@@ -1,7 +1,7 @@
 /**********************Mining Equipment Vendor**************************/
 
 /obj/machinery/vendor
-	name = "equipment vendor"
+	name = "раздатчик"
 	processing_flags = START_PROCESSING_MANUALLY
 	subsystem_type = /datum/controller/subsystem/processing/fastprocess
 	density = TRUE
@@ -62,7 +62,7 @@
 			if(C.registered_account.account_job)
 				.["user"]["job"] = C.registered_account.account_job.title
 			else
-				.["user"]["job"] = "No Job"
+				.["user"]["job"] = "Безработный"
 
 /obj/machinery/vendor/ui_act(action, params)
 	. = ..()
@@ -76,20 +76,20 @@
 				var/mob/living/L = usr
 				I = L.get_idcard(TRUE)
 			if(!istype(I))
-				to_chat(usr, span_alert("Error: An ID is required!"))
+				to_chat(usr, span_alert("Ошибка: Требуется ID!"))
 				flick(icon_deny, src)
 				return
 			var/datum/data/vendor_equipment/prize = locate(params["ref"]) in prize_list
 			if(!prize || !(prize in prize_list))
-				to_chat(usr, span_alert("Error: Invalid choice!"))
+				to_chat(usr, span_alert("Ошибка: Неправильный выбор!"))
 				flick(icon_deny, src)
 				return
 			if(prize.cost > get_points(I))
-				to_chat(usr, span_alert("Error: Insufficient points for [prize.equipment_name] on [I]!"))
+				to_chat(usr, span_alert("Ошибка: Недостаточно очков для [prize.equipment_name] в [I]!"))
 				flick(icon_deny, src)
 				return
 			subtract_points(I, prize.cost)
-			to_chat(usr, span_notice("[capitalize(src.name)] clanks to life briefly before vending [prize.equipment_name]!"))
+			to_chat(usr, span_notice("[capitalize(src.name)] выплёвывает [prize.equipment_name]!"))
 			new prize.equipment_path(loc)
 			SSblackbox.record_feedback("nested tally", "vendor_equipment_bought", 1, list("[type]", "[prize.equipment_path]"))
 			. = TRUE

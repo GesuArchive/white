@@ -77,10 +77,10 @@
 	. = ..()
 
 	if(inserted_item)
-		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Remove [inserted_item]"
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Вытащить [inserted_item]"
 		. = CONTEXTUAL_SCREENTIP_SET
 	else if(istype(held_item) && is_type_in_list(held_item, contained_item))
-		context[SCREENTIP_CONTEXT_LMB] = "Insert [held_item]"
+		context[SCREENTIP_CONTEXT_LMB] = "Вставить [held_item]"
 		. = CONTEXTUAL_SCREENTIP_SET
 
 	return . || NONE
@@ -90,14 +90,14 @@
 
 	if(is_type_in_list(W, contained_item))
 		if(W.w_class >= WEIGHT_CLASS_NORMAL) // Anything equal to or larger than small won't work
-			user.balloon_alert(user, "too big!")
+			user.balloon_alert(user, "большой!")
 			return
 		if(inserted_item)
-			balloon_alert(user, "no room!")
+			balloon_alert(user, "нет места!")
 		else
 			if(!user.transferItemToLoc(W, src))
 				return
-			balloon_alert(user, "inserted [W]")
+			balloon_alert(user, "вставляем [W]")
 			inserted_item = W
 			playsound(src, 'sound/machines/pda_button1.ogg', 50, TRUE)
 
@@ -134,7 +134,7 @@
 		return
 
 	if(inserted_item)
-		balloon_alert(user, "removed [inserted_item]")
+		balloon_alert(user, "вытаскиваем [inserted_item]")
 		user.put_in_hands(inserted_item)
 		inserted_item = null
 		update_appearance()
@@ -154,9 +154,9 @@
 
 	if (ismob(loc))
 		var/mob/M = loc
-		M.show_message(span_userdanger("Your [src] explodes!"), MSG_VISUAL, span_warning("You hear a loud *pop*!"), MSG_AUDIBLE)
+		M.show_message(span_userdanger("Мой [src] взрывается!"), MSG_VISUAL, span_warning("Слышу громкий *хлопок*!"), MSG_AUDIBLE)
 	else
-		visible_message(span_danger("[src] explodes!"), span_warning("You hear a loud *pop*!"))
+		visible_message(span_danger("[src] взрывается!"), span_warning("Слышу громкий *хлопок*!"))
 
 	//target.client?.give_award(/datum/award/achievement/misc/clickbait, target)
 

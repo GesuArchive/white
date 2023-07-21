@@ -30,7 +30,7 @@
 			data["user"]["job"] = current_user.account_job.title
 			data["user"]["department"] = current_user.account_job.paycheck_department
 		else
-			data["user"]["job"] = "No Job"
+			data["user"]["job"] = "Безработный"
 			data["user"]["department"] = "No Department"
 	else
 		data["user"] = list()
