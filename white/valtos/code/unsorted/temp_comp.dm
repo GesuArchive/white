@@ -24,7 +24,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 			mobhud.weather = new /atom/movable/screen()
 			mobhud.weather.screen_loc = "CENTER"
 			mobhud.weather.hud = mobhud
-			mobhud.screenoverlays += mobhud.weather
+			mobhud.always_visible_inventory += mobhud.weather
 			mobhud.weather.particles = new /particles/rain/sideways
 
 	if(!ishuman(M))

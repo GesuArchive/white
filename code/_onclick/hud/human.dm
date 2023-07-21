@@ -320,6 +320,7 @@
 	rest_icon.icon = retro_hud ? ui_style : rest_icon.icon
 	rest_icon.screen_loc = retro_hud ? UI_REST_RETRO : UI_REST
 	rest_icon.hud = src
+	rest_icon.update_appearance()
 	static_inventory += rest_icon
 
 	spacesuit = new /atom/movable/screen/spacesuit()
@@ -347,9 +348,9 @@
 
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.icon = retro_hud ? ui_style : pull_icon.icon
-	pull_icon.update_icon()
 	pull_icon.screen_loc = retro_hud ? UI_PULL_RETRO : UI_PULL
 	pull_icon.hud = src
+	pull_icon.update_appearance()
 	static_inventory += pull_icon
 
 	lingchemdisplay = new /atom/movable/screen/ling/chems()
