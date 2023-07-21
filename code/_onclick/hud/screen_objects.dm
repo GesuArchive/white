@@ -815,7 +815,7 @@
 
 /atom/movable/screen/side_background/thing
 	icon = 'icons/hud/sider.png'
-	screen_loc = "EAST:30,SOUTH"
+	screen_loc = "EAST:16,SOUTH"
 
 /atom/movable/screen/side_button_bg
 	icon = 'icons/hud/neoscreen.dmi'
