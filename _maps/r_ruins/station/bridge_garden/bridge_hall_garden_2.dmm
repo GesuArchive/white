@@ -128,7 +128,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
 	},
-/turf/open/floor/plating/ice/icemoon,
+/turf/open/floor/plating/ice/icemoon/safe,
 /area/hallway/primary/central/low_level_centre)
 "nA" = (
 /turf/open/floor/plasteel/dark/corner,
@@ -309,7 +309,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
 	},
-/turf/open/floor/plating/ice/icemoon,
+/turf/open/floor/plating/ice/icemoon/safe,
 /area/hallway/primary/central/low_level_centre)
 "CA" = (
 /turf/open/floor/plasteel/dark/corner{
@@ -342,7 +342,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
 	},
-/turf/open/floor/plating/ice/icemoon,
+/turf/open/floor/plating/ice/icemoon/safe,
 /area/hallway/primary/central/low_level_centre)
 "DX" = (
 /obj/structure/window/reinforced{
@@ -354,7 +354,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 6
 	},
-/turf/open/floor/plating/ice/icemoon,
+/turf/open/floor/plating/ice/icemoon/safe,
 /area/hallway/primary/central/low_level_centre)
 "GC" = (
 /obj/structure/snowflakes,
@@ -389,7 +389,7 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 6
 	},
-/turf/open/floor/plating/ice/icemoon,
+/turf/open/floor/plating/ice/icemoon/safe,
 /area/hallway/primary/central/low_level_centre)
 "Kd" = (
 /obj/structure/flora/ausbushes/sparsegrass{
@@ -416,7 +416,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 6
 	},
-/turf/open/floor/plating/ice/icemoon,
+/turf/open/floor/plating/ice/icemoon/safe,
 /area/hallway/primary/central/low_level_centre)
 "LW" = (
 /obj/effect/turf_decal/siding/thinplating_new/corner{
@@ -544,7 +544,7 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 9
 	},
-/turf/open/floor/plating/ice/icemoon,
+/turf/open/floor/plating/ice/icemoon/safe,
 /area/hallway/primary/central/low_level_centre)
 "Vr" = (
 /obj/structure/flora/grass/green,

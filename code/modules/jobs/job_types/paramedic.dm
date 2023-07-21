@@ -75,7 +75,7 @@
 	belt = /obj/item/storage/belt/medical/paramedic
 	id = /obj/item/card/id/advanced
 	r_pocket = /obj/item/storage/belt/medipenal/paramed
-	l_pocket = /obj/item/modular_computer/tablet/pda/medical
+	l_pocket = /obj/item/modular_computer/tablet/pda/medical/paramedic
 	suit_store = /obj/item/flashlight/pen/paramedic
 	backpack_contents = list(/obj/item/roller=1, /obj/item/storage/firstaid/regular=1, /obj/item/sensor_device=1)
 	pda_slot = ITEM_SLOT_LPOCKET

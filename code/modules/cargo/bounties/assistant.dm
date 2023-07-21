@@ -1,24 +1,24 @@
 /datum/bounty/item/assistant/strange_object
-	name = "Странный обьект"
-	description = "NanoTrasen интересуется странными предметами. Найдите один в исправности и сразу же отправьте его на ЦК."
+	name = "Аномальный объект"
+	description = "НаноТрейзен интересуется странными предметами. Найдите один в исправности и сразу же отправьте его на ЦК."
 	reward = CARGO_CRATE_VALUE * 20
 	wanted_types = list(/obj/item/relic)
 
 /datum/bounty/item/assistant/scooter
 	name = "Скутер"
-	description = "NanoTrasen решила, что пеший шаг вышел из моды. Отправьте скутер на ЦК, чтобы ускорить работу."
+	description = "НаноТрейзен решила, что пеший шаг вышел из моды. Отправьте скутер на ЦК, чтобы ускорить работу."
 	reward = CARGO_CRATE_VALUE * 50
 	wanted_types = list(/obj/vehicle/ridden/scooter)
 	include_subtypes = FALSE
 
 /datum/bounty/item/assistant/skateboard
 	name = "Скейтборд"
-	description = "NanoTrasen решила, что ходить бессмысленно. Отправьте скейтборд на ЦК, чтобы ускорить работу."
+	description = "НаноТрейзен решила, что ходить бессмысленно. Отправьте скейтборд на ЦК, чтобы ускорить работу."
 	reward = CARGO_CRATE_VALUE * 40
 	wanted_types = list(/obj/vehicle/ridden/scooter/skateboard, /obj/item/melee/skateboard)
 
 /datum/bounty/item/assistant/stunprod
-	name = "Палка-Оглушалка"
+	name = "Самодельный электрошокер"
 	description = "ЦК требует использовать палка-оглушалки против диссидентов. Сделайте одну и отправьте на ЦК."
 	reward = CARGO_CRATE_VALUE * 30
 	wanted_types = list(/obj/item/melee/baton/cattleprod)
@@ -38,7 +38,7 @@
 	wanted_types = list(/obj/item/spear)
 
 /datum/bounty/item/assistant/toolbox
-	name = "Тулбоксы"
+	name = "Ящик с инструментами"
 	description = "На ЦК нехватка робаста! Поспешите и отправьте несколько ящиков с инструментами в качестве решения проблемы."
 	reward = CARGO_CRATE_VALUE * 50
 	required_count = 6

@@ -481,8 +481,8 @@
 		))
 
 /obj/item/storage/belt/cummerbund
-	name = "cummerbund"
-	desc = "A pleated sash that pairs well with a suit jacket."
+	name = "широкий пояс"
+	desc = "Плиссированный пояс, который хорошо сочетается с пиджаком."
 	icon_state = "cummerbund"
 	inhand_icon_state = "cummerbund"
 	worn_icon_state = "cummerbund"
@@ -636,6 +636,35 @@
 		/obj/item/multitool = 1)
 	generate_items_inside(items_inside,src)
 
+/obj/item/storage/belt/grenade/sapper
+	name = "разгрузка сапера"
+	desc = "Специальная армейская разгрузка которая может хранить в себе инструменты и гранаты."
+	icon_state = "securitysapper"
+	inhand_icon_state = "militarywebbing"
+	worn_icon_state = "militarywebbing"
+	resistance_flags = FIRE_PROOF
+
+/obj/item/storage/belt/grenade/sapper/Initialize()
+	. = ..()
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.set_holdable(list(
+		/obj/item/crowbar,
+		/obj/item/screwdriver,
+		/obj/item/weldingtool,
+		/obj/item/wirecutters,
+		/obj/item/wrench,
+		/obj/item/multitool,
+		/obj/item/flashlight,
+		/obj/item/stack/cable_coil,
+		/obj/item/analyzer,
+		/obj/item/extinguisher/mini,
+		/obj/item/grenade,
+		/obj/item/lighter,
+		/obj/item/reagent_containers/food/drinks/bottle/molotov,
+		/obj/item/grenade/c4,
+		/obj/item/food/grown/cherry_bomb,
+		/obj/item/food/grown/firelemon
+		))
 
 /obj/item/storage/belt/wands
 	name = "пояс для посохов"

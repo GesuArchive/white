@@ -1,6 +1,6 @@
 /obj/structure/punching_bag
-	name = "punching bag"
-	desc = "A punching bag. Can you get to speed level 4???"
+	name = "боксерская груша"
+	desc = "Боксерская груша. Сможете ли вы достичь 4-го уровня скорости???"
 	icon = 'goon/icons/obj/fitness.dmi'
 	icon_state = "punchingbag"
 	anchored = TRUE

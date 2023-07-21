@@ -314,18 +314,28 @@
 	forbidden = TRUE
 	high_impact = TRUE
 
-/datum/controller/subsystem/job/proc/DisableJobsButThis(job_path)
+/datum/controller/subsystem/job/proc/DisableJobsButThis(job_path, hop)
 	for(var/I in occupations)
 		var/datum/job/J = I
-		if(!istype(J, job_path))
-			J.total_positions = 0
-			J.spawn_positions = 0
-			J.current_positions = 0
+		if(hop)
+			if((!istype(J, job_path)) && (!istype(J, /datum/job/head_of_personnel)))
+				J.total_positions = 0
+				J.spawn_positions = 0
+				J.current_positions = 0
+			else if(istype(J, /datum/job/head_of_personnel))
+				J.total_positions = 1
+			else
+				J.total_positions = 750
 		else
-			J.total_positions = 750
+			if(!istype(J, job_path))
+				J.total_positions = 0
+				J.spawn_positions = 0
+				J.current_positions = 0
+			else
+				J.total_positions = 750
 
 /datum/round_aspect/assistants/run_aspect()
-	SSjob.DisableJobsButThis(/datum/job/assistant)
+	SSjob.DisableJobsButThis(/datum/job/assistant, TRUE)
 	..()
 
 /datum/round_aspect/clowns
@@ -336,7 +346,7 @@
 	high_impact = TRUE
 
 /datum/round_aspect/clowns/run_aspect()
-	SSjob.DisableJobsButThis(/datum/job/clown)
+	SSjob.DisableJobsButThis(/datum/job/clown, TRUE)
 	..()
 
 /datum/round_aspect/meow
@@ -382,6 +392,17 @@
 /datum/round_aspect/nogirlssky/run_aspect()
 	for(var/mob/living/carbon/human/M in GLOB.human_list)
 		M.gender = MALE
+		CHECK_TICK
+	..()
+
+/datum/round_aspect/nomanssky // ыыыы
+	name = "No Man Sky"
+	desc = "Женский - единственный биологический гендер на станции."
+	weight = 10
+
+/datum/round_aspect/nomanssky/run_aspect()
+	for(var/mob/living/carbon/human/M in GLOB.human_list)
+		M.gender = FEMALE
 		CHECK_TICK
 	..()
 

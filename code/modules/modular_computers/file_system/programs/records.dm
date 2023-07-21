@@ -14,9 +14,10 @@
 	var/mode
 
 /datum/computer_file/program/records/medical
-	filedesc = "Medical Records"
+	filedesc = "Медицинские записи"
 	filename = "medrecords"
-	program_icon = "Медицинские записи"
+	program_icon = "book-medical"
+	category = PROGRAM_CATEGORY_MED
 	extended_desc = "Позволяет пользователю просмотреть медицинские записи экипажа. Будем честны - вы не знали, что их нужно вести."
 	transfer_access = list(ACCESS_MEDICAL, ACCESS_FLAG_COMMAND)
 	available_on_ntnet = TRUE

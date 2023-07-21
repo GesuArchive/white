@@ -674,6 +674,15 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			if("demon")//Demon
 				A = image('icons/mob/mob.dmi',H,"daemon")
 				A.name = "Demon"
+			if("static")//static
+				A = image('icons/effects/effects.dmi',H,"static")
+				A.name = "Мираж"
+			if("syndicate_space")//syndi
+				A = image('icons/mob/simple_human.dmi',H,"syndicate_space_smg")
+				A.name = "Штурмовик синдиката"
+			if("morph")//morph
+				A = image('icons/mob/animal.dmi',H,"morph")
+				A.name = "Морф"
 			if("custom")
 				A = image(custom_icon_file, H, custom_icon)
 				A.name = custom_name

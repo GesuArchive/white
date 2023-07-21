@@ -180,6 +180,11 @@
 	if(ishuman(user))
 		add_atom_colour("#[user.hair_color]", FIXED_COLOUR_PRIORITY)
 
+/obj/item/clothing/head/kitty/fox
+	name = "ушки лисы"
+	desc = "Пара лисьих ушей. Ня!"
+	icon_state = "fox"
+
 /obj/item/clothing/head/kitty/genuine
 	desc = "Пара кошачьих ушей. На бирке внутри написано: \"Сделано вручную из настоящих кошек.\"."
 

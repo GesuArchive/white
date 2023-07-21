@@ -22,6 +22,7 @@
 	var/list/antag_repo
 	var/list/show_categories = list(
 		PROGRAM_CATEGORY_CREW,
+		PROGRAM_CATEGORY_MED,
 		PROGRAM_CATEGORY_ENGI,
 		PROGRAM_CATEGORY_SCI,
 		PROGRAM_CATEGORY_SUPL,

@@ -1,7 +1,8 @@
 //Command
 
 /obj/item/circuitboard/machine/bsa/back
-	name = "Bluespace Artillery Generator (Оборудование)"
+	name = "Генератор орудия"
+	desc = "Генерирует пушечный импульс. Должен быть соединен с фузором."
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
 	build_path = /obj/machinery/bsa/back //No freebies!
 	req_components = list(
@@ -9,7 +10,8 @@
 		/obj/item/stack/cable_coil = 2)
 
 /obj/item/circuitboard/machine/bsa/front
-	name = "Bluespace Artillery Bore (Оборудование)"
+	name = "Ствол орудия"
+	desc = "Не стойте перед пушкой во время выстрела. Должен быть соединен с фузором."
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
 	build_path = /obj/machinery/bsa/front
 	req_components = list(
@@ -17,7 +19,8 @@
 		/obj/item/stack/cable_coil = 2)
 
 /obj/item/circuitboard/machine/bsa/middle
-	name = "Bluespace Artillery Fusor (Оборудование)"
+	name = "Фузор орудия"
+	desc = "Содержание засекречено командованием Нанотрейзен. Должен быть соеденен с другим частями БСА с помощью мультитула."
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
 	build_path = /obj/machinery/bsa/middle
 	req_components = list(
@@ -25,7 +28,8 @@
 		/obj/item/stack/cable_coil = 2)
 
 /obj/item/circuitboard/machine/dna_vault
-	name = "DNA Vault (Оборудование)"
+	name = "Банк ДНК"
+	desc = "Разбить стекло в случае апокалипсиса."
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
 	build_path = /obj/machinery/dna_vault //No freebies!
 	req_components = list(

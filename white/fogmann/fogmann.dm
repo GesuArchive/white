@@ -59,7 +59,7 @@
 
 
 /obj/item/book/ruchinese/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] бьет себя словарем по голове, кажется он чувствует себя хуево!"))
+	user.visible_message(span_suicide("[user] бьет себя словарем по голове, кажется он чувствует себя не очень хорошо!"))
 	return (BRUTELOSS)
 
 /datum/uplink_item/role_restricted/ruchinese
@@ -261,88 +261,6 @@
 				/datum/reagent/consumable/tomatojuice = 10,
 				/obj/item/food/grown/tomato = 1)
 	category = CAT_MISC
-
-/obj/item/food/meat/slab/dach
-	name = "dach meat"
-	desc = "Tastes like... well you know..."
-	foodtypes = RAW | MEAT | GROSS
-
-/datum/supply_pack/organic/critter/dhund
-	name = "Dachshund Crate"
-	cost = 100
-	contains = list(/mob/living/simple_animal/pet/dog/dhund)
-	crate_name = "dachshund crate"
-
-/mob/living/simple_animal/pet/dog/dhund
-	name = "\improper Dachshund"
-	real_name = "Dachshund"
-	desc = "It's a dachshund."
-	icon = 'white/pieceofcrap.dmi'
-	icon_state = "dachshund"
-	icon_living = "dachshund"
-	icon_dead = "dachshund_dead"
-	butcher_results = list(/obj/item/food/meat/slab/dach = 3)
-	gold_core_spawnable = 2
-
-/mob/living/simple_animal/pet/dog/shepherd
-	name = "\improper Shepherd"
-	real_name = "Shepherd"
-	desc = "It's a Shepherd."
-	icon = 'white/pieceofcrap.dmi'
-	icon_state = "shepherd"
-	icon_living = "shepherd"
-	icon_dead = "shepherd_dead"
-	butcher_results = list(/obj/item/food/meat/slab/shepherd = 3)
-	gold_core_spawnable = 2
-
-/mob/living/simple_animal/pet/dog/jack
-	name = "\improper Jack"
-	real_name = "Jack russell terrier"
-	desc = "It's a jack russell terrier."
-	icon = 'white/pieceofcrap.dmi'
-	icon_state = "jack"
-	icon_living = "jack"
-	icon_dead = "jack_dead"
-	butcher_results = list(/obj/item/food/meat/slab/jack = 3)
-	gold_core_spawnable = 2
-
-/mob/living/simple_animal/pet/dog/pug/chi
-	name = "\improper Chi"
-	real_name = "Chihuahua"
-	desc = "It's a chihuahua."
-	icon = 'white/pieceofcrap.dmi'
-	icon_state = "chi"
-	icon_living = "chi"
-	icon_dead = "chi_dead"
-	butcher_results = list(/obj/item/food/meat/slab/chi = 1)
-	gold_core_spawnable = 2
-
-/obj/item/food/meat/slab/jack
-	name = "jack meat"
-	desc = "Tastes like... well you know..."
-	foodtypes = RAW | MEAT | GROSS
-
-/obj/item/food/meat/slab/chi
-	name = "chihuahua meat"
-	desc = "Tastes like... well you know..."
-	foodtypes = RAW | MEAT | GROSS
-
-/obj/item/food/meat/slab/shepherd
-	name = "shepherd meat"
-	desc = "Tastes like... well you know..."
-	foodtypes = RAW | MEAT | GROSS
-
-/datum/supply_pack/organic/critter/shepherd
-	name = "German Shepherd"
-	cost = 100
-	contains = list(/mob/living/simple_animal/pet/dog/shepherd)
-	crate_name = "shepherd crate"
-
-/datum/supply_pack/organic/critter/doggies
-	name = "Doggies crate"
-	cost = 100
-	contains = list(/mob/living/simple_animal/pet/dog/jack, /mob/living/simple_animal/pet/dog/pug/chi)
-	crate_name = "doggies crate"
 
 /obj/item/clothing/head/helmet/alt/ranger
 	name = "шлем рейнджера НКР"

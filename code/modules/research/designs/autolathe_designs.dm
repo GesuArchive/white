@@ -951,7 +951,7 @@
 	materials = list(/datum/material/glass = 100)
 	build_path = /obj/item/light/tube
 	category = list("initial", "Конструкции", "Строительство", "Карго оборудование" ,"Оборудование СБ", "Оборудование сервиса")
-	sub_category = list("Освещение и наблюдение")
+	sub_category = list("Настенные конструкции")
 
 /datum/design/light_bulb
 	name = "Лампочка"
@@ -961,7 +961,7 @@
 	materials = list(/datum/material/glass = 100)
 	build_path = /obj/item/light/bulb
 	category = list("initial", "Конструкции", "Строительство", "Карго оборудование" ,"Оборудование СБ", "Оборудование сервиса")
-	sub_category = list("Освещение и наблюдение")
+	sub_category = list("Настенные конструкции")
 
 /datum/design/camera_assembly
 	name = "Каркас камеры"
@@ -971,7 +971,7 @@
 	materials = list(/datum/material/iron = 400, /datum/material/glass = 250)
 	build_path = /obj/item/wallframe/camera
 	category = list("initial", "Конструкции", "Строительство" ,"Карго оборудование" ,"Оборудование СБ", "Оборудование сервиса")
-	sub_category = list("Освещение и наблюдение")
+	sub_category = list("Настенные конструкции")
 
 /datum/design/newscaster_frame
 	name = "Рама новостника"
@@ -1148,11 +1148,27 @@
 	name = "Упаковка 9мм патронов"
 	desc = "Обычные патроны калибра 9мм. Используется в пистолетах и пистолет-пулеметах."
 	id = "c9mm"
-	build_type = AUTOLATHE | MECHFAB
-	construction_time = 40
+	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 30000)
 	build_path = /obj/item/ammo_box/c9mm
-	category = list("hacked", "Безопасность", "Боеприпасы")
+	category = list("hacked", "Безопасность")
+
+/datum/design/c9mm/sec
+	id = "c9mm_sec"
+	build_type = MECHFAB
+	construction_time = 40
+	category = list("Боеприпасы")
+	sub_category = list("Пистолеты, ПП, Револьверы")
+
+/datum/design/c9mm_traumatic
+	name = "Упаковка травматических 9мм патронов"
+	desc = "Боевая пуля в них заменена на резиновую болванку. Практически не наносит урона, однако валит с пары-тройки попаданий."
+	id = "c9mm_traumatic"
+	build_type = MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 20000,/datum/material/plastic = 5000)
+	build_path = /obj/item/ammo_box/c9mm_traumatic
+	category = list("Боеприпасы")
 	sub_category = list("Пистолеты, ПП, Револьверы")
 
 /datum/design/c10mm

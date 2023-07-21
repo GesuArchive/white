@@ -21,7 +21,7 @@
 /datum/spellbook_entry/lightning_packet
 	name = "Метнуть молнию"
 	desc = "Сплетенный из сверхъестественной энергии, пучёк чистой силы, \
-		  маленький сгусток появится в вашей руке, при успешном попадании ненадолго оглушает цель."
+		маленький сгусток появится в вашей руке, при успешном попадании ненадолго оглушает цель."
 	spell_type = /datum/action/cooldown/spell/conjure_item/spellpacket
 	category = "Defensive"
 

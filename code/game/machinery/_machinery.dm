@@ -916,7 +916,7 @@
 /obj/machinery/examine(mob/user)
 	. = ..()
 	if(machine_stat & BROKEN)
-		. += "<hr><span class='notice'>Совсем сломано и не хочет работать.</span>"
+		. += "<hr><span class='notice'>Совсем сломано и не хочет работать. Возможно стоит проверить проводку...</span>"
 	if(!(resistance_flags & INDESTRUCTIBLE))
 		if(resistance_flags & ON_FIRE)
 			. += "<hr><span class='warning'>Горит!</span>"

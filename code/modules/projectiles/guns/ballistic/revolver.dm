@@ -98,7 +98,7 @@
 
 /obj/item/gun/ballistic/revolver/detective
 	name = "специальный кольт детектива"
-	desc = "Классическое, если не устаревшее, правоохранительное оружие. Использует .38 спецпатроны."
+	desc = "Классическое, пусть и немного устаревшее, но верное правоохранительное оружие. Использует .38 спецпатроны."
 	fire_sound = 'sound/weapons/gun/revolver/shot.ogg'
 	icon_state = "detective"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev38

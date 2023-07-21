@@ -22,6 +22,29 @@
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+/*
+/datum/design/board/enernet_control
+	name = "Консоль управления энергоконцентратором"
+	desc = "Используется для регулирования поступления продаваемой в общую сеть энергии."
+	id = "enernet_control"
+	build_path = /obj/item/circuitboard/computer/enernet_control
+	category = list ("Инженерное оборудование")
+	sub_category = list("Энергоснабжение")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+
+/datum/design/board/enernet_coil
+	name = "Энергоконцентратор"
+	desc = "Аккумулирует поступающую в него энергию. Требует консоль для работы."
+	id = "enernet_coil"
+	build_path = /obj/item/circuitboard/machine/enernet_coil
+	category = list ("Инженерное оборудование")
+	sub_category = list("Энергоснабжение")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+*/
 
 /datum/design/board/circulator
 	name = "Турбина ТЭГа"

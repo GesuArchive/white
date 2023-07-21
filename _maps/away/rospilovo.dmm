@@ -501,26 +501,32 @@
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "bW" = (
-/obj/structure/fluff/rospilovo,
-/turf/open/floor/grass/rospilovo,
+/turf/open/floor/plating/asteroid/dirty,
 /area/awaymission/rospilovo)
 "bX" = (
-/obj/structure/grille/rospilovo/beton{
-	icon_state = "|6"
+/obj/structure/fence{
+	dir = 8
 	},
-/turf/open/floor/rospilovo,
+/turf/open/floor/plating/asteroid/dirty,
 /area/awaymission/rospilovo)
 "bY" = (
-/obj/structure/grille/rospilovo/beton{
-	icon_state = "|2"
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
 	},
-/turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "bZ" = (
-/obj/structure/grille/rospilovo/beton{
-	icon_state = "-|1"
+/obj/structure/closet/crate/large,
+/obj/item/ammo_box/c9mm{
+	pixel_y = 6;
+	pixel_x = -3
 	},
-/turf/open/floor/rospilovo,
+/obj/item/ammo_box/c9mm{
+	pixel_y = 3
+	},
+/obj/item/ammo_box/c9mm{
+	pixel_x = 3
+	},
+/turf/open/floor/plating/asteroid/dirty,
 /area/awaymission/rospilovo)
 "ca" = (
 /obj/structure/grille/rospilovo/beton,
@@ -595,10 +601,8 @@
 /turf/closed/wall/rospilovo/bricks_white,
 /area/awaymission/rospilovo)
 "cm" = (
-/obj/structure/grille/rospilovo/beton{
-	icon_state = "|6"
-	},
-/turf/open/floor/grass/rospilovo,
+/obj/structure/fence/door/opened,
+/turf/open/floor/plating/asteroid/dirty,
 /area/awaymission/rospilovo)
 "cn" = (
 /obj/structure/grille/rospilovo/beton,
@@ -737,14 +741,10 @@
 /turf/open/floor/rospilovo/plitka/full,
 /area/awaymission/rospilovo)
 "cO" = (
-/obj/structure/grille/rospilovo/beton{
-	icon_state = "|2"
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
 	},
-/obj/structure/rospilovo/propane/dual,
-/obj/effect/turf_decal/siding{
-	dir = 8
-	},
-/turf/open/floor/rospilovo,
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "cP" = (
 /turf/open/floor/rospilovo/plitka{
@@ -811,6 +811,7 @@
 /area/awaymission/rospilovo)
 "de" = (
 /obj/structure/rospilovo/truba,
+/obj/effect/turf_decal/weather/dirt,
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "df" = (
@@ -826,11 +827,20 @@
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "di" = (
-/obj/structure/rospilovo/yashik/yaskik_a,
-/turf/open/floor/grass/rospilovo,
+/obj/structure/deployable_barricade/wooden,
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -4
+	},
+/turf/open/floor/plating/asteroid/dirty,
 /area/awaymission/rospilovo)
 "dj" = (
-/obj/structure/rospilovo/shitok/shitok2,
+/obj/structure/deployable_barricade/wooden,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -4
+	},
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "dk" = (
@@ -858,8 +868,12 @@
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "dr" = (
-/obj/structure/rospilovo/bochka,
-/turf/open/floor/rospilovo,
+/obj/structure/closet/crate/large,
+/obj/item/autosurgeon/organ/hud/medical{
+	pixel_y = 9
+	},
+/obj/item/autosurgeon/organ/hud/medical,
+/turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
 "ds" = (
 /obj/structure/rospilovo/doski,
@@ -879,6 +893,12 @@
 	icon_state = "plita4"
 	},
 /area/awaymission/rospilovo)
+"dA" = (
+/obj/structure/fence/cut/large{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
 "dB" = (
 /obj/structure/rospilovo/water/bochka/kap,
 /turf/open/floor/rospilovo/plitka{
@@ -896,6 +916,12 @@
 /turf/open/floor/rospilovo/plitka{
 	icon_state = "plita4"
 	},
+/area/awaymission/rospilovo)
+"dE" = (
+/obj/structure/fence/post{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/dirty,
 /area/awaymission/rospilovo)
 "dF" = (
 /obj/structure/rospilovo/water/bochka,
@@ -934,10 +960,10 @@
 	},
 /area/awaymission/rospilovo)
 "dO" = (
-/obj/structure/rospilovo/truba/vert,
-/turf/open/floor/rospilovo/plitka{
-	icon_state = "plita4"
+/obj/effect/turf_decal/siding/white{
+	dir = 4
 	},
+/turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "dP" = (
 /obj/structure/rospilovo/propane/dual,
@@ -957,12 +983,59 @@
 /obj/effect/baseturf_helper/beach/raw_stone,
 /turf/open/floor/dz/green,
 /area/awaymission/rospilovo/deathtrap)
-"es" = (
-/obj/structure/rospilovo/musor_yashik/green,
-/obj/item/storage/firstaid/brute,
+"dX" = (
+/obj/effect/spawner/structure/window/reinforced/indestructable,
+/turf/open/floor/plating,
+/area/awaymission/rospilovo)
+"dY" = (
+/obj/item/clothing/shoes/winterboots{
+	pixel_x = -17;
+	pixel_y = -5
+	},
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"ea" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/obj/structure/barricade/wooden,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"eb" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/item/melee/baseball_bat/ablative,
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
+"ef" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 4
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"eg" = (
+/obj/structure/deployable_barricade/wooden,
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"es" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/obj/structure/barricade/wooden,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "eS" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"eU" = (
 /obj/effect/turf_decal/trimline/white/line{
 	dir = 8;
 	icon_state = "trimline"
@@ -971,20 +1044,22 @@
 	dir = 4;
 	icon_state = "trimline"
 	},
-/obj/effect/random_mob_placer/combat_ai,
+/obj/structure/rospilovo/shina,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"eY" = (
+/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "trails_2"
+	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "fb" = (
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 4;
-	icon_state = "trimline"
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
 	},
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 8;
-	icon_state = "trimline"
-	},
-/obj/effect/landmark/awaystart,
-/turf/open/floor/rospilovo,
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "fc" = (
 /obj/effect/turf_decal/trimline/white/line{
@@ -998,37 +1073,228 @@
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
-"fg" = (
-/obj/item/storage/firstaid/fire,
+"fd" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 4
+	},
 /turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"fg" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"fk" = (
+/obj/item/gun/ballistic/automatic/mp5,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "gibbl1"
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"fE" = (
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/obj/structure/barricade/wooden,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"fL" = (
+/turf/closed/wall/rospilovo/bricks_yellow,
 /area/awaymission/rospilovo)
 "fO" = (
 /obj/structure/rospilovo/shina3,
-/obj/effect/turf_decal/siding{
+/obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "fR" = (
-/obj/structure/grille/rospilovo/beton{
-	icon_state = "|6"
+/obj/item/shield/riot/kevlar{
+	pixel_x = -6;
+	pixel_y = 6
 	},
-/obj/effect/turf_decal/siding{
+/obj/item/shield/riot/kevlar{
+	pixel_x = -2
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"fT" = (
+/obj/structure/barricade/wooden/crude,
+/obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "fV" = (
-/obj/item/gun/ballistic/automatic/mp5,
-/turf/open/floor/rospilovo/plitka{
-	icon_state = "plita4"
-	},
+/obj/structure/flora/tree/jungle/small,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"fZ" = (
+/obj/structure/fluff/rospilovo,
+/turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "gl" = (
 /obj/effect/random_mob_placer/combat_ai,
 /turf/open/floor/light,
 /area/awaymission/rospilovo)
+"gm" = (
+/obj/structure/rospilovo/musor_yashik/green,
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"gt" = (
+/obj/structure/rospilovo/shina3{
+	pixel_y = 8
+	},
+/obj/structure/rospilovo/shina{
+	pixel_y = -6;
+	pixel_x = -15
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"gx" = (
+/obj/structure/rospilovo/musor_yashik/red/full,
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"gP" = (
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 8;
+	icon_state = "trimline"
+	},
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 4;
+	icon_state = "trimline"
+	},
+/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"gV" = (
+/obj/structure/fence/corner{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"hd" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/awaymission/rospilovo)
+"hf" = (
+/obj/structure/rospilovo/musor_yashik/red/full,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"hj" = (
+/obj/structure/fence{
+	dir = 8
+	},
+/obj/structure/sign/warning,
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
+"hs" = (
+/obj/effect/turf_decal/siding/white,
+/obj/structure/barricade/wooden,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"hI" = (
+/obj/structure/bed,
+/obj/structure/curtain,
+/obj/item/bedsheet,
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"hW" = (
+/obj/structure/rospilovo/doski/doski3,
+/obj/structure/fluff/clockwork/alloy_shards/small{
+	pixel_x = -9;
+	pixel_y = -14
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"ib" = (
+/obj/structure/rospilovo/yashik{
+	pixel_y = -7;
+	pixel_x = 13
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"if" = (
+/obj/structure/rospilovo/shina2{
+	pixel_y = 16;
+	pixel_x = -5
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_x = -7;
+	pixel_y = -1
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"ix" = (
+/obj/structure/fence/corner{
+	dir = 6
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"iy" = (
+/obj/structure/rospilovo/trubas{
+	dir = 9
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"iC" = (
+/obj/structure/table/rospilovo,
+/obj/item/crowbar{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"iD" = (
+/obj/effect/mob_spawn/human/corpse/russian,
+/obj/effect/decal/cleanable/blood/bubblegum,
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"iF" = (
+/obj/structure/mineral_door/wood{
+	color = "#aaaaaa";
+	name = "деревянная дверь"
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"iI" = (
+/obj/structure/deployable_barricade/wooden,
+/obj/structure/rospilovo/shina2{
+	pixel_y = 12;
+	pixel_x = 13
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "iO" = (
+/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"iW" = (
 /obj/effect/turf_decal/trimline/white/line{
 	dir = 4;
 	icon_state = "trimline"
@@ -1037,10 +1303,7 @@
 	dir = 8;
 	icon_state = "trimline"
 	},
-/obj/structure/deployable_barricade/wooden{
-	dir = 4
-	},
-/obj/structure/deployable_barricade/wooden,
+/obj/structure/rospilovo/doski/doski4,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "iY" = (
@@ -1049,6 +1312,33 @@
 	},
 /obj/structure/rospilovo/luk/open/ladder,
 /turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"jg" = (
+/obj/effect/turf_decal/siding,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"ji" = (
+/obj/structure/table/rospilovo,
+/obj/item/storage/firstaid/emergency,
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"jr" = (
+/obj/structure/table/rospilovo,
+/obj/item/duffel_anti_slow,
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"jv" = (
+/obj/structure/rospilovo/shina2{
+	pixel_y = 15;
+	pixel_x = 13
+	},
+/obj/structure/rospilovo/shina2,
+/obj/structure/rospilovo/shina{
+	pixel_y = 16;
+	pixel_x = 7
+	},
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "jx" = (
 /obj/effect/bump_teleporter{
@@ -1059,11 +1349,51 @@
 /obj/structure/rospilovo/luk/open/ladder,
 /turf/open/floor/dz/green,
 /area/awaymission/rospilovo/deathtrap)
+"jA" = (
+/obj/structure/rospilovo/doski/doski2,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"jB" = (
+/obj/structure/closet/crate/large,
+/obj/item/storage/belt/medipenal/field_med{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medipenal/field_med,
+/obj/item/storage/belt/medipenal/paramed{
+	pixel_y = -6
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
 "jE" = (
 /obj/effect/turf_decal/siding{
 	dir = 8
 	},
 /turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"jO" = (
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -4;
+	pixel_y = -1
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"jS" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"jY" = (
+/obj/structure/rospilovo/pen{
+	pixel_y = 13;
+	pixel_x = 10
+	},
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -6
+	},
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "ka" = (
 /obj/effect/bump_teleporter{
@@ -1071,6 +1401,23 @@
 	},
 /obj/structure/rospilovo/luk/open/ladder,
 /turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"kd" = (
+/obj/structure/flora/tree/jungle/small{
+	pixel_x = -41
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"kk" = (
+/obj/structure/rospilovo/musor_yashik/red/full,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"kl" = (
+/obj/structure/rospilovo/yashik{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "kE" = (
 /obj/structure/table/rospilovo,
@@ -1081,6 +1428,61 @@
 /obj/effect/turf_decal/siding/white/corner,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"kM" = (
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "gibbl4";
+	pixel_x = 8;
+	pixel_y = -7
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"kU" = (
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 8
+	},
+/obj/structure/rospilovo/doski/doski2,
+/obj/structure/fluff/clockwork/alloy_shards/large,
+/obj/structure/fluff/clockwork/alloy_shards/small{
+	pixel_x = -9;
+	pixel_y = -14
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"kX" = (
+/obj/structure/table/rospilovo,
+/obj/item/storage/firstaid/emergency,
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"lk" = (
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 8;
+	icon_state = "trimline"
+	},
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 4;
+	icon_state = "trimline"
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_y = 9;
+	pixel_x = -7
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_y = 9;
+	pixel_x = 10
+	},
+/obj/structure/rospilovo/shina{
+	pixel_y = 18;
+	pixel_x = 1
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"lv" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/structure/rospilovo/pen,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
 "lB" = (
 /obj/structure/table/rospilovo,
 /obj/item/storage/firstaid/regular{
@@ -1089,8 +1491,56 @@
 	},
 /turf/open/floor/rospilovo/plitka,
 /area/awaymission/rospilovo)
+"lF" = (
+/obj/structure/rospilovo/doski,
+/obj/structure/fluff/clockwork/alloy_shards/medium_gearbit{
+	pixel_x = -9;
+	pixel_y = 11
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"lM" = (
+/obj/structure/table/rospilovo,
+/obj/item/stack/medical/mesh/advanced{
+	pixel_x = -4
+	},
+/obj/item/stack/medical/mesh/advanced{
+	pixel_y = 4;
+	pixel_x = 5
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
 "lN" = (
 /turf/closed/mineral/ash_rock,
+/area/awaymission/rospilovo)
+"mb" = (
+/obj/structure/rospilovo/shina{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"mk" = (
+/obj/structure/rospilovo/shitok{
+	pixel_y = 32
+	},
+/turf/open/floor/rospilovo/plitka,
+/area/awaymission/rospilovo)
+"mo" = (
+/obj/structure/rospilovo/shina3{
+	pixel_y = 10;
+	pixel_x = 2
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"mq" = (
+/obj/structure/rospilovo/shitok{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel/dark,
 /area/awaymission/rospilovo)
 "ms" = (
 /obj/structure/deployable_barricade/metal/reinforced{
@@ -1099,29 +1549,196 @@
 /obj/structure/deployable_barricade/metal/reinforced,
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
-"mX" = (
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 4;
-	icon_state = "trimline"
+"mv" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 1
 	},
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 8;
-	icon_state = "trimline"
+/obj/structure/deployable_barricade/wooden{
+	dir = 8
 	},
-/obj/effect/random_mob_placer/combat_ai,
 /turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"mH" = (
+/obj/structure/rospilovo/musor_yashik/red/full,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"mL" = (
+/obj/structure/rospilovo/yashik/yaskik_a/big,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"mR" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"mV" = (
+/obj/structure/rospilovo/bochka{
+	pixel_y = 11;
+	pixel_x = 5
+	},
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -7
+	},
+/obj/structure/deployable_barricade/wooden{
+	dir = 4
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"mX" = (
+/obj/structure/rospilovo/shina2{
+	pixel_y = 16;
+	pixel_x = -5
+	},
+/obj/structure/deployable_barricade/wooden{
+	dir = 4
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_x = -7;
+	pixel_y = -1
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"ng" = (
+/turf/open/floor/stone,
 /area/awaymission/rospilovo)
 "ni" = (
 /obj/effect/random_mob_placer/combat_ai,
 /turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/awaymission/rospilovo)
-"nY" = (
-/obj/item/shield/riot/military,
+"no" = (
+/obj/structure/rospilovo/doski/doski3,
+/obj/effect/decal/cleanable/glass,
+/obj/structure/rospilovo/doski/doski3{
+	pixel_y = 15;
+	pixel_x = -18
+	},
+/obj/structure/fluff/clockwork/alloy_shards/medium,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"nw" = (
+/obj/structure/rospilovo/trubas{
+	dir = 10;
+	icon_state = "trubas"
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"nC" = (
+/obj/structure/rospilovo/shina2{
+	pixel_y = 18;
+	pixel_x = -7
+	},
+/obj/structure/rospilovo/shina3,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"nW" = (
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "splatter2";
+	pixel_y = 18;
+	pixel_x = 5
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"nY" = (
+/obj/structure/fence/post{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"nZ" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 9;
+	pixel_y = 10
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"ok" = (
+/obj/effect/turf_decal/siding/white,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "floor3";
+	pixel_y = -14;
+	pixel_x = -7
+	},
+/obj/effect/decal/cleanable/blood/bubblegum{
+	pixel_y = -25;
+	pixel_x = -19
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"ol" = (
+/obj/effect/mob_spawn/human/corpse/russian,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "gibbl4";
+	pixel_x = 8;
+	pixel_y = -7
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"on" = (
+/obj/structure/rospilovo/bochka,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"oA" = (
+/obj/structure/fluff/rospilovo/gruzovik,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"oE" = (
+/obj/structure/table/rospilovo,
+/obj/item/healthanalyzer/range,
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
 "oG" = (
-/obj/structure/rospilovo/stolb,
 /obj/structure/barricade/wooden,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"oH" = (
+/obj/structure/table/rospilovo,
+/obj/item/reagent_containers/medigel/libital{
+	pixel_y = 12;
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/medigel/aiuri{
+	pixel_y = 8;
+	pixel_x = 1
+	},
+/obj/item/reagent_containers/pill/salicylic{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/pill/oxandrolone{
+	pixel_x = 9;
+	pixel_y = -3
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"oQ" = (
+/obj/structure/rospilovo/doski/doski4,
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"oW" = (
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = 6
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"oX" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 1
+	},
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "pb" = (
@@ -1132,9 +1749,22 @@
 	},
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
+"pn" = (
+/obj/structure/table/rospilovo,
+/obj/item/storage/toolbox/mechanical/old{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"pt" = (
+/obj/structure/fence/cut/medium{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
 "pu" = (
-/obj/structure/rospilovo/water/luzha,
-/obj/effect/turf_decal/siding,
+/obj/effect/turf_decal/siding/white,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "py" = (
@@ -1144,9 +1774,49 @@
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"pA" = (
+/obj/structure/rospilovo/yashik/yaskik_a{
+	pixel_y = 1;
+	pixel_x = -2
+	},
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"pE" = (
+/obj/structure/rospilovo/shina2{
+	pixel_y = 9;
+	pixel_x = -8
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_x = 7
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"pG" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/obj/structure/rospilovo/shina3,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "pJ" = (
 /obj/effect/random_mob_placer/combat_ai,
 /turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"pM" = (
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "trails_2"
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"pR" = (
+/obj/structure/rospilovo/yashik/yaskik_a{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "pX" = (
 /obj/structure/deployable_barricade/metal/reinforced{
@@ -1157,13 +1827,35 @@
 	},
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
-"qt" = (
-/obj/effect/turf_decal/trimline/white/line,
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 1;
-	icon_state = "trimline"
+"pZ" = (
+/obj/structure/rospilovo/yashik{
+	pixel_x = 5
 	},
-/obj/effect/random_mob_placer/combat_ai,
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"qd" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 1
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"ql" = (
+/obj/structure/rospilovo/doski/doski4,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "gibbl4"
+	},
+/obj/structure/rospilovo/doski/doski4{
+	pixel_y = 21;
+	pixel_x = -20
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"qt" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "qy" = (
@@ -1172,6 +1864,16 @@
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"qO" = (
+/obj/structure/rospilovo/bochka/red{
+	pixel_y = 16;
+	pixel_x = 1
+	},
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -5
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
 "qQ" = (
 /obj/structure/barricade/wooden/crude,
 /obj/effect/turf_decal/siding{
@@ -1179,10 +1881,154 @@
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"qY" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"rh" = (
+/obj/structure/rospilovo/musor_yashik/red/full,
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"rn" = (
+/obj/item/chair/wood,
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"rp" = (
+/obj/structure/rospilovo/trubas{
+	dir = 9;
+	icon_state = "trubas"
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"rv" = (
+/obj/machinery/door/poddoor/shutters{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"ry" = (
+/obj/structure/rospilovo/doski/doski4,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "floor3"
+	},
+/obj/item/crowbar,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"rG" = (
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"rZ" = (
+/obj/structure/chair/wood,
+/obj/structure/sign/poster/official/fruit_bowl{
+	pixel_y = 32
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"sf" = (
+/obj/structure/rospilovo/yashik/yaskik_a{
+	pixel_x = 9;
+	pixel_y = 5
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"sj" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"sm" = (
+/obj/structure/fence/post{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"ss" = (
+/obj/structure/deployable_barricade/wooden,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/structure/rospilovo/water/bochka{
+	pixel_x = -16
+	},
+/obj/structure/rospilovo/bochka{
+	pixel_x = 7
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"sH" = (
+/obj/structure/rospilovo/doski/doski2,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "trails_2"
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"sZ" = (
+/obj/structure/rospilovo/shina3{
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/obj/item/melee/baseball_bat/ablative,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"ta" = (
+/obj/effect/turf_decal/weather/dirt,
+/obj/structure/rospilovo/water/bochka{
+	pixel_y = 3
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
 "tj" = (
 /obj/structure/table/rospilovo,
 /obj/item/ammo_box/magazine/mp5,
 /turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"tn" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_y = 3;
+	pixel_x = 10
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"tz" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 10
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"tI" = (
+/obj/effect/mob_spawn/human/corpse/russian,
+/obj/effect/decal/cleanable/blood/bubblegum,
+/obj/effect/decal/cleanable/blood/gibs{
+	pixel_x = 9
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"tK" = (
+/obj/structure/fence{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "tT" = (
 /obj/structure/deployable_barricade/metal/reinforced{
@@ -1198,11 +2044,21 @@
 /obj/structure/ladder,
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
+"ug" = (
+/obj/structure/rospilovo/yashik/yaskik_a{
+	pixel_x = -5
+	},
+/turf/open/floor/rospilovo/plitka,
+/area/awaymission/rospilovo)
 "uk" = (
 /obj/structure/rospilovo/doski/doski4,
 /obj/effect/turf_decal/siding{
 	dir = 1
 	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"ul" = (
+/obj/effect/decal/cleanable/glass,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "uo" = (
@@ -1220,9 +2076,102 @@
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"uK" = (
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 4;
+	icon_state = "trimline"
+	},
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 8;
+	icon_state = "trimline"
+	},
+/obj/structure/rospilovo/shina3{
+	pixel_y = 6;
+	pixel_x = 14
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"uR" = (
+/obj/item/crowbar/large{
+	pixel_y = -6
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"uV" = (
+/obj/structure/rospilovo/pen,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"uY" = (
+/obj/effect/turf_decal/weather/dirt,
+/obj/structure/closet/crate/large,
+/obj/item/shield/riot/military{
+	pixel_x = -3
+	},
+/obj/item/shield/riot/military{
+	pixel_x = 4
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
 "uZ" = (
 /obj/structure/deployable_barricade/metal/reinforced,
 /turf/open/floor/light/colour_cycle/dancefloor_a,
+/area/awaymission/rospilovo)
+"vb" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 4
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"vc" = (
+/obj/structure/rospilovo/yashik/yaskik_a{
+	pixel_y = 4;
+	pixel_x = -2
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"vd" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 9
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"ve" = (
+/obj/structure/closet/crate/large,
+/turf/open/floor/rospilovo/plitka,
+/area/awaymission/rospilovo)
+"vj" = (
+/obj/structure/rospilovo/bochka{
+	pixel_x = 13;
+	pixel_y = 12
+	},
+/obj/structure/rospilovo/bochka,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"vm" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"vy" = (
+/obj/structure/flora/tree/jungle/small,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"vO" = (
+/obj/structure/fence/cut/large{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "vR" = (
 /obj/effect/bump_teleporter{
@@ -1231,11 +2180,32 @@
 	},
 /turf/open/floor/plasteel/stairs/right,
 /area/awaymission/rospilovo)
-"we" = (
-/obj/structure/barricade/wooden/crude,
+"vW" = (
 /obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"wb" = (
+/obj/structure/table/rospilovo,
+/obj/item/duffel_anti_slow{
+	pixel_y = 17
+	},
+/obj/item/storage/backpack/duffelbag{
+	pixel_x = -3
+	},
+/obj/item/storage/backpack/duffelbag{
+	pixel_y = -9
+	},
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"we" = (
+/obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
+/obj/structure/barricade/wooden,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "wq" = (
@@ -1243,25 +2213,61 @@
 /obj/effect/random_mob_placer/combat_ai,
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
+"wv" = (
+/obj/effect/turf_decal/siding{
+	dir = 8
+	},
+/obj/structure/barricade/wooden,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "ww" = (
 /obj/effect/turf_decal/siding{
 	dir = 5
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"wz" = (
+/obj/structure/rospilovo/yashik/yaskik_a/big,
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"wA" = (
+/obj/structure/rospilovo/shina2{
+	pixel_y = 8;
+	pixel_x = 8
+	},
+/obj/structure/rospilovo/shina{
+	pixel_x = -11;
+	pixel_y = 10
+	},
+/obj/structure/rospilovo/shina3{
+	pixel_y = -8;
+	pixel_x = -6
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "wQ" = (
 /obj/structure/rospilovo/water/luzha,
-/obj/effect/turf_decal/siding{
+/obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "xg" = (
-/obj/effect/turf_decal/siding{
+/obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
-/obj/effect/random_mob_placer/combat_ai,
+/obj/structure/deployable_barricade/wooden,
 /turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"xo" = (
+/obj/structure/deployable_barricade/wooden,
+/obj/structure/rospilovo/bochka{
+	pixel_x = 7
+	},
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -12
+	},
+/turf/open/floor/plating/asteroid/dirty,
 /area/awaymission/rospilovo)
 "xw" = (
 /obj/structure/mineral_door/wood{
@@ -1271,9 +2277,153 @@
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/rospilovo/plitka,
 /area/awaymission/rospilovo)
-"yO" = (
-/obj/item/storage/firstaid/emergency,
+"xE" = (
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -6
+	},
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"xF" = (
+/obj/structure/fence/post,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"xK" = (
+/obj/structure/rospilovo/doski,
+/obj/effect/decal/cleanable/glass,
+/obj/structure/fluff/clockwork/alloy_shards/medium_gearbit,
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
 /turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"xO" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 8
+	},
+/obj/item/ammo_box/magazine/mp5,
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"xT" = (
+/obj/structure/table/rospilovo,
+/obj/item/reagent_containers/food/drinks/bottle/vodka{
+	pixel_y = 13;
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
+	pixel_x = -1;
+	layer = 3.02
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
+	pixel_x = 4;
+	pixel_y = 7;
+	layer = 3.01
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"ya" = (
+/obj/structure/bed,
+/obj/item/bedsheet,
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"yc" = (
+/obj/structure/rospilovo/komod,
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"yh" = (
+/obj/structure/rospilovo/shina3{
+	pixel_y = 14;
+	pixel_x = 1
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"yr" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"ys" = (
+/obj/structure/closet/crate/large,
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/obj/item/ammo_box/c9mm{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/item/ammo_box/c9mm{
+	pixel_y = 3
+	},
+/obj/item/ammo_box/c9mm{
+	pixel_x = 3
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"yx" = (
+/obj/structure/rospilovo/yashik/yaskik_a{
+	pixel_x = 6
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"yy" = (
+/obj/structure/rospilovo/yashik/yaskik_a,
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"yC" = (
+/obj/structure/barricade/wooden/crude,
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"yG" = (
+/obj/structure/rospilovo/bochka{
+	pixel_x = 6
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"yK" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"yN" = (
+/obj/item/toy/beach_ball/holoball,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"yO" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_y = 11;
+	pixel_x = -8
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"yT" = (
+/obj/structure/rospilovo/doski/doski3,
+/obj/structure/rospilovo/doski/doski2,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"yY" = (
+/obj/structure/rospilovo/trubas{
+	dir = 5;
+	icon_state = "trubas"
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"yZ" = (
+/obj/structure/rospilovo/water/luzha{
+	pixel_x = 8;
+	pixel_y = 19
+	},
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "ze" = (
 /obj/effect/turf_decal/siding{
@@ -1281,11 +2431,24 @@
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"zm" = (
+/obj/structure/fence/cut/large{
+	dir = 4
+	},
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
 "zo" = (
 /obj/structure/deployable_barricade/wooden,
 /turf/open/floor/rospilovo/plitka{
 	icon_state = "plita4"
 	},
+/area/awaymission/rospilovo)
+"zS" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/structure/flora/tree/jungle,
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "zY" = (
 /obj/effect/turf_decal/siding/white/corner{
@@ -1294,20 +2457,150 @@
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "Af" = (
-/obj/item/storage/firstaid/emergency,
-/turf/open/floor/grass/rospilovo,
+/obj/structure/rospilovo/water/bochka/kap{
+	pixel_x = -6;
+	pixel_y = 9
+	},
+/obj/structure/rospilovo/water/luzha,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"Ak" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4;
+	pixel_y = 10
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
 /area/awaymission/rospilovo)
 "Aq" = (
 /obj/structure/barricade/wooden/crude,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"AB" = (
+/obj/effect/turf_decal/trimline/white/line,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/obj/structure/bonfire/prelit,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"AL" = (
+/obj/structure/rospilovo/yashik/yaskik_a{
+	pixel_x = 5;
+	pixel_y = -6
+	},
+/obj/item/storage/firstaid/brute{
+	pixel_x = 6
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"AO" = (
+/obj/structure/fence/corner{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/dirt,
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "Ba" = (
 /obj/structure/deployable_barricade/metal/reinforced,
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
+"Bi" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "trails_2"
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "Bm" = (
 /obj/effect/mine/pickup/healing,
 /turf/open/floor/light,
+/area/awaymission/rospilovo)
+"Bq" = (
+/obj/structure/holohoop{
+	dir = 4;
+	pixel_x = -4
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"BA" = (
+/obj/structure/rospilovo/shina{
+	pixel_x = -7
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"BG" = (
+/obj/structure/deployable_barricade/wooden,
+/obj/structure/rospilovo/shina2{
+	pixel_y = 12;
+	pixel_x = 8
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"BO" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	pixel_y = 8
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"BP" = (
+/obj/structure/fence/corner{
+	dir = 10
+	},
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
+"BX" = (
+/obj/structure/rospilovo/doski,
+/obj/structure/rospilovo/doski/doski2,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/splatter{
+	pixel_y = 15
+	},
+/obj/structure/fluff/clockwork/alloy_shards/medium{
+	pixel_x = -15
+	},
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "trails_2"
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"BY" = (
+/obj/structure/fluff/rospilovo{
+	icon_state = "armygruz"
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"Ce" = (
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "gibbl4"
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Ck" = (
+/obj/structure/table/rospilovo,
+/obj/item/storage/toolbox/mechanical/old/clean,
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"Cy" = (
+/obj/structure/fence/post{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
+"CC" = (
+/obj/structure/rospilovo/intercom{
+	pixel_x = -32
+	},
+/turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
 "CG" = (
 /obj/effect/turf_decal/siding/blue{
@@ -1322,12 +2615,51 @@
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"Da" = (
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"Dc" = (
+/obj/structure/fence{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
+"Dd" = (
+/obj/structure/fence/post{
+	dir = 4
+	},
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
 "Dg" = (
 /obj/effect/bump_teleporter{
 	id_target = "fuck4"
 	},
 /obj/structure/rospilovo/luk/open/ladder,
 /turf/open/floor/grass/gensgrass/dirty,
+/area/awaymission/rospilovo)
+"Dh" = (
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 4;
+	icon_state = "trimline"
+	},
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 8;
+	icon_state = "trimline"
+	},
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Di" = (
+/obj/structure/rospilovo/doski/doski2,
+/obj/structure/rospilovo/doski/doski3,
+/obj/item/gun/ballistic/automatic/mp5,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
 /area/awaymission/rospilovo)
 "Dj" = (
 /obj/item/ammo_box/magazine/r40,
@@ -1343,14 +2675,39 @@
 	icon_state = "plita4"
 	},
 /area/awaymission/rospilovo)
+"Dr" = (
+/obj/structure/barricade/wooden,
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "Ds" = (
 /obj/structure/rospilovo/doski/doski3,
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"DR" = (
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"DS" = (
+/obj/item/gun/ballistic/automatic/pistol/makarov{
+	pixel_y = 6
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
 "DU" = (
 /obj/structure/rospilovo/doski/doski4,
 /turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"DX" = (
+/obj/structure/rospilovo/musor_yashik/red,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "Eg" = (
 /obj/effect/bump_teleporter{
@@ -1359,6 +2716,51 @@
 	},
 /obj/structure/ladder,
 /turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"Ek" = (
+/obj/structure/table/rospilovo,
+/obj/item/reagent_containers/medigel/sal_acid_oxandrolone{
+	pixel_y = 12;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/hypospray/medipen/super_brute,
+/obj/item/reagent_containers/medigel/sal_acid_oxandrolone{
+	pixel_y = 13;
+	pixel_x = -1
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"Ep" = (
+/obj/effect/turf_decal/trimline/white/line,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/obj/structure/rospilovo/musor_yashik/green/full{
+	pixel_y = 8
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Es" = (
+/obj/structure/fence,
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
+"EE" = (
+/obj/structure/deployable_barricade/wooden,
+/obj/structure/rospilovo/water/bochka,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"EM" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/awaymission/rospilovo)
+"EO" = (
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "u_guilty_l";
+	pixel_y = 18
+	},
+/turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "EP" = (
 /obj/effect/turf_decal/siding/blue/corner{
@@ -1370,6 +2772,17 @@
 /obj/effect/mine/pickup/healing,
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
+"EV" = (
+/obj/structure/rospilovo/yashik{
+	pixel_y = 1;
+	pixel_x = -2
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"Ff" = (
+/obj/structure/rospilovo/shkaf64,
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
 "Fk" = (
 /obj/effect/bump_teleporter{
 	id = "fuck3";
@@ -1378,9 +2791,25 @@
 /obj/structure/ladder,
 /turf/open/floor/grass/gensgrass/dirty,
 /area/awaymission/rospilovo)
+"Fv" = (
+/obj/structure/rospilovo/shina2{
+	pixel_y = 11
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"FJ" = (
+/obj/effect/turf_decal/siding/white,
+/obj/effect/decal/cleanable/blood/bubblegum,
+/obj/item/fireaxe,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "FN" = (
 /obj/structure/deployable_barricade/wooden,
 /turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"FS" = (
+/obj/structure/chair/wood,
+/turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
 "FW" = (
 /obj/effect/turf_decal/siding/blue{
@@ -1396,9 +2825,21 @@
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
+"Ge" = (
+/obj/structure/rospilovo/musor_yashik/red,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
 "Gg" = (
 /obj/effect/random_mob_placer/combat_ai,
 /turf/open/floor/rospilovo/plitka,
+/area/awaymission/rospilovo)
+"Gj" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "Gk" = (
 /obj/effect/bump_teleporter{
@@ -1407,13 +2848,134 @@
 	},
 /turf/open/floor/plasteel/stairs/left,
 /area/awaymission/rospilovo)
+"Gu" = (
+/obj/structure/fence/cut/medium{
+	dir = 4
+	},
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
+"Gy" = (
+/obj/structure/rospilovo/shina3{
+	pixel_y = 15
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
 "GD" = (
 /obj/structure/rospilovo/doski,
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
+"GG" = (
+/obj/machinery/door/poddoor/shutters{
+	dir = 4
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "GH" = (
 /obj/structure/table/rospilovo,
 /turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"GI" = (
+/obj/structure/bonfire/prelit,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"GR" = (
+/obj/machinery/door/poddoor/shutters{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"He" = (
+/obj/structure/fence/corner{
+	dir = 6
+	},
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
+"Hi" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Hp" = (
+/obj/structure/rospilovo/shina3{
+	pixel_y = 10
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Ht" = (
+/obj/structure/table/rospilovo,
+/obj/item/storage/backpack/duffelbag/med/surgery{
+	pixel_y = 5
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"Hv" = (
+/obj/structure/rospilovo/yashik/yaskik_a{
+	pixel_x = 5;
+	pixel_y = 12
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"HA" = (
+/obj/structure/rospilovo/yashik{
+	pixel_x = 5
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"HB" = (
+/obj/structure/shipping_container/gorlex,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"HG" = (
+/obj/structure/rospilovo/truba,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/rospilovo)
+"HI" = (
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "trails_2";
+	pixel_y = 13
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"HN" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8;
+	pixel_y = 10
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"HT" = (
+/obj/effect/turf_decal/trimline/white/line,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"HX" = (
+/obj/structure/rospilovo/water/luzha,
+/obj/structure/rospilovo/water/bochka/kap{
+	pixel_x = 8;
+	pixel_y = 13
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"Iy" = (
+/obj/structure/fluff/paper/stack,
+/turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "IA" = (
 /obj/effect/turf_decal/trimline/white/line{
@@ -1427,12 +2989,36 @@
 /obj/structure/barricade/wooden,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"IS" = (
+/obj/structure/sign/departments/medbay/alt,
+/turf/closed/wall/rospilovo/bricks_white,
+/area/awaymission/rospilovo)
+"IT" = (
+/obj/structure/rospilovo/bochka{
+	pixel_x = 6
+	},
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
 "IV" = (
 /obj/structure/rospilovo/doski/doski3,
-/obj/effect/turf_decal/siding{
+/obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
 /turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Jo" = (
+/obj/structure/rospilovo/shina2{
+	pixel_x = -5;
+	pixel_y = 9
+	},
+/obj/structure/rospilovo/shina{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"Jw" = (
+/turf/open/floor/plasteel/dark,
 /area/awaymission/rospilovo)
 "Jy" = (
 /obj/effect/turf_decal/siding/white/corner{
@@ -1440,37 +3026,112 @@
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"JI" = (
+/obj/structure/rospilovo/musor_yashik/red,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"JJ" = (
+/obj/structure/table/rospilovo,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
 "JK" = (
 /obj/effect/random_mob_placer/combat_ai,
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
-"Kb" = (
-/obj/effect/turf_decal/siding{
+"JL" = (
+/obj/structure/bonfire/prelit,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"JU" = (
+/obj/structure/rospilovo/shina3{
+	pixel_y = -20
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"JX" = (
+/obj/structure/rospilovo/shina{
+	pixel_y = 9;
+	pixel_x = -6
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"JY" = (
+/obj/structure/holohoop{
+	dir = 8;
+	pixel_x = 4
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"Ka" = (
+/obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
-/obj/structure/deployable_barricade/wooden,
+/obj/structure/rospilovo/shina3{
+	pixel_y = 14;
+	pixel_x = 1
+	},
 /turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Kb" = (
+/obj/structure/deployable_barricade/wooden,
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Kd" = (
+/obj/structure/rospilovo/yashik/yaskik_a/big{
+	pixel_x = 3
+	},
+/turf/open/floor/rospilovo/plitka,
+/area/awaymission/rospilovo)
+"Ki" = (
+/obj/structure/table/rospilovo,
+/obj/structure/sign/poster/official/help_others{
+	pixel_y = 32
+	},
+/turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
 "KF" = (
-/obj/effect/turf_decal/trimline/white/line{
+/obj/structure/rospilovo/trubas{
 	dir = 8;
-	icon_state = "trimline"
+	icon_state = "trubas"
 	},
-/obj/effect/turf_decal/trimline/white/line{
-	dir = 4;
-	icon_state = "trimline"
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
 	},
-/obj/item/shield/riot/military,
-/turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "KN" = (
-/obj/structure/grille/rospilovo/beton{
-	icon_state = "|6"
-	},
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 4
 	},
-/turf/open/floor/rospilovo,
+/turf/closed/wall/rospilovo/bricks_white,
+/area/awaymission/rospilovo)
+"KQ" = (
+/obj/structure/closet/crate/large,
+/obj/item/storage/firstaid/fire{
+	pixel_y = 4
+	},
+/obj/item/storage/firstaid/brute{
+	pixel_y = -4
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"KS" = (
+/obj/structure/rospilovo/shina{
+	pixel_x = -5;
+	pixel_y = -8
+	},
+/obj/structure/rospilovo/shina,
+/obj/structure/rospilovo/shina2{
+	pixel_y = 14;
+	pixel_x = -14
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
 /area/awaymission/rospilovo)
 "KZ" = (
 /obj/structure/barricade/wooden,
@@ -1480,15 +3141,36 @@
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "Lh" = (
-/obj/item/melee/baseball_bat/ablative,
-/obj/item/melee/baseball_bat/ablative{
-	pixel_x = -8;
-	pixel_y = -1
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"Lo" = (
+/obj/structure/rospilovo/shina2{
+	pixel_x = -5;
+	pixel_y = 9
+	},
+/obj/structure/rospilovo/shina{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/structure/rospilovo/doski{
+	pixel_x = 10
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 1
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "Lt" = (
 /turf/open/floor/grass/gensgrass/dirty,
+/area/awaymission/rospilovo)
+"Lx" = (
+/obj/structure/rospilovo/yashik/yaskik_a/big{
+	pixel_x = 1
+	},
+/turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
 "LE" = (
 /obj/effect/turf_decal/trimline/white/line{
@@ -1502,18 +3184,97 @@
 /obj/structure/barricade/wooden,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"LH" = (
+/obj/structure/rospilovo/musor_yashik/red,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"LK" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 8
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"LU" = (
+/obj/structure/closet/crate/large,
+/obj/item/defibrillator/loaded,
+/obj/item/defibrillator/compact/loaded,
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"LW" = (
+/obj/structure/rospilovo/shina2{
+	pixel_y = 18;
+	pixel_x = -7
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_y = 15;
+	pixel_x = 13
+	},
+/obj/structure/rospilovo/shina3,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Mn" = (
+/obj/structure/shipping_container/gorlex,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Mz" = (
+/obj/structure/bed,
+/obj/item/bedsheet,
+/obj/structure/curtain,
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"ME" = (
+/obj/structure/rospilovo/shina3{
+	pixel_y = 11
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_y = -6;
+	pixel_x = 12
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"MG" = (
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/structure/rospilovo/bochka{
+	pixel_x = -6
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"MU" = (
+/obj/structure/rospilovo/doski,
+/obj/structure/rospilovo/doski/doski2,
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"MY" = (
+/obj/structure/rospilovo/cover,
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
 "Ne" = (
 /obj/structure/table/rospilovo,
 /turf/open/floor/rospilovo/plitka,
 /area/awaymission/rospilovo)
-"No" = (
-/obj/structure/grille/rospilovo/beton{
-	icon_state = "|2"
+"Nn" = (
+/obj/structure/barricade/wooden,
+/obj/effect/turf_decal/siding{
+	dir = 8
 	},
-/obj/effect/turf_decal/siding/white/corner{
-	dir = 1
-	},
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"No" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "Nq" = (
 /obj/structure/barricade/wooden,
@@ -1521,6 +3282,27 @@
 	dir = 1
 	},
 /turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Nu" = (
+/obj/structure/rospilovo/yashik{
+	pixel_x = -5;
+	pixel_y = -3
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"Nx" = (
+/obj/structure/fence/door,
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
+"NC" = (
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = 6
+	},
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -13;
+	pixel_y = 8
+	},
+/turf/open/floor/plating/asteroid/dirty,
 /area/awaymission/rospilovo)
 "NF" = (
 /obj/structure/barricade/wooden,
@@ -1532,6 +3314,25 @@
 	},
 /turf/closed/dz/normal,
 /area/awaymission/rospilovo)
+"NI" = (
+/obj/structure/fence/corner,
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"NP" = (
+/obj/effect/turf_decal/siding/white,
+/obj/structure/deployable_barricade/wooden{
+	dir = 8
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"NR" = (
+/obj/structure/fence/post{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
 "NW" = (
 /obj/structure/barricade/wooden,
 /obj/effect/turf_decal/siding{
@@ -1539,15 +3340,130 @@
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"Oa" = (
+/obj/structure/table/rospilovo,
+/obj/item/storage/firstaid/regular{
+	pixel_y = 2;
+	pixel_x = 3
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"Ol" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Oo" = (
+/obj/structure/rospilovo/yashik/yaskik_a,
+/obj/item/crowbar/large,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"Or" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"OD" = (
+/obj/structure/rospilovo/musor_yashik/green/full,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"OI" = (
+/obj/structure/chair/wood{
+	dir = 4;
+	icon_state = "wooden_chair"
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"OQ" = (
+/obj/structure/rospilovo/yashik/yaskik_a/big,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"OX" = (
+/obj/structure/rospilovo/doski,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"Pc" = (
+/obj/effect/landmark/awaystart,
+/turf/open/floor/rospilovo/plitka,
+/area/awaymission/rospilovo)
 "Pd" = (
 /obj/effect/mine/pickup/healing,
 /turf/open/floor/light/colour_cycle/dancefloor_a,
+/area/awaymission/rospilovo)
+"PC" = (
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 4;
+	icon_state = "trimline"
+	},
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 8;
+	icon_state = "trimline"
+	},
+/obj/structure/deployable_barricade/wooden{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"PE" = (
+/obj/structure/table/rospilovo,
+/obj/item/stack/medical/bruise_pack{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/pill/penacid{
+	pixel_y = 9;
+	pixel_x = 7
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"PI" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "PW" = (
 /obj/structure/table/rospilovo,
 /obj/item/storage/firstaid/regular{
 	pixel_x = 2;
 	pixel_y = 3
+	},
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"PX" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Qj" = (
+/obj/effect/turf_decal/siding/white,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "floor6";
+	pixel_y = -20;
+	pixel_x = 5
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Qq" = (
+/obj/structure/fence/post{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"QC" = (
+/obj/structure/rospilovo/komod{
+	pixel_x = -5
 	},
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
@@ -1558,15 +3474,81 @@
 	},
 /turf/open/floor/rospilovo/wood,
 /area/awaymission/rospilovo)
+"QV" = (
+/obj/structure/rospilovo/yashik/yaskik_a{
+	pixel_x = 5;
+	pixel_y = -6
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"QZ" = (
+/obj/structure/table/rospilovo,
+/obj/structure/rospilovo/radio{
+	pixel_y = 10
+	},
+/turf/open/floor/rospilovo/wood,
+/area/awaymission/rospilovo)
+"Rh" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
 "Rj" = (
 /obj/effect/random_mob_placer/combat_ai,
 /turf/open/floor/light/colour_cycle/dancefloor_b,
+/area/awaymission/rospilovo)
+"Rk" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 5
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Rs" = (
+/obj/structure/rospilovo/shina{
+	pixel_x = -19
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_x = -1
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"Ry" = (
+/obj/structure/rospilovo/yashik/yaskik_a{
+	pixel_x = -1;
+	pixel_y = 5
+	},
+/turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
 "RG" = (
 /obj/effect/turf_decal/siding,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"RH" = (
+/obj/item/ammo_box/magazine/mp5,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "RN" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"RO" = (
+/obj/structure/deployable_barricade/wooden,
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = 6
+	},
+/obj/structure/rospilovo/bochka{
+	pixel_x = -13
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"RR" = (
+/obj/item/storage/firstaid/ancient,
+/turf/open/floor/rospilovo/plitka/full,
+/area/awaymission/rospilovo)
+"RV" = (
 /obj/effect/turf_decal/trimline/white/line{
 	dir = 8;
 	icon_state = "trimline"
@@ -1575,24 +3557,77 @@
 	dir = 4;
 	icon_state = "trimline"
 	},
-/obj/structure/rospilovo/shina3,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
-"RR" = (
-/obj/item/storage/firstaid/ancient,
-/turf/open/floor/rospilovo/plitka/full,
-/area/awaymission/rospilovo)
-"RV" = (
-/obj/effect/random_mob_placer/combat_ai,
-/turf/open/floor/grass/gensgrass/dirty,
+"RZ" = (
+/obj/structure/fence/post,
+/turf/open/floor/stone,
 /area/awaymission/rospilovo)
 "Se" = (
 /obj/structure/table/rospilovo,
 /obj/item/ammo_box/magazine/mp5,
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
+"Sr" = (
+/obj/effect/turf_decal/trimline/white/line,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/obj/structure/deployable_barricade/wooden{
+	dir = 4
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Sy" = (
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "gibbl1"
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
 "SE" = (
-/obj/item/shield/trayshield,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"SI" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1;
+	pixel_y = 10
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"SO" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/obj/structure/rospilovo/yashik/yaskik_a/big{
+	pixel_x = 3
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"SY" = (
+/obj/item/storage/firstaid/regular{
+	pixel_x = -6;
+	pixel_y = -5
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"SZ" = (
+/obj/structure/rospilovo/yashik,
+/obj/item/reagent_containers/medigel/libital{
+	pixel_y = 12;
+	pixel_x = -6
+	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "Tc" = (
@@ -1600,6 +3635,48 @@
 	dir = 4
 	},
 /turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"Tt" = (
+/obj/structure/rospilovo/pen{
+	pixel_y = -4;
+	pixel_x = 6
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"TD" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/structure/flora/tree/jungle/small,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"TJ" = (
+/obj/item/storage/firstaid/emergency{
+	pixel_y = 11;
+	pixel_x = 4
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"TV" = (
+/obj/structure/toilet/greyscale{
+	pixel_y = 11
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"TW" = (
+/obj/structure/deployable_barricade/wooden,
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Uh" = (
+/obj/structure/rospilovo/bar_plitka,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
 /area/awaymission/rospilovo)
 "Ul" = (
 /obj/effect/turf_decal/siding{
@@ -1609,14 +3686,61 @@
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "Uo" = (
-/obj/structure/rospilovo/shina3,
-/obj/effect/turf_decal/siding{
+/obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"UF" = (
+/obj/structure/rospilovo/doski/doski2,
+/obj/structure/rospilovo/doski/doski3,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"UN" = (
+/obj/effect/turf_decal/siding/white,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "US" = (
 /turf/open/floor/dz/green,
+/area/awaymission/rospilovo)
+"UX" = (
+/obj/structure/closet/crate/large,
+/obj/item/storage/firstaid/fire{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_y = 4;
+	pixel_x = 3
+	},
+/obj/item/storage/firstaid/brute{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/item/storage/firstaid/brute{
+	pixel_x = 3;
+	pixel_y = -4
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"Vc" = (
+/obj/structure/rospilovo/doski/doski4,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"Vd" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/obj/structure/rospilovo/shina3{
+	pixel_y = 15
+	},
+/turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "Vi" = (
 /obj/structure/rospilovo/shina3,
@@ -1638,10 +3762,68 @@
 	},
 /turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
+"VQ" = (
+/obj/structure/sign/poster/official/build,
+/turf/closed/wall/rospilovo/bricks,
+/area/awaymission/rospilovo)
+"Wd" = (
+/obj/structure/rospilovo/shina2{
+	pixel_x = -5;
+	pixel_y = 9
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_x = 8;
+	pixel_y = -4
+	},
+/obj/structure/rospilovo/shina{
+	pixel_y = 8
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"Wi" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "splatter5"
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Wl" = (
+/obj/structure/rospilovo/shina{
+	pixel_y = 12;
+	pixel_x = -1
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_x = -6
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_y = 4;
+	pixel_x = 12
+	},
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "Wt" = (
-/obj/item/storage/firstaid/regular{
-	pixel_x = 6;
-	pixel_y = -5
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "gib4";
+	pixel_x = 9
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"WI" = (
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "u_guilty_l"
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"WN" = (
+/obj/structure/rospilovo/shina2{
+	pixel_y = 11;
+	pixel_x = -5
+	},
+/obj/structure/rospilovo/shina3{
+	pixel_y = -4
 	},
 /turf/open/floor/grass/rospilovo,
 /area/awaymission/rospilovo)
@@ -1655,9 +3837,129 @@
 /obj/structure/rospilovo/doski/doski2,
 /turf/open/floor/rospilovo/plitka,
 /area/awaymission/rospilovo)
+"WV" = (
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "floor2";
+	pixel_x = -11
+	},
+/obj/effect/mob_spawn/human/corpse/russian,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"WW" = (
+/obj/structure/rospilovo/stolb,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"WX" = (
+/obj/structure/rospilovo/yashik/yaskik_a/big{
+	pixel_x = 1
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"WY" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Xd" = (
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -6;
+	pixel_y = 16
+	},
+/obj/structure/rospilovo/bochka,
+/turf/open/floor/rospilovo/plitka,
+/area/awaymission/rospilovo)
+"Xw" = (
+/obj/structure/fence,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"XF" = (
+/obj/structure/rospilovo/shina{
+	pixel_x = 3
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"XO" = (
+/obj/structure/deployable_barricade/wooden,
+/obj/structure/rospilovo/shina2{
+	pixel_y = 12;
+	pixel_x = 8
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_y = 9;
+	pixel_x = -11
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"XP" = (
+/obj/structure/rospilovo/yashik,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"XR" = (
+/obj/structure/fence{
+	dir = 8
+	},
+/turf/open/floor/stone,
+/area/awaymission/rospilovo)
+"XU" = (
+/obj/structure/deployable_barricade/wooden{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Ya" = (
+/obj/structure/rospilovo/shina3{
+	pixel_y = 10
+	},
+/obj/structure/rospilovo/shina2{
+	pixel_x = -6
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"Yb" = (
+/obj/structure/table/rospilovo,
+/obj/item/ammo_box/magazine/mp5{
+	pixel_x = -8
+	},
+/obj/item/ammo_box/magazine/mp5{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"Yf" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/structure/flora/tree/jungle,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
 "Yi" = (
 /obj/effect/mine/pickup/healing,
 /turf/open/floor/light/colour_cycle/dancefloor_b,
+/area/awaymission/rospilovo)
+"Ym" = (
+/obj/structure/closet/crate/large,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/head/helmet/alt,
+/obj/item/clothing/head/helmet/alt,
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"Yn" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"Yq" = (
+/obj/structure/barricade/wooden/crude,
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
 "Ys" = (
 /obj/structure/table/rospilovo,
@@ -1673,31 +3975,123 @@
 /obj/effect/turf_decal/siding,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"YC" = (
+/obj/structure/rospilovo/bochka/red{
+	pixel_y = -3;
+	pixel_x = -6
+	},
+/obj/structure/rospilovo/bochka{
+	pixel_x = 12;
+	pixel_y = 3
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"YD" = (
+/obj/structure/table/rospilovo,
+/obj/item/stack/medical/suture/medicated{
+	pixel_y = 9;
+	pixel_x = -3
+	},
+/obj/item/stack/medical/suture/medicated{
+	pixel_x = 4
+	},
+/turf/open/floor/rospilovo/plitka/old,
+/area/awaymission/rospilovo)
+"YH" = (
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 1
+	},
+/obj/structure/rospilovo/doski/doski3,
+/obj/structure/rospilovo/doski/doski4,
+/obj/structure/fluff/clockwork/alloy_shards/large,
+/turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
 "YK" = (
 /obj/effect/turf_decal/siding{
 	dir = 9
 	},
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
-"YV" = (
-/obj/item/shield/riot/kevlar{
-	pixel_x = -6;
-	pixel_y = 6
+"YL" = (
+/obj/structure/table/rospilovo,
+/obj/structure/rospilovo/radio{
+	pixel_y = 10
 	},
-/obj/item/shield/riot/kevlar{
-	pixel_x = -2
+/turf/open/floor/plating/asteroid/dirty,
+/area/awaymission/rospilovo)
+"YN" = (
+/obj/effect/mob_spawn/human/corpse/russian,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "splatter2"
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"YV" = (
+/obj/structure/flora/tree/jungle,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"Zc" = (
+/obj/structure/rospilovo/doski/doski4,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "u_guilty_l";
+	pixel_y = 18
 	},
 /turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"Zg" = (
+/obj/structure/sink/directional/south,
+/turf/open/floor/rospilovo/plitka/old,
 /area/awaymission/rospilovo)
 "Zj" = (
 /obj/structure/rospilovo/water/luzha,
 /obj/effect/turf_decal/siding/white/corner,
 /turf/open/floor/rospilovo,
 /area/awaymission/rospilovo)
+"Zn" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1;
+	pixel_y = 10
+	},
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "gibbl1"
+	},
+/turf/open/floor/rospilovo/plitka{
+	icon_state = "plita4"
+	},
+/area/awaymission/rospilovo)
+"Zq" = (
+/obj/structure/rospilovo/radiation{
+	pixel_y = 12;
+	pixel_x = 10
+	},
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"Zu" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/structure/rospilovo/doski,
+/obj/item/storage/firstaid/regular,
+/turf/open/floor/grass/rospilovo,
+/area/awaymission/rospilovo)
+"Zw" = (
+/obj/structure/rospilovo/yashik/yaskik_a{
+	pixel_x = -1
+	},
+/turf/open/floor/rospilovo/plitka,
+/area/awaymission/rospilovo)
 "ZF" = (
-/obj/structure/rospilovo/shina2,
-/obj/effect/turf_decal/siding,
+/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
 /turf/open/floor/rospilovo,
+/area/awaymission/rospilovo)
+"ZI" = (
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = 14;
+	pixel_y = 10
+	},
+/obj/structure/rospilovo/bochka/red,
+/turf/open/floor/plating/asteroid/dirty,
 /area/awaymission/rospilovo)
 "ZM" = (
 /obj/structure/rospilovo/lift{
@@ -1874,11 +4268,11 @@ bN
 bN
 bN
 bN
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 bN
 bN
@@ -2001,11 +4395,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -2030,16 +4424,16 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cO
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+if
+Ya
 bN
 ab
 ab
@@ -2104,7 +4498,7 @@ ab
 (4,1,1) = {"
 ab
 bN
-aa
+bG
 bG
 bG
 bG
@@ -2128,45 +4522,45 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
+cP
+bG
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
 cP
 bG
 bG
+YV
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cO
+bW
+bW
+HB
+bZ
+bW
+bW
+bW
+Rs
 bN
 ab
 ab
@@ -2231,7 +4625,6 @@ ab
 (5,1,1) = {"
 ab
 bN
-aa
 bG
 bG
 bG
@@ -2240,60 +4633,61 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+RZ
+Es
+RZ
+Es
+RZ
+Es
+RZ
+Es
+RZ
+Es
+RZ
+Es
+RZ
+Es
+BP
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
+cP
+bG
+cP
+bN
+bN
+bN
+bN
+bN
+bN
+bN
+bN
+bN
+bN
+bN
+bN
+bN
+bN
+bN
+bN
+bN
 cP
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+jS
+bW
+bW
+bW
+vj
+bW
+bW
+bW
+bW
 bN
 ab
 ab
@@ -2358,7 +4752,6 @@ ab
 (6,1,1) = {"
 ab
 bN
-aa
 bG
 bG
 bG
@@ -2381,46 +4774,47 @@ bG
 bG
 bG
 bG
+XR
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
+cP
+bG
+cP
+bN
+Ff
+aw
+aw
+aw
+aw
+bN
+MG
+UX
+LU
+bN
+oH
+aw
+aw
+aw
+PE
+bN
 cP
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+jS
+bW
+bW
+bW
+bW
+Hv
+bW
+bW
+bW
+bW
 bN
 ab
 ab
@@ -2507,47 +4901,47 @@ bG
 bG
 bG
 bG
-bG
+Dd
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
+cP
+bN
+Ff
+aw
+OI
+GH
+aw
+bN
+bf
+aw
+aw
+bN
+hI
+aw
+aw
+aw
+hI
+bN
+cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+fV
+DR
+bW
+bW
+bW
+bW
+bW
+WX
+bW
+bW
+bW
+bW
 bN
 ab
 ab
@@ -2634,47 +5028,47 @@ bG
 bG
 bG
 bG
-bG
+XR
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
+cP
+bG
+cP
+bN
+GH
+oE
+GH
+GH
+aw
+bN
+EV
+aw
+aw
+bN
+aw
+aw
+GH
+aw
+aw
+bN
 cP
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+DR
+bW
+bW
+bW
+bW
+bW
+bW
+RN
+cO
+bW
+bW
 bN
 ab
 ab
@@ -2761,47 +5155,47 @@ bG
 bG
 bG
 bG
-bG
-cP
-qy
+Dd
+dd
+qt
 bM
 ce
 bM
-RG
+pu
+cP
+bG
+cP
+bN
+aw
+aw
+aw
+aw
+aw
+bN
+dr
+aw
+aw
+bN
+aw
+aw
+Ht
+aw
+aw
+bN
 cP
 bG
 bG
+DR
+bW
+bW
+bW
+bW
+bW
+RN
+fV
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cO
+bW
 bN
 ab
 ab
@@ -2879,7 +5273,6 @@ bG
 bG
 bG
 bG
-aa
 bG
 bG
 bG
@@ -2889,46 +5282,47 @@ bG
 bG
 bG
 bG
+Dc
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
+cP
+bG
+cP
+bN
+ya
+aw
+rn
+aw
+aw
+bN
+jB
+aw
+aw
+bN
+Mz
+aw
+aw
+aw
+hI
+bN
 cP
 bG
 bG
 bG
+cO
+bW
+bW
+bW
+RN
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-aa
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cO
 bN
 ab
 ab
@@ -3008,53 +5402,53 @@ bG
 bG
 bG
 bG
+au
+fL
+fL
+fL
+fL
+fL
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+Dd
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
+cP
+bG
+cP
+bN
+Ek
+aw
+aw
+aw
+GH
+bN
+Lx
+aw
+Ck
+bN
+YD
+aw
+aw
+aw
+lM
+bN
 cP
 bG
 bG
 bG
 bG
+fg
+fg
+fg
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
 bG
 bN
 ab
@@ -3134,46 +5528,46 @@ bG
 bG
 bG
 bG
+au
+au
+au
+au
+au
+au
+fL
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+zm
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
+cP
+bG
+cP
+bN
+bN
+bN
+aD
+bN
+bN
+bN
+bN
+aD
+bN
+bN
+bN
+bN
+aD
+bN
+bN
+bN
 cP
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
 bG
 bG
 bG
@@ -3248,7 +5642,6 @@ ab
 ab
 bN
 bG
-aa
 bG
 bG
 bG
@@ -3262,53 +5655,54 @@ bG
 bG
 bG
 bG
+au
+au
+au
+au
+au
+au
+fL
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+Dd
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
+cP
+bN
+GH
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+GH
+bN
+cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
 bG
 bN
 ab
@@ -3388,54 +5782,54 @@ bG
 bG
 bG
 bG
+au
+au
+au
+au
+au
+au
+fL
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+XR
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+FS
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+Oa
+bN
+cP
+cP
+dM
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+cP
 bG
 bN
 ab
@@ -3515,54 +5909,54 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+au
+au
+au
+au
+au
+au
+fL
+ng
+Dd
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+rZ
+aw
+aw
+aw
+aw
+bN
+bN
+bN
+bN
+aD
+bN
+bN
+bN
+bN
+bN
+bN
+bM
+bM
+cD
+ac
+jr
+wb
+at
+ac
+TV
+aw
+ji
+ac
+cP
 bG
 bN
 ab
@@ -3642,54 +6036,54 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+au
+au
+au
+au
+au
+au
+au
+ng
+Nx
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-aa
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+FS
+aw
+aw
+aw
+GH
+bN
+cP
+cP
+bM
+bM
+bM
+cP
+cP
+Af
+cP
+bM
+bM
+bM
+bM
+ac
+au
+au
+at
+ac
+Zg
+aw
+aw
+ac
+cP
 bG
 bN
 ab
@@ -3769,54 +6163,54 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+au
+au
+au
+au
+au
+au
+fL
+ng
+hj
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+Ki
+aw
+aw
+aw
+GH
+bN
+cP
+bM
+bM
+bM
+bM
+bM
+cP
+cP
+cP
+bM
+bM
+bM
+bM
+iF
+au
+au
+au
+ac
+ac
+aD
+ac
+ac
+cP
 bG
 bN
 ab
@@ -3896,54 +6290,54 @@ bG
 bG
 bG
 bG
-aa
+au
+au
+au
+au
+au
+au
+fL
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+Dd
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+GH
+aw
+aw
+aw
+GH
+bN
+cP
+cD
+cC
+cB
+bM
+bM
+cP
+cP
+cP
+bM
+bM
+bM
+yG
+ac
+au
+au
+au
+au
+ac
+au
+au
+ac
+cP
 bG
 bN
 ab
@@ -4029,48 +6423,48 @@ bG
 bG
 bG
 bG
+fL
 bG
-bG
-bG
+XR
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+bN
+bN
+aD
+bN
+bN
+bN
+cP
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+as
+au
+au
+au
+ac
+au
+au
+ac
+cP
 bG
 bN
 ab
@@ -4156,48 +6550,48 @@ bG
 bG
 bG
 bG
+fL
 bG
-bG
-bG
+Dd
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+Ff
+aw
+aw
+aw
+GH
+bN
+cP
+ac
+Zw
+bT
+bT
+Xd
+bT
+bT
+bT
+bT
+bT
+au
+xE
+ac
+as
+au
+au
+au
+aE
+au
+au
+ac
+rp
 bG
 bN
 ab
@@ -4270,7 +6664,6 @@ bG
 bG
 bG
 bG
-aa
 bG
 bG
 bG
@@ -4284,47 +6677,48 @@ bG
 bG
 bG
 bG
+fL
 bG
-bG
+XR
 dd
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+Ff
+aw
+aw
+aw
+aw
+bN
+cP
+ac
+ug
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+au
+au
+ck
+au
+au
+au
+au
+ac
+au
+au
+ac
+yY
 bG
 bN
 ab
@@ -4410,48 +6804,48 @@ bG
 bG
 bG
 bG
+fL
 bG
-bG
-bG
+Dd
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+GH
+aw
+GH
+aw
+aw
+bN
+cP
+ac
+ve
+bT
+vd
+Gj
+Gj
+Gj
+Gj
+tz
+bT
+au
+au
+ac
+aL
+au
+au
+au
+ac
+au
+au
+ac
+Ge
 bG
 bN
 ab
@@ -4537,48 +6931,48 @@ bG
 bG
 bG
 bG
+fL
 bG
-bG
-bG
+Dc
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+aw
+FS
+GH
+aw
+aw
+bN
+cP
+ac
+ve
+bT
+qt
+bM
+bM
+oA
+bM
+pu
+bT
+au
+at
+ac
+ah
+at
+at
+ac
+aG
+au
+au
+ac
+iy
 bG
 bN
 ab
@@ -4664,48 +7058,48 @@ bG
 bG
 bG
 bG
+fL
 bG
-bG
-bG
+NR
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+aw
+aw
+GH
+aw
+aw
+bN
+cP
+ac
+ve
+bT
+qt
+bM
+bM
+bM
+bM
+pu
+bT
+au
+at
+ac
+an
+au
+au
+au
+au
+au
+au
+ac
+yY
 bG
 bN
 ab
@@ -4791,48 +7185,48 @@ bG
 bG
 bG
 bG
+fL
 bG
-bG
-bG
+Dc
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-aa
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+GH
+GH
+GH
+aw
+aw
+bN
+cP
+ac
+ve
+bT
+Rk
+dO
+dO
+Jy
+bM
+pu
+bT
+au
+au
+ac
+au
+au
+au
+au
+au
+au
+au
+ac
+mH
 bG
 bN
 ab
@@ -4918,48 +7312,48 @@ bG
 bG
 bG
 bG
+fL
 bG
-bG
-bG
+Cy
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+aw
+aw
+aw
+aw
+aw
+bN
+cP
+ac
+mk
+bT
+bT
+bT
+bT
+qt
+bM
+pu
+bT
+au
+au
+ck
+au
+au
+au
+au
+au
+au
+at
+ac
+iy
 bG
 bN
 ab
@@ -5045,48 +7439,48 @@ bG
 bG
 bG
 bG
+fL
 bG
-bG
-bG
+Gu
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+bN
+yc
+aw
+aw
+aw
+aw
+bN
+cP
+ac
+Kd
+Ne
+Ne
+Ne
+bT
+qt
+bM
+pu
+bT
+au
+au
+ac
+au
+au
+au
+au
+at
+at
+at
+ac
+yY
 bG
 bN
 ab
@@ -5159,61 +7553,61 @@ bG
 bG
 bG
 bG
+fL
+fL
+fL
+fL
+fL
+fL
+fL
+fL
+fL
+fL
+fL
+fL
+fL
+fL
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+Dd
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-aa
-bG
-bG
+cP
+bN
+bN
+IS
+aD
+bN
+bN
+bN
+cP
+ac
+ac
+ac
+ac
+ac
+ac
+GR
+GG
+rv
+ac
+ac
+ac
+ac
+VQ
+aE
+ac
+ac
+ac
+ac
+ac
+ac
+cP
 bG
 bN
 bN
@@ -5237,11 +7631,11 @@ bN
 bN
 bN
 bN
-qy
-bM
-ce
-bM
-RG
+PX
+eS
+HT
+eS
+UN
 bN
 ab
 cf
@@ -5301,74 +7695,74 @@ bG
 bG
 bG
 bG
-bG
+XR
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
 cP
-qy
+cP
+cP
+cP
+Uh
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+qt
+bM
+pu
+cP
+cP
+cP
+cP
+cP
+Uh
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+bG
+dg
+Ry
+bG
+bG
+bG
+bG
+bG
+bG
+bG
+bG
+bG
+bG
+YV
+bG
+bG
+bG
+bG
+bG
+bG
+NF
+Aq
+cP
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -5414,27 +7808,34 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+RZ
+Es
+RZ
+Es
+RZ
+Es
+RZ
+Es
+RZ
+Es
+RZ
+Es
+RZ
+Es
+He
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
+cP
+bG
+bG
+YV
+bG
+cP
+cP
 cP
 bG
 bG
@@ -5443,59 +7844,52 @@ bG
 bG
 bG
 bG
+YV
+cP
+qt
+bM
+pu
+cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+fV
 bG
 cP
-qy
+cP
+cP
+bG
+bG
+bG
+bG
+bG
+bG
+bG
+oX
+kl
+bG
+bG
+fV
+bG
+bG
+bG
+bG
+bG
+bG
+bG
+bG
+bG
+bG
+bG
+bG
+fV
+bG
+Aq
+NF
+cP
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 NH
@@ -5557,30 +7951,11 @@ cP
 cP
 cP
 cP
-qy
+qt
 bM
 ce
 bM
-RG
-cP
-cP
-cP
-cP
-cP
-cP
-cP
-cP
-cP
-cP
-cP
-cP
-cP
-dd
-cP
-cP
-cP
-cP
-cP
+pu
 cP
 cP
 cP
@@ -5598,6 +7973,25 @@ cP
 cP
 cP
 cP
+qt
+bM
+pu
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+dd
+cP
+cP
+cP
+cP
+cP
+qd
+cP
 cP
 cP
 cP
@@ -5614,15 +8008,15 @@ cP
 cP
 cP
 cP
+qd
+dz
+ba
 cP
-cP
-cP
-cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -5659,97 +8053,97 @@ ab
 "}
 (32,1,1) = {"
 ab
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
 uy
 bM
 bM
 bM
 zY
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+uy
+bM
+zY
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+qY
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+qY
+we
+vm
+we
+Gj
 uy
 bM
 bM
 bM
-RG
+pu
 bN
 ab
 cf
@@ -5818,7 +8212,6 @@ bM
 bM
 bM
 bM
-ZQ
 bM
 bM
 bM
@@ -5854,6 +8247,7 @@ bM
 bM
 bM
 bM
+Ol
 bM
 bM
 bM
@@ -5866,17 +8260,17 @@ bM
 bM
 bM
 bM
+Ol
+co
+cr
+co
+cr
+co
 bM
 bM
 bM
 bM
-bM
-bM
-bM
-bM
-bM
-bM
-RG
+pu
 bN
 ab
 cf
@@ -5977,7 +8371,10 @@ cd
 cd
 cd
 cd
-iO
+cd
+cd
+cd
+PC
 cd
 cd
 cd
@@ -5990,20 +8387,17 @@ cd
 cd
 cd
 cd
-cd
-mX
-cd
-cd
-cd
-cd
-cd
-cd
-cd
+PC
+Dh
+LE
+Dh
+LE
+Dh
 bM
 bM
 bM
 bM
-RG
+pu
 bN
 ab
 cf
@@ -6093,15 +8487,6 @@ bM
 bM
 bM
 bM
-ZQ
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-ZQ
 bM
 bM
 bM
@@ -6116,6 +8501,7 @@ bM
 bM
 bM
 bM
+Ol
 bM
 bM
 bM
@@ -6128,9 +8514,17 @@ bM
 bM
 bM
 bM
+Ol
+co
+cr
+co
+cr
+co
 bM
 bM
-RG
+bM
+bM
+pu
 bN
 ab
 cf
@@ -6167,97 +8561,97 @@ ab
 "}
 (36,1,1) = {"
 ab
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 Jy
-ZQ
+bM
 bM
 bM
 kG
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
 Jy
 bM
 kG
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+sj
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+sj
+ea
+fT
+ea
+dO
 Jy
 bM
 bM
 bM
-RG
+pu
 bN
 ab
 cf
@@ -6346,19 +8740,19 @@ cP
 dd
 cP
 cP
-cP
-qy
+nW
+qt
 bM
-RG
+pu
+nZ
+SI
+BO
+Zn
+HI
 cP
 cP
 cP
-cP
-cP
-cP
-cP
-cP
-cP
+qd
 cP
 cP
 cP
@@ -6376,15 +8770,15 @@ cP
 cP
 cP
 cP
+qd
+dz
+dz
 cP
-cP
-cP
-cP
-qy
-ZQ
+qt
+bM
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -6422,10 +8816,10 @@ ab
 (38,1,1) = {"
 ab
 bN
-cm
-cm
-cm
-cm
+bN
+bN
+bN
+bN
 bS
 bS
 bS
@@ -6439,12 +8833,12 @@ bS
 bS
 bS
 bS
-fR
+bN
 KN
-bX
-bX
-bX
-bZ
+bN
+bN
+bN
+bN
 dz
 Nq
 co
@@ -6473,11 +8867,11 @@ bN
 bN
 bN
 bN
-cP
-qy
+ol
+qt
 bM
-RG
-cP
+pu
+HN
 ac
 ac
 ac
@@ -6489,6 +8883,9 @@ ac
 bG
 bG
 bG
+jS
+bW
+Lh
 bG
 bG
 bG
@@ -6503,15 +8900,12 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-cP
-qy
-bM
-ce
-bM
-RG
+dz
+es
+co
+cq
+co
+hs
 bN
 ab
 cf
@@ -6600,11 +8994,11 @@ aw
 aw
 aw
 bN
-cP
-qy
+Sy
+qt
 bM
-RG
-cP
+Qj
+Ak
 ac
 au
 au
@@ -6614,15 +9008,13 @@ au
 au
 ac
 bG
+YV
+DR
+bW
+bW
+bW
 bG
-bG
-bG
-bG
-bG
-bG
-cM
-bG
-bG
+fV
 bG
 bG
 bG
@@ -6630,15 +9022,17 @@ bG
 bG
 bG
 bG
+YV
 bG
 bG
+fV
 bG
 cP
-qy
+qt
+vb
+Sr
 bM
-ce
-bM
-RG
+pu
 bN
 ab
 cf
@@ -6704,8 +9098,8 @@ Nq
 co
 cq
 co
-Yw
-dz
+jg
+ba
 bN
 aw
 aw
@@ -6728,10 +9122,10 @@ tZ
 aw
 bN
 cP
-qy
+qt
 bM
-RG
-cP
+FJ
+WV
 ac
 au
 QD
@@ -6742,6 +9136,15 @@ au
 ac
 bG
 bG
+jS
+bW
+bW
+bW
+bW
+bG
+bG
+bG
+YV
 bG
 bG
 bG
@@ -6751,21 +9154,12 @@ bG
 bG
 bG
 bG
-bG
-cF
-bG
-bG
-bG
-bG
-cF
-bG
-bG
-cP
-qy
+ef
+XU
 bM
 ce
-bM
-RG
+vb
+PI
 bN
 ab
 cf
@@ -6832,7 +9226,7 @@ co
 cq
 co
 Yw
-ba
+dz
 bN
 aw
 aw
@@ -6855,9 +9249,9 @@ aw
 aw
 bN
 cP
-qy
-dr
-RG
+qt
+bM
+ok
 cP
 ac
 au
@@ -6868,31 +9262,31 @@ au
 au
 af
 bG
+DR
+YL
+bW
+bW
+bW
+bW
+Lh
+bG
+bG
+bG
+bG
+bG
+fV
 bG
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-cP
-qy
-bM
-ce
-bM
-RG
+dz
+es
+co
+cq
+co
+hs
 bN
 ab
 cf
@@ -6958,7 +9352,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -6982,9 +9376,9 @@ aw
 aw
 cl
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 ac
 au
@@ -6994,32 +9388,32 @@ au
 cp
 au
 ac
+fV
+jS
+Yb
+bW
+bW
+bW
+bW
+bW
+Lh
 bG
 bG
 bG
 bG
 bG
-cY
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-cY
-bG
-bG
-bG
-bG
-cP
-qy
-bM
-ce
-bM
-RG
+NF
+ba
+yC
+cr
+cs
+cr
+Yq
 bN
 ab
 cf
@@ -7085,7 +9479,7 @@ Vi
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -7109,9 +9503,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 ac
 au
@@ -7121,32 +9515,32 @@ ac
 ac
 ac
 ac
+DR
+on
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+uV
 bG
 bG
 bG
-cF
-bG
-bG
-bG
-bG
-dt
+YV
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-cP
-qy
-bM
-ce
-bM
-RG
+jO
+dz
+es
+co
+cq
+co
+hs
 bN
 ab
 cf
@@ -7212,7 +9606,7 @@ uy
 bM
 ce
 bM
-RG
+pu
 cP
 cl
 aw
@@ -7235,10 +9629,10 @@ aw
 aw
 aw
 bN
-dC
-qy
+cP
+qt
 bM
-RG
+pu
 cP
 af
 au
@@ -7248,6 +9642,17 @@ au
 au
 au
 cH
+DR
+NC
+bW
+bW
+bW
+bW
+bW
+bW
+JJ
+bW
+bW
 bG
 bG
 bG
@@ -7255,25 +9660,14 @@ bG
 bG
 bG
 bG
+YV
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-cP
-qy
-bM
-ce
-bM
-RG
+mV
+rh
+yT
+Ep
+mX
+pA
 bN
 ab
 cf
@@ -7339,7 +9733,7 @@ bM
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -7363,9 +9757,9 @@ aw
 aw
 bN
 cP
-qy
-ZQ
-RG
+qt
+bM
+pu
 cP
 ac
 au
@@ -7375,32 +9769,32 @@ au
 au
 au
 ac
+DR
+Ym
+bW
+bW
+bW
+GI
+bW
+bW
+JJ
+bW
+bW
+Lh
 bG
 bG
 bG
 bG
 bG
 bG
-aa
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-cP
-qy
+jA
+qt
 bM
-ce
+AB
 bM
-RG
+oQ
 bN
 ab
 cf
@@ -7466,7 +9860,7 @@ Jy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -7490,9 +9884,9 @@ Tc
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 ac
 au
@@ -7502,32 +9896,32 @@ au
 au
 au
 ac
+DR
+mL
+sf
+bW
+bW
+bW
+bW
+bW
+JJ
+bW
+bW
+bW
+Lh
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-dt
-bG
-bG
+Tt
+fb
+fb
 bG
 bG
 bG
 cP
-qy
-bM
-ce
-bM
-RG
+qt
+vb
+Sr
+vb
+pu
 bN
 ab
 cf
@@ -7617,9 +10011,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 ac
 au
@@ -7630,31 +10024,31 @@ au
 au
 ac
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+vy
+yx
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+Lh
+jS
+bW
+bW
+Lh
 bG
 bG
 dd
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -7720,7 +10114,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -7744,9 +10138,9 @@ aw
 aw
 dp
 cP
-qy
-bM
-RG
+mv
+WR
+NP
 cP
 ac
 au
@@ -7757,31 +10151,31 @@ au
 au
 ac
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-aa
-bG
-bG
-bG
-bG
+DR
+XP
+bW
+bW
+JJ
+JJ
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+Lh
 bG
 cP
-qy
-bM
+XU
+vb
 ce
-bM
-RG
+vb
+PI
 bN
 ab
 cf
@@ -7847,7 +10241,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -7871,9 +10265,9 @@ aw
 aw
 cl
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 ac
 au
@@ -7885,30 +10279,30 @@ au
 af
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-cM
-bG
-cE
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cO
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+Lh
 cP
-qy
-bM
+Lo
+LW
 ce
-bM
-RG
+ME
+Wl
 bN
 ab
 cf
@@ -7974,7 +10368,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 dd
 cl
 aw
@@ -7998,9 +10392,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 af
 au
@@ -8012,30 +10406,30 @@ au
 ac
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+jS
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+JJ
+bW
+bW
+bW
+bW
+bW
+bW
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -8093,7 +10487,7 @@ bS
 bU
 qy
 bM
-ZQ
+bM
 cB
 ca
 cP
@@ -8101,7 +10495,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -8125,9 +10519,9 @@ aw
 aw
 bN
 dM
-qy
-cA
-RG
+qt
+bM
+pu
 cP
 ac
 ac
@@ -8138,31 +10532,31 @@ ac
 au
 ac
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-cY
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+DR
+iC
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+GI
+bW
+bW
+JJ
+bW
+bW
+bW
+bW
+bW
+RN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -8228,7 +10622,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -8252,9 +10646,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 ac
 au
@@ -8265,31 +10659,31 @@ au
 au
 ac
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+jS
+pn
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+JJ
+bW
+bW
+bW
+bW
+RN
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -8355,7 +10749,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -8379,9 +10773,9 @@ pJ
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 ac
 au
@@ -8392,31 +10786,31 @@ au
 au
 ac
 de
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+bW
+bW
+bW
+bW
+bW
+RN
+cO
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+RN
+fg
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -8482,7 +10876,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -8506,9 +10900,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 ac
 au
@@ -8518,32 +10912,32 @@ au
 au
 au
 ac
-bG
-bG
-bG
-cx
-bG
-bG
+gx
+bW
+bW
+bW
+bW
+RN
 dt
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cO
+bW
+bW
+bW
+bW
+bW
+bW
+RN
 dt
 bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -8609,7 +11003,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -8633,9 +11027,9 @@ aw
 aw
 cG
 dB
-qy
+qt
 bM
-RG
+pu
 cP
 ac
 au
@@ -8645,32 +11039,32 @@ au
 au
 au
 ac
+gm
+bW
+bW
+bW
+RN
 bG
 bG
 bG
+DR
+HX
+bW
+bW
+bW
+bW
+bW
+SE
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
 bG
 cP
-qy
+qt
 dl
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -8736,7 +11130,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 bN
@@ -8760,9 +11154,9 @@ bN
 bN
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 ac
 ac
@@ -8771,33 +11165,33 @@ ac
 ac
 ac
 ac
-ac
+cH
+bG
+cO
+bW
+RN
 bG
 bG
 bG
 bG
-aa
+YV
+cO
+bW
+JJ
+JJ
+bW
+RN
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-cY
 bG
 bG
 bG
 bG
 cP
-qy
+qt
 dk
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -8863,7 +11257,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -8879,31 +11273,29 @@ bG
 bG
 bG
 bG
+yr
 NF
-Aq
-NF
-bG
+yr
 NF
 NF
+yr
 bG
 cP
-qy
+qt
 bM
-RG
+pu
 cP
-NF
-Aq
+Or
+oG
 oG
 dj
 bG
 bG
 cI
+cJ
 bG
 bG
-cY
-bG
-bG
-bG
+fg
 bG
 bG
 bG
@@ -8911,8 +11303,10 @@ bG
 bG
 bG
 bG
-cE
-bG
+cO
+mL
+vc
+RN
 bG
 bG
 bG
@@ -8920,11 +11314,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -8990,7 +11384,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 dF
 cP
 dI
@@ -9007,35 +11401,29 @@ cP
 cP
 cP
 dz
-cP
+Yn
 dz
 ba
+Yn
 dz
-dz
-cP
 dd
-qy
-ZQ
-RG
 cP
-NF
-Aq
-NF
+qt
+bM
+pu
+cP
+oG
+rG
+oG
+ss
 bG
-cF
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
 bG
 bG
 bG
 bG
 bG
-bG
+YV
 bG
 bG
 bG
@@ -9043,15 +11431,21 @@ bG
 bG
 bG
 bG
+fg
+fg
 bG
+bG
+bG
+bG
+fV
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 cf
@@ -9133,11 +11527,11 @@ jE
 jE
 jE
 jE
+Nn
+wv
+Nn
 KZ
-jE
-KZ
-KZ
-KZ
+Nn
 KZ
 jE
 jE
@@ -9146,8 +11540,10 @@ bM
 zY
 jE
 co
+eS
 co
-co
+eg
+Lh
 bG
 bG
 bG
@@ -9159,26 +11555,24 @@ bG
 bG
 bG
 bG
-dt
+bG
+fV
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
+YV
 bG
 bG
 bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 ab
 ab
@@ -9244,7 +11638,7 @@ qy
 bM
 ce
 bM
-ZQ
+bM
 bM
 bM
 bM
@@ -9261,9 +11655,9 @@ bM
 bM
 bM
 co
+eS
 co
-co
-co
+eS
 co
 bM
 bM
@@ -9274,7 +11668,10 @@ WR
 bM
 bM
 co
-co
+eS
+xo
+bW
+SE
 bG
 bG
 bG
@@ -9282,15 +11679,12 @@ bG
 bG
 bG
 bG
+dt
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-cM
 bG
 bG
 bG
@@ -9301,11 +11695,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 bN
 bN
@@ -9387,11 +11781,11 @@ bM
 bM
 bM
 bM
-bM
-co
-co
-bM
-co
+eS
+cr
+eS
+cr
+eS
 do
 bM
 bM
@@ -9400,14 +11794,14 @@ dk
 bM
 bM
 bM
+eS
 co
-co
+kk
+bW
+Lh
 bG
 bG
-bG
-bG
-bG
-bG
+fV
 bG
 bG
 bG
@@ -9431,15 +11825,15 @@ cP
 IV
 bM
 ce
-ZQ
-RG
+bM
+pu
 cP
 bG
 bG
 bG
-bG
-bG
-bG
+fb
+fb
+fb
 bG
 bG
 bG
@@ -9514,10 +11908,10 @@ bM
 bM
 bM
 bM
-bM
 co
-bM
+eS
 co
+eS
 co
 bM
 bM
@@ -9526,14 +11920,14 @@ bM
 bM
 cZ
 bM
+bM
 co
-co
-co
+eS
 di
+bW
+bW
+SE
 bG
-bG
-bG
-cF
 bG
 bG
 bG
@@ -9551,18 +11945,31 @@ bG
 bG
 cE
 bG
+YV
 bG
-bG
-bG
+jS
 cP
 wQ
 bM
 ce
 bM
-RG
+pu
 dd
 bG
 cF
+jS
+NC
+bW
+xT
+Lh
+bG
+fV
+bG
+bG
+bG
+bG
+bG
+YV
 bG
 bG
 bG
@@ -9571,25 +11978,12 @@ bG
 bG
 bG
 bG
+YV
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+fV
 bG
 bN
 ab
@@ -9641,82 +12035,82 @@ ze
 ze
 ze
 ze
+Dr
 NW
+vW
 NW
+Dr
+fE
 ze
-NW
-NW
 ze
-ze
-xg
 Jy
 bM
 kG
-ze
+dO
 co
+eS
 co
-co
+RO
+bW
+bW
+Yf
+bG
+bG
+bG
+bG
+bG
+YV
+bG
+bG
+bG
+bG
+bG
+YV
 bG
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+fb
+jS
+bW
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
+jS
+bW
+bW
+Da
+bW
+bW
+Lh
+fb
+fb
+jY
 bG
 bG
 bG
 bG
 bG
-bG
-aa
-bG
+No
 bG
 bG
+YV
 bG
-bG
-bG
+mR
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YN
+DS
 bG
 bN
 ab
@@ -9743,7 +12137,7 @@ lN
 bS
 bU
 qy
-ZQ
+bM
 bM
 bM
 ca
@@ -9752,7 +12146,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 cP
 dJ
@@ -9769,20 +12163,25 @@ cP
 cP
 cP
 dz
+Yn
 dz
-cP
+ba
+Yn
 dz
-dz
+dd
 cP
-cP
-cP
-qy
+qt
 bM
-RG
+pu
 cP
-NF
-NF
-NF
+oG
+rG
+oG
+EE
+bW
+bW
+bW
+Lh
 bG
 bG
 bG
@@ -9796,25 +12195,34 @@ bG
 bG
 bG
 bG
+fV
 bG
 bG
-bG
-bG
-bG
-cY
-bG
-bG
-bG
-bG
-bG
-bG
+jS
+bW
+bW
+BY
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
+jS
+bW
+bW
+bW
+bW
+bW
+bW
+JJ
+bW
+bW
+Lh
+bG
+bG
+fV
 bG
 bG
 bG
@@ -9826,22 +12234,8 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+fV
+No
 bG
 bG
 bG
@@ -9879,7 +12273,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 cQ
 cR
@@ -9895,30 +12289,31 @@ bG
 bG
 cx
 bG
+yr
+NF
+yr
 NF
 NF
-NF
-Aq
-NF
-bG
+yr
 bG
 cP
-qy
+qt
 bM
-RG
+pu
 cP
-NF
-NF
-NF
-bG
-bG
-bG
-bG
-bG
-bG
+Or
+oG
+oG
+RO
+bW
+bW
+bW
+bW
+Lh
 bG
 bG
 cX
+yZ
 bG
 bG
 bG
@@ -9929,19 +12324,31 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
+DR
+bW
+bW
+bW
+bW
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
+bW
+bW
+bW
+bW
+GI
+bW
+bW
+JJ
+bW
+bW
+bW
+Lh
+fb
 bG
 bG
 bG
@@ -9951,26 +12358,13 @@ bG
 bG
 bG
 bG
+fV
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
 bG
 bN
 ab
@@ -10006,7 +12400,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 bN
@@ -10029,65 +12423,65 @@ bN
 bN
 bN
 bN
-cP
-Ul
+LK
+qt
 dm
-RG
+pu
+LK
+bN
+bN
+bN
+bN
+cl
+bN
+bN
+bN
+bN
+cl
+bN
+bN
+bN
+bN
+cl
+bN
+bN
+bN
+bN
+bN
+bN
+bG
+bG
+bG
+fg
+cO
+bW
+bW
 cP
-bN
-bN
-bN
-bN
-cl
-bN
-bN
-bN
-bN
-cl
-bN
-bN
-bN
-bN
-cl
-bN
-bN
-bN
-bN
-bN
-bN
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-cP
-qy
-cD
+qt
+bM
 ce
 bM
-RG
+pu
 cP
+cO
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bZ
+SE
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
 bG
 bG
 bG
@@ -10133,7 +12527,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -10157,9 +12551,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 bN
 bK
@@ -10183,35 +12577,33 @@ bT
 bT
 bN
 bG
-aa
 bG
 bG
 bG
 bG
-bG
+fg
+DX
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-db
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cO
+HX
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+Lh
 bG
 bG
 bG
@@ -10222,8 +12614,10 @@ bG
 bG
 bG
 bG
+YV
 bG
 bG
+fV
 bG
 bG
 bN
@@ -10260,7 +12654,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 dd
 bN
 aw
@@ -10284,9 +12678,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 cl
 bL
@@ -10311,34 +12705,34 @@ bT
 bN
 bG
 bG
-bG
+YV
 bG
 bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+fg
+fg
+cO
+bW
+bW
+bW
+bW
+bW
+OX
+bW
+bW
+bW
+SE
+fV
 bG
 bG
 bG
@@ -10387,7 +12781,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -10411,9 +12805,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 bN
 bO
@@ -10442,35 +12836,35 @@ bG
 bG
 bG
 bG
-bG
-cP
-qy
+fV
+ef
+XU
 bM
 ce
 bM
-RG
-cP
+PI
+ef
 bG
 bG
 bG
 bG
 bG
+fg
+cO
+Oo
+bW
+bW
+bW
+bW
+bW
+bW
+SE
 bG
 bG
 bG
 bG
 bG
-bG
-dt
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+fV
 bG
 bG
 bG
@@ -10514,7 +12908,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 cl
 aw
@@ -10537,10 +12931,10 @@ aw
 aw
 aw
 cl
-dd
-qy
+cP
+qt
 bM
-RG
+pu
 cP
 bN
 bN
@@ -10563,23 +12957,35 @@ bT
 bT
 bT
 bN
+cY
+fd
 bG
-bG
-bG
-bG
-bG
-bG
+NF
+yr
+NF
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
 bG
+YV
+bG
+bG
+fV
+cO
+bW
+bW
+bW
+bW
+bW
+ib
+SE
 bG
 bG
 bG
@@ -10593,19 +12999,7 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
 bG
 bN
 ab
@@ -10641,7 +13035,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -10665,9 +13059,9 @@ aw
 aw
 bN
 cP
-qy
-ZQ
-RG
+qt
+bM
+pu
 cP
 bN
 bT
@@ -10690,19 +13084,19 @@ bT
 bT
 bT
 bN
-bG
-bG
-bG
-bG
-bG
-bG
+NF
+yr
+jv
+Wd
+WN
+JX
 bG
 dd
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -10712,12 +13106,12 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
+cO
+bZ
+bW
+bW
+bW
+RN
 bG
 bG
 bG
@@ -10768,7 +13162,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -10791,10 +13185,10 @@ aw
 aw
 aw
 bN
-cP
-qy
+dd
+qt
 bM
-RG
+pu
 cP
 bN
 bT
@@ -10817,20 +13211,21 @@ bT
 bT
 bT
 bN
+Jo
+nC
+Fv
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-cP
-qy
+fd
+ef
+qt
 bM
 ce
 bM
-RG
-cP
+pu
+ef
+fd
 bG
 bG
 bG
@@ -10839,24 +13234,23 @@ bG
 bG
 bG
 bG
+cO
+bW
+YC
+RN
+bG
+bG
+bG
+bG
+bG
+fV
 bG
 bG
 bG
 bG
 bG
 bG
-bG
-Wt
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+fV
 bG
 bG
 bG
@@ -10895,7 +13289,7 @@ qy
 bM
 ce
 bM
-ZF
+pu
 cP
 bN
 aw
@@ -10919,9 +13313,9 @@ aw
 aw
 cG
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 cl
 bT
@@ -10952,14 +13346,13 @@ bG
 bG
 bG
 cP
-qy
-bM
-ce
-bM
-RG
+qt
+vb
+Sr
+vb
+pu
 cP
 bG
-aa
 bG
 bG
 bG
@@ -10969,11 +13362,12 @@ bG
 bG
 bG
 bG
+fg
+fg
 bG
 bG
 bG
-bG
-bG
+YV
 bG
 bG
 bG
@@ -11022,7 +13416,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -11046,9 +13440,9 @@ aw
 aw
 cl
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 bN
 Gg
@@ -11071,7 +13465,7 @@ bT
 bT
 bT
 bN
-Af
+bG
 bG
 bG
 bG
@@ -11079,27 +13473,27 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
+fV
 bG
 bG
 bG
 bG
 bG
 bG
+fV
 bG
 bG
 bG
 bG
 bG
-bG
-dt
 bG
 bG
 bG
@@ -11149,7 +13543,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -11172,10 +13566,10 @@ aw
 aw
 aw
 bN
-dO
-qy
+cP
+qt
 bM
-RG
+pu
 cP
 bN
 bT
@@ -11200,17 +13594,17 @@ bT
 bN
 bG
 bG
+No
 bG
 bG
-bG
-bG
+YV
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -11218,6 +13612,7 @@ bG
 bG
 bG
 bG
+YV
 bG
 bG
 bG
@@ -11231,8 +13626,7 @@ bG
 bG
 bG
 bG
-bG
-bG
+YV
 bG
 bG
 bG
@@ -11276,7 +13670,7 @@ uy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -11300,9 +13694,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 bN
 bT
@@ -11333,19 +13727,17 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
 bG
 bG
 bG
-fg
-cE
 bG
 bG
 bG
@@ -11364,9 +13756,11 @@ bG
 bG
 bG
 bG
+fV
 bG
 bG
 bG
+YV
 bG
 bG
 bN
@@ -11403,7 +13797,7 @@ bM
 bM
 ce
 bM
-RG
+pu
 cP
 cl
 aw
@@ -11427,9 +13821,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 bN
 bT
@@ -11453,18 +13847,18 @@ bT
 bT
 bN
 bG
-bG
+fV
 bG
 bG
 bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -11478,12 +13872,12 @@ bG
 bG
 bG
 bG
+YV
 bG
 bG
 bG
 bG
-bG
-bG
+fV
 bG
 bG
 bG
@@ -11530,7 +13924,7 @@ Jy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -11554,9 +13948,9 @@ aw
 aw
 cl
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 bN
 bT
@@ -11587,20 +13981,20 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
+YV
 bG
 bG
 bG
 bG
-bG
-bG
+fV
 bG
 bG
 bG
@@ -11657,7 +14051,7 @@ qy
 bM
 ce
 ZQ
-RG
+pu
 cP
 bN
 aw
@@ -11681,9 +14075,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 cG
 bT
@@ -11714,11 +14108,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -11784,7 +14178,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -11807,10 +14201,10 @@ aw
 aw
 aw
 bN
-dP
-qy
+cP
+qt
 bM
-RG
+pu
 cP
 cl
 bT
@@ -11838,14 +14232,14 @@ bG
 bG
 bG
 bG
-bG
+fV
 bG
 cP
-qy
+qt
 ds
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -11860,16 +14254,16 @@ bG
 bG
 bG
 bG
+fV
 bG
 bG
 bG
 bG
+YV
+QV
+fb
 bG
-bG
-bG
-bG
-bG
-bG
+kd
 bG
 bG
 bG
@@ -11892,7 +14286,7 @@ Lt
 Lt
 Lt
 Lt
-RV
+Lt
 Lt
 Lt
 Lt
@@ -11911,7 +14305,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 aw
@@ -11935,9 +14329,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 bN
 bT
@@ -11962,18 +14356,19 @@ cK
 bN
 bG
 bG
-bG
+YV
 bG
 bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
+Lh
 bG
 bG
 bG
@@ -11992,16 +14387,15 @@ bG
 bG
 bG
 bG
+SO
+fR
+Lh
 bG
 bG
+YV
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
+fV
 bG
 bG
 bN
@@ -12038,7 +14432,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 dd
 bN
 aw
@@ -12062,9 +14456,9 @@ aw
 aw
 bN
 cP
-qy
+qt
 bM
-RG
+pu
 cP
 bN
 bT
@@ -12095,24 +14489,21 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
+bW
+Lh
+bG
+fV
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-db
-bG
-bG
-bG
-bG
+YV
 bG
 bG
 bG
@@ -12122,8 +14513,11 @@ bG
 bG
 bG
 bG
-bG
-bG
+ta
+bW
+bW
+bW
+SE
 bG
 bG
 bG
@@ -12154,7 +14548,7 @@ Lt
 Lt
 Lt
 bS
-bU
+cN
 qy
 bM
 bM
@@ -12165,7 +14559,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 dF
 bN
 aw
@@ -12189,9 +14583,9 @@ aw
 aw
 bN
 cP
-qy
-ZQ
-RG
+qt
+bM
+pu
 cP
 bN
 bT
@@ -12222,12 +14616,15 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
+bW
+bW
+SE
 bG
 bG
 bG
@@ -12236,21 +14633,18 @@ bG
 bG
 bG
 bG
+fV
 bG
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+DR
+bW
+GI
+bW
+SE
 bG
 bG
 bG
@@ -12281,18 +14675,18 @@ bS
 bS
 bS
 bS
-cO
-No
-bY
-bY
-bY
+bN
+bN
+bN
+bN
+bN
 cb
 dd
 qy
 bM
 ce
 bM
-RG
+pu
 cP
 bN
 bN
@@ -12316,10 +14710,10 @@ bN
 bN
 bN
 cP
-qy
+qt
 bM
-RG
-cP
+pu
+dz
 bN
 bN
 cl
@@ -12349,12 +14743,18 @@ bG
 bG
 bG
 cP
-qy
-bM
+xO
+Wi
 ce
-bM
-RG
-cP
+WR
+yK
+pE
+bW
+bW
+Lh
+bG
+bG
+fV
 bG
 bG
 bG
@@ -12366,21 +14766,15 @@ bG
 bG
 bG
 bG
+fV
+uY
+bW
+bW
+bW
+SE
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
 bG
 bG
 bG
@@ -12419,7 +14813,7 @@ qy
 bM
 ce
 bM
-RG
+pu
 cP
 cP
 cP
@@ -12441,22 +14835,22 @@ cP
 cP
 dz
 dz
+dP
 cP
-dL
-qy
+qt
 bM
-RG
-cP
+pu
+iO
 dz
-cP
 dz
+Yn
 dd
-cP
-cP
+Yn
+dz
 zo
-cP
-cP
-cP
+iO
+Yn
+yh
 cP
 cP
 cP
@@ -12474,19 +14868,19 @@ cP
 cP
 cP
 cP
-cP
-cP
-qy
-bM
+Vc
+Di
+iD
+ry
 ce
 bM
-RG
+pu
 cP
-bG
-cM
-bG
-bG
-bG
+bW
+WW
+mb
+Lh
+Zq
 bG
 bG
 bG
@@ -12500,11 +14894,11 @@ bG
 bG
 bG
 cM
-bG
-bG
-bG
-bG
-bG
+Nu
+Zu
+bW
+eb
+pR
 bG
 bG
 bG
@@ -12547,99 +14941,99 @@ bM
 bM
 bM
 zY
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-KZ
-jE
-KZ
-KZ
-KZ
-jE
-jE
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+we
+Gj
+we
+we
+we
+Gj
+Gj
 uy
 bM
 zY
-jE
+Uo
 we
 Uo
-KZ
-jE
-jE
-jE
+pG
+we
+we
+Uo
 Kb
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-jE
-Kb
-jE
-jE
-jE
-jE
-jE
-jE
-uy
+Uo
+Ka
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+Gj
+MU
+lF
+YH
+ul
+dm
+fk
+kU
+xK
+ql
+bM
+bM
+do
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+tn
+bM
+bM
+bM
+bM
+fZ
 bM
 FN
 bM
-zY
-jE
 bM
 bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-dR
-bM
-YV
-cD
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
+Mn
 ab
 "}
 (87,1,1) = {"
@@ -12683,7 +15077,7 @@ bM
 bM
 bM
 bM
-ZQ
+bM
 bM
 bM
 bM
@@ -12697,22 +15091,22 @@ co
 co
 bM
 bM
-ZQ
 bM
 bM
 bM
+ZF
+eS
+cr
+eS
 co
-bM
+eS
 co
-bM
-bM
-bM
 FN
+ZF
+FN
+Hp
 bM
 bM
-bM
-bM
-ZQ
 bM
 bM
 dk
@@ -12723,46 +15117,46 @@ bM
 bM
 bM
 bM
-FN
-bM
-bM
-ZQ
-bM
-bM
-bM
-bM
-ZQ
-FN
 bM
 bM
 bM
 bM
 bM
+UF
+no
+bM
+ds
+dk
+hW
+tI
+BX
+eY
+sH
+Bi
+Bi
+Zc
+pM
+WI
+bM
+EO
+bM
+pM
+WI
+bM
+WY
 bM
 bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-cz
-Lh
 yO
 bM
 bM
 dk
+pM
+kM
+Wt
 bM
+Ce
 bM
-bM
-bM
-bM
-bM
-bM
+FN
 bM
 bM
 bM
@@ -12827,28 +15221,27 @@ cd
 bM
 bM
 bM
+RV
 IA
-cc
+RV
 IA
 fc
+IA
+gP
+cc
+IA
+RV
+lk
 cc
 cc
 cc
 cc
-eS
-cc
-cc
-cc
-cc
-cc
-cc
 cc
 cd
 cd
 cd
 cd
 cd
-mX
 cd
 cd
 cd
@@ -12856,12 +15249,18 @@ cd
 cd
 cd
 cd
+iW
 cd
 bM
 bM
-FN
 bM
 bM
+Iy
+cc
+cc
+cc
+cc
+eU
 cc
 cc
 cc
@@ -12871,16 +15270,10 @@ cc
 cc
 cc
 cc
-RN
 cc
 cc
 cc
 cc
-cc
-cc
-KF
-cc
-fb
 cd
 cd
 cd
@@ -12892,6 +15285,7 @@ cd
 cd
 cd
 cd
+uK
 cd
 cd
 ab
@@ -12954,11 +15348,17 @@ bM
 bM
 bM
 bM
+ZF
+eS
 cr
-dR
-bM
+eS
 co
+eS
 co
+FN
+ZF
+FN
+mo
 bM
 bM
 bM
@@ -12976,17 +15376,27 @@ bM
 bM
 bM
 bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
+Ol
 ds
 bM
 bM
-cD
+AL
+bM
+RH
+FN
+wA
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+bM
+XO
 bM
 bM
 bM
@@ -13002,25 +15412,9 @@ bM
 bM
 bM
 bM
-dR
-bM
-SE
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
-bM
+BG
+JL
+HA
 ab
 "}
 (90,1,1) = {"
@@ -13072,52 +15466,52 @@ ze
 ze
 py
 ze
-NW
-NW
-NW
-ze
-ze
-ze
-ze
-ze
-ze
-NW
-ze
-NW
+ea
+ea
+ea
+dO
+dO
+dO
+dO
+dO
+dO
+Hi
+ea
+Hi
 fO
-NW
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
+ea
+ea
+Hi
+xg
+Hi
+Vd
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+dO
+sj
+ys
 Jy
 bM
-bM
+SZ
 bM
 kG
-ze
-bM
+TW
+gt
 bM
 cZ
 bM
@@ -13128,12 +15522,11 @@ bM
 bM
 bM
 bM
-bM
-bM
+JU
+FN
 bM
 bM
 dR
-nY
 bM
 bM
 bM
@@ -13146,8 +15539,9 @@ bM
 bM
 bM
 bM
+iI
 bM
-bM
+OQ
 ab
 "}
 (91,1,1) = {"
@@ -13177,11 +15571,11 @@ cP
 cP
 cP
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 dG
 cP
 cP
@@ -13208,17 +15602,17 @@ cP
 cP
 dd
 cP
+iO
 dz
-cP
 dz
+Yn
 cP
+Yn
 dz
-cP
-cP
-cP
-cP
-cP
-cP
+zo
+iO
+Yn
+Gy
 cP
 dd
 cP
@@ -13237,19 +15631,19 @@ dd
 cP
 cP
 cP
-cP
-qy
+dC
+qt
 bM
 ce
 bM
-RG
+pu
 cP
-bG
-bG
-bG
-bG
-bG
-bG
+bW
+bW
+bW
+bW
+bW
+RN
 bG
 bG
 cM
@@ -13260,11 +15654,11 @@ bG
 dx
 bG
 bG
+dt
 bG
-bG
-bG
-bG
-bG
+XF
+sZ
+Lt
 bG
 bG
 bG
@@ -13272,7 +15666,7 @@ cM
 bG
 bG
 bG
-bG
+BA
 bG
 bN
 ab
@@ -13304,11 +15698,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 ac
@@ -13335,7 +15729,7 @@ bG
 bG
 bG
 cY
-bG
+NF
 bN
 bN
 bN
@@ -13344,7 +15738,7 @@ cl
 bN
 bN
 bN
-cG
+bN
 bN
 bN
 bN
@@ -13365,36 +15759,36 @@ bN
 bN
 bN
 cP
-qy
-bM
+XU
+vb
 ce
-bM
-RG
+vb
+PI
 cP
+bW
+bW
+bW
+bW
+bW
+SE
 bG
 bG
 bG
 bG
+kd
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+cP
+oW
+TJ
+cP
+KS
+dG
+Uh
+uR
+Ge
+cP
 bG
 bG
 bG
@@ -13431,11 +15825,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 aw
@@ -13492,40 +15886,40 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
+bW
+bW
+bW
+bW
+RN
 bG
 bG
 bG
 bG
+cP
+nw
+KF
+KF
+rp
+ac
+ac
+dX
+dX
+dX
+ac
+ai
+ac
+ac
+KQ
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+fV
 bG
 bG
 bN
@@ -13558,11 +15952,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 af
 aw
@@ -13619,36 +16013,36 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
+bW
+bW
+bW
+lv
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+ac
+ac
+dX
+ac
+ac
+aL
+au
+au
+au
+CC
+MY
+QC
+ac
+dC
 bG
 bG
 bG
@@ -13685,11 +16079,11 @@ bG
 bG
 bG
 cP
-qy
-bM
 qt
 bM
-RG
+ce
+bM
+pu
 cP
 ac
 aw
@@ -13713,7 +16107,7 @@ bT
 bT
 ac
 dg
-es
+cI
 bG
 bG
 bG
@@ -13746,36 +16140,36 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
+bW
+bW
+bW
+SE
 bG
 bG
+No
+YV
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+ac
+HG
+EM
+EM
+Jw
+au
+au
+au
+au
+au
+au
+dY
+ac
+cP
 bG
 bG
 bG
@@ -13812,11 +16206,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 aw
@@ -13873,36 +16267,36 @@ bT
 bT
 cl
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
+bW
+bW
+RN
 bG
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+dX
+bY
+bT
+bT
+EM
+au
+au
+au
+aN
+au
+au
+au
+dX
+cP
 bG
 bG
 bG
@@ -13939,11 +16333,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 ac
@@ -14000,41 +16394,41 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
+cP
+bW
+RN
+bG
+No
+bG
+bG
+bG
+bG
+bG
+cP
+dX
+bY
+cw
+bT
+Pc
+au
+au
+au
+pZ
+IT
+au
+au
+dX
 cP
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
 bG
 bN
 ab
@@ -14066,11 +16460,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 aw
@@ -14127,36 +16521,36 @@ Gg
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
+bW
+SE
+bG
+bG
+fV
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+dX
+bY
+bT
+bT
+hd
+au
+au
+au
+wz
+yy
+au
+au
+dX
+cP
 bG
 bG
 bG
@@ -14193,11 +16587,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 DU
@@ -14254,13 +16648,13 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
-bG
+RN
 bG
 bG
 bG
@@ -14269,21 +16663,21 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+ac
+mq
+hd
+hd
+Jw
+au
+au
+au
+au
+au
+au
+at
+ac
+cP
 bG
 bG
 bG
@@ -14320,11 +16714,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 af
 aw
@@ -14381,11 +16775,11 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -14395,22 +16789,22 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
+cP
+ac
+ac
+dX
+ac
+ac
+QZ
+au
+au
+au
+au
+kX
+at
+ac
+cP
 bG
 bG
 bG
@@ -14447,11 +16841,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 aw
@@ -14508,36 +16902,36 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
+YV
 bG
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+cP
+cP
+cP
+SY
+ac
+ac
+dX
+dX
+dX
+ac
+ac
+ac
+ac
+cP
 bG
 bG
 bG
@@ -14574,11 +16968,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 dd
 ac
 aw
@@ -14635,11 +17029,11 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -14648,23 +17042,23 @@ bG
 bG
 bG
 bG
+fV
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
 bG
 bG
 bG
@@ -14701,11 +17095,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 aw
@@ -14762,11 +17156,11 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -14779,7 +17173,7 @@ bG
 bG
 bG
 bG
-bG
+YV
 bG
 bG
 dt
@@ -14788,7 +17182,7 @@ bG
 bG
 bG
 bG
-bG
+YV
 bG
 bG
 dt
@@ -14828,12 +17222,12 @@ bG
 bG
 bG
 dd
-qy
+qt
 bM
 ce
 bM
-RG
-cP
+pu
+Uh
 xw
 aw
 aw
@@ -14889,19 +17283,19 @@ bT
 bT
 cl
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
 bG
 bG
 bG
-bG
-bG
+fb
+fb
 bG
 bG
 bG
@@ -14955,11 +17349,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 aw
@@ -15016,15 +17410,20 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
 bG
+YV
+jS
+bW
+bW
+Lh
 bG
 bG
 bG
@@ -15033,12 +17432,7 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
+fV
 bG
 bG
 bG
@@ -15082,12 +17476,12 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
-fV
+pu
+cP
 af
 aw
 aw
@@ -15143,22 +17537,22 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+jS
+bW
+bW
+bW
+bW
+TD
+fb
 bG
 bG
 bG
@@ -15209,11 +17603,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 aw
@@ -15270,25 +17664,25 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
+AO
+xF
+Xw
+xF
+Xw
+xF
+Xw
+xF
+gV
 bG
-bG
-bG
-bG
-db
-bG
-bG
-bG
-bG
-bG
-bG
+fV
 bG
 bG
 bG
@@ -15336,11 +17730,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 aw
@@ -15397,24 +17791,24 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+tK
+bW
+bW
+bW
+Bq
+bW
+bW
+bW
+bX
+SE
 bG
 bG
 bG
@@ -15463,11 +17857,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 aw
@@ -15524,24 +17918,24 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+nY
 bW
-bG
-bG
+bW
+bW
+bW
+bW
+bW
+bW
+dE
+SE
 bG
 bG
 bG
@@ -15590,11 +17984,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 ac
 ac
@@ -15651,24 +18045,24 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+fV
+tK
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+dA
+Lh
 bG
 bG
 bG
@@ -15717,11 +18111,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -15778,30 +18172,30 @@ bT
 bT
 cl
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
+Qq
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+dE
+ZI
+SE
 bG
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-Wt
 bG
 bG
 bG
@@ -15844,11 +18238,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -15905,25 +18299,25 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+jS
+pt
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bX
+qO
+Lh
 bG
 bG
 bG
@@ -15971,11 +18365,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -16032,26 +18426,26 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+jS
+bW
+dE
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+dE
+bW
+bW
+SE
 bG
 bG
 bG
@@ -16098,11 +18492,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -16159,26 +18553,26 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+bW
+bW
+cm
+bW
+bW
+bW
+yN
+bW
+bW
+bW
+cm
+bW
+bW
+SE
 bG
 bG
 bG
@@ -16225,11 +18619,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -16286,26 +18680,26 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+cO
+bW
+dE
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+dE
+bW
+bW
+SE
 bG
 bG
 bG
@@ -16352,11 +18746,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -16413,27 +18807,27 @@ Gg
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-aa
+cO
+bX
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bX
+bW
+RN
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
 bG
 bG
 bG
@@ -16479,11 +18873,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -16540,25 +18934,25 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+sm
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+dE
+bW
+SE
 bG
 bG
 bG
@@ -16606,11 +19000,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -16667,25 +19061,25 @@ bT
 bT
 cl
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+vO
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+bX
+LH
+SE
 bG
 bG
 bG
@@ -16733,11 +19127,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -16794,24 +19188,24 @@ bT
 bT
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+fV
+nY
+bW
+bW
+bW
+bW
+bW
+bW
+bW
+dE
+RN
 bG
 bG
 bG
@@ -16860,11 +19254,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -16921,24 +19315,24 @@ bN
 bN
 bN
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+tK
+bW
+bW
+bW
+JY
+bW
+bW
+bW
+pt
+SE
 bG
 bG
 bG
@@ -16987,11 +19381,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -17039,33 +19433,33 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-cn
+JI
+JI
 cx
 bG
-bG
+cn
+hf
+bW
+bW
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-aa
-bG
-bG
-bG
-bG
+NI
+xF
+Xw
+xF
+Xw
+xF
+Xw
+xF
+ix
+SE
 bG
 bG
 bG
@@ -17114,11 +19508,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -17171,29 +19565,29 @@ bG
 bG
 bG
 cn
-bG
-bG
-bG
+bW
+bW
+bW
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
 bG
+zS
+bW
+bW
+bW
+bW
+bW
+bW
+RN
 bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
-bG
+YV
 bG
 bG
 bG
@@ -17241,11 +19635,11 @@ bG
 bG
 bG
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
@@ -17298,26 +19692,26 @@ bG
 bG
 bG
 cn
-cJ
-bG
-bG
+OD
+bW
+bW
 cP
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 cP
 bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
-bG
-bG
+fg
+cO
+bW
+Rh
+RN
+fg
 bG
 bG
 bG
@@ -17368,11 +19762,11 @@ bN
 bN
 bN
 bN
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 bN
 bN
@@ -17429,11 +19823,11 @@ bN
 bN
 bN
 bN
-qy
+qt
 bM
 ce
 bM
-RG
+pu
 bN
 bN
 bN

@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/morph
-	name = "morph"
+	name = "Морф"
 	real_name = "morph"
-	desc = "A revolting, pulsating pile of flesh."
+	desc = "Отвратительная, пульсирующая груда плоти."
 	speak_emote = list("булькает")
 	emote_hear = list("булькает")
 	icon = 'icons/mob/animal.dmi'

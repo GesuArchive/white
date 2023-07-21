@@ -1,10 +1,11 @@
 /obj/item/circuitboard/computer/enernet_control
-	name = "Управление энернетом (Консоль)"
+	name = "консоль управления энергоконцентратором"
+	desc = "Используется для регулирования поступления продаваемой в общую сеть энергии."
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/enernet_control
 
 /obj/machinery/computer/enernet_control
-	name = "управление энернетом"
+	name = "консоль управления энергоконцентратором"
 	desc = "Используется для регулирования поступления продаваемой в общую сеть энергии."
 	icon = 'white/valtos/icons/32x48.dmi'
 	icon_state = "econs"
@@ -71,7 +72,8 @@
 	return TRUE
 
 /obj/item/circuitboard/machine/enernet_coil
-	name = "Энергоконцентратор (Оборудование)"
+	name = "Энергоконцентратор"
+	desc = "Аккумулирует поступающую в него энергию. Требует консоль для работы."
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/enernet_coil
 	req_components = list(

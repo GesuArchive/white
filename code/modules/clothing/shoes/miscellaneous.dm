@@ -534,13 +534,13 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 95, FIRE = 0, ACID = 0)
 
 /obj/item/clothing/shoes/cowboy/lizard
-	name = "сапоги из кожи ящерицы"
+	name = "сапоги из кожи ящера"
 	desc = "Изнутри ботинок можно услышать слабое шипение; надеешься, что это просто скорбный призрак."
 	icon_state = "lizardboots_green"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, RAD = 0, FIRE = 40, ACID = 0) //lizards like to stay warm
 
 /obj/item/clothing/shoes/cowboy/lizard/masterwork
-	name = "\improper Hugs-The-Feet из кожи ящерицы"
+	name = "облегающие сапоги из кожи ящера"
 	desc = "Пара мастерски изготовленных кожаных ботинок ящерицы. Наконец-то отличное приложение для самых беспокойных жителей станции."
 	icon_state = "lizardboots_blue"
 

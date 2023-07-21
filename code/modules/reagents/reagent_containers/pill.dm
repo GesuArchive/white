@@ -280,6 +280,12 @@
 	list_reagents = list(/datum/reagent/drug/aranesp = 10)
 	icon_state = "pill3"
 
+/obj/item/reagent_containers/pill/hyperpsy
+	name = "таблетка полураспада-228"
+	desc = "Сильнодействующий наркотик вызывающий раздвоение личности."
+	icon_state = "pill17"
+	list_reagents = list(/datum/reagent/toxin/hyperpsy = 4)
+
 ///Black and white pills that spawn in maintenance and have random reagent contents
 /obj/item/reagent_containers/pill/maintenance
 	name = "подозрительная таблетка"

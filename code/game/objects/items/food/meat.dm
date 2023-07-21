@@ -801,6 +801,26 @@
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_PUG, CELL_VIRUS_TABLE_GENERIC_MOB)
 
+/obj/item/food/meat/slab/dach
+	name = "мясо таксы"
+	desc = "На вкус похоже... ну, ты же знаешь..."
+	foodtypes = RAW | MEAT | GROSS
+
+/obj/item/food/meat/slab/jack
+	name = "мясо джек рассел терьера"
+	desc = "На вкус похоже... ну, ты же знаешь..."
+	foodtypes = RAW | MEAT | GROSS
+
+/obj/item/food/meat/slab/chi
+	name = "мясо чихуахуа"
+	desc = "На вкус похоже... ну, ты же знаешь..."
+	foodtypes = RAW | MEAT | GROSS
+
+/obj/item/food/meat/slab/shepherd
+	name = "мясо немецкой овчарки"
+	desc = "На вкус похоже... ну, ты же знаешь..."
+	foodtypes = RAW | MEAT | GROSS
+
 /obj/item/food/meat/slab/killertomato
 	name = "мясо томата"
 	desc = "Кусок огромного томата."

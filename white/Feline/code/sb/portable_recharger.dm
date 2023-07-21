@@ -320,9 +320,9 @@
 	new /obj/item/gun/energy/pulse(src)
 	update_appearance()
 
-/obj/item/tactical_recharger/disabler/Initialize(mapload)	// Усмиритель - Специалист
+/obj/item/tactical_recharger/disabler/Initialize(mapload)	// Подавитель - Специалист
 	. = ..()
-	new /obj/item/gun/energy/disabler(src)
+	new /obj/item/gun/energy/e_gun/suppressor(src)
 	update_appearance()
 
 //Быстрое извлечение через ЛКМ, быстрое разоружение через "E" тут code\modules\mob\inventory.dm

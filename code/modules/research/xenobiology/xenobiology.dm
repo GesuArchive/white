@@ -1,8 +1,8 @@
 /// Slime Extracts ///
 
 /obj/item/slime_extract
-	name = "slime extract"
-	desc = "Goo extracted from a slime. Legends claim these to have \"magical powers\"."
+	name = "экстракт слайма"
+	desc = "Особая слизь, выделяемая фертильными железами слаймов. Легенды утверждают, что они обладают \"магической силой\"."
 	icon = 'icons/mob/slimes.dmi'
 	icon_state = "grey slime extract"
 	force = 0
@@ -21,18 +21,18 @@
 /obj/item/slime_extract/examine(mob/user)
 	. = ..()
 	if(Uses > 1)
-		. += "<hr>It has [Uses] uses remaining."
+		. += "<hr>Осталось [Uses] применений."
 
 /obj/item/slime_extract/attackby(obj/item/O, mob/user)
 	if(istype(O, /obj/item/slimepotion/enhancer))
 		if(Uses >= 5 || recurring)
-			to_chat(user, span_warning("You cannot enhance this extract further!"))
+			to_chat(user, span_warning("Невозможно еще больше улучшить этот экстракт!"))
 			return ..()
 		if(O.type == /obj/item/slimepotion/enhancer) //Seriously, why is this defined here...?
-			to_chat(user, span_notice("You apply the enhancer to the slime extract. It may now be reused one more time."))
+			to_chat(user, span_notice("Наношу усилитель на экстракт слайма. Теперь его можно использовать повторно еще раз."))
 			Uses++
 		if(O.type == /obj/item/slimepotion/enhancer/max)
-			to_chat(user, span_notice("You dump the maximizer on the slime extract. It can now be used a total of 5 times!"))
+			to_chat(user, span_notice("Добавляю максимизатор в экстракт слайма. Теперь его можно использовать в общей сложности 5 раз!"))
 			Uses = 5
 		qdel(O)
 	..()
@@ -56,7 +56,7 @@
 * * arg3 - Whether or not the activation is major or minor. Major activations have large, complex effects, minor are simple.
 */
 /obj/item/slime_extract/proc/activate(mob/living/carbon/human/user, datum/species/jelly/luminescent/species, activation_type)
-	to_chat(user, span_warning("Nothing happened... This slime extract cannot be activated this way."))
+	to_chat(user, span_warning("Ничего не произошло... Этот экстракт слайма не может быть активирован таким образом."))
 	return FALSE
 
 /**
@@ -68,13 +68,13 @@
 	if(!isslime(M))
 		return ..()
 	if(M.stat)
-		to_chat(user, span_warning("The slime is dead!"))
+		to_chat(user, span_warning("Слайм мертв!"))
 		return
 	if(!M.is_adult)
-		to_chat(user, span_warning("The slime must be an adult to cross its core!"))
+		to_chat(user, span_warning("Слайм должн быть взрослым, чтобы произвести скрещивание!"))
 		return
 	if(M.effectmod && M.effectmod != effectmod)
-		to_chat(user, span_warning("The slime is already being crossed with a different extract!"))
+		to_chat(user, span_warning("Этот слайм уже прошел скрещивание с другим экстрактом!"))
 		return
 
 	if(!M.effectmod)
@@ -82,14 +82,14 @@
 
 	M.applied++
 	qdel(src)
-	to_chat(user, span_notice("You feed the slime [src], [M.applied == 1 ? "starting to mutate its core." : "further mutating its core."]"))
+	to_chat(user, span_notice("Скармливаю [src], [M.applied == 1 ? "начиная скрещивание." : "продолжая процесс скрещивания."]"))
 	playsound(M, 'sound/effects/attackblob.ogg', 50, TRUE)
 
 	if(M.applied >= SLIME_EXTRACT_CROSSING_REQUIRED)
 		M.spawn_corecross()
 
 /obj/item/slime_extract/grey
-	name = "grey slime extract"
+	name = "экстракт серого слайма"
 	icon_state = "grey slime extract"
 	effectmod = "reproductive"
 	color_slime = "grey"
@@ -115,7 +115,7 @@
 				return 0
 
 /obj/item/slime_extract/gold
-	name = "gold slime extract"
+	name = "экстракт золотого слайма"
 	icon_state = "gold slime extract"
 	effectmod = "symbiont"
 	color_slime = "gold"

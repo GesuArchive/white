@@ -38,6 +38,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "f" = (
@@ -68,6 +70,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "i" = (
@@ -100,6 +103,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "k" = (
@@ -113,7 +117,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "l" = (
@@ -137,17 +140,18 @@
 	dir = 8
 	},
 /obj/structure/fans/tiny,
-/obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/shuttle/mining)
 "n" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/end{
 	dir = 8
 	},
+/obj/structure/cable,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/machinery/power/terminal,
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "o" = (
@@ -159,20 +163,51 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "p" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/end{
 	dir = 4
 	},
+/obj/structure/cable,
+/obj/structure/ore_box,
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "q" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/power/smes,
+/turf/open/floor/plasteel,
+/area/shuttle/mining)
+"r" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/cable,
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"s" = (
 /obj/item/clothing/suit/hazardvest{
 	desc = "A high-visibility lifejacket complete with whistle and slot for oxygen tanks.";
 	name = "emergency lifejacket"
@@ -254,34 +289,9 @@
 /obj/item/pickaxe/emergency,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/light/small{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/shuttle/mining)
-"r" = (
-/obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
-/obj/machinery/power/engine_capacitor_bank{
-	dir = 1
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/mining)
-"s" = (
-/obj/structure/ore_box,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/delivery,
-/obj/machinery/light/small{
-	dir = 4
-	},
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "t" = (

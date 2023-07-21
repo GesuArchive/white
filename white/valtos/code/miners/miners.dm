@@ -355,10 +355,11 @@ SUBSYSTEM_DEF(spm)
 
 /datum/computer_file/program/minnet
 	filename = "minnet"
-	filedesc = "Min-net Controller"
+	filedesc = "Нано-Койн"
 	program_icon_state = "generic"
 	extended_desc = "Используется для управления сетью криптомайнеров."
 	requires_ntnet = TRUE
+	category = PROGRAM_CATEGORY_SCI
 	size = 8
 	tgui_id = "NtosMinnet"
 	program_icon = "cog"
@@ -398,10 +399,3 @@ SUBSYSTEM_DEF(spm)
 				return
 			cryptokey = new_key
 			. = TRUE
-
-/datum/supply_pack/misc/spaceminer
-	name = "Стойка для майнинга"
-	desc = "Почему?!"
-	cost = 500
-	contains = list(/obj/machinery/power/mining_rack)
-	crate_name = "ящик стойки для майнинга"

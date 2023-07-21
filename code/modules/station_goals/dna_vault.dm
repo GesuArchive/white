@@ -12,7 +12,7 @@
 #define VAULT_QUICK "Arm Muscle Stimulus"
 
 /datum/station_goal/dna_vault
-	name = "Хранилище ДНК"
+	name = "Банк ДНК"
 	var/animal_count
 	var/human_count
 	var/plant_count
@@ -33,9 +33,9 @@
 
 /datum/station_goal/dna_vault/get_report()
 	return {"\nНаши системы долгосрочного прогнозирования указывают на 99% вероятность общесистемного катаклизма в ближайшем будущем.
-		\nНам нужно, чтобы вы построили Хранилище ДНК на борту своей станции.
+		\nНам нужно, чтобы вы построили Банк ДНК на борту своей станции.
 		\n
-		\nХранилище ДНК должно содержать образцы:
+		\nБанк ДНК должен содержать образцы:
 		\n[animal_count] уникальных данных о животных
 		\n[plant_count] уникальных нестандартных данных растений
 		\n[human_count] уникальных данных о ДНК разумных гуманоидах
@@ -60,8 +60,8 @@
 
 
 /obj/item/dna_probe
-	name = "DNA Sampler"
-	desc = "Can be used to take chemical and genetic samples of pretty much anything."
+	name = "ДНК зонд"
+	desc = "Устройство для взятия проб ДНК. Может использоваться для взятия химических и генетических образцов практически всего."
 	icon = 'icons/obj/syringe.dmi'
 	inhand_icon_state = "sampler"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -87,13 +87,13 @@
 		if(!H.myseed)
 			return
 		if(!H.harvest)// So it's bit harder.
-			to_chat(user, span_alert("Plant needs to be ready to harvest to perform full data scan.")) //Because space dna is actually magic
+			to_chat(user, span_alert("Растение должно быть готово к сбору урожая, чтобы выполнить полное сканирование данных.")) //Because space dna is actually magic
 			return
 		if(plants[H.myseed.type])
-			to_chat(user, span_notice("Plant data already present in local storage."))
+			to_chat(user, span_notice("Данные этого растения, уже имеющиеся в локальном хранилище."))
 			return
 		plants[H.myseed.type] = 1
-		to_chat(user, span_notice("Plant data added to local storage."))
+		to_chat(user, span_notice("Данные растения добавлены в локальное хранилище."))
 
 	//animals
 	var/static/list/non_simple_animals = typecacheof(list(/mob/living/carbon/alien))
@@ -101,26 +101,26 @@
 		if(isanimal(target))
 			var/mob/living/simple_animal/A = target
 			if(!A.healable)//simple approximation of being animal not a robot or similar
-				to_chat(user, span_alert("No compatible DNA detected."))
+				to_chat(user, span_alert("Совместимая ДНК не обнаружена."))
 				return
 		if(animals[target.type])
-			to_chat(user, span_alert("Animal data already present in local storage."))
+			to_chat(user, span_alert("Данные о животном уже присутствуют в локальном хранилище."))
 			return
 		animals[target.type] = 1
-		to_chat(user, span_notice("Animal data added to local storage."))
+		to_chat(user, span_notice("Данные о животном добавлены в локальное хранилище."))
 
 	//humans
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		if(dna[H.dna.unique_identity])
-			to_chat(user, span_notice("Humanoid data already present in local storage."))
+			to_chat(user, span_notice("Данные о гуманоиде уже присутствуют в локальном хранилище."))
 			return
 		dna[H.dna.unique_identity] = 1
-		to_chat(user, span_notice("Humanoid data added to local storage."))
+		to_chat(user, span_notice("Данные гуманоида добавлены в локальное хранилище."))
 
 /obj/machinery/dna_vault
-	name = "DNA Vault"
-	desc = "Break glass in case of apocalypse."
+	name = "Банк ДНК"
+	desc = "Разбить стекло в случае апокалипсиса."
 	icon = 'icons/obj/machines/dna_vault.dmi'
 	icon_state = "vault"
 	density = TRUE
@@ -241,7 +241,7 @@
 				uploaded++
 				dna[ui] = 1
 		check_goal()
-		to_chat(user, span_notice("[uploaded] new datapoints uploaded."))
+		to_chat(user, span_notice("[uploaded] - загружены новые данные."))
 	else
 		return ..()
 
@@ -251,32 +251,32 @@
 	var/datum/species/S = H.dna.species
 	switch(upgrade_type)
 		if(VAULT_TOXIN)
-			to_chat(H, span_notice("You feel resistant to airborne toxins."))
+			to_chat(H, span_notice("Я чувствую абсолютную устойчивость к токсинам, переносимым воздушно-капельным путем."))
 			if(locate(/obj/item/organ/lungs) in H.internal_organs)
 				var/obj/item/organ/lungs/L = H.internal_organs_slot[ORGAN_SLOT_LUNGS]
 				L.safe_breath_min = 0
 				L.safe_breath_max = 10000
 			ADD_TRAIT(H, TRAIT_VIRUSIMMUNE, "dna_vault")
 		if(VAULT_NOBREATH)
-			to_chat(H, span_notice("Your lungs feel great."))
+			to_chat(H, span_notice("Замечаю что более не нуждаюсь в дыхании."))
 			ADD_TRAIT(H, TRAIT_NOBREATH, "dna_vault")
 		if(VAULT_FIREPROOF)
-			to_chat(H, span_notice("You feel fireproof."))
-			S.burnmod = 0.5
+			to_chat(H, span_notice("Чувствую себя абсолютно огнеупорным."))
+			S.burnmod = 0
 			ADD_TRAIT(H, TRAIT_RESISTHEAT, "dna_vault")
 			ADD_TRAIT(H, TRAIT_NOFIRE, "dna_vault")
 		if(VAULT_STUNTIME)
-			to_chat(H, span_notice("Nothing can keep you down for long."))
-			S.stunmod = 0.5
+			to_chat(H, span_notice("Чувствую себя невероятно стойким."))
+			S.stunmod = 0.2
 		if(VAULT_ARMOUR)
-			to_chat(H, span_notice("You feel tough."))
+			to_chat(H, span_notice("Чувствую как моя кожа становится прочной как камень."))
 			S.armor = 30
 			ADD_TRAIT(H, TRAIT_PIERCEIMMUNE, "dna_vault")
 		if(VAULT_SPEED)
-			to_chat(H, span_notice("Your legs feel faster."))
+			to_chat(H, span_notice("Чувствую себя невероятно быстрым."))
 			H.add_movespeed_modifier(/datum/movespeed_modifier/dna_vault_speedup)
 		if(VAULT_QUICK)
-			to_chat(H, span_notice("Your arms move as fast as lightning."))
+			to_chat(H, span_notice("Чувствую как мои руки становятся быстрыми как молния."))
 			H.next_move_modifier = 0.5
 	power_lottery[H] = list()
 	use_power(active_power_usage)

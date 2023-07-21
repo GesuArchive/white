@@ -769,9 +769,10 @@
  * Beach ball
  */
 /obj/item/toy/beach_ball
+	name = "пляжный мячик"
+	desc = "Господа... позвольте прописать с ноги!"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "ball"
-	name = "пляжный шар"
 	inhand_icon_state = "beachball"
 	w_class = WEIGHT_CLASS_BULKY //Stops people from hiding it in their bags/pockets
 

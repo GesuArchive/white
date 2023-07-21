@@ -1,5 +1,5 @@
 /obj/item/circuitboard/machine/ltsrbt
-	name = "LTSRBT (Оборудование)"
+	name = "Блюспейс приемопередатчик дальнего и ближнего действия"
 	icon_state = "bluespacearray"
 	build_path = /obj/machinery/ltsrbt
 	req_components = list(
@@ -10,8 +10,8 @@
 	def_components = list(/obj/item/stack/ore/bluespace_crystal = /obj/item/stack/ore/bluespace_crystal/artificial)
 
 /obj/machinery/ltsrbt
-	name = "Long-To-Short-Range-Bluespace-Transciever"
-	desc = "LTSRBT - компактная телепорт-машина для отправки или получения вещей внутри станции.\nИспользуя телепортационные частоты NT такую передачу невозможно заметить.\nНеобходим для любых безопасных незаконных рыночных операций на станциях NT.\n"
+	name = "Блюспейс приемопередатчик дальнего и ближнего действия"
+	desc = "БППДБД - компактная телепорт-машина для отправки или получения вещей внутри станции.\nИспользуя телепортационные частоты NT такую передачу невозможно заметить.\nНеобходим для любых безопасных незаконных рыночных операций на станциях NT.\n"
 	icon_state = "exonet_node"
 	circuit = /obj/item/circuitboard/machine/ltsrbt
 	density = TRUE

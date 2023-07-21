@@ -58,6 +58,13 @@
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 30
 
+/obj/item/ammo_box/c9mm_traumatic
+	name = "упаковка травматических 9мм патронов"
+	desc = "Боевая пуля в них заменена на резиновую болванку. Практически не наносит урона, однако валит с пары-тройки попаданий."
+	icon_state = "9mmbox"
+	ammo_type = /obj/item/ammo_casing/c9mm/traumatic
+	max_ammo = 30
+
 /obj/item/ammo_box/c10mm
 	name = "упаковка 10мм патронов"
 	desc = "Обычные патроны калибра 10мм. Используется в пистолетах."
@@ -73,14 +80,14 @@
 	max_ammo = 30
 
 /obj/item/ammo_box/a50ae
-	name = "патрон .50AE калибра"
+	name = "упаковка патронов .50AE калибра"
 	desc = "Обычные патроны калибра 50AE. Используется в пистолете Пустынный Орел."
 	icon_state = "50aebox"
 	ammo_type = /obj/item/ammo_casing/a50ae
 	max_ammo = 20
 
 /obj/item/ammo_box/a40mm
-	name = "упаковка 40 гранат"
+	name = "упаковка 40мм гранат"
 	desc = "Боевая фугасная граната, которая может быть активирована только при выстрела из гранатомета."
 	icon_state = "40mm"
 	ammo_type = /obj/item/ammo_casing/a40mm

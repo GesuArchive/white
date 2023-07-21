@@ -97,12 +97,13 @@
 #define PROGRAM_STATE_BACKGROUND 1
 #define PROGRAM_STATE_ACTIVE 2
 //Program categories
-#define PROGRAM_CATEGORY_CREW "Crew"
-#define PROGRAM_CATEGORY_ENGI "Engineering"
-#define PROGRAM_CATEGORY_ROBO "Robotics"
-#define PROGRAM_CATEGORY_SUPL "Supply"
-#define PROGRAM_CATEGORY_SCI  "Science"
-#define PROGRAM_CATEGORY_MISC "Other"
+#define PROGRAM_CATEGORY_CREW "Экипаж"
+#define PROGRAM_CATEGORY_ENGI "Инженерия"
+#define PROGRAM_CATEGORY_MED  "Медицина"
+#define PROGRAM_CATEGORY_ROBO "Робототехника"
+#define PROGRAM_CATEGORY_SUPL "Карго"
+#define PROGRAM_CATEGORY_SCI  "Наука"
+#define PROGRAM_CATEGORY_MISC "Другое"
 
 #define FIREDOOR_OPEN 1
 #define FIREDOOR_CLOSED 2

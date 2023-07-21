@@ -1,37 +1,7 @@
 
-/datum/supply_pack/engine/am_jar
-	name = "Antimatter Containment Jar Crate"
-	desc = "Two Antimatter containment jars stuffed into a single crate."
-	cost = BUY_CRATE_VALUE
-	contains = list(/obj/item/am_containment,
-					/obj/item/am_containment)
-	crate_name = "antimatter jar crate"
-
-/datum/supply_pack/engine/am_core
-	name = "Antimatter Control Crate"
-	desc = "The brains of the Antimatter engine, this device is sure to teach the station's powergrid the true meaning of real power."
-	cost = BUY_CRATE_VALUE * 2
-	contains = list(/obj/machinery/power/am_control_unit)
-	crate_name = "antimatter control crate"
-
-/datum/supply_pack/engine/am_shielding
-	name = "Antimatter Shielding Crate"
-	desc = "Contains ten Antimatter shields, somehow crammed into a crate."
-	cost = BUY_CRATE_VALUE
-	contains = list(/obj/item/am_shielding_container,
-					/obj/item/am_shielding_container,
-					/obj/item/am_shielding_container,
-					/obj/item/am_shielding_container,
-					/obj/item/am_shielding_container,
-					/obj/item/am_shielding_container,
-					/obj/item/am_shielding_container,
-					/obj/item/am_shielding_container,
-					/obj/item/am_shielding_container,) //9 shields: 3x3 containment and a core
-	crate_name = "antimatter shielding crate"
-
 /datum/export/large/am_control_unit
 	cost = BUY_CRATE_VALUE * 2
-	unit_name = "antimatter control unit"
+	unit_name = "Управляющий блок АМ"
 	export_types = list(/obj/machinery/power/am_control_unit)
 
 /datum/export/large/am_shielding_container
@@ -40,8 +10,8 @@
 	export_types = list(/obj/item/am_shielding_container)
 
 /obj/item/am_containment
-	name = "сосуд для антивещества"
-	desc = "Удерживает антивещество."
+	name = "сосуд антивещества"
+	desc = "Хранит в себе антивещество - редкое топливо необходимое для работы двигателя на антиматерии."
 	icon = 'white/valtos/icons/antimatter.dmi'
 	icon_state = "jar"
 	density = FALSE
@@ -640,8 +610,8 @@
 
 
 /obj/item/am_shielding_container
-	name = "секция реактора с насадкой из антивещества"
-	desc = "Небольшая единица хранения, содержащая секцию реактора антиматерии. Использовать место возле блока управления антивеществом или развернутой секции реактора антивещества. Используйте мультитул для активации этого пакета."
+	name = "экранирующий блок АМ"
+	desc = "Небольшой модуль, содержащий секцию реактора антиматерии. Устанавливается рядом с блоком управления антивеществом или другим экранирующим блоком. Используйте мультитул для подключения этого блока к другим."
 	icon = 'white/valtos/icons/antimatter.dmi'
 	icon_state = "box"
 	inhand_icon_state = "electronic"

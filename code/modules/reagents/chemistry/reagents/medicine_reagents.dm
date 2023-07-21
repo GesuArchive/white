@@ -118,7 +118,7 @@
 /datum/reagent/medicine/synaptizine
 	name = "Синаптизин"
 	enname = "Synaptizine"
-	description = "Increases resistance to stuns as well as reducing drowsiness and hallucinations."
+	description = "Повышает устойчивость к оглушению, а также уменьшает сонливость и галлюцинации."
 	color = "#FF00FF"
 	ph = 4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -324,7 +324,7 @@
 	reagent_state = LIQUID
 	color = "#DCDCDC"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
-	overdose_threshold = 60
+	overdose_threshold = 100
 	taste_description = "сладость и соль"
 	var/last_added = 0
 	var/maximum_reachable = BLOOD_VOLUME_NORMAL - 10	//So that normal blood regeneration can continue with salglu active

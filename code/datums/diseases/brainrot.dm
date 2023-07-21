@@ -56,3 +56,8 @@
 					affected_mob.emote("snore")
 			if(DT_PROB(7.5, delta_time))
 				affected_mob.stuttering += 3
+
+/datum/disease/brainrot/no_spread
+	spread_flags = DISEASE_SPREAD_NON_CONTAGIOUS
+	cure_text = "Лабебиум"
+	cures = list(/obj/item/reagent_containers/pill/labebium)

@@ -488,6 +488,43 @@
 	weight = 4
 	max_occurances = 1
 
+/datum/map_template/ruin_part/underrailpq
+	file_name = "8x9_underrailpq"
+	weight = 2
+	max_occurances = 1
+
+/datum/map_template/ruin_part/latheroom
+	file_name = "8x7_latheroom"
+	weight = 4
+
+/datum/map_template/ruin_part/dosug
+	file_name = "8x9_dosug"
+	weight = 3
+
+/datum/map_template/ruin_part/botany
+	file_name = "11x9_botany"
+	weight = 2
+
+/datum/map_template/ruin_part/craft_room
+	file_name = "8x8_craft_room"
+	weight = 2
+
+/datum/map_template/ruin_part/garden
+	file_name = "9x5_garden"
+	weight = 3
+
+/datum/map_template/ruin_part/morgue2
+	file_name = "5x8_morgue"
+	weight = 3
+
+/datum/map_template/ruin_part/smoke_room
+	file_name = "5x7_smoke_room"
+	weight = 3
+
+/datum/map_template/ruin_part/sec_room
+	file_name = "9x8_sec_room"
+	weight = 2
+
 //	Сокровещницы
 
 /datum/map_template/ruin_part/corgarmoury	// Укрепленная оружейка
@@ -497,7 +534,7 @@
 
 /datum/map_template/ruin_part/room_arsenal	// Малая Оружейка
 	file_name = "5x6_arsenal"
-	weight = 1
+	weight = 3
 	loot_room = TRUE
 
 /datum/map_template/ruin_part/interrogation	// Щиты разума и бойки
@@ -554,8 +591,9 @@
 
 
 // 	Обитаемые
-
+/*
 /datum/map_template/ruin_part/autism
 	file_name = "49x47_autism"
 	weight = 50
 	max_occurances = 1
+*/

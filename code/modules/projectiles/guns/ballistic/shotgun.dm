@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/shotgun
-	name = "дробовик"
+	name = "помповый дробовик"
 	desc = "Традиционный дробовик с деревянным прикладом."
 	icon_state = "shotgun"
 	worn_icon_state = null

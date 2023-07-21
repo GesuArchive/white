@@ -101,7 +101,7 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 	singular_name = "алмаз"
 	sheettype = "diamond"
 	mats_per_unit = list(/datum/material/diamond=MINERAL_MATERIAL_AMOUNT)
-	novariants = TRUE
+	multivariant = TRUE
 	grind_results = list(/datum/reagent/carbon = 20)
 	point_value = 25
 	merge_type = /obj/item/stack/sheet/mineral/diamond
@@ -120,6 +120,26 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	. = ..()
 	. += GLOB.diamond_recipes
 
+/obj/item/stack/sheet/mineral/diamond/update_icon_state()
+	var/amount_icon
+	switch(amount)
+		if(1)
+			amount_icon = 1
+		if(2 to 9)
+			amount_icon = 2
+		if(10 to 19)
+			amount_icon = 3
+		if(20 to 29)
+			amount_icon = 4
+		if(30 to 39)
+			amount_icon = 5
+		if(40 to 49)
+			amount_icon = 6
+		else
+			amount_icon = 7
+	icon_state = "[initial(icon_state)]_[amount_icon]"
+	return ..()
+
 /*
  * Uranium
  */
@@ -129,6 +149,7 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	inhand_icon_state = "sheet-uranium"
 	singular_name = "урановый лист"
 	sheettype = "uranium"
+	multivariant = TRUE
 	mats_per_unit = list(/datum/material/uranium=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/uranium = 20)
 	point_value = 20
@@ -147,8 +168,29 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	. = ..()
 	. += GLOB.uranium_recipes
 
+/obj/item/stack/sheet/mineral/uranium/update_icon_state()
+	var/amount_icon
+	switch(amount)
+		if(1)
+			amount_icon = 1
+		if(2 to 12)
+			amount_icon = 2
+		if(13 to 24)
+			amount_icon = 3
+		if(25 to 37)
+			amount_icon = 4
+		if(38 to 49)
+			amount_icon = 5
+		else
+			amount_icon = 6
+	icon_state = "[initial(icon_state)]_[amount_icon]"
+	return ..()
+
 /obj/item/stack/sheet/mineral/uranium/five
 	amount = 5
+
+/obj/item/stack/sheet/mineral/uranium/twenty
+	amount = 20
 
 /*
  * Plasma
@@ -160,6 +202,7 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	singular_name = "лист плазмы"
 	sheettype = "plasma"
 	resistance_flags = FLAMMABLE
+	multivariant = TRUE
 	max_integrity = 100
 	mats_per_unit = list(/datum/material/plasma=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/toxin/plasma = 20)
@@ -182,6 +225,28 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 	. = ..()
 	. += GLOB.plasma_recipes
 
+/obj/item/stack/sheet/mineral/plasma/update_icon_state()
+	var/amount_icon
+	switch(amount)
+		if(1)
+			amount_icon = 1
+		if(2 to 7)
+			amount_icon = 2
+		if(8 to 16)
+			amount_icon = 3
+		if(17 to 24)
+			amount_icon = 4
+		if(25 to 32)
+			amount_icon = 5
+		if(33 to 41)
+			amount_icon = 6
+		if(42 to 49)
+			amount_icon = 7
+		else
+			amount_icon = 8
+	icon_state = "[initial(icon_state)]_[amount_icon]"
+	return ..()
+
 /obj/item/stack/sheet/mineral/plasma/attackby(obj/item/W as obj, mob/user as mob, params)
 	if(W.get_temperature() > 300)//If the temperature of the object is over 300, then ignite
 		var/turf/T = get_turf(src)
@@ -198,6 +263,9 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 /obj/item/stack/sheet/mineral/plasma/five
 	amount = 5
 
+/obj/item/stack/sheet/mineral/plasma/ten
+	amount = 10
+
 /obj/item/stack/sheet/mineral/plasma/thirty
 	amount = 30
 
@@ -210,6 +278,7 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 	inhand_icon_state = "sheet-gold"
 	singular_name = "золотой слиток"
 	sheettype = "gold"
+	multivariant = TRUE
 	mats_per_unit = list(/datum/material/gold=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/gold = 20)
 	point_value = 20
@@ -233,6 +302,30 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	. = ..()
 	. += GLOB.gold_recipes
 
+/obj/item/stack/sheet/mineral/gold/update_icon_state()
+	var/amount_icon
+	switch(amount)
+		if(1)
+			amount_icon = 1
+		if(2 to 12)
+			amount_icon = 2
+		if(13 to 24)
+			amount_icon = 3
+		if(25 to 37)
+			amount_icon = 4
+		if(38 to 49)
+			amount_icon = 5
+		else
+			amount_icon = 6
+	icon_state = "[initial(icon_state)]_[amount_icon]"
+	return ..()
+
+/obj/item/stack/sheet/mineral/gold/five
+	amount = 5
+
+/obj/item/stack/sheet/mineral/gold/twenty
+	amount = 20
+
 /*
  * Silver
  */
@@ -242,6 +335,7 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	inhand_icon_state = "sheet-silver"
 	singular_name = "серебрянный слиток"
 	sheettype = "silver"
+	multivariant = TRUE
 	mats_per_unit = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/silver = 20)
 	point_value = 20
@@ -263,6 +357,27 @@ GLOBAL_LIST_INIT(silver_recipes, list ( \
 /obj/item/stack/sheet/mineral/silver/get_main_recipes()
 	. = ..()
 	. += GLOB.silver_recipes
+
+/obj/item/stack/sheet/mineral/silver/update_icon_state()
+	var/amount_icon
+	switch(amount)
+		if(1)
+			amount_icon = 1
+		if(2 to 12)
+			amount_icon = 2
+		if(13 to 24)
+			amount_icon = 3
+		if(25 to 37)
+			amount_icon = 4
+		if(38 to 49)
+			amount_icon = 5
+		else
+			amount_icon = 6
+	icon_state = "[initial(icon_state)]_[amount_icon]"
+	return ..()
+
+/obj/item/stack/sheet/mineral/silver/twenty
+	amount = 20
 
 /*
  * Clown
@@ -321,6 +436,9 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
 /obj/item/stack/sheet/mineral/titanium/get_main_recipes()
 	. = ..()
 	. += GLOB.titanium_recipes
+
+/obj/item/stack/sheet/mineral/titanium/twenty
+	amount = 20
 
 /obj/item/stack/sheet/mineral/titanium/fifty
 	amount = 50

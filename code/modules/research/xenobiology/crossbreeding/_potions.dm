@@ -137,8 +137,8 @@ Slimecrossing Potions
 
 //Enhancer potion - Charged Cerulean
 /obj/item/slimepotion/enhancer/max
-	name = "extract maximizer"
-	desc = "An extremely potent chemical mix that will maximize a slime extract's uses."
+	name = "максимизатор экстракта"
+	desc = "Чрезвычайно мощная химическая смесь, которая максимально эффективно использует экстракты слизи, значительно увеличивая количество применений."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "potpurple"
 

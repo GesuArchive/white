@@ -1,11 +1,11 @@
 /obj/item/transfer_valve
+	name = "коллапсирующий газовый вентиль"
+	desc = "Имеет два разъема для газовых баллонов и клапан между ними. При открытии вентиля газы смешиваются и, если разница температур газов была достаточно велика, происходит взрыв."
 	icon = 'icons/obj/assemblies.dmi'
-	name = "tank transfer valve"
 	icon_state = "valve_1"
 	inhand_icon_state = "ttv"
 	lefthand_file = 'icons/mob/inhands/weapons/bombs_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/bombs_righthand.dmi'
-	desc = "Regulates the transfer of air between two tanks."
 	w_class = WEIGHT_CLASS_BULKY
 
 	var/obj/item/tank/tank_one

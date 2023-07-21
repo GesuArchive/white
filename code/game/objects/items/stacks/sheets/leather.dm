@@ -8,7 +8,7 @@
 
 /obj/item/stack/sheet/animalhide/human
 	name = "человеческая кожа"
-	desc = "Побочный продукт человеческого происхождения... Мудак?"
+	desc = "Побочный продукт человеческого происхождения... у тебя все нормально с головой?"
 	singular_name = "кусок человеческой кожи"
 	novariants = FALSE
 	merge_type = /obj/item/stack/sheet/animalhide/human

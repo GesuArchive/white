@@ -190,7 +190,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		return data_by_z["[z]"]
 
 	var/list/results = list()
-	for(var/tracked_mob in GLOB.suit_sensors_list | GLOB.nanite_sensors_list)
+	for(var/tracked_mob in GLOB.suit_sensors_list | GLOB.nanite_sensors_list | GLOB.implant_sensors_list)
 		if(!tracked_mob)
 			stack_trace("Null entry in suit sensors list.")
 			continue
@@ -212,11 +212,12 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		var/mob/living/carbon/human/tracked_human = tracked_living_mob
 
 		var/nanite_sensors = (tracked_human in GLOB.nanite_sensors_list)
+		var/implant_sensors = (tracked_human in GLOB.implant_sensors_list)
 
 		var/obj/item/clothing/under/uniform
 
 		// Check their humanity.
-		if(!nanite_sensors)
+		if(!nanite_sensors && !implant_sensors)
 			if(!ishuman(tracked_human))
 				stack_trace("Non-human mob is in suit_sensors_list: [tracked_living_mob] ([tracked_living_mob.type])")
 				continue
@@ -229,10 +230,19 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 
 			// Check if their uniform is in a compatible mode.
 			if(((uniform.has_sensor <= NO_SENSORS) || !uniform?.sensor_mode))
-				stack_trace("Human without active suit sensors is in suit_sensors_list: [tracked_human] ([tracked_human.type]) ([uniform.type])")
+				stack_trace("Цель без активных датчиков жизни в списке датчиков жизни: [tracked_human] ([tracked_human.type]) ([uniform.type]). Попытка исправить.")
+				tracked_human.update_sensor_list() // должно удалять, но возможно это не решение проблемы
 				continue
 
-		var/sensor_mode = nanite_sensors ? SENSOR_COORDS : uniform?.sensor_mode
+//		var/sensor_mode = nanite_sensors ? SENSOR_COORDS : uniform?.sensor_mode
+
+		var/sensor_mode
+		if(nanite_sensors || implant_sensors)
+			sensor_mode = SENSOR_COORDS
+		else
+			if(uniform)
+				if(uniform.has_sensor >= NO_SENSORS)
+					sensor_mode = uniform.sensor_mode
 
 		// The entry for this human
 		var/list/entry = list(
@@ -244,12 +254,17 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		// ID and id-related data
 		var/obj/item/card/id/id_card = tracked_living_mob.get_idcard(hand_first = FALSE)
 		if (id_card)
-			entry["name"] = id_card.registered_name
+			if(nanite_sensors || implant_sensors)
+				entry["name"] = tracked_living_mob.real_name
+			else
+				entry["name"] = id_card.registered_name
 			entry["assignment"] = id_card.assignment
 			var/trim_assignment = id_card.get_trim_assignment()
 			if (jobs[trim_assignment] != null)
 				entry["ijob"] = jobs[trim_assignment]
-
+		else
+			if(nanite_sensors || implant_sensors)
+				entry["name"] = tracked_living_mob.real_name
 		// Binary living/dead status
 		if (sensor_mode >= SENSOR_LIVING)
 			entry["life_status"] = (tracked_living_mob.stat != DEAD)

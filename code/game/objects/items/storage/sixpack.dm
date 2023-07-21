@@ -1,6 +1,6 @@
 /obj/item/storage/cans
-	name = "держатель банок"
-	desc = "Holds up to six drink cans, and select bottles."
+	name = "упаковка для банок"
+	desc = "Вмещает до шести банок с напитками."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "canholder"
 	inhand_icon_state = "cola"
@@ -34,16 +34,16 @@
 		))
 
 /obj/item/storage/cans/sixsoda
-	name = "soda bottle ring"
-	desc = "Holds six soda cans. Remember to recycle when you're done!"
+	name = "упаковка колы"
+	desc = "Хранит шесть банок колы."
 
 /obj/item/storage/cans/sixsoda/PopulateContents()
 	for(var/i in 1 to 6)
 		new /obj/item/reagent_containers/food/drinks/soda_cans/cola(src)
 
 /obj/item/storage/cans/sixbeer
-	name = "beer bottle ring"
-	desc = "Holds six beer bottles. Remember to recycle when you're done!"
+	name = "упаковка пива"
+	desc = "Хранит шесть банок пива"
 
 /obj/item/storage/cans/sixbeer/PopulateContents()
 	for(var/i in 1 to 6)

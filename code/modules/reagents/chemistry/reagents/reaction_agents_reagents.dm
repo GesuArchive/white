@@ -18,8 +18,8 @@
 
 /datum/reagent/reaction_agent/acidic_buffer
 	name = "Кислотный буфер"
-	enname = "Strong acidic buffer"
 	description = "При добавлении к составу сместит ПШ баланс в сторону кислотности."
+	enname = "Strong acidic buffer"
 	color = "#fbc314"
 	ph = 0
 	impure_chem = null
@@ -46,8 +46,8 @@
 
 /datum/reagent/reaction_agent/basic_buffer
 	name = "Щелочный буфер"
-	enname = "Strong basic buffer"
 	description = "При добавлении к составу сместит ПШ баланс в сторону щелочности."
+	enname = "Strong basic buffer"
 	color = "#3853a4"
 	ph = 14
 	impure_chem = null

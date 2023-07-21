@@ -163,3 +163,7 @@
 		var/obj/item/food/drug/saturnx/new_glob = new(location)
 		new_glob.pixel_x = rand(-6, 6)
 		new_glob.pixel_y = rand(-6, 6)
+
+/datum/chemical_reaction/hyperpsy
+	results = list(/datum/reagent/toxin/hyperpsy = 1)
+	required_reagents = list(/datum/reagent/consumable/ethanol/neurotoxin = 1, /datum/reagent/medicine/strange_reagent = 1, /datum/reagent/medicine/mannitol = 1)

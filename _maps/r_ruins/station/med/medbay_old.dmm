@@ -444,7 +444,7 @@
 	pixel_x = -8;
 	pixel_y = 10
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = -8;
 	pixel_y = -6
 	},
@@ -794,7 +794,7 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/chemistry)
 "hJ" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/hemostat,
 /turf/open/floor/plasteel/white/side,
 /area/medical/surgery)
@@ -1377,9 +1377,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "nY" = (
-/obj/machinery/vending/medical{
-	pixel_x = -2
-	},
+/obj/machinery/modular_computer/console/preset/cargochat/medical,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
 "oa" = (
@@ -1784,7 +1782,7 @@
 /turf/open/floor/plasteel,
 /area/medical/cryo)
 "sf" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/storage/box/masks,
 /obj/item/storage/box/gloves{
 	pixel_x = 3;
@@ -2004,7 +2002,6 @@
 /turf/open/floor/plasteel,
 /area/security/checkpoint/medical)
 "uU" = (
-/obj/structure/table,
 /obj/item/hand_labeler,
 /obj/item/gun/syringe,
 /obj/item/storage/belt/medical{
@@ -2017,6 +2014,8 @@
 	pixel_y = 2
 	},
 /obj/item/clothing/neck/stethoscope,
+/obj/item/gun/syringe,
+/obj/structure/table/greyscale,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
 "uV" = (
@@ -2136,7 +2135,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/cmo)
 "vR" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/crowbar,
 /obj/item/clothing/neck/stethoscope,
 /obj/item/reagent_containers/spray/cleaner,
@@ -2471,7 +2470,7 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/lobby)
 "yR" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/scalpel{
 	pixel_y = 12
 	},
@@ -2743,7 +2742,7 @@
 /turf/open/floor/plating,
 /area/medical/storage)
 "AJ" = (
-/obj/machinery/vending/wardrobe/medi_wardrobe,
+/obj/machinery/vending/drugs,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
 "AQ" = (
@@ -3186,7 +3185,6 @@
 /turf/open/floor/plasteel,
 /area/security/checkpoint/medical)
 "Eu" = (
-/obj/structure/table,
 /obj/machinery/light,
 /obj/item/stack/sheet/plastic/fifty,
 /obj/item/book/manual/wiki/medicine,
@@ -3194,10 +3192,11 @@
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/reagent_containers/spray/cleaner,
+/obj/structure/table/greyscale,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
 "Ex" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/retractor,
 /turf/open/floor/plasteel/white/side,
 /area/medical/surgery)
@@ -3206,13 +3205,20 @@
 /obj/item/radio/intercom{
 	pixel_x = -25
 	},
-/obj/item/storage/box/beakers{
-	pixel_x = 2;
-	pixel_y = 2
+/obj/item/storage/box/syringes{
+	pixel_x = -8;
+	pixel_y = 8
 	},
-/obj/item/storage/box/syringes,
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 8
+	},
+/obj/item/storage/box/beakers{
+	pixel_x = -8;
+	pixel_y = -4
+	},
+/obj/item/storage/box/monkeycubes{
+	pixel_y = 3;
+	pixel_x = 8
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
@@ -3248,7 +3254,7 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
 "Fh" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/structure/bedsheetbin{
 	pixel_x = 2
 	},
@@ -3329,7 +3335,7 @@
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "FC" = (
-/obj/structure/closet/wardrobe/pjs,
+/obj/structure/closet/l3closet,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
 "FD" = (
@@ -3748,7 +3754,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "Jv" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/storage/firstaid/regular,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/lobby)
@@ -3865,7 +3871,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
 "KQ" = (
-/obj/machinery/vending/drugs,
+/obj/machinery/vending/wardrobe/medi_wardrobe,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
 "KS" = (
@@ -4009,13 +4015,21 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
 "Mm" = (
-/obj/structure/table,
-/obj/item/folder/white,
-/obj/item/gun/syringe,
-/obj/item/reagent_containers/dropper,
-/obj/item/soap/nanotrasen,
+/obj/structure/table/greyscale,
+/obj/item/soap/nanotrasen{
+	pixel_x = -1;
+	pixel_y = 9
+	},
 /obj/machinery/light_switch{
 	pixel_x = -23
+	},
+/obj/item/iv_drip_item{
+	pixel_x = -5;
+	pixel_y = -8
+	},
+/obj/item/iv_drip_item{
+	pixel_x = 2;
+	pixel_y = -8
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
@@ -4127,8 +4141,9 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/lobby)
 "ND" = (
-/obj/structure/closet/l3closet,
-/obj/machinery/light_switch/directional/north,
+/obj/machinery/vending/medical{
+	pixel_x = -2
+	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
 "NP" = (
@@ -4325,7 +4340,7 @@
 	dir = 8;
 	network = list("ss13","medbay")
 	},
-/obj/machinery/iv_drip,
+/obj/structure/closet/wardrobe/pjs,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
 "Pi" = (
@@ -4394,7 +4409,7 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/structure/table/glass,
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = -8;
 	pixel_y = -6
 	},
@@ -4595,7 +4610,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/cmo)
 "Rk" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/surgical_drapes,
 /obj/item/razor,
 /obj/machinery/light_switch/directional/east,
@@ -4617,7 +4632,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/morgue)
 "RD" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/surgicaldrill,
 /turf/open/floor/plasteel,
 /area/medical/surgery)
@@ -4753,7 +4768,7 @@
 /turf/open/floor/plasteel,
 /area/medical/medbay)
 "SL" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/clothing/gloves/color/latex,
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/suit/apron/surgical,
@@ -4802,7 +4817,7 @@
 	pixel_x = -8;
 	pixel_y = -6
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = 8;
 	pixel_y = -6
 	},
@@ -4999,7 +5014,6 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/machinery/iv_drip,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -5195,7 +5209,7 @@
 /turf/open/floor/plating,
 /area/medical/surgery)
 "WP" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/book/manual/wiki/surgery,
 /obj/item/cautery{
 	pixel_x = 4
@@ -5364,7 +5378,7 @@
 	name = "Medbay RC";
 	pixel_y = 30
 	},
-/obj/machinery/modular_computer/console/preset/cargochat/medical,
+/obj/machinery/computer/department_orders/medical,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
 "Yg" = (

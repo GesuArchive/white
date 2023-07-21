@@ -60,6 +60,7 @@
 	uses = 300
 
 /obj/item/soap/homemade
+	name = "самодельное мыло"
 	desc = "Самодельный брусок мыла пахнет он мягко говоря... на любителя...."
 	icon_state = "soapgibs"
 	cleanspeed = 30 // faster to reward chemists for going to the effort

@@ -51,6 +51,7 @@
 	var/list/allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 	)
@@ -129,6 +130,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/construction/rcd,
@@ -183,6 +185,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/analyzer,
@@ -240,6 +243,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/analyzer,
@@ -310,6 +314,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/resonator,
@@ -402,6 +407,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/mail,
@@ -451,6 +457,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/healthanalyzer,
@@ -544,6 +551,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/healthanalyzer,
@@ -614,6 +622,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/analyzer,
@@ -670,6 +679,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
@@ -728,6 +738,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
@@ -791,6 +802,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
@@ -846,6 +858,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/bikehorn,
@@ -907,6 +920,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
@@ -997,6 +1011,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
@@ -1062,6 +1077,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/teleportation_scroll,
@@ -1119,6 +1135,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/gun,
@@ -1181,6 +1198,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/analyzer,
@@ -1237,6 +1255,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
@@ -1320,6 +1339,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
@@ -1380,6 +1400,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
@@ -1436,6 +1457,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/restraints/handcuffs,
@@ -1489,6 +1511,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/gun,
@@ -1545,6 +1568,7 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/watertank,
 		/obj/item/tactical_recharger,
 		/obj/item/gun,

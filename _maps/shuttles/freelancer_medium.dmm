@@ -173,12 +173,13 @@
 /area/shuttle/freelancer/cabine)
 "jy" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/north{
-	locked = 0
-	},
 /obj/machinery/light_switch/directional/east,
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
+	},
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
 	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/passengers)
@@ -379,6 +380,7 @@
 "pp" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/internals,
+/obj/item/tank/internals/tactical,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cargo)
 "pV" = (
@@ -576,16 +578,16 @@
 "Bm" = (
 /obj/structure/table,
 /obj/item/storage/box/rndboards,
+/obj/item/mod/module/jetpack/advanced,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/rnd)
 "Bs" = (
 /obj/machinery/light/directional/east,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/passengers)
 "Bt" = (
@@ -836,6 +838,7 @@
 	locked = 0
 	},
 /obj/structure/frame/machine,
+/obj/item/circuitboard/machine/chem_dispenser,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/rnd)
 "Ps" = (

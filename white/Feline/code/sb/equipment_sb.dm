@@ -112,11 +112,22 @@
 	name = "коробка с заградительными гранатами"
 	desc = "Содержит гранаты которые при активации раскручивает колючую проволоку, что значительно замедляет наступающего противника."
 	icon_state = "secbox"
-	illustration = "flashbang"
+	illustration = "barbed_wire"
 
 /obj/item/storage/box/barbed_wire/PopulateContents()
-	for(var/i in 1 to 6)
+	for(var/i in 1 to 7)
 		new /obj/item/grenade/barbed_wire(src)
+
+/obj/item/storage/box/barrier
+	name = "коробка с барьерными гранатами"
+	desc = "Содержит гранаты которые при активации раскладываются в полевое укрытие."
+	icon_state = "secbox"
+	illustration = "barrier"
+
+/obj/item/storage/box/barrier/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/grenade/barrier(src)
+
 
 //  Пневматический замок СБ
 /obj/item/door_seal/sb

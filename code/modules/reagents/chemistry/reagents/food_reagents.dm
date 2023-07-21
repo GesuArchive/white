@@ -246,8 +246,8 @@
 	. = TRUE
 
 /datum/reagent/consumable/virus_food
-	name = "Пища для Вируса"
-	description = "A mixture of water and milk. Virus cells can use this mixture to reproduce."
+	name = "Пища для вирусов"
+	description = "Смесь из молока и воды. Позволяет вирусам размножаться и мутировать."
 	nutriment_factor = 2 * REAGENTS_METABOLISM
 	color = "#899613" // rgb: 137, 150, 19
 	taste_description = "водянистое молоко"

@@ -10,7 +10,7 @@
 	inhand_icon_state = "apron"
 	blood_overlay_type = "armor"
 	body_parts_covered = CHEST|GROIN
-	allowed = list(/obj/item/reagent_containers/spray/plantbgone, /obj/item/plant_analyzer, /obj/item/seeds, /obj/item/reagent_containers/glass/bottle, /obj/item/reagent_containers/glass/beaker, /obj/item/cultivator, /obj/item/reagent_containers/spray/pestspray, /obj/item/hatchet, /obj/item/storage/bag/plants, /obj/item/graft, /obj/item/secateurs, /obj/item/geneshears)
+	allowed = list(/obj/item/reagent_containers/spray/plantbgone, /obj/item/plant_analyzer, /obj/item/seeds, /obj/item/reagent_containers/glass/bottle, /obj/item/reagent_containers/glass/beaker, /obj/item/cultivator, /obj/item/reagent_containers/spray/pestspray, /obj/item/hatchet, /obj/item/storage/bag/plants, /obj/item/graft, /obj/item/secateurs, /obj/item/geneshears, /obj/item/watertank)
 	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/suit/apron/waders
@@ -101,9 +101,16 @@
 	icon_state = "hazard"
 	inhand_icon_state = "hazard"
 	blood_overlay_type = "armor"
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/t_scanner, /obj/item/radio, /obj/item/storage/bag/construction)
+	allowed = list(/obj/item/watertank, /obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/t_scanner, /obj/item/radio, /obj/item/storage/bag/construction, /obj/item/tank/jetpack)
 	resistance_flags = NONE
 	species_exception = list(/datum/species/golem)
+
+//janitor
+/obj/item/clothing/suit/hazardvest/janitor
+	name = "куртка уборщика"
+	desc = "Куртка немного защищающая владельца от различных угроз."
+	icon_state = "hazard_janitor"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 70, RAD = 50, FIRE = 30, ACID = 70)
 
 //Lawyer
 /obj/item/clothing/suit/toggle/lawyer

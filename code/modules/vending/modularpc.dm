@@ -1,5 +1,5 @@
 /obj/machinery/vending/modularpc
-	name = "Deluxe Silicate Selections"
+	name = "Командор-64"
 	desc = "Все детали, необходимые для создания собственного ПК."
 	icon_state = "modularpc"
 	icon_deny = "modularpc-deny"
@@ -23,5 +23,5 @@
 	payment_department = ACCOUNT_SCI
 
 /obj/item/vending_refill/modularpc
-	machine_name = "Deluxe Silicate Selections"
+	machine_name = "Командор-64"
 	icon_state = "refill_engi"

@@ -1,11 +1,11 @@
 /obj/item/computer_disk
-	name = "data disk"
-	desc = "Removable disk used to store data."
+	name = "диск для записи данных ПК"
+	desc = "Съёмный диск, используемый для хранения данных. Вмещает до 32 ГБ данных."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "datadisk6"
 	w_class = WEIGHT_CLASS_TINY
 	///The amount of storage space is on the disk
-	var/max_capacity = 16
+	var/max_capacity = 32
 	///The amount of storage space we've got filled
 	var/used_capacity = 0
 	///List of stored files on this drive. DO NOT MODIFY DIRECTLY!
@@ -45,12 +45,19 @@
 	return TRUE
 
 /obj/item/computer_disk/advanced
-	name = "advanced data disk"
+	name = "продвинутый диск для записи данных ПК"
+	desc = "Съёмный диск, используемый для хранения данных. Вмещает до 64 ГБ данных."
 	icon_state = "datadisk5"
 	max_capacity = 64
 
 /obj/item/computer_disk/super
-	name = "super data disk"
-	desc = "Removable disk used to store large amounts of data."
+	name = "супер диск для записи данных ПК"
+	desc = "Съёмный диск, используемый для хранения данных. Вмещает до 128 ГБ данных."
 	icon_state = "datadisk3"
+	max_capacity = 128
+
+/obj/item/computer_disk/ultra
+	name = "ультра диск для записи данных ПК"
+	desc = "Съёмный диск, используемый для хранения данных. Вмещает до 256 ГБ данных."
+	icon_state = "datadisk8"
 	max_capacity = 256

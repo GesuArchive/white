@@ -210,7 +210,7 @@
 	pixel_x = -8;
 	pixel_y = 12
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = 8;
 	pixel_y = 12
 	},

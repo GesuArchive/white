@@ -64,7 +64,7 @@
 		return TRUE
 
 /obj/item/stock_parts/cell/computer
-	name = "Стандартная батарея"
+	name = "Стандартная батарея ПК"
 	desc = "Стандартный элемент питания, обычно встречающийся в портативных микрокомпьютерах высокого класса или ноутбуках младших моделей."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "cell_mini"
@@ -72,27 +72,27 @@
 	maxcharge = 750
 
 /obj/item/stock_parts/cell/computer/advanced
-	name = "Продвинутая батарея"
+	name = "Продвинутая батарея ПК"
 	desc = "Продвинутая батарея, часто используемая в большинстве ноутбуков. Она слишком велика для установки в устройства меньшего размера."
 	icon_state = "cell"
 	w_class = WEIGHT_CLASS_SMALL
 	maxcharge = 1500
 
 /obj/item/stock_parts/cell/computer/super
-	name = "Супер баттарея"
+	name = "Супер баттарея ПК"
 	desc = "Продвинутая батарея, часто используемая в ноутбуках высокого класса"
 	icon_state = "cell"
 	w_class = WEIGHT_CLASS_SMALL
 	maxcharge = 2000
 
 /obj/item/stock_parts/cell/computer/micro
-	name = "Микро батарея"
+	name = "Микро батарея ПК"
 	desc = "Маленькая батарея, обычно используемая в большинстве портативных микрокомпьютеров."
 	icon_state = "cell_micro"
 	maxcharge = 500
 
 /obj/item/stock_parts/cell/computer/nano
-	name = "Нано батарея"
+	name = "Нано батарея ПК"
 	desc = "Крошечная батарея, обычно встречающаяся в портативных микрокомпьютерах младших моделей."
 	icon_state = "cell_micro"
 	maxcharge = 300

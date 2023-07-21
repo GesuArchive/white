@@ -211,6 +211,7 @@
 	filedesc = "Лайфлайн"
 	extended_desc = "Эта программа позволяет отыскать членов экипажа, отслеживая их датчики жизни на одежде с помощью радара."
 	requires_ntnet = TRUE
+	category = PROGRAM_CATEGORY_MED
 	transfer_access = list(ACCESS_MEDICAL)
 	available_on_ntnet = TRUE
 	program_icon = "heartbeat"
@@ -232,6 +233,9 @@
 			var/obj/item/card/id/ID = humanoid.wear_id.GetID()
 			if(ID?.registered_name)
 				crewmember_name = ID.registered_name
+
+		if((humanoid in GLOB.implant_sensors_list) || (humanoid in GLOB.nanite_sensors_list))
+			crewmember_name = humanoid.real_name
 		var/list/crewinfo = list(
 			ref = REF(humanoid),
 			name = crewmember_name,
@@ -246,6 +250,10 @@
 			var/obj/item/clothing/under/uniform = humanoid.w_uniform
 			if(uniform.has_sensor && uniform.sensor_mode >= SENSOR_COORDS) // Suit sensors must be on maximum
 				return TRUE
+		if(humanoid in GLOB.implant_sensors_list)
+			return TRUE
+		if(humanoid in GLOB.nanite_sensors_list)
+			return TRUE
 	return FALSE
 
 ///Tracks all janitor equipment

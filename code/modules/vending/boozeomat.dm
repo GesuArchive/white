@@ -1,5 +1,5 @@
 /obj/machinery/vending/boozeomat
-	name = "Booze-O-Mat"
+	name = "Бухло-Мат"
 	desc = "Чудо техники, якобы способное смешать именно ту смесь, которую вы хотите выпить, как только вы ее попросите."
 	icon_state = "boozeomat"
 	icon_deny = "boozeomat-deny"
@@ -68,5 +68,5 @@
 	age_restrictions = FALSE
 
 /obj/item/vending_refill/boozeomat
-	machine_name = "Booze-O-Mat"
+	machine_name = "Бухло-мат"
 	icon_state = "refill_booze"

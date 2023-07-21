@@ -1,6 +1,6 @@
 //Biosuit complete with shoes (in the item sprite)
 /obj/item/clothing/head/bio_hood
-	name = "био-капюшон"
+	name = "капюшон биологической защиты"
 	icon_state = "bio"
 	desc = "Капюшон, защищающий голову и лицо от биологических загрязнений."
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
@@ -11,7 +11,7 @@
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 
 /obj/item/clothing/suit/bio_suit
-	name = "био-костюм"
+	name = "костюм биологической защиты"
 	desc = "Костюм, который защищает от биологического загрязнения."
 	icon_state = "bio"
 	worn_icon = 'icons/mob/clothing/suits/bio.dmi'

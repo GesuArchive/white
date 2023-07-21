@@ -97,6 +97,8 @@
 
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
 // 	Извлечение бронепластин
+		if(user.get_item_by_slot(ITEM_SLOT_OCLOTHING) == src)
+			return ..()
 		if(armor_plate_amount)
 			to_chat(user, span_notice("Извлекаю внешние бронепластины..."))
 			playsound(user, 'sound/items/screwdriver.ogg',70, TRUE)
@@ -112,7 +114,12 @@
 			if(armor_plate_ablative)
 				for(var/i in 1 to armor_plate_ablative)
 					new /obj/item/stack/sheet/armor_plate/ablative(src.drop_location())
-			new src.type(src.drop_location())
+//			new src.type(src.drop_location())
+
+			var/obj/item/clothing/suit/armor/I = new src.type(src.drop_location())
+			user.put_in_hands(I)
+			if(contents)
+				I.contents = contents
 			qdel(src)
 			return
 // 	Разборка Пуленепробиваемой
@@ -203,6 +210,13 @@
 /obj/item/clothing/suit/armor/vest/alt/sec
 	icon_state = "armor_sec"
 
+/obj/item/clothing/suit/armor/vest/justice
+	name = "костюм справедливости"
+	desc = "выглядит угрожающе миролюбиво"
+	icon_state = "justice"
+	inhand_icon_state = "justice"
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+
 /obj/item/clothing/suit/armor/vest/marine
 	name = "tactical armor vest"
 	desc = "A set of the finest mass produced, stamped plasteel armor plates, containing an environmental protection unit for all-condition door kicking."
@@ -256,7 +270,7 @@
 	icon_state = "hos"
 	inhand_icon_state = "greatcoat"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
-	armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 70, ACID = 90, WOUND = 10)
+	armor = list(MELEE = 40, BULLET = 35, LASER = 35, ENERGY = 50, BOMB = 35, BIO = 0, RAD = 0, FIRE = 80, ACID = 90, WOUND = 25)
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	full_armor_flag	= TRUE
@@ -293,9 +307,10 @@
 
 /obj/item/clothing/suit/armor/vest/leather
 	name = "защитное пальто"
-	desc = "Кожаное пальто в легкой броне предназначалось как повседневная одежда для высокопоставленных офицеров. Несет герб Безопасности NanoTrasen."
+	desc = "Кожаное пальто с качественным бронированием предназначалось как повседневная одежда для высокопоставленных офицеров. Несет герб Безопасности НаноТрейзен."
 	icon_state = "leathercoat-sec"
 	inhand_icon_state = "hostrench"
+	armor = list(MELEE = 40, BULLET = 35, LASER = 35, ENERGY = 50, BOMB = 35, BIO = 0, RAD = 0, FIRE = 80, ACID = 90, WOUND = 25)
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
@@ -304,7 +319,9 @@
 	disassembly_flag = FALSE
 
 /obj/item/clothing/suit/armor/vest/leather/noname
+	name = "кожанка"
 	desc = "Кожаное пальто в легкой броне. Элегантно и практично." //временный костыль-подпорка для сноса говна зерги.
+	armor = list(MELEE = 20, BULLET = 20, LASER = 10, ENERGY = 10, BOMB = 15, BIO = 0, RAD = 0, FIRE = 20, ACID = 15, WOUND = 10)
 
 /obj/item/clothing/suit/armor/vest/capcarapace
 	name = "капитанский панцирь"
@@ -368,14 +385,22 @@
 
 /obj/item/clothing/suit/armor/bulletproof
 	name = "пуленепробиваемый бронежилет"
-	desc = "Тяжелый пуленепробиваемый жилет Тип III, который в меньшей степени защищает владельца от традиционного снарядного оружия и взрывчатых веществ."
+	desc = "Тяжелый пуленепробиваемый жилет третьего класса защиты, который предоставляет высокую защиту от пуль и взрывов, но в меньшей степени защищает от прочих типов повреждений."
 	icon_state = "bulletproof"
 	inhand_icon_state = "armor"
 	blood_overlay_type = "armor"
 	armor = list(MELEE = 15, BULLET = 60, LASER = 10, ENERGY = 10, BOMB = 40, BIO = 0, RAD = 0, FIRE = 50, ACID = 50, WOUND = 20)
 	strip_delay = 70
 	equip_delay_other = 50
+	block_chance = 50
 	disassembly_flag = TRUE
+
+/obj/item/clothing/suit/armor/bulletproof/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "пулю", final_block_chance = 50, damage = 0, attack_type = PROJECTILE_ATTACK)
+	if(hitby.pass_flags & PASSGLASS)
+		return FALSE
+	if(!isprojectile(hitby))
+		return FALSE
+	. = ..()
 
 /obj/item/clothing/suit/armor/laserproof
 	name = "зеркальный бронежилет"
@@ -575,7 +600,7 @@
 	desc = "Мужской военный китель новой аристократии."
 	icon_state = "hosformal"
 	inhand_icon_state = "hostrench"
-	armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 70, ACID = 90, WOUND = 10)
+	armor = list(MELEE = 40, BULLET = 35, LASER = 35, ENERGY = 50, BOMB = 35, BIO = 0, RAD = 0, FIRE = 80, ACID = 90, WOUND = 25)
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS

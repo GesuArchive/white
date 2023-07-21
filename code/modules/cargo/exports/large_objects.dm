@@ -1,7 +1,7 @@
 /datum/export/large/crate
 	cost = CARGO_CRATE_VALUE
 	k_elasticity = 0
-	unit_name = "ящик"
+	unit_name = "Ящик"
 	export_types = list(/obj/structure/closet/crate)
 	exclude_types = list(/obj/structure/closet/crate/large, /obj/structure/closet/crate/wooden, /obj/structure/closet/crate/mail)
 
@@ -12,23 +12,23 @@
 
 /datum/export/large/crate/wooden
 	cost = CARGO_CRATE_VALUE/5
-	unit_name = "большой деревянный ящик"
+	unit_name = "Большой деревянный ящик"
 	export_types = list(/obj/structure/closet/crate/large)
 	exclude_types = list()
 
 /datum/export/large/crate/wooden/ore
-	unit_name = "ящик для руды"
+	unit_name = "Ящик для руды"
 	export_types = list(/obj/structure/ore_box)
 
 /datum/export/large/crate/wood
 	cost = CARGO_CRATE_VALUE * 0.48
-	unit_name = "деревянный ящик"
+	unit_name = "Деревянный ящик"
 	export_types = list(/obj/structure/closet/crate/wooden)
 	exclude_types = list()
 
 /datum/export/large/crate/coffin
 	cost = CARGO_CRATE_VALUE/2 //50 wooden crates cost 2000 points, and you can make 10 coffins in seconds with those planks. Each coffin selling for 250 means you can make a net gain of 500 points for wasting your time making coffins.
-	unit_name = "гроб"
+	unit_name = "Гроб"
 	export_types = list(/obj/structure/closet/crate/coffin)
 
 /datum/export/large/reagent_dispenser
@@ -42,16 +42,16 @@
 	return ..() + round(contents_cost * ratio)
 
 /datum/export/large/reagent_dispenser/water
-	unit_name = "бак с водой"
+	unit_name = "Бак с водой"
 	export_types = list(/obj/structure/reagent_dispensers/watertank)
 	contents_cost = 2
 
 /datum/export/large/reagent_dispenser/fuel
-	unit_name = "топливный бак"
+	unit_name = "Топливный бак"
 	export_types = list(/obj/structure/reagent_dispensers/fueltank)
 
 /datum/export/large/reagent_dispenser/beer
-	unit_name = "пивная кега"
+	unit_name = "Пивная кега"
 	contents_cost = CARGO_CRATE_VALUE * 3.5
 	export_types = list(/obj/structure/reagent_dispensers/beerkeg)
 
@@ -63,63 +63,63 @@
 */
 /datum/export/large/emitter
 	cost = CARGO_CRATE_VALUE * 2.75
-	unit_name = "излучатель"
+	unit_name = "Излучатель"
 	export_types = list(/obj/machinery/power/emitter)
 
 /datum/export/large/field_generator
 	cost = CARGO_CRATE_VALUE * 2.75
-	unit_name = "генератор поля"
+	unit_name = "Генератор поля"
 	export_types = list(/obj/machinery/field/generator)
 
 /datum/export/large/collector
 	cost = CARGO_CRATE_VALUE * 2
-	unit_name = "радиационный коллекторный массив"
+	unit_name = "Радиационный коллекторный массив"
 	export_types = list(/obj/machinery/power/rad_collector)
 
 /datum/export/large/tesla_coil
 	cost = CARGO_CRATE_VALUE * 2.25
-	unit_name = "катушка Теслы"
+	unit_name = "Катушка Теслы"
 	export_types = list(/obj/machinery/power/tesla_coil)
 
 /datum/export/large/pa
 	cost = CARGO_CRATE_VALUE * 3
-	unit_name = "часть ускорителя частиц"
+	unit_name = "Часть ускорителя частиц"
 	export_types = list(/obj/structure/particle_accelerator)
 
 /datum/export/large/pa/controls
 	cost = CARGO_CRATE_VALUE * 5
-	unit_name = "консоль ускорителя частиц"
+	unit_name = "Консоль ускорителя частиц"
 	export_types = list(/obj/machinery/particle_accelerator/control_box)
 
 /datum/export/large/supermatter
 	cost = CARGO_CRATE_VALUE * 16
-	unit_name = "осколок суперматерии"
+	unit_name = "Осколок суперматерии"
 	export_types = list(/obj/machinery/power/supermatter_crystal/shard)
 
 /datum/export/large/grounding_rod
 	cost = CARGO_CRATE_VALUE * 1.2
-	unit_name = "заземлитель"
+	unit_name = "Заземлитель"
 	export_types = list(/obj/machinery/power/grounding_rod)
 
 /datum/export/large/tesla_gen
 	cost = CARGO_CRATE_VALUE * 4
-	unit_name = "генератор теслы"
+	unit_name = "Инициатор Тесла-аномалии"
 	export_types = list(/obj/machinery/the_singularitygen/tesla)
 
 /datum/export/large/singulo_gen
 	cost = CARGO_CRATE_VALUE * 4
-	unit_name = "генератор сингулярности"
+	unit_name = "Инициатор гравитационной сингулярности"
 	export_types = list(/obj/machinery/the_singularitygen)
 	include_subtypes = FALSE
 
 /datum/export/large/iv
 	cost = CARGO_CRATE_VALUE * 0.25
-	unit_name = "капельница"
+	unit_name = "Капельница"
 	export_types = list(/obj/item/iv_drip_item, /obj/machinery/iv_drip)
 
 /datum/export/large/barrier
 	cost = CARGO_CRATE_VALUE * 0.25
-	unit_name = "защитный барьер"
+	unit_name = "Барьерная граната"
 	export_types = list(/obj/item/grenade/barrier, /obj/structure/barricade/security)
 
 /datum/export/large/gas_canister

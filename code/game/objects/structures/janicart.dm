@@ -1,6 +1,6 @@
 /obj/structure/janitorialcart
-	name = "janitorial cart"
-	desc = "This is the alpha and omega of sanitation."
+	name = "тележка уборщика"
+	desc = "Это альфа и омега санитарии."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cart"
 	anchored = FALSE
@@ -27,24 +27,24 @@
 
 /obj/structure/janitorialcart/proc/wet_mop(obj/item/mop, mob/user)
 	if(reagents.total_volume < 1)
-		to_chat(user, span_warning("[capitalize(src.name)] is out of water!"))
+		to_chat(user, span_warning("В емкости закончилась вода!"))
 		return FALSE
 	else
 		var/obj/item/mop/M = mop
 		reagents.trans_to(mop, M.mopcap, transfered_by = user)
-		to_chat(user, span_notice("You wet [mop] in [src]."))
+		to_chat(user, span_notice("Смачиваю швабру в емкости для воды."))
 		playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 		return TRUE
 
 /obj/structure/janitorialcart/proc/put_in_cart(obj/item/I, mob/user)
 	if(!user.transferItemToLoc(I, src))
 		return
-	to_chat(user, span_notice("You put [I] into [src]."))
+	to_chat(user, span_notice("Убираю [I] в тележку."))
 	return
 
 
 /obj/structure/janitorialcart/attackby(obj/item/I, mob/user, params)
-	var/fail_msg = span_warning("There is already one of those in [src]!")
+	var/fail_msg = span_warning("В тележке уже есть [src]!")
 
 	if(istype(I, /obj/item/mop))
 		var/obj/item/mop/m=I
@@ -86,13 +86,13 @@
 			signs++
 			update_icon()
 		else
-			to_chat(user, span_warning("[capitalize(src.name)] can't hold any more signs!"))
+			to_chat(user, span_warning("[capitalize(src.name)] не может хранить больше знаков мокрого пола!"))
 	else if(mybag)
 		mybag.attackby(I, user)
 	else if(I.tool_behaviour == TOOL_CROWBAR)
-		user.visible_message(span_notice("[user] begins to empty the contents of [src].") , span_notice("You begin to empty the contents of [src]..."))
+		user.visible_message(span_notice("[user] начинает опустошать содержимое [src].") , span_notice("Начинаю опустошать содержимое [src]..."))
 		if(I.use_tool(src, user, 30))
-			to_chat(usr, span_notice("You empty the contents of [src] bucket onto the floor."))
+			to_chat(usr, span_notice("Выливаю содержимое емкости для воды на пол."))
 			reagents.expose(src.loc)
 			src.reagents.clear_reagents()
 	else
@@ -129,37 +129,37 @@
 			if(!mybag)
 				return
 			user.put_in_hands(mybag)
-			to_chat(user, span_notice("You take [mybag] from [src]."))
+			to_chat(user, span_notice("Достаю из тележки [mybag]."))
 			mybag = null
 		if("Mop")
 			if(!mymop)
 				return
 			user.put_in_hands(mymop)
-			to_chat(user, span_notice("You take [mymop] from [src]."))
+			to_chat(user, span_notice("Достаю из тележки [mymop]."))
 			mymop = null
 		if("Broom")
 			if(!mybroom)
 				return
 			user.put_in_hands(mybroom)
-			to_chat(user, span_notice("You take [mybroom] from [src]."))
+			to_chat(user, span_notice("Достаю из тележки [mybroom]."))
 			mybroom = null
 		if("Spray bottle")
 			if(!myspray)
 				return
 			user.put_in_hands(myspray)
-			to_chat(user, span_notice("You take [myspray] from [src]."))
+			to_chat(user, span_notice("Достаю из тележки [myspray]."))
 			myspray = null
 		if("Light replacer")
 			if(!myreplacer)
 				return
 			user.put_in_hands(myreplacer)
-			to_chat(user, span_notice("You take [myreplacer] from [src]."))
+			to_chat(user, span_notice("Достаю из тележки [myreplacer]."))
 			myreplacer = null
 		if("Sign")
 			if(signs <= 0)
 				return
 			user.put_in_hands(sign)
-			to_chat(user, span_notice("You take \a [sign] from [src]."))
+			to_chat(user, span_notice("Достаю из тележки [sign]."))
 			signs--
 		else
 			return

@@ -892,9 +892,13 @@
 	id = "spasms"
 	status_type = STATUS_EFFECT_MULTIPLE
 	alert_type = null
+	var/probability = 15
+
+/datum/status_effect/spasms/heavy
+	probability = 30
 
 /datum/status_effect/spasms/tick()
-	if(prob(15))
+	if(prob(probability))
 		switch(rand(1,5))
 			if(1)
 				if((owner.mobility_flags & MOBILITY_MOVE) && isturf(owner.loc))

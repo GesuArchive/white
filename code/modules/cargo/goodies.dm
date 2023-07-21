@@ -1,218 +1,171 @@
 
 /datum/supply_pack/goody
 	access = NONE
-	group = "Мелочёвки"
+	group = "Мелочёвка"
 	goody = TRUE
 
-/datum/supply_pack/goody/dumdum38
-	name = ".38 DumDum Speedloader"
-	desc = "Contains one speedloader of .38 DumDum ammunition, good for embedding in soft targets."
-	cost = PAYCHECK_MEDIUM * 5
-	access_view = ACCESS_BRIG
-	contains = list(/obj/item/ammo_box/c38/dumdum)
-
-/datum/supply_pack/goody/match38
-	name = ".38 Match Grade Speedloader"
-	desc = "Contains one speedloader of match grade .38 ammunition, perfect for showing off trickshots."
-	cost = PAYCHECK_MEDIUM * 5
-	access_view = ACCESS_BRIG
-	contains = list(/obj/item/ammo_box/c38/match)
-
-/datum/supply_pack/goody/rubber
-	name = ".38 Rubber Speedloader"
-	desc = "Contains one speedloader of bouncy rubber .38 ammunition, for when you want to bounce your shots off anything and everything."
-	cost = PAYCHECK_MEDIUM * 3.5
-	access_view = ACCESS_BRIG
-	contains = list(/obj/item/ammo_box/c38/match/bouncy)
-
-/datum/supply_pack/goody/mars_single
-	name = "Colt Detective Special Single-Pack"
-	desc = "The HoS took your gun and your badge? No problem! Just pay the absurd taxation fee and you too can be reunited with the lethal power of a .38!"
-	cost = PAYCHECK_HARD * 40 //they really mean a premium here
-	access_view = ACCESS_FORENSICS_LOCKERS
-	contains = list(/obj/item/gun/ballistic/revolver/detective)
-
-/datum/supply_pack/goody/stingbang
-	name = "Stingbang Single-Pack"
-	desc = "Contains one \"stingbang\" grenade, perfect for playing meanhearted pranks."
-	cost = PAYCHECK_HARD * 10.5
-	access_view = ACCESS_BRIG
-	contains = list(/obj/item/grenade/stingbang)
+/datum/supply_pack/goody/mod_core
+	name = "Ядро МОД-Скафа"
+	desc = "Содержит одно ядро для модульного скафандра. Путем хитрых финансовых манипуляций и отказа от дорогого ящика получилось немного сбросить цену."
+	cost = PAYCHECK_HARD * 3
+	contains = list(/obj/item/mod/core/standard)
 
 /datum/supply_pack/goody/combatknives_single
-	name = "Combat Knife Single-Pack"
-	desc = "Contains one sharpened combat knive. Guaranteed to fit snugly inside any Nanotrasen-standard boot."
-	cost = PAYCHECK_HARD * 6.75
+	name = "Боевой нож"
+	desc = "Армейский нож для выживания."
+	cost = PAYCHECK_HARD
 	contains = list(/obj/item/kitchen/knife/combat)
 
 /datum/supply_pack/goody/ballistic_single
-	name = "Combat Shotgun Single-Pack"
-	desc = "For when the enemy absolutely needs to be replaced with lead. Contains one Aussec-designed Combat Shotgun, and one Shotgun Bandolier."
-	cost = PAYCHECK_HARD * 15
+	name = "Помповый дробовик"
+	desc = "Старое-доброе ружье всегда будет серьезным аргументом при спорах за территорию."
+	cost = PAYCHECK_HARD * 12
 	access_view = ACCESS_ARMORY
-	contains = list(/obj/item/gun/ballistic/shotgun/automatic/combat, /obj/item/storage/belt/bandolier)
+	contains = list(
+		/obj/item/gun/ballistic/shotgun/riot,
+		/obj/item/storage/belt/shotgun,
+		/obj/item/storage/belt/shotgun,
+		)
 
 /datum/supply_pack/goody/energy_single
-	name = "Energy Gun Single-Pack"
-	desc = "Contains one energy gun, capable of firing both nonlethal and lethal blasts of light."
-	cost = PAYCHECK_HARD * 12
+	name = "Е-Ган"
+	desc = "Базовая гибридная энергетическая пушка с двумя настройками: оглушить и убить."
+	cost = PAYCHECK_HARD * 15
 	access_view = ACCESS_ARMORY
 	contains = list(/obj/item/gun/energy/e_gun)
 
 /datum/supply_pack/goody/hell_single
-	name = "Hellgun Kit Single-Pack"
-	desc = "Contains one hellgun degradation kit, an old pattern of laser gun infamous for its ability to horribly disfigure targets with burns. Technically violates the Space Geneva Convention when used on humanoids."
-	cost = PAYCHECK_MEDIUM * 20
+	name = "Комплект модернизации \"Адское пламя\""
+	desc = "Возьмите идеально работающую лазерную винтовку . Разделайте внутреннюю часть винтовки, чтобы она пылала. Теперь у вас есть винтовка \"Адское пламя\". Вы чудовище."
+	cost = PAYCHECK_HARD * 5
 	access_view = ACCESS_ARMORY
 	contains = list(/obj/item/weaponcrafting/gunkit/hellgun)
 
-/datum/supply_pack/goody/thermal_single
-	name = "Thermal Pistol Holster Single-Pack"
-	desc = "Contains twinned thermal pistols in a holster, ready for use in the field."
-	cost = PAYCHECK_HARD * 15
-	access_view = ACCESS_ARMORY
-	contains = list(/obj/item/storage/belt/holster/thermal)
-
 /datum/supply_pack/goody/sologamermitts
-	name = "Insulated Gloves Single-Pack"
-	desc = "The backbone of modern society. Barely ever ordered for actual engineering."
+	name = "Изоляционные перчатки"
+	desc = "Основа современного общества. Практически никогда не заказывался реальными инженерами."
 	cost = PAYCHECK_MEDIUM * 8
 	contains = list(/obj/item/clothing/gloves/color/yellow)
 
 /datum/supply_pack/goody/gripper_single
-	name = "Gripper Gloves Single-Pack"
-	desc = "A spare pair of gripper gloves. Perfect for when the security vendor is empty (or when you're not actually a security officer)."
+	name = "Перчатки перехвата"
+	desc = "Особые перчатки манипулирующие кровеносными сосудами рук владельца, дающие ему возможность врезаться в стены."
 	cost = PAYCHECK_HARD * 6
 	contains = list(/obj/item/clothing/gloves/tackler)
 
+/datum/supply_pack/goody/firstaid_single
+	name = "Аптечка первой помощи"
+	desc = "Содержит шовный и перевязочный материал для лечения легких травм."
+	cost = PAYCHECK_MEDIUM * 2
+	contains = list(/obj/item/storage/firstaid/regular)
+
 /datum/supply_pack/goody/firstaidbruises_single
-	name = "Bruise Treatment Kit Single-Pack"
-	desc = "A single brute first-aid kit, perfect for recovering from being crushed in an airlock. Did you know people get crushed in airlocks all the time? Interesting..."
-	cost = PAYCHECK_MEDIUM * 4
+	name = "Аптечка травматологическая"
+	desc = "Содержит медикаменты для излечения резаных, колотых ран и травм вызванных ударами тупым предметом различной степени тяжести."
+	cost = PAYCHECK_MEDIUM * 2.5
 	contains = list(/obj/item/storage/firstaid/brute)
 
 /datum/supply_pack/goody/firstaidburns_single
-	name = "Burn Treatment Kit Single-Pack"
-	desc = "A single burn first-aid kit. The advertisement displays a winking atmospheric technician giving a thumbs up, saying \"Mistakes happen!\""
-	cost = PAYCHECK_MEDIUM * 4
+	name = "Аптечка противоожоговая"
+	desc = "Пригодится в тех случаях когда лаборатория взрывотехники <i>-случайно-</i> сгорела."
+	cost = PAYCHECK_MEDIUM * 2.5
 	contains = list(/obj/item/storage/firstaid/fire)
 
-/datum/supply_pack/goody/firstaid_single
-	name = "First Aid Kit Single-Pack"
-	desc = "A single first-aid kit, fit for healing most types of bodily harm."
-	cost = PAYCHECK_MEDIUM * 3
-	contains = list(/obj/item/storage/firstaid/regular)
-
 /datum/supply_pack/goody/firstaidoxygen_single
-	name = "Oxygen Deprivation Kit Single-Pack"
-	desc = "A single oxygen deprivation first-aid kit, marketed heavily to those with crippling fears of asphyxiation."
-	cost = PAYCHECK_MEDIUM * 4
+	name = "Аптечка стабилизационная"
+	desc = "Содержит препараты для предотвращения асфиксии и регенерации крови."
+	cost = PAYCHECK_MEDIUM * 2.5
 	contains = list(/obj/item/storage/firstaid/o2)
 
 /datum/supply_pack/goody/firstaidtoxins_single
-	name = "Toxin Treatment Kit Single-Pack"
-	desc = "A single first aid kit focused on healing damage dealt by heavy toxins."
-	cost = PAYCHECK_MEDIUM * 4
+	name = "Аптечка для вывода токсинов"
+	desc = "Используется для очищения организма от токсичного и радиоактивного загрязнения, а так же промывки кровотока от химических соединений."
+	cost = PAYCHECK_MEDIUM * 2.5
 	contains = list(/obj/item/storage/firstaid/toxin)
 
 /datum/supply_pack/goody/toolbox // mostly just to water down coupon probability
-	name = "Mechanical Toolbox"
-	desc = "A fully stocked mechanical toolbox, for when you're too lazy to just print them out."
-	cost = PAYCHECK_MEDIUM * 3
-	contains = list(/obj/item/storage/toolbox/mechanical)
+	name = "Укомплектованный пояс с инструментами"
+	desc = "Содержит сам пояс и все необходимые инструменты."
+	cost = PAYCHECK_MEDIUM * 2
+	contains = list(/obj/item/storage/belt/utility/full)
 
 /datum/supply_pack/goody/valentine
-	name = "Valentine Card"
-	desc = "Make an impression on that special someone! Comes with one valentine card and a free candy heart!"
+	name = "Валентинка"
+	desc = "Произведите впечатление на этого особенного человека! Поставляется с одной валентинкой и бесплатным конфетным сердечком!"
 	cost = PAYCHECK_ASSISTANT * 2
 	contains = list(/obj/item/valentine, /obj/item/food/candyheart)
 
 /datum/supply_pack/goody/beeplush
-	name = "Bee Plushie"
-	desc = "The most important thing you could possibly spend your hard-earned money on."
+	name = "Плюшевая пчёлка"
+	desc = "Милая игрушка, напоминающая еще более милую пчелу."
 	cost = PAYCHECK_EASY * 4
 	contains = list(/obj/item/toy/plush/beeplushie)
 
 /datum/supply_pack/goody/dyespray
-	name = "Hair Dye Spray"
-	desc = "A cool spray to dye your hair with awesome colors!"
+	name = "Краска для волос"
+	desc = "Можно покрасить волосы во всякие цвета."
 	cost = PAYCHECK_EASY * 2
 	contains = list(/obj/item/dyespray)
 
 /datum/supply_pack/goody/beach_ball
-	name = "Beach Ball"
-	desc = "The simple beach ball is one of Nanotrasen's most popular products. 'Why do we make beach balls? Because we can! (TM)' - Nanotrasen"
+	name = "Пляжный мячик"
+	desc = "Простой пляжный мяч - один из самых популярных продуктов НаноТрейзен. - Зачем мы делаем пляжные мячи? Потому что мы можем! (TM)' - НаноТразен"
 	cost = PAYCHECK_MEDIUM
 	contains = list(/obj/item/toy/beach_ball)
 
 /datum/supply_pack/goody/medipen_twopak
-	name = "Medipen Two-Pak"
-	desc = "Contains one standard epinephrine medipen and one standard emergency first-aid kit medipen. For when you want to prepare for the worst."
+	name = "Набор продвинутых медипенов"
+	desc = "Содержит продвинутый антитравматический, антиожоговый и гемолитический медипены."
 	cost = PAYCHECK_MEDIUM * 2
-	contains = list(/obj/item/reagent_containers/hypospray/medipen, /obj/item/reagent_containers/hypospray/medipen/ekit)
+	contains = list(
+		/obj/item/reagent_containers/hypospray/medipen/super_burn,
+		/obj/item/reagent_containers/hypospray/medipen/super_brute,
+		/obj/item/reagent_containers/hypospray/medipen/blood_boost,
+		/obj/item/storage/belt/medipenal
+		)
 
 /datum/supply_pack/goody/mothic_rations
-	name = "Surplus Mothic Ration Pack"
-	desc = "A single surplus ration pack from the Mothic Fleet. Comes with 3 random sustenance bars, and a package of Activin chewing gum."
-	cost = PAYCHECK_HARD * 2
+	name = "Персональный рацион для моли"
+	desc = "Коробка, содержащая несколько пайков и немного жевательной резинки Activin, чтобы поддерживать голодную моль."
+	cost = PAYCHECK_HARD
 	contains = list(/obj/item/storage/box/mothic_rations)
 
 /datum/supply_pack/goody/ready_donk
-	name = "Ready-Donk Single Meal"
-	desc = "A complete meal package for the terminally lazy. Contains one Ready-Donk meal."
-	cost = PAYCHECK_MEDIUM * 2
-	contains = list(/obj/item/food/ready_donk)
+	name = "Коробка со случайными донк-пакетами"
+	desc = "Содержит целую коробку донк-пакетов. Вкус выбирается случайно."
+	cost = PAYCHECK_MEDIUM
+	contains = list(
+		/obj/item/storage/box/donkpockets/donkpocketspicy,
+		/obj/item/storage/box/donkpockets/donkpocketteriyaki,
+		/obj/item/storage/box/donkpockets/donkpocketpizza,
+		/obj/item/storage/box/donkpockets/donkpocketberry,
+		/obj/item/storage/box/donkpockets/donkpockethonk
+		)
+
+/datum/supply_pack/goody/ready_donk/fill(obj/structure/closet/crate/C)
+	var/item = pick(contains)
+	new item(C)
 
 /datum/supply_pack/goody/fishing_toolbox
-	name = "Fishing toolbox"
-	desc = "Complete toolbox set for your fishing adventure. Advanced hooks and lines sold separetely."
+	name = "Ящик для рыбных принадлежностей"
+	desc = "Полный набор инструментов для вашего рыбацкого приключения. Усовершенствованные крючки и лески продаются отдельно."
 	cost = PAYCHECK_ASSISTANT * 2
 	contains = list(/obj/item/storage/toolbox/fishing)
 
 /datum/supply_pack/goody/fishing_hook_set
-	name = "Fishing Hooks Set"
-	desc = "Set of various fishing hooks."
+	name = "Набор рыболовных крючков"
+	desc = "Набор различных рыболовных крючков."
 	cost = PAYCHECK_ASSISTANT
 	contains = list(/obj/item/storage/box/fishing_hooks)
 
 /datum/supply_pack/goody/fishing_line_set
-	name = "Fishing Lines Set"
-	desc = "Set of various fishing lines."
+	name = "Набор рыболовных лесок"
+	desc = "Набор различных рыболовных лесок."
 	cost = PAYCHECK_ASSISTANT
 	contains = list(/obj/item/storage/box/fishing_lines)
 
 /datum/supply_pack/goody/premium_bait
-	name = "Deluxe fishing bait"
-	desc = "When the standard variety is not good enough for you."
+	name = "Роскошная рыболовная приманка"
+	desc = "Когда стандартный сорт недостаточно хорош для вас."
 	cost = PAYCHECK_ASSISTANT
 	contains = list(/obj/item/bait_can/worm/premium)
-
-/datum/supply_pack/goody/coffee_mug
-	name = "Чашка для кофе"
-	desc = "Стандартная кофейная чашка."
-	cost = PAYCHECK_ASSISTANT
-	contains = list(/obj/item/reagent_containers/food/drinks/mug)
-
-/datum/supply_pack/goody/nt_mug
-	name = "Кружка для кофе от НаноТрейзен"
-	desc = "Синяя кружка с логотипом НТ. Обычно выдается при вступлении в должность или на мероприятиях, но мы отправим вам ее за символическую плату."
-	cost = PAYCHECK_ASSISTANT
-	contains = list(/obj/item/reagent_containers/food/drinks/mug/nanotrasen)
-
-/datum/supply_pack/goody/coffee_cartridge
-	name = "Картридж для кофе"
-	desc = "Базовый картридж для кофеварки. Хватит на 4 полных кофейника."
-	cost = PAYCHECK_ASSISTANT
-	contains = list(/obj/item/coffee_cartridge)
-
-/datum/supply_pack/goody/coffee_cartridge_fancy
-	name = "Модный картридж для кофе"
-	desc = "Дорогой картридж для кофеварки. Хватит на 4 полных кофейника."
-	cost = PAYCHECK_ASSISTANT
-	contains = list(/obj/item/coffee_cartridge/fancy)
-
-/datum/supply_pack/goody/coffeepot
-	name = "Кофейник"
-	desc = "Кофейник стандартного размера для использования в кофеварке."
-	cost = PAYCHECK_ASSISTANT
-	contains = list(/obj/item/reagent_containers/glass/coffeepot)

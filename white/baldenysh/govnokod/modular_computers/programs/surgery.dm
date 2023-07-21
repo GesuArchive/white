@@ -1,8 +1,9 @@
 /datum/computer_file/program/surgmaster
 	filename = "SurgMaster"
-	filedesc = "SurgMaster"
-	extended_desc = "Эта программа позволяет проводить комплексные операции в полевых условиях."
+	filedesc = "Склифосовский"
+	extended_desc = "Эта программа позволяет проводить комплексные операции в полевых условиях. Для загрузки операционных программ надо синхронизировать устройство с операционным компьютером через ПКМ интерфейс."
 	transfer_access = ACCESS_MEDICAL
+	category = PROGRAM_CATEGORY_MED
 	available_on_ntnet = TRUE
 	usage_flags = PROGRAM_LAPTOP
 	program_icon = "stethoscope"

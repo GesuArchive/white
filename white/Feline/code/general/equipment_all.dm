@@ -429,7 +429,8 @@
 		/obj/item/medbot_carrier,
 		/obj/item/gun/syringe,
 		/obj/item/solnce,
-		/obj/item/tactical_recharger
+		/obj/item/tactical_recharger,
+		/obj/item/tank/jetpack
 	)
 	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 90, RAD = 30, FIRE = 50, ACID = 90, WOUND = 20)
 
@@ -499,6 +500,7 @@
 	worn_icon_state = "specialist"
 	inhand_icon_state = "hazard"
 	full_armor_flag = TRUE
+	disassembly_flag = FALSE
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -524,6 +526,7 @@
 		/obj/item/tank/internals/emergency_oxygen,
 		/obj/item/storage/belt/specialist,
 		/obj/item/tactical_recharger,
+		/obj/item/tank/jetpack
 	)
 	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 70, BIO = 30, RAD = 90, FIRE = 90, ACID = 30, WOUND = 20)
 
@@ -910,7 +913,7 @@
 	worn_icon_state = "mechanikus"
 	inhand_icon_state = "hazard"
 	blood_overlay_type = "armor"
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/tank/internals/plasmaman, /obj/item/storage/bag/construction)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/tank/internals/plasmaman, /obj/item/storage/bag/construction)
 	resistance_flags = FIRE_PROOF
 	slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_BELT
 	custom_premium_price = PAYCHECK_MEDIUM * 2
@@ -1058,3 +1061,43 @@
 		/obj/item/restraints/handcuffs,
 		/obj/item/grenade
 		))
+
+/// Лавагенератор - очень простой, ничего не требующий источник энергии на лаву, не разбирается, при уничтожении взрывается
+/obj/machinery/power/lavagenerator
+	name = "геотермальный генератор"
+	desc = "Турбина работающая от жара получаемого путем термоконверсии магмы."
+	icon = 'white/Feline/icons/lavagenerator.dmi'
+	icon_state = "lavagenerator"
+	pixel_x = -16
+	base_pixel_x = -16
+	density = TRUE
+	use_power = NO_POWER_USE
+	light_system = MOVABLE_LIGHT
+	light_range = 5
+	light_color = COLOR_ASSEMBLY_WHITE
+	var/power_gen = 250000
+	var/datum/looping_sound/hypertorus/no_vary/soundloop
+
+/obj/machinery/power/lavagenerator/Initialize(mapload)
+	. = ..()
+	add_overlay("cot")
+	add_overlay("turb")
+	add_overlay("coil")
+	connect_to_network()
+	soundloop = new(src, TRUE)
+
+/obj/machinery/power/lavagenerator/process()
+	..()
+	add_avail(power_gen)
+
+/obj/machinery/power/lavagenerator/examine(mob/user)
+	. = ..()
+	if(in_range(user, src) || isobserver(user))
+		. += "<hr><span class='notice'>Дисплей: Генерации электроэнергии <b>[power_gen*0.001]</b> кВт.</span>"
+
+/obj/machinery/power/lavagenerator/Destroy()
+	QDEL_NULL(soundloop)
+	explosion(src, devastation_range = 3, heavy_impact_range = 6, light_impact_range = 15, flame_range = 18)
+	. = ..()
+	if(!QDELETED(src))
+		qdel(src)

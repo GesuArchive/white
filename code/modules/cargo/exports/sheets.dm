@@ -16,8 +16,7 @@
 
 /datum/export/stack/skin/human
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "кусок"
-	message = "человеческой кожи"
+	unit_name = "человеческая кожа"
 	export_types = list(/obj/item/stack/sheet/animalhide/human)
 
 /datum/export/stack/skin/goliath_hide
@@ -61,65 +60,64 @@
 
 /datum/export/stack/plasteel
 	cost = CARGO_CRATE_VALUE * 0.41 // 2000u of plasma + 2000u of metal.
-	message = "пластали"
+	unit_name = "пласталь"
 	export_types = list(/obj/item/stack/sheet/plasteel)
 
 // 1 glass + 0.5 iron, cost is rounded up.
 /datum/export/stack/rglass
 	cost = CARGO_CRATE_VALUE * 0.02
-	message = "армированного стекла"
+	unit_name = "армированное стекло"
 	export_types = list(/obj/item/stack/sheet/rglass)
 
 /datum/export/stack/plastitanium
 	cost = CARGO_CRATE_VALUE * 0.65 // plasma + titanium costs
-	message = "пластитана"
+	unit_name = "пластитан"
 	export_types = list(/obj/item/stack/sheet/mineral/plastitanium)
 
 /datum/export/stack/wood
 	cost = CARGO_CRATE_VALUE * 0.05
-	unit_name = "деревянных досок"
+	unit_name = "деревянные доски"
 	export_types = list(/obj/item/stack/sheet/mineral/wood)
 
 /datum/export/stack/cloth
 	cost = CARGO_CRATE_VALUE * 0.025
-	message = "ткани"
+	unit_name = "ткань"
 	export_types = list(/obj/item/stack/sheet/cloth)
 
 /datum/export/stack/durathread
 	cost = CARGO_CRATE_VALUE * 0.35
-	message = "дюрастали"
+	unit_name = "дюраткань"
 	export_types = list(/obj/item/stack/sheet/durathread)
 
 
 /datum/export/stack/cardboard
 	cost = CARGO_CRATE_VALUE * 0.01
-	message = "картона"
+	unit_name = "картон"
 	export_types = list(/obj/item/stack/sheet/cardboard)
 
 /datum/export/stack/sandstone
 	cost = CARGO_CRATE_VALUE * 0.005
-	unit_name = "блоков"
-	message = "песчаника"
+	unit_name = "Кирпич из песчаника"
 	export_types = list(/obj/item/stack/sheet/mineral/sandstone)
 
 /datum/export/stack/cable
 	cost = CARGO_CRATE_VALUE * 0.001
-	unit_name = "кабеля"
+	unit_name = "моток кабеля"
 	export_types = list(/obj/item/stack/cable_coil)
 
 /datum/export/stack/ammonia_crystals
 	cost = CARGO_CRATE_VALUE * 0.125
-	unit_name = "кристалла аммиака"
+	unit_name = "кристаллы аммиака"
 	export_types = list(/obj/item/stack/ammonia_crystals)
 
 /datum/export/stack/pizza
 	cost = CARGO_CRATE_VALUE * 0.06
-	unit_name = "пиццы"
+	unit_name = "пицца"
 	export_types = list(/obj/item/stack/sheet/pizza)
 
 /datum/export/stack/meat
 	cost = CARGO_CRATE_VALUE * 0.04
-	unit_name = "мяса"
+	unit_name = "листы мяса"
 	export_types = list(/obj/item/stack/sheet/meat)
 
 
@@ -127,5 +125,5 @@
 
 /datum/export/stack/abductor
 	cost = CARGO_CRATE_VALUE * 2
-	message = "инопланетного сплава"
+	unit_name = "инопланетный сплав"
 	export_types = list(/obj/item/stack/sheet/mineral/abductor)

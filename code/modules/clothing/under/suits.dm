@@ -125,14 +125,14 @@
 	inhand_icon_state = "white_suit"
 
 /obj/item/clothing/under/suit/beige
-	name = "beige suit"
-	desc = "An excellent light colored suit, experts in the field stress that it should not to be confused with the inferior tan suit."
+	name = "бежевый костюм"
+	desc = "Отличный светлый костюм, эксперты в этой области подчеркивают, что его не следует путать с некачественным коричневым костюмом."
 	icon_state = "beige_suit"
 	inhand_icon_state = "beige_suit"
 
 /obj/item/clothing/under/suit/henchmen
-	name = "henchmen jumpsuit"
-	desc = "A very gaudy jumpsuit for a proper Henchman. Guild regulations, you understand."
+	name = "комбинезон приспешников"
+	desc = "Очень безвкусный комбинезон для настоящего прихвостня. Правила гильдии, вы понимаете."
 	icon = 'icons/obj/clothing/under/syndicate.dmi'
 	worn_icon = 'icons/mob/clothing/under/syndicate.dmi'
 	icon_state = "henchmen"
@@ -141,7 +141,7 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEEARS|HIDEEYES|HIDEHAIR
 
 /obj/item/clothing/under/suit/tuxedo
-	name = "tuxedo"
-	desc = "A formal black tuxedo. It exudes classiness."
+	name = "смокинг"
+	desc = "Строгий черный смокинг. Он излучает элитарность."
 	icon_state = "tuxedo"
 	inhand_icon_state = "tuxedo"

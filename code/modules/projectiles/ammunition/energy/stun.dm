@@ -23,4 +23,11 @@
 	harmful = FALSE
 
 /obj/item/ammo_casing/energy/disabler/hos
-	e_cost = 60
+	e_cost = 100
+
+/obj/item/ammo_casing/energy/disabler/e_150
+	e_cost = 150
+
+/obj/item/ammo_casing/energy/disabler/testing
+	e_cost = 150
+

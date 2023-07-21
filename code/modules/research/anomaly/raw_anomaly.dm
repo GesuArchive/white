@@ -16,57 +16,57 @@
 	var/anomaly_type
 
 /obj/item/raw_anomaly_core/bluespace
-	name = "raw bluespace core"
-	desc = "The raw core of a bluespace anomaly, glowing and full of potential."
+	name = "не активированное ядро блюспейс аномалии"
+	desc = "Сияет скрытым потенциалом."
 	anomaly_type = /obj/item/assembly/signaler/anomaly/bluespace
 	icon_state = "rawcore_bluespace"
 
 /obj/item/raw_anomaly_core/vortex
-	name = "raw vortex core"
-	desc = "The raw core of a vortex anomaly. Feels heavy to the touch."
+	name = "не активированное ядро вихревой аномалии"
+	desc = "Слегка вибрирует."
 	anomaly_type = /obj/item/assembly/signaler/anomaly/vortex
 	icon_state = "rawcore_vortex"
 
 /obj/item/raw_anomaly_core/grav
-	name = "raw gravity core"
-	desc = "The raw core of a gravity anomaly. The air seems attracted to it."
+	name = "не активированное ядро гравитационной аномалии"
+	desc = "Воздух, кажется, притягивается к нему."
 	anomaly_type = /obj/item/assembly/signaler/anomaly/grav
 	icon_state = "rawcore_grav"
 
 /obj/item/raw_anomaly_core/pyro
-	desc = "The raw core of a pyro anomaly. It is warm to the touch."
-	name = "raw pyro core"
+	name = "не активированное ядро пирокластерной аномалии"
+	desc = "Оно теплое на ощупь."
 	anomaly_type = /obj/item/assembly/signaler/anomaly/pyro
 	icon_state = "rawcore_pyro"
 
 /obj/item/raw_anomaly_core/flux
-	name = "raw flux core"
-	desc = "The raw core of a flux anomaly, faintly crackling with energy."
+	name = "не активированное ядро электромагнитной аномалии"
+	desc = "Слегка потрескивает энергией."
 	anomaly_type = /obj/item/assembly/signaler/anomaly/flux
 	icon_state = "rawcore_flux"
 
 /obj/item/raw_anomaly_core/hallucination
-	name = "raw hallucination core"
-	desc = "The raw core of a hallucination anomaly, makes your head spin."
+	name = "не активированное ядро галюциногенной аномалии"
+	desc = "Ядро галюциногенной аномалии, от которого кружится голова."
 	anomaly_type = /obj/item/assembly/signaler/anomaly/hallucination
 	icon_state = "rawcore_hallucination"
+
+/obj/item/raw_anomaly_core/bioscrambler
+	name = "не активированное ядро биоконверсионной аномалии"
+	desc = "Необработанное ядро биоконверсионной аномалии, оно извивается."
+	anomaly_type = /obj/item/assembly/signaler/anomaly/bioscrambler
+	icon_state = "rawcore_bioscrambler"
+
+/obj/item/raw_anomaly_core/dimensional
+	name = "не активированное ядро пространственной аномалии"
+	desc = "Необработанное ядро пространственной аномалии, вибрирующее с бесконечным потенциалом."
+	anomaly_type = /obj/item/assembly/signaler/anomaly/dimensional
+	icon_state = "rawcore_dimensional"
 
 /obj/item/raw_anomaly_core/random
 	name = "random raw core"
 	desc = "You should not see this!"
 	icon_state = "rawcore_bluespace"
-
-/obj/item/raw_anomaly_core/bioscrambler
-	name = "raw bioscrambler core"
-	desc = "The raw core of a bioscrambler anomaly, it squirms."
-	anomaly_type = /obj/item/assembly/signaler/anomaly/bioscrambler
-	icon_state = "rawcore_bioscrambler"
-
-/obj/item/raw_anomaly_core/dimensional
-	name = "raw dimensional core"
-	desc = "The raw core of a dimensional anomaly, vibrating with infinite potential."
-	anomaly_type = /obj/item/assembly/signaler/anomaly/dimensional
-	icon_state = "rawcore_dimensional"
 
 /obj/item/raw_anomaly_core/random/Initialize(mapload)
 	. = ..()

@@ -131,7 +131,7 @@
 					shuttle_spawns.Add(/mob/living/simple_animal/hostile/syndicate/ranged/infiltrator)
 
 			if(RUSKY_PARTY)
-				var/datum/supply_pack/pack = SSshuttle.supply_packs[/datum/supply_pack/service/party]
+				var/datum/supply_pack/pack = SSshuttle.supply_packs[/datum/supply_pack/organic/party]
 				pack.generate(pick_n_take(empty_shuttle_turfs))
 
 				shuttle_spawns.Add(/mob/living/simple_animal/hostile/russian)
@@ -180,10 +180,10 @@
 
 			if(DEPARTMENT_RESUPPLY)
 				var/list/crate_types = list(
-					/datum/supply_pack/emergency/equipment,
+					/datum/supply_pack/science/bots,
 					/datum/supply_pack/security/supplies,
 					/datum/supply_pack/organic/food,
-					/datum/supply_pack/emergency/weedcontrol,
+					/datum/supply_pack/service/weedcontrol,
 					/datum/supply_pack/engineering/tools,
 					/datum/supply_pack/engineering/engiequipment,
 					/datum/supply_pack/science/robotics,
@@ -203,7 +203,7 @@
 				for(var/i in 1 to 6)
 					shuttle_spawns.Add(pick(prob(5) ? naughtypizza : nicepizza))
 			if(ITS_HIP_TO)
-				var/datum/supply_pack/pack = SSshuttle.supply_packs[/datum/supply_pack/organic/hydroponics/beekeeping_fullkit]
+				var/datum/supply_pack/pack = SSshuttle.supply_packs[/datum/supply_pack/service/beekeeping_suits]
 				pack.generate(pick_n_take(empty_shuttle_turfs))
 
 				shuttle_spawns.Add(/obj/effect/mob_spawn/human/corpse/bee_terrorist)

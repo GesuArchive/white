@@ -24,6 +24,9 @@
 	caliber = ".45"
 	projectile_type = /obj/projectile/bullet/c45
 
+/obj/item/ammo_casing/c45/fake
+	projectile_type = /obj/projectile/bullet/c45/fake
+
 /obj/item/ammo_casing/c45/ap
 	name = "бронебойный патрон .45 калибра"
 	desc = "Содержит пулю с закаленным сердечником, это заметно повышает бронепробитие, однако незначительно понижает урон. Используется в различных пистолет-пулеметах."

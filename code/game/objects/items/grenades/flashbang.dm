@@ -42,7 +42,8 @@
 		M.soundbang_act(1, max(200/max(1,distance), 60), rand(0, 5))
 
 /obj/item/grenade/stingbang
-	name = "антибунт граната"
+	name = "травматическая граната"
+	desc = "<B>ВНИМАНИЕ: Гранаты чрезвычайно опасны и могут привести к тяжелым травмам или смерти при повторном использовании.</B>"
 	icon_state = "timeg"
 	inhand_icon_state = "flashbang"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'

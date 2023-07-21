@@ -39,6 +39,18 @@
 	sub_category = list("Внешние накопители")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
+/datum/design/portabledrive/ultra
+	name = "Ультра диск для записи данных ПК"
+	desc = "Съёмный диск, используемый для хранения данных. Вмещает до 256 ГБ данных."
+	id = "portadrive_ultra"
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/glass = 4800)
+	build_path = /obj/item/computer_disk/ultra
+	category = list("Компьютерные запчасти", "Персональные компьютеры")
+	sub_category = list("Внешние накопители")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+
 // Card slot
 /datum/design/cardslot
 	name = "Слот ID-карты"

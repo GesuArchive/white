@@ -9,8 +9,8 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 ))
 
 /obj/machinery/computer/department_orders
-	name = "department order console"
-	desc = "Used to order supplies for a department. Crates ordered this way will be locked until they reach their destination."
+	name = "консоль бюджетных заказов"
+	desc = "Используется для заказов бесплатных посылок с ЦК. Посылку можно открыть только на территории отдела."
 	icon_screen = "supply"
 	circuit = /obj/item/circuitboard/computer/cargo
 	light_color = COLOR_BRIGHT_ORANGE
@@ -85,7 +85,7 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 	//needs to come BEFORE preventing actions!
 	if(action == "override_order")
 		if(!(override_access in id_card.GetAccess()))
-			balloon_alert(usr, "requires head of staff access!")
+			balloon_alert(usr, "требуется доступ главы отдела!")
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 			return
 
@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 		return
 
 	if(!check_access(id_card))
-		balloon_alert(usr, "access denied!")
+		balloon_alert(usr, "доступ запрещен!")
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 		return
 
@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 	SSshuttle.shoppinglist += department_order
 	if(!already_signalled)
 		RegisterSignal(SSshuttle, COMSIG_SUPPLY_SHUTTLE_BUY, PROC_REF(finalize_department_order))
-	say("Order processed. Cargo will deliver the crate when it comes in on their shuttle. NOTICE: Heads of staff may override the order.")
+	say("Заказ обработан и будет отправлен с ближайшим карго шаттлом. ПРИМЕЧАНИЕ: Глава отдела может отменить этот заказ.")
 	calculate_cooldown(pack.cost)
 
 ///signal when the supply shuttle begins to spawn orders. we forget the current order preventing it from being overridden (since it's already past the point of no return on undoing the order)
@@ -144,41 +144,43 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 	GLOB.department_order_cooldowns[type] = world.time + time_y
 
 /obj/machinery/computer/department_orders/service
-	name = "service order console"
+	name = "консоль бюджетных сервисных заказов"
 	department_delivery_area = /area/hallway/secondary/service
 	circuit = /obj/item/circuitboard/computer/service_orders
 	override_access = ACCESS_HOP
 	req_one_access = list(ACCESS_KITCHEN, ACCESS_BAR, ACCESS_HYDROPONICS, ACCESS_JANITOR)
-	dep_groups = list("Сервис", "Еда и Гидропоника", "Живность", "Костюмы и игрушки")
+	dep_groups = list("Карго и Сервис", "Еда", "Живность", "Костюмы и игрушки", "Картриджи торгматов")
 
 /obj/machinery/computer/department_orders/engineering
-	name = "engineering order console"
+	name = "консоль бюджетных инженерных заказов"
 	circuit = /obj/item/circuitboard/computer/engineering_orders
 	department_delivery_area = /area/engineering/main
 	override_access = ACCESS_CE
 	req_one_access = REGION_ACCESS_ENGINEERING
-	dep_groups = list("Инженерная", "Создание генератора", "Канистры и материалы")
+	dep_groups = list("Инженерная", "Создание генератора", "Канистры и материалы", "Картриджи торгматов")
 
 /obj/machinery/computer/department_orders/science
-	name = "science order console"
+	name = "консоль бюджетных научных заказов"
 	circuit = /obj/item/circuitboard/computer/science_orders
 	department_delivery_area = /area/science/research
 	override_access = ACCESS_RD
 	req_one_access = REGION_ACCESS_RESEARCH
-	dep_groups = list("Наука", "Живность")
+	dep_groups = list("Наука", "Живность", "Канистры и материалы", "Картриджи торгматов")
 
 /obj/machinery/computer/department_orders/security
-	name = "security order console"
+	name = "консоль бюджетных заказов охраны"
+	desc = "Используется для заказов бесплатных посылок с ЦК"
 	circuit = /obj/item/circuitboard/computer/security_orders
 	department_delivery_area = /area/security/brig
 	override_access = ACCESS_HOS
 	req_one_access = REGION_ACCESS_SECURITY
-	dep_groups = list("Охрана", "Арсенал")
+	dep_groups = list("Охрана", "Арсенал", "Картриджи торгматов")
 
 /obj/machinery/computer/department_orders/medical
-	name = "medical order console"
+	name = "консоль бюджетных медицинских заказов"
+	desc = "Используется для заказов бесплатных посылок с ЦК"
 	circuit = /obj/item/circuitboard/computer/medical_orders
 	department_delivery_area = /area/medical/medbay/central
 	override_access = ACCESS_CMO
 	req_one_access = REGION_ACCESS_MEDBAY
-	dep_groups = list("Медицина")
+	dep_groups = list("Медицина", "Картриджи торгматов")

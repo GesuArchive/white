@@ -1,6 +1,6 @@
 /obj/machinery/fishing_portal_generator
-	name = "fish-porter 3000"
-	desc = "fishing anywhere, anytime, anyway what was i talking about"
+	name = "блюспейс прорубь"
+	desc = "Позволяет ловить рыбу в любое время, в любом месте."
 
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "portal_off"

@@ -477,8 +477,8 @@
  * Toner cartridge
  */
 /obj/item/toner
-	name = "toner cartridge"
-	desc = "A small, lightweight cartridge of NanoTrasen ValueBrand toner. Fits photocopiers and autopainters alike."
+	name = "картридж для принтера"
+	desc = "Небольшой и легкий картридж. Подходит как для копировальных аппаратов, так и для маляров автомобилей."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "tonercartridge"
 	grind_results = list(/datum/reagent/iodine = 40, /datum/reagent/iron = 10)
@@ -486,15 +486,15 @@
 	var/max_charges = 5
 
 /obj/item/toner/large
-	name = "large toner cartridge"
-	desc = "A hefty cartridge of NanoTrasen ValueBrand toner. Fits photocopiers and autopainters alike."
+	name = "большой картридж для принтера"
+	desc = "Большой картридж с тонером марки NanoTrasen Value. Подходит как для копировальных аппаратов, так и для различных маркировщиков."
 	grind_results = list(/datum/reagent/iodine = 90, /datum/reagent/iron = 10)
 	charges = 25
 	max_charges = 25
 
 /obj/item/toner/extreme
-	name = "extremely large toner cartridge"
-	desc = "Why would ANYONE need THIS MUCH TONER?"
+	name = "чрезвычайно большой картридж для принтера"
+	desc = "ДА КОМУ И ДЛЯ ЧЕГО ВООБЩЕ НУЖНО СТОООЛЬКО КРАААСКИ?!"
 	charges = 200
 	max_charges = 200
 

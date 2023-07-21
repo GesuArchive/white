@@ -188,6 +188,9 @@ GLOBAL_LIST_INIT(prglass_recipes, list ( \
 	new/datum/stack_recipe("осколок плазмастекла", /obj/item/shard/plasma, time = 0, on_floor = TRUE, category = CAT_MISC) \
 ))
 
+/obj/item/stack/sheet/rglass/thirty
+	amount = 30
+
 /obj/item/stack/sheet/plasmarglass
 	name = "армированное плазмастекло"
 	desc = "Стеклянный лист из плазмосиликатного сплава укрепленный металлической армосеткой. Обладает невероятной огнестойкостью и хорошей прочностью."

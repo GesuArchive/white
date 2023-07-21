@@ -83,7 +83,7 @@
 	icon = 'white/Wzzzz/clothing/suits.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	icon_state = "tailcoat"
-	armor = list("melee" = 20, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 15)
+	armor = list(MELEE = 20, BULLET = 20, LASER = 10, ENERGY = 10, BOMB = 15, BIO = 0, RAD = 0, FIRE = 20, ACID = 15, WOUND = 10)
 	inhand_icon_state = "tailcoat"
 
 /obj/item/clothing/suit/armor/vest/leather/tailcoat/Initialize(mapload)
@@ -160,12 +160,3 @@
 	new /obj/item/ammo_box/magazine/wt550m9(src)
 	new /obj/item/ammo_box/magazine/wt550m9(src)
 	new /obj/item/ammo_box/magazine/wt550m9(src)
-
-/datum/supply_pack/security/trau_a
-	name = "Traumatic Pistol Ammo Crate"
-	desc = "Contains a four 8-round magazines for \"Enforcer\" traumatic pistol. Each magazine is designed to facilitate rapid tactical reloads. Requires Armory access to open."
-	cost = CARGO_CRATE_VALUE * 6
-	contains = list(/obj/item/ammo_box/magazine/traumatic,
-					/obj/item/ammo_box/magazine/traumatic,
-					/obj/item/ammo_box/magazine/traumatic,
-					/obj/item/ammo_box/magazine/traumatic)

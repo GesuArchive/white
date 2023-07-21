@@ -5,8 +5,7 @@
 
 /obj/machinery/power/tesla_coil
 	name = "Катушка Теслы"
-	desc = "Преобразует удары шаровой молнии в энергию. Используйте отвертку для переключения между режимами производства электроэнергии и очков исследования."
-//	desc = "For the union!"	Не могу просто так удалить такую отсылку к "They Are Billions", пусть хотябы в коментах останется
+	desc = "Преобразует удары шаровой молнии в энергию. Используйте отвертку для переключения между режимами производства электроэнергии и очков исследования. За союз!"
 	icon = 'icons/obj/tesla_engine/tesla_coil.dmi'
 	icon_state = "coil0"
 	anchored = FALSE
@@ -148,7 +147,7 @@
 		connect_to_network()
 
 /obj/machinery/power/grounding_rod
-	name = "Заземлитель"
+	name = "заземлитель"
 	desc = "Защищает окружающее оборудование и людей от поджаривания Проклятием Эдисона."
 	icon = 'icons/obj/tesla_engine/tesla_coil.dmi'
 	icon_state = "grounding_rod0"

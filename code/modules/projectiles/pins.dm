@@ -1,5 +1,5 @@
 /obj/item/firing_pin
-	name = "электронный ударник"
+	name = "электронный боек"
 	desc = "Небольшое устройство аутентификации, которое должно быть вставлено в приемник огнестрельного оружия, чтобы позволить сделать выстрел. Правила безопасности NT требуют, чтобы все новые конструкции включали это."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "firing_pin"
@@ -40,7 +40,7 @@
 				gun_insert(user, G)
 				to_chat(user, span_notice("Вставляю [src] в [G]."))
 			else
-				to_chat(user, span_notice("Это оружие уже имеет ударник."))
+				to_chat(user, span_notice("Это оружие уже имеет боек."))
 
 /obj/item/firing_pin/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
@@ -81,8 +81,8 @@
 
 // Test pin, works only near firing range.
 /obj/item/firing_pin/test_range
-	name = "ударник для тестовой площадки"
-	desc = "Данный ударник позволяет протестировать оружие на тестовой площадке. В ином месте это не будет работать."
+	name = "боек для тестовой площадки"
+	desc = "Данный боек позволяет протестировать оружие на тестовой площадке. В ином месте это не будет работать."
 	fail_message = span_warning("НЕ НА ТЕСТОВОЙ ПЛОЩАДКЕ.")
 	pin_removeable = TRUE
 
@@ -96,8 +96,8 @@
 
 // Implant pin, checks for implant
 /obj/item/firing_pin/implant
-	name = "иплантозависимый ударник"
-	desc = "Этот ударник позволяет только авторизованным пользователям делать выстрел, причем пользователь должен быть имплантирован определенным устройством."
+	name = "иплантозависимый боек"
+	desc = "Этот боек позволяет только авторизованным пользователям делать выстрел, причем пользователь должен быть имплантирован определенным устройством."
 	fail_message = span_warning("НЕТ ИМПЛАНТА. В ДОСТУПЕ ОТКАЗАНО.")
 	var/obj/item/implant/req_implant = null
 
@@ -109,13 +109,13 @@
 	return FALSE
 
 /obj/item/firing_pin/implant/mindshield
-	name = "ударник под «щит разума»"
-	desc = "Этот защитный ударник позволяет использовать оружие только тем, кто имплантировал себе «щит разума»."
+	name = "боек под «щит разума»"
+	desc = "Этот защитный боек позволяет использовать оружие только тем, кто имплантировал себе «щит разума»."
 	icon_state = "firing_pin_loyalty"
 	req_implant = /obj/item/implant/mindshield
 
 /obj/item/firing_pin/implant/pindicate
-	name = "синдикатский ударник"
+	name = "синдикатский боек"
 	icon_state = "firing_pin_pindi"
 	req_implant = /obj/item/implant/weapons_auth
 
@@ -124,8 +124,8 @@
 // Honk pin, clown's joke item.
 // Can replace other pins. Replace a pin in cap's laser for extra fun!
 /obj/item/firing_pin/clown
-	name = "веселый ударник"
-	desc = "Усовершенствованый клованский ударник. Рекомендуется сунуть в капитанскую лазерную пушку для большей ржаки."
+	name = "веселый боек"
+	desc = "Усовершенствованый клованский боек. Рекомендуется сунуть в капитанскую лазерную пушку для большей ржаки."
 	color = "#FFFF00"
 	fail_message = span_warning("ВОТ ЭТО ПРИКОЛ!")
 	force_replace = TRUE
@@ -165,14 +165,14 @@
 
 // Now two times deadlier!
 /obj/item/firing_pin/clown/ultra/selfdestruct
-	desc = "Усовершенствованый клованский ударник. Содержит малый заряд бананиума."
+	desc = "Усовершенствованый клованский боек. Содержит малый заряд бананиума."
 	selfdestruct = TRUE
 
 
 // DNA-keyed pin.
 // When you want to keep your toys for yourself.
 /obj/item/firing_pin/dna
-	name = "генный ударник"
+	name = "генный боек"
 	desc = "Связывает вас и оружие на генном уровне. Никто, кроме вас, не сможет выстрелить."
 	icon_state = "firing_pin_dna"
 	fail_message = span_warning("ХРОМОСОМЫ НЕ СОВПАДАЮТ.")
@@ -207,8 +207,8 @@
 // Paywall pin, brought to you by ARMA 3 DLC.
 // Checks if the user has a valid bank account on an ID and if so attempts to extract a one-time payment to authorize use of the gun. Otherwise fails to shoot.
 /obj/item/firing_pin/paywall
-	name = "платный ударник"
-	desc = "Ударник со встроенным купюроприемником."
+	name = "платный боек"
+	desc = "Боек со встроенным купюроприемником."
 	color = "#FFD700"
 	fail_message = ""
 	var/list/gun_owners = list() //list of people who've accepted the license prompt. If this is the multi-payment pin, then this means they accepted the waiver that each shot will cost them money
@@ -220,16 +220,16 @@
 
 /obj/item/firing_pin/paywall/attack_self(mob/user)
 	multi_payment = !multi_payment
-	to_chat(user, span_notice("Установил ударник на [( multi_payment ) ? "обрабатывать платеж за каждый выстрел" : "единоразовый платеж по лицензии"]."))
+	to_chat(user, span_notice("Устанавливаю боек на [( multi_payment ) ? "обрабатывать платеж за каждый выстрел" : "единоразовый платеж по лицензии"]."))
 
 /obj/item/firing_pin/paywall/examine(mob/user)
 	. = ..()
 	if(pin_owner)
-		. += "<hr><span class='notice'>Данный ударник в данный момент авторизован для приема платежей на счет [pin_owner.registered_name].</span>"
+		. += "<hr><span class='notice'>Данный боек в данный момент авторизован для приема платежей на счет [pin_owner.registered_name].</span>"
 
 /obj/item/firing_pin/paywall/gun_insert(mob/living/user, obj/item/gun/G)
 	if(!pin_owner)
-		to_chat(user, span_warning("ERROR: Проведите картой по ударнику, прежде чем вставлять в оружие!"))
+		to_chat(user, span_warning("ERROR: Проведите картой по боеку, прежде чем вставлять в оружие!"))
 		return
 	gun = G
 	forceMove(gun)
@@ -252,10 +252,10 @@
 			to_chat(user, span_warning("ERROR: У карты отсутствует банковский счет!"))
 			return
 		if(id != pin_owner && owned)
-			to_chat(user, span_warning("ERROR: Ударник уже авторизован!"))
+			to_chat(user, span_warning("ERROR: Боек уже авторизован!"))
 			return
 		if(id == pin_owner)
-			to_chat(user, span_notice("Отвязываю ударник от карты."))
+			to_chat(user, span_notice("Отвязываю боек от карты."))
 			gun_owners -= user
 			pin_owner = null
 			owned = FALSE
@@ -270,7 +270,7 @@
 		owned = TRUE
 		payment_amount = transaction_amount
 		gun_owners += user
-		to_chat(user, span_notice("Связываю карту с ударником."))
+		to_chat(user, span_notice("Связываю карту с боеком."))
 
 /obj/item/firing_pin/paywall/pin_auth(mob/living/user)
 	if(!istype(user))//nice try commie
@@ -308,8 +308,8 @@
 
 // Explorer Firing Pin- Prevents use on station Z-Level, so it's justifiable to give Explorers guns that don't suck.
 /obj/item/firing_pin/explorer
-	name = "малонаселенный ударник"
-	desc = "Ударник, используемый австралийскими силами, переоборудован, чтобы предотвратить сброс оружия на станцию"
+	name = "малонаселенный боек"
+	desc = "Боек, используемый австралийскими силами, переоборудован, чтобы предотвратить сброс оружия на станцию"
 	icon_state = "firing_pin_explorer"
 	fail_message = span_warning("НЕ СТРЕЛЯЕТ НА СТАНЦИИ, ДРУЖОК!")
 
@@ -323,7 +323,7 @@
 
 // Laser tag pins
 /obj/item/firing_pin/tag
-	name = "ударник для лазертага"
+	name = "боек для лазертага"
 	desc = "Работает когда одет костюм для лазертага."
 	fail_message = span_warning("КОСТЮМ ОТСУТСТВУЕТ.")
 	var/obj/item/clothing/suit/suit_requirement = null
@@ -338,13 +338,13 @@
 	return FALSE
 
 /obj/item/firing_pin/tag/red
-	name = "красный ударник лазертага"
+	name = "красный боек лазертага"
 	icon_state = "firing_pin_red"
 	suit_requirement = /obj/item/clothing/suit/redtag
 	tagcolor = "red"
 
 /obj/item/firing_pin/tag/blue
-	name = "синий ударник лазертага"
+	name = "синий боек лазертага"
 	icon_state = "firing_pin_blue"
 	suit_requirement = /obj/item/clothing/suit/bluetag
 	tagcolor = "blue"

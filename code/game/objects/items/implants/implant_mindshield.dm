@@ -1,19 +1,19 @@
 /obj/item/implant/mindshield
-	name = "mindshield implant"
-	desc = "Protects against brainwashing."
+	name = "микроимплант щита разума"
+	desc = "Защищает от промывки мозгов при помощи сертефицированной НТ промывкой мозгов."
 	activated = 0
 	actions_types = null
 
 /obj/item/implant/mindshield/get_data()
-	var/dat = {"<b>Implant Specifications:</b><BR>
-				<b>Name:</b> Nanotrasen Employee Management Implant<BR>
-				<b>Life:</b> Ten years.<BR>
-				<b>Important Notes:</b> Personnel injected with this device are much more resistant to brainwashing.<BR>
+	var/dat = {"<b>Спецификация импланта:</b><BR>
+				<b>Название:</b> Имплантат лояльности сотрудника НаноТрейзен<BR>
+				<b>Срок службы:</b> 10 лет.<BR>
+				<b>Важные замечания:</b> Персонал, которому вводится это устройство, гораздо более устойчив к промыванию мозгов.<BR>
 				<HR>
-				<b>Implant Details:</b><BR>
-				<b>Function:</b> Contains a small pod of nanobots that protects the host's mental functions from manipulation.<BR>
-				<b>Special Features:</b> Will prevent and cure most forms of brainwashing.<BR>
-				<b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."}
+				<b>Детали имплантации:</b><BR>
+				<b>Техническое описание:</b> Содержит небольшой набор наноботов, который защищает психические функции хозяина от манипуляций.<BR>
+				<b>Спец свойства:</b> Предотвратит и вылечит большинство форм промывания мозгов.<BR>
+				<b>Целостность:</b> Имплантат прослужит до тех пор, пока нанороботы находятся в кровотоке."}
 	return dat
 
 
@@ -30,7 +30,7 @@
 
 		if(target.mind.has_antag_datum(/datum/antagonist/rev/head)|| target.mind.unconvertable)
 			if(!silent)
-				target.visible_message(span_warning("[target] seems to resist the implant!") , span_warning("You feel something interfering with your mental conditioning, but you resist it!"))
+				target.visible_message(span_warning("[target] сопротивляется воздействию импланта!") , span_warning("Чувствую, что что-то пытается вмешаться в мое подсознание, но я сопротивляетесь этому!"))
 			removed(target, 1)
 			qdel(src)
 			return TRUE //the implant is still used
@@ -41,14 +41,14 @@
 			rev.remove_revolutionary(FALSE, user)
 		if(!silent)
 			if(target.mind in SSticker.mode.cult)
-				to_chat(target, span_warning("You feel something interfering with your mental conditioning, but you resist it!"))
+				to_chat(target, span_warning("Чувствую, что что-то пытается вмешаться в мое подсознание, но я сопротивляетесь этому!"))
 			else
-				to_chat(target, span_notice("You feel a sense of peace and security. You are now protected from brainwashing."))
+				to_chat(target, span_notice("Я испытываю чувство покоя и безопасности. Теперь я защищен от промывания мозгов."))
 		ADD_TRAIT(target, TRAIT_MINDSHIELD, "implant")
 		target.sec_hud_set_implants()
 		if(deconverted)
 			if(prob(1) || SSevents.holidays && SSevents.holidays[APRIL_FOOLS])
-				target.say("I'm out! I quit! Whose kidneys are these?", forced = "They're out! They quit! Whose kidneys do they have?")
+				target.say("Только не по почкам!", forced = "Только не по почкам!")
 		return TRUE
 	return FALSE
 
@@ -59,15 +59,16 @@
 			REMOVE_TRAIT(L, TRAIT_MINDSHIELD, "implant")
 			L.sec_hud_set_implants()
 		if(target.stat != DEAD && !silent)
-			to_chat(target, span_boldnotice("Your mind suddenly feels terribly vulnerable. You are no longer safe from brainwashing."))
+			to_chat(target, span_boldnotice("Мой разум внезапно чувствует себя ужасно уязвимым. Я больше не застрахован от промывания мозгов!"))
 		return TRUE
 	return FALSE
 
 /obj/item/implanter/mindshield
-	name = "implanter (mindshield)"
+	name = "имплантер щита разума"
+	desc = "Защищает от промывки мозгов при помощи сертефицированной НТ промывкой мозгов."
 	imp_type = /obj/item/implant/mindshield
 
 /obj/item/implantcase/mindshield
-	name = "implant case - 'Mindshield'"
-	desc = "A glass case containing a mindshield implant."
+	name = "футляр микроимпланта щита разума"
+	desc = "Защищает от промывки мозгов при помощи сертефицированной НТ промывкой мозгов."
 	imp_type = /obj/item/implant/mindshield

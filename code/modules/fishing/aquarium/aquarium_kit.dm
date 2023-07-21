@@ -1,7 +1,7 @@
 ///Fish feed can
 /obj/item/fish_feed
-	name = "fish feed can"
-	desc = "Autogenerates nutritious fish feed based on sample inside."
+	name = "банка корма для рыб"
+	desc = "Автоматически генерирует питательный корм для рыб на основе образца, находящегося внутри."
 	icon = 'icons/obj/aquarium.dmi'
 	icon_state = "fish_feed"
 	w_class = WEIGHT_CLASS_TINY
@@ -13,8 +13,8 @@
 
 ///Stasis fish case container for moving fish between aquariums safely.
 /obj/item/storage/fish_case
-	name = "stasis fish case"
-	desc = "A small case keeping the fish inside in stasis."
+	name = "стазисный кейс для рыб"
+	desc = "Маленький футляр, в котором рыба находится в стазисе."
 	icon_state = "fishbox"
 
 	inhand_icon_state = "syringe_kit"
@@ -26,7 +26,7 @@
 	. = ..()
 	create_storage(max_slots = 1)
 	atom_storage.can_hold_trait = TRAIT_FISH_CASE_COMPATIBILE
-	atom_storage.can_hold_description = "fish and aquarium equipment"
+	atom_storage.can_hold_description = "оборудование для рыб и аквариумов"
 
 ///Fish case with single random fish inside.
 /obj/item/storage/fish_case/random/PopulateContents()
@@ -44,7 +44,7 @@
 	return random_fish_type(required_fluid=AQUARIUM_FLUID_SALTWATER)
 
 /obj/item/storage/fish_case/syndicate
-	name = "ominous fish case"
+	name = "зловещий кейс для рыб"
 
 /obj/item/storage/fish_case/syndicate/PopulateContents()
 	. = ..()
@@ -52,7 +52,7 @@
 	new fish_type(src)
 
 /obj/item/storage/fish_case/tiziran
-	name = "imported fish case"
+	name = "импортный кейс для рыб"
 
 /obj/item/storage/fish_case/tiziran/PopulateContents()
 	. = ..()
@@ -60,20 +60,20 @@
 	new fish_type(src)
 
 /obj/item/aquarium_kit
-	name = "DIY Aquarium Construction Kit"
-	desc = "Everything you need to build your own aquarium. Raw materials sold separately."
+	name = "Набор для строительства аквариума своими руками"
+	desc = "Все, что вам нужно для создания вашего собственного аквариума. Рыба в комплект не входит."
 	icon = 'icons/obj/aquarium.dmi'
 	icon_state = "construction_kit"
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/aquarium_kit/attack_self(mob/user)
 	. = ..()
-	to_chat(user,span_notice("There's instruction and tools necessary to build aquarium inside. All you need is to start crafting."))
+	to_chat(user,span_notice("Внутри есть инструкция и инструменты, необходимые для постройки аквариума. Все, что вам нужно, это начать создавать."))
 
 
 /obj/item/aquarium_prop
-	name = "generic aquarium prop"
-	desc = "very boring"
+	name = "универсальный реквизит для аквариума"
+	desc = "очень скучно"
 	icon = 'icons/obj/aquarium.dmi'
 
 	w_class = WEIGHT_CLASS_TINY
@@ -84,32 +84,32 @@
 	AddComponent(/datum/component/aquarium_content)
 
 /obj/item/aquarium_prop/rocks
-	name = "rocks"
+	name = "камушки"
 	icon_state = "rocks"
 
 /obj/item/aquarium_prop/seaweed_top
-	name = "dense seaweeds"
+	name = "густые водоросли"
 	icon_state = "seaweeds_front"
 	layer_mode = AQUARIUM_LAYER_MODE_TOP
 
 /obj/item/aquarium_prop/seaweed
-	name = "seaweeds"
+	name = "морские водоросли"
 	icon_state = "seaweeds_back"
 	layer_mode = AQUARIUM_LAYER_MODE_BOTTOM
 
 /obj/item/aquarium_prop/rockfloor
-	name = "rock floor"
+	name = "каменное дно"
 	icon_state = "rockfloor"
 	layer_mode = AQUARIUM_LAYER_MODE_BOTTOM
 
 /obj/item/aquarium_prop/treasure
-	name = "tiny treasure chest"
+	name = "крошечный сундучок с сокровищами"
 	icon_state = "treasure"
 	layer_mode = AQUARIUM_LAYER_MODE_BOTTOM
 
 /obj/item/storage/box/aquarium_props
-	name = "aquarium props box"
-	desc = "All you need to make your aquarium look good."
+	name = "коробка для аквариумного реквизита"
+	desc = "Все, что вам нужно для того, чтобы ваш аквариум хорошо выглядел."
 
 /obj/item/storage/box/aquarium_props/PopulateContents()
 	for(var/prop_type in subtypesof(/obj/item/aquarium_prop))

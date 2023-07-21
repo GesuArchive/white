@@ -323,8 +323,8 @@
 		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "goodmusic", /datum/mood_event/goodmusic)
 
 /atom/movable/screen/alert/status_effect/regenerative_core
-	name = "Regenerative Core Tendrils"
-	desc = "You can move faster than your broken body could normally handle!"
+	name = "Регенеративное ядро"
+	desc = "Я могу двигаться быстрее, чем обычно может выдержать мое бренное тело!"
 	icon_state = "regenerative_core"
 
 /datum/status_effect/regenerative_core
@@ -345,6 +345,32 @@
 	return TRUE
 
 /datum/status_effect/regenerative_core/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, id)
+
+//  Таблетка спасателя у Рейджеров
+/atom/movable/screen/alert/status_effect/saver
+	name = "Спасатель"
+	desc = "Я могу не опасаться угрозы заражения ксенопаразитами, а так же быть в тонусе даже если меня ранят! Никто кроме нас!"
+	icon_state = "saver"
+
+/datum/status_effect/saver
+	id = "Спасатель"
+	duration = 10 MINUTES
+	status_type = STATUS_EFFECT_REPLACE
+	alert_type = /atom/movable/screen/alert/status_effect/saver
+
+/datum/status_effect/saver/on_apply()
+	ADD_TRAIT(owner, TRAIT_PARASITE_IMMUNE, id)
+	ADD_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, id)
+	owner.remove_CC()
+	owner.bodytemperature = owner.get_body_temp_normal()
+	if(istype(owner, /mob/living/carbon/human))
+		var/mob/living/carbon/human/humi = owner
+		humi.coretemperature = humi.get_body_temp_normal()
+	return TRUE
+
+/datum/status_effect/saver/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_PARASITE_IMMUNE, id)
 	REMOVE_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, id)
 
 /datum/status_effect/antimagic

@@ -2,6 +2,7 @@
 	name = "микроимплант - 'Химическая мина'"
 	desc = "Injects things."
 	icon_state = "reagents"
+	implant_color = "or"
 	activated = FALSE
 
 /obj/item/implant/chem/get_data()

@@ -59,7 +59,7 @@
 	icon = 'white/Wzzzz/clothing/suits.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/suit.dmi'
 	armor = list("melee" = 30, "bullet" = 25, "laser" = 30, "energy" = 30, "bomb" = 40, "bio" = 100, "rad" = 75, "fire" = 50, "acid" = 75)
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/t_scanner, /obj/item/construction/rcd, /obj/item/pipe_dispenser)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/t_scanner, /obj/item/construction/rcd, /obj/item/pipe_dispenser)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/eng
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite/breacher_cheap

@@ -1,5 +1,5 @@
 /obj/machinery/vending/security
-	name = "SecTech"
+	name = "Закон и порядок"
 	desc = "Раздатчик инструментов для охраны."
 	product_ads = "Раскалывай капиталистические черепа!;Забей несколько голов!;Не забывай - вред - это полезно!;Твое оружие прямо здесь.;Наручники!;Замри, отморозок!;Не трогай меня, братан! Почему бы не съесть пончик?"
 	icon_state = "sec"
@@ -17,6 +17,7 @@
 		/obj/item/storage/box/evidence = 10,
 		/obj/item/flashlight/seclite = 10,
 		/obj/item/restraints/legcuffs/bola/energy = 10,
+		/obj/item/book/manual/wiki/security_space_law = 5
 		)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 5,
@@ -45,4 +46,5 @@
 		F.update_brightness()
 
 /obj/item/vending_refill/security
+	machine_name = "Закон и порядок"
 	icon_state = "refill_sec"

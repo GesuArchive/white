@@ -15,6 +15,8 @@
 	var/no_splash = FALSE //If the grenade deletes even if it has no reagents to splash with. Used for slime core reactions.
 	var/casedesc = "Поддерживает стандартные емкости. При детонации нагревает состав на 10°K." // Appears when examining empty casings.
 	var/obj/item/assembly/prox_sensor/landminemode = null
+	var/detonation_sound = null
+	var/no_disassembly = FALSE // запрещает видеть состав и разбирать гранату
 
 /obj/item/grenade/chem_grenade/ComponentInitialize()
 	. = ..()
@@ -34,6 +36,9 @@
 /obj/item/grenade/chem_grenade/examine(mob/user)
 	display_timer = (stage == GRENADE_READY)	//show/hide the timer based on assembly state
 	. = ..()
+	if(no_disassembly)
+		. += "<hr><span class='notice'>Матовая граната с запаяным экранированным корпусом. Её невозможно разобрать, а так же узнать состав.</span>"
+		return
 	if(user.can_see_reagents())
 		if(beakers.len)
 			. += "<hr><span class='notice'>Внутри обнаружены следующие реагенты:</span>"
@@ -116,7 +121,7 @@
 			to_chat(user, span_warning("Необходимо больше проводов!"))
 			return
 
-	else if(stage == GRENADE_READY && I.tool_behaviour == TOOL_WIRECUTTER && !active)
+	else if(stage == GRENADE_READY && I.tool_behaviour == TOOL_WIRECUTTER && !active && !no_disassembly)
 		stage_change(GRENADE_WIRED)
 		to_chat(user, span_notice("Отсоединяю взрыватель."))
 
@@ -187,7 +192,19 @@
 		landminemode.activate()
 		return
 	active = TRUE
+
+	if(detonation_sound)
+		var/sound_timer
+		if(det_time < 2 SECONDS)
+			sound_timer = 0
+		else
+			sound_timer = det_time - 1.5 SECONDS
+		addtimer(CALLBACK(src, PROC_REF(play_detonation_sound)), sound_timer)
+
 	addtimer(CALLBACK(src, PROC_REF(detonate)), isnull(delayoverride)? det_time : delayoverride)
+
+/obj/item/grenade/chem_grenade/proc/play_detonation_sound(mob/living/lanced_by)
+	playsound(src, detonation_sound, 80, TRUE)
 
 /obj/item/grenade/chem_grenade/detonate(mob/living/lanced_by)
 	if(stage != GRENADE_READY)
@@ -469,6 +486,25 @@
 	beakers += B2
 
 
+/obj/item/grenade/chem_grenade/lube
+	name = "скользкая граната"
+	desc = "Граната созданная лучшими учеными Хонк Ко в качестве протеста против военных преступлений компании Космочист."
+	icon_state = "lube"
+	stage = GRENADE_READY
+
+/obj/item/grenade/chem_grenade/lube/Initialize(mapload)
+	. = ..()
+	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+
+	B1.reagents.add_reagent(/datum/reagent/fluorosurfactant, 40)
+	B2.reagents.add_reagent(/datum/reagent/water, 40)
+	B2.reagents.add_reagent(/datum/reagent/lube, 10)
+
+	beakers += B1
+	beakers += B2
+
+
 /obj/item/grenade/chem_grenade/ez_clean
 	name = "очистительная граната"
 	desc = "Убер граната от компании Вафл Ко. Растворяет всю органику набором сильных кислот."
@@ -601,7 +637,7 @@
 
 /obj/item/grenade/chem_grenade/bioterrorfoam
 	name = "граната био-террора"
-	desc = "Содержит фирменный химический коктейл клана Тигра. Вызывает судороги, слепоту, спутанность сознания и мутации. Так же содержит споровый токсин."
+	desc = "Содержит фирменный химический коктейль клана Тигра. Вызывает судороги, слепоту, спутанность сознания и мутации. Так же содержит споровый токсин."
 	stage = GRENADE_READY
 
 /obj/item/grenade/chem_grenade/bioterrorfoam/Initialize(mapload)
@@ -643,6 +679,7 @@
 	desc = "Сосуд концентрированной религиозной мощи."
 	icon_state = "holy_grenade"
 	stage = GRENADE_READY
+	detonation_sound = 'white/Feline/sounds/holygrenade.ogg'
 
 /obj/item/grenade/chem_grenade/holy/Initialize(mapload)
 	. = ..()
@@ -654,3 +691,24 @@
 
 	beakers += B1
 	beakers += B2
+
+
+/obj/item/grenade/chem_grenade/holy_pena
+	name = "освящающая граната"
+	desc = "Граната для быстрого освящения больших помещений."
+	icon_state = "holy_grenade"
+	stage = GRENADE_READY
+	detonation_sound = 'white/Feline/sounds/holygrenade.ogg'
+
+/obj/item/grenade/chem_grenade/holy_pena/Initialize(mapload)
+	. = ..()
+	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+
+	B1.reagents.add_reagent(/datum/reagent/fluorosurfactant, 40)
+	B2.reagents.add_reagent(/datum/reagent/water, 40)
+	B2.reagents.add_reagent(/datum/reagent/water/holywater, 250)
+
+	beakers += B1
+	beakers += B2
+

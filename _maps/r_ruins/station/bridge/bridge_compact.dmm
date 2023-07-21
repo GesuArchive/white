@@ -1344,6 +1344,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/structure/closet/crate/graviton_beacon,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/gravity_generator)
 "ea" = (
@@ -1356,6 +1357,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/structure/closet/crate/jetpack,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/gravity_generator)
 "eb" = (

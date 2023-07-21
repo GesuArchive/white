@@ -109,7 +109,7 @@
 /datum/component/riding/vehicle/atv
 	keytype = /obj/item/key/atv
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
-	vehicle_move_delay = 1.5
+	vehicle_move_delay = 1.2
 
 /datum/component/riding/vehicle/atv/handle_specials()
 	. = ..()
@@ -121,7 +121,7 @@
 
 /datum/component/riding/vehicle/bicycle
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
-	vehicle_move_delay = 0
+	vehicle_move_delay = 1.8
 
 /datum/component/riding/vehicle/bicycle/handle_specials()
 	. = ..()
@@ -190,6 +190,7 @@
 
 /datum/component/riding/vehicle/janicart
 	keytype = /obj/item/key/janitor
+	vehicle_move_delay = 1.6
 
 /datum/component/riding/vehicle/janicart/handle_specials()
 	. = ..()
@@ -254,7 +255,7 @@
 	set_vehicle_dir_layer(WEST, OBJ_LAYER)
 
 /datum/component/riding/vehicle/scooter/skateboard/wheelys
-	vehicle_move_delay = 0
+	vehicle_move_delay = 1
 
 /datum/component/riding/vehicle/scooter/skateboard/wheelys/handle_specials()
 	. = ..()
@@ -292,7 +293,7 @@
 	return ..()
 
 /datum/component/riding/vehicle/speedbike
-	vehicle_move_delay = 0
+	vehicle_move_delay = 1
 	override_allow_spacemove = TRUE
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
 
@@ -308,7 +309,7 @@
 	set_vehicle_dir_layer(WEST, VEHICLE_LAYER)
 
 /datum/component/riding/vehicle/speedwagon
-	vehicle_move_delay = 0
+	vehicle_move_delay = 1
 
 /datum/component/riding/vehicle/speedwagon/handle_specials()
 	. = ..()
@@ -325,7 +326,7 @@
 
 
 /datum/component/riding/vehicle/wheelchair
-	vehicle_move_delay = 0
+	vehicle_move_delay = 1
 	ride_check_flags = RIDER_NEEDS_ARMS
 
 /datum/component/riding/vehicle/wheelchair/handle_specials()

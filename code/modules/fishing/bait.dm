@@ -1,6 +1,6 @@
 /obj/item/bait_can
-	name = "can o bait"
-	desc = "there's a lot of them in there, getting them out takes a while though"
+	name = "банка с приманкой"
+	desc = "их там много, но на то, чтобы вытащить их оттуда, уходит некоторое время"
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "bait_can"
 	w_class = WEIGHT_CLASS_SMALL
@@ -25,11 +25,11 @@
 	return new bait_type(src)
 
 /obj/item/bait_can/worm
-	name = "can o' worm"
-	desc = "this can got worms."
+	name = "банка с червем"
+	desc = "В этой банке живут черви."
 	bait_type = /obj/item/food/bait/worm
 
 /obj/item/bait_can/worm/premium
-	name = "can o' worm deluxe"
-	desc = "this can got fancy worms."
+	name = "Роскошная рыболовная приманка"
+	desc = "Когда стандартный сорт недостаточно хорош для вас."
 	bait_type = /obj/item/food/bait/worm/premium

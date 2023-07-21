@@ -47,6 +47,7 @@
 	new /obj/item/circuitboard/machine/mechfab/service(src)
 	new /obj/item/storage/photo_album/hop(src)
 	new /obj/item/storage/lockbox/medal/hop(src)
+	new /obj/item/storage/backpack/duffelbag/mining_conscript(src)
 
 
 /obj/structure/closet/secure_closet/hos

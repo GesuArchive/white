@@ -31,6 +31,8 @@
 	dir = 5;
 	start_active = 1
 	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/mining)
 "h" = (
@@ -51,7 +53,8 @@
 /turf/open/floor/plating,
 /area/shuttle/mining)
 "i" = (
-/obj/structure/closet/crate,
+/obj/structure/ore_box,
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "j" = (
@@ -72,7 +75,8 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/mining)
 "k" = (
-/obj/structure/ore_box,
+/obj/structure/cable,
+/obj/machinery/power/smes,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "l" = (
@@ -88,6 +92,14 @@
 /obj/structure/cable,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
+"O" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/power/terminal,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/mining)
 "Q" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -96,6 +108,10 @@
 /area/shuttle/mining)
 "V" = (
 /obj/structure/cable,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+"X" = (
+/obj/structure/closet/crate,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/mining)
 
@@ -111,9 +127,9 @@ a
 (2,1,1) = {"
 a
 c
-e
+X
 g
-f
+A
 i
 a
 "}
@@ -121,8 +137,8 @@ a
 b
 d
 Q
-V
-A
+e
+f
 j
 l
 "}
@@ -131,7 +147,7 @@ a
 c
 e
 V
-f
+O
 k
 a
 "}

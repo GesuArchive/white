@@ -656,6 +656,6 @@
 	inhand_icon_state = "football_helmet_red"
 
 /obj/item/clothing/head/maidheadband
-	name = "maid headband"
-	desc = "Just like from one of those chinese cartoons!"
+	name = "повязка на голову горничной"
+	desc = "Прямо как в одном из тех китайских мультфильмов!"
 	icon_state = "maid_headband"

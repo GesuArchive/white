@@ -335,8 +335,8 @@
 
 
 /obj/item/conversion_kit
-	name = "conversion kit"
-	desc = "A strange box containing wood working tools and an instruction paper to turn stun batons into something else."
+	name = "комплект для переоборудования"
+	desc = "Странная коробка с инструментами для работы по дереву и инструкцией по превращению электрошоковых дубинок во что-то другое."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "uk"
 	custom_price = PAYCHECK_HARD * 4.5

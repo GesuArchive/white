@@ -1,7 +1,7 @@
 //Hydroponics tank and base code
 /obj/item/watertank
-	name = "backpack water tank"
-	desc = "A S.U.N.S.H.I.N.E. brand watertank backpack with nozzle to water plants."
+	name = "заспинный опрыскиватель"
+	desc = "Огромный танк с водой. Его хватит на полив множества растений."
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "waterbackpack"
 	inhand_icon_state = "waterbackpack"
@@ -10,7 +10,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BACK
-	slowdown = 1
+	slowdown = 0
 	actions_types = list(/datum/action/item_action/toggle_mister)
 	max_integrity = 200
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 30)
@@ -58,7 +58,7 @@
 		remove_noz()
 
 /obj/item/watertank/verb/toggle_mister_verb()
-	set name = "Toggle Mister"
+	set name = "Достать распылитель"
 	set category = "Объект"
 	toggle_mister(usr)
 
@@ -106,8 +106,8 @@
 // the watertank backpack. Allowing it to be placed elsewhere or created without a parent
 // watertank object will likely lead to weird behaviour or runtimes.
 /obj/item/reagent_containers/spray/mister
-	name = "water mister"
-	desc = "A mister nozzle attached to a water tank."
+	name = "распылитель"
+	desc = "Напрямую подключен к заспинному баку."
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "mister"
 	inhand_icon_state = "mister"
@@ -377,7 +377,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
-	slowdown = 1
+	slowdown = 0
 	actions_types = list(/datum/action/item_action/activate_injector)
 
 	var/on = FALSE

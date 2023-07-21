@@ -12,7 +12,7 @@
 
 /// The Tesla engine
 /obj/energy_ball
-	name = "энергошар"
+	name = "шаровая молния"
 	desc = "Кругленький."
 	icon = 'icons/obj/tesla_engine/energy_ball.dmi'
 	icon_state = "energy_ball"

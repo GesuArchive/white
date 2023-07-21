@@ -23,6 +23,8 @@
 	var/list/syringes = list()
 	var/max_syringes = 1 ///The number of syringes it can store.
 	var/has_syringe_overlay = TRUE ///If it has an overlay for inserted syringes. If true, the overlay is determined by the number of syringes inserted into it.
+	var/semi_automatic = FALSE
+	var/pneumo_load = TRUE
 
 /obj/item/gun/syringe/Initialize(mapload)
 	. = ..()
@@ -49,9 +51,16 @@
 
 /obj/item/gun/syringe/examine(mob/user)
 	. = ..()
-	. += "<hr>Can hold [max_syringes] syringe\s. Has [syringes.len] syringe\s remaining."
+	. += "<hr>Магазин [syringes.len]/[max_syringes] шприцев."
 
 /obj/item/gun/syringe/attack_self(mob/living/user)
+	if(semi_automatic)
+		if(!pneumo_load)
+			pneumo_load = TRUE
+			icon_state = "adv_syringegun"
+			playsound(user, 'white/Feline/sounds/nasos.ogg', 80, TRUE)
+			update_icon()
+			return TRUE
 	if(!syringes.len)
 		to_chat(user, span_warning("[capitalize(src.name)] пуст!"))
 		return FALSE
@@ -63,12 +72,28 @@
 	user.put_in_hands(S)
 
 	syringes.Remove(S)
-	to_chat(user, span_notice("Вытащил [S] из <b>[src.name]</b>."))
+	to_chat(user, span_notice("Извлекаю [S] из <b>[src.name]</b>."))
 	update_icon()
 
 	return TRUE
 
 /obj/item/gun/syringe/attackby(obj/item/A, mob/user, params, show_msg = TRUE)
+	if(istype(A, /obj/item/weaponcrafting/gunkit/adv_syringegun))
+		if(!semi_automatic)
+			to_chat(user, span_notice("Начинаю модернизацию шприцемета."))
+			if(!do_after(user, 30, user))
+				to_chat(user, span_warning("Не получается!"))
+				return
+			. = ..()
+			playsound(user,'white/Feline/sounds/suppressor_toggle.ogg', 80, TRUE)
+			var/obj/item/gun/syringe/adv_syringegun/I = new()
+			user.put_in_hands(I)
+			qdel(A)
+			qdel(src)
+		else
+			to_chat(user, span_notice("Этот шприцемет уже модернизирован!"))
+			return
+
 	if(istype(A, /obj/item/reagent_containers/syringe/bluespace))
 		to_chat(user, span_notice("[A] слишком большой и не помещается в [src]."))
 		return TRUE
@@ -76,7 +101,7 @@
 		if(syringes.len < max_syringes)
 			if(!user.transferItemToLoc(A, src))
 				return FALSE
-			to_chat(user, span_notice("Зарядил [A] в <b>[src.name]</b>."))
+			to_chat(user, span_notice("Заряжаю [A] в <b>[src.name]</b>."))
 			syringes += A
 			recharge_newshot()
 			update_icon()
@@ -92,6 +117,25 @@
 		return
 	var/syringe_count = syringes.len
 	. += "[initial(icon_state)]_[syringe_count ? clamp(syringe_count, 1, initial(max_syringes)) : "empty"]"
+
+/obj/item/gun/syringe/adv_syringegun
+	name = "продвинутый шприцемет"
+	desc = "Модифицированная версия шприцемета с использованием пневматического баллона и магазина, способного вместить до трех шприцов."
+	icon_state = "adv_syringegun"
+	max_syringes = 3
+	semi_automatic = TRUE
+
+/obj/item/gun/syringe/adv_syringegun/can_shoot()
+	if(pneumo_load  && syringes.len)
+		pneumo_load = FALSE
+		icon_state = "adv_syringegun_np"
+		return TRUE
+	else
+		if(!pneumo_load)
+			to_chat(usr, span_notice("Пневмомеханизм не взведен."))
+		if(syringes.len == 0)
+			to_chat(usr, span_notice("Нет шприцев."))
+		return FALSE
 
 /obj/item/gun/syringe/rapidsyringe
 	name = "многозарядный шприцемет"

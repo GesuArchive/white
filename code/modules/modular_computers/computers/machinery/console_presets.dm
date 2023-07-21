@@ -96,8 +96,8 @@
 
 // ===== CARGO CHAT CONSOLES =====
 /obj/machinery/modular_computer/console/preset/cargochat
-	name = "cargo chatroom console"
-	desc = "A stationary computer. This one comes preloaded with a chatroom for your cargo requests."
+	name = "карго чат"
+	desc = "Стационарный компьютер. Этт ПК поставляется с предустановленной программой чата для ваших запросов на доставку."
 	starting_programs = list(
 		/datum/computer_file/program/chatclient,
 	)
@@ -105,31 +105,31 @@
 /obj/machinery/modular_computer/console/preset/cargochat/Initialize(mapload)
 	. = ..()
 	var/datum/computer_file/program/chatclient/chatprogram = cpu.find_file_by_name("ntnrc_client")
-	chatprogram.username = "[lowertext(console_department)]_department"
+	chatprogram.username = "Департамент_[lowertext(console_department)]"
 	chatprogram.program_state = PROGRAM_STATE_ACTIVE
 	cpu.active_program = chatprogram
 
 /obj/machinery/modular_computer/console/preset/cargochat/service
-	console_department = "Service"
+	console_department = "Сервиса"
 
 /obj/machinery/modular_computer/console/preset/cargochat/engineering
-	console_department = "Engineering"
+	console_department = "Инженерии"
 
 /obj/machinery/modular_computer/console/preset/cargochat/science
-	console_department = "Science"
+	console_department = "Науки"
 
 /obj/machinery/modular_computer/console/preset/cargochat/security
-	console_department = "Security"
+	console_department = "Безопасности"
 
 /obj/machinery/modular_computer/console/preset/cargochat/medical
-	console_department = "Medical"
+	console_department = "Медицины"
 
 
 //ONE PER MAP PLEASE, IT MAKES A CARGOBUS FOR EACH ONE OF THESE
 /obj/machinery/modular_computer/console/preset/cargochat/cargo
-	console_department = "Cargo"
-	name = "department chatroom console"
-	desc = "A stationary computer. This one comes preloaded with a chatroom for incoming cargo requests. You may moderate it from this computer."
+	console_department = "Карго"
+	name = "карго чат администратора"
+	desc = "Стационарный компьютер. Этот ПК поставляется с предустановленной программой чата для входящих запросов на грузоперевозки. Вы можете модерировать его с этого компьютера."
 
 /obj/machinery/modular_computer/console/preset/cargochat/cargo/LateInitialize()
 	. = ..()

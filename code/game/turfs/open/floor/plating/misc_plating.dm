@@ -263,6 +263,10 @@
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 	slowdown = 0
 
+/turf/open/floor/plating/ice/icemoon/safe
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	slowdown = 0
+
 /turf/open/floor/plating/snowed
 	name = "заснеженное покрытие"
 	desc = "Секция горячего покрытия помогает удержать снег от налипания."

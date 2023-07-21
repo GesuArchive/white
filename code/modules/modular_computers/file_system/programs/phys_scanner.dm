@@ -4,7 +4,7 @@
 /datum/computer_file/program/phys_scanner
 	filename = "phys_scanner"
 	filedesc = "Анализатор здоровья"
-	category = PROGRAM_CATEGORY_MISC
+	category = PROGRAM_CATEGORY_MED
 	extended_desc = "Эта программа позволяет сканировать физическое состояние обьекта и выводит его на экран."
 	size = 8
 	usage_flags = PROGRAM_TABLET

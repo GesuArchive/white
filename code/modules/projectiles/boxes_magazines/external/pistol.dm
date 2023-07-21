@@ -64,6 +64,21 @@
 	icon_state = "9x19pH"
 	ammo_type = /obj/item/ammo_casing/c9mm/hp
 
+/obj/item/ammo_box/magazine/traumatic
+	name = "9мм магазин: Травматический"
+	desc = "Боевая пуля в них заменена на резиновую болванку. Практически не наносит урона, однако валит с пары-тройки попаданий."
+	icon_state = "45-10"
+	ammo_type = /obj/item/ammo_casing/c9mm/traumatic
+	caliber = "9mm"
+	max_ammo = 10
+
+/obj/item/ammo_box/magazine/traumatic/update_icon()
+	..()
+	if (ammo_count() >= 10)
+		icon_state = "45-10"
+	else
+		icon_state = "45-[ammo_count()]"
+
 /obj/item/ammo_box/magazine/m9mm/ap
 	name = "9мм магазин: Бронебойный"
 	desc = "Содержит патроны с закаленным сердечником, это заметно повышает бронепробитие, однако незначительно понижает урон. Используется в пистолете Макарова."

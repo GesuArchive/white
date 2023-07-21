@@ -6,6 +6,10 @@
 	wound_bonus = -10
 	wound_falloff_tile = -10
 
+/obj/projectile/bullet/c45/fake
+	damage = 1
+	stamina = 3
+
 /obj/projectile/bullet/c45_ap
 	name = "бронебойная пуля .45 калибра"
 	damage = 25

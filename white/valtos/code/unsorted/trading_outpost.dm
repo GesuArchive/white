@@ -254,21 +254,9 @@
 	name = "Trader Transport Shuttle"
 	can_be_bought = FALSE
 
-/datum/supply_pack/innovations
-	group = "Инновации"
-
-/datum/supply_pack/innovations/farmbox
-	name = "Пиздюлегенератор"
-	desc = "Эта штука служит для выращивания денег в прогрессии."
-	cost = 25500
-	contains = list(/obj/structure/punching_bag/pizdul)
-	crate_name = "farmbox"
-	crate_type = /obj/structure/closet/crate/large
-	dangerous = TRUE
-
 /obj/structure/punching_bag/pizdul
-	name = "пиздюлегенератор"
-	desc = "Лучшее, что создало человечество. Работает на счёте древних шизов."
+	name = "денежная груша"
+	desc = "Странным образом трансформирует силу киннетических ударов в деньги."
 	anchored = FALSE
 	armor = list(MELEE = 20, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 100, RAD = 100, FIRE = 70, ACID = 100)
 	maptext_y = 24

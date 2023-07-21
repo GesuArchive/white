@@ -1,6 +1,6 @@
 /obj/item/tank/jetpack
-	name = "jetpack (empty)"
-	desc = "A tank of compressed gas for use as propulsion in zero-gravity areas. Use with caution."
+	name = "реактивный ранец"
+	desc = "Баллон со сжатым газом для использования в качестве движителя в условиях невесомости. Используйте с осторожностью."
 	icon_state = "jetpack"
 	inhand_icon_state = "jetpack"
 	lefthand_file = 'icons/mob/inhands/equipment/jetpacks_lefthand.dmi'
@@ -34,7 +34,7 @@
 	else if(istype(action, /datum/action/item_action/jetpack_stabilization))
 		if(on)
 			stabilizers = !stabilizers
-			to_chat(user, span_notice("You turn the jetpack stabilization [stabilizers ? "on" : "off"]."))
+			to_chat(user, span_notice("Переключаю стабилизатор в положение [stabilizers ? "\"вкл\"" : "\"выкл\""]."))
 	else
 		toggle_internals(user)
 
@@ -45,10 +45,10 @@
 
 	if(!on)
 		turn_on(user)
-		to_chat(user, span_notice("You turn the jetpack on."))
+		to_chat(user, span_notice("Активирую [src]."))
 	else
 		turn_off(user)
-		to_chat(user, span_notice("You turn the jetpack off."))
+		to_chat(user, span_notice("Деактивирую [src]."))
 	update_item_action_buttons()
 
 
@@ -117,8 +117,8 @@
 		..()
 
 /obj/item/tank/jetpack/improvised
-	name = "improvised jetpack"
-	desc = "A jetpack made from two air tanks, a fire extinguisher and some atmospherics equipment. It doesn't look like it can hold much."
+	name = "самодельный реактивный ранец"
+	desc = "Реактивный ранец, сделанный из двух баллонов с воздухом, огнетушителя и некоторого атмосферного оборудования. Не похоже, что он вмещает много газа."
 	icon_state = "jetpack-improvised"
 	inhand_icon_state = "jetpack-improvised"
 	worn_icon = null
@@ -129,7 +129,7 @@
 
 /obj/item/tank/jetpack/improvised/allow_thrust(num, mob/living/user)
 	if(rand(0,250) == 0)
-		to_chat(user, span_notice("You feel your jetpack's engines cut out."))
+		to_chat(user, span_notice("Мне кажется, что двигатели реактивного ранца отказывают."))
 		turn_off(user)
 		return
 	return ..()
@@ -263,6 +263,9 @@
 
 /mob/living/carbon/human/get_jetpack()
 	var/obj/item/tank/jetpack/J = ..()
+	var/obj/item/tank/jetpack/Js = s_store
+	if(istype(Js))
+		return Js
 	if(!istype(J) && istype(wear_suit, /obj/item/clothing/suit/space/hardsuit))
 		var/obj/item/clothing/suit/space/hardsuit/C = wear_suit
 		J = C.jetpack

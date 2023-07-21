@@ -56,19 +56,19 @@
 
 /datum/bounty/item/medical/lizard_tail
 	name = "Хвост ящерицы"
-	description = "Федерация Волшебников закончила поставку для NanoTrasen хвостов ящериц. Пока ЦК ведёт переговоры с волшебниками, может ли станция обеспечить нас хотя бы одним хвостом?"
+	description = "Федерация Волшебников закончила поставку для НаноТрейзен хвостов ящериц. Пока ЦК ведёт переговоры с волшебниками, может ли станция обеспечить нас хотя бы одним хвостом?"
 	reward = CARGO_CRATE_VALUE * 200 // Да.
 	wanted_types = list(/obj/item/organ/tail/lizard)
 
 /datum/bounty/item/medical/cat_tail
 	name = "Хвост кошки"
-	description = "Центральное командование исчерпало запас анальных хвостиков. Можете ли вы отправить хвост кошки, чтобы помочь им?"
+	description = "Центральное командование исчерпало запас хвостиков. Можете ли вы отправить хвост кошки, чтобы помочь им?"
 	reward = CARGO_CRATE_VALUE * 190
 	wanted_types = list(/obj/item/organ/tail/cat)
 
 /datum/bounty/item/medical/chainsaw
-	name = "Бензопила"
-	description = "У СМО в ЦК проблемы с операцией на големамах. Она просит одну бензопилу, пожалуйста."
+	name = "Циркулярная пила"
+	description = "У СМО в ЦК проблемы с операцией на големамах. Она просит одну циркулярную пилу или бензопилу, пожалуйста."
 	reward = CARGO_CRATE_VALUE * 70
 	wanted_types = list(/obj/item/chainsaw,
 						/obj/item/circular_saw)
@@ -80,13 +80,13 @@
 	wanted_types = list(/obj/item/melee/chainofcommand/tailwhip)
 
 /datum/bounty/item/medical/surgerycomp
-	name = "Хирургический компьютер"
+	name = "Операционный компьютер"
 	description = "После очередного странного инцидента с взрывом бомбы на нашем ежегодном сырном фестивале в ЦентКоме у нас уже собралась огромная группа раненых. Пожалуйста, пришлите нам новый хирургический компьютер, если это возможно."
 	reward = CARGO_CRATE_VALUE * 140
-	wanted_types = list(/obj/machinery/computer/operating)
+	wanted_types = list(/obj/machinery/computer/operating, /obj/item/circuitboard/computer/operating)
 
 /datum/bounty/item/medical/surgerytable
 	name = "Операционный стол"
 	description = "После недавнего притока раненых членов экипажа после взрыва мы поняли, что на операции в полевых условиях протекают слишком медленно. Серебряные операционные столы могут помочь, пришлите нам один для использования."
 	reward = CARGO_CRATE_VALUE * 100
-	wanted_types = list(/obj/structure/table/optable)
+	wanted_types = list(/obj/structure/table/optable, /obj/item/optable)

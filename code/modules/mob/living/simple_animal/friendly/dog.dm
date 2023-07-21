@@ -90,13 +90,57 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_PUG, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
 /mob/living/simple_animal/pet/dog/pug/mcgriff
-	name = "McGriff"
-	desc = "This dog can tell something smells around here, and that something is CRIME!"
+	name = "МакГрифф"
+	desc = "Эта собака может сказать, что здесь чем-то пахнет, и это что-то является ПРЕСТУПЛЕНИЕМ!"
+
+/mob/living/simple_animal/pet/dog/dhund
+	name = "Такса"
+	real_name = "Такса"
+	desc = "Это такса."
+	icon = 'white/pieceofcrap.dmi'
+	icon_state = "dachshund"
+	icon_living = "dachshund"
+	icon_dead = "dachshund_dead"
+	butcher_results = list(/obj/item/food/meat/slab/dach = 3)
+	gold_core_spawnable = 2
+
+/mob/living/simple_animal/pet/dog/shepherd
+	name = "Овчарка"
+	real_name = "Овчарка"
+	desc = "Это овчарка."
+	icon = 'white/pieceofcrap.dmi'
+	icon_state = "shepherd"
+	icon_living = "shepherd"
+	icon_dead = "shepherd_dead"
+	butcher_results = list(/obj/item/food/meat/slab/shepherd = 3)
+	gold_core_spawnable = 2
+
+/mob/living/simple_animal/pet/dog/jack
+	name = "Джек"
+	real_name = "Джек рассел терьер"
+	desc = "Это джек рассел терьер."
+	icon = 'white/pieceofcrap.dmi'
+	icon_state = "jack"
+	icon_living = "jack"
+	icon_dead = "jack_dead"
+	butcher_results = list(/obj/item/food/meat/slab/jack = 3)
+	gold_core_spawnable = 2
+
+/mob/living/simple_animal/pet/dog/pug/chi
+	name = "Товарищ Чи"
+	real_name = "Чихуахуа"
+	desc = "Это чихуахуа"
+	icon = 'white/pieceofcrap.dmi'
+	icon_state = "chi"
+	icon_living = "chi"
+	icon_dead = "chi_dead"
+	butcher_results = list(/obj/item/food/meat/slab/chi = 1)
+	gold_core_spawnable = 2
 
 /mob/living/simple_animal/pet/dog/bullterrier
-	name = "\improper bull terrier"
-	real_name = "bull terrier"
-	desc = "It's a bull terrier."
+	name = "бультерьер"
+	real_name = "бультерьер"
+	desc = "Это бультерьер."
 	icon = 'icons/mob/pets.dmi'
 	icon_state = "bullterrier"
 	icon_living = "bullterrier"

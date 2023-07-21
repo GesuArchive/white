@@ -32,6 +32,14 @@
 	. = ..()
 	GLOB.tracked_implants -= src
 
+/obj/item/implant/tracking/implant(target)
+	. = ..()
+	GLOB.implant_sensors_list |= target
+
+/obj/item/implant/tracking/removed(mob/living/target)
+	. = ..()
+	GLOB.implant_sensors_list -= target
+
 /obj/item/implanter/tracking
 	imp_type = /obj/item/implant/tracking
 

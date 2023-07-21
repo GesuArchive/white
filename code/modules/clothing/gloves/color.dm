@@ -14,8 +14,8 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 
 /obj/item/clothing/gloves/color/yellow
-	desc = "Эти перчатки защитят пользователя от поражения электрическим током. Очень толстые, пострелять с такими не получится."
 	name = "резиновые перчатки"
+	desc = "Эти перчатки защитят пользователя от поражения электрическим током. Очень толстые, пострелять с такими не получится."
 	icon_state = "yellow"
 	inhand_icon_state = "ygloves"
 	siemens_coefficient = 0
@@ -263,7 +263,7 @@
 	inhand_icon_state = "aerostatic_gloves"
 
 /obj/item/clothing/gloves/maid
-	name = "maid arm covers"
-	desc = "Cylindrical looking tubes that go over your arm, weird."
+	name = "нарукавники служанки"
+	desc = "Нарукавники цилиндрического вида, миленько."
 	icon_state = "maid_arms"
 	worn_icon_state = "maid_arms"

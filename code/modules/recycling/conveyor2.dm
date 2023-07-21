@@ -509,6 +509,9 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 /obj/item/stack/conveyor/update_weight()
 	return FALSE
 
+/obj/item/stack/conveyor/four
+	amount = 4
+
 /obj/item/stack/conveyor/thirty
 	amount = 30
 

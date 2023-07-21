@@ -1,10 +1,10 @@
 //DON'T FORGET TO CHANGE THE REFILL SIZE IF YOU CHANGE THE MACHINE'S CONTENTS!
 /obj/machinery/vending/clothing
-	name = "ClothesMate" //renamed to make the slogan rhyme
+	name = "Дэнди" //renamed to make the slogan rhyme
 	desc = "Автомат по продаже одежды."
 	icon_state = "clothes"
 	icon_deny = "clothes-deny"
-	product_slogans = "Одевайся на успех!;Готовься выглядеть шикарно!;Посмотри на весь этот хабар! Зачем оставлять стиль на произвол судьбы? Используй ClothesMate!"
+	product_slogans = "Одевайся на успех!;Готовься выглядеть шикарно!;Посмотри на весь этот хабар! Зачем оставлять стиль на произвол судьбы? Используй Дэнди!"
 	vend_reply = "Спасибо за использование ClothesMate!"
 	product_categories = list(
 		list(
@@ -190,5 +190,5 @@
 	return (I.type in products)
 
 /obj/item/vending_refill/clothing
-	machine_name = "ClothesMate"
+	machine_name = "Дэнди"
 	icon_state = "refill_clothes"

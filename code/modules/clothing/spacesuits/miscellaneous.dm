@@ -17,6 +17,21 @@ Contains:
 */
 
 	//Death squad armored space suits, not hardsuits!
+/obj/item/clothing/suit/space/hardsuit/deathsquad
+	name = "MK.III Скафандр Спецназа"
+	desc = "Прототип разработанный чтобы заменить устаревший MK.II Спецназа. На основе оптимизированной модели MK.II традиционные керамические и графеновые пластины были заменены на пласталь, предоставляя превосходную защиту от большинства угроз. На спине есть место для устройства энергетической проекции."
+	icon_state = "deathsquad"
+	inhand_icon_state = "swat_suit"
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/kitchen/knife/combat)
+	armor = list(MELEE = 80, BULLET = 80, LASER = 50, ENERGY = 60, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20)
+	strip_delay = 130
+	slowdown = 0.1
+	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/deathsquad
+	dog_fashion = /datum/dog_fashion/back/deathsquad
+	cell = /obj/item/stock_parts/cell/bluespace
+
 /obj/item/clothing/head/helmet/space/hardsuit/deathsquad
 	name = "MK.III шлем спецназа"
 	desc = "Продвинутый тактический космичесий шлем."
@@ -31,33 +46,8 @@ Contains:
 /obj/item/clothing/head/helmet/space/hardsuit/deathsquad/attack_self(mob/user)
 	return
 
-/obj/item/clothing/suit/space/hardsuit/deathsquad
-	name = "MK.III Скафандр Спецназа"
-	desc = "Прототип разработанный чтобы заменить устаревший MK.II Спецназа. На основе оптимизированной модели MK.II традиционные керамические и графеновые пластины были заменены на пласталь, предоставляя превосходную защиту от большинства угроз. На спине есть место для устройства энергетической проекции."
-	icon_state = "deathsquad"
-	inhand_icon_state = "swat_suit"
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/kitchen/knife/combat)
-	armor = list(MELEE = 80, BULLET = 80, LASER = 50, ENERGY = 60, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20)
-	strip_delay = 130
-	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
-	resistance_flags = FIRE_PROOF | ACID_PROOF
-	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/deathsquad
-	dog_fashion = /datum/dog_fashion/back/deathsquad
-	cell = /obj/item/stock_parts/cell/bluespace
-
-	//NEW SWAT suit
-/obj/item/clothing/suit/space/swat
-	name = "MK.I Скафандр Спецназа"
-	desc = "Устаревший тактический скафандр, впервые разработанный совместными усилиями между ныне несуществующей IS-ERI и NanoTrasen в 20XX для проведения операций в космосе. Проверенный временем экземпляр, в нем очень тяжело ходить, однако это компенсируется надежной защитой от различных угроз!"
-	icon_state = "heavy"
-	inhand_icon_state = "swat_suit"
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/kitchen/knife/combat)
-	armor = list(MELEE = 40, BULLET = 30, LASER = 30,ENERGY = 40, BOMB = 50, BIO = 90, RAD = 20, FIRE = 100, ACID = 100, WOUND = 15)
-	strip_delay = 120
-	resistance_flags = FIRE_PROOF | ACID_PROOF
-
 /obj/item/clothing/head/helmet/space/beret
-	name = "офицерский шлем"
+	name = "офицерский космоберет"
 	desc = "Бронированный берет, обычно используемый офицерами спецопераций. Использует продвинутую технологию силового поля, что защищает голову от космоса."
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
@@ -69,6 +59,18 @@ Contains:
 	armor = list(MELEE = 80, BULLET = 80, LASER = 50, ENERGY = 60, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 15)
 	strip_delay = 130
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+
+	//NEW SWAT suit
+/obj/item/clothing/suit/space/swat
+	name = "MK.I Скафандр Спецназа"
+	desc = "Устаревший тактический скафандр, впервые разработанный совместными усилиями между ныне несуществующей IS-ERI и NanoTrasen в 20XX для проведения операций в космосе. Проверенный временем экземпляр, в нем очень тяжело ходить, однако это компенсируется надежной защитой от различных угроз!"
+	icon_state = "heavy"
+	inhand_icon_state = "swat_suit"
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/kitchen/knife/combat)
+	armor = list(MELEE = 40, BULLET = 30, LASER = 30,ENERGY = 40, BOMB = 50, BIO = 90, RAD = 20, FIRE = 100, ACID = 100, WOUND = 15)
+	strip_delay = 120
+	slowdown = 1
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/suit/space/officer
@@ -98,7 +100,7 @@ Contains:
 	icon_state = "void"
 	inhand_icon_state = "void"
 	desc = "Старый темно-красный скафандра, разработанный отделением ЦентКом НАСА."
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/multitool)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/multitool)
 
 /obj/item/clothing/head/helmet/space/nasavoid/old
 	name = "Engineering Void Helmet"
@@ -112,7 +114,7 @@ Contains:
 	inhand_icon_state = "void"
 	desc = "A CentCom engineering dark red space suit. Age has degraded the suit making is difficult to move around in."
 	slowdown = 4
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/multitool)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/multitool)
 
 	//Space santa outfit suit
 /obj/item/clothing/head/helmet/space/santahat
@@ -151,7 +153,7 @@ Contains:
 	desc = "Йарр."
 	icon_state = "spacepirate"
 	w_class = WEIGHT_CLASS_NORMAL
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/melee/energy/sword/pirate, /obj/item/clothing/glasses/eyepatch, /obj/item/reagent_containers/food/drinks/bottle/rum)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/melee/energy/sword/pirate, /obj/item/clothing/glasses/eyepatch, /obj/item/reagent_containers/food/drinks/bottle/rum)
 	slowdown = 0
 	armor = list(MELEE = 30, BULLET = 50, LASER = 30,ENERGY = 40, BOMB = 30, BIO = 30, RAD = 30, FIRE = 60, ACID = 75)
 	strip_delay = 40
@@ -252,7 +254,7 @@ Contains:
 	icon_state = "ert_janitor"
 	inhand_icon_state = "ert_janitor"
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ert/jani
-	allowed = list(/obj/item/tank/internals, /obj/item/storage/bag/trash, /obj/item/melee/flyswatter, /obj/item/mop, /obj/item/holosign_creator, /obj/item/reagent_containers/glass/bucket, /obj/item/reagent_containers/spray/chemsprayer/janitor)
+	allowed = list(/obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/storage/bag/trash, /obj/item/melee/flyswatter, /obj/item/mop, /obj/item/holosign_creator, /obj/item/reagent_containers/glass/bucket, /obj/item/reagent_containers/spray/chemsprayer/janitor)
 
 	//ERT Clown
 /obj/item/clothing/head/helmet/space/hardsuit/ert/clown
@@ -268,7 +270,7 @@ Contains:
 	icon_state = "ert_clown"
 	inhand_icon_state = "ert_clown"
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ert/clown
-	allowed = list(/obj/item/tank/internals, /obj/item/bikehorn, /obj/item/instrument, /obj/item/food/grown/banana, /obj/item/grown/bananapeel)
+	allowed = list(/obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/bikehorn, /obj/item/instrument, /obj/item/food/grown/banana, /obj/item/grown/bananapeel)
 
 /obj/item/clothing/suit/space/eva
 	name = "EVA suit"
@@ -330,7 +332,7 @@ Contains:
 	inhand_icon_state = "space_suit_syndicate"
 	slowdown = 0	//Space carp magic, never stop believing
 	armor = list(MELEE = -20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 75, FIRE = 60, ACID = 75) //As whimpy whimpy whoo
-	allowed = list(/obj/item/tank/internals, /obj/item/gun/ballistic/rifle/boltaction/harpoon)	//I'm giving you a hint here
+	allowed = list(/obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/gun/ballistic/rifle/boltaction/harpoon)	//I'm giving you a hint here
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/carp
 
 /obj/item/clothing/head/helmet/space/hardsuit/carp/equipped(mob/living/carbon/human/user, slot)
@@ -393,7 +395,7 @@ Contains:
 	armor = list(MELEE = 30, BULLET = 30, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 100, RAD = 10, FIRE = 100, ACID = 100)
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/pickaxe, /obj/item/spear, /obj/item/organ/regenerative_core/legion, /obj/item/kitchen/knife, /obj/item/kinetic_crusher, /obj/item/resonator, /obj/item/melee/cleaving_saw)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/pickaxe, /obj/item/spear, /obj/item/organ/regenerative_core/legion, /obj/item/kitchen/knife, /obj/item/kinetic_crusher, /obj/item/resonator, /obj/item/melee/cleaving_saw)
 
 
 
@@ -526,7 +528,7 @@ Contains:
 	desc = "A custom version of the MK.II SWAT suit, modified to look rugged and tough. Works as a space suit, if you can find a helmet."
 	icon_state = "hunter"
 	inhand_icon_state = "swat_suit"
-	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/kitchen/knife/combat)
+	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/restraints/handcuffs, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/kitchen/knife/combat)
 	armor = list(MELEE = 60, BULLET = 40, LASER = 40, ENERGY = 50, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
 	strip_delay = 130
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -548,5 +550,5 @@ Contains:
 	inhand_icon_state = "combatmedic"
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/combatmedic
 	armor = list(MELEE = 35, BULLET = 10, LASER = 20, ENERGY = 30, BOMB = 5, BIO = 100, RAD = 50, FIRE = 65, ACID = 75)
-	allowed = list(/obj/item/gun, /obj/item/melee/baton, /obj/item/circular_saw, /obj/item/tank/internals, /obj/item/storage/box/pillbottles,\
+	allowed = list(/obj/item/gun, /obj/item/melee/baton, /obj/item/circular_saw, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/storage/box/pillbottles,\
 	/obj/item/storage/firstaid, /obj/item/stack/medical/gauze, /obj/item/stack/medical/suture, /obj/item/stack/medical/mesh, /obj/item/storage/bag/chemistry)

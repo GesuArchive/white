@@ -18,7 +18,7 @@
 //Computer Tablets and Parts
 /datum/export/modular_part
 	cost = CARGO_CRATE_VALUE * 0.075
-	unit_name = "прочая компьютерная часть"
+	unit_name = "любое компьютерное оборудование"
 	export_types = list(/obj/item/computer_hardware)
 	include_subtypes = TRUE
 
@@ -26,20 +26,20 @@
 
 /datum/export/modular_part/battery
 	cost = CARGO_CRATE_VALUE * 0.2
-	unit_name = "ячейка питания компьютера"
+	unit_name = "Нано батарея ПК"
 	export_types = list(/obj/item/stock_parts/cell/computer/nano)
 	include_subtypes = FALSE
 
 
 /datum/export/modular_part/battery/upgraded
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "модернизированная ячейка питания компьютера"
+	unit_name = "Микро батарея ПК"
 	export_types = list(/obj/item/stock_parts/cell/computer/micro)
 	include_subtypes = FALSE
 
 
 /datum/export/modular_part/battery/advanced
 	cost = CARGO_CRATE_VALUE * 0.75
-	unit_name = "усовершенствованный компьютерный элемент питания"
+	unit_name = "Стандартная батарея ПК"
 	export_types = list(/obj/item/stock_parts/cell/computer)
 	include_subtypes = FALSE

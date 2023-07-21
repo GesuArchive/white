@@ -49,7 +49,7 @@ SUBSYSTEM_DEF(eventmaster)
 			SSweather.flags |= SS_NO_FIRE
 			SSeconomy.flags |= SS_NO_FIRE
 			SSeconomy.flags |= SS_NO_FIRE
-			SSjob.DisableJobsButThis(/datum/job/assistant)
+			SSjob.DisableJobsButThis(/datum/job/assistant, FALSE)
 			to_chat(world, span_heavy_brass("Остановка лишних контроллеров успешна!"))
 			action_area = GLOB.areas_by_type[/area/partyhard/outdoors]
 			second_area = GLOB.areas_by_type[/area/partyhard/indoors]

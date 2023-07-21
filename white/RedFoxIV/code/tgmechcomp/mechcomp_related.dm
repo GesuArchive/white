@@ -1,6 +1,6 @@
 /obj/item/multitool/mechcomp
-	name = "MechComp™  Connector Utility Mechanism"
-	desc = "The MechComp brand Connector Utility Mechanism used in construction and usage of MechComp brand mechanical components. Can also double as a useful multitool."
+	name = "соединительный коннектор Мех-Комп"
+	desc = "Универсальный механизм настройки, используемый при изготовлении и использовании механических компонентов марки Мех-комп. Может также использоваться в качестве полезного многофункционального инструмента."
 	icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi'
 	icon_state = "linker_multitool"
 	var/mechcomp_enabled = FALSE
@@ -23,8 +23,8 @@
 	//at least i got to make "cool" sprites
 
 /obj/machinery/vending/mechcomp
-	name = "торговый автомат MechComp"
-	desc = "Sells mechcomp components. Not much else to say about it."
+	name = "торговый автомат Мех-Комп"
+	desc = "Продает компоненты для мехкомплектов. Больше об этом нечего сказать."
 	icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi'
 	icon_state = "vending"
 	icon_deny = "vending-deny"
@@ -58,4 +58,4 @@
 	refill_canister = /obj/item/vending_refill/mechcomp
 
 /obj/item/vending_refill/mechcomp
-	machine_name = "MechComp"
+	machine_name = "Мех-Комп"

@@ -1,13 +1,13 @@
 /obj/machinery/vending/dinnerware
-	name = "Plasteel Chef's Dinnerware Vendor"
+	name = "Цельнометаллическая поварешка"
 	desc = "Продавец кухонного и ресторанного оборудования."
 	product_ads = "Мм, продукты питания!;Еда и пищевые аксессуары.;Бери свои тарелки!;Ты любишь вилки?;Я люблю вилки!;Ух, посуда.;Тебе это действительно не нужно..."
 	icon_state = "dinnerware"
 	products = list(
 		/obj/item/storage/bag/tray = 8,
 		/obj/item/reagent_containers/glass/bowl = 20,
-		/obj/item/kitchen/fork = 6,
-		/obj/item/kitchen/spoon = 6,
+		/obj/item/kitchen/fork = 16,
+		/obj/item/kitchen/spoon = 16,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 8,
 		/obj/item/reagent_containers/food/condiment/pack/ketchup = 5,
 		/obj/item/reagent_containers/food/condiment/pack/hotsauce = 5,
@@ -30,5 +30,5 @@
 	light_mask = "dinnerware-light-mask"
 
 /obj/item/vending_refill/dinnerware
-	machine_name = "Plasteel Chef's Dinnerware Vendor"
+	machine_name = "Цельнометаллическая поварешка"
 	icon_state = "refill_smoke"

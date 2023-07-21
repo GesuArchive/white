@@ -310,13 +310,11 @@
 	name = "Gravity Generator APC";
 	pixel_x = -25
 	},
-/obj/structure/table,
-/obj/item/paper/guides/jobs/engi/gravity_gen,
-/obj/item/pen/blue,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
+/obj/structure/closet/crate/graviton_beacon,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/gravity_generator)
 "aR" = (
@@ -493,18 +491,21 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/table,
+/obj/item/paper/guides/jobs/engi/gravity_gen,
+/obj/item/pen/blue,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/gravity_generator)
 "bl" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/structure/closet/radiation,
 /obj/machinery/airalarm{
 	dir = 4;
 	pixel_x = -23
 	},
 /obj/structure/cable,
+/obj/structure/closet/crate/jetpack,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/gravity_generator)
 "bm" = (

@@ -157,8 +157,8 @@
 	greyscale_colors = null
 
 /obj/item/clothing/neck/maid
-	name = "maid neck cover"
-	desc = "A neckpiece for a maid costume, it smells faintly of disappointment."
+	name = "кружевной воротничок служанки"
+	desc = "Кружевной воротничок для форменной одежды служанки."
 	icon_state = "maid_neck"
 
 /obj/item/clothing/neck/stethoscope

@@ -202,10 +202,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/maintenance/port/fore)
-"aaO" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/hallway/secondary/entry)
 "aaP" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/hallway/secondary/entry)
@@ -22587,7 +22583,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = -5;
 	pixel_y = -4
 	},
@@ -23863,6 +23859,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/medical/pharmacy)
 "dbe" = (
@@ -23875,8 +23874,10 @@
 /area/medical/pharmacy)
 "dbf" = (
 /obj/machinery/chem_dispenser,
-/obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -24338,6 +24339,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/medical/pharmacy)
 "dcQ" = (
@@ -24345,10 +24350,19 @@
 /turf/open/floor/plasteel,
 /area/medical/pharmacy)
 "dcR" = (
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
+/obj/structure/table/glass,
+/obj/item/storage/box/beakers{
+	pixel_x = 7;
+	pixel_y = 10
 	},
+/obj/item/storage/box/beakers/large_beakers{
+	pixel_x = 7;
+	pixel_y = -6
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
@@ -25357,15 +25371,31 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
 /turf/open/floor/plasteel,
 /area/medical/pharmacy)
 "dgW" = (
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
+/obj/structure/table/glass,
+/obj/item/storage/box/beakers/large_beakers{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
+	},
+/obj/item/storage/box/beakers{
+	pixel_x = -8;
+	pixel_y = 8
 	},
 /turf/open/floor/plasteel,
 /area/medical/pharmacy)
@@ -25375,6 +25405,10 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
@@ -26420,6 +26454,9 @@
 	department = "Pharmacy";
 	name = "Pharmacy Requests Console";
 	receive_ore_updates = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/medical/pharmacy)
@@ -46425,7 +46462,7 @@
 /area/cargo/storage)
 "gIf" = (
 /obj/structure/table/wood,
-/obj/item/clothing/suit/justice,
+/obj/item/clothing/suit/armor/vest/justice,
 /obj/item/clothing/head/helmet/justice/escape{
 	name = "justice helmet"
 	},
@@ -55580,12 +55617,6 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
-	},
-/obj/machinery/button/door/directional/north{
-	id = "MedbayFoyer";
-	name = "Medbay Doors Control";
-	normaldoorcontrol = 1;
-	pixel_x = 24
 	},
 /turf/open/floor/plasteel/white,
 /area/hallway/primary/aft)
@@ -107473,6 +107504,12 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/machinery/button/door/directional/north{
+	id = "MedbayFoyer";
+	name = "Medbay Doors Control";
+	normaldoorcontrol = 1;
+	pixel_x = 24
+	},
 /turf/open/floor/plasteel/white,
 /area/hallway/primary/aft)
 "wNz" = (
@@ -144566,25 +144603,25 @@ aad
 aad
 aad
 aad
-aaO
+vVy
 aea
-aaO
+vVy
 aad
 aaa
 aaa
 aad
-aaO
+vVy
 aea
-aaO
+vVy
 aad
 aad
 aad
 aad
 aad
-aaO
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
+vVy
 aaa
 kfc
 kfc
@@ -144823,25 +144860,25 @@ aaa
 aaa
 aad
 aaa
-aaO
+vVy
 ehy
-aaO
-aaO
-aaO
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
+vVy
+vVy
+vVy
 ehy
-aaO
+vVy
 aaa
 aad
 aaa
 aaa
 aaa
-aaO
+vVy
 ajs
 ajR
-aaO
+vVy
 aad
 aad
 aad
@@ -145068,32 +145105,32 @@ aaa
 aaa
 aaa
 aaa
-aaO
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
+vVy
 abf
-aaO
-aaO
+vVy
+vVy
 abf
-aaO
-aaO
+vVy
+vVy
 abf
 adq
-aaO
+vVy
 aec
-aaO
+vVy
 ndS
 pfI
 sDV
 hiA
-aaO
+vVy
 aej
-aaO
+vVy
 ads
 abf
-aaO
-aaO
+vVy
+vVy
 abf
 abf
 ajt
@@ -145582,9 +145619,9 @@ aaa
 aaa
 aaa
 aaa
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
 xAW
 abq
 abD
@@ -145841,30 +145878,30 @@ aaa
 aaa
 aaa
 qYo
-aaO
-aaO
+vVy
+vVy
 abf
-aaO
-aaO
+vVy
+vVy
 abf
-aaO
-aaO
+vVy
+vVy
 abf
-aaO
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
+vVy
 aeS
 afu
 afx
 agk
-aaO
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
+vVy
 abf
-aaO
-aaO
+vVy
+vVy
 abf
 abf
 tbi
@@ -146110,12 +146147,12 @@ aad
 aaa
 aaa
 aad
-aaO
-aaO
-aaO
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
+vVy
+vVy
+vVy
 aad
 aaa
 aaa
@@ -146380,7 +146417,7 @@ aad
 aad
 aad
 aad
-aaO
+vVy
 tbi
 ajX
 ldY
@@ -146636,7 +146673,7 @@ aaa
 aaa
 aaa
 aad
-aaO
+vVy
 abf
 pQQ
 ajV
@@ -147149,9 +147186,9 @@ aaa
 aaa
 aaa
 aaa
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
 tbi
 ajV
 ldY
@@ -147663,9 +147700,9 @@ aaa
 aaa
 aaa
 aaa
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
 tbi
 akc
 ldY
@@ -148178,7 +148215,7 @@ aaa
 aaa
 aaa
 aad
-aaO
+vVy
 abf
 hoN
 ajV
@@ -148421,22 +148458,22 @@ aad
 aad
 aad
 aad
-aaO
+vVy
 lcU
-aaO
+vVy
 aad
 aad
 aad
 aad
-aaO
+vVy
 aON
-aaO
+vVy
 aad
 aad
 aad
 aad
 aad
-aaO
+vVy
 tbi
 jrC
 ldY
@@ -148678,16 +148715,16 @@ aaa
 aaa
 aad
 aaa
-aaO
+vVy
 ehy
-aaO
-aaO
-aaO
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
+vVy
+vVy
+vVy
 ehy
-aaO
+vVy
 aaa
 aad
 aaa
@@ -148931,24 +148968,24 @@ abf
 abf
 abf
 abf
-aaO
-aaO
+vVy
+vVy
 abf
 ads
-aaO
+vVy
 qkG
-aaO
+vVy
 aeV
 afw
 afT
 agk
-aaO
+vVy
 eAM
-aaO
+vVy
 adq
 abf
-aaO
-aaO
+vVy
+vVy
 abf
 abf
 hTb
@@ -149700,7 +149737,7 @@ aaa
 aaa
 xZM
 abG
-aaO
+vVy
 acc
 abD
 abD
@@ -149959,24 +149996,24 @@ abf
 abf
 abf
 abf
-aaO
-aaO
+vVy
+vVy
 abf
 adq
-aaO
+vVy
 aee
-aaO
+vVy
 aeX
 afx
 afx
 agl
-aaO
+vVy
 aee
-aaO
+vVy
 ads
 abf
-aaO
-aaO
+vVy
+vVy
 abf
 ajh
 xoQ
@@ -150220,16 +150257,16 @@ aaa
 aaa
 aad
 aaa
-aaO
+vVy
 ehy
-aaO
-aaO
-aaO
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
+vVy
+vVy
+vVy
 ehy
-aaO
+vVy
 aaa
 aad
 aaa
@@ -150477,22 +150514,22 @@ aad
 aad
 aad
 aad
-aaO
+vVy
 azI
-aaO
+vVy
 aad
 aaa
 aaa
 aad
-aaO
+vVy
 aYA
-aaO
+vVy
 aad
 aad
 aad
 aad
 aad
-aaO
+vVy
 tRN
 ajV
 akE
@@ -151006,7 +151043,7 @@ aaa
 aaa
 aaa
 aaa
-aaO
+vVy
 mlq
 nkd
 nkd
@@ -151263,7 +151300,7 @@ aaa
 aaa
 aaa
 aaa
-aaO
+vVy
 qQv
 akf
 akJ
@@ -151520,11 +151557,11 @@ aaa
 aaa
 aaa
 aaa
-aaO
+vVy
 tRN
 aco
 akK
-aaO
+vVy
 amp
 ano
 aon
@@ -151781,7 +151818,7 @@ vVy
 tRN
 aco
 akL
-aaO
+vVy
 amq
 anp
 nVc
@@ -152034,11 +152071,11 @@ aaa
 aaa
 aaa
 aaa
-aaO
+vVy
 tRN
 aco
 akM
-aaO
+vVy
 amr
 ojT
 ano
@@ -152291,7 +152328,7 @@ aaa
 aaa
 aaa
 aaa
-aaO
+vVy
 tRN
 aco
 akN
@@ -152548,7 +152585,7 @@ aaa
 aaa
 aaa
 aaa
-aaO
+vVy
 mlq
 nkd
 nkd
@@ -153047,22 +153084,22 @@ aad
 aad
 aad
 aad
-aaO
+vVy
 lcU
-aaO
+vVy
 aad
 aaa
 aaa
 aad
-aaO
+vVy
 lcU
-aaO
+vVy
 aad
 aad
 aad
 aad
 aad
-aaO
+vVy
 tRN
 hxG
 akP
@@ -153304,16 +153341,16 @@ aaa
 aaa
 aad
 aaa
-aaO
+vVy
 ehy
-aaO
-aaO
-aaO
-aaO
-aaO
-aaO
+vVy
+vVy
+vVy
+vVy
+vVy
+vVy
 ehy
-aaO
+vVy
 aaa
 aad
 aaa
@@ -153557,24 +153594,24 @@ abf
 abf
 abf
 abf
-aaO
-aaO
+vVy
+vVy
 abf
 ads
-aaO
+vVy
 eAM
-aaO
+vVy
 afb
 afz
 afV
 agk
-aaO
+vVy
 gJw
-aaO
+vVy
 adq
 abf
-aaO
-aaO
+vVy
+vVy
 abf
 ajh
 xoQ
@@ -153812,7 +153849,7 @@ aaa
 aaa
 xZM
 abE
-aaO
+vVy
 aca
 abC
 abC
@@ -154326,7 +154363,7 @@ aaa
 aaa
 xZM
 abG
-aaO
+vVy
 acc
 abD
 abD

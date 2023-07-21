@@ -4079,8 +4079,8 @@
 /area/mine/lobby)
 "pE" = (
 /obj/structure/closet/crate/medical,
-/obj/item/storage/box/large_beakers,
-/obj/item/storage/box/large_beakers,
+/obj/item/storage/box/beakers/large_beakers,
+/obj/item/storage/box/beakers/large_beakers,
 /obj/item/storage/box/beakers,
 /obj/item/storage/box/beakers,
 /obj/item/storage/box/syringes,
@@ -11639,7 +11639,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/ai_monitored/turret_protected/aisat/hallway)
 "QU" = (
 /obj/item/flashlight,
@@ -12209,7 +12209,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/ai_monitored/turret_protected/aisat/hallway)
 "ST" = (
 /obj/structure/lattice/catwalk,

@@ -512,7 +512,7 @@
 /obj/machinery/chem_dispenser/drinks/fullupgrade //fully ugpraded stock parts, emagged
 	desc = "Содержит большой резервуар с безалкогольными напитками. Предохранители данного аппарата закорочены."
 	obj_flags = CAN_BE_HIT | EMAGGED
-	flags_1 = NODECONSTRUCT_1
+//	flags_1 = NODECONSTRUCT_1
 	circuit = /obj/item/circuitboard/machine/chem_dispenser/drinks/fullupgrade
 
 /obj/machinery/chem_dispenser/drinks/fullupgrade/Initialize(mapload)
@@ -560,7 +560,7 @@
 /obj/machinery/chem_dispenser/drinks/beer/fullupgrade //fully ugpraded stock parts, emagged
 	desc = "Содержит большой резервуар с ништяками. Предохранители данного аппарата закорочены."
 	obj_flags = CAN_BE_HIT | EMAGGED
-	flags_1 = NODECONSTRUCT_1
+//	flags_1 = NODECONSTRUCT_1
 	circuit = /obj/item/circuitboard/machine/chem_dispenser/drinks/beer/fullupgrade
 
 /obj/machinery/chem_dispenser/drinks/beer/fullupgrade/Initialize(mapload)
@@ -578,7 +578,7 @@
 /obj/machinery/chem_dispenser/mutagensaltpeter
 	name = "раздатчик ботанических химикатов"
 	desc = "Производит и раздает химикаты, используемые в ботанике."
-	flags_1 = NODECONSTRUCT_1
+//	flags_1 = NODECONSTRUCT_1
 
 	circuit = /obj/item/circuitboard/machine/chem_dispenser/mutagensaltpeter
 
@@ -603,7 +603,7 @@
 /obj/machinery/chem_dispenser/fullupgrade //fully ugpraded stock parts, emagged
 	desc = "Производит и раздает химикаты. Предохранители данного аппарата закорочены."
 	obj_flags = CAN_BE_HIT | EMAGGED
-	flags_1 = NODECONSTRUCT_1
+//	flags_1 = NODECONSTRUCT_1
 	circuit = /obj/item/circuitboard/machine/chem_dispenser/fullupgrade
 
 /obj/machinery/chem_dispenser/fullupgrade/Initialize(mapload)

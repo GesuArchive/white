@@ -39,7 +39,7 @@
 	possible_destinations = "huntership_home;huntership_custom;whiteship_home;syndicate_nw"
 
 /obj/structure/closet/crate/eva
-	name = "EVA crate"
+	name = "ящик с скафандрами"
 
 /obj/structure/closet/crate/eva/PopulateContents()
 	..()
@@ -51,3 +51,14 @@
 		new /obj/item/clothing/mask/breath(src)
 	for(var/i in 1 to 3)
 		new /obj/item/tank/internals/oxygen(src)
+
+/obj/structure/closet/crate/jetpack
+	name = "ящик с реактивными ранцами"
+	icon_state = "o2crate"
+
+/obj/structure/closet/crate/jetpack/PopulateContents()
+	..()
+	for(var/i in 1 to 3)
+		new /obj/item/tank/jetpack(src)
+	for(var/i in 1 to 3)
+		new /obj/item/clothing/suit/hazardvest(src)

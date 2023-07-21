@@ -324,8 +324,8 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/item/wallframe/button
-	name = "button frame"
-	desc = "Used for building buttons."
+	name = "рама для кнопки"
+	desc = "Используется для сборки кнопок."
 	icon_state = "button"
 	result_path = /obj/machinery/button
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)

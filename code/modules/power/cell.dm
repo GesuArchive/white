@@ -258,6 +258,10 @@
 	name = "X-01 multiphase energy gun power cell"
 	maxcharge = 1200
 
+/obj/item/stock_parts/cell/hos_gun
+	name = "X-01 multiphase energy gun power cell"
+	maxcharge = 2400
+
 /obj/item/stock_parts/cell/pulse //200 pulse shots
 	name = "pulse rifle power cell"
 	maxcharge = 40000
@@ -278,6 +282,10 @@
 /obj/item/stock_parts/cell/weapon/cell_1500
 	name = "оружейная батарея на 1500 Вт"
 	maxcharge = 1500
+
+/obj/item/stock_parts/cell/weapon/cell_3000
+	name = "оружейная батарея на 3000 Вт"
+	maxcharge = 3000
 
 /obj/item/stock_parts/cell/high
 	name = "батарея увеличенной емкости"

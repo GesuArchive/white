@@ -231,6 +231,9 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 	. = ..()
 	. += GLOB.plasteel_recipes
 
+/obj/item/stack/sheet/plasteel/five
+	amount = 5
+
 /obj/item/stack/sheet/plasteel/twenty
 	amount = 20
 

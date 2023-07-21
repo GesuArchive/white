@@ -75,7 +75,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/kinetic_accelerator)
 
 /datum/crafting_recipe/xraylaser
-	name = "Рентгеновская лазерная пушка"
+	name = "Рентгеновская лазерная винтовка"
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/gun/energy/xray
 	reqs = list(/obj/item/gun/energy/laser = 1,

@@ -397,8 +397,8 @@
 //High-traction
 /obj/item/stack/tile/noslip
 	name = "противоскользящая напольная плитка"
+	desc = "Благодаря хорошему сцеплению с поверхностью на этой плитке невозможно подскользнуться. Так же незначительно повышает скорость перемещения. На ощупь кажется немного резиновой."
 	singular_name = "high-traction floor tile"
-	desc = "Противоскользящая напольная плитка. В руке она кажется резиновой."
 	icon_state = "tile_noslip"
 	inhand_icon_state = "tile-noslip"
 	turf_type = /turf/open/floor/noslip
@@ -406,6 +406,8 @@
 
 /obj/item/stack/tile/noslip/thirty
 	amount = 30
+/obj/item/stack/tile/noslip/fifty
+	amount = 50
 
 //Circuit
 /obj/item/stack/tile/circuit

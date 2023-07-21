@@ -1,6 +1,6 @@
 /obj/machinery/the_singularitygen/tesla
-	name = "energy ball generator"
-	desc = "Makes the wardenclyffe look like a child's plaything when shot with a particle accelerator."
+	name = "инициатор Тесла-аномалии"
+	desc = "При облучении излучателем частиц порождает огромную высоковольтную шаровую молнию, сдержать которую может только силовое поле."
 	icon = 'icons/obj/tesla_engine/tesla_generator.dmi'
 	icon_state = "TheSingGen"
 	creation_type = /obj/energy_ball

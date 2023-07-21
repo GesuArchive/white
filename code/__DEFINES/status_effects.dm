@@ -37,6 +37,8 @@
 
 #define STATUS_EFFECT_REGENERATIVE_CORE /datum/status_effect/regenerative_core
 
+#define STATUS_EFFECT_SAVER /datum/status_effect/saver // иммунитет к паразитам
+
 #define STATUS_EFFECT_ANTIMAGIC /datum/status_effect/antimagic //grants antimagic (and reapplies if lost) for the duration
 
 #define STATUS_EFFECT_DETERMINED /datum/status_effect/determined //currently in a combat high from being seriously wounded
@@ -99,7 +101,8 @@
 
 #define STATUS_EFFECT_GONBOLAPACIFY /datum/status_effect/gonbola_pacify //Gives the user gondola traits while the gonbola is attached to them.
 
-#define STATUS_EFFECT_SPASMS /datum/status_effect/spasms //causes random muscle spasms
+#define STATUS_EFFECT_SPASMS /datum/status_effect/spasms //causes random muscle spasms - prob 15
+#define STATUS_EFFECT_HEAVY_SPASMS /datum/status_effect/spasms/heavy //causes random muscle spasms - prob 30
 
 #define STATUS_EFFECT_DNA_MELT /datum/status_effect/dna_melt //usually does something horrible to you when you hit 100 genetic instability
 

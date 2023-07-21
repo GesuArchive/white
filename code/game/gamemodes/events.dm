@@ -54,7 +54,7 @@
 
 /proc/power_restore_quick()
 
-	priority_announce("Все СНМЭ на станции [station_name()] были заряжены нашей электромагнитной установкой. Приносим свои извинения за доставленные неудобства.", "Электропитание стабилизировано", ANNOUNCER_POWERON)
+	priority_announce("Все СМЕСы на станции [station_name()] были заряжены нашей электромагнитной установкой. Приносим свои извинения за доставленные неудобства.", "Электропитание стабилизировано", ANNOUNCER_POWERON)
 	for(var/obj/machinery/power/smes/S in GLOB.machines)
 		if(!is_station_level(S.z))
 			continue

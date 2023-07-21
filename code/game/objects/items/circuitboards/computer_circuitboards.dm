@@ -13,7 +13,8 @@
 	build_path = /obj/machinery/computer/upload/borg
 
 /obj/item/circuitboard/computer/bsa_control
-	name = "Bluespace Artillery Controls (Консоль)"
+	name = "Компьютер блюспейс артиллерии"
+	desc = "Цельсь, готовьсь, ПЛИ!"
 	build_path = /obj/machinery/computer/bsa_control
 
 //Engineering
@@ -617,33 +618,38 @@
 	build_path = /obj/machinery/computer/shuttle_flight/custom_shuttle
 
 /obj/item/circuitboard/computer/service_orders
-	name = "Service Order"
+	name = "консоль бюджетных сервисных заказов"
+	desc = "Используется для заказов бесплатных посылок с ЦК. Посылку можно открыть только на территории отдела."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/department_orders/service
 
 /obj/item/circuitboard/computer/engineering_orders
-	name = "Engineering Order"
+	name = "консоль бюджетных инженерных заказов"
+	desc = "Используется для заказов бесплатных посылок с ЦК. Посылку можно открыть только на территории отдела."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/department_orders/engineering
 
 /obj/item/circuitboard/computer/science_orders
-	name = "Science Order"
+	name = "консоль бюджетных научных заказов"
+	desc = "Используется для заказов бесплатных посылок с ЦК. Посылку можно открыть только на территории отдела."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/department_orders/science
 
 /obj/item/circuitboard/computer/security_orders
-	name = "Security Order"
+	name = "консоль бюджетных заказов охраны"
+	desc = "Используется для заказов бесплатных посылок с ЦК. Посылку можно открыть только на территории отдела."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/department_orders/security
 
 /obj/item/circuitboard/computer/medical_orders
-	name = "Medical Order"
+	name = "консоль бюджетных медицинских заказов"
+	desc = "Используется для заказов бесплатных посылок с ЦК. Посылку можно открыть только на территории отдела."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/department_orders/medical
 
 /obj/item/circuitboard/computer/bounty
 	name = "Консоль заказов с ЦК"
-	desc = "Используется для проверки и выполнений заказов ЦК"
+	desc = "Используется для проверки и выполнений заказов ЦК."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/bounty
 

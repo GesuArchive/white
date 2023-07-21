@@ -261,6 +261,64 @@
 /obj/item/reagent_containers/glass/beaker/synthflesh
 	list_reagents = list(/datum/reagent/medicine/c2/synthflesh = 50)
 
+/obj/item/reagent_containers/glass/chem_canister
+	name = "химическая канистра"
+	desc = "Большая емкость вмещающая в себя до 300 единиц жидкости."
+	icon = 'white/Feline/icons/med_items.dmi'
+	icon_state = "chem_canister"
+	lefthand_file = 'icons/mob/inhands/equipment/tanks_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/tanks_righthand.dmi'
+	inhand_icon_state = "an_tank"
+	custom_materials = list(/datum/material/glass = 2000, /datum/material/iron=2000)
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,300)
+	volume = 300
+
+/obj/item/reagent_containers/glass/chem_canister/virus_food
+	name = "Пища для вирусов"
+	desc = "Смесь из молока и воды. Позволяет вирусам размножаться и мутировать."
+	list_reagents = list(/datum/reagent/consumable/virus_food = 300)
+
+/obj/item/reagent_containers/glass/chem_canister/phenol
+	name = "Фенол"
+	desc = "Ароматическое кольцо углерода с гидроксильной группой. Входит в состав множества лекарств, но сам по себе не обладает целебными свойствами."
+	list_reagents = list(/datum/reagent/phenol = 300)
+
+/obj/item/reagent_containers/glass/chem_canister/oil
+	name = "Масло"
+	desc = "Сгорает в небольшом дымном костре, может быть использован для получения пепла."
+	list_reagents = list(/datum/reagent/fuel/oil = 300)
+
+/obj/item/reagent_containers/glass/chem_canister/acetone
+	name = "Ацетон"
+	desc = "Скользкая, слегка канцерогенная жидкость. Имеет множество повседневных применений в повседневной жизни."
+	list_reagents = list(/datum/reagent/acetone = 300)
+
+/obj/item/reagent_containers/glass/chem_canister/ammonia
+	name = "Аммиак"
+	desc = "Едкое вещество, обычно используемое в удобрениях или бытовых чистящих средствах."
+	list_reagents = list(/datum/reagent/ammonia = 300)
+
+/obj/item/reagent_containers/glass/chem_canister/fluorosurfactant
+	name = "Фторовая Пена"
+	desc = "Перфторированная сульфокислота, которая образует пену при смешивании с водой."
+	list_reagents = list(/datum/reagent/fluorosurfactant = 300)
+
+/obj/item/reagent_containers/glass/chem_canister/diethylamine
+	name = "Диэтиламин"
+	desc = "Вторичный амин, слабо вызывающий коррозию."
+	list_reagents = list(/datum/reagent/diethylamine = 300)
+
+/obj/item/reagent_containers/glass/chem_canister/basic_buffer
+	name = "Щелочный буфер"
+	desc = "При добавлении к составу сместит ПШ баланс в сторону щелочности."
+	list_reagents = list(/datum/reagent/reaction_agent/basic_buffer = 300)
+
+/obj/item/reagent_containers/glass/chem_canister/acidic_buffer
+	name = "Кислотный буфер"
+	desc = "При добавлении к составу сместит ПШ баланс в сторону кислотности."
+	list_reagents = list(/datum/reagent/reaction_agent/acidic_buffer = 300)
+
 /obj/item/reagent_containers/glass/bucket
 	name = "ведро"
 	desc = "Просто ведро."

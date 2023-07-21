@@ -363,7 +363,7 @@
 	pixel_x = -8;
 	pixel_y = 10
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = -8;
 	pixel_y = -6
 	},
@@ -1350,10 +1350,12 @@
 /turf/open/floor/plasteel,
 /area/medical/virology)
 "jW" = (
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/sign/departments/chemistry/pharmacy,
-/turf/closed/wall/r_wall{
-	light_color = "#FFFF00"
+/obj/machinery/door/poddoor/preopen{
+	id = "chem_window"
 	},
+/turf/open/floor/plasteel/monofloor/dark,
 /area/medical/pharmacy)
 "jY" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -1410,7 +1412,7 @@
 /obj/structure/desk_bell{
 	pixel_y = 5
 	},
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/lobby)
 "kw" = (
@@ -1794,7 +1796,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/lobby)
 "nK" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/machinery/door/window/northright{
 	name = "First-Aid Supplies";
 	red_alert_access = 1;
@@ -2711,7 +2713,7 @@
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay)
 "vh" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/structure/railing,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
@@ -4195,13 +4197,20 @@
 /obj/item/radio/intercom{
 	pixel_x = -25
 	},
-/obj/item/storage/box/beakers{
-	pixel_x = 2;
-	pixel_y = 2
+/obj/item/storage/box/syringes{
+	pixel_x = -8;
+	pixel_y = 8
 	},
-/obj/item/storage/box/syringes,
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 8
+	},
+/obj/item/storage/box/beakers{
+	pixel_x = -8;
+	pixel_y = -4
+	},
+/obj/item/storage/box/monkeycubes{
+	pixel_y = 3;
+	pixel_x = 8
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
@@ -5395,7 +5404,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay)
 "Nm" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -6913,7 +6922,7 @@
 	pixel_x = -8;
 	pixel_y = 2
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = 8;
 	pixel_y = 2
 	},
@@ -6964,7 +6973,7 @@
 /turf/closed/wall/r_wall,
 /area/medical/medbay/lobby)
 "YC" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -7038,7 +7047,7 @@
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "Zh" = (
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/machinery/door/window/northleft{
 	name = "First-Aid Supplies";
 	red_alert_access = 1;

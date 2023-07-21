@@ -163,7 +163,7 @@
 	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
 
 /obj/item/gun/energy/laser/rangers
-	name = "экспериментальная лазерная пушка"
+	name = "экспериментальная лазерная винтовка"
 	desc = "Неожиданный результат экспериментов Нанотрейзен в области увеличения энергоячеек. Боезапас винтовки был удвоен, но из за особенностей энергораспределения поражающая мощность понизилась. Однако был обнаружен полезный побочный эффект: нестабильное излучение оказывает чрезвычайно разрушительный эффект на нервную систему примитивных форм жизни. Предоставлена корпусу рейнджеров на полевые испытания."
 	icon = 'white/Feline/icons/weapon_rangers.dmi'
 	icon_state = "rangerlaser"
@@ -176,10 +176,10 @@
 
 /obj/item/melee/sabre/proton_cutter
 	name = "протонный резак"
-	desc = "Массивный абордажный палаш оснащенный генератором гамма излучения, которое негативно сказывается на нервной системе примитивных форм жизни. Так же можно дополнительно форсировать генератор для полной парализации. Эффект на разумные формы жизни значительно снижен."
+	desc = "Массивный абордажный палаш оснащенный генератором гамма излучения, которое негативно сказывается на нервной системе примитивных форм жизни. Так же можно дополнительно форсировать генератор для полной парализации. Эффект на разумные формы жизни значительно снижен. Из-за массивного лезвия его можно использовать как лом для отжимания пожарных шлюзов и обесточенных дверей."
 
 	force = 15
-	block_chance = 30
+	block_chance = 45
 	armour_penetration = 10
 	wound_bonus = 0
 	bare_wound_bonus = 5
@@ -229,10 +229,10 @@
 			playsound(B, 'white/Feline/sounds/proton_cutter_off.ogg', 100, TRUE)
 
 /datum/movespeed_modifier/proton_cutter		//	Контроль
-	multiplicative_slowdown = 0.5
+	multiplicative_slowdown = 1
 
 /datum/movespeed_modifier/proton_cutter_heavy
-	multiplicative_slowdown = 0.1
+	multiplicative_slowdown = 2
 
 /obj/item/melee/sabre/proton_cutter/attack_self(mob/user)	//	Зарядка
 	if(!amplification)
@@ -313,8 +313,8 @@
 				M.Paralyze(5 SECONDS, ignore_canstun = TRUE)
 			else
 				force = 25
-				M.add_movespeed_modifier(/datum/movespeed_modifier/proton_cutter)
-				addtimer(CALLBACK(M, /mob/proc/remove_movespeed_modifier, /datum/movespeed_modifier/proton_cutter), 5 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+				M.add_movespeed_modifier(/datum/movespeed_modifier/proton_cutter_heavy)
+				addtimer(CALLBACK(M, /mob/proc/remove_movespeed_modifier, /datum/movespeed_modifier/proton_cutter_heavy), 5 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 			proton_off()
 			proton_attack(M, user, 5)
 		else

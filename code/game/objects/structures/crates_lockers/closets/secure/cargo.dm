@@ -25,7 +25,7 @@
 	new /obj/item/storage/photo_album/qm(src)
 	new /obj/item/circuitboard/machine/ore_silo(src)
 	new /obj/item/cargo_teleporter(src)
-
+	new /obj/item/storage/backpack/duffelbag/mining_conscript(src)
 	new /obj/item/circuitboard/machine/harvester(src) // :flushed:
 
 /obj/structure/closet/secure_closet/quartermaster/populate_contents_immediate()

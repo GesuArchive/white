@@ -43,6 +43,7 @@
 	belt = /obj/item/modular_computer/tablet/pda/medical
 	pda_slot = ITEM_SLOT_BELT
 	l_hand = /obj/item/clipboard
+	r_pocket = /obj/item/hypno_watch
 
 	backpack_contents = list(/obj/item/storage/pill_bottle/ultra/psih)
 
@@ -53,18 +54,3 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 	id_trim = /datum/id_trim/job/psychologist
-/*
-/datum/outfit/job/psychologist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	..()
-
-	if(visualsOnly)
-		return
-//  ХУД церебралов
-	var/datum/atom_hud/hud = GLOB.huds[DATA_HUD_PSIH]
-	hud.show_to(H)
-//  Лечение церебралов
-//	var/datum/action/cooldown/spell/therapy = new /datum/action/cooldown/spell/pointed/psychotherapy(H.mind || H)
-	if(H.mind)
-		var/datum/action/cooldown/spell/pointed/psychotherapy/therapy = new(H.mind)
-		therapy.Grant(H)
-*/

@@ -42,7 +42,7 @@ SUBSYSTEM_DEF(aspects)
 		ca_name = current_aspect.name
 		ca_desc = current_aspect.desc
 		shown_desc = ca_desc
-		if((current_aspect.hidden && prob(80)) || (current_aspect.high_impact && prob(40)) || prob(5))
+		if(current_aspect.hidden && prob(20))
 			shown_desc = "Меня ждет сюрприз!"
 
 	for(var/P in GLOB.mob_living_list)

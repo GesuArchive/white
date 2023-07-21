@@ -203,24 +203,39 @@
 		return 0
 
 /obj/item/reagent_containers/syringe/epinephrine
-	name = "шприц (адреналин)"
+	name = "шприц с адреналином"
 	desc = "Cодержит <b>Адреналин</b> - используется для стабилизации пациентов."
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 15)
 
 /obj/item/reagent_containers/syringe/multiver
-	name = "шприц (мультивер)"
+	name = "шприц с мультивером"
 	desc = "Cодержит <b>мультивер</b>."
 	list_reagents = list(/datum/reagent/medicine/c2/multiver = 15)
 
 /obj/item/reagent_containers/syringe/convermol
-	name = "шприц (конвермол)"
+	name = "шприц с конвермолом"
 	desc = "Cодержит <b>конвермол</b>."
 	list_reagents = list(/datum/reagent/medicine/c2/convermol = 15)
 
 /obj/item/reagent_containers/syringe/antiviral
-	name = "шприц (космоцилин)"
+	name = "шприц с космоцилином"
 	desc = "Cодержит <b>антивирусы</b>."
 	list_reagents = list(/datum/reagent/medicine/spaceacillin = 15)
+
+/obj/item/reagent_containers/syringe/seiver_cold
+	name = "шприц с охлажденным сейвером"
+	desc = "Cодержит <b>охлажденный сейвер</b>. Применяется для выведения радиоактивного заражения."
+	list_reagents = list(/datum/reagent/medicine/c2/seiver/cold = 15)
+
+/obj/item/reagent_containers/syringe/seiver_hot
+	name = "шприц с нагретым сейвером"
+	desc = "Cодержит <b>нагретый сейвер</b>. Применяется для выведения токсинов."
+	list_reagents = list(/datum/reagent/medicine/c2/seiver/hot = 15)
+
+/obj/item/reagent_containers/syringe/leporazine
+	name = "шприц с лепоразином"
+	desc = "Cодержит <b>лепоразин</b>. Применяется для стабилизации температуры."
+	list_reagents = list(/datum/reagent/medicine/leporazine = 15)
 
 /obj/item/reagent_containers/syringe/bioterror
 	name = "шприц биотеррора"
@@ -228,29 +243,31 @@
 	list_reagents = list(/datum/reagent/consumable/ethanol/neurotoxin = 5, /datum/reagent/toxin/mutetoxin = 5, /datum/reagent/toxin/sodium_thiopental = 5)
 
 /obj/item/reagent_containers/syringe/calomel
-	name = "шприц (каломел)"
+	name = "шприц с каломелом"
 	desc = "Cодержит <b>каломел</b>."
 	list_reagents = list(/datum/reagent/medicine/calomel = 15)
 
 /obj/item/reagent_containers/syringe/plasma
-	name = "шприц (плазма)"
+	name = "шприц с плазмой"
 	desc = "Cодержит <b>плазму</b>."
 	list_reagents = list(/datum/reagent/toxin/plasma = 15)
 
 /obj/item/reagent_containers/syringe/lethal
-	name = "летальный шприц"
+	name = "летальная инъекция"
 	desc = "Шприц с летальной инъекцией. Может хранить до 50 единиц."
 	amount_per_transfer_from_this = 50
 	volume = 50
 
 /obj/item/reagent_containers/syringe/lethal/choral
+	name = "летальная инъекция - безболезненная"
 	list_reagents = list(/datum/reagent/toxin/chloralhydrate = 50)
 
 /obj/item/reagent_containers/syringe/lethal/execution
+	name = "летальная инъекция - пыточная"
 	list_reagents = list(/datum/reagent/toxin/plasma = 15, /datum/reagent/toxin/formaldehyde = 15, /datum/reagent/toxin/cyanide = 10, /datum/reagent/toxin/acid/fluacid = 10)
 
 /obj/item/reagent_containers/syringe/mulligan
-	name = "Mulligan"
+	name = "Миксоген"
 	desc = "Шприц со случайным набором геномов. Изменяет внешность до неузнаваемости."
 	amount_per_transfer_from_this = 1
 	volume = 1
@@ -309,22 +326,22 @@
 	list_reagents = list(/datum/reagent/spider_extract = 1)
 
 /obj/item/reagent_containers/syringe/oxandrolone
-	name = "шприц (оксандролон)"
+	name = "шприц с оксандролоном"
 	desc = "Cодержит <b>оксандролон</b>, используется для лечения серьёзных ожогов."
 	list_reagents = list(/datum/reagent/medicine/oxandrolone = 15)
 
 /obj/item/reagent_containers/syringe/salacid
-	name = "шприц (салициловая кислота)"
+	name = "шприц с салициловой кислотой"
 	desc = "Cодержит <b>салициловую кислоту</b>, используется для лечения серьёзных травм."
 	list_reagents = list(/datum/reagent/medicine/sal_acid = 15)
 
 /obj/item/reagent_containers/syringe/penacid
-	name = "шприц (диэтилентриаминпентауксусная кислота)"
+	name = "шприц с ДТПА"
 	desc = "Cодержит <b>диэтилентриаминпентауксусную кислоту</b>, используется для снижения уровня облучения и небольшого выведения токсинов."
 	list_reagents = list(/datum/reagent/medicine/pen_acid = 15)
 
 /obj/item/reagent_containers/syringe/syriniver
-	name = "шприц (сиринивир)"
+	name = "шприц с сиринивиром"
 	desc = "Cодержит <b>сиринивир</b>, используется для выведения токсинов и химикатов. Метка на шприце сообщает 'Вводить один раз в минуту'."
 	list_reagents = list(/datum/reagent/medicine/c2/syriniver = 15)
 

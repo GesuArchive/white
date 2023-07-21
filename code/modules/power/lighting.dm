@@ -19,15 +19,16 @@
 #define LIGHT_REAGENT_CAPACITY 5
 
 /obj/item/wallframe/light_fixture
-	name = "рама лампы"
-	desc = "Используется для установки лампочек."
+	name = "каркас лампы дневного света"
+	desc = "Используется для установки ламп дневного света."
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "tube-construct-item"
 	result_path = /obj/structure/light_construct
 	inverse = TRUE
 
 /obj/item/wallframe/light_fixture/small
-	name = "рама лампы"
+	name = "каркас для маленькой лампочки"
+	desc = "Используется для установки небольших лампочек."
 	icon_state = "bulb-construct-item"
 	result_path = /obj/structure/light_construct/small
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
@@ -41,6 +42,30 @@
 		return
 	return TRUE
 
+/obj/item/wallframe/autobuild
+	name = "анкерный каркас большой лампы"
+	desc = "Используется для быстрого монтажа каркаса и подключения проводки. Лампочка в комплект не входит."
+	icon = 'icons/obj/lighting.dmi'
+	icon_state = "autobuild"
+	result_path = /obj/machinery/light/built/cell
+
+/obj/item/wallframe/autobuild/small
+	name = "анкерный каркас маленькой лампы"
+	desc = "Используется для быстрого монтажа каркаса и подключения проводки. Лампочка в комплект не входит."
+	icon_state = "autobuild_bulb"
+	result_path = /obj/machinery/light/small/built/cell
+
+/obj/item/wallframe/autobuild/attach(turf/on_wall, mob/user)
+	playsound(src.loc, 'sound/machines/click.ogg', 75, TRUE)
+	user.visible_message(span_notice("[user.name] прикрепляет [src] к стене.") ,
+		span_notice("Прикрепляю [src] к стене.") ,
+		span_hear("Слышу щёлканье."))
+	var/ndir = get_dir(on_wall,user)
+	var/obj/O = new result_path(get_turf(user), ndir, TRUE)
+	ndir = turn(ndir, 180)
+	O.setDir(ndir)
+	after_attach(O)
+	qdel(src)
 
 /obj/structure/light_construct
 	name = "рама лампы"
@@ -268,6 +293,9 @@
 	icon_state = "tube-empty"
 	start_with_cell = FALSE
 
+/obj/machinery/light/built/cell
+	start_with_cell = TRUE
+
 /obj/machinery/light/built/Initialize(mapload)
 	. = ..()
 	status = LIGHT_EMPTY
@@ -328,6 +356,9 @@
 /obj/machinery/light/small/built
 	icon_state = "bulb-empty"
 	start_with_cell = FALSE
+
+/obj/machinery/light/small/built/cell
+	start_with_cell = TRUE
 
 /obj/machinery/light/small/built/Initialize(mapload)
 	. = ..()

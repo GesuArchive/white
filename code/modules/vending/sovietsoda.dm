@@ -1,5 +1,5 @@
 /obj/machinery/vending/sovietsoda
-	name = "BODA"
+	name = "ВОДА"
 	desc = "Старый торговый автомат пресной воды."
 	icon_state = "sovietsoda"
 	light_mask = "soviet-light-mask"
@@ -14,5 +14,5 @@
 	light_color = COLOR_PALE_ORANGE
 
 /obj/item/vending_refill/sovietsoda
-	machine_name = "BODA"
+	machine_name = "ВОДА"
 	icon_state = "refill_cola"

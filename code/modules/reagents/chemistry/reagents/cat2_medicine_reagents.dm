@@ -318,7 +318,7 @@
 /*Suffix: -iver*/
 
 /datum/reagent/medicine/c2/seiver //a bit of a gray joke
-	name = "Сэивер"
+	name = "Сейвер"
 	enname = "Seiver"
 	description = "A medicine that shifts functionality based on temperature. Colder temperatures incurs radiation removal while hotter temperatures promote antitoxicity. Damages the heart." //CHEM HOLDER TEMPS, NOT AIR TEMPS
 	var/radbonustemp = (T0C - 100) //being below this number gives you 10% off rads.
@@ -357,9 +357,17 @@
 
 	//you're yes and... oh no!
 	healypoints = round(healypoints, 0.1)
-	M.adjustOrganLoss(ORGAN_SLOT_HEART, healypoints / 5)
+	M.adjustOrganLoss(ORGAN_SLOT_HEART, healypoints / 10)
 	..()
 	return TRUE
+
+/datum/reagent/medicine/c2/seiver/cold/on_mob_add()
+	. = ..()
+	holder.chem_temp = 10
+
+/datum/reagent/medicine/c2/seiver/hot/on_mob_add()
+	. = ..()
+	holder.chem_temp = 900
 
 /datum/reagent/medicine/c2/multiver //enhanced with MULTIple medicines
 	name = "Мультивер"

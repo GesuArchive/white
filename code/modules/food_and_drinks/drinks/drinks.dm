@@ -272,8 +272,8 @@
 	list_reagents  = list(/datum/reagent/consumable/ice = 25, /datum/reagent/liquidgibs = 5)
 
 /obj/item/reagent_containers/food/drinks/mug // parent type is literally just so empty mug sprites are a thing
-	name = "mug"
-	desc = "A drink served in a classy mug."
+	name = "кружка"
+	desc = "Напиток подается в стильной кружке."
 	icon_state = "tea"
 	inhand_icon_state = "coffee"
 	spillable = TRUE

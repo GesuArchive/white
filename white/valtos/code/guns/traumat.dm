@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/pistol/traumatic
-	name = "Еnforcer T46"
-	desc = "Эти штуки были взяты буквально с боем. Теперь это обыденность."
+	name = "Блюститель T46"	//добавлен в карго
+	desc = "Современный пистолет используемый частными охранными компаниями для задержания преступников. Обычно снаряжается травматическими боеприпасами."
 	icon = 'white/valtos/icons/gun.dmi'
 	icon_state = "enforcer"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -27,28 +27,3 @@
 
 /obj/item/gun/ballistic/automatic/pistol/traumatic/no_mag
 	spawnwithmagazine = FALSE
-
-/obj/item/ammo_box/magazine/traumatic
-	name = "handgun traumatic magazine (9mm)"
-	icon_state = "45-8"
-	ammo_type = /obj/item/ammo_casing/traumatic
-	caliber = "9mm"
-	max_ammo = 8
-
-/obj/item/ammo_box/magazine/traumatic/update_icon()
-	..()
-	if (ammo_count() >= 8)
-		icon_state = "45-8"
-	else
-		icon_state = "45-[ammo_count()]"
-
-/obj/item/ammo_casing/traumatic
-	name = "9mm traumatic bullet casing"
-	desc = "A 9mm traumatic bullet casing."
-	caliber = "9mm"
-	projectile_type = /obj/projectile/bullet/traumatic
-
-/obj/projectile/bullet/traumatic
-	name = "9mm traumatic bullet"
-	damage = 3 //наша резина делает больно, не более
-	stamina = 90

@@ -80,7 +80,7 @@
 
 /obj/item/reagent_containers/glass/bottle/synaptizine
 	name = "флакон с синаптизином"
-	desc = "Маленький флакон с синаптизином."
+	desc = "Маленький флакон с синаптизином. Повышает устойчивость к оглушению, а также уменьшает сонливость и галлюцинации"
 	list_reagents = list(/datum/reagent/medicine/synaptizine = 30)
 
 /obj/item/reagent_containers/glass/bottle/ammonia
@@ -333,6 +333,11 @@
 	name = "Флакон с ПБВН"
 	desc = "Маленький флакон, содержащий ПротивоБиоВирусный Набор."
 	list_reagents = list(/datum/reagent/vaccine/fungal_tb = 30)
+
+/obj/item/reagent_containers/glass/bottle/tuberculosiscure
+	name = "Флакон с ПБВН"
+	desc = "Маленький флакон, содержащий ПротивоБиоВирусный Набор."
+	list_reagents = list(/datum/reagent/consumable/virus_food = 30)
 
 //Oldstation.dmm chemical storage bottles
 

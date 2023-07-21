@@ -251,6 +251,7 @@
 
 /obj/machinery/computer/bsa_control
 	name = "Компьютер блюспейс артиллерии"
+	desc = "Цельсь, готовьсь, ПЛИ!"
 	use_power = NO_POWER_USE
 	circuit = /obj/item/circuitboard/computer/bsa_control
 	icon = 'icons/obj/machines/particle_accelerator.dmi'

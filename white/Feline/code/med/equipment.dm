@@ -699,7 +699,7 @@
 	new /obj/item/clothing/shoes/jackboots/sec(src)
 
 /obj/item/iv_drip_item
-	name = "капельница"
+	name = "телескопическая капельница"
 	desc = "Складная капельница для переливания крови и лекарств. Весьма удобно лежит в двух руках."
 	icon = 'white/Feline/icons/iv_drip_tele.dmi'
 	lefthand_file = 'white/Feline/icons/iv_drip_tele_left.dmi'
@@ -769,3 +769,21 @@
 	new /obj/machinery/iv_drip (src.drop_location())
 	qdel(src)
 
+/// Набор вирусов для каргопака
+/obj/item/storage/briefcase/surgery/virus
+	name = "кейс с вирусами"
+	desc = "Хранит в себе образцы вирусов."
+
+/obj/item/storage/briefcase/surgery/virus/PopulateContents()
+	new /obj/item/reagent_containers/glass/bottle/flu_virion(src)
+	new /obj/item/reagent_containers/glass/bottle/cold(src)
+	new /obj/item/reagent_containers/glass/bottle/random_virus(src)
+	new /obj/item/reagent_containers/glass/bottle/random_virus(src)
+	new /obj/item/reagent_containers/glass/bottle/random_virus(src)
+	new /obj/item/reagent_containers/glass/bottle/random_virus(src)
+	new /obj/item/reagent_containers/glass/bottle/fake_gbs(src)
+	new /obj/item/reagent_containers/glass/bottle/magnitis(src)
+	new /obj/item/reagent_containers/glass/bottle/pierrot_throat(src)
+	new /obj/item/reagent_containers/glass/bottle/brainrot(src)
+	new /obj/item/reagent_containers/glass/bottle/anxiety(src)
+	new /obj/item/reagent_containers/glass/bottle/beesease(src)

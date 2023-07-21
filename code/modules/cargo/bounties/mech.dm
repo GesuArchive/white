@@ -11,7 +11,7 @@
 	..()
 
 /datum/bounty/item/mech/ripleymk2
-	name = "APLU MK-II \"Рипли\""
+	name = "АПЛУ MK-II \"Рипли\""
 	reward = CARGO_CRATE_VALUE * 150
 	wanted_types = list(/obj/vehicle/sealed/mecha/working/ripley/mk2)
 

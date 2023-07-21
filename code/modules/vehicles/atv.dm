@@ -1,7 +1,7 @@
 
 /obj/vehicle/ridden/atv
-	name = "all-terrain vehicle"
-	desc = "An all-terrain vehicle built for traversing rough terrain with ease. One of the few old-Earth technologies that are still relevant on most planet-bound outposts."
+	name = "квадроцикл"
+	desc = "Вездеход, созданный для быстрого перемещения по пересеченной местности. Одна из немногих технологий старой Земли, которая все еще актуальна на большинстве планетарных аванпостов."
 	icon_state = "atv"
 	max_integrity = 150
 	armor = list(MELEE = 50, BULLET = 25, LASER = 20, ENERGY = 0, BOMB = 50, BIO = 0, RAD = 0, FIRE = 60, ACID = 60)
@@ -71,10 +71,10 @@
 		return TRUE
 	if(!I.use_tool(src, user, 0, volume=50, amount=1))
 		return TRUE
-	user.visible_message(span_notice("[user] repairs some damage to [name].") , span_notice("You repair some damage to <b>[src.name]</b>."))
+	user.visible_message(span_notice("[user] ремонтирует [name].") , span_notice("Ремонтирую <b>[src.name]</b>."))
 	obj_integrity += min(10, max_integrity-obj_integrity)
 	if(obj_integrity == max_integrity)
-		to_chat(user, span_notice("It looks to be fully repaired now."))
+		to_chat(user, span_notice("Выглядит вполне целым."))
 	return TRUE
 
 /obj/vehicle/ridden/secway/obj_break()

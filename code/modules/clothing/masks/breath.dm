@@ -1,6 +1,6 @@
 /obj/item/clothing/mask/breath
-	desc = "Плотно прилегающая маска, которая может быть подключена к источнику воздуха."
 	name = "дыхательная маска"
+	desc = "Плотно прилегающая маска, которая может быть подключена к источнику воздуха."
 	icon_state = "breath"
 	inhand_icon_state = "m_mask"
 	body_parts_covered = 0

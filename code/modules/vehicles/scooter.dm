@@ -1,6 +1,6 @@
 /obj/vehicle/ridden/scooter
-	name = "scooter"
-	desc = "A fun way to get around."
+	name = "скутер"
+	desc = "Интересный способ передвижения."
 	icon_state = "scooter"
 	are_legs_exposed = TRUE
 

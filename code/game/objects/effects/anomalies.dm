@@ -4,8 +4,8 @@
 #define ANOMALY_MOVECHANCE 45
 
 /obj/effect/anomaly
-	name = "anomaly"
-	desc = "A mysterious anomaly, seen commonly only in the region of space that the station orbits..."
+	name = "аномалия"
+	desc = "Таинственная аномалия, обычно наблюдаемая только в той области космоса, вокруг которой вращается станция..."
 	icon = 'icons/effects/anomalies.dmi'
 	icon_state = "vortex"
 	density = FALSE
@@ -106,7 +106,7 @@
 
 /obj/effect/anomaly/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_ANALYZER || istype(I, /obj/item/multitool/tricorder))
-		to_chat(user, span_notice("Analyzing... [src] unstable field is fluctuating along frequency [format_frequency(aSignal.frequency)], code [aSignal.code]."))
+		to_chat(user, span_notice("Анализ... [src] нестабильное поле колеблется по частоте [format_frequency(aSignal.frequency)], код [aSignal.code]."))
 
 ///////////////////////
 
@@ -119,7 +119,7 @@
 	pixel_y = -176
 
 /obj/effect/anomaly/grav
-	name = "gravitational anomaly"
+	name = "гравитационная аномалия"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "shield2"
 	density = FALSE
@@ -162,6 +162,10 @@
 		if(!M.mob_negates_gravity())
 			step_towards(M,src)
 	for(var/obj/O in range(0,src))
+		if(istype(O, /obj/item/anomaly_neutralizer))
+			anomalyNeutralize()
+			qdel(O)
+			return
 		if(!O.anchored)
 			if(isturf(O.loc))
 				var/turf/T = O.loc
@@ -208,7 +212,7 @@
 /////////////////////
 
 /obj/effect/anomaly/flux
-	name = "flux wave anomaly"
+	name = "электромагнитная аномалия"
 	icon_state = "flux"
 	density = TRUE
 	aSignal = /obj/item/assembly/signaler/anomaly/flux
@@ -255,7 +259,7 @@
 /////////////////////
 
 /obj/effect/anomaly/bluespace
-	name = "bluespace anomaly"
+	name = "блюспейс аномалия"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bluespace"
 	density = TRUE
@@ -329,7 +333,7 @@
 /////////////////////
 
 /obj/effect/anomaly/pyro
-	name = "pyroclastic anomaly"
+	name = "пирокластерная аномалия"
 	icon_state = "pyroclastic"
 	var/ticks = 0
 	/// How many seconds between each gas release
@@ -362,7 +366,7 @@
 	var/datum/action/innate/slime/reproduce/A = new
 	A.Grant(S)
 
-	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as a pyroclastic anomaly slime?", ROLE_SENTIENCE, null, 100, S, POLL_IGNORE_PYROSLIME)
+	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Вы хотите переродится в качестве Слайма из пирокластерной аномалии?", ROLE_SENTIENCE, null, 100, S, POLL_IGNORE_PYROSLIME)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/chosen = pick(candidates)
 		S.key = chosen.key
@@ -375,9 +379,9 @@
 /////////////////////
 
 /obj/effect/anomaly/bhole
-	name = "vortex anomaly"
+	name = "вихревая аномалия"
 	icon_state = "vortex"
-	desc = "That's a nice station you have there. It'd be a shame if something happened to it."
+	desc = "У вас там хорошая станция. Было бы жаль, если бы с ней что-нибудь случилось..."
 	aSignal = /obj/item/assembly/signaler/anomaly/vortex
 
 /obj/effect/anomaly/bhole/anomalyEffect()
@@ -439,7 +443,7 @@
 				SSexplosions.lowturf += T
 
 /obj/effect/anomaly/bioscrambler
-	name = "bioscrambler anomaly"
+	name = "биоконверсионная аномалия"
 	icon_state = "bioscrambler"
 	aSignal = /obj/item/assembly/signaler/anomaly/bioscrambler
 	immortal = TRUE
@@ -482,7 +486,7 @@
 
 /obj/effect/anomaly/bioscrambler/proc/swap_parts(swap_range)
 	for(var/mob/living/carbon/nearby in range(swap_range, src))
-		if(nearby.run_armor_check(attack_flag = BIO, absorb_text = "Your armor protects you from [src]!") >= 100)
+		if(nearby.run_armor_check(attack_flag = BIO, absorb_text = "Броня защищает меня от аномалии!") >= 100)
 			continue //We are protected
 		var/picked_zone = pick(zones)
 		var/obj/item/bodypart/picked_user_part = nearby.get_bodypart(picked_zone)
@@ -505,10 +509,10 @@
 		if(picked_user_part)
 			qdel(picked_user_part)
 		nearby.update_body(TRUE)
-		balloon_alert(nearby, "something has changed about you")
+		balloon_alert(nearby, "я сегодня не такой как вчера...")
 
 /obj/effect/anomaly/hallucination
-	name = "hallucination anomaly"
+	name = "галюциногенная аномалия"
 	icon_state = "hallucination"
 	aSignal = /obj/item/assembly/signaler/anomaly/hallucination
 	/// Time passed since the last effect, increased by delta_time of the SSobj
@@ -556,7 +560,7 @@
 /////////////////////
 
 /obj/effect/anomaly/dimensional
-	name = "dimensional anomaly"
+	name = "пространственная аномалия"
 	icon_state = "dimensional"
 	aSignal = /obj/item/assembly/signaler/anomaly/dimensional
 	immortal = TRUE
@@ -635,7 +639,7 @@
 	if (!valid_turfs.len)
 		CRASH("Dimensional anomaly attempted to reach invalid location [new_area].")
 
-	priority_announce("Dimensional instability relocated. Expected location: [new_area.name].", "Anomaly Alert")
+	priority_announce("Пространственная аномалия переместилась. Ожидаемое местоположение: [new_area.name].", "Аномальная тревога")
 	src.forceMove(pick(valid_turfs))
 	prepare_area()
 

@@ -31,6 +31,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/structure/closet/crate,
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/mining)
 "g" = (
@@ -114,12 +115,13 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "o" = (
-/obj/structure/closet/crate,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/airalarm{
 	dir = 4;
 	pixel_x = -22
 	},
+/obj/structure/ore_box,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "p" = (
@@ -131,8 +133,9 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/mining)
 "q" = (
-/obj/structure/ore_box,
 /obj/effect/turf_decal/delivery,
+/obj/structure/cable,
+/obj/machinery/power/smes,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "r" = (
@@ -144,6 +147,15 @@
 	dir = 1
 	},
 /turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"S" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/cable,
+/obj/machinery/power/terminal,
+/turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "V" = (
 /obj/structure/chair/comfy/shuttle{
@@ -168,7 +180,7 @@ a
 c
 f
 j
-n
+V
 o
 r
 "}
@@ -177,7 +189,7 @@ b
 d
 g
 k
-V
+n
 p
 s
 "}
@@ -186,7 +198,7 @@ a
 e
 h
 l
-n
+S
 q
 r
 "}

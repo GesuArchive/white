@@ -1,5 +1,5 @@
 /obj/machinery/vending/games
-	name = "Good Clean Fun"
+	name = "SpacePunk 3077"
 	desc = "Торгует вещами, которые Капитан и Кадровик, вероятно, не оценят, когда вы возитесь с этим вместо своей работы..."
 	product_ads = "Убеги в фантастический мир!;Разжигайте свою зависимость от азартных игр!;Разрушайте вашу дружбу!;Бросьте инициативу!;Эльфы и гномы!;Параноидальные компьютеры!;Точно не сатанизм!;Веселые времена навсегда!"
 	icon_state = "games"
@@ -47,5 +47,5 @@
 	light_mask = "games-light-mask"
 
 /obj/item/vending_refill/games
-	machine_name = "Good Clean Fun"
+	machine_name = "SpacePunk 3077"
 	icon_state = "refill_games"

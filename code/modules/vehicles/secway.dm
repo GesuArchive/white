@@ -1,7 +1,7 @@
 
 /obj/vehicle/ridden/secway
-	name = "secway"
-	desc = "A brave security cyborg gave its life to help you look like a complete tool."
+	name = "гироскутер"
+	desc = "Более вам не придется напрягать свои ножки при патрулировании станции."
 	icon_state = "secway"
 	max_integrity = 60
 	armor = list(MELEE = 10, BULLET = 0, LASER = 10, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 60, ACID = 60)
@@ -33,14 +33,14 @@
 	if(.)
 		return
 	if(obj_integrity >= max_integrity)
-		to_chat(user, span_notice("It is fully repaired already!"))
+		to_chat(user, span_notice("Выглядит вполне целым!"))
 		return
 	if(!I.use_tool(src, user, 0, volume = 50, amount = 1))
 		return
-	user.visible_message(span_notice("[user] repairs some damage to [name].") , span_notice("You repair some damage to [src]."))
+	user.visible_message(span_notice("[user] ремонтирует [name].") , span_notice("Ремонтирую [src]."))
 	obj_integrity += min(10, max_integrity-obj_integrity)
 	if(obj_integrity >= max_integrity)
-		to_chat(user, span_notice("It looks to be fully repaired now."))
+		to_chat(user, span_notice("Выглядит вполне целым."))
 		STOP_PROCESSING(SSobj, src)
 
 /obj/vehicle/ridden/secway/attackby(obj/item/W, mob/living/user, params)

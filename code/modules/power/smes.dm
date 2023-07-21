@@ -43,7 +43,7 @@
 /obj/machinery/power/smes/examine(user)
 	. = ..()
 	if(!terminal)
-		. += "<hr><span class='warning'> Этот СНМЭ без терминала питания!</span>"
+		. += "<hr><span class='warning'> Этот СМЕС без терминала питания!</span>"
 
 /obj/machinery/power/smes/Initialize(mapload)
 	. = ..()
@@ -110,7 +110,7 @@
 			return
 
 		if(terminal) //is there already a terminal ?
-			to_chat(user, span_warning("Этот СНМЭ имеет терминал питания!"))
+			to_chat(user, span_warning("Этот СМЕС имеет терминал питания!"))
 			return
 
 		if(!panel_open) //is the panel open ?
@@ -429,8 +429,8 @@
 	AddElement(/datum/element/traitor_desc, "Если поменять полярность всех ячеек, то это сократит выхлоп энергии вдвое в виду особенностей защиты. Вполне сгодится за саботаж <b>двигателей</b> и за это мне дадут 3 телекристалла.", SABOTAGE_ENGINE)
 
 /obj/machinery/power/smes/magical
-	name = "Магический СНМЭ"
-	desc = "Сверхпроводящий накопитель магнитной энергии (СНМЭ). Производит энергию магическим способом."
+	name = "Магический СМЕС"
+	desc = "Сверхпроводящий накопитель магнитной энергии (СМЕС). Производит энергию магическим способом."
 
 /obj/machinery/power/smes/magical/process()
 	capacity = INFINITY

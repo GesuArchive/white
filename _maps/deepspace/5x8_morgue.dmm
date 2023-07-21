@@ -1,0 +1,277 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"gy" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"iA" = (
+/obj/structure/table,
+/obj/item/storage/box/bodybags{
+	pixel_x = 3;
+	pixel_y = 12
+	},
+/obj/item/storage/box/bodybags{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"le" = (
+/obj/structure/closet/crate/bin,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/spawner/random/maintenance/seven,
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"mj" = (
+/turf/closed/wall/riveted_wall,
+/area/template_noop)
+"nW" = (
+/obj/structure/bodycontainer/morgue,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"qf" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -11
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"BO" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/template_noop)
+"Fk" = (
+/obj/effect/abstract/doorway_marker,
+/turf/open/floor/plasteel,
+/area/template_noop)
+"FA" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/bubblegum,
+/obj/effect/decal/cleanable/blood/gibs{
+	pixel_y = -7
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"Hy" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/hitsplatter{
+	dir = 8;
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"KO" = (
+/obj/structure/bodycontainer/morgue,
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"OJ" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"Px" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/structure/closet/body_bag,
+/obj/effect/mob_spawn/human/corpse/cat_butcher,
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"Qv" = (
+/obj/structure/bodycontainer/morgue,
+/obj/item/radio/intercom{
+	name = "Station Intercom";
+	pixel_x = -26
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/camera/directional/east{
+	network = list("outpost")
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"Td" = (
+/obj/structure/table,
+/obj/item/clothing/gloves/color/latex,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -26
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/item/reagent_containers/glass/bottle/atropine{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"XV" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/structure/closet/body_bag,
+/obj/effect/mob_spawn/human/corpse/assistant,
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"Yb" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/bubblegum{
+	pixel_y = -16;
+	pixel_x = -4
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+"YI" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/template_noop)
+
+(1,1,1) = {"
+mj
+mj
+mj
+mj
+mj
+mj
+mj
+mj
+"}
+(2,1,1) = {"
+mj
+KO
+iA
+Qv
+nW
+Td
+KO
+mj
+"}
+(3,1,1) = {"
+BO
+OJ
+FA
+Hy
+YI
+YI
+Yb
+Fk
+"}
+(4,1,1) = {"
+mj
+Px
+gy
+XV
+XV
+qf
+le
+mj
+"}
+(5,1,1) = {"
+mj
+mj
+mj
+mj
+mj
+mj
+mj
+mj
+"}

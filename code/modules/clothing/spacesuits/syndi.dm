@@ -7,7 +7,7 @@
 	armor = list(MELEE = 40, BULLET = 50, LASER = 30,ENERGY = 40, BOMB = 30, BIO = 30, RAD = 30, FIRE = 80, ACID = 85)
 
 /obj/item/clothing/suit/space/syndicate
-	name = "красный скафандр"
+	name = "скафандр Синдиката"
 	icon_state = "syndicate"
 	inhand_icon_state = "space_suit_syndicate"
 	desc = "На нем есть бирка: Абсолютно точно не собственноcть враждебной корпорации, честно!"

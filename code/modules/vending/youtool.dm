@@ -1,5 +1,5 @@
 /obj/machinery/vending/tool
-	name = "YouTool"
+	name = "Твой инструмент!"
 	desc = "Инструменты для инструментов."
 	icon_state = "tool"
 	icon_deny = "tool-deny"
@@ -7,7 +7,7 @@
 	refill_canister = /obj/item/vending_refill/tool
 	products = list(/obj/item/stack/cable_coil = 10,
 					/obj/item/crowbar = 5,
-					/obj/item/weldingtool = 3,
+					/obj/item/weldingtool = 5,
 					/obj/item/wirecutters = 5,
 					/obj/item/wrench = 5,
 					/obj/item/analyzer = 5,
@@ -30,4 +30,4 @@
 	payment_department = ACCOUNT_ENG
 
 /obj/item/vending_refill/tool
-	machine_name = "YouTool"
+	machine_name = "Твой инструмент!"

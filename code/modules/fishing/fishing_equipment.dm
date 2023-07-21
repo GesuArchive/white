@@ -1,8 +1,8 @@
 // Reels
 
 /obj/item/fishing_line
-	name = "fishing line reel"
-	desc = "simple fishing line"
+	name = "катушка для рыболовной лески"
+	desc = "Простая рыболовная леска"
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "reel_blue"
 	var/fishing_line_traits = NONE
@@ -10,35 +10,35 @@
 	var/line_color = "#808080"
 
 /obj/item/fishing_line/reinforced
-	name = "reinforced fishing line reel"
-	desc = "essential for fishing in extreme environments"
+	name = "усиленная катушка для лески"
+	desc = "Незаменим для рыбалки в экстремальных условиях"
 	icon_state = "reel_green"
 	fishing_line_traits = FISHING_LINE_REINFORCED
 	line_color = "#2b9c2b"
 
 /obj/item/fishing_line/cloaked
-	name = "cloaked fishing line reel"
-	desc = "even harder to notice than the common variety"
+	name = "катушка для скрытой лески"
+	desc = "Эту леску еще труднее заметить, чем обычную разновидность"
 	icon_state = "reel_white"
 	fishing_line_traits = FISHING_LINE_CLOAKED
 	line_color = "#82cfdd"
 
 /obj/item/fishing_line/bouncy
-	name = "flexible fishing line reel"
-	desc = "this specialized line is much harder to snap"
+	name = "катушка для гибкой лески"
+	desc = "Эту специализированную леску гораздо сложнее оборвать"
 	icon_state = "reel_red"
 	fishing_line_traits = FISHING_LINE_BOUNCY
 	line_color = "#99313f"
 
 /obj/item/fishing_line/sinew
-	name = "fishing sinew"
-	desc = "an all-natural fishing line made of stretched out sinew"
+	name = "рыболовное сухожилие"
+	desc = "Полностью натуральная леска, изготовленная из растянутого сухожилия"
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "reel_sinew"
 	line_color = "#d1cca3"
 
 /datum/crafting_recipe/sinew_line
-	name = "Sinew Fishing Line Reel"
+	name = "Катушка для ловли на сухожильную леску"
 	result = /obj/item/fishing_line/sinew
 	reqs = list(/obj/item/stack/sheet/sinew = 2)
 	time = 2 SECONDS
@@ -47,8 +47,8 @@
 // Hooks
 
 /obj/item/fishing_hook
-	name = "simple fishing hook"
-	desc = "a simple fishing hook."
+	name = "простой рыболовный крючок"
+	desc = "Самый обычный рыболовный крючок."
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "hook"
 	w_class = WEIGHT_CLASS_TINY
@@ -58,39 +58,39 @@
 	var/rod_overlay_icon_state = "hook_overlay"
 
 /obj/item/fishing_hook/magnet
-	name = "magnetic hook"
-	desc = "won't make catching fish any easier but might help with looking for other things"
+	name = "магнитный крючок"
+	desc = "Это не облегчит ловлю рыбы, но может помочь в поиске других вещей"
 	icon_state = "treasure"
 	fishing_hook_traits = FISHING_HOOK_MAGNETIC
 	rod_overlay_icon_state = "hook_treasure_overlay"
 
 /obj/item/fishing_hook/shiny
-	name = "shiny lure hook"
+	name = "блестящий крючок для приманки"
 	icon_state = "gold_shiny"
 	fishing_hook_traits = FISHING_HOOK_SHINY
 	rod_overlay_icon_state = "hook_shiny_overlay"
 
 /obj/item/fishing_hook/weighted
-	name = "weighted hook"
+	name = "утяжеленный крюк"
 	icon_state = "weighted"
 	fishing_hook_traits = FISHING_HOOK_WEIGHTED
 	rod_overlay_icon_state = "hook_weighted_overlay"
 
 /obj/item/fishing_hook/bone
-	name = "bone hook"
-	desc = "a simple hook carved from sharpened bone"
+	name = "костяной крючок"
+	desc = "простой крючок, вырезанный из заостренной кости"
 	icon_state = "hook_bone"
 
 /datum/crafting_recipe/bone_hook
-	name = "Goliath Bone Hook"
+	name = "Костяной крючок из кости Голиафа"
 	result = /obj/item/fishing_hook/bone
 	reqs = list(/obj/item/stack/sheet/bone = 1)
 	time = 2 SECONDS
 	category = CAT_TOOLS
 
 /obj/item/storage/toolbox/fishing
-	name = "fishing toolbox"
-	desc = "contains everything you need for your fishing trip"
+	name = "Ящик для рыбных принадлежностей"
+	desc = "содержит все, что вам нужно для вашей поездки на рыбалку"
 	icon_state = "fishing"
 	inhand_icon_state = "artistic_toolbox"
 	material_flags = NONE
@@ -108,7 +108,8 @@
 	new /obj/item/fishing_line(src)
 
 /obj/item/storage/box/fishing_hooks
-	name = "fishing hook set"
+	name = "Набор рыболовных крючков"
+	desc = "Набор различных рыболовных крючков."
 
 /obj/item/storage/box/fishing_hooks/PopulateContents()
 	. = ..()
@@ -117,7 +118,8 @@
 	new /obj/item/fishing_hook/weighted(src)
 
 /obj/item/storage/box/fishing_lines
-	name = "fishing line set"
+	name = "Набор рыболовных лесок"
+	desc = "Набор различных рыболовных лесок."
 
 /obj/item/storage/box/fishing_lines/PopulateContents()
 	. = ..()

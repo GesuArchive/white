@@ -57,8 +57,9 @@
 /turf/open/floor/plating,
 /area/shuttle/mining)
 "i" = (
-/obj/structure/closet/crate,
 /obj/effect/turf_decal/bot,
+/obj/structure/ore_box,
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "j" = (
@@ -79,8 +80,9 @@
 /turf/open/floor/plating,
 /area/shuttle/mining)
 "k" = (
-/obj/structure/ore_box,
 /obj/effect/turf_decal/bot,
+/obj/machinery/power/smes,
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "l" = (
@@ -89,11 +91,18 @@
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/mining)
-"t" = (
+"m" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
+/obj/machinery/power/terminal,
+/obj/structure/cable,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/mining)
+"t" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/crate,
 /obj/structure/cable,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
@@ -122,7 +131,7 @@ a
 c
 e
 g
-f
+t
 i
 a
 "}
@@ -130,8 +139,8 @@ a
 b
 d
 Q
-O
-t
+e
+f
 j
 l
 "}
@@ -140,7 +149,7 @@ a
 c
 e
 O
-f
+m
 k
 a
 "}

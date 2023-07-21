@@ -20,14 +20,14 @@
 /datum/computer_file/program/ai_restorer/on_examine(obj/item/modular_computer/source, mob/user)
 	var/list/examine_text = list()
 	if(!stored_card)
-		examine_text += "It has a slot installed for an intelliCard."
+		examine_text += "В нем установлен слот для Интел-карты."
 		return examine_text
 
 	if(computer.Adjacent(user))
-		examine_text += "It has a slot installed for an intelliCard which contains: [stored_card.name]"
+		examine_text += "В нем установлен слот для Интел-карты, который содержит: [stored_card.name]"
 	else
-		examine_text += "It has a slot installed for an intelliCard, which appears to be occupied."
-	examine_text += span_info("Alt-click to eject the intelliCard.")
+		examine_text += "В нем установлен слот для Интел-карты, который, по-видимому, занят."
+	examine_text += span_info("Аль-клик для извлечения Интел-карты.")
 	return examine_text
 
 /datum/computer_file/program/ai_restorer/kill_program(forced)
@@ -65,29 +65,29 @@
 		return FALSE
 
 	if(stored_card)
-		to_chat(user, span_warning("You try to insert \the [attacking_item] into \the [computer.name], but the slot is occupied."))
+		to_chat(user, span_warning("Пытаюсь поместить [attacking_item] в [computer.name], но слот уже занят."))
 		return FALSE
 	if(user && !user.transferItemToLoc(attacking_item, computer))
 		return FALSE
 
 	stored_card = attacking_item
-	to_chat(user, span_notice("You insert \the [attacking_item] into \the [computer.name]."))
+	to_chat(user, span_notice("Помещаю [attacking_item] в [computer.name]."))
 
 	return TRUE
 
 /datum/computer_file/program/ai_restorer/try_eject(mob/living/user, forced = FALSE)
 	if(!stored_card)
 		if(user)
-			to_chat(user, span_warning("There is no card in \the [computer.name]."))
+			to_chat(user, span_warning("В [computer.name] нет карты."))
 		return FALSE
 
 	if(restoring && !forced)
 		if(user)
-			to_chat(user, span_warning("Safeties prevent you from removing the card until reconstruction is complete..."))
+			to_chat(user, span_warning("Меры предосторожности не позволяют мне извлекать карту до завершения восстановления..."))
 		return FALSE
 
 	if(user && computer.Adjacent(user))
-		to_chat(user, span_notice("You remove [stored_card] from [computer.name]."))
+		to_chat(user, span_notice("Извлекаю [stored_card] из [computer.name]."))
 		user.put_in_hands(stored_card)
 	else
 		stored_card.forceMove(computer.drop_location())
@@ -109,7 +109,7 @@
 			var/mob/living/silicon/ai/A = stored_card.AI
 			if(A && A.health < 100)
 				restoring = TRUE
-				A.notify_ghost_cloning("Your core files are being restored!", source = computer)
+				A.notify_ghost_cloning("Ключевые файлы ядра были восстановлены!", source = computer)
 			return TRUE
 		if("PRG_eject")
 			if(stored_card)

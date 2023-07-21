@@ -898,3 +898,18 @@
 	category = list("Снаряжение сервиса")
 	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
+
+/datum/design/coffeemug
+	name = "Кружка"
+	id = "coffeemug"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	materials = list(/datum/material/glass = 300)
+	build_path = /obj/item/reagent_containers/food/drinks/mug
+	category = list("Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
+	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
+
+/datum/design/coffeemug/nt
+	name = "Кружка с логотипом НТ"
+	id = "coffeemugnt"
+	build_path = /obj/item/reagent_containers/food/drinks/mug/nanotrasen

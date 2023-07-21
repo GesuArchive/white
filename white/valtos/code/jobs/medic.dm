@@ -43,7 +43,7 @@
 	pda_slot = ITEM_SLOT_LPOCKET
 
 	r_pocket = /obj/item/storage/belt/medipenal/field_med
-	l_pocket = /obj/item/modular_computer/tablet/pda/medical
+	l_pocket = /obj/item/modular_computer/tablet/pda/field_medic
 
 	implants = list(/obj/item/implant/mindshield)
 

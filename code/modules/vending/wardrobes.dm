@@ -12,41 +12,45 @@
 	return (I.type in products)
 
 /obj/machinery/vending/wardrobe/sec_wardrobe
-	name = "SecDrobe"
+	name = "Коммандос"
 	desc = "Автомат охраны по продаже спецодежды!"
 	icon_state = "secdrobe"
 	product_ads = "Лучшая химическая завивка в стиле!;Она красная, поэтому крови не видно!;У тебя есть право быть модной!;Теперь ты можешь быть модной полицией, которой всегда хотел быть!"
-	vend_reply = "Спасибо за использование SecDrobe!"
-	products = list(/obj/item/clothing/suit/hooded/wintercoat/security = 3,
-					/obj/item/storage/backpack/security = 3,
-					/obj/item/storage/backpack/satchel/sec = 3,
-					/obj/item/storage/backpack/duffelbag/sec = 3,
-					/obj/item/clothing/under/rank/security/officer = 3,
-					/obj/item/clothing/shoes/jackboots = 3,
-					/obj/item/clothing/head/beret/sec = 3,
-					/obj/item/clothing/head/soft/sec = 3,
-					/obj/item/clothing/mask/bandana/striped/security = 3,
-					/obj/item/clothing/gloves/color/black = 3,
-					/obj/item/clothing/under/rank/security/officer/skirt = 3,
-					/obj/item/clothing/under/rank/security/officer/grey = 3,
-					/obj/item/clothing/under/pants/khaki = 3,
-					/obj/item/clothing/under/rank/security/officer/blueshirt = 3)
-	premium = list(/obj/item/clothing/under/rank/security/officer/formal = 3,
-					/obj/item/clothing/suit/security/officer = 3,
-					/obj/item/clothing/head/beret/sec/navyofficer = 3)
+	vend_reply = "Спасибо за использование Коммандоса!"
+	products = list(
+		/obj/item/clothing/suit/hooded/wintercoat/security = 3,
+		/obj/item/storage/backpack/security = 3,
+		/obj/item/storage/backpack/satchel/sec = 3,
+		/obj/item/storage/backpack/duffelbag/sec = 3,
+		/obj/item/clothing/under/rank/security/officer = 3,
+		/obj/item/clothing/shoes/jackboots = 3,
+		/obj/item/clothing/head/beret/sec = 3,
+		/obj/item/clothing/head/soft/sec = 3,
+		/obj/item/clothing/mask/bandana/striped/security = 3,
+		/obj/item/clothing/gloves/color/black = 3,
+		/obj/item/clothing/under/rank/security/officer/skirt = 3,
+		/obj/item/clothing/under/rank/security/officer/grey = 3,
+		/obj/item/clothing/under/pants/khaki = 3,
+		/obj/item/clothing/under/rank/security/officer/blueshirt = 3
+		)
+	premium = list(
+		/obj/item/clothing/under/rank/security/officer/formal = 3,
+		/obj/item/clothing/suit/security/officer = 3,
+		/obj/item/clothing/head/beret/sec/navyofficer = 3
+		)
 	refill_canister = /obj/item/vending_refill/wardrobe/sec_wardrobe
 	payment_department = ACCOUNT_SEC
 	light_color = COLOR_MOSTLY_PURE_RED
 
 /obj/item/vending_refill/wardrobe/sec_wardrobe
-	machine_name = "SecDrobe"
+	machine_name = "Коммандос"
 
 /obj/machinery/vending/wardrobe/medi_wardrobe
-	name = "MediDrobe"
+	name = "Госпитальер"
 	desc = "По слухам, торговый автомат может выдавать одежду для медицинского персонала."
 	icon_state = "medidrobe"
 	product_ads = "Сделайте эти пятна крови модными!!!"
-	vend_reply = "Спасибо за использование MediDrobe!"
+	vend_reply = "Спасибо за использование Госпитальера!"
 	products = list(
 		/obj/item/clothing/accessory/pocketprotector = 4,
 		/obj/item/storage/backpack/duffelbag/med = 4,
@@ -78,14 +82,14 @@
 	payment_department = ACCOUNT_MED
 
 /obj/item/vending_refill/wardrobe/medi_wardrobe
-	machine_name = "MediDrobe"
+	machine_name = "Госпитальер"
 
 /obj/machinery/vending/wardrobe/engi_wardrobe
-	name = "EngiDrobe"
+	name = "Работяга"
 	desc = "Торговый автомат, известный торговлей одеждой промышленного класса."
 	icon_state = "engidrobe"
 	product_ads = "Гарантированно защитит ноги от несчастных случаев на производстве!;Боитесь радиации? Тогда наденьте желтое!"
-	vend_reply = "Спасибо за использование EngiDrobe!"
+	vend_reply = "Спасибо за использование Работяги!"
 	products = list(/obj/item/clothing/accessory/pocketprotector = 3,
 					/obj/item/storage/backpack/duffelbag/engineering = 3,
 					/obj/item/storage/backpack/industrial = 3,
@@ -105,14 +109,14 @@
 	light_color = COLOR_VIVID_YELLOW
 
 /obj/item/vending_refill/wardrobe/engi_wardrobe
-	machine_name = "EngiDrobe"
+	machine_name = "Работяга"
 
 /obj/machinery/vending/wardrobe/atmos_wardrobe
-	name = "AtmosDrobe"
+	name = "Зефир"
 	desc = "Этот относительно неизвестный торговый автомат доставляет одежду для техников по атмосфере, работа столь же неизвестная."
 	icon_state = "atmosdrobe"
 	product_ads = "Возьмите легковоспламеняющуюся одежду прямо здесь!!!"
-	vend_reply = "Спасибо за использование AtmosDrobe!"
+	vend_reply = "Спасибо за использование Зефира!"
 	products = list(/obj/item/clothing/accessory/pocketprotector = 2,
 					/obj/item/storage/backpack/duffelbag/engineering = 2,
 					/obj/item/storage/backpack/satchel/eng = 2,
@@ -127,14 +131,14 @@
 	light_color = COLOR_VIVID_YELLOW
 
 /obj/item/vending_refill/wardrobe/atmos_wardrobe
-	machine_name = "AtmosDrobe"
+	machine_name = "Зефир"
 
 /obj/machinery/vending/wardrobe/cargo_wardrobe
-	name = "CargoDrobe"
+	name = "Перевозчик"
 	desc = "Усовершенствованный торговый автомат для бесплатной покупки грузовой одежды."
 	icon_state = "cargodrobe"
 	product_ads = "Модернизированный стиль ассистента!;Выберите себе сегодня!;Эти шорты удобны и их легко носить, приобретите сейчас!"
-	vend_reply = "Спасибо за использование CargoDrobe!"
+	vend_reply = "Спасибо за использование Перевозчика!"
 	products = list(/obj/item/storage/bag/mail = 3,
 					/obj/item/clothing/suit/hooded/wintercoat/cargo = 3,
 					/obj/item/clothing/under/rank/cargo/tech = 3,
@@ -152,38 +156,42 @@
 	payment_department = ACCOUNT_CAR
 
 /obj/item/vending_refill/wardrobe/cargo_wardrobe
-	machine_name = "CargoDrobe"
+	machine_name = "Перевозчик"
 
 /obj/machinery/vending/wardrobe/robo_wardrobe
-	name = "RoboDrobe"
+	name = "Омниссия"
 	desc = "Торговый автомат, предназначенный для раздачи одежды, известный только робототехникам."
 	icon_state = "robodrobe"
-	product_ads = "Вы превращаете меня в ИСТИНУ, используя определения!;0110001101101100011011110111010001101000011001010111001101101000011001010111001001100101"
-	vend_reply = "Спасибо за использование RoboDrobe!"
-	products = list(/obj/item/clothing/glasses/hud/diagnostic = 2,
-					/obj/item/storage/belt/univeral = 2,
-					/obj/item/storage/belt/utility = 2,
-					/obj/item/clothing/under/rank/rnd/roboticist = 2,
-					/obj/item/clothing/under/rank/rnd/roboticist/skirt = 2,
-					/obj/item/clothing/suit/toggle/labcoat/roboticist = 2,
-					/obj/item/clothing/shoes/sneakers/black = 2,
-					/obj/item/clothing/gloves/fingerless = 2,
-					/obj/item/clothing/head/soft/black = 2,
-					/obj/item/clothing/mask/bandana/skull/black = 2)
-	contraband = list(/obj/item/clothing/suit/hooded/techpriest = 2,
-					/obj/item/organ/tongue/robot = 2)
+	product_ads = "Вы превращаете меня в ИСТИНУ, используя определения!;0110001101101100011011110111010001101000011001010111001101101000011001010111001001100101;Во славу Омниссии!"
+	vend_reply = "Спасибо за использование Омниссии!"
+	products = list(
+		/obj/item/clothing/glasses/hud/diagnostic = 2,
+		/obj/item/storage/belt/univeral = 2,
+		/obj/item/storage/belt/utility = 2,
+		/obj/item/clothing/under/rank/rnd/roboticist = 2,
+		/obj/item/clothing/under/rank/rnd/roboticist/skirt = 2,
+		/obj/item/clothing/suit/toggle/labcoat/roboticist = 2,
+		/obj/item/clothing/shoes/sneakers/black = 2,
+		/obj/item/clothing/gloves/fingerless = 2,
+		/obj/item/clothing/head/soft/black = 2,
+		/obj/item/clothing/mask/bandana/skull/black = 2,
+		/obj/item/clothing/suit/hooded/techpriest = 2,
+		)
+	contraband = list(
+		/obj/item/organ/tongue/robot = 2
+		)
 	refill_canister = /obj/item/vending_refill/wardrobe/robo_wardrobe
 	extra_price = PAYCHECK_HARD * 1.2
 	payment_department = ACCOUNT_SCI
 /obj/item/vending_refill/wardrobe/robo_wardrobe
-	machine_name = "RoboDrobe"
+	machine_name = "Омниссия"
 
 /obj/machinery/vending/wardrobe/science_wardrobe
-	name = "SciDrobe"
-	desc = "Простой торговый автомат, подходящий для продажи прочно скроенной научной одежды. Одобрен Space Cubans."
+	name = "Стиль Нобеля"
+	desc = "Простой торговый автомат, подходящий для продажи прочно скроенной научной одежды."
 	icon_state = "scidrobe"
 	product_ads = "Тоска по запаху сожженной плоти? Купите свою научную одежду прямо сейчас!;Сделано с 10% ауксетиков, так что вам не нужно беспокоиться о потере руки!"
-	vend_reply = "Спасибо за использование SciDrobe!"
+	vend_reply = "Спасибо за использование Стиля Нобеля!"
 	products = list(/obj/item/clothing/accessory/pocketprotector = 3,
 					/obj/item/storage/backpack/science = 3,
 					/obj/item/storage/backpack/satchel/tox = 3,
@@ -200,14 +208,14 @@
 	refill_canister = /obj/item/vending_refill/wardrobe/science_wardrobe
 	payment_department = ACCOUNT_SCI
 /obj/item/vending_refill/wardrobe/science_wardrobe
-	machine_name = "SciDrobe"
+	machine_name = "Стиль Нобеля"
 
 /obj/machinery/vending/wardrobe/hydro_wardrobe
-	name = "Hydrobe"
+	name = "Сельский шик"
 	desc = "Машина с запоминающимся названием. Он продает одежду и снаряжение, относящиеся к ботанике."
 	icon_state = "hydrobe"
 	product_ads = "Вы любите почву? Тогда покупайте нашу одежду!;Приобретайте здесь наряды на свой вкус!"
-	vend_reply = "Спасибо за использование Hydrobe!"
+	vend_reply = "Спасибо за использование Сельского шика!"
 	products = list(/obj/item/storage/backpack/botany = 2,
 					/obj/item/storage/backpack/satchel/hyd = 2,
 					/obj/item/clothing/suit/hooded/wintercoat/hydro = 2,
@@ -223,14 +231,14 @@
 	light_color = LIGHT_COLOR_ELECTRIC_GREEN
 
 /obj/item/vending_refill/wardrobe/hydro_wardrobe
-	machine_name = "HyDrobe"
+	machine_name = "Сельский шик"
 
 /obj/machinery/vending/wardrobe/curator_wardrobe
-	name = "CuraDrobe"
+	name = "Время приключений"
 	desc = "Продавец, способный продавать одежду только кураторам и библиотекарям."
 	icon_state = "curadrobe"
-	product_ads = "Очки для глаз и литература для души - в Curadrobe есть все!;Произведите впечатление и порадуйте посетителей вашей библиотеки расширенной линейкой ручек Curadrobe!"
-	vend_reply = "Спасибо за использование CuraDrobe!"
+	product_ads = "Очки для глаз и литература для души - в Времени приключений есть все!;Произведите впечатление и порадуйте посетителей вашей библиотеки расширенной линейкой ручек Время приключений!"
+	vend_reply = "Спасибо за использование Времени приключений!"
 	products = list(/obj/item/pen = 4,
 					/obj/item/pen/red = 2,
 					/obj/item/pen/blue = 2,
@@ -247,14 +255,14 @@
 	refill_canister = /obj/item/vending_refill/wardrobe/curator_wardrobe
 	payment_department = ACCOUNT_SRV
 /obj/item/vending_refill/wardrobe/curator_wardrobe
-	machine_name = "CuraDrobe"
+	machine_name = "Время приключений"
 
 /obj/machinery/vending/wardrobe/bar_wardrobe
-	name = "BarDrobe"
+	name = "Октоберфест"
 	desc = "Стильный продавец самой стильной одежды для бара!"
 	icon_state = "bardrobe"
 	product_ads = "Гарантированно защищает от пятен от пролитых напитков!"
-	vend_reply = "Спасибо за использование BarDrobe!"
+	vend_reply = "Спасибо за использование Октоберфеста!"
 	products = list(/obj/item/clothing/head/that = 2,
 					/obj/item/radio/headset/headset_srv = 2,
 					/obj/item/clothing/under/suit/sl = 2,
@@ -279,14 +287,14 @@
 	payment_department = ACCOUNT_SRV
 	extra_price = PAYCHECK_HARD
 /obj/item/vending_refill/wardrobe/bar_wardrobe
-	machine_name = "BarDrobe"
+	machine_name = "Октоберфест"
 
 /obj/machinery/vending/wardrobe/chef_wardrobe
-	name = "ChefDrobe"
+	name = "Шеф-шеф"
 	desc = "Этот торговый автомат может не продавать мясо, но он, безусловно, раздает одежду, связанную с поварством."
 	icon_state = "chefdrobe"
 	product_ads = "Наша одежда гарантированно защитит вас от брызг еды!"
-	vend_reply = "Спасибо за использование ChefDrobe!"
+	vend_reply = "Спасибо за использование Шеф-шефа!"
 	products = list(/obj/item/clothing/under/suit/waiter = 2,
 					/obj/item/radio/headset/headset_srv = 2,
 					/obj/item/clothing/accessory/waistcoat = 2,
@@ -305,31 +313,34 @@
 	refill_canister = /obj/item/vending_refill/wardrobe/chef_wardrobe
 	payment_department = ACCOUNT_SRV
 /obj/item/vending_refill/wardrobe/chef_wardrobe
-	machine_name = "ChefDrobe"
+	machine_name = "Шеф-шеф"
 
 /obj/machinery/vending/wardrobe/jani_wardrobe
-	name = "JaniDrobe"
+	name = "Мойдодыр"
 	desc = "Автомат с самоочисткой, позволяющий раздавать одежду уборщикам."
 	icon_state = "janidrobe"
 	product_ads = "Приходите и возьмите свою одежду для уборщиков, которую теперь одобряют уборщики-ящеры повсюду!"
-	vend_reply = "Спасибо за использование JaniDrobe!"
-	products = list(/obj/item/clothing/under/rank/civilian/janitor = 2,
-					/obj/item/clothing/under/rank/civilian/janitor/skirt = 2,
-					/obj/item/clothing/gloves/color/black = 2,
-					/obj/item/clothing/head/soft/purple = 2,
-					/obj/item/clothing/mask/bandana/purple = 2,
-					/obj/item/pushbroom = 2,
-					/obj/item/paint/paint_remover = 2,
-					/obj/item/melee/flyswatter = 2,
-					/obj/item/flashlight = 2,
-					/obj/item/clothing/suit/caution = 6,
-					/obj/item/holosign_creator = 2,
-					/obj/item/lightreplacer = 2,
-					/obj/item/soap/nanotrasen = 2,
-					/obj/item/storage/bag/trash = 2,
-					/obj/item/clothing/shoes/galoshes = 2,
-					/obj/item/watertank/janitor = 1,
-					/obj/item/storage/belt/janitor = 2)
+	vend_reply = "Спасибо за использование Мойдодыра!"
+	products = list(
+		/obj/item/clothing/under/rank/civilian/janitor = 2,
+		/obj/item/clothing/under/rank/civilian/janitor/skirt = 2,
+		/obj/item/clothing/under/rank/civilian/janitor/maid = 2,
+		/obj/item/clothing/suit/hazardvest/janitor = 2,
+		/obj/item/clothing/gloves/color/black = 2,
+		/obj/item/clothing/head/soft/purple = 2,
+		/obj/item/clothing/mask/bandana/purple = 2,
+		/obj/item/pushbroom = 2,
+		/obj/item/paint/paint_remover = 2,
+		/obj/item/melee/flyswatter = 2,
+		/obj/item/flashlight = 2,
+		/obj/item/clothing/suit/caution = 6,
+		/obj/item/holosign_creator = 2,
+		/obj/item/lightreplacer = 2,
+		/obj/item/soap/nanotrasen = 2,
+		/obj/item/storage/bag/trash = 2,
+		/obj/item/clothing/shoes/galoshes = 2,
+		/obj/item/watertank/janitor = 1,
+		/obj/item/storage/belt/janitor = 2)
 	refill_canister = /obj/item/vending_refill/wardrobe/jani_wardrobe
 	default_price = PAYCHECK_EASY
 	extra_price = PAYCHECK_HARD * 0.8
@@ -337,81 +348,90 @@
 	light_color = COLOR_STRONG_MAGENTA
 
 /obj/item/vending_refill/wardrobe/jani_wardrobe
-	machine_name = "JaniDrobe"
+	machine_name = "Мойдодыр"
 
 /obj/machinery/vending/wardrobe/law_wardrobe
-	name = "LawDrobe"
+	name = "Сол и Гудмэн"
 	desc = "Возражение! В этом гардеробе нет правопорядка... и одежды юриста."
 	icon_state = "lawdrobe"
 	product_ads = "ВОЗРАЖЕНИЕ! Добейтесь верховенства закона для себя!"
-	vend_reply = "Спасибо за использование LawDrobe!"
-	products = list(/obj/item/clothing/under/rank/civilian/lawyer/bluesuit = 1,
-					/obj/item/clothing/under/rank/civilian/lawyer/bluesuit/skirt = 1,
-					/obj/item/clothing/suit/toggle/lawyer = 1,
-					/obj/item/clothing/under/rank/civilian/lawyer/purpsuit = 1,
-					/obj/item/clothing/under/rank/civilian/lawyer/purpsuit/skirt = 1,
-					/obj/item/clothing/suit/toggle/lawyer/purple = 1,
-					/obj/item/clothing/under/suit/black = 1,
-					/obj/item/clothing/under/suit/black/skirt = 1,
-					/obj/item/clothing/suit/toggle/lawyer/black = 1,
-					/obj/item/clothing/under/rank/civilian/lawyer/female = 1,
-					/obj/item/clothing/under/rank/civilian/lawyer/female/skirt = 1,
-					/obj/item/clothing/under/suit/black_really = 1,
-					/obj/item/clothing/under/suit/black_really/skirt = 1,
-					/obj/item/clothing/under/rank/civilian/lawyer/blue = 1,
-					/obj/item/clothing/under/rank/civilian/lawyer/blue/skirt = 1,
-					/obj/item/clothing/under/rank/civilian/lawyer/red = 1,
-					/obj/item/clothing/under/rank/civilian/lawyer/red/skirt = 1,
-					/obj/item/clothing/under/rank/civilian/lawyer/black = 1,
-					/obj/item/clothing/under/rank/civilian/lawyer/black/skirt = 1,
-					/obj/item/clothing/shoes/laceup = 2,
-					/obj/item/clothing/accessory/lawyers_badge = 2)
+	vend_reply = "Спасибо за использование Сол и Гудмэна!"
+	products = list(
+		/obj/item/clothing/under/rank/civilian/lawyer/bluesuit = 1,
+		/obj/item/clothing/under/rank/civilian/lawyer/bluesuit/skirt = 1,
+		/obj/item/clothing/suit/toggle/lawyer = 1,
+		/obj/item/clothing/under/rank/civilian/lawyer/purpsuit = 1,
+		/obj/item/clothing/under/rank/civilian/lawyer/purpsuit/skirt = 1,
+		/obj/item/clothing/suit/toggle/lawyer/purple = 1,
+		/obj/item/clothing/under/suit/black = 1,
+		/obj/item/clothing/under/suit/black/skirt = 1,
+		/obj/item/clothing/suit/toggle/lawyer/black = 1,
+		/obj/item/clothing/under/rank/civilian/lawyer/female = 1,
+		/obj/item/clothing/under/rank/civilian/lawyer/female/skirt = 1,
+		/obj/item/clothing/under/suit/black_really = 1,
+		/obj/item/clothing/under/suit/black_really/skirt = 1,
+		/obj/item/clothing/under/rank/civilian/lawyer/blue = 1,
+		/obj/item/clothing/under/rank/civilian/lawyer/blue/skirt = 1,
+		/obj/item/clothing/under/rank/civilian/lawyer/red = 1,
+		/obj/item/clothing/under/rank/civilian/lawyer/red/skirt = 1,
+		/obj/item/clothing/under/rank/civilian/lawyer/black = 1,
+		/obj/item/clothing/under/rank/civilian/lawyer/black/skirt = 1,
+		/obj/item/clothing/shoes/laceup = 2,
+		/obj/item/clothing/accessory/lawyers_badge = 2
+		)
 	refill_canister = /obj/item/vending_refill/wardrobe/law_wardrobe
 	payment_department = ACCOUNT_SRV
 /obj/item/vending_refill/wardrobe/law_wardrobe
-	machine_name = "LawDrobe"
+	machine_name = "Сол и Гудмэн"
 
 /obj/machinery/vending/wardrobe/chap_wardrobe
-	name = "КапДероб"
+	name = "Праведник"
 	desc = "Эта самая благословенная и святая машина продает одежду, на которую можно смотреть только капелланам."
 	icon_state = "chapdrobe"
 	product_ads = "Вас беспокоят культисты или надоедливые призраки? Тогда приходи и одевайся как святой! Одежда для мужчин из ткани!"
-	vend_reply = "Спасибо за использование ChapDrobe!"
-	products = list(/obj/item/choice_beacon/holy = 1,
-					/obj/item/storage/backpack/cultpack = 1,
-					/obj/item/clothing/accessory/pocketprotector/cosmetology = 1,
-					/obj/item/clothing/under/rank/civilian/chaplain = 1,
-					/obj/item/clothing/under/rank/civilian/chaplain/skirt = 2,
-					/obj/item/clothing/shoes/sneakers/black = 1,
-					/obj/item/clothing/suit/chaplainsuit/nun = 1,
-					/obj/item/clothing/head/nun_hood = 1,
-					/obj/item/clothing/suit/chaplainsuit/holidaypriest = 1,
-					/obj/item/clothing/suit/hooded/chaplainsuit/monkhabit = 1,
-					/obj/item/storage/fancy/candle_box = 2,
-					/obj/item/clothing/head/kippah = 3,
-					/obj/item/clothing/suit/chaplainsuit/whiterobe = 1,
-					/obj/item/clothing/head/taqiyahwhite = 1,
-					/obj/item/clothing/head/taqiyahred = 3,
-					/obj/item/clothing/suit/chaplainsuit/monkrobeeast = 1,
-					/obj/item/clothing/head/rasta = 1)
-	contraband = list(/obj/item/toy/plush/ratplush = 1,
-					/obj/item/toy/plush/narplush = 1,
-					/obj/item/clothing/head/medievaljewhat = 3,
-					/obj/item/clothing/suit/chaplainsuit/clownpriest = 1,
-					/obj/item/clothing/head/clownmitre = 1)
-	premium = list(/obj/item/clothing/suit/chaplainsuit/bishoprobe = 1,
-					/obj/item/clothing/head/bishopmitre = 1)
+	vend_reply = "Спасибо за использование Праведника!"
+	products = list(
+		/obj/item/choice_beacon/holy = 1,
+		/obj/item/storage/backpack/cultpack = 1,
+		/obj/item/clothing/accessory/pocketprotector/cosmetology = 1,
+		/obj/item/clothing/under/rank/civilian/chaplain = 1,
+		/obj/item/clothing/under/rank/civilian/chaplain/skirt = 2,
+		/obj/item/clothing/shoes/sneakers/black = 1,
+		/obj/item/clothing/suit/chaplainsuit/nun = 1,
+		/obj/item/clothing/head/nun_hood = 1,
+		/obj/item/clothing/suit/chaplainsuit/holidaypriest = 1,
+		/obj/item/clothing/suit/hooded/chaplainsuit/monkhabit = 1,
+		/obj/item/storage/fancy/candle_box = 2,
+		/obj/item/clothing/head/kippah = 3,
+		/obj/item/clothing/suit/chaplainsuit/whiterobe = 1,
+		/obj/item/clothing/head/taqiyahwhite = 1,
+		/obj/item/clothing/head/taqiyahred = 3,
+		/obj/item/clothing/suit/chaplainsuit/monkrobeeast = 1,
+		/obj/item/clothing/head/rasta = 1,
+		/obj/item/grenade/chem_grenade/holy_pena =5,
+		)
+	contraband = list(
+		/obj/item/toy/plush/ratplush = 1,
+		/obj/item/toy/plush/narplush = 1,
+		/obj/item/clothing/head/medievaljewhat = 3,
+		/obj/item/clothing/suit/chaplainsuit/clownpriest = 1,
+		/obj/item/clothing/head/clownmitre = 1
+		)
+	premium = list(
+		/obj/item/clothing/suit/chaplainsuit/bishoprobe = 1,
+		/obj/item/clothing/head/bishopmitre = 1
+		)
 	refill_canister = /obj/item/vending_refill/wardrobe/chap_wardrobe
 	payment_department = ACCOUNT_SRV
 /obj/item/vending_refill/wardrobe/chap_wardrobe
-	machine_name = "ChapDrobe"
+	machine_name = "Праведник"
 
 /obj/machinery/vending/wardrobe/chem_wardrobe
-	name = "ChemDrobe"
+	name = "Мистер Уайт"
 	desc = "Торговый автомат по продаже одежды, связанной с химией."
 	icon_state = "chemdrobe"
 	product_ads = "Наша одежда на 0,5% более устойчива к проливам кислоты! Получите прямо сейчас!"
-	vend_reply = "Спасибо за использование ChemDrobe!"
+	vend_reply = "Спасибо за использование \"Мистер Уайт\"!"
 	products = list(/obj/item/clothing/under/rank/medical/chemist = 2,
 					/obj/item/clothing/under/rank/medical/chemist/skirt = 2,
 					/obj/item/clothing/head/beret/medical = 2,
@@ -425,14 +445,14 @@
 	refill_canister = /obj/item/vending_refill/wardrobe/chem_wardrobe
 	payment_department = ACCOUNT_MED
 /obj/item/vending_refill/wardrobe/chem_wardrobe
-	machine_name = "ChemDrobe"
+	machine_name = "Мистер Уайт"
 
 /obj/machinery/vending/wardrobe/gene_wardrobe
-	name = "GeneDrobe"
+	name = "Дарвин"
 	desc = "Автомат для выдачи одежды, связанной с генетикой."
 	icon_state = "genedrobe"
-	product_ads = "Идеально подходит для безумного ученого внутри вас!"
-	vend_reply = "Спасибо за использование GeneDrobe!"
+	product_ads = "ПАКУПАЙ АДЕЖДА!;ПИХАЙ ДЕНЬГИ СЮДА!;ВААААГГХХХ!!!!!;АВТОМАТ ДАВИТЬ!ТВОЯ ПОКУПАТЬ!"
+	vend_reply = "Спасибо за использование Дарвина!"
 	products = list(/obj/item/clothing/under/rank/rnd/geneticist = 2,
 					/obj/item/clothing/under/rank/rnd/geneticist/skirt = 2,
 					/obj/item/clothing/shoes/sneakers/white = 2,
@@ -442,14 +462,14 @@
 	refill_canister = /obj/item/vending_refill/wardrobe/gene_wardrobe
 	payment_department = ACCOUNT_SCI
 /obj/item/vending_refill/wardrobe/gene_wardrobe
-	machine_name = "GeneDrobe"
+	machine_name = "Дарвин"
 
 /obj/machinery/vending/wardrobe/viro_wardrobe
-	name = "ViroDrobe"
+	name = "Петри"
 	desc = "Нестерилизованная машина для выдачи одежды, связанной с вирусологией."
 	icon_state = "virodrobe"
 	product_ads = "Вирусы вас раздражают? Тогда перейдите на стерильную одежду сегодня!"
-	vend_reply = "Спасибо за использование ViroDrobe"
+	vend_reply = "Спасибо за использование Петри"
 	products = list(/obj/item/clothing/under/rank/medical/virologist = 2,
 					/obj/item/clothing/under/rank/medical/virologist/skirt = 2,
 					/obj/item/clothing/head/beret/medical = 2,
@@ -461,14 +481,14 @@
 	refill_canister = /obj/item/vending_refill/wardrobe/viro_wardrobe
 	payment_department = ACCOUNT_MED
 /obj/item/vending_refill/wardrobe/viro_wardrobe
-	machine_name = "ViroDrobe"
+	machine_name = "Петри"
 
 /obj/machinery/vending/wardrobe/det_wardrobe
-	name = "DetDrobe"
+	name = "Нуар"
 	desc = "Машина для всех ваших детективных потребностей, если вам нужна одежда."
 	icon_state = "detdrobe"
 	product_ads = "Применяйте свои блестящие дедуктивные методы со стилем!"
-	vend_reply = "Спасибо за использование DetDrobe!"
+	vend_reply = "Спасибо за использование Нуара!"
 	products = list(/obj/item/clothing/under/rank/security/detective = 2,
 					/obj/item/clothing/under/rank/security/detective/skirt = 2,
 					/obj/item/clothing/shoes/sneakers/brown = 2,
@@ -500,4 +520,4 @@
 	payment_department = ACCOUNT_SEC
 
 /obj/item/vending_refill/wardrobe/det_wardrobe
-	machine_name = "DetDrobe"
+	machine_name = "Нуар"

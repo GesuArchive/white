@@ -87,7 +87,7 @@
 
 	glasses = /obj/item/clothing/glasses/sunglasses
 	uniform = /obj/item/clothing/under/syndicate
-	suit = /obj/item/clothing/suit/armor/vest/leather
+	suit = /obj/item/clothing/suit/armor/vest/leather/noname
 	shoes = /obj/item/clothing/shoes/combat
 	head = /obj/item/clothing/head/soft/black
 	suit_store = /obj/item/gun/ballistic/rifle/boltaction/ptr

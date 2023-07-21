@@ -132,7 +132,7 @@
 	update_icon()
 
 /obj/machinery/portable_atmospherics/scrubber/huge
-	name = "огромный портативный газоочиститель"
+	name = "промышленный газоочиститель"
 	icon_state = "scrubber:0"
 	anchored = TRUE
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.5
@@ -145,6 +145,7 @@
 	use_overlays = FALSE
 
 /obj/machinery/portable_atmospherics/scrubber/huge/movable
+	name = "промышленный портативный газоочиститель"
 	movable = TRUE
 
 /obj/machinery/portable_atmospherics/scrubber/huge/movable/cargo

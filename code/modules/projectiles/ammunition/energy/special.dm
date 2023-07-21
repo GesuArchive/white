@@ -5,6 +5,10 @@
 
 /obj/item/ammo_casing/energy/ion/hos
 	projectile_type = /obj/projectile/ion/weak
+	e_cost = 200
+
+/obj/item/ammo_casing/energy/ion/e_300
+	projectile_type = /obj/projectile/ion/weak
 	e_cost = 300
 
 /obj/item/ammo_casing/energy/declone
@@ -57,6 +61,10 @@
 	projectile_type = /obj/projectile/energy/trap
 	select_name = "snare"
 	harmful = FALSE
+
+/obj/item/ammo_casing/energy/trap/hos
+	projectile_type = /obj/projectile/energy/trap/cyborg
+	e_cost = 300
 
 /obj/item/ammo_casing/energy/instakill
 	projectile_type = /obj/projectile/beam/instakill

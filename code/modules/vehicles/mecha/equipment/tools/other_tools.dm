@@ -173,22 +173,30 @@
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/armor/anticcw_armor_booster
-	name = "демпферная броня (ближний бой)"
+	name = "демпферная броня"
 	desc = "Усиливает броню экзокостюма против атак ближнего боя. Потребляет энергию для работы."
 	icon_state = "mecha_abooster_ccw"
 	iconstate_name = "melee"
-	protect_name = "Melee Armor"
-	armor = list(MELEE = 15, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	protect_name = "Броня от ближнего боя"
+	armor = list(MELEE = 35, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 
 /obj/item/mecha_parts/mecha_equipment/armor/antiproj_armor_booster
-	name = "композитная броня (дальний бой)"
+	name = "композитная броня"
 	desc = "Усиливает броню экзокостюма против дальних атак. Полностью блокирует выстрелы из электрошокера. Потребляет энергию для работы."
 	icon_state = "mecha_abooster_proj"
 	iconstate_name = "range"
-	protect_name = "Ranged Armor"
-	armor = list(MELEE = 0, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	protect_name = "Броня от пуль"
+	armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 
-
+/*
+/obj/item/mecha_parts/mecha_equipment/armor/ablasive_armor_booster
+	name = "аблазивная броня"
+	desc = "Усиливает броню экзокостюма против дальних атак. Полностью блокирует выстрелы из электрошокера. Потребляет энергию для работы."
+	icon_state = "mecha_abooster_proj"
+	iconstate_name = "range"
+	protect_name = "Броня от лазеров"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 35, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+*/
 ////////////////////////////////// REPAIR DROID //////////////////////////////////////////////////
 
 

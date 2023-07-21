@@ -5,20 +5,20 @@
 
 /datum/export/weapon/baton
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "электрошоковая дубинка"
+	unit_name = "Электрошоковая дубинка"
 	export_types = list(/obj/item/melee/baton)
 	exclude_types = list(/obj/item/melee/baton/cattleprod)
 	include_subtypes = TRUE
 
 /datum/export/weapon/knife
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "боевой нож"
+	unit_name = "Боевой нож"
 	export_types = list(/obj/item/kitchen/knife/combat)
 
 
 /datum/export/weapon/taser
 	cost = CARGO_CRATE_VALUE
-	unit_name = "гибридный тазер"
+	unit_name = "Гибридный тазер"
 	export_types = list(/obj/item/gun/energy/e_gun/advtaser)
 
 /datum/export/weapon/laser
@@ -28,7 +28,7 @@
 
 /datum/export/weapon/disabler
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "Дизаблер"
+	unit_name = "Усмиритель"
 	export_types = list(/obj/item/gun/energy/disabler)
 
 /datum/export/weapon/energy_gun
@@ -38,39 +38,37 @@
 
 /datum/export/weapon/inferno
 	cost = CARGO_CRATE_VALUE * 1.5
-	unit_name = "пиролучевой пистолет"
+	unit_name = "Пиролучевой пистолет"
 	export_types = list(/obj/item/gun/energy/laser/thermal/inferno)
 
 /datum/export/weapon/cryo
 	cost = CARGO_CRATE_VALUE * 1.5
-	unit_name = "криолучевой пистолет"
+	unit_name = "Криолучевой пистолет"
 	export_types = list(/obj/item/gun/energy/laser/thermal/cryo)
 
 /datum/export/weapon/shotgun
 	cost = CARGO_CRATE_VALUE * 1.5
-	unit_name = "боевой дробовик"
+	unit_name = "Боевой дробовик"
 	export_types = list(/obj/item/gun/ballistic/shotgun/automatic/combat)
-
 
 /datum/export/weapon/flashbang
 	cost = CARGO_CRATE_VALUE * 0.025
-	unit_name = "светошумовая граната"
+	unit_name = "Светошумовая граната"
 	export_types = list(/obj/item/grenade/flashbang)
 
 /datum/export/weapon/teargas
 	cost = CARGO_CRATE_VALUE * 0.025
-	unit_name = "граната со слезоточивым газом"
+	unit_name = "Слезоточивая граната"
 	export_types = list(/obj/item/grenade/chem_grenade/teargas)
 
 
 /datum/export/weapon/flash
 	cost = CARGO_CRATE_VALUE * 0.025
-	unit_name = "флэш"
+	unit_name = "Вспышка"
 	export_types = list(/obj/item/assembly/flash)
 	include_subtypes = TRUE
 
 /datum/export/weapon/handcuffs
 	cost = CARGO_CRATE_VALUE * 0.015
-	unit_name = "пара"
-	message = "наручников"
+	unit_name = "Наручники"
 	export_types = list(/obj/item/restraints/handcuffs)

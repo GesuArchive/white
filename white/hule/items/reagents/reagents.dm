@@ -1,33 +1,21 @@
 /datum/reagent/toxin/hyperpsy
-	name = "Hyperpsychotic drug"
-	description = "A powerful psychotic toxin. Can cause a personality split."
+	name = "Полураспад-228"
+	description = "Сильнодействующий наркотик вызывающий раздвоение личности."
 	color = "#00FF00"
 	toxpwr = 0
-	taste_description = "кислотность"
+	taste_description = "дикая смесь из сладкого, соленого и кислого"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 
 /datum/reagent/toxin/hyperpsy/on_mob_add(mob/M)
 	..()
-	if(iscarbon(M))
-		var/mob/living/carbon/C = M
-		C.gain_trauma(/datum/brain_trauma/severe/split_personality)
+//	Протекание и лечение
+/datum/reagent/toxin/hyperpsy/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	if(current_cycle > 20)
+		if(iscarbon(M))
+			var/mob/living/carbon/C = M
+			C.gain_trauma(/datum/brain_trauma/severe/split_personality)
 
-/obj/item/reagent_containers/pill/hyperpsy
-	name = "Hyperpsychotic drug pill"
-	desc = "A powerful psychotic toxin. Can cause a personality split."
-	icon_state = "pill17"
-	list_reagents = list(/datum/reagent/toxin/hyperpsy = 1)
-	//roundstart = 1
-
-/datum/chemical_reaction/hyperpsy
-	results = list("hyperpsy" = 1)
-	required_reagents = list(/datum/reagent/consumable/ethanol/neurotoxin = 1, /datum/reagent/medicine/strange_reagent = 1, /datum/reagent/medicine/mannitol = 1)
-
-/datum/supply_pack/medical/hyperpsy
-	name = "Hyperpsychotic drug crate"
-	cost = 500
-	contains = list(/obj/item/reagent_containers/pill/hyperpsy)
-	crate_name = "hyperpsy crate"
+	..()
 
 /datum/reagent/toxin/nptox
 	name = "Neuroparalitic toxin"

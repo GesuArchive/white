@@ -35,11 +35,12 @@
 	else
 		playsound(src, 'white/valtos/sounds/error2.ogg', 50)
 
-/datum/supply_pack/engineering/graviton_beacon
-	name = "Гравитоновые маяки"
+/obj/structure/closet/crate/graviton_beacon
+	name = "ящик с гравитоновыми маяками"
 	desc = "Используются для создания гравитации в небольшой зоне."
-	cost = BUY_CRATE_VALUE
-	contains = list(/obj/item/graviton_beacon,
-					/obj/item/graviton_beacon,
-					/obj/item/graviton_beacon)
-	crate_name = "ящик с гравитоновыми мяками"
+	icon_state = "engi_crate"
+
+/obj/structure/closet/crate/graviton_beacon/PopulateContents()
+	..()
+	for(var/i in 1 to 3)
+		new /obj/item/graviton_beacon(src)

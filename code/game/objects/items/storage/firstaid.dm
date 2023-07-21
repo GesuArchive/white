@@ -10,7 +10,7 @@
  */
 /obj/item/storage/firstaid
 	name = "аптечка первой помощи"
-	desc = "It's an emergency medical kit for those serious boo-boos."
+	desc = "Содержит шовный и перевязочный материал для лечения легких травм."
 	icon_state = "firstaid"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -177,7 +177,7 @@
 	empty = TRUE // long since been ransacked by hungry powergaming assistants breaking into med storage
 
 /obj/item/storage/firstaid/fire
-	name = "противоожоговая аптечка"
+	name = "аптечка противоожоговая"
 	desc = "Пригодится в тех случаях когда лаборатория взрывотехники <i>-случайно-</i> сгорела."
 	icon_state = "ointment"
 	inhand_icon_state = "firstaid-ointment"
@@ -221,15 +221,15 @@
 	if(empty)
 		return
 	var/static/items_inside = list(
-	    /obj/item/storage/pill_bottle/multiver/less = 1,
+		/obj/item/storage/pill_bottle/multiver/less = 1,
 		/obj/item/reagent_containers/syringe/syriniver = 3,
 		/obj/item/storage/pill_bottle/potassiodide = 1,
 		/obj/item/reagent_containers/hypospray/medipen/penacid = 1)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/firstaid/o2
-	name = "аптечка для стабилизации"
-	desc = "Содержит препараты для предотвращения асфиксии."
+	name = "аптечка стабилизационная"
+	desc = "Содержит препараты для предотвращения асфиксии и регенерации крови."
 	icon_state = "o2"
 	inhand_icon_state = "firstaid-o2"
 	damagetype_healed = OXY
@@ -253,7 +253,7 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/firstaid/brute
-	name = "аптечка для физических ран"
+	name = "аптечка травматологическая"
 	desc = "Содержит медикаменты для излечения резаных, колотых ран и травм вызванных ударами тупым предметом различной степени тяжести."
 	icon_state = "brute"
 	inhand_icon_state = "firstaid-brute"

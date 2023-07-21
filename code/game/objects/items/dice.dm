@@ -95,8 +95,8 @@
 	name = "d6"
 
 /obj/item/dice/d6/ebony
-	name = "ebony die"
-	desc = "A die with six sides made of dense black wood. It feels cold and heavy in your hand."
+	name = "эбонитовый игральный кубик"
+	desc = "Кубик с шестью сторонами, изготовленный из плотного черного дерева. Он кажется холодным и тяжелым в твоей руке."
 	icon_state = "de6"
 	microwave_riggable = FALSE // You can't melt wood in the microwave
 

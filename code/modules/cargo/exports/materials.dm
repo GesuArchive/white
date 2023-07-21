@@ -1,6 +1,6 @@
 /datum/export/material
-	cost = 5 // Cost per MINERAL_MATERIAL_AMOUNT, which is 2000cm3 as of April 2016.
-	message = "cm3 of developer's tears. Please, report this on github"
+	cost = 5 // Cost per MINERAL_MATERIAL_AMOUNT, which is 2000лист as of April 2016.
+	message = "лист of developer's tears. Please, report this on github"
 	var/material_id = null
 	export_types = list(
 		/obj/item/stack/sheet/mineral, /obj/item/stack/tile/mineral,
@@ -31,67 +31,67 @@
 /datum/export/material/bananium
 	cost = CARGO_CRATE_VALUE * 2
 	material_id = /datum/material/bananium
-	message = "cm3 бананиума"
+	message = "лист бананиума"
 
 /datum/export/material/diamond
 	cost = CARGO_CRATE_VALUE
 	material_id = /datum/material/diamond
-	message = "cm3 алмаза"
+	message = "алмазы"
 
 /datum/export/material/plasma
 	cost = CARGO_CRATE_VALUE * 0.4
 	k_elasticity = 0
 	material_id = /datum/material/plasma
-	message = "cm3 плазмы"
+	message = "лист плазмы"
 
 /datum/export/material/uranium
 	cost = CARGO_CRATE_VALUE * 0.2
 	material_id = /datum/material/uranium
-	message = "cm3 ураниума"
+	message = "лист урана"
 
 /datum/export/material/gold
 	cost = CARGO_CRATE_VALUE * 0.25
 	material_id = /datum/material/gold
-	message = "cm3 золота"
+	message = "лист золота"
 
 /datum/export/material/silver
 	cost = CARGO_CRATE_VALUE * 0.1
 	material_id = /datum/material/silver
-	message = "cm3 серебра"
+	message = "лист серебра"
 
 /datum/export/material/titanium
 	cost = CARGO_CRATE_VALUE * 0.25
 	material_id = /datum/material/titanium
-	message = "cm3 титаниума"
+	message = "лист титана"
 
 /datum/export/material/adamantine
 	cost = CARGO_CRATE_VALUE
 	material_id = /datum/material/adamantine
-	message = "cm3 адамантия"
+	message = "лист адамантия"
 
 /datum/export/material/mythril
 	cost = CARGO_CRATE_VALUE * 3
 	material_id = /datum/material/mythril
-	message = "cm3 мифрила"
+	message = "лист мифрила"
 
 /datum/export/material/bscrystal
 	cost = CARGO_CRATE_VALUE * 0.6
-	message = "of блюспейс кристалла"
+	message = "блюспейс кристалл"
 	material_id = /datum/material/bluespace
 
 /datum/export/material/plastic
 	cost = CARGO_CRATE_VALUE * 0.05
-	message = "cm3 пластика"
+	message = "лист пластика"
 	material_id = /datum/material/plastic
 
 /datum/export/material/runite
 	cost = CARGO_CRATE_VALUE * 1.2
-	message = "cm3 рунита"
+	message = "лист рунита"
 	material_id = /datum/material/runite
 
 /datum/export/material/iron
 	cost = CARGO_CRATE_VALUE * 0.01
-	message = "cm3 железа"
+	message = "лист железа"
 	material_id = /datum/material/iron
 	export_types = list(
 		/obj/item/stack/sheet/iron, /obj/item/stack/tile/plasteel,
@@ -99,19 +99,19 @@
 
 /datum/export/material/glass
 	cost = CARGO_CRATE_VALUE * 0.01
-	message = "cm3 стекла"
+	message = "лист стекла"
 	material_id = /datum/material/glass
 	export_types = list(/obj/item/stack/sheet/glass, /obj/item/stack/ore,
 		/obj/item/shard)
 
 /datum/export/material/hot_ice
 	cost = CARGO_CRATE_VALUE * 0.8
-	message = "cm3 горячего льда"
+	message = "лист горячего льда"
 	material_id = /datum/material/hot_ice
 	export_types = /obj/item/stack/sheet/hot_ice
 
 /datum/export/material/metal_hydrogen
 	cost = CARGO_CRATE_VALUE * 1.05
-	message = "of металлизированного гидрогена"
+	message = "металлизированный гидроген"
 	material_id = /datum/material/metalhydrogen
 	export_types = /obj/item/stack/sheet/mineral/metal_hydrogen

@@ -45,6 +45,11 @@
 	required_catalysts = list(/datum/reagent/stabilizing_agent = 1)
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
 
+/datum/chemical_reaction/frostoil
+	results = list(/datum/reagent/consumable/frostoil = 3)
+	required_reagents = list(/datum/reagent/cryostylane = 1, /datum/reagent/fuel/oil = 1, /datum/reagent/consumable/ethanol = 1)
+	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE | REACTION_TAG_OTHER
+
 /datum/chemical_reaction/plasma_solidification
 	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/consumable/frostoil = 5, /datum/reagent/toxin/plasma = 20)
 	mob_react = FALSE

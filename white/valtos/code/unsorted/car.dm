@@ -20,11 +20,3 @@
 	set_vehicle_dir_offsets(SOUTH, -16, -16)
 	set_vehicle_dir_offsets(EAST, -18, 0)
 	set_vehicle_dir_offsets(WEST, -18, 0)
-
-/datum/supply_pack/misc/driftcar
-	name = "Контейнер с дрифткаром"
-	desc = "Содержит целую машину."
-	cost = BUY_CRATE_VALUE * 10
-	contains = list(/obj/vehicle/sealed/car/driftcar)
-	crate_name = "блюспейс ящик"
-	crate_type = /obj/structure/closet/crate

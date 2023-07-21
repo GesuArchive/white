@@ -237,10 +237,10 @@
 // Hydroponics Tools
 // *************************************
 
-/obj/item/reagent_containers/spray/weedspray // -- Skie
+/obj/item/reagent_containers/spray/weedspray
+	name = "гербицид против сорняков"
 	desc = "Ядовитая смесь, в виде аэрозоля, для уничтожения мелких сорняков."
 	icon = 'icons/obj/hydroponics/equipment.dmi'
-	name = "Спрей от сорняков"
 	icon_state = "weedspray"
 	inhand_icon_state = "spraycan"
 	worn_icon_state = "spraycan"
@@ -253,10 +253,10 @@
 	user.visible_message(span_suicide("[user] впрыскивает [src]! Кажется, [user.p_theyre()] пытается покончить с собой!"))
 	return (TOXLOSS)
 
-/obj/item/reagent_containers/spray/pestspray // -- Skie
-	desc = "Какой-то спрей, чтобы уничтожить паразитов! <I>Не вдыхать!</I>"
+/obj/item/reagent_containers/spray/pestspray
+	name = "пестицид мягкого действия"
+	desc = "Органическая смесь, используемая для убийства насекомых с более мягкими последствиями. Не употреблять внутрь!"
 	icon = 'icons/obj/hydroponics/equipment.dmi'
-	name = "Спрей от паразитов"
 	icon_state = "pestspray"
 	inhand_icon_state = "plantbgone"
 	worn_icon_state = "spraycan"
@@ -493,11 +493,11 @@
 	possible_transfer_amounts = list(1,2,5)
 
 /obj/item/reagent_containers/glass/bottle/killer/weedkiller
-	name = "Гербицид против сорняков"
+	name = "гербицид против сорняков"
 	desc = "Опасный токсин для выведения сорняков. Не употреблять внутрь!"
 	list_reagents = list(/datum/reagent/toxin/plantbgone/weedkiller = 50)
 
 /obj/item/reagent_containers/glass/bottle/killer/pestkiller
-	name = "Пестицид мягкого действия"
+	name = "пестицид мягкого действия"
 	desc = "Органическая смесь, используемая для убийства насекомых с более мягкими последствиями. Не употреблять внутрь!"
 	list_reagents = list(/datum/reagent/toxin/pestkiller/organic = 50)

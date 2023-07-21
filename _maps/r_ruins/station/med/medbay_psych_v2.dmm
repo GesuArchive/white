@@ -243,6 +243,10 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 9
 	},
+/obj/item/storage/box/monkeycubes{
+	pixel_x = 6;
+	pixel_y = -8
+	},
 /turf/open/floor/plasteel/dark,
 /area/medical/virology)
 "dH" = (
@@ -825,7 +829,7 @@
 	pixel_y = 24;
 	req_one_access_txt = "5"
 	},
-/obj/machinery/computer/crew,
+/obj/machinery/computer/department_orders/medical,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "kd" = (
@@ -910,16 +914,13 @@
 /area/medical/medbay/lobby)
 "kK" = (
 /obj/structure/cable,
-/obj/structure/window/reinforced{
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 6
+	},
+/obj/machinery/computer/crew{
 	dir = 1
 	},
-/obj/machinery/smoke_machine,
-/obj/machinery/door/window/brigdoor/eastleft{
-	name = "Medbay Desk";
-	req_access_txt = "5";
-	dir = 8
-	},
-/turf/open/floor/engine,
+/turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "kP" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -1233,7 +1234,7 @@
 	pixel_y = -4
 	},
 /obj/item/reagent_containers/spray/cleaner{
-	pixel_x = 7;
+	pixel_x = -10;
 	pixel_y = 12
 	},
 /obj/item/clothing/gloves/color/latex{
@@ -1289,7 +1290,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 10
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = 8;
 	pixel_y = -6
 	},
@@ -1892,7 +1893,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 6
+	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
@@ -3205,13 +3206,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/sleeper)
-"RA" = (
-/obj/structure/cable,
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 4
-	},
-/turf/open/floor/plasteel/dark,
-/area/medical/medbay/lobby)
 "RJ" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "durka_windows"
@@ -3678,14 +3672,7 @@
 /area/medical/medbay/central)
 "XL" = (
 /obj/structure/cable,
-/obj/structure/barricade/security{
-	max_integrity = 520
-	},
-/obj/machinery/door/poddoor/preopen{
-	id = "durka_hub";
-	name = "Panic Bunker"
-	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "XN" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -4083,8 +4070,8 @@ di
 di
 Jb
 nT
+XL
 ZD
-RA
 gh
 Kr
 Mb
@@ -4168,7 +4155,7 @@ Bd
 Lk
 xq
 dT
-XL
+xq
 Kr
 Pw
 Kr

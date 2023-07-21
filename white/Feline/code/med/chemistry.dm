@@ -75,7 +75,7 @@
 //	Протекание и лечение
 /datum/reagent/medicine/raccoon/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/obj/item/organ/zombie_infection/zed_ozz = M.get_organ_slot(ORGAN_SLOT_ZOMBIE)
-	M.adjustToxLoss(-1, 0)
+	M.adjustToxLoss(-2, 0)
 	if(current_cycle > 20)
 		if(zed_ozz)
 			qdel(zed_ozz)
@@ -181,13 +181,13 @@
 
 /datum/reagent/medicine/saver/on_mob_metabolize(mob/living/M, amount)
 	. = ..()
-	ADD_TRAIT(M, TRAIT_PARASITE_IMMUNE, name)
 	to_chat(M, span_notice(pick("Я должен...", "Никто кроме нас...", "Это мой долг...", "Теперь моя очередь...", "Сам погибай, но товарища выручай...")))
+	M.apply_status_effect(STATUS_EFFECT_SAVER)
 
 /datum/reagent/medicine/saver/on_mob_end_metabolize(mob/living/M, amount)
 	. = ..()
-	REMOVE_TRAIT(M, TRAIT_PARASITE_IMMUNE, name)
 	to_chat(M, span_warning("Чувствую как флёр героизма меня покидает..."))
+	M.remove_status_effect(STATUS_EFFECT_SAVER)
 
 /obj/item/reagent_containers/pill/saver
 	name = "таблетка спасателя"
@@ -346,3 +346,147 @@
 	reagent1_vol = 15
 	reagent2_vol = 15
 	list_reagents = list(/datum/reagent/medicine/c2/lenturi/pure = 15, /datum/reagent/medicine/oxandrolone = 15)
+
+/// Галюциногены
+/datum/reagent/medicine/hallucinogen/demonium
+	name = "Демониум"
+	enname = "demonium"
+	description = "Сильный галюциноген нарушающий восприятие действительности и разжижающий кровь."
+	color = "#ff0000"
+	metabolization_rate = 0.085 * REAGENTS_METABOLISM
+	taste_description = "кровь и сера"
+
+/datum/reagent/medicine/hallucinogen/demonium/on_mob_metabolize(mob/living/M)
+	. = ..()
+	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "demon", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/weird_sounds(M, forced = TRUE)
+
+/datum/reagent/medicine/hallucinogen/corgium
+	name = "Коргиум"
+	enname = "corgium"
+	description = "Создает галюцинацию блокирующую агрессию."
+	color = "#e88a10"
+	metabolization_rate = 0.085 * REAGENTS_METABOLISM
+	taste_description = "мех и лень"
+
+/datum/reagent/medicine/hallucinogen/corgium/on_mob_metabolize(mob/living/M, amount)
+	. = ..()
+	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "corgi", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/weird_sounds(M, forced = TRUE)
+
+/datum/reagent/medicine/hallucinogen/skeletonium
+	name = "Скелетониум"
+	enname = "skeletonium"
+	description = "Сильный галюциноген нарушающий восприятие действительности и нарушающий координацию"
+	color = "#dad1d1"
+	metabolization_rate = 0.085 * REAGENTS_METABOLISM
+	taste_description = "прах и кости"
+
+/datum/reagent/medicine/hallucinogen/skeletonium/on_mob_metabolize(mob/living/M)
+	. = ..()
+	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "skeleton", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/weird_sounds(M, forced = TRUE)
+
+/datum/reagent/medicine/hallucinogen/zombium
+	name = "Зомбиум"
+	enname = "zombium"
+	description = "Сильный галюциноген нарушающий восприятие действительности и вызывающий усталость"
+	color = "#0cbb32"
+	metabolization_rate = 0.085 * REAGENTS_METABOLISM
+	taste_description = "могильная земля"
+
+/datum/reagent/medicine/hallucinogen/zombium/on_mob_metabolize(mob/living/M, amount)
+	. = ..()
+	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "zombie", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/weird_sounds(M, forced = TRUE)
+
+/datum/reagent/medicine/hallucinogen/carpium
+	name = "Карпиум"
+	enname = "carpium"
+	description = "Сильный галюциноген нарушающий восприятие действительности и стимулирующий резкие саморазрушающие движения."
+	color = "#1259f3"
+	metabolization_rate = 0.085 * REAGENTS_METABOLISM
+	taste_description = "прах и кости"
+
+/datum/reagent/medicine/hallucinogen/carpium/on_mob_metabolize(mob/living/M, amount)
+	. = ..()
+	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "carp", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/weird_sounds(M, forced = TRUE)
+	M.apply_status_effect(STATUS_EFFECT_HEAVY_SPASMS)
+
+/datum/reagent/medicine/hallucinogen/carpium/on_mob_end_metabolize(mob/living/M)
+	. = ..()
+	M.remove_status_effect(STATUS_EFFECT_HEAVY_SPASMS)
+
+/datum/reagent/medicine/hallucinogen/monkeum
+	name = "Обезьяниум"
+	enname = "monkeum"
+	description = "Сильный галюциноген нарушающий восприятие действительности и создающий агрессивных обезьян."
+	color = "#bfd707"
+	metabolization_rate = 0.085 * REAGENTS_METABOLISM
+	taste_description = "бананы и бешенство"
+
+/datum/reagent/medicine/hallucinogen/monkeum/on_mob_metabolize(mob/living/M, amount)
+	. = ..()
+	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "monkey", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/weird_sounds(M, forced = TRUE)
+	if(prob(50))
+		var/direction = pick(GLOB.alldirs)
+		new /mob/living/carbon/human/species/monkey/angry/weak(get_step(get_turf(M), direction))
+
+/datum/reagent/medicine/hallucinogen/morphium
+	name = "Квазиморфиум"
+	enname = "morphium"
+	description = "Сильный галюциноген нарушающий восприятие действительности и вызывающий рвоту"
+	color = "#207d34"
+	metabolization_rate = 0.085 * REAGENTS_METABOLISM
+	taste_description = "плесень"
+
+/datum/reagent/medicine/hallucinogen/morphium/on_mob_metabolize(mob/living/M, amount)
+	. = ..()
+	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "morph", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/weird_sounds(M, forced = TRUE)
+
+/datum/reagent/medicine/hallucinogen/statium
+	name = "Статиум"
+	enname = "statium"
+	description = "Сильный галюциноген нарушающий восприятие действительности и вызывающий рвоту"
+	color = "#8c8f8c"
+	metabolization_rate = 0.085 * REAGENTS_METABOLISM
+	taste_description = "помехи"
+
+/datum/reagent/medicine/hallucinogen/statium/on_mob_metabolize(mob/living/M, amount)
+	. = ..()
+	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "static", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/weird_sounds(M, forced = TRUE)
+	M.add_client_colour(/datum/client_colour/monochrome)
+
+/datum/reagent/medicine/hallucinogen/statium/on_mob_end_metabolize(mob/living/M)
+	. = ..()
+	M.remove_client_colour(/datum/client_colour/monochrome)
+
+/datum/reagent/medicine/hallucinogen/syndium
+	name = "Синдиум"
+	enname = "syndium"
+	description = "Сильный галюциноген нарушающий восприятие действительности и вызывающий рвоту"
+	color = "#b40a18"
+	metabolization_rate = 0.085 * REAGENTS_METABOLISM
+	taste_description = "код дельта"
+
+/datum/reagent/medicine/hallucinogen/syndium/on_mob_metabolize(mob/living/M, amount)
+	. = ..()
+	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "syndicate_space", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/weird_sounds(M, forced = TRUE)
+	if(prob(50))
+		var/direction = pick(GLOB.alldirs)
+		new /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/no_damage(get_step(get_turf(M), direction))
+

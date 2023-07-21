@@ -22,6 +22,11 @@
 	damage = 20
 	fire_stacks = 2
 
+/obj/projectile/bullet/traumatic
+	name = "9мм травматическая пуля"
+	damage = 3
+	stamina = 45
+
 // 10mm
 
 /obj/projectile/bullet/c10mm

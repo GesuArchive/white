@@ -35,6 +35,8 @@
 	var/full_w_class = WEIGHT_CLASS_NORMAL
 	/// Determines whether the item should update it's sprites based on amount.
 	var/novariants = TRUE
+	/// Обозначает нестандартную механику отображения
+	var/multivariant = FALSE
 	/// List that tells you how much is in a single unit.
 	var/list/mats_per_unit
 	/// Datum material type that this stack is made of
@@ -158,6 +160,8 @@
 
 /obj/item/stack/update_icon_state()
 	if(novariants)
+		return ..()
+	if(multivariant)
 		return ..()
 	if(amount <= (max_amount * (1/3)))
 		icon_state = initial(icon_state)

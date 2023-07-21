@@ -1,7 +1,7 @@
 // Embedded signaller used in anomalies.
 /obj/item/assembly/signaler/anomaly
-	name = "anomaly core"
-	desc = "The neutralized core of an anomaly. It'd probably be valuable for research."
+	name = "ядро аномалии"
+	desc = "Нейтрализованное ядро аномалии. Вероятно, это было бы ценно для исследований."
 	icon_state = "anomaly_core"
 	inhand_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
@@ -28,53 +28,53 @@
 
 /obj/item/assembly/signaler/anomaly/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_ANALYZER)
-		to_chat(user, span_notice("Analyzing... [src] stabilized field is fluctuating along frequency [format_frequency(frequency)], code [code]."))
+		to_chat(user, span_notice("Анализ... [src] стабилизированное поле колеблется по частоте [format_frequency(frequency)], код [code]."))
 	return ..()
 
 //Anomaly cores
 /obj/item/assembly/signaler/anomaly/pyro
-	name = "pyroclastic anomaly core"
-	desc = "The neutralized core of a pyroclastic anomaly. It feels warm to the touch. It'd probably be valuable for research."
+	name = "ядро пирокластерной аномалии"
+	desc = "Нейтрализованное ядро пирокластической аномалии. Оно теплое на ощупь. Вероятно, это было бы ценно для исследований."
 	icon_state = "pyro_core"
 	anomaly_type = /obj/effect/anomaly/pyro
 
 /obj/item/assembly/signaler/anomaly/grav
-	name = "gravitational anomaly core"
-	desc = "The neutralized core of a gravitational anomaly. It feels much heavier than it looks. It'd probably be valuable for research."
+	name = "ядро гравитационной аномалии"
+	desc = "Нейтрализованное ядро гравитационной аномалии. На ощупь оно гораздо тяжелее, чем выглядит. Вероятно, это было бы ценно для исследований."
 	icon_state = "grav_core"
 	anomaly_type = /obj/effect/anomaly/grav
 
 /obj/item/assembly/signaler/anomaly/flux
-	name = "flux anomaly core"
-	desc = "The neutralized core of a flux anomaly. Touching it makes your skin tingle. It'd probably be valuable for research."
+	name = "ядро электромагнитной аномалии"
+	desc = "Нейтрализованное ядро электромагнитной аномалии. Прикосновение к нему вызывает покалывание на коже. Вероятно, это было бы ценно для исследований."
 	icon_state = "flux_core"
 	anomaly_type = /obj/effect/anomaly/flux
 
 /obj/item/assembly/signaler/anomaly/bluespace
-	name = "bluespace anomaly core"
-	desc = "The neutralized core of a bluespace anomaly. It keeps phasing in and out of view. It'd probably be valuable for research."
+	name = "ядро блюспейс аномалии"
+	desc = "Нейтрализованное ядро блюспейс аномалии. Оно то появляется, то исчезает из поля зрения. Вероятно, это было бы ценно для исследований."
 	icon_state = "anomaly_core"
 	anomaly_type = /obj/effect/anomaly/bluespace
 
 /obj/item/assembly/signaler/anomaly/vortex
-	name = "vortex anomaly core"
-	desc = "The neutralized core of a vortex anomaly. It won't sit still, as if some invisible force is acting on it. It'd probably be valuable for research."
+	name = "ядро вихревой аномалии"
+	desc = "Нейтрализованное ядро вихревой аномалии. Оно не может оставаться на месте, как будто на него действует какая-то невидимая сила. Вероятно, это было бы ценно для исследований."
 	icon_state = "vortex_core"
 	anomaly_type = /obj/effect/anomaly/bhole
 
 /obj/item/assembly/signaler/anomaly/bioscrambler
-	name = "bioscrambler anomaly core"
-	desc = "The neutralized core of a bioscrambler anomaly. It's squirming, as if moving. It'd probably be valuable for research."
+	name = "ядро биоконверсионной аномалии"
+	desc = "Нейтрализованное ядро биоконверсионной аномалии. Оно извивается, как будто движется. Вероятно, это было бы ценно для исследований."
 	icon_state = "bioscrambler_core"
 	anomaly_type = /obj/effect/anomaly/bioscrambler
 /obj/item/assembly/signaler/anomaly/hallucination
-	name = "hallucination anomaly core"
-	desc = "The neutralized core of a hallucination anomaly. It seems to be moving, but it's probably your imagination. It'd probably be valuable for research."
+	name = "ядро галюциногенной аномалии"
+	desc = "Нейтрализованное ядро галюциногенной аномалии. Кажется, что оно движется, но, вероятно, это ваше воображение. Вероятно, это было бы ценно для исследований."
 	icon_state = "hallucination_core"
 	anomaly_type = /obj/effect/anomaly/hallucination
 
 /obj/item/assembly/signaler/anomaly/dimensional
-	name = "dimensional anomaly core"
-	desc = "The neutralized core of a dimensional anomaly. Objects reflected on its surface don't look quite right. It'd probably be valuable for research."
+	name = "ядро пространственной аномалии"
+	desc = "Нейтрализованное ядро пространственной аномалии. Объекты, отражающиеся на его поверхности, выглядят не совсем правильно. Вероятно, это было бы ценно для исследований."
 	icon_state = "dimensional_core"
 	anomaly_type = /obj/effect/anomaly/dimensional

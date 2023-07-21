@@ -603,7 +603,7 @@
 /datum/reagent/toxin/formaldehyde
 	name = "Формальдегид"
 	enname = "Formaldehyde"
-	description = "Формальдегид, сам по себе, крайне слабый токсин. В нем есть следы Гистомина, отчего он очень редко распадается на этот самый Гистомин."
+	description = "Формальдегид, сам по себе, крайне слабый токсин. Полностью останавливает разложение в трупах. В нем есть следы Гистомина, отчего он очень редко распадается на этот самый Гистомин."
 	silent_toxin = TRUE
 	reagent_state = LIQUID
 	color = "#B4004B"
@@ -897,10 +897,14 @@
 	toxpwr = 0
 	taste_description = "блевотня"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	var/vomiting_cycle = 11
+
+/datum/reagent/toxin/spewium/fast
+	vomiting_cycle = 3
 
 /datum/reagent/toxin/spewium/on_mob_life(mob/living/carbon/C, delta_time, times_fired)
 	. = ..()
-	if(current_cycle >= 11 && DT_PROB(min(30, current_cycle), delta_time))
+	if(current_cycle >= vomiting_cycle && DT_PROB(min(30, current_cycle), delta_time))
 		C.vomit(10, prob(10), prob(50), rand(0,4), TRUE)
 		for(var/datum/reagent/toxin/R in C.reagents.reagent_list)
 			if(R != src)

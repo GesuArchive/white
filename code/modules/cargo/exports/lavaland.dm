@@ -3,7 +3,7 @@
 
 /datum/export/lavaland/minor
 	cost = CARGO_CRATE_VALUE * 20
-	unit_name = "мелкий артефакт Лаваленда"
+	unit_name = "Мелкий артефакт Лаваленда"
 	export_types = list(/obj/item/immortality_talisman,
 						/obj/item/book_of_babel,
 						/obj/item/wisp_lantern,
@@ -28,7 +28,7 @@
 
 /datum/export/lavaland/major //valuable chest/ruin loot, minor megafauna loot
 	cost = CARGO_CRATE_VALUE * 40
-	unit_name = "артефакт Лаваленда"
+	unit_name = "Артефакт Лаваленда"
 	export_types = list(/obj/item/guardiancreator/miner,
 						/obj/item/rod_of_asclepius,
 						/obj/item/dragons_blood,
@@ -40,7 +40,7 @@
 
 /datum/export/lavaland/megafauna
 	cost = CARGO_CRATE_VALUE * 80
-	unit_name = "большой артефакт Лаваленда"
+	unit_name = "Большой артефакт Лаваленда"
 	export_types = list(/obj/item/hierophant_club,
 						/obj/item/melee/cleaving_saw,
 						/obj/item/organ/vocal_cords/colossus,
@@ -54,4 +54,4 @@
 /datum/export/lavaland/megafauna/total_printout(datum/export_report/ex, notes = TRUE) //in the unlikely case a miner feels like selling megafauna loot
 	. = ..()
 	if(. && notes)
-		. += " On behalf of the Nanotrasen RnD division: Thank you for your hard work."
+		. += " От имени подразделения РнД НаноТрейзен: Спасибо вам за вашу тяжелую работу."

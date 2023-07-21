@@ -1,6 +1,6 @@
 /obj/structure/microscope
-	name = "Microscope"
-	desc = "A simple microscope, allowing you to examine micro-organisms."
+	name = "микроскоп"
+	desc = "Простой микроскоп, позволяющий исследовать микроорганизмы."
 	icon = 'icons/obj/xenobiology/vatgrowing.dmi'
 	icon_state = "microscope"
 	var/obj/item/petri_dish/current_dish
@@ -9,9 +9,9 @@
 	if(!istype(I, /obj/item/petri_dish))
 		return ..()
 	if(current_dish)
-		to_chat(user, span_warning("There is already a petridish in <b>[src.name]</b>."))
+		to_chat(user, span_warning("В нем уже есть чашка Петри."))
 		return
-	to_chat(user, span_notice("You put [I] into <b>[src.name]</b>."))
+	to_chat(user, span_notice("Помещаю [I] под <b>[src.name]</b>."))
 	current_dish = I
 	current_dish.forceMove(src)
 

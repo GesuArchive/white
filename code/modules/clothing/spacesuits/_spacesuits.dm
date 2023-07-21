@@ -26,7 +26,7 @@
 
 /obj/item/clothing/suit/space
 	name = "скафандр"
-	desc = "A suit that protects against low pressure environments. Has a big 13 on the back."
+	desc = "Костюм, защищающий от воздействия окружающей среды с низким давлением. С большой цифрой 13 на спине."
 	icon_state = "spaceold"
 	inhand_icon_state = "s_suit"
 	w_class = WEIGHT_CLASS_BULKY

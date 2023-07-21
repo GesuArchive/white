@@ -1,5 +1,5 @@
 /obj/item/gun/energy/laser
-	name = "лазерная пушка"
+	name = "лазерная винтовка"
 	desc = "Основная лазерная пушка на основе энергии, которая запускает концентрированные лучи света, которые проходят через стекло и тонкий металл."
 	icon_state = "laser"
 	inhand_icon_state = "laser"
@@ -10,7 +10,7 @@
 	shaded_charge = 1
 
 /obj/item/gun/energy/laser/practice
-	name = "тренировочная лазерная пушка"
+	name = "тренировочная лазерная винтовка"
 	desc = "Модифицированная версия базовой лазерной пушки, эта стреляет менее концентрированными энергетическими зарядами, предназначенными для целевой практики."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/practice)
 	clumsy_check = FALSE
@@ -68,7 +68,7 @@
 	return
 
 /obj/item/gun/energy/laser/scatter
-	name = "призмо-лазерная пушка"
+	name = "энергетический дробовик"
 	desc = "Лазерная пушка оснащена рефракционным набором, который расставляет болты."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/scatter, /obj/item/ammo_casing/energy/laser)
 
@@ -79,7 +79,6 @@
 	inhand_icon_state = "shotgun"
 	desc = "Боевой дробовик распотрошен и оснащен внутренней лазерной системой. Может переключаться между тазером и рассеянным выстрелом."
 	shaded_charge = 0
-	pin = /obj/item/firing_pin/implant/mindshield
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/scatter/disabler, /obj/item/ammo_casing/energy/electrode)
 	automatic_charge_overlays = FALSE
 
@@ -117,7 +116,7 @@
 ///X-ray gun
 
 /obj/item/gun/energy/xray
-	name = "рентгеновская лазерная пушка"
+	name = "рентгеновская лазерная винтовка"
 	desc = "Мощная лазерная пушка, способная излучать концентрированные рентгеновские заряды, которые проходят через множество мягких целей и более тяжелых материалов."
 	icon_state = "xray"
 	w_class = WEIGHT_CLASS_BULKY

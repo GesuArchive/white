@@ -35,8 +35,8 @@
 	inhand_icon_state = "sailor_dress"
 
 /obj/item/clothing/under/dress/wedding_dress
-	name = "wedding dress"
-	desc = "A luxurious gown for once-in-a-lifetime occasions."
+	name = "свадебное платье"
+	desc = "Роскошное платье для случаев, которые бывают раз в жизни."
 	icon_state = "wedding_dress"
 	inhand_icon_state = "wedding_dress"
 	body_parts_covered = CHEST|GROIN|LEGS
@@ -102,8 +102,8 @@
 	greyscale_colors = "#44e81b"
 
 /obj/item/clothing/under/dress/skirt/turtleskirt
-	name = "turtleneck skirt"
-	desc = "A casual turtleneck skirt."
+	name = "юбка-водолазка с высоким воротом"
+	desc = "Повседневная юбка-водолазка с высоким воротом."
 	icon_state = "turtleskirt"
 	custom_price = PAYCHECK_EASY
 	greyscale_colors = "#cc0000#5f5f5f"
@@ -112,8 +112,8 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/dress/tango
-	name = "tango dress"
-	desc = "Filled with Latin fire."
+	name = "платье для танго"
+	desc = "Наполненна латинским огнем."
 	icon_state = "tango"
 	custom_price = PAYCHECK_EASY
 	greyscale_colors = "#ff0000#1c1c1c"

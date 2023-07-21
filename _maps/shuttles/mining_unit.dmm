@@ -1,6 +1,21 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"d" = (
+"b" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/cable,
+/obj/structure/ore_box,
 /turf/open/floor/mineral/plastitanium,
+/area/shuttle/mining)
+"d" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/mining)
+"g" = (
+/obj/effect/spawner/structure/window/shuttle,
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/shuttle/mining)
 "h" = (
 /obj/effect/turf_decal/bot,
@@ -44,6 +59,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "w" = (
@@ -64,10 +80,19 @@
 /obj/structure/cable,
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/mining)
+"E" = (
+/obj/machinery/door/airlock/shuttle{
+	name = "Mining Shuttle Airlock"
+	},
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/mining)
 "O" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/emergency,
 /obj/machinery/light/small,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "Q" = (
@@ -123,16 +148,15 @@
 /obj/structure/sign/warning/fire{
 	pixel_x = 32
 	},
-/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "Y" = (
-/obj/structure/ore_box,
 /obj/structure/sign/warning/fire{
 	pixel_x = 32
 	},
 /obj/effect/turf_decal/box,
 /obj/structure/cable,
+/obj/machinery/power/smes,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 
@@ -152,22 +176,22 @@ p
 "}
 (3,1,1) = {"
 U
-d
+w
 u
-d
-U
+w
+E
 "}
 (4,1,1) = {"
 V
+b
 h
 h
-h
-V
+g
 "}
 (5,1,1) = {"
 C
 Y
-w
+d
 W
 C
 "}

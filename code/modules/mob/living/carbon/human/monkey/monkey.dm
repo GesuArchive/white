@@ -20,6 +20,9 @@
 /mob/living/carbon/human/species/monkey/angry
 	ai_controller = /datum/ai_controller/monkey/angry
 
+/mob/living/carbon/human/species/monkey/angry/weak
+	maxHealth = 40
+
 /mob/living/carbon/human/species/monkey/angry/Initialize(mapload)
 	. = ..()
 	if(prob(10))

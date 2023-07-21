@@ -4,8 +4,7 @@
 
 /datum/export/food
 	cost = CARGO_CRATE_VALUE * 3 // Default cost, Because something WILL get missed somewhere. Perhaps out of active ignorance or not.
-	unit_name = "serving"
-	message = "еды"
+	unit_name = "Закуска"
 	export_types = list(/obj/item/reagent_containers/food/snacks)
 	include_subtypes = TRUE
 	exclude_types = list(/obj/item/food/grown)

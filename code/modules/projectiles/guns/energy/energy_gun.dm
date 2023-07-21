@@ -61,12 +61,12 @@
 
 /obj/item/gun/energy/e_gun/hos
 	name = "X-01 МультиФазовый Е-Ган"
-	desc = "Дорогой, современный образец старинной лазерной пушки. У этого оружия есть несколько уникальных режимов огня, но ему не хватает времени на перезарядку."
-	cell_type = /obj/item/stock_parts/cell/hos_gun
+	desc = "Дорогой, современный образец старинной лазерной пушки. У этого оружия есть несколько режимов огня и хороший конвертор мощности."
+	cell_type = /obj/item/stock_parts/cell/weapon/cell_3000
 	icon_state = "hoslaser"
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 10
-	ammo_type = list(/obj/item/ammo_casing/energy/disabler/hos, /obj/item/ammo_casing/energy/laser/hos, /obj/item/ammo_casing/energy/ion/hos)
+	ammo_type = list(/obj/item/ammo_casing/energy/disabler/hos, /obj/item/ammo_casing/energy/laser/hos, /obj/item/ammo_casing/energy/ion/hos, /obj/item/ammo_casing/energy/trap/hos)
 	ammo_x_offset = 4
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 

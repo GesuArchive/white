@@ -1,9 +1,9 @@
 /datum/computer_file/program/shipping
 	filename = "shipping"
-	filedesc = "GrandArk Exporter"
+	filedesc = "Циган"
 	category = PROGRAM_CATEGORY_SUPL
 	program_icon_state = "shipping"
-	extended_desc = "A combination printer/scanner app that enables modular computers to print barcodes for easy scanning and shipping."
+	extended_desc = "Продавай все! Комбинированное приложение для принтера и сканера, которое позволяет модульным компьютерам печатать штрих-коды для удобства сканирования и отправки."
 	size = 6
 	tgui_id = "NtosShipping"
 	program_icon = "tags"

@@ -227,6 +227,12 @@
 	minbodytemp = 0
 	speed = 1
 
+/mob/living/simple_animal/hostile/syndicate/ranged/smg/space/no_damage
+	maxHealth = 30
+	health = 30
+	casingtype = /obj/item/ammo_casing/c45/fake
+	obj_damage = 0
+
 /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)

@@ -285,7 +285,7 @@
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/glass/bottle/epinephrine,
-/obj/item/stack/sheet/mineral/plasma,
+/obj/item/stack/sheet/mineral/plasma/five,
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "bF" = (
@@ -1311,16 +1311,10 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/structure/table,
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/clipboard,
-/obj/item/pen,
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
+/obj/machinery/computer/department_orders/medical,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "ip" = (
@@ -1696,7 +1690,7 @@
 	name = "Medbay Lobby APC";
 	pixel_x = 25
 	},
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/paper_bin{
 	pixel_y = 6
 	},
@@ -2039,7 +2033,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/vending/wardrobe/medi_wardrobe,
+/obj/machinery/modular_computer/console/preset/cargochat/medical,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "oN" = (
@@ -2155,13 +2149,20 @@
 /obj/item/radio/intercom{
 	pixel_x = -25
 	},
-/obj/item/storage/box/beakers{
-	pixel_x = 2;
-	pixel_y = 2
+/obj/item/storage/box/syringes{
+	pixel_x = -8;
+	pixel_y = 8
 	},
-/obj/item/storage/box/syringes,
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 8
+	},
+/obj/item/storage/box/beakers{
+	pixel_x = -8;
+	pixel_y = -4
+	},
+/obj/item/storage/box/monkeycubes{
+	pixel_y = 3;
+	pixel_x = 8
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
@@ -2223,7 +2224,7 @@
 	pixel_x = -8;
 	pixel_y = 10
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = -8;
 	pixel_y = -6
 	},
@@ -2366,6 +2367,13 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 10
 	},
+/obj/structure/table,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/clipboard,
+/obj/item/pen,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "qI" = (
@@ -2489,6 +2497,7 @@
 /obj/machinery/newscaster{
 	pixel_x = 30
 	},
+/obj/item/kirbyplants/random,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "ru" = (
@@ -3329,10 +3338,10 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
-/obj/item/kirbyplants/random,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/vending/wardrobe/medi_wardrobe,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "yC" = (
@@ -3372,7 +3381,7 @@
 	pixel_x = 8;
 	pixel_y = 12
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = 8;
 	pixel_y = -6
 	},
@@ -4710,7 +4719,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular{
 	pixel_x = -3;
@@ -5458,7 +5467,7 @@
 	dir = 1;
 	pixel_y = -23
 	},
-/obj/structure/table,
+/obj/structure/table/greyscale,
 /obj/structure/desk_bell{
 	pixel_y = 5
 	},
@@ -5515,7 +5524,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = -2;
 	pixel_y = -2
 	},
@@ -5587,7 +5596,7 @@
 	pixel_x = -8;
 	pixel_y = -6
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = 8;
 	pixel_y = -6
 	},
@@ -6244,7 +6253,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
-/obj/machinery/modular_computer/console/preset/cargochat/medical,
+/obj/structure/closet/secure_closet/medical2,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "SR" = (
@@ -6969,9 +6978,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
-/obj/structure/chair/office/light{
-	dir = 1
-	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "XU" = (
@@ -6987,7 +6993,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 10
 	},
-/obj/structure/closet/secure_closet/medical2,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
 "Yd" = (

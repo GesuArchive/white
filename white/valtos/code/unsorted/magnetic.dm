@@ -158,6 +158,11 @@
 	catch_power = t
 
 /obj/machinery/meteor_catcher/attackby(obj/item/I, mob/living/user, params)
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, I))
+		update_icon()
+		return
+	if(default_deconstruction_crowbar(I))
+		return
 	if(asteroid_catching)
 		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> занят!"))
 		return FALSE

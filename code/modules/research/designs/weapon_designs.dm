@@ -304,6 +304,18 @@
 	sub_category = list("Модернизация энергооружия")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
+/datum/design/adv_syringegun
+	name = "Комплект деталей продвинутого шприцемета"
+	desc = "Набор поршней, трубочек и прочих деталей для модернизации обычного шприцемета в его продвинутую версию, вмещающую до трех шприцов. Перед каждым выстрелом необходимо подкачивать давление при помощи интегрированного насоса."
+	id = "adv_syringegun"
+	build_type = MECHFAB
+	construction_time = 30
+	materials = list(/datum/material/iron = 500, /datum/material/glass = 500, /datum/material/plastic = 500, /datum/material/silver = 1000)
+	build_path = /obj/item/weaponcrafting/gunkit/adv_syringegun
+	category = list("Медицинское снаряжение")
+	sub_category = list("Экипировка")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
 /datum/design/flora_gun
 	name = "Цветочный луч"
 	desc = "Инструмент, который выпускает контролируемое излучение, которое вызывает мутацию в растительных клетках."

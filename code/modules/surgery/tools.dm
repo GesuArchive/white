@@ -337,7 +337,7 @@
 /obj/item/scalpel/advanced/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/transforming, \
-		force_on = force + 1, \
+		force_on = force + 2, \
 		throwforce_on = throwforce, \
 		throw_speed_on = throw_speed, \
 		sharpness_on = sharpness, \

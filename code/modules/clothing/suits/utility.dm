@@ -18,7 +18,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.9
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/extinguisher, /obj/item/crowbar)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/extinguisher, /obj/item/crowbar)
 	slowdown = 1
 	armor = list(MELEE = 15, BULLET = 5, LASER = 20, ENERGY = 20, BOMB = 20, BIO = 50, RAD = 20, FIRE = 100, ACID = 50)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
@@ -49,7 +49,7 @@
 
 /obj/item/clothing/suit/fire/atmos
 	name = "пожарный костюм"
-	desc = "Дорогой пожарный костюм, который защищает даже от самых смертельных пожаров на станции. Предназначен для защиты, даже если пользователь подожжен."
+	desc = "Дорогой пожарный костюм, который защищает даже от самых смертельных пожаров на станции и при этом не замедляет владельца. Предназначен для защиты, даже если пользователь подожжен."
 	icon_state = "atmos_firesuit"
 	inhand_icon_state = "firesuit_atmos"
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
@@ -58,7 +58,7 @@
  * Bomb protection
  */
 /obj/item/clothing/head/bomb_hood
-	name = "бомбошлем"
+	name = "шлем сапёра"
 	desc = "Используйте в случае взрыва."
 	icon_state = "bombsuit"
 	clothing_flags = THICKMATERIAL | SNUG_FIT
@@ -77,16 +77,15 @@
 
 
 /obj/item/clothing/suit/bomb_suit
-	name = "бомбостюм"
+	name = "костюм сапера"
 	desc = "Костюм, разработанный для безопасности при обращении со взрывчаткой."
 	icon_state = "bombsuit"
 	inhand_icon_state = "bombsuit"
 	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.01
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 	clothing_flags = THICKMATERIAL
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	slowdown = 2
+	slowdown = 1
 	armor = list(MELEE = 20, BULLET = 0, LASER = 20,ENERGY = 30, BOMB = 100, BIO = 0, RAD = 0, FIRE = 80, ACID = 50)
 	flags_inv = HIDEJUMPSUIT
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -101,12 +100,37 @@
 /obj/item/clothing/head/bomb_hood/security
 	icon_state = "bombsuit_sec"
 	inhand_icon_state = "bombsuit_sec"
+	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 100, BIO = 0, RAD = 0, FIRE = 80, ACID = 50, WOUND = 10)
 
 /obj/item/clothing/suit/bomb_suit/security
+	name = "костюм военного сапера"
+	desc = "Дорогой костюм, разработанный для безопасности при обращении со взрывчаткой. Хорошо бронирован и не замедляет владельца."
 	icon_state = "bombsuit_sec"
 	inhand_icon_state = "bombsuit_sec"
-	allowed = list(/obj/item/gun/energy, /obj/item/melee/baton, /obj/item/restraints/handcuffs)
-
+	slowdown = 0
+	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 100, BIO = 0, RAD = 0, FIRE = 80, ACID = 50, WOUND = 10)
+	allowed = list(
+		/obj/item/ammo_box,
+		/obj/item/ammo_casing,
+		/obj/item/flashlight,
+		/obj/item/gun/ballistic,
+		/obj/item/gun/energy,
+		/obj/item/gun/grenadelauncher,
+		/obj/item/kitchen/knife/combat,
+		/obj/item/melee/baton,
+		/obj/item/melee/classic_baton,
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/restraints/handcuffs,
+		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/tank/internals/plasmaman,
+		/obj/item/tank/internals/tactical,
+		/obj/item/storage/belt/holster/detective,
+		/obj/item/storage/belt/holster/thermal,
+		/obj/item/storage/belt/holster/nukie,
+		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/storage/belt/specialist,
+		/obj/item/tactical_recharger,
+	)
 
 /obj/item/clothing/head/bomb_hood/white
 	icon_state = "bombsuit_white"
@@ -121,7 +145,7 @@
 */
 
 /obj/item/clothing/head/radiation
-	name = "анти-радиационный капюшон"
+	name = "капюшон радиационный защиты"
 	icon_state = "rad"
 	desc = "Капюшон с радиационно-защитными свойствами. На этикетке написано: «Сделано из свинца. Пожалуйста, не потребляйте изоляцию.»"
 	clothing_flags = THICKMATERIAL | SNUG_FIT
@@ -134,7 +158,7 @@
 	flags_1 = RAD_PROTECT_CONTENTS_1
 
 /obj/item/clothing/suit/radiation
-	name = "анти-радиационный костюм"
+	name = "костюм радиационный защиты"
 	desc = "Костюм с радиационно-защитными свойствами. На этикетке написано: «Сделано из свинца. Пожалуйста, не потребляйте изоляцию.»"
 	icon_state = "rad"
 	inhand_icon_state = "rad_suit"
@@ -143,8 +167,8 @@
 	gas_transfer_coefficient = 0.9
 	clothing_flags = THICKMATERIAL
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/geiger_counter)
-	slowdown = 1.5
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/geiger_counter)
+	slowdown = 1
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 50, RAD = 100, FIRE = 30, ACID = 30)
 	strip_delay = 60
 	equip_delay_other = 60

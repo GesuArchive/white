@@ -3767,6 +3767,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
+/obj/structure/closet/crate/graviton_beacon,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/gravity_generator)
 "jL" = (
@@ -3779,6 +3780,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/structure/closet/crate/jetpack,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/gravity_generator)
 "jN" = (

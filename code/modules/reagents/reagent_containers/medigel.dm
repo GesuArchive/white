@@ -104,3 +104,26 @@
 	current_skin = "medigel_blue"
 	list_reagents = list(/datum/reagent/space_cleaner/sterilizine = 60)
 	custom_price = PAYCHECK_MEDIUM * 2
+
+/obj/item/reagent_containers/medigel/multiver
+	name = "Мультивер в аэрозоли"
+	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Выводит из крови химические вещества и нейтрализует токсины. Эффективность растет по мере того, как увеличвается количество нейтрализуемых вещество. Вызывает средние повреждения легких."
+	icon_state = "medigel"
+	current_skin = "medigel"
+	list_reagents = list(/datum/reagent/medicine/c2/multiver = 60)
+	custom_price = PAYCHECK_MEDIUM * 2
+
+/obj/item/reagent_containers/medigel/epinephrine
+	name = "Адреналин в аэрозоли"
+	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Стабилизирует пациентов находящихся в критическом состоянии, нейтрализует удушье и мобилизует организм к восстановлению при тяжелых повреждениях. Очень незначительно повышает скорость и стойкость к оглушению. Передозировка вызывает слабость и повреждение токсинами."
+	icon_state = "medigel_cyan"
+	current_skin = "medigel_cyan"
+	list_reagents = list(/datum/reagent/medicine/epinephrine = 60)
+	custom_price = PAYCHECK_MEDIUM * 2
+/obj/item/reagent_containers/medigel/formaldehyde
+	name = "Формальдегид в аэрозоли"
+	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Формальдегид, сам по себе, крайне слабый токсин. Полностью останавливает разложение в трупах. В нем есть следы Гистомина, отчего он очень редко распадается на этот самый Гистомин."
+	icon_state = "medigel_purple"
+	current_skin = "medigel_purple"
+	list_reagents = list(/datum/reagent/toxin/formaldehyde = 60)
+	custom_price = PAYCHECK_MEDIUM * 2

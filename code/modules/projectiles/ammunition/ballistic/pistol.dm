@@ -44,6 +44,10 @@
 	desc = "При удачном попадании поджигает цель. Немного слабее стандартных пуль. Используется в пистолетах и пистолет-пулеметах."
 	projectile_type = /obj/projectile/bullet/incendiary/c9mm
 
+/obj/item/ammo_casing/c9mm/traumatic
+	name = "травматический 9мм патрон"
+	desc = "Боевая пуля заменена на резиновую болванку. Практически не наносит урона, однако валит с пары-тройки попаданий."
+	projectile_type = /obj/projectile/bullet/traumatic
 
 // .50AE (Desert Eagle)
 

@@ -10,8 +10,8 @@
 #define CHIME 3
 
 /mob/living/simple_animal/bot/mulebot
-	name = "MULE-бот"
-	desc = "Расшифровывается как \"Multiple Utility Load Effector\"."
+	name = "МУЛ-бот"
+	desc = "Компактная транспортная платформа с встроенным базовым навигационным протоколом."
 	icon_state = "mulebot0"
 	density = TRUE
 	move_resist = MOVE_FORCE_STRONG
@@ -69,7 +69,7 @@
 
 	ADD_TRAIT(src, TRAIT_NOMOBSWAP, INNATE_TRAIT)
 
-	if(prob(0.666) && mapload)
+	if(prob(5) && mapload)
 		new /mob/living/simple_animal/bot/mulebot/paranormal(loc)
 		return INITIALIZE_HINT_QDEL
 	wires = new /datum/wires/mulebot(src)

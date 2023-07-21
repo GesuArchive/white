@@ -544,10 +544,12 @@
 	name = "Gravity Generator APC";
 	pixel_x = -25
 	},
-/obj/structure/chair/office/light,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/structure/table,
+/obj/item/paper/guides/jobs/engi/gravity_gen,
+/obj/item/pen/blue,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engineering/gravity_generator)
 "hq" = (
@@ -1359,6 +1361,18 @@
 	dir = 4
 	},
 /area/command/corporate_showroom)
+"qf" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/structure/chair/office/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/engineering/gravity_generator)
 "qg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -3820,6 +3834,7 @@
 	dir = 8
 	},
 /obj/machinery/light,
+/obj/structure/closet/crate/graviton_beacon,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engineering/gravity_generator)
 "SF" = (
@@ -3983,9 +3998,7 @@
 /area/maintenance/bottom_station_maints)
 "TV" = (
 /obj/machinery/firealarm/directional/south,
-/obj/structure/table,
-/obj/item/paper/guides/jobs/engi/gravity_gen,
-/obj/item/pen/blue,
+/obj/structure/closet/crate/jetpack,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engineering/gravity_generator)
 "TY" = (
@@ -5926,7 +5939,7 @@ Zb
 fp
 QY
 aM
-fp
+qf
 Vh
 Dg
 SI

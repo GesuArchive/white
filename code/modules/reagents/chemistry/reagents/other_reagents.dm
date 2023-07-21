@@ -1064,9 +1064,9 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/space_cleaner/sterilizine
-	name = "Антисептик"
+	name = "Стерилизин"
 	enname = "Sterilizine"
-	description = "Sterilizes wounds in preparation for surgery."
+	description = "Ускоряет проведение хирургических операций."
 	color = "#D0EFEE" // space cleaner but lighter
 	taste_description = "горечь"
 	ph = 10.5
@@ -1079,7 +1079,7 @@
 
 	for(var/s in exposed_carbon.surgeries)
 		var/datum/surgery/surgery = s
-		surgery.speed_modifier = max(0.2, surgery.speed_modifier)
+		surgery.speed_modifier = max(0.4, surgery.speed_modifier)
 
 /datum/reagent/iron
 	name = "Железо"
@@ -1417,8 +1417,8 @@
 
 /datum/reagent/fluorosurfactant//foam precursor
 	name = "Фторовая Пена"
+	description = "Перфторированная сульфокислота, которая образует пену при смешивании с водой."
 	enname = "Fluorosurfactant"
-	description = "A perfluoronated sulfonic acid that forms a foam when mixed with water."
 	color = "#9E6B38" // rgb: 158, 107, 56
 	taste_description = "металл"
 	ph = 11
@@ -1456,8 +1456,8 @@
 
 /datum/reagent/ammonia
 	name = "Аммиак"
+	description = "Едкое вещество, обычно используемое в удобрениях или бытовых чистящих средствах."
 	enname = "Ammonia"
-	description = "A caustic substance commonly used in fertilizer or household cleaners."
 	reagent_state = GAS
 	color = "#404030" // rgb: 64, 64, 48
 	taste_description = "протрава"
@@ -1475,8 +1475,8 @@
 
 /datum/reagent/diethylamine
 	name = "Диэтиламин"
+	description = "Вторичный амин, слабо вызывающий коррозию."
 	enname = "Diethylamine"
-	description = "A secondary amine, mildly corrosive."
 	color = "#604030" // rgb: 96, 64, 48
 	taste_description = "железо"
 	ph = 12
@@ -1541,9 +1541,9 @@
 	..()
 
 /datum/reagent/stimulum
-	name = "Stimulum"
+	name = "Стимулум"
 	enname = "Stimulum"
-	description = "An unstable experimental gas that greatly increases the energy of those that inhale it, while dealing increasing toxin damage over time."
+	description = "Нестабильный экспериментальный газ, который значительно увеличивает энергию тех, кто его вдыхает, одновременно нанося все больший урон от токсинов с течением времени."
 	reagent_state = GAS
 	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
 	color = "E1A116"
@@ -1932,8 +1932,8 @@
 
 /datum/reagent/fuel/oil
 	name = "Масло"
+	description = "Сгорает в небольшом дымном костре, может быть использован для получения пепла."
 	enname = "Oil"
-	description = "Burns in a small smoky fire, can be used to get Ash."
 	reagent_state = LIQUID
 	color = "#2D2D2D"
 	taste_description = "масло"
@@ -2132,8 +2132,8 @@
 
 /datum/reagent/phenol
 	name = "Фенол"
+	description = "Ароматическое кольцо углерода с гидроксильной группой. Входит в состав множества лекарств, но сам по себе не обладает целебными свойствами."
 	enname = "Phenol"
-	description = "An aromatic ring of carbon with a hydroxyl group. A useful precursor to some medicines, but has no healing properties on its own."
 	reagent_state = LIQUID
 	color = "#E7EA91"
 	taste_description = "кислота"
@@ -2159,8 +2159,8 @@
 
 /datum/reagent/acetone
 	name = "Ацетон"
+	description = "Скользкая, слегка канцерогенная жидкость. Имеет множество повседневных применений в повседневной жизни."
 	enname = "Acetone"
-	description = "A slick, slightly carcinogenic liquid. Has a multitude of mundane uses in everyday life."
 	reagent_state = LIQUID
 	color = "#AF14B7"
 	taste_description = "кислота"
@@ -2506,7 +2506,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/glitter
-	name = "блятьстки"
+	name = "блёстки"
 	enname = "generic glitter"
 	description = "if you can see this description, contact a coder."
 	color = "#FFFFFF" //pure white
@@ -2542,6 +2542,14 @@
 	description = "blue sparkles that get everywhere"
 	color = "#4040FF" //A blueish color
 	glitter_type = /obj/effect/decal/cleanable/glitter/blue
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/glitter/blood
+	name = "свернувшаяся кровь"
+	enname = "bloody"
+	description = "pink sparkles that get everywhere"
+	color = "#e20f0f"
+	glitter_type = /obj/effect/decal/cleanable/blood
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/pax
@@ -2619,8 +2627,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/peaceborg/tire/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/healthcomp = (100 - M.health)	//DOES NOT ACCOUNT FOR ADMINBUS THINGS THAT MAKE YOU HAVE MORE THAN 200/210 HEALTH, OR SOMETHING OTHER THAN A HUMAN PROCESSING THIS.
-	if(M.getStaminaLoss() < (45 - healthcomp))	//At 50 health you would have 200 - 150 health meaning 50 compensation. 60 - 50 = 10, so would only do 10-19 stamina.)
+	if(M.getStaminaLoss() < (80))
 		M.adjustStaminaLoss(10 * REM * delta_time)
 	if(DT_PROB(16, delta_time))
 		to_chat(M, "Нужно присесть и отдохнуть...")
@@ -2906,9 +2913,9 @@
 	victim.adjustBruteLoss(max(0.1, round((ant_damage * 0.005),0.1))) //Scales with time. Around 12.5 brute for 50 seconds.
 	if(DT_PROB(5, delta_time))
 		if(DT_PROB(5, delta_time)) //Super rare statement
-			victim.say("AUGH NO NOT THE ANTS! NOT THE ANTS! AAAAUUGH THEY'RE IN MY EYES! MY EYES! AUUGH!!", forced = /datum/reagent/ants)
+			victim.say("О, НЕТ, ТОЛЬКО НЕ МУРАВЬИ! ТОЛЬКО НЕ МУРАВЬИ! ААУЧ, ОНИ ПОЛЗАЮТ ПО МНЕ! КУСАЮТСЯ!! ААААА!!", forced = /datum/reagent/ants)
 		else
-			victim.say(pick("THEY'RE UNDER MY SKIN!!", "GET THEM OUT OF ME!!", "HOLY HELL THEY BURN!!", "MY GOD THEY'RE INSIDE ME!!", "GET THEM OUT!!"), forced = /datum/reagent/ants)
+			victim.say(pick("БОЛЬНО!!", "СНИМИТЕ ИХ С МЕНЯ!!", "ЧЕРТ ВОЗЬМИ, КАК ЖЖЕТСЯ!!", "БОЖЕ МОЙ, ОНИ КУСАЮТСЯ!!", "СТРЯХНИТЕ ИХ!!"), forced = /datum/reagent/ants)
 	if(DT_PROB(15, delta_time))
 		victim.emote("agony")
 	if(DT_PROB(2, delta_time))
@@ -2918,7 +2925,7 @@
 
 /datum/reagent/ants/on_mob_end_metabolize(mob/living/living_anthill)
 	ant_damage = 0
-	to_chat(living_anthill, span_notice("You feel like the last of the ants are out of your system."))
+	to_chat(living_anthill, span_notice("Кажется все муравьи разбежались или были жестоко растоптаны."))
 	return ..()
 
 /datum/reagent/ants/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)

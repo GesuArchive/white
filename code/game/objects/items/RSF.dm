@@ -6,8 +6,8 @@ RSF
 ///Extracts the related object from an associated list of objects and values, or lists and objects.
 #define OBJECT_OR_LIST_ELEMENT(from, input) (islist(input) ? from[input] : input)
 /obj/item/rsf
-	name = "\improper Rapid-Service-Fabricator"
-	desc = "A device used to rapidly deploy service items."
+	name = "РСФ - Сервировщик"
+	desc = "Устройство для быстрого сервирования стола."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rsf"
 	inhand_icon_state = "rsf"

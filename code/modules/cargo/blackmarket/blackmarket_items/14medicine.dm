@@ -140,7 +140,7 @@
 	availability_prob = 100
 
 /datum/blackmarket_item/medicine/labebium
-	name = "Бутылочка правды"
+	name = "Лабебиум"
 	desc = "Заставит поглотившего это познать правду."
 	item = /obj/item/storage/pill_bottle/labebium
 

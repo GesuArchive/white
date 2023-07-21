@@ -1,8 +1,8 @@
 // Held by /obj/machinery/modular_computer to reduce amount of copy-pasted code.
 //TODO: REFACTOR THIS SPAGHETTI CODE, MAKE IT A COMPUTER_HARDWARE COMPONENT OR REMOVE IT
 /obj/item/modular_computer/processor
-	name = "Блок обработки"
-	desc = "Вы не должны этого видеть. Если вы это видите, сообщите об этом."
+	name = "персональный компьютер"
+	desc = "Обычный стационарный компьютер, имеет возможность установки программ из сетти NT-net."
 	icon = null
 	icon_state = null
 	icon_state_unpowered = null

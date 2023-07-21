@@ -2033,6 +2033,13 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 12
 	restricted_roles = list(JOB_CHEMIST, JOB_CHIEF_MEDICAL_OFFICER, JOB_BOTANIST)
 
+/datum/uplink_item/role_restricted/scarecrow
+	name = "Набор пугала"
+	desc = "Включает в себя 6 газовых гранат с психотропными веществами и маску, замкнутого цикла не требующую кислородного балона. Противогаз имеет функцию обратной акселирации фильтров, при использовании выдыхая дым и ненадолго активирую термосенсорный визор."
+	item = /obj/item/storage/box/syndie_kit/scarecrow
+	cost = 12
+	restricted_roles = list(JOB_CHEMIST, JOB_PSYCHOLOGIST)
+
 /datum/uplink_item/role_restricted/reverse_bear_trap
 	name = "Обратный медвежий капкан"
 	desc = "Изобретательное устройство для казни, надеваемое на голову (насильно). \
@@ -2134,8 +2141,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/storage/box/syndie_kit/centcom_costume
 
 /datum/uplink_item/badass/stickers
-	name = "Syndicate Sticker Pack"
-	desc = "Contains 8 random stickers precisely engineered to resemble suspicious objects, which may or may not be useful for fooling crew."
+	name = "Набор стикеров Синдиката"
+	desc = "Содержит 8 случайных наклеек, точно подобранных так, чтобы они напоминали подозрительные предметы, которые могут быть полезны, а могут и не быть полезными для одурачивания экипажа."
 	item = /obj/item/storage/box/syndie_kit/stickers
 	cost = 1
 

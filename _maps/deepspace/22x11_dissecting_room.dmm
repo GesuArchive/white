@@ -53,9 +53,6 @@
 	dir = 1
 	},
 /area/ruin/unpowered)
-"ca" = (
-/turf/closed/wall/r_wall,
-/area/ruin/unpowered)
 "cT" = (
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 1
@@ -1134,8 +1131,8 @@
 	pixel_y = 3;
 	pixel_x = 10
 	},
-/obj/effect/decal/cleanable/blood/hitsplatter{
-	dir = 8;
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "splatter2";
 	pixel_x = 6
 	},
 /turf/open/floor/plasteel/dark/side{
@@ -1601,20 +1598,20 @@
 /area/ruin/unpowered)
 
 (1,1,1) = {"
-ca
-ca
-ca
-ca
-ca
+nE
+nE
+nE
+nE
+nE
 Ia
-ca
-ca
-ca
-ca
-ca
+nE
+nE
+nE
+nE
+nE
 "}
 (2,1,1) = {"
-ca
+nE
 HY
 RR
 eR
@@ -1624,10 +1621,10 @@ wu
 oC
 gh
 er
-ca
+nE
 "}
 (3,1,1) = {"
-ca
+nE
 Rs
 Pe
 Pe
@@ -1637,10 +1634,10 @@ zj
 Pe
 Hv
 xm
-ca
+nE
 "}
 (4,1,1) = {"
-ca
+nE
 ow
 Kw
 Pe
@@ -1650,10 +1647,10 @@ my
 Pe
 xr
 lu
-ca
+nE
 "}
 (5,1,1) = {"
-ca
+nE
 Rs
 Pe
 Pe
@@ -1663,10 +1660,10 @@ zj
 Kr
 Pe
 oV
-ca
+nE
 "}
 (6,1,1) = {"
-ca
+nE
 QQ
 Iv
 pi
@@ -1676,10 +1673,10 @@ hf
 dC
 ry
 RQ
-ca
+nE
 "}
 (7,1,1) = {"
-ca
+nE
 rd
 nN
 OX
@@ -1689,10 +1686,10 @@ fQ
 fY
 fA
 Zf
-ca
+nE
 "}
 (8,1,1) = {"
-ca
+nE
 OL
 Pe
 xk
@@ -1702,10 +1699,10 @@ Kq
 El
 nx
 gV
-ca
+nE
 "}
 (9,1,1) = {"
-ca
+nE
 YV
 qZ
 MA
@@ -1715,10 +1712,10 @@ Ya
 fd
 lY
 HH
-ca
+nE
 "}
 (10,1,1) = {"
-ca
+nE
 Sm
 uU
 Gh
@@ -1728,10 +1725,10 @@ jb
 Pe
 Pe
 Kx
-ca
+nE
 "}
 (11,1,1) = {"
-ca
+nE
 tW
 BP
 oa
@@ -1741,10 +1738,10 @@ Nk
 dS
 ot
 uV
-ca
+nE
 "}
 (12,1,1) = {"
-ca
+nE
 qY
 dT
 yL
@@ -1754,10 +1751,10 @@ FE
 HQ
 hP
 aM
-ca
+nE
 "}
 (13,1,1) = {"
-ca
+nE
 ws
 Pe
 Jr
@@ -1767,10 +1764,10 @@ bz
 Pe
 Pe
 ix
-ca
+nE
 "}
 (14,1,1) = {"
-ca
+nE
 ze
 td
 Pe
@@ -1780,10 +1777,10 @@ Hi
 Ui
 Io
 xo
-ca
+nE
 "}
 (15,1,1) = {"
-ca
+nE
 uP
 Md
 Pe
@@ -1793,10 +1790,10 @@ bz
 NM
 MJ
 Fp
-ca
+nE
 "}
 (16,1,1) = {"
-ca
+nE
 KZ
 XE
 XE
@@ -1806,10 +1803,10 @@ Qm
 KG
 wV
 VX
-ca
+nE
 "}
 (17,1,1) = {"
-ca
+nE
 aZ
 nj
 Zr
@@ -1819,10 +1816,10 @@ Zr
 Zr
 DV
 nj
-ca
+nE
 "}
 (18,1,1) = {"
-ca
+nE
 yO
 ma
 Zr
@@ -1832,10 +1829,10 @@ Fz
 Zr
 Ih
 xw
-ca
+nE
 "}
 (19,1,1) = {"
-ca
+nE
 nE
 Zy
 nE
@@ -1845,10 +1842,10 @@ MQ
 nE
 Zy
 nE
-ca
+nE
 "}
 (20,1,1) = {"
-ca
+nE
 VI
 Pb
 ig
@@ -1858,10 +1855,10 @@ aj
 ig
 PL
 SQ
-ca
+nE
 "}
 (21,1,1) = {"
-ca
+nE
 oi
 Oh
 iu
@@ -1871,18 +1868,18 @@ eb
 ga
 ka
 uA
-ca
+nE
 "}
 (22,1,1) = {"
-ca
-ca
-ca
-ca
-ca
-ca
-ca
-ca
-ca
-ca
-ca
+nE
+nE
+nE
+nE
+nE
+nE
+nE
+nE
+nE
+nE
+nE
 "}

@@ -1,7 +1,7 @@
 //PIMP-CART
 /obj/vehicle/ridden/janicart
-	name = "janicart (pimpin' ride)"
-	desc = "A brave janitor cyborg gave its life to produce such an amazing combination of speed and utility."
+	name = "ДжениКар"
+	desc = "Отважный киборг-уборщик отдал свою жизнь за создание такого удивительного сочетания скорости и полезности."
 	icon_state = "pussywagon"
 	key_type = /obj/item/key/janitor
 	var/obj/item/storage/bag/trash/mybag = null
@@ -32,25 +32,25 @@
 /obj/vehicle/ridden/janicart/examine(mob/user)
 	. = ..()
 	if(floorbuffer)
-		. += "<hr>It has been upgraded with a floor buffer."
+		. += "<hr>Модернизирован полоукладчиком."
 
 /obj/vehicle/ridden/janicart/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/storage/bag/trash))
 		if(mybag)
-			to_chat(user, span_warning("[capitalize(src.name)] already has a trashbag hooked!"))
+			to_chat(user, span_warning("Тут уже висит мешок для мусора!"))
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
-		to_chat(user, span_notice("You hook the trashbag onto [src]."))
+		to_chat(user, span_notice("Прицепляю мусорный мешок к [src]у."))
 		mybag = I
 		update_icon()
 	else if(istype(I, /obj/item/janiupgrade))
 		if(floorbuffer)
-			to_chat(user, span_warning("[capitalize(src.name)] already has a floor buffer!"))
+			to_chat(user, span_warning("[capitalize(src.name)] уже модифицирован полоукладчиком!"))
 			return
 		floorbuffer = TRUE
 		qdel(I)
-		to_chat(user, span_notice("You upgrade [src] with the floor buffer."))
+		to_chat(user, span_notice("Модернизирую [src] при помощи модуля полоукладчика."))
 		AddElement(/datum/element/cleaning)
 		update_icon()
 	else if(mybag)

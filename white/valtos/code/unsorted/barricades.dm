@@ -963,6 +963,9 @@
 	name = "К.У.Р.С.К"
 	desc = "Компактный Универсальный Рубежный Саморазвертывающийся Комплекс. Незаменим для быстрой постройки укреплений."
 	icon = 'white/valtos/icons/barricade.dmi'
+	inhand_icon_state = "toolbox_default"
+	lefthand_file = 'icons/mob/inhands/equipment/toolbox_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/toolbox_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL //While this is small, normal 50 stacks of metal is NORMAL so this is a bit on the bad space to cade ratio
 	var/delay = 0 //Delay on deploying the thing
 	var/atom/movable/thing_to_deploy = null

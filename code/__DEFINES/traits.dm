@@ -635,6 +635,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define CURSED_ITEM_TRAIT(item_type) "cursed_item_[item_type]"
 #define ABSTRACT_ITEM_TRAIT "abstract-item"
 #define STATUS_EFFECT_TRAIT "status-effect"
+#define GRENADE_TRAIT "grenade"
 #define CLOTHING_TRAIT "clothing"
 #define HELMET_TRAIT "helmet"
 /// inherited from the mask
