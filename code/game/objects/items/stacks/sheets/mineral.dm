@@ -333,7 +333,7 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	name = "серебро"
 	icon_state = "sheet-silver"
 	inhand_icon_state = "sheet-silver"
-	singular_name = "серебрянный слиток"
+	singular_name = "серебряный слиток"
 	sheettype = "silver"
 	multivariant = TRUE
 	mats_per_unit = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT)

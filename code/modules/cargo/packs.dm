@@ -2351,11 +2351,11 @@
 
 /// Single silver ID.
 /datum/supply_pack/service/silverid
-	name = "Комплект с серебрянной ID-картой"
+	name = "Комплект с серебряной ID-картой"
 	desc = "Неужели мы забыли нанять кого-нибудь из руководителей? Набирайте своих сотрудников с помощью этой ценной идентификационной карты, обеспечивающей расширенный уровень доступа в удобном форм-факторе размером с бумажник."
 	cost = BUY_CRATE_VALUE * 7
 	contains = list(/obj/item/card/id/advanced/silver)
-	crate_name = "ящик с серебрянной ID картой"
+	crate_name = "ящик с серебряной ID картой"
 
 /datum/supply_pack/service/emptycrate
 	name = "Пустой ящик"

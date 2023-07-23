@@ -21,7 +21,7 @@
 
 	area_type = /area
 	protect_indoors = TRUE
-	target_trait = ZTRAIT_STATION
+	target_trait = ZTRAIT_AWAY
 
 	immunity_type = WEATHER_STORM
 

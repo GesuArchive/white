@@ -96,11 +96,16 @@
 	. = ..()
 	RegisterSignal(SStitle, COMSIG_TITLE_UPDATE_BACKGROUND, PROC_REF(flex_with_background))
 
-/atom/movable/screen/lobby/neobg/proc/flex_with_background()
+/atom/movable/screen/lobby/neobg/proc/flex_with_background(datum/source, autorotate = TRUE)
 	SIGNAL_HANDLER
 
 	flicker_bg.icon = icon
 	flicker_bg.alpha = 255
+
+	if(!autorotate)
+		flicker_bg.icon = SStitle.icon
+		return
+
 	flick("fuck", flicker_bg)
 
 	spawn(13)
@@ -303,6 +308,9 @@
 		else
 			SSticker.queued_players += new_player
 			to_chat(new_player, span_notice("Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len]."))
+		return
+	if(SSrust_mode.active)
+		new_player.AttemptLateSpawn(JOB_RUST_ENJOYER)
 		return
 	if(SSviolence.active)
 		new_player.violence_choices()

@@ -1178,7 +1178,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		return ru_lfwb_job_parse(job)
 	if (job == JOB_ASSISTANT)
 		return "Ассистент"
-	if (job == JOB_INTERN)
+	else if (job == JOB_INTERN)
 		return "Практикант"
 	else if (job == JOB_CAPTAIN)
 		return "Капитан"
@@ -1282,13 +1282,15 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		return "Красный"
 	else if (job == "blue")
 		return "Синий"
+	else if (job == JOB_RUST_ENJOYER)
+		return "Выживший"
 	else
 		return job
 
 /proc/ru_lfwb_job_parse(job)
 	if (job == JOB_ASSISTANT)
 		return "Служанка"
-	if (job == JOB_INTERN)
+	else if (job == JOB_INTERN)
 		return "Ребенок"
 	else if (job == JOB_CAPTAIN)
 		return "Барон"

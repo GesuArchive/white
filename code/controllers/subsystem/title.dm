@@ -47,7 +47,7 @@ SUBSYSTEM_DEF(title)
 
 	icon = new(fcopy_rsc(file_path))
 
-	SEND_SIGNAL(src, COMSIG_TITLE_UPDATE_BACKGROUND)
+	SEND_SIGNAL(src, COMSIG_TITLE_UPDATE_BACKGROUND, autorotate)
 
 /datum/controller/subsystem/title/fire(resumed = FALSE)
 	if(!autorotate)
@@ -62,7 +62,7 @@ SUBSYSTEM_DEF(title)
 	if(.)
 		switch(var_name)
 			if(NAMEOF(src, icon))
-				SEND_SIGNAL(src, COMSIG_TITLE_UPDATE_BACKGROUND)
+				SEND_SIGNAL(src, COMSIG_TITLE_UPDATE_BACKGROUND, autorotate)
 				autorotate = FALSE
 
 /datum/controller/subsystem/title/Shutdown()

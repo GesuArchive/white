@@ -783,7 +783,7 @@
 	. += mutable_appearance(trim_icon_file, trim_icon_state)
 
 /obj/item/card/id/advanced/silver
-	name = "серебрянная ID-карта"
+	name = "серебряная ID-карта"
 	desc = "Серебряная карта, которая показывает честь и преданность делу."
 	icon_state = "card_silver"
 	worn_icon_state = "card_silver"

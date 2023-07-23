@@ -45,7 +45,7 @@
 			ship_name = pick(strings(PIRATE_NAMES_FILE, "silverscale_names"))
 			ship_template = /datum/map_template/shuttle/pirate/silverscale
 			threat.title = "Пожертвование высшему обществу"
-			threat.content = "Это [ship_name]. Серебрянные чешуйки хотят собрать с вас дань. [payoff] кредитов решат проблему."
+			threat.content = "Это [ship_name]. Серебряные чешуйки хотят собрать с вас дань. [payoff] кредитов решат проблему."
 			threat.possible_answers = list("Мы заплатим.","Че, серьёзно? Пошли на хуй!")
 		if(PIRATES_DUTCHMAN)
 			ship_name = "Flying Dutchman"

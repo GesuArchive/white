@@ -86,6 +86,9 @@ GLOBAL_LIST_INIT(combatant_red_positions, list(
 GLOBAL_LIST_INIT(combatant_blue_positions, list(
 	JOB_COMBATANT_BLUE))
 
+GLOBAL_LIST_INIT(rust_survivor_position, list(
+	JOB_RUST_ENJOYER))
+
 GLOBAL_LIST_INIT(nonhuman_positions, list(
 	JOB_AI,
 	JOB_CYBORG,

@@ -172,7 +172,7 @@
 	punchstunthreshold = 9 //60% chance, from 40%
 	meat = /obj/item/stack/ore/silver
 	info_text = "Будучи <span class='danger'>серебряным големом</span>, мои атаки чаще оглушают. Так как моё тело состоит из серебра, большая часть магии не действует на меня."
-	prefix = "Серебрянный"
+	prefix = "Серебряный"
 	special_names = list("Surfer", "Chariot", "Lining")
 
 /datum/species/golem/silver/on_species_gain(mob/living/carbon/C, datum/species/old_species)

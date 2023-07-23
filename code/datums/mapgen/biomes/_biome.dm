@@ -28,7 +28,7 @@
 	flora_density = 3
 
 /datum/biome/mudlands/normal
-	turf_type = /turf/open/floor/grass
+	turf_type = /turf/open/floor/grass/gensgrass/dirty
 	flora_types = list(/obj/structure/flora/tree/cataclysmdda/el/small, /obj/structure/flora/tree/cataclysmdda/ht)
 	flora_density = 3
 
@@ -38,7 +38,7 @@
 	flora_density = 15
 
 /datum/biome/plains/normal
-	turf_type = /turf/open/floor/grass
+	turf_type = /turf/open/floor/grass/rospilovo
 	flora_types = list(/obj/structure/flora/tree/cataclysmdda/iva,
 					/obj/structure/flora/tree/cataclysmdda/cash,
 					/obj/structure/flora/tree/cataclysmdda/dub,
@@ -52,7 +52,7 @@
 	flora_density = 40
 
 /datum/biome/jungle/normal
-	turf_type = /turf/open/floor/grass
+	turf_type = /turf/open/floor/grass/rospilovo
 	flora_types = list(/obj/structure/flora/tree/cataclysmdda/yabl,
 					/obj/structure/flora/tree/cataclysmdda/topol,
 					/obj/structure/flora/tree/cataclysmdda/el,

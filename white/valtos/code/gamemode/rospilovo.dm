@@ -185,6 +185,21 @@
 	pixel_y = rand(-12,12)
 	. = ..()
 
+/obj/structure/flora/ausbushes/rospilovo/attackby(obj/item/W, mob/user, params)
+	if((!(flags_1 & NODECONSTRUCT_1)))
+		if(W.get_sharpness() && W.force > 0)
+			if(W.hitsound)
+				playsound(get_turf(src), W.hitsound, 80, FALSE, FALSE)
+			user.visible_message(span_notice("[user] начинает срезать [src] при помощи [W]."), span_notice("Начинаю срезать [src] используя [W]."), span_hear("Слышу звуки работы с травой."))
+			if(do_after(user, 100/W.force, target = src))
+				user.visible_message(span_notice("[user] срезает [src] используя [W]."), span_notice("Срезаю [src] используя [W]."), span_hear("Слышу звук рвущейся травы."))
+				playsound(get_turf(src), 'sound/weapons/slash.ogg', 80 , FALSE, FALSE)
+				user.log_message("cut down [src] at [AREACOORD(src)]", LOG_ATTACK)
+				new /obj/item/stack/sheet/cloth(get_turf(src))
+				qdel(src)
+	else
+		return ..()
+
 /obj/structure/flora/ausbushes/rospilovo/reedbush
 	icon_state = "reedbush_1"
 
@@ -318,11 +333,31 @@
 	density = 0
 	opacity = 0
 	layer = 9
+	var/log_amount = 10
 
-/obj/structure/rospilovo/tree/New()
+/obj/structure/rospilovo/tree/attackby(obj/item/W, mob/user, params)
+	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))
+		if(W.get_sharpness() && W.force > 0)
+			if(W.hitsound)
+				playsound(get_turf(src), W.hitsound, 80, FALSE, FALSE)
+			user.visible_message(span_notice("[user] начинает срубать [src] при помощи [W]."), span_notice("Начинаю срубать [src] используя [W]."), span_hear("Слышу звуки работы с деревом."))
+			if(do_after(user, 1000/W.force, target = src)) //5 seconds with 20 force, 8 seconds with a hatchet, 20 seconds with a shard.
+				user.visible_message(span_notice("[user] срубает [src] используя [W]."), span_notice("Срубаю [src] используя [W]."), span_hear("Слышу громкий звук падения дерева."))
+				playsound(get_turf(src), 'sound/effects/meteorimpact.ogg', 100 , FALSE, FALSE)
+				user.log_message("cut down [src] at [AREACOORD(src)]", LOG_ATTACK)
+				for(var/i=1 to log_amount)
+					new /obj/item/grown/log/tree(get_turf(src))
+				var/obj/structure/flora/stump/S = new(loc)
+				S.name = "пенёк [skloname(name, VINITELNI, gender)]"
+				qdel(src)
+	else
+		return ..()
+
+/obj/structure/rospilovo/tree/Initialize(mapload)
+	. = ..()
 	icon_state = "derevo[rand(1, 5)]"
 
-/obj/structure/rospilovo/tree/leafless/
+/obj/structure/rospilovo/tree/leafless
 	name = "мёртвое дерево"
 	icon_state = "derevo1l"
 	density = 0

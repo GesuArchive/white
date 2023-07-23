@@ -6,7 +6,7 @@
 	icon_state = "dirt"
 	base_icon_state = "dirt"
 	baseturfs = /turf/open/chasm/jungle
-	initial_gas_mix = OPENTURF_LOW_PRESSURE
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 	attachment_holes = FALSE
 	footstep = FOOTSTEP_SAND

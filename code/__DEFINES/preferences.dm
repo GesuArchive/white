@@ -90,6 +90,7 @@
 #define EXP_TYPE_ADMIN			"Admin"
 #define EXP_TYPE_COMBATANT_RED	"Combatant: Red"
 #define EXP_TYPE_COMBATANT_BLUE	"Combatant: Blue"
+#define EXP_TYPE_RUST_SURVIVOR	"Rusty Survivor"
 
 //Flags in the players table in the db
 #define DB_FLAG_EXEMPT 1

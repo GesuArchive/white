@@ -21,7 +21,7 @@
 /obj/structure/flora/tree/cataclysmdda
 	name = "КОДЕР"
 	desc = "МУДАК"
-	icon = null
+	icon = 'icons/obj/flora/cata_trees.dmi'
 	pixel_x = -16
 	density = TRUE
 	icon_state = "els1"

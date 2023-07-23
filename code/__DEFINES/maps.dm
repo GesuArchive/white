@@ -93,6 +93,8 @@ require only minor tweaks.
 	ZTRAIT_BASETURF = /turf/open/lava/smooth/lava_land_surface)
 
 #define ZTRAITS_REEBE list(ZTRAIT_REEBE = TRUE, ZTRAIT_BOMBCAP_MULTIPLIER = 0.5, ZTRAIT_NOPARALLAX = TRUE)
+#define ZTRAITS_RUSTY list(ZTRAIT_AWAY = TRUE, ZTRAIT_NOPARALLAX = TRUE, ZTRAIT_BASETURF = /turf/open/floor/grass/rospilovo)
+
 #define DL_NAME "name"
 #define DL_TRAITS "traits"
 #define DECLARE_LEVEL(NAME, TRAITS) list(DL_NAME = NAME, DL_TRAITS = TRAITS)

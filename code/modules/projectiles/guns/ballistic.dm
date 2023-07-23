@@ -126,6 +126,7 @@
 			playsound(src, 'sound/weapons/gun/general/ballistic_click.ogg', suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0, frequency = click_frequency_to_use)
 	else
 		playsound(src, fire_sound, fire_sound_volume, vary_fire_sound)
+		playsound(src, 'sound/weapons/effects/distant_shot.ogg', 100, vary_fire_sound, extrarange = 80) // хз как это скажется на производительности, но мени поебати
 		if(play_click)
 			playsound(src, 'sound/weapons/gun/general/ballistic_click.ogg', fire_sound_volume, vary_fire_sound, frequency = click_frequency_to_use)
 

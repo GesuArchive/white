@@ -117,6 +117,7 @@
 #define JOB_COMBATANT_RED "Combantant: Red"
 #define JOB_COMBATANT_BLUE "Combantant: Blue"
 #define JOB_FREELANCER "Freelancer"
+#define JOB_RUST_ENJOYER "Rust Survivor"
 //Command
 #define JOB_CAPTAIN "Captain"
 #define JOB_HEAD_OF_PERSONNEL "Head of Personnel"

@@ -22,7 +22,7 @@
 
 /turf/closed/wall/mineral/silver
 	name = "серебряная стена"
-	desc = "Стена с серебрянным покрытием. Сияет."
+	desc = "Стена с серебряным покрытием. Сияет."
 	icon = 'icons/turf/walls/silver_wall.dmi'
 	icon_state = "silver_wall-0"
 	base_icon_state = "silver_wall"
