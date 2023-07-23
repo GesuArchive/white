@@ -44,7 +44,7 @@
 					/obj/structure/flora/tree/cataclysmdda/dub,
 					/obj/structure/flora/tree/cataclysmdda/ht,
 					/obj/structure/flora/tree/cataclysmdda/mt)
-	flora_density = 15
+	flora_density = 5
 
 /datum/biome/jungle
 	turf_type = /turf/open/floor/plating/grass/jungle
@@ -61,13 +61,13 @@
 					/obj/structure/flora/tree/cataclysmdda/sosna,
 					/obj/structure/flora/tree/cataclysmdda/ht,
 					/obj/structure/flora/tree/cataclysmdda/mt)
-	flora_density = 50
+	flora_density = 10
 
 /datum/biome/jungle/deep
 	flora_density = 65
 
 /datum/biome/jungle/normal/deep
-	flora_density = 65
+	flora_density = 20
 
 /datum/biome/wasteland
 	turf_type = /turf/open/floor/plating/dirt/jungle/wasteland

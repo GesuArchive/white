@@ -9,20 +9,16 @@ SUBSYSTEM_DEF(rust_mode)
 	var/active = FALSE
 	var/list/resource_rocks = list()
 	var/list/hostile_mobs = list()
-	var/max_hostile_mobs = 50
+	var/max_hostile_mobs = 64
 	var/area/main_area
 	// Переменная для времени. Для цикла времени
 	var/current_time = "рассвет"
 	var/list/possible_hostile_mobs = list(
 		/mob/living/simple_animal/hostile/bear,
-		/mob/living/simple_animal/hostile/zombie,
 		/mob/living/simple_animal/hostile/giant_spider,
 		/mob/living/simple_animal/hostile/asteroid/wolf,
-		/mob/living/simple_animal/hostile/jungle/leaper,
 		/mob/living/simple_animal/hostile/jungle/mook,
-		/mob/living/simple_animal/hostile/gorilla,
-		/mob/living/simple_animal/hostile/pig,
-		/mob/living/simple_animal/hostile/blackmesa/blackops
+		/mob/living/simple_animal/hostile/pig
 	)
 
 /datum/controller/subsystem/rust_mode/Initialize()
@@ -52,6 +48,10 @@ SUBSYSTEM_DEF(rust_mode)
 			hostile_mobs += M
 
 /datum/controller/subsystem/rust_mode/fire(resumed = FALSE)
+	// удаляем хотспоты
+	for(var/obj/effect/hotspot/H in main_area)
+		qdel(H)
+
 	adjust_areas_light()
 	handle_hostile_mobs()
 	return

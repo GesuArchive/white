@@ -141,6 +141,7 @@
 	icon_state = "bochka"
 	max_integrity = 25
 	density = TRUE
+	anchored = TRUE
 	var/break_sound = 'sound/effects/barrel_break.ogg'
 	var/break_resource = /obj/item/stack/sheet/iron
 	var/list/possible_loot = list(
@@ -252,9 +253,16 @@
 /obj/structure/resource_spawner/crate/rich
 	icon_state = "yashik_a"
 	possible_loot = list(
-		/obj/item/clothing/neck/necklace/dope/merchant = 25,
-		/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade = 25,
-		/obj/item/ammo_box/magazine/fallout/m9mm = 10,
+		/obj/item/weldingtool = 25,
+		/obj/item/wrench = 25,
+		/obj/item/crowbar = 25,
+		/obj/item/screwdriver = 25,
+		/obj/item/wirecutters = 25,
+		/obj/item/multitool = 10,
+		/obj/item/clothing/neck/necklace/dope/merchant = 10,
+		/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade = 5,
+		/obj/item/ammo_box/magazine/fallout/m9mm = 5,
+		/obj/item/card/id/advanced/gold/captains_spare = 5,
 		/obj/item/clothing/head/helmet/alt = 5,
 		/obj/item/clothing/suit/armor/opvest = 5,
 		/obj/item/gun/ballistic/automatic/pistol/tanner = 5,
