@@ -1,12 +1,12 @@
 /datum/round_event_control/spawn_swarmer
-	name = "Сотворение Маяка роевиков"
+	name = "Спавн: Маяк роевиков"
 	typepath = /datum/round_event/spawn_swarmer
 	weight = 10
 	max_occurrences = 1 //Only once okay fam
 	min_players = 20
 
 /datum/round_event/spawn_swarmer/announce(fake)
-	priority_announce("Our long-range sensors have detected that your station's defenses have been breached by some sort of alien device.  We suggest searching for and destroying it as soon as possible.", "[command_name()] High-Priority Update")
+	priority_announce("Наши датчики дальнего действия обнаружили, что защита вашей станции была нарушена каким-то инопланетным устройством с интегрированным устройством саморепликации. Мы предлагаем найти и уничтожить его как можно скорее.", "[command_name()] Тревога высшего уровня")
 
 /datum/round_event/spawn_swarmer
 	announceWhen = 70

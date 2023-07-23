@@ -1,5 +1,5 @@
 /datum/round_event_control/operative
-	name = "Lone Operative"
+	name = "Спавн: Одинокий оперативник"
 	typepath = /datum/round_event/ghost_role/operative
 	weight = 0 //Admin only
 	max_occurrences = 1

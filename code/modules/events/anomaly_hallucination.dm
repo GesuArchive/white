@@ -1,5 +1,5 @@
 /datum/round_event_control/anomaly/anomaly_hallucination
-	name = "Anomaly: Hallucination"
+	name = "Аномалия: Галюциногенная"
 	typepath = /datum/round_event/anomaly/anomaly_hallucination
 
 	min_players = 10
@@ -12,4 +12,4 @@
 	anomaly_path = /obj/effect/anomaly/hallucination
 
 /datum/round_event/anomaly/anomaly_hallucination/announce(fake)
-	priority_announce("Hallucinatory event hitting the station. Expected location: [impact_area.name].", "Anomaly Alert")
+	priority_announce("Обнаружено гипнотическое излучение неизвестной природы. Ожидаемое место появления: [impact_area.name].", "Аномальная тревога")

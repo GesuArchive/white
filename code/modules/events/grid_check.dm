@@ -1,5 +1,5 @@
 /datum/round_event_control/grid_check
-	name = "Grid Check"
+	name = "Событие: Отключение питания"
 	typepath = /datum/round_event/grid_check
 	weight = 10
 	max_occurrences = 3

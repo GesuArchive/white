@@ -1,5 +1,5 @@
 /datum/round_event_control/radiation_storm
-	name = "Radiation Storm"
+	name = "Событие: Рад-шторм"
 	typepath = /datum/round_event/radiation_storm
 	max_occurrences = 1
 

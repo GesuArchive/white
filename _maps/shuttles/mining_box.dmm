@@ -76,7 +76,7 @@
 /area/shuttle/mining)
 "k" = (
 /obj/structure/cable,
-/obj/machinery/power/smes,
+/obj/machinery/power/smes/engineering,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "l" = (

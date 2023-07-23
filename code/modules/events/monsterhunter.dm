@@ -11,7 +11,7 @@
 
 /// The default, for Bloodsucker rounds.
 /datum/round_event_control/bloodsucker_hunters
-	name = "Сотворение Кровавого Охотника"
+	name = "Спавн: Охотник на вампиров"
 	typepath = /datum/round_event/bloodsucker_hunters
 	max_occurrences = 1 // We have to see how Bloodsuckers are in game to decide if having more than 1 is beneficial.
 	weight = 20
@@ -54,7 +54,7 @@
 
 /// Randomly spawned Monster hunters during TraitorChangeling, Changeling, Heretic and Cult rounds.
 /datum/round_event_control/monster_hunters
-	name = "Сотворение Охотника на Монстров"
+	name = "Спавн: Охотник на монстров"
 	typepath = /datum/round_event/monster_hunters
 	max_occurrences = 1
 	weight = 7

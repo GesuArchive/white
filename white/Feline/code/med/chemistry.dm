@@ -359,7 +359,7 @@
 /datum/reagent/medicine/hallucinogen/demonium/on_mob_metabolize(mob/living/M)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
-	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "demon", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "demon", duration = 2 MINUTES, skip_nearby = FALSE)
 	new /datum/hallucination/weird_sounds(M, forced = TRUE)
 
 /datum/reagent/medicine/hallucinogen/corgium
@@ -373,7 +373,7 @@
 /datum/reagent/medicine/hallucinogen/corgium/on_mob_metabolize(mob/living/M, amount)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
-	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "corgi", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "corgi", duration = 2 MINUTES, skip_nearby = FALSE)
 	new /datum/hallucination/weird_sounds(M, forced = TRUE)
 
 /datum/reagent/medicine/hallucinogen/skeletonium
@@ -387,7 +387,7 @@
 /datum/reagent/medicine/hallucinogen/skeletonium/on_mob_metabolize(mob/living/M)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
-	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "skeleton", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "skeleton", duration = 2 MINUTES, skip_nearby = FALSE)
 	new /datum/hallucination/weird_sounds(M, forced = TRUE)
 
 /datum/reagent/medicine/hallucinogen/zombium
@@ -401,7 +401,7 @@
 /datum/reagent/medicine/hallucinogen/zombium/on_mob_metabolize(mob/living/M, amount)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
-	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "zombie", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "zombie", duration = 2 MINUTES, skip_nearby = FALSE)
 	new /datum/hallucination/weird_sounds(M, forced = TRUE)
 
 /datum/reagent/medicine/hallucinogen/carpium
@@ -415,7 +415,7 @@
 /datum/reagent/medicine/hallucinogen/carpium/on_mob_metabolize(mob/living/M, amount)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
-	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "carp", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "carp", duration = 2 MINUTES, skip_nearby = FALSE)
 	new /datum/hallucination/weird_sounds(M, forced = TRUE)
 	M.apply_status_effect(STATUS_EFFECT_HEAVY_SPASMS)
 
@@ -434,7 +434,7 @@
 /datum/reagent/medicine/hallucinogen/monkeum/on_mob_metabolize(mob/living/M, amount)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
-	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "monkey", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "monkey", duration = 2 MINUTES, skip_nearby = FALSE)
 	new /datum/hallucination/weird_sounds(M, forced = TRUE)
 	if(prob(50))
 		var/direction = pick(GLOB.alldirs)
@@ -451,7 +451,7 @@
 /datum/reagent/medicine/hallucinogen/morphium/on_mob_metabolize(mob/living/M, amount)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
-	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "morph", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "morph", duration = 2 MINUTES, skip_nearby = FALSE)
 	new /datum/hallucination/weird_sounds(M, forced = TRUE)
 
 /datum/reagent/medicine/hallucinogen/statium
@@ -465,7 +465,7 @@
 /datum/reagent/medicine/hallucinogen/statium/on_mob_metabolize(mob/living/M, amount)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
-	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "static", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "static", duration = 2 MINUTES, skip_nearby = FALSE)
 	new /datum/hallucination/weird_sounds(M, forced = TRUE)
 	M.add_client_colour(/datum/client_colour/monochrome)
 
@@ -484,7 +484,7 @@
 /datum/reagent/medicine/hallucinogen/syndium/on_mob_metabolize(mob/living/M, amount)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
-	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "syndicate_space", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "syndicate_space", duration = 2 MINUTES, skip_nearby = FALSE)
 	new /datum/hallucination/weird_sounds(M, forced = TRUE)
 	if(prob(50))
 		var/direction = pick(GLOB.alldirs)

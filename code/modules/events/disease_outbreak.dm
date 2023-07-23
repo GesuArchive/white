@@ -1,5 +1,5 @@
 /datum/round_event_control/disease_outbreak
-	name = "Disease Outbreak"
+	name = "Страдание: Случайный вирус"
 	typepath = /datum/round_event/disease_outbreak
 	max_occurrences = 1
 	min_players = 10

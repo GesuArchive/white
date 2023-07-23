@@ -1,5 +1,5 @@
 /datum/round_event_control/fake_virus
-	name = "Fake Virus"
+	name = "Страдание: Фальшивый вирус"
 	typepath = /datum/round_event/fake_virus
 	weight = 20
 

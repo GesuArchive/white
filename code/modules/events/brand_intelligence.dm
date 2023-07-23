@@ -1,5 +1,5 @@
 /datum/round_event_control/brand_intelligence
-	name = "Brand Intelligence"
+	name = "Событие: Ожившие торгматы"
 	typepath = /datum/round_event/brand_intelligence
 	weight = 5
 
@@ -13,13 +13,13 @@
 	var/list/obj/machinery/vending/infectedMachines = list()
 	var/obj/machinery/vending/originMachine
 	var/list/rampant_speeches = list(
-		"Try our aggressive new marketing strategies!", \
-		"You should buy products to feed your lifestyle obsession!", \
-		"Consume!", \
-		"Your money can buy happiness!", \
-		"Engage direct marketing!", \
-		"Advertising is legalized lying! But don't let that put you off our great deals!", \
-		"You don't want to buy anything? Yeah, well, I didn't want to buy your mom either.")
+		"Попробуйте наши новые агрессивные маркетинговые стратегии!", \
+		"Вам следует покупать продукты, которые подпитывают вашу одержимость стилем жизни!", \
+		"Потребляй!", \
+		"За ваши деньги можно купить счастье!", \
+		"Занимайтесь прямым маркетингом!", \
+		"Реклама - это узаконенная ложь! Но пусть это не отпугивает вас от наших выгодных предложений!", \
+		"Вы ничего не хотите купить? Да, ну, я тоже не хотел покупать твою маму.")
 
 
 /datum/round_event/brand_intelligence/announce(fake)
@@ -29,7 +29,7 @@
 		source = initial(example.name)
 	else if(originMachine)
 		source = originMachine.name
-	priority_announce("Разгульный брэндовый интеллект был обнаружен на борту [station_name()]. Пожалуйста, приготовьтесь. Возможный источник [source].", "Тревога машинного обучения", 'sound/ai/announcer/artificial.ogg')
+	priority_announce("Обнаружена активация агрессивной маркетинговой стратегии на борту станции [station_name()]. Пожалуйста, приготовьтесь. Возможный источник торгмат: [source].", "Тревога машинного обучения", 'sound/ai/announcer/artificial.ogg')
 
 /datum/round_event/brand_intelligence/start()
 	for(var/obj/machinery/vending/V in GLOB.machines)

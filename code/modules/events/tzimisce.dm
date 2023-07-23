@@ -1,5 +1,5 @@
 /datum/round_event_control/tzimisce/bloodsucker
-	name = "Сотворение Кровавого Tzimisce"
+	name = "Спавн: Тзимисце Вампир"
 	max_occurrences = 1
 	weight = 5
 	typepath = /datum/round_event/ghost_role/tzimisce/bloodsucker
@@ -23,7 +23,7 @@
 		return
 
 /datum/round_event_control/tzimisce
-	name = "Сотворение Tzimisce"
+	name = "Спавн: Тзимисце"
 	typepath = /datum/round_event/ghost_role/tzimisce
 	max_occurrences = 1
 	min_players = 25

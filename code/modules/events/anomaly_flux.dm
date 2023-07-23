@@ -1,5 +1,5 @@
 /datum/round_event_control/anomaly/anomaly_flux
-	name = "Anomaly: Hyper-Energetic Flux"
+	name = "Аномалия: Электромагнитная"
 	typepath = /datum/round_event/anomaly/anomaly_flux
 
 	min_players = 10

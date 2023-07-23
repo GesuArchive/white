@@ -1,5 +1,5 @@
 /datum/round_event_control/blob
-	name = "Масса"
+	name = "Спавн: Блобовая Масса"
 	typepath = /datum/round_event/ghost_role/blob
 	weight = 10
 	max_occurrences = 1
@@ -20,7 +20,7 @@
 	fakeable = TRUE
 
 /datum/round_event/ghost_role/blob/announce(fake)
-	priority_announce("Подтвержденная вспышка биологической опасности уровня 5 на борту [station_name()]. Весь персонал должен противостоять эпидемии.", "Биологическая тревога", ANNOUNCER_OUTBREAK5)
+	priority_announce("Подтвержденная вспышка биологической опасности уровня 5 на борту [station_name()]. Обнаружена космическая плесень. Весь персонал должен противостоять эпидемии.", "Биологическая тревога", ANNOUNCER_OUTBREAK5)
 
 /datum/round_event/ghost_role/blob/spawn_role()
 	if(!GLOB.blobstart.len)

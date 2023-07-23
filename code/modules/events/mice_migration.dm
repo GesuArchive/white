@@ -1,5 +1,5 @@
 /datum/round_event_control/mice_migration
-	name = "Mice Migration"
+	name = "Событие: Миграция мышей"
 	typepath = /datum/round_event/mice_migration
 	weight = 10
 

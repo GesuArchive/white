@@ -29,7 +29,7 @@ GLOBAL_LIST_EMPTY(huge_crystal_portals)
 This section is for the event controller
 */
 /datum/round_event_control/crystal_invasion
-	name = "Crystal Invasion"
+	name = "Спавн: Вторжение кристалидов"
 	typepath = /datum/round_event/crystal_invasion
 	weight = 0
 	min_players = 35

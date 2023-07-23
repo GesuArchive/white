@@ -1,5 +1,5 @@
 /datum/round_event_control/aurora_caelus
-	name = "Aurora Caelus"
+	name = "Событие: Звездный свет"
 	typepath = /datum/round_event/aurora_caelus
 	max_occurrences = 1
 	weight = 1
@@ -18,10 +18,10 @@
 	var/aurora_progress = 0 //this cycles from 1 to 8, slowly changing colors from gentle green to gentle blue
 
 /datum/round_event/aurora_caelus/announce()
-	var/annus = "Безвредное облако ионов приближается к вашей станции истощая свою энергию стукаясь о корпус. NanoTrasen разрешает всем сотрудникам сделать короткий перерыв, чтобы расслабиться и понаблюдать за этим редким событием. В это время звездный свет будет ярким, но мягким, переходя от тихого зеленого к синему цвету. Любой сотрудник, желающий увидеть эти огни самостоятельно, может отправиться в ближайший к ним район с видом на космос. Надеемся, что вам понравится свет."
+	var/annus = "Безвредное облако ионов приближается к вашей станции истощая свою энергию стукаясь о корпус. НаноТрейзен разрешает всем сотрудникам сделать короткий перерыв, чтобы расслабиться и понаблюдать за этим редким событием. В это время звездный свет будет ярким, но мягким, переходя от тихого зеленого к синему цвету. Любой сотрудник, желающий увидеть эти огни самостоятельно, может отправиться в ближайший к ним район с видом на космос. Надеемся, что вам понравится свет."
 	priority_announce("Внимание, [station_name()]. [annus]",
 	sound = 'sound/misc/notice2.ogg',
-	sender_override = "Отдел метеорологии NanoTrasen")
+	sender_override = "Отдел метеорологии НаноТрейзен")
 	for(var/V in GLOB.player_list)
 		var/mob/M = V
 		if((M.client.prefs.toggles & SOUND_MIDI) && is_station_level(M.z))
@@ -72,7 +72,7 @@
 				fade_to_black(superturfentent)
 	priority_announce("Событие, связанное с полярным сиянием, заканчивается. Звездный свет постепенно возвращается в нормальное состояние. Возвращайтесь на свое рабочее место и продолжайте работать в обычном режиме. Приятной смены [station_name()] и спасибо, что посмотрели с нами.",
 	sound = 'sound/misc/notice2.ogg',
-	sender_override = "Отдел метеорологии NanoTrasen")
+	sender_override = "Отдел метеорологии НаноТрейзен")
 
 /datum/round_event/aurora_caelus/proc/fade_to_black(turf/open/space/spess)
 	set waitfor = FALSE

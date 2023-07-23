@@ -423,7 +423,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/power/smes,
+/obj/machinery/power/smes/engineering,
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "F" = (

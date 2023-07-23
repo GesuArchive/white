@@ -1,5 +1,5 @@
 /datum/round_event_control/abductor
-	name = "Похитители"
+	name = "Спавн: Похитители"
 	typepath = /datum/round_event/ghost_role/abductor
 	weight = 10
 	max_occurrences = 1

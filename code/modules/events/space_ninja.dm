@@ -1,5 +1,5 @@
 /datum/round_event_control/space_ninja
-	name = "Сотворение Космического Ниндзя"
+	name = "Спавн: Космический Ниндзя"
 	typepath = /datum/round_event/ghost_role/space_ninja
 	max_occurrences = 1
 	weight = 10

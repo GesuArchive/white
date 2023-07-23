@@ -1,5 +1,5 @@
 /datum/round_event_control/bureaucratic_error
-	name = "Бюрократическая ошибка"
+	name = "Событие: Бюрократическая ошибка"
 	typepath = /datum/round_event/bureaucratic_error
 	max_occurrences = 1
 	weight = 5

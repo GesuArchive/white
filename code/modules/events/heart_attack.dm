@@ -1,5 +1,5 @@
 /datum/round_event_control/heart_attack
-	name = "Random Heart Attack"
+	name = "Страдание: Сердечный приступ"
 	typepath = /datum/round_event/heart_attack
 	weight = 20
 	max_occurrences = 2

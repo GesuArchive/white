@@ -1,5 +1,5 @@
 /datum/round_event_control/grey_tide
-	name = "Grey Tide"
+	name = "Событие: Открытие шлюзов"
 	typepath = /datum/round_event/grey_tide
 	max_occurrences = 2
 	min_players = 5

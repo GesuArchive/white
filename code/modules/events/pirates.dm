@@ -1,5 +1,5 @@
 /datum/round_event_control/pirates
-	name = "Space Pirates"
+	name = "Спавн: Пираты"
 	typepath = /datum/round_event/pirates
 	weight = 8
 	max_occurrences = 1
@@ -104,8 +104,8 @@
 //Shuttle equipment
 
 /obj/machinery/shuttle_scrambler
-	name = "Data Siphon"
-	desc = "This heap of machinery steals credits and data from unprotected systems and locks down cargo shuttles."
+	name = "дата майнер"
+	desc = "Эта куча хакерского оборудования крадет кредиты и данные из незащищенных систем, а так же блокирует грузовой шаттл."
 	icon = 'icons/obj/machines/dominator.dmi'
 	icon_state = "dominator"
 	density = TRUE

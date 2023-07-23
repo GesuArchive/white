@@ -4,7 +4,7 @@
  * Done by decreasing the station_target by a high value per crew member, resulting in the station total being much higher than the target, and causing artificial inflation.
  */
 /datum/round_event_control/market_crash
-	name = "Market Crash"
+	name = "Событие: Увеличение цен"
 	typepath = /datum/round_event/market_crash
 	weight = 10
 
@@ -21,9 +21,9 @@
 		"некоторые рискованные домашние доходы",\
 		"невероятное падение акций B.E.P.I.S.",\
 		"спекулятивные манипуляции с акциями от правительства Земли",\
-		"невероятно завышенные новости о том, что сотрудники Банковского агенства NanoTrasen совершают массовые самоубийства")
+		"невероятно завышенные новости о том, что сотрудники Банковского агенства НаноТрейзен совершают массовые самоубийства")
 	var/reason = pick(poss_reasons)
-	priority_announce("Учитывая [reason], цены в станционных раздатчиках будут увеличены на неопределённый срок.", "Агенство Финансов NanoTrasen")
+	priority_announce("Учитывая [reason], цены в станционных раздатчиках будут увеличены на неопределённый срок.", "Агенство Финансов НаноТрейзен")
 
 /datum/round_event/market_crash/start()
 	. = ..()
@@ -37,5 +37,5 @@
 	SSeconomy.station_target += market_dip
 	SSeconomy.market_crashing = FALSE
 	SSeconomy.price_update()
-	priority_announce("Цены в станционных раздатчиках стабилизировались.", "Агенство Финансов NanoTrasen")
+	priority_announce("Цены в станционных раздатчиках стабилизировались.", "Агенство Финансов НаноТрейзен")
 

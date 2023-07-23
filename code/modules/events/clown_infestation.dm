@@ -1,5 +1,5 @@
 /datum/round_event_control/clown_infestation
-	name = "Сотворение Апостола Хонкоматери"
+	name = "Спавн: Апостол Хонкоматери"
 	typepath = /datum/round_event/ghost_role/clown_infestation
 	max_occurrences = 1
 	min_players = 20

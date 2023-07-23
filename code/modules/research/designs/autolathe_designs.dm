@@ -532,7 +532,7 @@
 	sub_category = list("Кухня и Бар")
 
 /datum/design/bowl
-	name = "Чаша"
+	name = "Миска"
 	id = "bowl"
 	build_type = AUTOLATHE | MECHFAB
 	construction_time = 40

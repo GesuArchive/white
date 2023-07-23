@@ -820,6 +820,7 @@
 	brightness = 5;
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/cargo/storage)
 "cf" = (
@@ -1089,6 +1090,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/cargo/storage)
 "cT" = (
@@ -10311,8 +10313,9 @@
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plating,
-/area/space)
+/area/cargo/storage)
 "zV" = (
 /obj/machinery/light{
 	dir = 8
@@ -12375,9 +12378,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/closed/wall/r_wall,
 /area/science/research)
-"Gr" = (
-/turf/closed/wall,
-/area/service/janitor)
 "Gt" = (
 /obj/machinery/atmospherics/pipe/layer_manifold,
 /turf/closed/wall/r_wall,
@@ -13170,9 +13170,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
-"Jp" = (
-/turf/closed/wall/r_wall,
-/area/space)
 "Jr" = (
 /obj/machinery/power/apc{
 	areastring = "/area/command/heads_quarters/hop";
@@ -47418,7 +47415,7 @@ kS
 kS
 kS
 kS
-Gr
+kS
 oL
 yn
 hc
@@ -48161,7 +48158,7 @@ aa
 aa
 aa
 aa
-Jp
+SM
 SM
 bu
 dw
@@ -48421,8 +48418,8 @@ Bn
 zU
 ce
 cS
-cD
-cD
+bq
+bq
 bq
 eT
 fN
@@ -48675,7 +48672,7 @@ aa
 aa
 aa
 aa
-Jp
+SM
 ch
 SM
 bu

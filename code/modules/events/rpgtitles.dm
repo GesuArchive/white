@@ -1,5 +1,5 @@
 /datum/round_event_control/wizard/rpgtitles //its time to adventure on boys
-	name = "RPG Titles"
+	name = "Событие: РПГ титулы"
 	weight = 3
 	typepath = /datum/round_event/wizard/rpgtitles
 	max_occurrences = 1

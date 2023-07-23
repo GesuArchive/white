@@ -9,7 +9,7 @@
 
 
 /datum/round_event_control/shuttle_loan
-	name = "Shuttle Loan"
+	name = "Событие: Блокировка карго шаттла"
 	typepath = /datum/round_event/shuttle_loan
 	max_occurrences = 1
 	earliest_start = 7 MINUTES
@@ -20,7 +20,7 @@
 	var/dispatched = FALSE
 	var/dispatch_type = 0
 	var/bonus_points = 100000
-	var/thanks_msg = "Грузовой шаттл должен вернуться через пять минут. Мы начислили вам немного очков за беспокойство."
+	var/thanks_msg = "Грузовой шаттл должен вернуться через пять минут. Мы начислили вам немного кредитов за беспокойство."
 	var/loan_type //for logging
 
 /datum/round_event/shuttle_loan/setup()

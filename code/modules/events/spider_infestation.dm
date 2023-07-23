@@ -1,5 +1,5 @@
 /datum/round_event_control/spider_infestation
-	name = "Spider Infestation"
+	name = "Спавн: Пауки"
 	typepath = /datum/round_event/spider_infestation
 	weight = 10
 	max_occurrences = 1

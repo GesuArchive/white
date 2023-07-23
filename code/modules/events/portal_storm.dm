@@ -1,5 +1,5 @@
 /datum/round_event_control/portal_storm_syndicate
-	name = "Portal Storm: Syndicate Shocktroops"
+	name = "Спавн: Портальный шторм синдиката"
 	typepath = /datum/round_event/portal_storm/syndicate_shocktroop
 	weight = 40
 	min_players = 25

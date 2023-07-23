@@ -1,5 +1,5 @@
 /datum/round_event_control/processor_overload
-	name = "Processor Overload"
+	name = "Событие: Перегрузка процессоров"
 	typepath = /datum/round_event/processor_overload
 	weight = 55
 	min_players = 5

@@ -1,5 +1,5 @@
 /datum/round_event_control/anomaly/anomaly_dimensional
-	name = "Anomaly: Dimensional"
+	name = "Аномалия: Пространственная"
 	typepath = /datum/round_event/anomaly/anomaly_dimensional
 
 	min_players = 10
@@ -12,4 +12,4 @@
 	anomaly_path = /obj/effect/anomaly/dimensional
 
 /datum/round_event/anomaly/anomaly_dimensional/announce(fake)
-	priority_announce("Localized dimensional instability detected on long range scanners. Expected location: [impact_area.name].", "Anomaly Alert")
+	priority_announce("Обнаружена пространственная нестабильность, на сканерах дальнего действия. Предполагаемое местоположение: [impact_area.name].", "Аномальная тревога")

@@ -1,6 +1,6 @@
 ///Spawns a cargo pod containing a random cargo supply pack on a random area of the station
 /datum/round_event_control/stray_cargo
-	name = "Stray Cargo Pod"
+	name = "Событие: грузовая капсула"
 	typepath = /datum/round_event/stray_cargo
 	weight = 20
 	max_occurrences = 4
@@ -83,7 +83,7 @@
 
 ///A rare variant that drops a crate containing syndicate uplink items
 /datum/round_event_control/stray_cargo/syndicate
-	name = "Stray Syndicate Cargo Pod"
+	name = "Событие: грузовая капсула Синдиката"
 	typepath = /datum/round_event/stray_cargo/syndicate
 	weight = 6
 	max_occurrences = 1

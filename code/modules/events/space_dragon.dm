@@ -1,5 +1,5 @@
 /datum/round_event_control/space_dragon
-	name = "Сотворение Космодракона"
+	name = "Спавн: Космодракон"
 	typepath = /datum/round_event/ghost_role/space_dragon
 	weight = 10
 	max_occurrences = 1

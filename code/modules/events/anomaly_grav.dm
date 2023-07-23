@@ -11,7 +11,7 @@
 	anomaly_path = /obj/effect/anomaly/grav
 
 /datum/round_event_control/anomaly/anomaly_grav/high
-	name = "Anomaly: Gravitational (High Intensity)"
+	name = "Аномалия: Гравитационная (усиленная)"
 	typepath = /datum/round_event/anomaly/anomaly_grav/high
 	weight = 15
 	max_occurrences = 1

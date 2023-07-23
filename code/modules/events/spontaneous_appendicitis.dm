@@ -1,5 +1,5 @@
 /datum/round_event_control/spontaneous_appendicitis
-	name = "Spontaneous Appendicitis"
+	name = "Страдание: Аппендицит"
 	typepath = /datum/round_event/spontaneous_appendicitis
 	weight = 20
 	max_occurrences = 4

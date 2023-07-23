@@ -1,5 +1,5 @@
 /datum/round_event_control/anomaly/anomaly_bioscrambler
-	name = "Anomaly: Bioscrambler"
+	name = "Аномалия: Биоконверсионная"
 	typepath = /datum/round_event/anomaly/anomaly_bioscrambler
 
 	min_players = 10
@@ -12,4 +12,4 @@
 	anomaly_path = /obj/effect/anomaly/bioscrambler
 
 /datum/round_event/anomaly/anomaly_bioscrambler/announce(fake)
-	priority_announce("Localized limb swapping agent. Expected location: [impact_area.name]. Wear biosuits to counter the effects. Calculated half-life of %9£$T$%F3 years", "Anomaly Alert")
+	priority_announce("Обнаружена биоконверсионная аномалия. Ожидаемое место появления: [impact_area.name]. Нахождение рядом без средств биозащиты крайне не рекомендовано. Прогнозируемый период полураспада %9£$T$%F3 лет", "Аномальная тревога")

@@ -1,9 +1,17 @@
 /datum/crafting_recipe/bonfire
-	name = "Костёр"
+	name = "Костёр (древошляпник)"
 	time = 60
 	reqs = list(/obj/item/grown/log = 5)
 	parts = list(/obj/item/grown/log = 5)
 	blacklist = list(/obj/item/grown/log/steel)
+	result = /obj/structure/bonfire
+	category = CAT_STRUCTURE
+
+/datum/crafting_recipe/bonfire_wood
+	name = "Костёр (древесина)"
+	time = 60
+	reqs = list(/obj/item/stack/sheet/mineral/wood = 5)
+	parts = list(/obj/item/stack/sheet/mineral/wood = 5)
 	result = /obj/structure/bonfire
 	category = CAT_STRUCTURE
 

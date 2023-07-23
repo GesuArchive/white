@@ -1,5 +1,5 @@
 /datum/round_event_control/shuttle_catastrophe
-	name = "Shuttle Catastrophe"
+	name = "Событие: Замена шаттла"
 	typepath = /datum/round_event/shuttle_catastrophe
 	weight = 10
 	max_occurrences = 1

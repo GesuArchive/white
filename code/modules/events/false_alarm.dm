@@ -1,5 +1,5 @@
 /datum/round_event_control/falsealarm
-	name 			= "False Alarm"
+	name 			= "Событие: Ложная тревога"
 	typepath 		= /datum/round_event/falsealarm
 	weight			= 20
 	max_occurrences = 5

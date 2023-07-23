@@ -192,11 +192,12 @@
 	result = /obj/item/aicard/aitater
 	time = 30
 	tool_behaviors = list(TOOL_WIRECUTTER)
-	reqs = list(/obj/item/aicard = 1,
-					/obj/item/food/grown/potato = 1,
-					/obj/item/stack/cable_coil = 5)
+	reqs = list(
+		/obj/item/electronics/apc = 1,
+		/obj/item/food/grown/potato = 1,
+		/obj/item/stack/cable_coil = 5)
 	category = CAT_MISC
-
+/*
 /datum/crafting_recipe/aitater/check_requirements(mob/user, list/collected_requirements)
 	var/obj/item/aicard/aicard = collected_requirements[/obj/item/aicard][1]
 	if(!aicard.AI)
@@ -204,24 +205,18 @@
 
 	to_chat(user, span_boldwarning("Я не могу это сделать, пока в интелкарту загружен ИИ!"))
 	return FALSE
+*/
 
 /datum/crafting_recipe/aispook
 	name = "Тыквенная интелкарта"
 	result = /obj/item/aicard/aispook
 	time = 30
 	tool_behaviors = list(TOOL_WIRECUTTER)
-	reqs = list(/obj/item/aicard = 1,
-					/obj/item/food/grown/pumpkin = 1,
-					/obj/item/stack/cable_coil = 5)
+	reqs = list(
+		/obj/item/electronics/apc = 1,
+		/obj/item/food/grown/pumpkin = 1,
+		/obj/item/stack/cable_coil = 5)
 	category = CAT_MISC
-//Добавлена проверка на наличие ИИ в интелкарте
-/datum/crafting_recipe/aispook/check_requirements(mob/user, list/collected_requirements)
-	var/obj/item/aicard/aicard = collected_requirements[/obj/item/aicard][1]
-	if(!aicard.AI)
-		return TRUE
-
-	to_chat(user, span_boldwarning("Я не могу это сделать, пока в интелкарту загружен ИИ!"))
-	return FALSE
 
 /datum/crafting_recipe/underwater_basket
 	name = "Подводная корзина из бамбука"

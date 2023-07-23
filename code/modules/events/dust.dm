@@ -1,5 +1,5 @@
 /datum/round_event_control/space_dust
-	name = "Minor Space Dust"
+	name = "Метеоритная волна: Пыль"
 	typepath = /datum/round_event/space_dust
 	weight = 200
 	max_occurrences = 1000
@@ -15,7 +15,7 @@
 	spawn_meteors(1, GLOB.meteorsC)
 
 /datum/round_event_control/sandstorm
-	name = "Sandstorm"
+	name = "Метеоритная волна: Пыль (долго)"
 	typepath = /datum/round_event/sandstorm
 	weight = 0
 	max_occurrences = 0

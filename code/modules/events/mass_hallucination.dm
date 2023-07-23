@@ -1,5 +1,5 @@
 /datum/round_event_control/mass_hallucination
-	name = "Mass Hallucination"
+	name = "Событие: Массовая галюцинация"
 	typepath = /datum/round_event/mass_hallucination
 	weight = 10
 	max_occurrences = 2

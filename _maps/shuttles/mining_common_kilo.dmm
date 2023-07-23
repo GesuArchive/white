@@ -135,7 +135,7 @@
 "q" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/cable,
-/obj/machinery/power/smes,
+/obj/machinery/power/smes/engineering,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "r" = (

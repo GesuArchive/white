@@ -1,5 +1,5 @@
 /datum/round_event_control/ion_storm
-	name = "Ионный шторм"
+	name = "Событие: Искажение законов ИИ"
 	typepath = /datum/round_event/ion_storm
 	weight = 55
 	min_players = 2

@@ -1,5 +1,5 @@
 /datum/round_event_control/carp_migration
-	name = "Миграция Карпов"
+	name = "Спавн: Миграция Карпов"
 	typepath = /datum/round_event/carp_migration
 	weight = 15
 	min_players = 2

@@ -1,5 +1,5 @@
 /datum/round_event_control/fugitives
-	name = "Сотворение Охотников"
+	name = "Спавн: Беглец и Охотники"
 	typepath = /datum/round_event/ghost_role/fugitives
 	max_occurrences = 1
 	min_players = 10
