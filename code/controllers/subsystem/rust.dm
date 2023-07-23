@@ -88,7 +88,6 @@ SUBSYSTEM_DEF(rust_mode)
 	SSevents.flags |= SS_NO_FIRE
 	SSnightshift.flags |= SS_NO_FIRE
 	SSorbits.flags |= SS_NO_FIRE
-	SSweather.flags |= SS_NO_FIRE
 	SSeconomy.flags |= SS_NO_FIRE
 	// чёрный ящик будет пуст
 	SSblackbox.Seal()
