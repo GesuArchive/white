@@ -293,9 +293,6 @@
 	name = "emergency shuttle"
 	id = "emergency"
 
-	dwidth = 9
-	width = 22
-	height = 11
 	dir = EAST
 	port_direction = WEST
 	var/hijack_status = NOT_BEGUN
@@ -573,9 +570,6 @@
 /obj/docking_port/mobile/pod
 	name = "эвакуационный челнок"
 	id = "pod"
-	dwidth = 1
-	width = 3
-	height = 4
 	launch_status = UNLAUNCHED
 
 /obj/docking_port/mobile/pod/request(obj/docking_port/stationary/S)
@@ -625,9 +619,6 @@
 /obj/docking_port/stationary/random
 	name = "эвакуационный челнок"
 	id = "pod"
-	dwidth = 1
-	width = 3
-	height = 4
 	hidden = TRUE
 	var/target_area = /area/lavaland/surface/outdoors
 	var/gensokyo_area = /area/mine/unexplored/gensokyo
@@ -746,9 +737,6 @@ GLOBAL_LIST_EMPTY(emergency_storages)
 /obj/docking_port/mobile/emergency/backup
 	name = "запасной шаттл"
 	id = "backup"
-	dwidth = 2
-	width = 8
-	height = 8
 	dir = EAST
 
 /obj/docking_port/mobile/emergency/backup/Initialize(mapload)

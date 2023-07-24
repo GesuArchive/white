@@ -16,12 +16,9 @@
 /area/shuttle/transport)
 "d" = (
 /obj/docking_port/mobile{
-	dwidth = 2;
-	height = 5;
 	id = "trader_transport";
 	name = "trader transport shuttle";
-	port_direction = 2;
-	width = 5
+	port_direction = 2
 	},
 /obj/machinery/door/airlock/centcom{
 	name = "Trading Shuttle";

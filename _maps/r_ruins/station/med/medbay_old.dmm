@@ -1571,6 +1571,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/navigate_destination/chemfactory,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "pA" = (
@@ -3217,8 +3218,8 @@
 	pixel_y = -4
 	},
 /obj/item/storage/box/monkeycubes{
-	pixel_y = 3;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 3
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
@@ -4059,8 +4060,8 @@
 /obj/structure/table/reinforced,
 /obj/item/wrench/medical,
 /obj/item/storage/pill_bottle/mannitol{
-	pixel_y = 10;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 10
 	},
 /turf/open/floor/plasteel,
 /area/medical/cryo)

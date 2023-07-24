@@ -900,6 +900,8 @@
 	var/vomiting_cycle = 11
 
 /datum/reagent/toxin/spewium/fast
+	name = "Быстрый Спьювиум"
+	enname = "Speedy Spewium"
 	vomiting_cycle = 3
 
 /datum/reagent/toxin/spewium/on_mob_life(mob/living/carbon/C, delta_time, times_fired)

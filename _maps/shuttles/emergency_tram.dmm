@@ -259,9 +259,7 @@
 	name = "Emergency Shuttle Airlock"
 	},
 /obj/docking_port/mobile/emergency{
-	height = 9;
-	name = "Tram emergency shuttle";
-	width = 32
+	name = "Tram emergency shuttle"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,

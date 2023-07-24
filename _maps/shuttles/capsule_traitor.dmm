@@ -157,10 +157,7 @@
 	},
 /obj/docking_port/mobile{
 	dir = 8;
-	dwidth = 4;
-	height = 6;
-	shuttle_object_type = /datum/orbital_object/shuttle/custom_shuttle;
-	width = 10
+	shuttle_object_type = /datum/orbital_object/shuttle/custom_shuttle
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/pod_shuttle)

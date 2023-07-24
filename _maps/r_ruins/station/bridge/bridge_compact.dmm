@@ -1375,6 +1375,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/landmark/navigate_destination/teleporter,
 /turf/open/floor/plasteel,
 /area/command/teleporter)
 "ee" = (
@@ -2108,6 +2109,7 @@
 	req_access_txt = "57"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/landmark/navigate_destination/hop,
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/hop)
 "gk" = (

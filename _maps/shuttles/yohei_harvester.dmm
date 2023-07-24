@@ -108,11 +108,7 @@
 "iT" = (
 /obj/structure/railing,
 /obj/structure/fans/tiny/invisible,
-/obj/docking_port/mobile/yohei{
-	dwidth = 4;
-	height = 5;
-	width = 9
-	},
+/obj/docking_port/mobile/yohei,
 /obj/structure/cable,
 /obj/effect/mob_spawn/human/donate/yohei,
 /turf/open/floor/plasteel/tg/dark/herringbone,

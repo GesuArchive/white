@@ -24,10 +24,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	name = "DIY-шаттл"
 	id = "diy_autism"
 	port_direction = 2
-	width = 9
-	height = 13
-	dwidth = 4
-	dheight = 14
 
 /obj/docking_port/mobile/diy/Initialize(mapload)
 	. = ..()
@@ -73,10 +69,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 
 /obj/docking_port/mobile/diy/big
 	dir = 2
-	width = 13
-	height = 20
-	dwidth = 6
-	dheight = 19
 
 /obj/docking_port/stationary/diy/big
 	width = 13

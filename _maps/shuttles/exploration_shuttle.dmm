@@ -202,12 +202,9 @@
 "qA" = (
 /obj/docking_port/mobile{
 	dir = 4;
-	dwidth = 5;
-	height = 7;
 	id = "exploration";
 	name = "Шаттл Рейнджеров";
-	port_direction = 8;
-	width = 13
+	port_direction = 8
 	},
 /obj/structure/cable,
 /obj/structure/fans/tiny,

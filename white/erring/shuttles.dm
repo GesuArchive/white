@@ -11,10 +11,6 @@
 	id = "corvette"
 	dir = 4
 	port_direction = 2
-	width = 13
-	height = 24
-	dwidth = 6
-	dheight = 23
 
 /obj/docking_port/stationary/corvette
 	name = "SBC corvette home"

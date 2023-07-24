@@ -94,11 +94,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer)
 "E" = (
-/obj/docking_port/mobile/freelancer{
-	dwidth = 2;
-	width = 5;
-	height = 7
-	},
+/obj/docking_port/mobile/freelancer,
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/freelancer)
 "H" = (

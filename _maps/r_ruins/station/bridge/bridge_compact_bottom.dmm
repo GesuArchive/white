@@ -127,8 +127,8 @@
 /obj/machinery/recharger,
 /obj/structure/cable,
 /obj/item/aicard{
-	pixel_y = 17;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 17
 	},
 /turf/open/floor/plasteel/dark,
 /area/command)
@@ -1744,6 +1744,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 5
 	},
+/obj/effect/landmark/navigate_destination/aiupload,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "Kq" = (

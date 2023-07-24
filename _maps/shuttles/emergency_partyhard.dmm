@@ -76,9 +76,7 @@
 /area/shuttle/escape)
 "p" = (
 /obj/docking_port/mobile/emergency{
-	dwidth = 5;
-	name = "Party emergency shuttle";
-	width = 19
+	name = "Party emergency shuttle"
 	},
 /turf/closed/wall/r_wall/syndicate,
 /area/shuttle/escape)

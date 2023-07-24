@@ -1034,7 +1034,7 @@
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/prunomix
-	name = "Пруно"
+	name = "Микс Пруно"
 	color = "#E78108"
 	description = "Фрукты, сахар, дрожжи и вода, измельченные в едкую суспензию."
 	taste_description = "мусор"

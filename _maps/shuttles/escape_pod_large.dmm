@@ -70,11 +70,8 @@
 	name = "Shuttle Airlock"
 	},
 /obj/docking_port/mobile/pod{
-	dwidth = 2;
-	height = 6;
 	name = "Cпасательная капсула (большая)";
-	port_direction = 2;
-	width = 5
+	port_direction = 2
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/blue,

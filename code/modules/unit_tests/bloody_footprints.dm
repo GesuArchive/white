@@ -1,4 +1,3 @@
-/*
 ///Tests to make sure bloody footprits work as expected
 ///So no stacking, they actually apply, and shoe staining thrown in for free
 /datum/unit_test/bloody_footprints
@@ -60,4 +59,3 @@
 
 	TEST_ASSERT(footprint_total, "The floor somehow lost its footprints after being walked over")
 	TEST_ASSERT_EQUAL(footprint_total, 1, "The floor had more than one set of footprints in it, something is fucked")
-*/

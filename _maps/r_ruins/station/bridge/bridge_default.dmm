@@ -1571,6 +1571,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/navigate_destination/aiupload,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "ej" = (
@@ -1676,9 +1677,9 @@
 	dir = 8
 	},
 /obj/machinery/door/window/brigdoor/westleft{
+	dir = 4;
 	pixel_x = 3;
-	req_access_txt = "20";
-	dir = 4
+	req_access_txt = "20"
 	},
 /obj/machinery/smartfridge/ai_laws/core_main{
 	pixel_y = 1
@@ -1708,8 +1709,8 @@
 	dir = 4
 	},
 /obj/machinery/door/window/brigdoor/westright{
-	req_access_txt = "20";
-	pixel_x = -3
+	pixel_x = -3;
+	req_access_txt = "20"
 	},
 /obj/machinery/smartfridge/ai_laws/danger,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -1856,9 +1857,9 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/brigdoor/westright{
-	req_access_txt = "20";
+	dir = 4;
 	pixel_x = 3;
-	dir = 4
+	req_access_txt = "20"
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/smartfridge/ai_laws/bot_main,
@@ -3695,7 +3696,6 @@
 	req_access_txt = "17"
 	},
 /obj/structure/cable,
-/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -3703,6 +3703,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/landmark/navigate_destination/teleporter,
 /turf/open/floor/plasteel,
 /area/command/teleporter)
 "jA" = (
@@ -3976,10 +3977,10 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
+/obj/effect/landmark/navigate_destination/hop,
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/hop)
 "ku" = (

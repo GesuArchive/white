@@ -17,12 +17,12 @@
 "al" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/item/reagent_containers/food/drinks/flask/gold{
-	pixel_x = 8;
-	layer = 3.02
+	layer = 3.02;
+	pixel_x = 8
 	},
 /obj/item/storage/box/matches{
-	pixel_y = 11;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 11
 	},
 /obj/item/clothing/mask/cigarette/cigar{
 	pixel_x = 1;
@@ -343,9 +343,9 @@
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
+	layer = 3.02;
 	pixel_x = -4;
-	pixel_y = -2;
-	layer = 3.02
+	pixel_y = -2
 	},
 /turf/open/floor/carpet/royalblack,
 /area/hallway/primary/central/north)
@@ -377,8 +377,8 @@
 	},
 /obj/item/kirbyplants{
 	icon_state = "plant-18";
-	pixel_y = 12;
-	pixel_x = 1
+	pixel_x = 1;
+	pixel_y = 12
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/south)
@@ -602,9 +602,9 @@
 	pixel_y = -38
 	},
 /obj/structure/sign/directions/security{
+	dir = 4;
 	pixel_x = 32;
-	pixel_y = -26;
-	dir = 4
+	pixel_y = -26
 	},
 /obj/structure/sign/directions/command{
 	dir = 4;
@@ -636,8 +636,8 @@
 /area/hallway/primary/central/east)
 "gl" = (
 /obj/structure/sign/poster/official/random{
-	pixel_y = -32;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = -32
 	},
 /turf/open/openspace,
 /area/hallway/primary/central/upload)
@@ -871,9 +871,9 @@
 	pixel_y = 5
 	},
 /obj/item/flashlight{
+	layer = 3.01;
 	pixel_x = -4;
-	pixel_y = -1;
-	layer = 3.01
+	pixel_y = -1
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/south)
@@ -904,13 +904,13 @@
 	pixel_y = 38
 	},
 /obj/structure/sign/directions/engineering{
-	pixel_y = 26;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 26
 	},
 /obj/structure/sign/directions/vault{
 	dir = 8;
-	pixel_y = 32;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 32
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/north)
@@ -1008,8 +1008,8 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	pixel_x = -7;
-	layer = 1
+	layer = 1;
+	pixel_x = -7
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -1418,14 +1418,14 @@
 	pixel_y = 6
 	},
 /obj/item/assembly/flash/handheld{
-	pixel_y = 2;
+	layer = 3.02;
 	pixel_x = 4;
-	layer = 3.02
+	pixel_y = 2
 	},
 /obj/item/assembly/signaler{
+	layer = 3.01;
 	pixel_x = -4;
-	pixel_y = 3;
-	layer = 3.01
+	pixel_y = 3
 	},
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
 /turf/open/floor/plasteel/dark,
@@ -1559,13 +1559,13 @@
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
+	layer = 3.01;
 	pixel_x = 7;
-	pixel_y = -1;
-	layer = 3.01
+	pixel_y = -1
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
-	pixel_y = -7;
-	layer = 3.02
+	layer = 3.02;
+	pixel_y = -7
 	},
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain/private)
@@ -1668,8 +1668,8 @@
 "qo" = (
 /obj/structure/lattice,
 /obj/structure/sign/poster/official/random{
-	pixel_y = -32;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = -32
 	},
 /turf/open/openspace,
 /area/hallway/primary/central/upload)
@@ -1770,8 +1770,8 @@
 	control_area = "/area/ai_monitored/turret_protected/ai_upload";
 	name = "AI Upload turret control";
 	pixel_x = 25;
-	req_access_txt = "16";
-	req_access = null
+	req_access = null;
+	req_access_txt = "16"
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/railing,
@@ -1966,8 +1966,8 @@
 	},
 /obj/machinery/door/window/brigdoor/westright{
 	name = "Основные модули";
-	req_access_txt = "20";
-	pixel_x = -3
+	pixel_x = -3;
+	req_access_txt = "20"
 	},
 /obj/machinery/smartfridge/ai_laws/core_main{
 	pixel_y = 1
@@ -2041,8 +2041,8 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/sign/poster/official/random{
-	pixel_y = -32;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = -32
 	},
 /turf/open/openspace,
 /area/hallway/primary/central/upload)
@@ -2153,8 +2153,8 @@
 /obj/structure/table/wood,
 /obj/machinery/light,
 /obj/item/storage/firstaid/regular{
-	pixel_y = 3;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 3
 	},
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain/private)
@@ -2332,13 +2332,13 @@
 "xv" = (
 /obj/structure/table/wood/poker,
 /obj/item/storage/fancy/cigarettes/cigars/havana{
-	pixel_y = 5;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 5
 	},
 /obj/item/lighter{
+	layer = 3.01;
 	pixel_x = 6;
-	pixel_y = -15;
-	layer = 3.01
+	pixel_y = -15
 	},
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain/private)
@@ -2513,9 +2513,9 @@
 /obj/machinery/turretid{
 	control_area = "/area/hallway/primary/central/upload";
 	name = "Контролер турелей мостика";
+	pixel_x = 26;
 	req_access = null;
-	req_access_txt = "19";
-	pixel_x = 26
+	req_access_txt = "19"
 	},
 /turf/open/floor/plasteel/dark,
 /area/command)
@@ -2528,8 +2528,8 @@
 /area/hallway/primary/central/east)
 "zB" = (
 /obj/structure/sign/poster/official/random{
-	pixel_y = -32;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = -32
 	},
 /turf/open/openspace,
 /area/hallway/primary/central/west)
@@ -2681,9 +2681,9 @@
 	pixel_y = -1
 	},
 /obj/item/radio{
+	layer = 3.01;
 	pixel_x = 4;
-	pixel_y = 4;
-	layer = 3.01
+	pixel_y = 4
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -2855,8 +2855,8 @@
 	dir = 1
 	},
 /obj/item/storage/secure/safe/caps_spare{
-	pixel_y = 29;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 29
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
@@ -2905,8 +2905,8 @@
 	dir = 4
 	},
 /obj/structure/sign/poster/official/random{
-	pixel_y = 32;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 32
 	},
 /turf/open/openspace,
 /area/hallway/primary/central/upload)
@@ -2979,12 +2979,12 @@
 	pixel_y = 2
 	},
 /obj/item/tank/internals/oxygen{
-	pixel_y = 10;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 10
 	},
 /obj/item/clothing/mask/gas{
-	pixel_y = 8;
-	layer = 3.01
+	layer = 3.01;
+	pixel_y = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/teleporter)
@@ -3010,8 +3010,8 @@
 	pixel_y = 4
 	},
 /obj/item/canvas/twentythree_nineteen{
-	pixel_y = 4;
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = 4
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/north)
@@ -3231,9 +3231,9 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/brigdoor/westleft{
+	name = "Модули дополнений";
 	pixel_x = -3;
-	req_access_txt = "20";
-	name = "Модули дополнений"
+	req_access_txt = "20"
 	},
 /obj/machinery/smartfridge/ai_laws/bot_main,
 /turf/open/floor/circuit,
@@ -3381,8 +3381,8 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "Ih" = (
 /obj/effect/landmark/event_spawn,
-/obj/effect/landmark/navigate_destination,
 /obj/effect/landmark/blobstart,
+/obj/effect/landmark/navigate_destination/aiupload,
 /turf/open/floor/glass/reinforced,
 /area/ai_monitored/turret_protected/ai_upload)
 "Ii" = (
@@ -3554,8 +3554,8 @@
 	dir = 1
 	},
 /obj/structure/sign/poster/official/random{
-	pixel_y = -32;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = -32
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/east)
@@ -3840,9 +3840,9 @@
 	pixel_y = -32
 	},
 /obj/structure/sign/directions/engineering{
+	dir = 8;
 	pixel_x = 32;
-	pixel_y = -38;
-	dir = 8
+	pixel_y = -38
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/east)
@@ -3958,8 +3958,8 @@
 	pixel_y = 7
 	},
 /obj/item/food/cheesewedge{
-	pixel_y = 13;
-	layer = 3.01
+	layer = 3.01;
+	pixel_y = 13
 	},
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain/private)
@@ -4219,8 +4219,8 @@
 	pixel_y = 12
 	},
 /obj/item/storage/photo_album{
-	pixel_y = -1;
-	layer = 3.01
+	layer = 3.01;
+	pixel_y = -1
 	},
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain/private)
@@ -4538,8 +4538,8 @@
 	},
 /obj/effect/turf_decal/bot_red,
 /obj/effect/turf_decal/arrows/red{
-	pixel_y = -6;
-	dir = 1
+	dir = 1;
+	pixel_y = -6
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central/north)
@@ -4568,8 +4568,8 @@
 "VQ" = (
 /obj/structure/table/wood,
 /obj/item/camera{
-	pixel_y = 3;
-	layer = 3.01
+	layer = 3.01;
+	pixel_y = 3
 	},
 /obj/item/camera_film{
 	pixel_x = 6;
@@ -4816,15 +4816,15 @@
 /area/hallway/primary/central/east)
 "Zj" = (
 /obj/item/flashlight/lamp/green{
-	pixel_y = 22;
+	layer = 3.05;
 	pixel_x = 16;
-	layer = 3.05
+	pixel_y = 22
 	},
 /obj/structure/table/wood/poker,
 /obj/item/toy/figure/captain{
+	layer = 3.06;
 	pixel_x = 15;
-	pixel_y = 8;
-	layer = 3.06
+	pixel_y = 8
 	},
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain/private)

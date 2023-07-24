@@ -108,6 +108,8 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/medicine/c2/libital/pure
+	name = "Чистый Либитал"
+	enname = "Pure Libital"
 	purity = 1
 
 /datum/reagent/medicine/c2/libital/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -179,6 +181,8 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/medicine/c2/lenturi/pure
+	name = "Чистый Лентури"
+	enname = "Pure Lenturi"
 	purity = 1
 
 /datum/reagent/medicine/c2/lenturi/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -200,6 +204,8 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/medicine/c2/aiuri/pure
+	name = "Чистый Айури"
+	enname = "Pure Aiuri"
 	purity = 1
 
 /datum/reagent/medicine/c2/aiuri/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -361,9 +367,17 @@
 	..()
 	return TRUE
 
+/datum/reagent/medicine/c2/seiver/cold
+	name = "Холодный Сейвер"
+	enname = "Cold Seiver"
+
 /datum/reagent/medicine/c2/seiver/cold/on_mob_add()
 	. = ..()
 	holder.chem_temp = 10
+
+/datum/reagent/medicine/c2/seiver/hot
+	name = "Горячий Сейвер"
+	enname = "Hot Seiver"
 
 /datum/reagent/medicine/c2/seiver/hot/on_mob_add()
 	. = ..()

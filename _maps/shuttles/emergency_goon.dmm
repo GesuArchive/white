@@ -37,8 +37,7 @@
 	},
 /obj/docking_port/mobile/emergency{
 	dir = 2;
-	name = "NES Port";
-	width = 19
+	name = "NES Port"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,

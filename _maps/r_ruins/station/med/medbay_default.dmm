@@ -1924,6 +1924,13 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/central)
+"nG" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/navigate_destination/chemfactory,
+/turf/open/floor/plasteel/monofloor/white,
+/area/medical/chemistry)
 "nI" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -2161,8 +2168,8 @@
 	pixel_y = -4
 	},
 /obj/item/storage/box/monkeycubes{
-	pixel_y = 3;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 3
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
@@ -5775,8 +5782,8 @@
 	dir = 1
 	},
 /obj/item/pen{
-	pixel_y = 9;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = 9
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/cmo)
@@ -7300,7 +7307,7 @@ cf
 CS
 qu
 au
-Xf
+nG
 Xf
 Xf
 gu

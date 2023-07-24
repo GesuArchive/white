@@ -142,6 +142,7 @@
 	SSradio.remove_object(src, frequency)
 	QDEL_NULL(wires)
 	QDEL_NULL(alarm_manager)
+	GLOB.zclear_atoms -= src
 	return ..()
 
 /obj/machinery/airalarm/Initialize(mapload)
@@ -150,6 +151,7 @@
 	AddComponent(/datum/component/usb_port, list(
 		/obj/item/circuit_component/air_alarm,
 	))
+	GLOB.zclear_atoms += src
 
 /obj/machinery/airalarm/examine(mob/user)
 	. = ..()

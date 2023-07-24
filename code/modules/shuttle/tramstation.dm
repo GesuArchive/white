@@ -10,8 +10,4 @@
 	callTime = 0
 	ignitionTime = 30
 	rechargeTime = 50
-	dwidth = 4
-	dheight = 0
-	width = 11
-	height = 5
 	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0)

@@ -94,10 +94,6 @@
 /obj/docking_port/mobile/bearcat
 	name = "CSV Bearcat"
 	id = "bearcat"
-	width = 29
-	dwidth = 6
-	height = 44
-	dheight = 30
 	port_direction = SOUTH
 	movement_force = list("KNOCKDOWN" = 10, "THROW" = 20)
 	engine_coeff = 30

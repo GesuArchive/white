@@ -60,10 +60,7 @@
 	name = "Emergency Shuttle Airlock"
 	},
 /obj/docking_port/mobile/emergency{
-	dwidth = 3;
-	height = 5;
-	name = "Secure Transport Vessel 5";
-	width = 14
+	name = "Secure Transport Vessel 5"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,

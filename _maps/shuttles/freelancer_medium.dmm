@@ -968,11 +968,8 @@
 /obj/structure/grille,
 /obj/docking_port/mobile/freelancer{
 	dir = 4;
-	dwidth = 10;
-	height = 10;
 	port_direction = 8;
-	preferred_direction = 2;
-	width = 20
+	preferred_direction = 2
 	},
 /turf/open/floor/plating,
 /area/shuttle/freelancer/passengers)

@@ -19,6 +19,7 @@
 	..()
 
 /datum/reagent/consumable/ethanol/boyarka/traitor
+	name = "Концентрированная Боярка"
 	boozepwr = 80
 
 /datum/reagent/consumable/ethanol/boyarka/traitor/on_mob_add(mob/living/M)

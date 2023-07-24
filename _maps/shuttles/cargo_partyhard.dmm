@@ -7,10 +7,7 @@
 /area/shuttle/supply)
 "c" = (
 /obj/docking_port/mobile/supply{
-	dir = 4;
-	dwidth = 7;
-	height = 5;
-	width = 15
+	dir = 4
 	},
 /obj/machinery/door/airlock/titanium{
 	name = "Supply Shuttle Airlock";

@@ -327,9 +327,9 @@
 "cm" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/window/eastleft{
+	dir = 2;
 	name = "Medical Delivery";
-	req_access_txt = "5";
-	dir = 2
+	req_access_txt = "5"
 	},
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=4";
@@ -582,20 +582,20 @@
 	},
 /obj/machinery/airalarm/directional/west,
 /obj/item/storage/firstaid/regular{
-	pixel_y = 8;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 8
 	},
 /obj/item/stack/medical/mesh{
-	pixel_y = -10;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = -10
 	},
 /obj/item/stack/medical/mesh{
 	pixel_y = -13
 	},
 /obj/item/stack/medical/suture,
 /obj/item/stack/medical/suture{
-	pixel_y = -3;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = -3
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/lobby)
@@ -657,12 +657,12 @@
 	dir = 8
 	},
 /obj/item/reagent_containers/dropper{
-	pixel_y = -15;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = -15
 	},
 /obj/item/reagent_containers/dropper{
-	pixel_y = -15;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = -15
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
@@ -719,8 +719,8 @@
 /obj/effect/turf_decal/tile/neutral,
 /obj/structure/table/reinforced,
 /obj/item/radio/intercom{
-	pixel_y = -6;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = -6
 	},
 /turf/open/floor/plasteel/dark/side{
 	dir = 9
@@ -991,8 +991,8 @@
 	dir = 1
 	},
 /obj/machinery/keycard_auth{
-	pixel_y = -24;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = -24
 	},
 /obj/machinery/button/door{
 	id = "cmoprivacy";
@@ -1010,17 +1010,17 @@
 	id = "MedbayFoyer";
 	name = "Блокировка входа";
 	normaldoorcontrol = 1;
-	req_access_txt = "5";
 	pixel_x = -24;
 	pixel_y = -3;
+	req_access_txt = "5";
 	specialfunctions = 4
 	},
 /obj/machinery/button/door{
 	id = "med_enter_def";
 	name = "Защитные шторы";
-	req_one_access_txt = "5";
 	pixel_x = -24;
-	pixel_y = 8
+	pixel_y = 8;
+	req_one_access_txt = "5"
 	},
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/cmo)
@@ -1037,8 +1037,8 @@
 	dir = 4
 	},
 /obj/item/clothing/neck/stethoscope{
-	pixel_y = 5;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 5
 	},
 /obj/item/storage/secure/briefcase{
 	pixel_x = 4;
@@ -1099,8 +1099,8 @@
 	idDoor = "virology_airlock_exterior";
 	idSelf = "virology_airlock_control";
 	name = "Virology Access Button";
-	req_access_txt = "39";
-	pixel_y = -24
+	pixel_y = -24;
+	req_access_txt = "39"
 	},
 /turf/open/floor/plasteel/dark/side,
 /area/medical/medbay/aft)
@@ -1769,8 +1769,8 @@
 	pixel_y = 9
 	},
 /obj/item/reagent_containers/pill/multiver{
-	pixel_y = 4;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 4
 	},
 /obj/item/reagent_containers/pill/psicodine{
 	pixel_x = 5;
@@ -1908,8 +1908,8 @@
 	pixel_y = 4
 	},
 /obj/item/storage/box/masks{
-	pixel_y = -3;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = -3
 	},
 /turf/open/floor/plasteel,
 /area/medical/surgery)
@@ -1997,9 +1997,9 @@
 /obj/machinery/button/door{
 	id = "med_psih";
 	name = "Приватность";
-	req_one_access_txt = "5";
 	pixel_x = -26;
-	pixel_y = -10
+	pixel_y = -10;
+	req_one_access_txt = "5"
 	},
 /turf/open/floor/carpet/blue,
 /area/medical/psychology)
@@ -2371,32 +2371,32 @@
 	dir = 8
 	},
 /obj/item/computer_disk/chemistry{
-	pixel_y = -13;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = -13
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/item/computer_disk/chemistry{
-	pixel_y = -9;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = -9
 	},
 /obj/item/computer_disk/medical{
-	pixel_y = 3;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 3
 	},
 /obj/item/computer_disk/medical{
-	pixel_y = 6;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 6
 	},
 /obj/item/screwdriver{
-	pixel_y = 6;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 6
 	},
 /obj/item/clothing/glasses/hud/health,
 /obj/item/reagent_containers/spray/cleaner{
-	pixel_y = 4;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 4
 	},
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/cmo)
@@ -2565,8 +2565,8 @@
 	dir = 4
 	},
 /obj/item/reagent_containers/glass/beaker/large{
-	pixel_y = 7;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/open/floor/plasteel/white,
@@ -2841,8 +2841,8 @@
 "wm" = (
 /obj/structure/table/wood,
 /obj/machinery/microwave{
-	pixel_y = 5;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 5
 	},
 /obj/effect/turf_decal/siding/blue{
 	dir = 1
@@ -2885,8 +2885,8 @@
 	dir = 4
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
-	id = "med_post_def";
-	dir = 4
+	dir = 4;
+	id = "med_post_def"
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/lobby)
@@ -2995,9 +2995,9 @@
 	pixel_y = 11
 	},
 /obj/item/stack/sheet/mineral/plasma{
+	amount = 5;
 	pixel_x = 7;
-	pixel_y = -4;
-	amount = 5
+	pixel_y = -4
 	},
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 10
@@ -3141,8 +3141,8 @@
 	idDoor = "virology_airlock_exterior";
 	idSelf = "virology_airlock_control";
 	name = "Virology Access Button";
-	req_access_txt = "39";
-	pixel_y = 25
+	pixel_y = 25;
+	req_access_txt = "39"
 	},
 /obj/machinery/light_switch{
 	pixel_x = -27
@@ -3161,16 +3161,16 @@
 	id = "MedbayFoyer";
 	name = "Открытие дверей";
 	normaldoorcontrol = 1;
-	req_access_txt = "5";
+	pixel_x = 5;
 	pixel_y = -25;
-	pixel_x = 5
+	req_access_txt = "5"
 	},
 /obj/machinery/button/door{
 	id = "med_post_def";
 	name = "Защитные шторы";
-	req_one_access_txt = "5";
+	pixel_x = -6;
 	pixel_y = -25;
-	pixel_x = -6
+	req_one_access_txt = "5"
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/lobby)
@@ -3816,8 +3816,8 @@
 	pixel_y = 5
 	},
 /obj/item/storage/pill_bottle/mannitol{
-	pixel_y = 10;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 10
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
@@ -3897,6 +3897,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/navigate_destination/chemfactory,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "CK" = (
@@ -4186,9 +4187,9 @@
 /obj/machinery/button/door{
 	id = "chem_window";
 	name = "Окно фармацевтики";
-	req_one_access_txt = "5";
 	pixel_x = -24;
-	pixel_y = 7
+	pixel_y = 7;
+	req_one_access_txt = "5"
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/pharmacy)
@@ -4209,8 +4210,8 @@
 	pixel_y = -4
 	},
 /obj/item/storage/box/monkeycubes{
-	pixel_y = 3;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 3
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
@@ -4266,21 +4267,21 @@
 	dir = 1
 	},
 /obj/item/clothing/glasses/hud/health{
-	pixel_y = 9;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 9
 	},
 /obj/item/clothing/glasses/hud/health{
-	pixel_y = 6;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 6
 	},
 /obj/item/clothing/glasses/hud/health{
-	pixel_y = 3;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 3
 	},
 /obj/item/clothing/glasses/hud/health,
 /obj/item/reagent_containers/spray/cleaner{
-	pixel_y = -1;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -1
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -4537,8 +4538,8 @@
 /obj/item/construction/plumbing,
 /obj/item/construction/plumbing,
 /obj/item/stack/cable_coil{
-	pixel_y = -4;
-	pixel_x = 15
+	pixel_x = 15;
+	pixel_y = -4
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
@@ -4716,8 +4717,8 @@
 	},
 /obj/effect/turf_decal/tile/red,
 /obj/machinery/recharger{
-	pixel_y = 9;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 9
 	},
 /obj/machinery/light{
 	pixel_y = 0
@@ -4730,24 +4731,24 @@
 	id = "MedbayFoyer";
 	name = "Открытие дверей";
 	normaldoorcontrol = 1;
-	req_access_txt = "5";
 	pixel_x = 6;
-	pixel_y = -5
+	pixel_y = -5;
+	req_access_txt = "5"
 	},
 /obj/machinery/button/door{
 	id = "med_sb_def";
 	name = "Защитные шторы";
-	req_one_access_txt = "5";
 	pixel_x = 6;
-	pixel_y = 6
+	pixel_y = 6;
+	req_one_access_txt = "5"
 	},
 /obj/machinery/button/door{
 	id = "MedbayFoyer";
 	name = "Блокировка входа";
 	normaldoorcontrol = 1;
-	req_access_txt = "5";
 	pixel_x = -5;
 	pixel_y = -5;
+	req_access_txt = "5";
 	specialfunctions = 4
 	},
 /obj/structure/table/reinforced,
@@ -5398,8 +5399,8 @@
 "Nk" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/bodybags{
-	pixel_y = 7;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 7
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay)
@@ -5685,8 +5686,8 @@
 	dir = 4
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
-	id = "med_post_def";
-	dir = 4
+	dir = 4;
+	id = "med_post_def"
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
@@ -5944,8 +5945,8 @@
 	pixel_y = 2
 	},
 /obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_y = 6;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 6
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
@@ -6019,8 +6020,8 @@
 	req_access_txt = "39"
 	},
 /obj/machinery/light_switch{
-	pixel_y = 30;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 30
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
@@ -6438,12 +6439,12 @@
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/pill/patch/libital{
-	pixel_y = 8;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 8
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
-	id = "med_post_def";
-	dir = 4
+	dir = 4;
+	id = "med_post_def"
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
@@ -6818,12 +6819,12 @@
 /obj/machinery/light,
 /obj/item/clipboard,
 /obj/item/healthanalyzer{
-	pixel_y = 3;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 3
 	},
 /obj/item/holosign_creator/medical{
-	pixel_y = -1;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = -1
 	},
 /obj/item/toy/figure/paramedic{
 	pixel_x = -7;

@@ -13,13 +13,10 @@
 /obj/machinery/door/airlock/external/glass,
 /obj/docking_port/mobile{
 	dir = 2;
-	dwidth = 8;
-	height = 17;
 	id = "whiteship";
 	launch_status = 0;
 	name = "White Ship";
-	port_direction = 2;
-	width = 9
+	port_direction = 2
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating/airless,

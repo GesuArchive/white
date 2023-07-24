@@ -80,13 +80,10 @@
 	},
 /obj/docking_port/mobile{
 	dir = 8;
-	dwidth = 4;
-	height = 9;
 	id = "whiteship";
 	launch_status = 0;
 	name = "White Ship";
-	port_direction = 4;
-	width = 9
+	port_direction = 4
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,

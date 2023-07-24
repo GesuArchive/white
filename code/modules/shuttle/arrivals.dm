@@ -2,9 +2,6 @@
 	name = "arrivals shuttle"
 	id = "arrivals"
 
-	dwidth = 3
-	width = 7
-	height = 15
 	dir = WEST
 	port_direction = SOUTH
 

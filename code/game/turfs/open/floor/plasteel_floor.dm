@@ -238,6 +238,7 @@
 /turf/open/floor/plasteel/monofloor
 	icon_state = "monofloor"
 	base_icon_state = "monofloor"
+	tiled_dirt = FALSE
 
 /turf/open/floor/plasteel/monofloor/airless
 	initial_gas_mix = AIRLESS_ATMOS

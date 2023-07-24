@@ -1431,9 +1431,7 @@
 	dir = 8
 	},
 /obj/docking_port/mobile/emergency{
-	height = 22;
-	name = "The NTSS Independence";
-	width = 44
+	name = "The NTSS Independence"
 	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/escape)

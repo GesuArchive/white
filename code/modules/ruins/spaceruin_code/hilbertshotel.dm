@@ -174,12 +174,12 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 								to_chat(M, span_warning("As the sphere breaks apart, you're suddenly ejected into the depths of space!"))
 						var/max = world.maxx-TRANSITIONEDGE
 						var/min = 1+TRANSITIONEDGE
-						var/list/possible_transtitons = list()
+						var/list/possible_transitions = list()
 						for(var/AZ in SSmapping.z_list)
 							var/datum/space_level/D = AZ
 							if (D.linkage == CROSSLINKED)
-								possible_transtitons += D.z_value
-						var/_z = pick(possible_transtitons)
+								possible_transitions += D.z_value
+						var/_z = pick(possible_transitions)
 						var/_x = rand(min,max)
 						var/_y = rand(min,max)
 						var/turf/T = locate(_x, _y, _z)
@@ -192,12 +192,12 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 			for(var/atom/movable/A in atomList)
 				var/max = world.maxx-TRANSITIONEDGE
 				var/min = 1+TRANSITIONEDGE
-				var/list/possible_transtitons = list()
+				var/list/possible_transitions = list()
 				for(var/AZ in SSmapping.z_list)
 					var/datum/space_level/D = AZ
 					if (D.linkage == CROSSLINKED)
-						possible_transtitons += D.z_value
-				var/_z = pick(possible_transtitons)
+						possible_transitions += D.z_value
+				var/_z = pick(possible_transitions)
 				var/_x = rand(min,max)
 				var/_y = rand(min,max)
 				var/turf/T = locate(_x, _y, _z)
