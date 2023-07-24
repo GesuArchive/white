@@ -11,7 +11,7 @@
 	. = ..()
 
 	if (!isnull(modified_turfs[T]))
-		T.AddElement(/datum/element/forced_gravity, gravity_value)
+		T.AddElement(/datum/element/forced_gravity, gravity_value, can_override = TRUE)
 
 /datum/proximity_monitor/advanced/gravity/cleanup_field_turf(turf/T)
 	. = ..()
