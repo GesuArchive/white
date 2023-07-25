@@ -215,7 +215,7 @@ SUBSYSTEM_DEF(violence)
 		return
 
 	// удаляем хотспоты
-	for(var/obj/effect/hotspot/H in main_area)
+	for(var/obj/effect/hotspot/H in SSair.hotspots)
 		qdel(H)
 
 	// добейте выживших и сбежавших
