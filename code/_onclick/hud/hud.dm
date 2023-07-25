@@ -680,3 +680,24 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	column_max = 16
 	location = SCRN_OBJ_IN_LIST
 
+/client/proc/debug_hud_icon()
+	set name = "Debug Hud Icon"
+	set category = "Дбг.Интерфейс"
+
+	if(!check_rights(R_DEBUG))
+		return
+
+	var/datum/hud/our_hud = mob.hud_used
+	var/list/all_the_huds = our_hud.infodisplay + our_hud.static_inventory + our_hud.toggleable_inventory + our_hud.hotkeybuttons
+	var/icon/new_icon = input("New Hud Icon?", "Balls") as null|icon
+
+	var/list/icon_list = list()
+
+	for(var/atom/movable/screen/S in all_the_huds)
+		icon_list |= S.icon
+
+	var/right_icon = tgui_input_list(usr, "balls", "pens", icon_list)
+
+	for(var/atom/movable/screen/S in all_the_huds)
+		if(S.icon == right_icon)
+			S.icon = new_icon
