@@ -31,7 +31,6 @@ var turfname = "";
 var imageRetryDelay = 1000;
 var imageRetryLimit = 50;
 var menu = document.getElementById('menu');
-var under_menu = document.getElementById('under_menu');
 var statcontentdiv = document.getElementById('statcontent');
 var storedimages = [];
 var split_admin_tabs = false;
@@ -74,7 +73,6 @@ function createStatusTab(name) {
 	//END ORDERING
 	menu.appendChild(B);
 	SendTabToByond(name);
-	under_menu.style.height = menu.clientHeight + 'px';
 }
 
 function get_icon_for_tab_by_name(name) {
@@ -123,7 +121,6 @@ function removeStatusTab(name) {
 	}
 	menu.removeChild(document.getElementById(name));
 	TakeTabFromByond(name);
-	under_menu.style.height = menu.clientHeight + 'px';
 }
 
 function sortVerbs() {
@@ -137,10 +134,6 @@ function sortVerbs() {
 		}
 		return 0;
 	})
-}
-
-window.onresize = function () {
-	under_menu.style.height = menu.clientHeight + 'px';
 }
 
 function addPermanentTab(name) {

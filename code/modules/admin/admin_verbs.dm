@@ -15,7 +15,8 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
 	/client/proc/cmd_admin_pm_panel,		/*admin-pm list*/
 	/client/proc/stop_sounds,
-	/client/proc/requests
+	/client/proc/requests,
+	/client/proc/show_all_verbs
 	)
 GLOBAL_LIST_INIT(admin_verbs_admin, world.AVerbsAdmin())
 GLOBAL_PROTECT(admin_verbs_admin)
@@ -315,6 +316,12 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	))
 GLOBAL_PROTECT(admin_verbs_hideable)
 
+GLOBAL_LIST_INIT(all_dumb_admin_verbs, world.get_all_fucking_admin_verbs())
+GLOBAL_PROTECT(all_dumb_admin_verbs)
+
+/world/proc/get_all_fucking_admin_verbs()
+	return GLOB.admin_verbs_default + GLOB.admin_verbs_admin + GLOB.admin_verbs_ban + GLOB.admin_verbs_fun + GLOB.admin_verbs_server + GLOB.admin_verbs_debug + GLOB.admin_verbs_possess + GLOB.admin_verbs_permissions + GLOB.admin_verbs_secured + GLOB.admin_verbs_poll + GLOB.admin_verbs_sounds + GLOB.admin_verbs_spawn + GLOB.admin_verbs_debug_mapping + GLOB.admin_verbs_sdql + list(/client/proc/togglebuildmodeself, /client/proc/stealth, /client/proc/play_web_sound, /client/proc/disable_debug_verbs, /client/proc/disable_supercruise_verbs)
+
 /client/proc/add_admin_verbs()
 	if(holder)
 		control_freak = CONTROL_FREAK_SKIN | CONTROL_FREAK_MACROS
@@ -322,35 +329,35 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		var/rights = holder.rank.rights
 		add_verb(src, GLOB.admin_verbs_default)
 		if(rights & R_BUILD)
-			add_verb(src, /client/proc/togglebuildmodeself)
+			add_verb(src, /client/proc/togglebuildmodeself, FALSE)
 		if(rights & R_ADMIN)
-			add_verb(src, GLOB.admin_verbs_admin)
+			add_verb(src, GLOB.admin_verbs_admin, FALSE)
 		if(rights & R_BAN)
-			add_verb(src, GLOB.admin_verbs_ban)
+			add_verb(src, GLOB.admin_verbs_ban, FALSE)
 		if(rights & R_FUN)
-			add_verb(src, GLOB.admin_verbs_fun)
+			add_verb(src, GLOB.admin_verbs_fun, FALSE)
 		if(rights & R_SERVER)
-			add_verb(src, GLOB.admin_verbs_server)
+			add_verb(src, GLOB.admin_verbs_server, FALSE)
 		if(rights & R_DEBUG)
-			add_verb(src, GLOB.admin_verbs_debug)
+			add_verb(src, GLOB.admin_verbs_debug, FALSE)
 		if(rights & R_POSSESS)
-			add_verb(src, GLOB.admin_verbs_possess)
+			add_verb(src, GLOB.admin_verbs_possess, FALSE)
 		if(rights & R_PERMISSIONS)
-			add_verb(src, GLOB.admin_verbs_permissions)
+			add_verb(src, GLOB.admin_verbs_permissions, FALSE)
 		if(rights & R_SECURED)
-			add_verb(src, GLOB.admin_verbs_secured)
+			add_verb(src, GLOB.admin_verbs_secured, FALSE)
 		if(rights & R_STEALTH)
-			add_verb(src, /client/proc/stealth)
+			add_verb(src, /client/proc/stealth, FALSE)
 		if(rights & R_ADMIN)
-			add_verb(src, GLOB.admin_verbs_poll)
+			add_verb(src, GLOB.admin_verbs_poll, FALSE)
 		if(rights & R_SDQL)
-			add_verb(src, GLOB.admin_verbs_sdql)
+			add_verb(src, GLOB.admin_verbs_sdql, FALSE)
 		if(rights & R_SOUND)
-			add_verb(src, GLOB.admin_verbs_sounds)
+			add_verb(src, GLOB.admin_verbs_sounds, FALSE)
 			if(CONFIG_GET(string/invoke_youtubedl))
-				add_verb(src, /client/proc/play_web_sound)
+				add_verb(src, /client/proc/play_web_sound, FALSE)
 		if(rights & R_SPAWN)
-			add_verb(src, GLOB.admin_verbs_spawn)
+			add_verb(src, GLOB.admin_verbs_spawn, FALSE)
 
 /client/proc/remove_admin_verbs()
 	remove_verb(src, list(
@@ -382,7 +389,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	set category = "Адм"
 
 	remove_admin_verbs()
-	add_verb(src, /client/proc/show_verbs)
+	add_verb(src, /client/proc/show_verbs, FALSE)
 
 	to_chat(src, span_interface("Almost all of your adminverbs have been hidden."))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Hide All Adminverbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -980,3 +987,27 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	message_admins("[key_name_admin(usr)] added mob ability [ability_type] to mob [marked_mob].")
 	log_admin("[key_name(usr)] added mob ability [ability_type] to mob [marked_mob].")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Add Mob Ability") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/show_all_verbs()
+	set category = "Адм"
+	set name = "Администрирование"
+	set desc = "Большие яйца?"
+
+	if(!holder)
+		return
+
+	var/list/list_o_verbo = list()
+
+	for(var/procpath/potential_verboo as anything in verbs - last_verbs_used)
+		if(!potential_verboo.category)
+			continue
+		list_o_verbo["[potential_verboo.category] - [potential_verboo.name]"] = potential_verboo
+
+	var/which_verb = tgui_input_list(usr, "Command & Control", "Verb Execution", reverseList(last_verbs_used) + sort_list(list_o_verbo))
+
+	if(!which_verb)
+		return
+
+	last_verbs_used[which_verb] = list_o_verbo[which_verb]
+
+	INVOKE_ASYNC(src, list_o_verbo[which_verb])

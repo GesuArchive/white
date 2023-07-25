@@ -229,3 +229,6 @@
 
 	/// Whether or not this client has the combo HUD enabled
 	var/combo_hud_enabled = FALSE
+
+	/// Last Admin Verbs used
+	var/list/last_verbs_used = list()

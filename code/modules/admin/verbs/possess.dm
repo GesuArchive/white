@@ -49,6 +49,6 @@
 	set desc = "Give this guy possess/release verbs"
 	set category = "Дбг"
 	set name = "Give Possessing Verbs"
-	add_verb(M, GLOBAL_PROC_REF(possess))
-	add_verb(M, GLOBAL_PROC_REF(release))
+	add_verb(M, GLOBAL_PROC_REF(possess), FALSE)
+	add_verb(M, GLOBAL_PROC_REF(release), FALSE)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Possessing Verbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

@@ -13,8 +13,8 @@ GLOBAL_PROTECT(supercruise_debug_verbs)
 		return
 
 	remove_verb(usr, /client/proc/enable_supercruise_verbs)
-	add_verb(usr, /client/proc/disable_supercruise_verbs)
-	add_verb(usr, GLOB.supercruise_debug_verbs)
+	add_verb(usr, /client/proc/disable_supercruise_verbs, FALSE)
+	add_verb(usr, GLOB.supercruise_debug_verbs, FALSE)
 
 /client/proc/disable_supercruise_verbs()
 	set category = "Дбг"
@@ -23,7 +23,7 @@ GLOBAL_PROTECT(supercruise_debug_verbs)
 	if(!check_rights(R_DEBUG))
 		return
 
-	add_verb(usr, /client/proc/enable_supercruise_verbs)
+	add_verb(usr, /client/proc/enable_supercruise_verbs, FALSE)
 	remove_verb(usr, /client/proc/disable_supercruise_verbs)
 	remove_verb(usr, GLOB.supercruise_debug_verbs)
 
