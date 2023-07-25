@@ -107,12 +107,12 @@
 	icon_state = "stone"
 	stoned = FALSE
 	slowdown = 1
-	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone/raw
+	baseturfs = /turf/open/floor/plating/grass
 	var/digged_up = FALSE
-
+/*
 /turf/open/floor/grass/gensgrass/dirty/stone/raw/crowbar_act(mob/living/user, obj/item/I)
 	return FALSE
-
+*/
 /turf/closed/wall/stonewall
 	name = "каменная стена"
 	desc = "Не дай боженька увидеть такое на продвинутой исследовательской станции!"
@@ -152,7 +152,6 @@
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	stoned = TRUE
-	floor_tile = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	slowdown = 0
 
 /turf/closed/mineral/random/vietnam

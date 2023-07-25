@@ -7,4 +7,5 @@
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 	outdoors = TRUE
+	sound_environment = SOUND_ENVIRONMENT_PLAIN
 	map_generator = /datum/map_generator/forest_generator
