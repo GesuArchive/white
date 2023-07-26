@@ -1045,22 +1045,23 @@ GLOBAL_VAR_INIT(is_theme_applied, FALSE)
 	log_admin("[key_name(src)] меняет тему игры на [which_theme].")
 
 /proc/change_server_theme(which_theme)
+	var/list/funny_turfs = Z_TURFS(1)
+	for(var/z_level in SSmapping.levels_by_trait(ZTRAIT_STATION))
+		funny_turfs += Z_TURFS(z_level)
 	switch(which_theme)
 		if("onyx")
-			for(var/turf/open/T in world)
+			for(var/turf/T in funny_turfs)
 				if(T.icon == DEFAULT_FLOORS_ICON)
 					T.icon = ONYX_FLOORS_ICON
-			for(var/turf/closed/T in world)
-				if(T.icon == DEFAULT_WALL_ICON)
+				else if(T.icon == DEFAULT_WALL_ICON)
 					T.icon = ONYX_WALL_ICON
 				else if (T.icon == DEFAULT_RWALL_ICON)
 					T.icon = ONYX_RWALL_ICON
 		if("lfwb")
-			for(var/turf/open/T in world)
+			for(var/turf/T in funny_turfs)
 				if(T.icon == DEFAULT_FLOORS_ICON)
 					T.icon = LFWB_FLOORS_ICON
-			for(var/turf/closed/T in world)
-				if(T.icon == DEFAULT_WALL_ICON)
+				else if(T.icon == DEFAULT_WALL_ICON)
 					T.icon = LFWB_WALL_ICON
 					T.canSmoothWith = list(SMOOTH_GROUP_WALLS)
 				else if (T.icon == DEFAULT_RWALL_ICON)
@@ -1069,14 +1070,15 @@ GLOBAL_VAR_INIT(is_theme_applied, FALSE)
 					T.icon = LFWB_PLASTITANUM_ICON
 				else if (T.icon == DEFAULT_RIVETED_ICON)
 					T.icon = LFWB_RIVETED_ICON
-			for(var/obj/structure/window/fulltile/W in world)
-				W.canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)
-			for(var/obj/structure/window/reinforced/fulltile/W in world)
-				if(W.icon == DEFAULT_RWINDOW_ICON)
-					W.icon = LFWB_RWINDOW_ICON
+				var/obj/structure/window/W = locate(T)
+				if(W)
 					W.canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)
-			for(var/i in 1 to 3)
-				smooth_zlevel(i)
+					if(W.icon == DEFAULT_RWINDOW_ICON)
+						W.icon = LFWB_RWINDOW_ICON
+			smooth_zlevel(1)
+			for(var/z_level in SSmapping.levels_by_trait(ZTRAIT_STATION))
+				smooth_zlevel(z_level)
+				CHECK_TICK
 
 	GLOB.is_theme_applied = which_theme
 
