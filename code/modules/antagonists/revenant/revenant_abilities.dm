@@ -17,7 +17,7 @@
 	if(ishuman(A))
 		//Humans are tagged, so this is fine
 		if(REF(A) in drained_mobs)
-			to_chat(src, span_revenwarning("[A]'s soul is dead and empty.") )
+			to_chat(src, span_revenwarning("Душа [A] мертва и пуста.") )
 		else if(in_range(src, A))
 			Harvest(A)
 
@@ -34,59 +34,59 @@
 	if(!castcheck(0))
 		return
 	if(draining)
-		to_chat(src, span_revenwarning("You are already siphoning the essence of a soul!"))
+		to_chat(src, span_revenwarning("Уже поглощаю чью-то душу!"))
 		return
 	if(!target.stat)
-		to_chat(src, span_revennotice("[target.p_their(TRUE)] soul is too strong to harvest."))
+		to_chat(src, span_revennotice("Душа [skloname(target.name, RODITELNI, target.gender)] слишком сильна."))
 		if(prob(10))
-			to_chat(target, span_revennotice("You feel as if you are being watched."))
+			to_chat(target, span_revennotice("Чувствую, как будто за мной следят."))
 		return
 	log_combat(src, target, "started to harvest")
 	face_atom(target)
 	draining = TRUE
 	essence_drained += rand(15, 20)
-	to_chat(src, span_revennotice("You search for the soul of [target]."))
+	to_chat(src, span_revennotice("Ищу душу [skloname(target.name, RODITELNI, target.gender)]."))
 	if(do_after(src, rand(10, 20), target, timed_action_flags = IGNORE_HELD_ITEM)) //did they get deleted in that second?
 		if(target.ckey)
-			to_chat(src, span_revennotice("[target.p_their(TRUE)] soul burns with intelligence."))
+			to_chat(src, span_revennotice("Душа [skloname(target.name, RODITELNI, target.gender)] пропитана разумом."))
 			essence_drained += rand(20, 30)
 		if(target.stat != DEAD && !HAS_TRAIT(target, TRAIT_WEAK_SOUL))
-			to_chat(src, span_revennotice("[target.p_their(TRUE)] soul blazes with life!"))
+			to_chat(src, span_revennotice("Душа [skloname(target.name, RODITELNI, target.gender)] пылает жизнью!"))
 			essence_drained += rand(40, 50)
 		if(HAS_TRAIT(target, TRAIT_WEAK_SOUL) && !target.ckey)
-			to_chat(src, span_revennotice("[target.p_their(TRUE)] soul is weak and underdeveloped. They won't be worth very much."))
+			to_chat(src, span_revennotice("Душа [skloname(target.name, RODITELNI, target.gender)] слаба и недоразвита. Она будет не особо ценна."))
 			essence_drained = 5
 		else
-			to_chat(src, span_revennotice("[target.p_their(TRUE)] soul is weak and faltering."))
+			to_chat(src, span_revennotice("[target.p_their(TRUE)] душа слаба и неустойчива."))
 		if(do_after(src, rand(15, 20), target, timed_action_flags = IGNORE_HELD_ITEM)) //did they get deleted NOW?
 			switch(essence_drained)
 				if(1 to 30)
-					to_chat(src, span_revennotice("[target] will not yield much essence. Still, every bit counts."))
+					to_chat(src, span_revennotice("[target] даст не так много эссенции. Однако, каждая капля ценна."))
 				if(30 to 70)
-					to_chat(src, span_revennotice("[target] will yield an average amount of essence."))
+					to_chat(src, span_revennotice("[target] даст среднее количество эссенции."))
 				if(70 to 90)
-					to_chat(src, span_revenboldnotice("Such a feast! [target] will yield much essence to you."))
+					to_chat(src, span_revenboldnotice("Какая сила! [target] даст много эссенции."))
 				if(90 to INFINITY)
-					to_chat(src, span_revenbignotice("Ah, the perfect soul. [target] will yield massive amounts of essence to you."))
+					to_chat(src, span_revenbignotice("Ах, идеальная душа. [target] даст большое количество эссенции."))
 			if(do_after(src, rand(15, 25), target, timed_action_flags = IGNORE_HELD_ITEM)) //how about now
 				if(!target.stat)
-					to_chat(src, span_revenwarning("[target.p_theyre(TRUE)] now powerful enough to fight off your draining."))
-					to_chat(target, span_boldannounce("You feel something tugging across your body before subsiding."))
+					to_chat(src, span_revenwarning("[target] стал достаточно силен, чтобы противостоять поглощению."))
+					to_chat(target, span_boldannounce("Чувствую как странные путы отпускают меня."))
 					draining = 0
 					essence_drained = 0
 					return //hey, wait a minute...
-				to_chat(src, span_revenminor("You begin siphoning essence from [target]'s soul."))
+				to_chat(src, span_revenminor("Начинаю поглощать душу [skloname(target.name, RODITELNI, target.gender)]."))
 				if(target.stat != DEAD)
-					to_chat(target, span_warning("You feel a horribly unpleasant draining sensation as your grip on life weakens..."))
+					to_chat(target, span_warning("Ощущаю ужасно неприятное чувство истощения, когда моя власть над жизнью ослабевает..."))
 				if(target.stat == SOFT_CRIT)
 					target.Stun(46)
 				reveal(46)
 				stun(46)
-				target.visible_message(span_warning("[target] suddenly rises slightly into the air, [target.p_their()] skin turning an ashy gray."))
+				target.visible_message(span_warning("[target] внезапно слегка поднимается в воздух, кожа [skloname(target.name, RODITELNI, target.gender)] меняется до пепельно серого."))
 				if(target.can_block_magic(MAGIC_RESISTANCE_HOLY))
-					to_chat(src, span_revenminor("Something's wrong! [target] seems to be resisting the siphoning, leaving you vulnerable!"))
-					target.visible_message(span_warning("[target] slumps onto the ground."), \
-					span_revenwarning("Violet lights, dancing in your vision, receding--"))
+					to_chat(src, span_revenminor("Что-то пошло не так! Видимо [target] сопротивляется поглощению, оставив меня уязвимым!"))
+					target.visible_message(span_warning("[target] падает на землю."), \
+					span_revenwarning("Фиолетовые огни, танцующие в моих глазах, отступают--"))
 					draining = FALSE
 					return
 				var/datum/beam/B = Beam(target,icon_state="drain_life")
@@ -94,30 +94,30 @@
 					change_essence_amount(essence_drained, FALSE, target)
 					if(essence_drained <= 90 && target.stat != DEAD && !HAS_TRAIT(target, TRAIT_WEAK_SOUL))
 						essence_regen_cap += 5
-						to_chat(src, span_revenboldnotice("The absorption of [target]'s living soul has increased your maximum essence level. Your new maximum essence is [essence_regen_cap]."))
+						to_chat(src, span_revenboldnotice("Поглощение живой души [skloname(target.name, RODITELNI, target.gender)] увеличило мой максимальный объем эссенции. Мой новый предел [essence_regen_cap]."))
 					if(essence_drained > 90)
 						essence_regen_cap += 15
 						perfectsouls++
-						to_chat(src, span_revenboldnotice("The perfection of [target]'s soul has increased your maximum essence level. Your new maximum essence is [essence_regen_cap]."))
-					to_chat(src, span_revennotice("[target]'s soul has been considerably weakened and will yield no more essence for the time being."))
-					target.visible_message(span_warning("[target] slumps onto the ground."), \
-										   span_revenwarning("Violets lights, dancing in your vision, getting clo--"))
+						to_chat(src, span_revenboldnotice("Поглощение идеальной души [skloname(target.name, RODITELNI, target.gender)] увеличило мой максимальный объем эссенции. Мой новый предел [essence_regen_cap]."))
+					to_chat(src, span_revennotice("Душа [skloname(target.name, RODITELNI, target.gender)] была значительно ослаблена и не будет давать эссенцию ещё какое-то время."))
+					target.visible_message(span_warning("[target] падает на землю."), \
+										   span_revenwarning("Фиолетовые огни, танцующие в моих глазах, приближа--"))
 					drained_mobs += REF(target)
 					target.death(0)
 				else
-					to_chat(src, span_revenwarning("[target ? "[target] has":"[target.p_theyve(TRUE)]"] been drawn out of your grasp. The link has been broken."))
+					to_chat(src, span_revenwarning("[target ? "[target] был":"[skloname(target.name, RODITELNI, target.gender)]"] вырван из моих рук. Связь была нарушена.")) //незабыть проверить КАК оно работает и выглядит
 					if(target) //Wait, target is WHERE NOW?
-						target.visible_message(span_warning("[target] slumps onto the ground."), \
-											   span_revenwarning("Violets lights, dancing in your vision, receding--"))
+						target.visible_message(span_warning("[target] падает на землю."), \
+											   span_revenwarning("Фиолетовые огни, танцующие в моих глазах, отступают--"))
 				qdel(B)
 			else
-				to_chat(src, span_revenwarning("You are not close enough to siphon [target ? "[target]'s":"[target.p_their()]"] soul. The link has been broken."))
+				to_chat(src, span_revenwarning("Я недостаточно близко для поглощения души [skloname(target.name, RODITELNI, target.gender)]. Связь была нарушена.")) //да как это говнище работает
 	draining = FALSE
 	essence_drained = 0
 
 //Toggle night vision: lets the revenant toggle its night vision
 /datum/action/cooldown/spell/night_vision/revenant
-	name = "Toggle Darkvision"
+	name = "Переключить ночное зрение"
 	panel = "Revenant Abilities"
 	background_icon_state = "bg_revenant"
 	overlay_icon_state = "bg_revenant_border"
@@ -127,7 +127,7 @@
 
 //Transmit: the revemant's only direct way to communicate. Sends a single message silently to a single mob
 /datum/action/cooldown/spell/list_target/telepathy/revenant
-	name = "Revenant Transmit"
+	name = "Послание Восставшего"
 	panel = "Revenant Abilities"
 	background_icon_state = "bg_revenant"
 	overlay_icon_state = "bg_revenant_border"
@@ -138,7 +138,7 @@
 	antimagic_flags = MAGIC_RESISTANCE_HOLY|MAGIC_RESISTANCE_MIND
 
 /datum/action/cooldown/spell/aoe/revenant
-	panel = "Revenant Abilities (Locked)"
+	panel = "Способности Восставшего (Заблокировано)"
 	background_icon_state = "bg_revenant"
 	overlay_icon_state = "bg_revenant_border"
 	button_icon = 'icons/mob/actions/actions_revenant.dmi'
@@ -202,12 +202,12 @@
 
 	if(locked)
 		if(!cast_on.unlock(unlock_amount))
-			to_chat(cast_on, span_revenwarning("You don't have enough essence to unlock [initial(name)]!"))
+			to_chat(cast_on, span_revenwarning("Недостаточно эссенции для разблокировки [initial(name)]!"))
 			reset_spell_cooldown()
 			return . | SPELL_CANCEL_CAST
 
 		name = "[initial(name)] ([cast_amount]E)"
-		to_chat(cast_on, span_revennotice("You have unlocked [initial(name)]!"))
+		to_chat(cast_on, span_revennotice("Разблокирую [initial(name)]!"))
 		panel = "Revenant Abilities"
 		locked = FALSE
 		reset_spell_cooldown()
@@ -226,8 +226,8 @@
 
 //Overload Light: Breaks a light that's online and sends out lightning bolts to all nearby people.
 /datum/action/cooldown/spell/aoe/revenant/overload
-	name = "Overload Lights"
-	desc = "Directs a large amount of essence into nearby electrical lights, causing lights to shock those nearby."
+	name = "Перегрузка освещение"
+	desc = "Направь большое количество эссенции в близлежащие электрические лампы, заставляя их ударить электрической дугой тех, кто рядом."
 	button_icon_state = "overload_lights"
 	cooldown_time = 20 SECONDS
 
@@ -246,7 +246,7 @@
 		if(!light.on)
 			continue
 
-		light.visible_message(span_boldwarning("[light] suddenly flares brightly and begins to spark!"))
+		light.visible_message(span_boldwarning("[light] внезапно вспыхивает ярко и начинает искриться!"))
 		var/datum/effect_system/spark_spread/light_sparks = new /datum/effect_system/spark_spread()
 		light_sparks.set_up(4, 0, light)
 		light_sparks.start()
@@ -267,8 +267,8 @@
 
 //Defile: Corrupts nearby stuff, unblesses floor tiles.
 /datum/action/cooldown/spell/aoe/revenant/defile
-	name = "Defile"
-	desc = "Twists and corrupts the nearby area as well as dispelling holy auras on floors."
+	name = "Осквернение"
+	desc = "Разрушает и искажает ближайшую область, а также рассеивает святую ауру на поверхностях."
 	button_icon_state = "defile"
 	cooldown_time = 15 SECONDS
 
@@ -317,8 +317,8 @@
 
 //Malfunction: Makes bad stuff happen to robots and machines.
 /datum/action/cooldown/spell/aoe/revenant/malfunction
-	name = "Malfunction"
-	desc = "Corrupts and damages nearby machines and mechanical objects."
+	name = "Сбой техники"
+	desc = "Повреждает и искажает работу близлежащих машин и механических объектов."
 	button_icon_state = "malfunction"
 	cooldown_time = 20 SECONDS
 
@@ -339,7 +339,7 @@
 			continue
 		if(human.can_block_magic(antimagic_flags))
 			continue
-		to_chat(human, span_revenwarning("You feel [pick("your sense of direction flicker out", "a stabbing pain in your head", "your mind fill with static")]."))
+		to_chat(human, span_revenwarning("[pick("Ощущаю как будто разряд тока проходит через мозг", "Ощущаю потерю ориентации", "Мои волосы наполнились статическим разрядом")]."))
 		new /obj/effect/temp_visual/revenant(human.loc)
 		human.emp_act(EMP_HEAVY)
 	for(var/obj/thing in victim)
@@ -359,8 +359,8 @@
 
 //Blight: Infects nearby humans and in general messes living stuff up.
 /datum/action/cooldown/spell/aoe/revenant/blight
-	name = "Blight"
-	desc = "Causes nearby living things to waste away."
+	name = "Упадок жизни"
+	desc = "Пробуждает упадок жизненных сил в живых существах."
 	button_icon_state = "blight"
 	cooldown_time = 20 SECONDS
 
@@ -373,7 +373,7 @@
 		if(mob == caster)
 			continue
 		if(mob.can_block_magic(antimagic_flags))
-			to_chat(caster, span_warning("The spell had no effect on [mob]!"))
+			to_chat(caster, span_warning("Моя способность не повлияла на [skloname(mob.name, RODITELNI, mob.gender)]!"))
 			continue
 		new /obj/effect/temp_visual/revenant(mob.loc)
 		if(iscarbon(mob))
@@ -388,7 +388,7 @@
 						blight.stage++
 				if(!blightfound)
 					H.ForceContractDisease(new /datum/disease/revblight(), FALSE, TRUE)
-					to_chat(H, span_revenminor("You feel [pick("suddenly sick", "a surge of nausea", "like your skin is <i>wrong</i>")]."))
+					to_chat(H, span_revenminor("Чувствую [pick("неожиданное недомогание", "прилив тошноты", "как моя кожа стала <i>неправильной</i>")]."))
 			else
 				if(mob.reagents)
 					mob.reagents.add_reagent(/datum/reagent/toxin/plasma, 5)

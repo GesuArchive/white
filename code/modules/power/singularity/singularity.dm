@@ -72,7 +72,6 @@
 			break
 
 	if (!mapload)
-		GLOB.is_engine_sabotaged = TRUE
 		notify_ghosts("О, НЕТ!", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, ghost_sound = 'sound/machines/warning-buzzer.ogg', header = "НЕВЕРОЯТНО", notify_volume = 75)
 
 /obj/effect/singularity_creation
@@ -261,6 +260,7 @@
 				time_since_last_dissipiation = 0
 				dissipate_strength = 10
 		if(STAGE_FIVE)//this one also lacks a check for gens because it eats everything
+			GLOB.is_engine_sabotaged = TRUE //так намного проще
 			current_size = STAGE_FIVE
 			new_grav_pull = 10
 			new_consume_range = 4

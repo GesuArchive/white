@@ -109,7 +109,6 @@
 			tesla_zap(src, 9, power_output * 0.75)
 			//power_output = -(power_output * 0.25)
 		if(5000001 to INFINITY)
-			GLOB.is_engine_sabotaged = TRUE
 			playsound(get_turf(src), 'white/valtos/sounds/explo.ogg', 80)
 			spawn(rand(1, 10))
 				empulse(get_turf(src), rand(1, 8), rand(8, 16))

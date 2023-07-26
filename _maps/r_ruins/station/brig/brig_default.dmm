@@ -2852,7 +2852,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/docking_port/stationary/random{
 	dir = 4;
-	id = "pod3_lavaland";
+	id = "pod_lavaland3";
 	name = "lavaland"
 	},
 /turf/open/floor/plating,

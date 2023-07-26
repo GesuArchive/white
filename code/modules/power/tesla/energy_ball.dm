@@ -112,6 +112,8 @@
 			move_dir = get_dir(src, target)
 		var/turf/turf_to_move = get_step(src, move_dir)
 		if (can_move(turf_to_move))
+			if (!locate(/obj/effect/shield) in get_turf(src))
+				GLOB.is_engine_sabotaged = TRUE //я к этому решению слишком долго приходил
 			forceMove(turf_to_move)
 			setDir(move_dir)
 			for (var/mob/living/carbon/mob_to_dust in loc)
@@ -125,8 +127,6 @@
 		var/atom/thing = _thing
 		if (SEND_SIGNAL(thing, COMSIG_ATOM_SINGULARITY_TRY_MOVE) & SINGULARITY_TRY_MOVE_BLOCK)
 			return FALSE
-
-	GLOB.is_engine_sabotaged = TRUE
 
 	return TRUE
 

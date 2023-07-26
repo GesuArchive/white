@@ -2,6 +2,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 GLOBAL_LIST_EMPTY(objectives)
 
 GLOBAL_VAR_INIT(is_engine_sabotaged, FALSE)
+GLOBAL_VAR_INIT(is_smes_sabotaged, FALSE)
 GLOBAL_VAR_INIT(is_research_sabotaged, FALSE)
 GLOBAL_VAR_INIT(is_cargo_sabotaged, FALSE)
 //GLOBAL_VAR_INIT(is_medbay_sabotaged, FALSE)

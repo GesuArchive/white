@@ -902,9 +902,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
 	},
-/turf/open/floor/plasteel{
-	icon_state = "floorscorched1"
-	},
+/turf/open/floor/plasteel,
 /area/shuttle/escape)
 "Hq" = (
 /obj/structure/flora/rock/pile,

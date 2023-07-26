@@ -125,6 +125,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
+"ir" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "ix" = (
 /obj/structure/cable/multilayer/multiz,
 /obj/effect/turf_decal/stripes/box,
@@ -186,13 +191,18 @@
 "oq" = (
 /turf/open/floor/plasteel,
 /area/engineering/main)
-"pw" = (
+"ov" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/box,
 /obj/machinery/power/emitter/welded{
 	dir = 8
 	},
+/obj/effect/turf_decal/stripes/box,
 /turf/open/floor/plating/airless,
+/area/space/nearstation)
+"pw" = (
+/obj/structure/cable,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
 /area/space/nearstation)
 "qL" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1065,8 +1075,8 @@ tB
 xc
 yB
 yB
-Rz
-yB
+pw
+ir
 yB
 yB
 yB
@@ -1234,7 +1244,7 @@ nq
 yB
 yB
 pw
-yB
+ov
 yB
 yB
 yB

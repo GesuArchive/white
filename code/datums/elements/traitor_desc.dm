@@ -41,6 +41,7 @@
 				to_chat(user, span_rose("Кто-то уже саботировал двигатель до этого. Лишнее внимание нам не нужно."))
 				return COMPONENT_CANCEL_ATTACK_CHAIN
 
+			GLOB.is_smes_sabotaged = TRUE
 			GLOB.is_engine_sabotaged = TRUE
 			action_message = "Меняю полярность ячеек."
 			reward = 3
