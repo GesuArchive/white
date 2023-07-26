@@ -90,10 +90,18 @@
 		C.deconstruct()
 	..()
 
+/obj/structure/lattice/catwalk/Initialize(mapload)
+	. = ..()
+	var/turf/open/T = loc
+	if(isopenturf(T))
+		T.footstep = FOOTSTEP_CATWALK
+
 /obj/structure/lattice/catwalk/deconstruct()
-	var/turf/T = loc
+	var/turf/open/T = loc
 	for(var/obj/structure/cable/C in T)
 		C.deconstruct()
+	if(isopenturf(T))
+		T.footstep = initial(T.footstep)
 	..()
 
 /obj/structure/lattice/lava
