@@ -1,20 +1,37 @@
 import { createSearch } from 'common/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Fragment, Input, Table, Button, Tabs, Flex, Section } from '../components';
+import { Box, Input, Table, Button, Tabs, Flex, Section } from '../components';
 import { Window } from '../layouts';
+import { Fragment } from 'inferno';
+
+type VerbData = {
+  verb: string;
+  name: string;
+  desc: string;
+}
+
+type CatsData = {
+  name: string;
+  items: Array<VerbData>;
+}
+
+type AdminVerbsData = {
+  compactMode: boolean;
+  categories: Array<CatsData>;
+};
 
 const MAX_SEARCH_RESULTS = 25;
 
-export const AdminVerbs = (props, context) => {
-  const { act, data } = useBackend(context);
+export const AdminVerbs = (_, context) => {
+  const { act, data } = useBackend<AdminVerbsData>(context);
   const { compactMode, categories = [] } = data;
   const [searchText, setSearchText] = useLocalState(context, 'searchText', '');
   const [selectedCategory, setSelectedCategory] = useLocalState(
     context,
     'category',
-    'OOC'
+    'Адм'
   );
-  const testSearch = createSearch(searchText, (item) => {
+  const testSearch = createSearch(searchText, (item: VerbData) => {
     return item.name;
   });
   const items =
@@ -45,6 +62,15 @@ export const AdminVerbs = (props, context) => {
                 autoFocus
                 value={searchText}
                 onInput={(e, value) => setSearchText(value)}
+                onEnter={(event) => {
+                  event.preventDefault();
+                  setSearchText("");
+                  act('run', {
+                    'name': items[0].name,
+                    'desc': items[0].desc,
+                    'verb': items[0].verb,
+                  });
+                }}
                 mx={1}
               />
               <Button
@@ -93,6 +119,7 @@ const VerbList = (props, context) => {
             <Button
               fluid
               content={obj.name}
+              selected={obj.selected}
               onClick={() =>
                 act('run', {
                   'name': obj.name,
