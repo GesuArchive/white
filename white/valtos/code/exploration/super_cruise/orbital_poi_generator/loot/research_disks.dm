@@ -53,7 +53,7 @@
 	researched_nodes = list(exotic_ammo = 1)
 
 /datum/techweb/phazon
-	researched_nodes = list(phazon = 1)
+	researched_nodes = list(mecha_phazon = 1)
 
 /datum/techweb/cyber_implants
 	researched_nodes = list(cyber_implants = 1)
