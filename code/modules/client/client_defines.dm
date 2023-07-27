@@ -232,3 +232,6 @@
 
 	/// Last Admin Verbs used
 	var/list/last_verbs_used = list()
+
+	/// Literally Admin Verbs Menu
+	var/datum/admin_menu/admin_menu

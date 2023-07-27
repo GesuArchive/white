@@ -1095,7 +1095,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			continue
 		if(!istext(verb_to_init.category))
 			continue
-		if(verb_to_init in GLOB.all_dumb_admin_verbs - list(/client/proc/show_all_verbs))
+		if(verb_to_init in GLOB.all_dumb_admin_verbs - list(/client/proc/show_all_verbs, /client/proc/deadmin))
 			continue
 		panel_tabs |= verb_to_init.category
 		verblist[++verblist.len] = list(verb_to_init.category, verb_to_init.name)
