@@ -130,3 +130,17 @@
 		return
 	user.readmin()
 	return TRUE
+
+/datum/keybinding/admin/admin_panel
+	hotkey_keys = list("\\")
+	name = "admin_panel"
+	full_name = "Admin Panel"
+	description = "Open Admin Panel"
+	keybind_signal = COMSIG_KB_ADMIN_ADMIN_PANEL_DOWN
+
+/datum/keybinding/admin/admin_panel/down(client/user)
+	. = ..()
+	if(.)
+		return
+	user.show_all_verbs()
+	return TRUE

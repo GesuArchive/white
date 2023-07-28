@@ -1060,3 +1060,5 @@ GLOBAL_PROTECT(all_dumb_admin_verbs)
 	INVOKE_ASYNC(holder, text2path(params["verb"]))
 
 	LAZYADD(holder.last_verbs_used, list(list("verb" = params["verb"], "name" = params["name"], "desc" = params["desc"])))
+
+	ui_close(usr)
