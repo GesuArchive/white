@@ -86,7 +86,7 @@
 	forceMove(card)
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, PAI_FOLDED)
 	ADD_TRAIT(src, TRAIT_HANDS_BLOCKED, PAI_FOLDED)
-	set_density(FALSE)
+	ADD_TRAIT(src, TRAIT_UNDENSE, PAI_FOLDED)
 	set_light_on(FALSE)
 	holoform = FALSE
 	set_resting(resting)
@@ -117,7 +117,7 @@
 	addtimer(VARSET_CALLBACK(src, holochassis_ready, TRUE), HOLOCHASSIS_COOLDOWN)
 	REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, PAI_FOLDED)
 	REMOVE_TRAIT(src, TRAIT_HANDS_BLOCKED, PAI_FOLDED)
-	set_density(TRUE)
+	REMOVE_TRAIT(src, TRAIT_UNDENSE, PAI_FOLDED)
 	if(istype(card.loc, /obj/item/modular_computer))
 		var/obj/item/modular_computer/pc = card.loc
 		pc.inserted_pai = null

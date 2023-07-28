@@ -37,6 +37,7 @@
 #include "code\__DEFINES\apc_defines.dm"
 #include "code\__DEFINES\aquarium.dm"
 #include "code\__DEFINES\assblast.dm"
+#include "code\__DEFINES\assert.dm"
 #include "code\__DEFINES\atom_hud.dm"
 #include "code\__DEFINES\bitfields.dm"
 #include "code\__DEFINES\bitflags.dm"

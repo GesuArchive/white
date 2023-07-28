@@ -121,3 +121,5 @@
 	var/shock_penalty = 0
 	/// Last time we got a major wound (crippling shock)
 	var/last_crippling_shock = 0
+
+	var/is_leaning = FALSE

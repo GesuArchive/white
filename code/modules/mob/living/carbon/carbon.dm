@@ -162,6 +162,24 @@
 	var/atom/movable/thrown_thing
 	var/obj/item/I = get_active_held_item()
 
+	var/verb_text = ""
+	var/verb_text_me = ""
+
+	switch(rand(1, 3))
+		if(1)
+			verb_text = "кидает"
+			verb_text_me = "Кидаю"
+		if(2)
+			verb_text = "швыряет"
+			verb_text_me = "Швыряю"
+		if(3)
+			verb_text = "выпускает"
+			verb_text_me = "Выпускаю"
+
+	if(prob(0.5))
+		verb_text = "вхуячивает"
+		verb_text_me = "Вхуячиваю"
+
 	if(!I)
 		if(pulling && isliving(pulling) && grab_state >= GRAB_AGGRESSIVE)
 			var/mob/living/throwable_mob = pulling
@@ -190,8 +208,8 @@
 			power_throw++
 		if(pulling && grab_state >= GRAB_NECK)
 			power_throw++
-		visible_message(span_danger("<b>[capitalize(src)]</b> кидает <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]") , \
-						span_danger("Кидаю <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]"))
+		visible_message(span_danger("<b>[capitalize(src)]</b> [verb_text] <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]") , \
+						span_danger("[verb_text_me] <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]"))
 		playsound(get_turf(src), 'white/valtos/sounds/throw.wav', 50, TRUE)
 		log_message("has thrown [thrown_thing] [power_throw ? "really hard" : ""]", LOG_ATTACK)
 		newtonian_move(get_dir(target, src))
