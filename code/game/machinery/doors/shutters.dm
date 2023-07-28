@@ -34,6 +34,10 @@
 	icon_state = "closed"
 	rad_insulation = RAD_EXTREME_INSULATION
 
+/obj/machinery/door/poddoor/shutters/radiation/indestructible
+	name = "сверхкрепкие свинцовые жалюзи"
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+
 /obj/machinery/door/poddoor/shutters/radiation/preopen
 	icon_state = "open"
 	density = FALSE
@@ -55,6 +59,10 @@
 	icon_state = "closed"
 	opacity = FALSE
 	glass = TRUE
+
+/obj/machinery/door/poddoor/shutters/window/indestructible
+	name = "сверхкрепкие прозрачные жалюзи"
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/machinery/door/poddoor/shutters/window/preopen
 	icon_state = "open"

@@ -47,6 +47,15 @@
 	if(.) //damage was dealt
 		new /obj/effect/temp_visual/impact_effect/ion(loc)
 
+/obj/structure/emergency_shield/shieldgen
+	name = "силовое защитное поле"
+	desc = "Воздхонепроницаемое силовое поле защищающее от разгерметизации и метеоритов."
+	icon = 'white/Feline/icons/shieldgen.dmi'
+	icon_state = "wall-0"
+	base_icon_state = "wall"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_SHIELDGEN)
+	canSmoothWith = list(SMOOTH_GROUP_SHIELDGEN)
 
 /obj/structure/emergency_shield/cult
 	name = "барьер культа"
@@ -108,7 +117,7 @@
 
 /obj/machinery/shieldgen
 	name = "Щитогенератор"
-	desc = "Используется для оперативного перекрытия средних по размеру пробоин в обшивке."
+	desc = "Используется для оперативного перекрытия средних по размеру пробоин в обшивке и защите от метеоритов."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "shieldoff"
 	density = TRUE
@@ -142,9 +151,9 @@
 	playsound(src, 'white/Feline/sounds/pulsar.ogg', 60, FALSE)
 
 	for(var/turf/target_tile in range(shield_range, src))
-		if((isspaceturf(target_tile) || isopenspace(target_tile)) && !(locate(/obj/structure/emergency_shield) in target_tile))
+		if((isspaceturf(target_tile) || isopenspace(target_tile)) && !(locate(/obj/structure/emergency_shield/shieldgen) in target_tile))
 			if(!(machine_stat & BROKEN) || prob(33))
-				deployed_shields += new /obj/structure/emergency_shield(target_tile)
+				deployed_shields += new /obj/structure/emergency_shield/shieldgen(target_tile)
 
 /obj/machinery/shieldgen/proc/shields_down()
 	active = FALSE

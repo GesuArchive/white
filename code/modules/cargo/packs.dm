@@ -3557,10 +3557,13 @@
 /datum/supply_pack/contraband/russian
 	name = "Комплект бойца красной армии"
 	desc = "Здравствуйте, товарищ, у нас есть самая современная российская военная техника, которую только может предложить черный рынок, разумеется, по разумной цене. К сожалению, мы не смогли снять замок, поэтому для его открытия требуется доступ в оружейную."
-	cost = BUY_CRATE_VALUE * 8
+	cost = BUY_CRATE_VALUE * 6
 	access = ACCESS_ARMORY
 	contains = list(
 		/obj/item/food/rationpack,
+		/obj/item/ammo_box/a762,
+		/obj/item/ammo_box/a762,
+		/obj/item/ammo_box/a762,
 		/obj/item/ammo_box/a762,
 		/obj/item/storage/toolbox/ammo,
 		/obj/item/clothing/suit/armor/vest/russian,
@@ -3572,7 +3575,6 @@
 		/obj/item/clothing/mask/russian_balaclava,
 		/obj/item/clothing/head/helmet/rus_ushanka,
 		/obj/item/clothing/suit/armor/vest/russian_coat,
-		/obj/item/gun/ballistic/rifle/boltaction,
 		/obj/item/gun/ballistic/rifle/boltaction)
 	crate_name = "ящик снаряжения РККА"
 	group = "Контрабанда"

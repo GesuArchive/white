@@ -144,4 +144,6 @@ DEFINE_BITFIELD(smoothing_flags, list(
 
 #define SMOOTH_GROUP_OPENSPACE S_OBJ(71)	///turf/open/openspace
 
+#define SMOOTH_GROUP_SHIELDGEN S_OBJ(72)				/// Силовое поле щитогенератора /obj/structure/emergency_shield/shieldgen
+
 #define MAX_S_OBJ SMOOTH_GROUP_OPENSPACE //Always match this value with the one above it.

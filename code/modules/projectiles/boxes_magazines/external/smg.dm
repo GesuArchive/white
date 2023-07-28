@@ -10,6 +10,17 @@
 	..()
 	icon_state = "46x30mmt-[round(ammo_count(),4)]"
 
+/obj/item/storage/toolbox/ammo/wt550
+
+/obj/item/storage/toolbox/ammo/wt550/PopulateContents()
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+
 /obj/item/ammo_box/magazine/wt550m9/wtap
 	name = "магазин калибра 4.6x30мм: Бронебойный"
 	desc = "Содержит патроны с закаленным сердечником, это заметно повышает бронепробитие, однако незначительно понижает урон. Используется в пистолет-пулемете ВТ-550."

@@ -942,93 +942,156 @@
 
 ////////////Ружейные коробки
 /obj/item/storage/box/beanbag
-	name = "12 Калибр: Резиновая пуля - 7 шт."
+	name = "12 Калибр: Резиновая пуля - 20 шт."
 	desc = "Коробка с травматическими пулями 12 калибра, предназначенными для дробовиков."
 	icon_state = "rubbershot_box"
 	illustration = null
 
+/obj/item/storage/box/beanbag/Initialize()
+	. = ..()
+	atom_storage.max_slots = 20
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.set_holdable(list(/obj/item/ammo_casing/shotgun))
+	atom_storage.max_total_storage = 20
+
 /obj/item/storage/box/beanbag/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 20)
 		new /obj/item/ammo_casing/shotgun/beanbag(src)
 
 /obj/item/storage/box/rubbershot
-	name = "12 Калибр: Резиновая картечь - 7 шт."
+	name = "12 Калибр: Резиновая картечь - 20 шт."
 	desc = "Коробка с резиновой картечью 12 калибра, предназначенными для дробовиков."
 	icon_state = "rubbershot_box"
 	illustration = null
 
+/obj/item/storage/box/rubbershot/Initialize()
+	. = ..()
+	atom_storage.max_slots = 20
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.set_holdable(list(/obj/item/ammo_casing/shotgun))
+	atom_storage.max_total_storage = 20
+
 /obj/item/storage/box/rubbershot/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 20)
 		new /obj/item/ammo_casing/shotgun/rubbershot(src)
 
 /obj/item/storage/box/s12_bullet
-	name = "12 Калибр: Пулевой - 7 шт."
+	name = "12 Калибр: Пулевой - 20 шт."
 	desc = "Коробка с боевыми пулями 12 калибра, предназначенными для дробовиков."
 	icon_state = "lethalshot_box"
 	illustration = null
 
+/obj/item/storage/box/s12_bullet/Initialize()
+	. = ..()
+	atom_storage.max_slots = 20
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.set_holdable(list(/obj/item/ammo_casing/shotgun))
+	atom_storage.max_total_storage = 20
+
 /obj/item/storage/box/s12_bullet/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 20)
 		new /obj/item/ammo_casing/shotgun(src)
 
 /obj/item/storage/box/lethalshot
-	name = "12 Калибр: Картечь - 7 шт."
+	name = "12 Калибр: Картечь - 20 шт."
 	desc = "Коробка с патронами 12 калибра с дробью."
 	icon_state = "lethalshot_box"
 	illustration = null
 
+/obj/item/storage/box/lethalshot/Initialize()
+	. = ..()
+	atom_storage.max_slots = 20
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.set_holdable(list(/obj/item/ammo_casing/shotgun))
+	atom_storage.max_total_storage = 20
+
 /obj/item/storage/box/lethalshot/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 20)
 		new /obj/item/ammo_casing/shotgun/buckshot(src)
 
 /obj/item/storage/box/battle_incendiary
-	name = "12 Калибр: Зажигательный - 7 шт."
+	name = "12 Калибр: Зажигательный - 20 шт."
 	desc = "Коробка с зажигательными пулями 12 калибра, предназначенными для дробовиков."
 	icon_state = "lethalshot_box"
 	illustration = null
 
+/obj/item/storage/box/battle_incendiary/Initialize()
+	. = ..()
+	atom_storage.max_slots = 20
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.set_holdable(list(/obj/item/ammo_casing/shotgun))
+	atom_storage.max_total_storage = 20
+
 /obj/item/storage/box/battle_incendiary/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 20)
 		new /obj/item/ammo_casing/shotgun/incendiary(src)
 
 /obj/item/storage/box/battle_dart
-	name = "12 Калибр: Дротик - 7 шт."
+	name = "12 Калибр: Дротик - 20 шт."
 	desc = "Коробка с химическими пулями 12 калибра, предназначенными для дробовиков."
 	icon_state = "rubbershot_box"
 	illustration = null
 
+/obj/item/storage/box/battle_dart/Initialize()
+	. = ..()
+	atom_storage.max_slots = 20
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.set_holdable(list(/obj/item/ammo_casing/shotgun))
+	atom_storage.max_total_storage = 20
+
 /obj/item/storage/box/battle_dart/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 20)
 		new /obj/item/ammo_casing/shotgun/dart(src)
 
 /obj/item/storage/box/battle_stunslug
-	name = "12 Калибр: Электрошок - 7 шт."
+	name = "12 Калибр: Электрошок - 20 шт."
 	desc = "Коробка с парализующими пулями 12 калибра, предназначенными для дробовиков."
 	icon_state = "rubbershot_box"
 	illustration = null
 
+/obj/item/storage/box/battle_stunslug/Initialize()
+	. = ..()
+	atom_storage.max_slots = 20
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.set_holdable(list(/obj/item/ammo_casing/shotgun))
+	atom_storage.max_total_storage = 20
+
 /obj/item/storage/box/battle_stunslug/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 20)
 		new /obj/item/ammo_casing/shotgun/stunslug(src)
 
 /obj/item/storage/box/battle_techshell
-	name = "12 Калибр: Высокотехнологичные - 7 шт."
+	name = "12 Калибр: Высокотехнологичные - 20 шт."
 	desc = "Коробка с зажигательными пулями 12 калибра, предназначенными для дробовиков."
 	icon_state = "lethalshot_box"
 	illustration = null
 
+/obj/item/storage/box/battle_techshell/Initialize()
+	. = ..()
+	atom_storage.max_slots = 20
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.set_holdable(list(/obj/item/ammo_casing/shotgun))
+	atom_storage.max_total_storage = 20
+
 /obj/item/storage/box/battle_techshell/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 20)
 		new /obj/item/ammo_casing/shotgun/techshell(src)
 
 /obj/item/storage/box/battle_pulverizer
-	name = "12 Калибр: Увечащие - 7 шт."
+	name = "12 Калибр: Увечащие - 20 шт."
 	desc = "Коробка с травмирующими пулями 12 калибра, предназначенными для дробовиков."
 	icon_state = "lethalshot_box"
 	illustration = null
 
+/obj/item/storage/box/battle_pulverizer/Initialize()
+	. = ..()
+	atom_storage.max_slots = 20
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.set_holdable(list(/obj/item/ammo_casing/shotgun))
+	atom_storage.max_total_storage = 20
+
 /obj/item/storage/box/battle_pulverizer/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 20)
 		new /obj/item/ammo_casing/shotgun/pulverizer(src)
 
 //////////////////////
@@ -1145,7 +1208,7 @@
 		new /obj/item/emptysandbag(src)
 
 /obj/item/storage/box/rndboards
-	name = "\proper наследие освободителя"
+	name = "наследие освободителя"
 	desc = "Коробка с подарком для достойных големов."
 	illustration = "scicircuit"
 
@@ -1218,8 +1281,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/dishdrive
-	name = "Комплект привода тарелки DIY"
-	desc = "Содержит все необходимое, чтобы построить свой собственный Дисковод!" //cringe
+	name = "комплект утилизатора тарелок"
+	desc = "Содержит детали длям ашины, которая использует преобразование вещества в энергию для хранения посуды и осколков. Удобно!"
 	custom_premium_price = PAYCHECK_EASY * 3
 
 /obj/item/storage/box/dishdrive/PopulateContents()

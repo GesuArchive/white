@@ -861,69 +861,69 @@
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 //  Упаковки ружейный патронов
-/datum/design/beanbag_slug/sec/x7
-	name = "12 Калибр: Резиновая пуля - 7 шт."
-	id = "sec_beanbag_slug_x7"
+/datum/design/beanbag_slug/sec/x20
+	name = "12 Калибр: Резиновая пуля - 20 шт."
+	id = "sec_beanbag_slug_x20"
 	construction_time = 40
-	materials = list(/datum/material/iron = 14000)
+	materials = list(/datum/material/iron = 40000)
 	build_path = /obj/item/storage/box/beanbag
 	category = list("Аммуниция", "Боеприпасы", "Снаряжение сервиса")
 	sub_category = list("Упаковки патронов 12 калибра")
 
-/datum/design/rubbershot/sec/x7
-	name = "12 Калибр: Резиновая картечь - 7 шт."
-	id = "sec_rshot_x7"
+/datum/design/rubbershot/sec/x20
+	name = "12 Калибр: Резиновая картечь - 20 шт."
+	id = "sec_rshot_x20"
 	construction_time = 40
-	materials = list(/datum/material/iron = 14000)
+	materials = list(/datum/material/iron = 40000)
 	build_path = /obj/item/storage/box/rubbershot
 	category = list("Аммуниция", "Боеприпасы", "Снаряжение сервиса")
 	sub_category = list("Упаковки патронов 12 калибра")
 
-/datum/design/shotgun_slug/sec/x7
-	name = "12 Калибр: Пулевой - 7 шт."
-	id = "sec_slug_x7"
+/datum/design/shotgun_slug/sec/x20
+	name = "12 Калибр: Пулевой - 20 шт."
+	id = "sec_slug_x20"
 	construction_time = 40
-	materials = list(/datum/material/iron = 21000)
+	materials = list(/datum/material/iron = 60000)
 	build_path = /obj/item/storage/box/s12_bullet
 	sub_category = list("Упаковки патронов 12 калибра")
 
-/datum/design/buckshot_shell/sec/x7
-	name = "12 Калибр: Картечь - 7 шт."
-	id = "sec_bshot_x7"
+/datum/design/buckshot_shell/sec/x20
+	name = "12 Калибр: Картечь - 20 шт."
+	id = "sec_bshot_x20"
 	construction_time = 40
-	materials = list(/datum/material/iron = 21000)
+	materials = list(/datum/material/iron = 60000)
 	build_path = /obj/item/storage/box/lethalshot
 	sub_category = list("Упаковки патронов 12 калибра")
 
-/datum/design/shotgun_dart/sec/x7
-	name = "12 Калибр: Дротик - 7 шт."
-	id = "sec_dart_x7"
+/datum/design/shotgun_dart/sec/x20
+	name = "12 Калибр: Дротик - 20 шт."
+	id = "sec_dart_x20"
 	construction_time = 40
-	materials = list(/datum/material/iron = 21000)
+	materials = list(/datum/material/iron = 60000)
 	build_path = /obj/item/storage/box/battle_dart
 	sub_category = list("Упаковки патронов 12 калибра")
 
-/datum/design/incendiary_slug/sec/x7
-	name = "12 Калибр: Зажигательный - 7 шт."
-	id = "sec_Islug_x7"
+/datum/design/incendiary_slug/sec/x20
+	name = "12 Калибр: Зажигательный - 20 шт."
+	id = "sec_Islug_x20"
 	construction_time = 40
-	materials = list(/datum/material/iron = 21000)
+	materials = list(/datum/material/iron = 60000)
 	build_path = /obj/item/storage/box/battle_incendiary
 	sub_category = list("Упаковки патронов 12 калибра")
 /*
-/datum/design/stunshell/х7
-	name = "12 Калибр: Электрошок - 7 шт."
-	id = "stunshell_х7"
+/datum/design/stunshell/x20
+	name = "12 Калибр: Электрошок - 20 шт."
+	id = "stunshell_x20"
 	construction_time = 40
-	materials = list(/datum/material/iron = 21000, /datum/material/gold = 7000)
+	materials = list(/datum/material/iron = 60000, /datum/material/gold = 20000)
 	build_path = /obj/item/storage/box/battle_stunslug
 	sub_category = list("Упаковки патронов 12 калибра")
 */
 
-/datum/design/techshell/x7
-	name = "12 Калибр: Высокотехнологичный - 7 шт."
-	id = "techshotshell_x7"
+/datum/design/techshell/x20
+	name = "12 Калибр: Высокотехнологичный - 20 шт."
+	id = "techshotshell_x20"
 	construction_time = 40
-	materials = list(/datum/material/iron = 21000, /datum/material/glass = 3500)
+	materials = list(/datum/material/iron = 60000, /datum/material/glass = 10000)
 	build_path = /obj/item/storage/box/battle_techshell
 	sub_category = list("Упаковки патронов 12 калибра")

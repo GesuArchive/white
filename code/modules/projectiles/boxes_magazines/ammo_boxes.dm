@@ -96,15 +96,40 @@
 
 /obj/item/ammo_box/a762
 	name = "скорозарядник калибра 7.62мм"
-	desc = "Обычный патрон калибра 7.62мм. Используется в различных винтовках."
+	desc = "Вмещает до 5 патронов калибра 7.62мм. Подходит к винтовке Мосина."
 	icon_state = "762"
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 5
 	multiple_sprites = AMMO_BOX_PER_BULLET
 
+/obj/item/ammo_box/zinc_762
+	name = "цинк патронов калибра 7.62мм"
+	desc = "Вмещает 90 патронов калибра 7.62мм. Подходит к большинству оружия Красной Армии."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "ammobox"
+	inhand_icon_state = "ammobox"
+	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
+	pickup_sound =  'sound/items/handling/ammobox_pickup.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
+	ammo_type = /obj/item/ammo_casing/a762
+	max_ammo = 90
+
+/obj/item/ammo_box/magazine/ak47mag
+	name = "магазин калибра 7.62мм"
+	desc = "Содержит обычные патроны калибра 7.62мм. Подходит к автомату Калашникова."
+	icon = 'white/valtos/icons/ammo.dmi'
+	icon_state = "akm"
+	ammo_type = /obj/item/ammo_casing/a762
+	caliber = "a762"
+	max_ammo = 30
+
+/obj/item/ammo_box/magazine/ak47mag/update_icon()
+	..()
+	icon_state = "akm-[ammo_count() ? "30" : "0"]"
+
 /obj/item/ammo_box/n762
 	name = "упаковка патронов калибра 7.62x38мм-R"
-	desc = "Обычные патроны калибра 7.62x38мм-R. Используется в револьверах системы Нагана."
+	desc = "Содержит обычные патроны калибра 7.62x38мм-R. Используется в револьверах системы Нагана."
 	icon_state = "10mmbox"
 	ammo_type = /obj/item/ammo_casing/n762
 	max_ammo = 14

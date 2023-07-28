@@ -61,7 +61,7 @@
 /turf/open/floor/carpet/purple,
 /area/ruin/unpowered)
 "u" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "x" = (
 /obj/structure/table/wood,

@@ -344,8 +344,8 @@
 
 /mob/living/simple_animal/hostile/megafauna/dragon/lesser
 	name = "lesser ash drake"
-	maxHealth = 200
-	health = 200
+	maxHealth = 300
+	health = 300
 	faction = list("neutral")
 	obj_damage = 80
 	melee_damage_upper = 30
@@ -359,9 +359,9 @@
 
 /mob/living/simple_animal/hostile/megafauna/dragon/lesser/Initialize(mapload)
 	. = ..()
-	fire_cone.Remove(src)
-	meteors.Remove(src)
-	mass_fire.Remove(src)
+	fire_cone.cooldown_time = 20 SECONDS
+	meteors.cooldown_time = 20 SECONDS
+	mass_fire.cooldown_time = 60 SECONDS
 	lava_swoop.cooldown_time = 20 SECONDS
 
 /mob/living/simple_animal/hostile/megafauna/dragon/lesser/adjustHealth(amount, updating_health = TRUE, forced = FALSE)

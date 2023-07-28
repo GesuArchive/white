@@ -20636,6 +20636,10 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
+/obj/machinery/airalarm{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/open/floor/plasteel,
 /area/commons/storage/tools)
 "bbh" = (
@@ -58389,13 +58393,6 @@
 	dir = 1
 	},
 /area/science/research)
-"gqc" = (
-/obj/machinery/airalarm{
-	dir = 8;
-	pixel_x = 24
-	},
-/turf/closed/wall,
-/area/commons/storage/tools)
 "gqA" = (
 /obj/machinery/button/door{
 	id = "abandoned_kitchen";
@@ -117301,7 +117298,7 @@ aUT
 aUM
 dhN
 aZt
-gqc
+aZt
 bfJ
 aZt
 aZt

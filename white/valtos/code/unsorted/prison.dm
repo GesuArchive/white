@@ -103,7 +103,7 @@
 	turf_type = /turf/open/floor/plating/asteroid/dirty
 	floor_variance = 0
 	initial_gas_mix = "o2=22;n2=82;TEMP=225.15"
-	slowdown = 3
+	slowdown = 1
 
 /turf/open/floor/plating/asteroid/dirty/fake_lava_v1
 	name = "искусственная лава"
@@ -133,7 +133,7 @@
 	name = "тротуар"
 	desc = "В самый раз для пробежек."
 	icon_state = "trot"
-	initial_gas_mix = "o2=22;n2=82;TEMP=248.15"
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	icon = 'white/valtos/icons/prison/beton.dmi'
 	floor_tile = /obj/item/stack/tile/trot
 	slowdown = -0.1

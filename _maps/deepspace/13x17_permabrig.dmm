@@ -271,9 +271,6 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/unpowered)
-"EW" = (
-/turf/closed/wall/r_wall,
-/area/ruin/unpowered)
 "Fz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -441,10 +438,6 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/unpowered)
-"TT" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/closed/wall/r_wall,
-/area/ruin/unpowered)
 "VL" = (
 /obj/machinery/holopad,
 /obj/effect/decal/cleanable/dirt,
@@ -492,26 +485,26 @@
 Oe
 Oe
 Oe
-EW
-EW
-EW
-TT
-TT
-TT
-EW
-TT
-TT
-EW
+lv
+lv
+lv
+ZT
+ZT
+ZT
+lv
+ZT
+ZT
+lv
 bO
 xV
 ee
 lv
 "}
 (2,1,1) = {"
-EW
-EW
+lv
+lv
 My
-EW
+lv
 hU
 dQ
 Ez
@@ -527,7 +520,7 @@ wg
 lv
 "}
 (3,1,1) = {"
-EW
+lv
 Jw
 Nf
 sa
@@ -558,14 +551,14 @@ Ha
 lv
 My
 My
-EW
+lv
 bO
 bO
 VT
 lv
 "}
 (5,1,1) = {"
-EW
+lv
 jz
 jz
 vY
@@ -603,7 +596,7 @@ PW
 lv
 "}
 (7,1,1) = {"
-EW
+lv
 Wr
 jz
 HD
@@ -615,7 +608,7 @@ NR
 My
 RC
 vM
-EW
+lv
 bO
 bO
 BT
@@ -634,14 +627,14 @@ NR
 lv
 My
 My
-EW
+lv
 bO
 bO
 Me
 lv
 "}
 (9,1,1) = {"
-EW
+lv
 AM
 SX
 NR
@@ -679,7 +672,7 @@ Me
 lv
 "}
 (11,1,1) = {"
-EW
+lv
 cK
 NR
 kJ
@@ -691,26 +684,26 @@ ve
 lv
 ZT
 ZT
-EW
+lv
 bO
 bO
 MX
 lv
 "}
 (12,1,1) = {"
-EW
-EW
+lv
+lv
 My
-EW
-EW
-EW
-EW
+lv
+lv
+lv
+lv
 xS
 xh
 fZ
 Qh
 lG
-EW
+lv
 bO
 bO
 bO
@@ -723,13 +716,13 @@ Oe
 Oe
 aW
 Oe
-EW
-EW
-EW
-EW
-EW
-EW
-EW
+lv
+lv
+lv
+lv
+lv
+lv
+lv
 bO
 AG
 bO

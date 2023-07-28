@@ -1,4 +1,20 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ah" = (
+/obj/effect/spawner/random/entertainment/money_small,
+/turf/open/floor/plating/asteroid/dirty,
+/area/rust_zone)
+"ay" = (
+/obj/item/stack/spacecash/c10000,
+/obj/structure/closet/crate/secure/owned{
+	locked = 0
+	},
+/obj/effect/spawner/random/entertainment/money_large,
+/turf/open/floor/grass/gensgrass/dirty,
+/area/rust_zone)
+"aV" = (
+/obj/effect/spawner/random/entertainment/coin,
+/turf/open/floor/grass/gensgrass,
+/area/rust_zone)
 "bl" = (
 /obj/machinery/conveyor{
 	id = "mining_internal"
@@ -17,6 +33,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/mine/storage)
+"cm" = (
+/obj/effect/mob_spawn/human/corpse/assistant,
+/turf/open/floor/plating/asteroid/dirty,
+/area/rust_zone)
 "cD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 8
@@ -37,6 +57,14 @@
 "dR" = (
 /turf/open/genturf,
 /area/rust_zone)
+"ed" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/structure/table,
+/turf/open/floor/plasteel/dark,
+/area/mine/storage)
 "eI" = (
 /obj/structure/resource_spawner/rich,
 /turf/open/floor/grass/gensgrass/dirty,
@@ -136,10 +164,6 @@
 /turf/open/floor/grass/gensgrass,
 /area/rust_zone)
 "ne" = (
-/obj/machinery/conveyor_switch/oneway{
-	id = "mining_internal";
-	name = "mining conveyor"
-	},
 /obj/effect/random_mob_placer/combat_ai,
 /turf/open/floor/trot,
 /area/mine/production)
@@ -174,6 +198,18 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"pS" = (
+/obj/structure/cable,
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 12
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/turf/open/floor/plating/rust,
+/area/mine/storage)
 "qa" = (
 /obj/item/card/id/departmental_budget/sec,
 /turf/open/floor/grass/gensgrass,
@@ -197,6 +233,15 @@
 "sh" = (
 /obj/structure/ore_box,
 /obj/effect/turf_decal/bot,
+/turf/open/floor/trot,
+/area/mine/production)
+"sK" = (
+/obj/effect/spawner/random/entertainment/coin,
+/turf/open/floor/plating/asteroid/dirty,
+/area/rust_zone)
+"tL" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/trot,
 /area/mine/production)
 "tO" = (
@@ -231,25 +276,12 @@
 /turf/open/floor/trot,
 /area/rust_zone)
 "wA" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8
-	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/rust_zone)
+"xm" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/trot,
 /area/mine/production)
-"xm" = (
-/obj/structure/table,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = 12
-	},
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = -2;
-	pixel_y = 2
-	},
-/turf/open/floor/plasteel/dark,
-/area/mine/storage)
 "xD" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -278,6 +310,13 @@
 /obj/item/card/id/departmental_budget/srv,
 /turf/open/floor/grass/gensgrass,
 /area/rust_zone)
+"yY" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "mining_internal";
+	name = "mining conveyor"
+	},
+/turf/open/floor/trot,
+/area/mine/production)
 "zl" = (
 /turf/open/floor/grass/gensgrass/dirty,
 /area/rust_zone)
@@ -293,11 +332,13 @@
 /turf/open/floor/grass/gensgrass/dirty,
 /area/rust_zone)
 "zM" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8
+/obj/item/stack/spacecash/c10000,
+/obj/structure/closet/crate/secure/owned{
+	locked = 0
 	},
-/turf/open/floor/trot,
-/area/mine/production)
+/obj/effect/spawner/random/entertainment/money_large,
+/turf/open/floor/plating/asteroid/dirty,
+/area/rust_zone)
 "Af" = (
 /obj/structure/resource_spawner/crate/rich,
 /turf/open/floor/plating/grass/jungle,
@@ -324,7 +365,8 @@
 /turf/open/floor/trot,
 /area/mine/production)
 "BY" = (
-/obj/machinery/light{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 8
 	},
 /turf/open/floor/trot,
@@ -352,6 +394,10 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"Ea" = (
+/obj/effect/mob_spawn/human/corpse/cargo_tech,
+/turf/open/floor/plating/rust,
+/area/mine/storage)
 "Ed" = (
 /obj/structure/cable,
 /turf/open/floor/plating/rust,
@@ -373,6 +419,14 @@
 "Gc" = (
 /turf/open/floor/plating/rust,
 /area/mine/storage)
+"Gm" = (
+/obj/machinery/autolathe,
+/turf/open/floor/grass/gensgrass,
+/area/rust_zone)
+"GH" = (
+/obj/machinery/atmospherics/components/unary/tank/air,
+/turf/open/floor/trot,
+/area/mine/production)
 "Hn" = (
 /obj/item/card/id/departmental_budget/civ,
 /turf/open/floor/grass/gensgrass/dirty,
@@ -402,7 +456,12 @@
 /turf/open/floor/plating/grass/jungle,
 /area/rust_zone)
 "JB" = (
-/obj/structure/resource_spawner/crate,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 8
+	},
 /turf/open/floor/trot,
 /area/mine/production)
 "JQ" = (
@@ -434,13 +493,10 @@
 /turf/open/floor/grass/gensgrass,
 /area/rust_zone)
 "La" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 8
-	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/trot,
-/area/mine/production)
+/obj/structure/table,
+/turf/open/floor/plasteel/dark,
+/area/mine/storage)
 "Lh" = (
 /turf/open/floor/trot,
 /area/rust_zone)
@@ -459,11 +515,9 @@
 /turf/open/floor/trot,
 /area/mine/production)
 "Nh" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/structure/cable,
-/turf/open/floor/plasteel/dark,
+/obj/machinery/power/port_gen/pacman,
+/turf/open/floor/plating/rust,
 /area/mine/storage)
 "ON" = (
 /obj/item/card/id/departmental_budget/car,
@@ -520,6 +574,11 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/trot,
+/area/mine/production)
+"TM" = (
+/obj/machinery/ore_silo,
 /turf/open/floor/trot,
 /area/mine/production)
 "Uf" = (
@@ -5139,10 +5198,10 @@ dR
 dR
 dR
 zl
-zl
-zl
-zl
-zl
+dR
+dR
+dR
+dR
 dR
 dR
 dR
@@ -5396,10 +5455,10 @@ dR
 dR
 dR
 zl
-zl
-zl
-zl
-zl
+dR
+ah
+wA
+wA
 dR
 dR
 dR
@@ -5653,10 +5712,10 @@ dR
 dR
 dR
 zl
-zl
-zl
-zl
-zl
+dR
+wA
+zM
+ah
 dR
 dR
 dR
@@ -5911,9 +5970,9 @@ zl
 dR
 dR
 dR
-dR
-dR
-dR
+wA
+ah
+cm
 dR
 dR
 dR
@@ -8099,7 +8158,7 @@ xZ
 zl
 zl
 zl
-xZ
+Gm
 xZ
 xZ
 xZ
@@ -20153,7 +20212,7 @@ dR
 dR
 dR
 zl
-zl
+ay
 zl
 dR
 dR
@@ -37594,9 +37653,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+xZ
+xZ
+xZ
 dR
 dR
 dR
@@ -37849,11 +37908,11 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
+xZ
+xZ
+xZ
+xZ
+xZ
 dR
 dR
 dR
@@ -38104,12 +38163,12 @@ dR
 dR
 dR
 dR
-xZ
-xZ
-xZ
-xZ
-xZ
 dR
+aV
+xZ
+xZ
+xZ
+xZ
 dR
 dR
 dR
@@ -38362,9 +38421,9 @@ dR
 dR
 dR
 xZ
-xZ
-xZ
-xZ
+wA
+wA
+sK
 xZ
 dR
 dR
@@ -38619,9 +38678,9 @@ dR
 dR
 dR
 xZ
-xZ
-xZ
-xZ
+wA
+zM
+wA
 xZ
 dR
 dR
@@ -38874,11 +38933,11 @@ dR
 dR
 dR
 dR
-dR
 xZ
 xZ
-xZ
-xZ
+sK
+wA
+cm
 xZ
 dR
 dR
@@ -39131,12 +39190,12 @@ dR
 dR
 dR
 dR
-dR
 xZ
 xZ
 xZ
 xZ
 xZ
+aV
 dR
 dR
 dR
@@ -39387,10 +39446,10 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
+xZ
+xZ
+xZ
+xZ
 dR
 dR
 dR
@@ -39645,7 +39704,7 @@ dR
 xZ
 xZ
 xZ
-dR
+xZ
 dR
 dR
 dR
@@ -40409,7 +40468,7 @@ dR
 dR
 dR
 dR
-dR
+cL
 xZ
 xZ
 xZ
@@ -40663,10 +40722,10 @@ dR
 dR
 dR
 dR
-xZ
-xZ
-xZ
-dR
+cL
+cL
+cL
+cL
 dR
 dR
 dR
@@ -40920,9 +40979,9 @@ rz
 dR
 cL
 cL
-xZ
-xZ
-xZ
+cL
+cL
+cL
 dR
 dR
 dR
@@ -41174,10 +41233,10 @@ cL
 cL
 cL
 cL
-xZ
-xZ
 cL
-dR
+cL
+cL
+cL
 dR
 dR
 dR
@@ -41903,11 +41962,11 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
+cL
+cL
+cL
+cL
+cL
 dR
 dR
 dR
@@ -41940,8 +41999,8 @@ cL
 cL
 cL
 cL
-dR
-dR
+cL
+cL
 cL
 cL
 cL
@@ -42161,7 +42220,6 @@ dR
 dR
 dR
 dR
-xZ
 cL
 cL
 cL
@@ -42169,7 +42227,8 @@ cL
 cL
 cL
 cL
-dR
+cL
+cL
 cL
 cL
 cL
@@ -42198,7 +42257,7 @@ cL
 cL
 cL
 cL
-dR
+cL
 dR
 dR
 dR
@@ -42438,9 +42497,6 @@ cL
 cL
 cL
 cL
-dR
-dR
-dR
 cL
 cL
 cL
@@ -42451,7 +42507,10 @@ cL
 cL
 cL
 cL
-dR
+cL
+cL
+cL
+cL
 cL
 cL
 cL
@@ -43812,9 +43871,9 @@ dR
 dR
 dR
 dR
-zl
-zl
-zl
+dR
+dR
+dR
 dR
 dR
 dR
@@ -44068,73 +44127,9 @@ dR
 dR
 dR
 dR
-dR
-zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+wA
+wA
+sK
 dR
 dR
 dR
@@ -44161,6 +44156,14 @@ dR
 dR
 dR
 zl
+zl
+zl
+zl
+dR
+dR
+dR
+dR
+dR
 dR
 dR
 dR
@@ -44210,6 +44213,62 @@ dR
 dR
 dR
 dR
+dR
+dR
+dR
+dR
+dR
+dR
+zl
+dR
+dR
+dR
+dR
+dR
+zl
+zl
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+dR
+xZ
 xZ
 xZ
 xZ
@@ -44325,10 +44384,10 @@ dR
 dR
 dR
 dR
+wA
+zM
+wA
 dR
-zl
-zl
-zl
 dR
 dR
 dR
@@ -44466,8 +44525,8 @@ dR
 dR
 dR
 dR
-dR
-dR
+xZ
+xZ
 dR
 dR
 dR
@@ -44582,9 +44641,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+sK
+wA
+wA
 dR
 dR
 zl
@@ -45492,7 +45551,7 @@ dR
 dR
 dR
 dR
-dR
+xZ
 xZ
 xZ
 dR
@@ -45749,8 +45808,8 @@ dR
 dR
 dR
 dR
-dR
-dR
+xZ
+xZ
 dR
 dR
 dR
@@ -46005,8 +46064,8 @@ dR
 dR
 dR
 dR
-dR
-dR
+xZ
+xZ
 dR
 dR
 dR
@@ -46263,7 +46322,7 @@ dR
 dR
 xZ
 xZ
-dR
+xZ
 dR
 dR
 dR
@@ -58597,7 +58656,7 @@ xZ
 zl
 zl
 CM
-Gc
+Nh
 Gc
 kf
 Gc
@@ -58854,12 +58913,12 @@ zl
 xZ
 xZ
 xM
-Gc
+Ed
 Gc
 tO
 cD
 Gc
-Gc
+Ea
 Zs
 ok
 CM
@@ -59625,12 +59684,12 @@ zl
 xZ
 xZ
 CM
-Gc
-Gc
-Gc
-yb
+pS
+La
+ed
+ks
 Ed
-Gc
+Zs
 Zs
 QK
 CM
@@ -59882,14 +59941,14 @@ zl
 xZ
 xZ
 CM
-Ed
-Ay
-Nh
-ks
-Ed
-Zs
-Zs
-xm
+CM
+CM
+CM
+WZ
+nX
+CM
+CM
+CM
 CM
 dR
 dR
@@ -60138,16 +60197,16 @@ xZ
 zl
 zl
 vT
-CM
-CM
-CM
-CM
-WZ
-nX
-CM
-CM
-CM
-CM
+XM
+GH
+JB
+JV
+gE
+xm
+tL
+Uh
+TM
+XM
 dR
 dR
 dR
@@ -60398,12 +60457,12 @@ Uv
 XM
 Tq
 BY
-JV
+BY
 gE
-La
-wA
-JB
-Uh
+JV
+JV
+JV
+JV
 XM
 dR
 xZ
@@ -60654,8 +60713,8 @@ zl
 JQ
 kX
 bU
-bU
-bU
+JV
+Ee
 gE
 xD
 JV
@@ -60912,8 +60971,8 @@ ur
 XM
 Uf
 JV
-Ee
-zM
+JV
+JV
 JV
 JV
 XM
@@ -61172,7 +61231,7 @@ JV
 VY
 ne
 Dc
-JV
+yY
 OQ
 Ms
 XM
@@ -61422,7 +61481,7 @@ zl
 zl
 zl
 xZ
-xZ
+QN
 XM
 sh
 SB
@@ -61679,7 +61738,7 @@ xZ
 xZ
 xZ
 xZ
-xZ
+Lm
 XM
 Ax
 Ho
@@ -63993,8 +64052,8 @@ xZ
 xZ
 xZ
 xZ
-QN
-Lm
+xZ
+xZ
 xZ
 xZ
 xZ

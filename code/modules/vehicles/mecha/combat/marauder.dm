@@ -64,8 +64,8 @@
 	build_all_button_icons()
 
 /obj/vehicle/sealed/mecha/combat/marauder/seraph
-	desc = "Heavy-duty, command-type exosuit. This is a custom model, utilized only by high-ranking military personnel."
-	name = "\improper Seraph"
+	name = "Серафим"
+	desc = "Сверхпрочный экзоскелет командного типа. Используется в рядах специальных вооруженных сил НаноТрейзен."
 	icon_state = "seraph"
 	operation_req_access = list(ACCESS_CENT_SPECOPS)
 	internals_req_access = list(ACCESS_CENT_SPECOPS)

@@ -135,7 +135,7 @@
 	desc = "Руководство Синдиката не обрадуется..."
 
 /obj/structure/mecha_wreckage/seraph
-	name = "Seraph wreckage"
+	name = "остов Серафима"
 	icon_state = "seraph-broken"
 
 /obj/structure/mecha_wreckage/reticence

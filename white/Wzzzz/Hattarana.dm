@@ -149,14 +149,3 @@
 	name = "victorian dress"
 	can_adjust = FALSE
 	desc = "Like true lady"
-
-/obj/item/storage/toolbox/ammo/wt550
-
-/obj/item/storage/toolbox/ammo/wt550/PopulateContents()
-	new /obj/item/ammo_box/magazine/wt550m9(src)
-	new /obj/item/ammo_box/magazine/wt550m9(src)
-	new /obj/item/ammo_box/magazine/wt550m9(src)
-	new /obj/item/ammo_box/magazine/wt550m9(src)
-	new /obj/item/ammo_box/magazine/wt550m9(src)
-	new /obj/item/ammo_box/magazine/wt550m9(src)
-	new /obj/item/ammo_box/magazine/wt550m9(src)

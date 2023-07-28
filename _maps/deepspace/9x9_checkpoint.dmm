@@ -82,9 +82,6 @@
 	dir = 9
 	},
 /area/ruin/unpowered)
-"s" = (
-/turf/closed/wall/r_wall,
-/area/ruin/unpowered)
 "t" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/red,
@@ -257,40 +254,40 @@
 /area/ruin/unpowered)
 
 (1,1,1) = {"
-s
-s
-s
-s
-s
+C
+C
+C
+C
+C
 i
 T
 i
 C
 "}
 (2,1,1) = {"
-s
+C
 b
 N
 E
-s
+C
 y
 i
 q
 C
 "}
 (3,1,1) = {"
-s
+C
 K
 x
 f
-s
+C
 u
 A
 u
 C
 "}
 (4,1,1) = {"
-s
+C
 n
 S
 l
@@ -312,7 +309,7 @@ l
 C
 "}
 (6,1,1) = {"
-s
+C
 m
 B
 z
@@ -323,33 +320,33 @@ o
 C
 "}
 (7,1,1) = {"
-s
+C
 P
 a
 c
-s
+C
 u
 F
 u
 C
 "}
 (8,1,1) = {"
-s
+C
 k
 G
 t
-s
+C
 D
 i
 w
 C
 "}
 (9,1,1) = {"
-s
-s
-s
-s
-s
+C
+C
+C
+C
+C
 i
 V
 i
