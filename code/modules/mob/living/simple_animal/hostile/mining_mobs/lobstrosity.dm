@@ -25,7 +25,7 @@
 	attack_verb_simple = "snip"
 	attack_sound = 'sound/weapons/bite.ogg'
 	attack_vis_effect = ATTACK_EFFECT_BITE //the closest we have to a crustacean pinching attack effect rn.
-	weather_immunities = list(TRAIT_ASHSTORM_IMMUNE)
+	weather_immunities = list(WEATHER_ASH)
 	vision_range = 5
 	aggro_vision_range = 7
 	butcher_results = list(/obj/item/food/meat/crab = 2, /obj/item/stack/sheet/bone = 2)
@@ -55,7 +55,7 @@
 	icon_state = "lobstrosity"
 	icon_living = "lobstrosity"
 	icon_dead = "lobstrosity_dead"
-	weather_immunities = list(TRAIT_LAVA_IMMUNE,TRAIT_ASHSTORM_IMMUNE)
+	weather_immunities = list(WEATHER_LAVA, WEATHER_ASH)
 
 /obj/item/crusher_trophy/lobster_claw
 	name = "lobster claw"

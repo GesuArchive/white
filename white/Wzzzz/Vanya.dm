@@ -38,7 +38,7 @@
 	name = "skeleton archer"
 	icon = 'white/Wzzzz/e.dmi'
 	faction = list("mining")
-	weather_immunities = list("ash")
+	weather_immunities = list(WEATHER_ASH)
 	icon_state = "bownner"
 	icon_living = "bownner"
 	icon_dead = "bownner"
@@ -65,7 +65,7 @@
 	icon_dead = "nicemeals"
 	gender = NEUTER
 	speak_chance = 0
-	weather_immunities = list("ash")
+	weather_immunities = list(WEATHER_ASH)
 	turns_per_move = 1
 	maxHealth = 300
 	health = 300
@@ -110,7 +110,7 @@
 	maxHealth = 50
 	health = 50
 	faction = list("mining")
-	weather_immunities = list("ash")
+	weather_immunities = list(WEATHER_ASH)
 	see_in_dark = 1
 	butcher_results = list(/obj/item/food/meat/slab/human/mutant/fly = 1)
 	response_help_continuous = "prods"
@@ -146,7 +146,7 @@
 	turns_per_move = 2
 	maxHealth = 150
 	faction = list("mining")
-	weather_immunities = list("lava","ash")
+	weather_immunities = list(WEATHER_LAVA, WEATHER_ASH)
 	health = 150
 	see_in_dark = 3
 	butcher_results = list(/obj/item/food/meat/slab/human = 3)
@@ -179,7 +179,7 @@
 	icon_living = "blyadina"
 	icon_dead = "blyadinas"
 	faction = list("mining")
-	weather_immunities = list("ash")
+	weather_immunities = list(WEATHER_ASH)
 	gender = MALE
 	speak_chance = 0
 	turns_per_move = 1

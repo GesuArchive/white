@@ -23,7 +23,7 @@
 	health = 2500
 	maxHealth = 2500
 	movement_type = GROUND
-	weather_immunities = list("lava","ash")
+	weather_immunities = list(WEATHER_LAVA, WEATHER_ASH)
 	var/phase = 1
 	var/list/introduced = list()
 	var/speen = FALSE

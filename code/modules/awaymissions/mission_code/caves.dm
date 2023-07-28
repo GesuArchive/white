@@ -267,7 +267,7 @@
 	speech_span = SPAN_SANS
 	sell_sound = 'sound/voice/hiss2.ogg'
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	weather_immunities = list(TRAIT_ASHSTORM_IMMUNE)
+	weather_immunities = list(WEATHER_ASH)
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	say_phrases = list(
 		ITEM_REJECTED_PHRASE = list(

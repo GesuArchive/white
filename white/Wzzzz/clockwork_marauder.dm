@@ -10,7 +10,7 @@
 	melee_damage_lower = 12
 	melee_damage_upper = 12
 	attack_sound = 'sound/weapons/sword_kill_slash_02.ogg'
-	weather_immunities = list("lava")
+	weather_immunities = list(WEATHER_LAVA)
 	movement_type = FLYING
 	light_range = 2
 	light_power = 1.1
