@@ -122,8 +122,8 @@
 	SIGNAL_HANDLER
 	if(fixeye_enabled)
 		return
-	blocker_mask.dir = new_dir
-	visual_shadow.dir = new_dir
+	blocker_mask?.dir = new_dir
+	visual_shadow?.dir = new_dir
 
 /// When a mob logs out, delete the component
 /datum/component/fov_handler/proc/mob_logout(mob/source)
