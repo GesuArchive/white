@@ -42,7 +42,7 @@
 	attack_verb_simple = "грызёт"
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 	attack_vis_effect = ATTACK_EFFECT_BITE
-	icon = 'icons/mob/lavaland/64x64megafauna.dmi'
+	icon = 'icons/mob/lavaland/96x96megafauna.dmi'
 	icon_state = "dragon"
 	icon_living = "dragon"
 	icon_dead = "dragon_dead"
@@ -148,7 +148,7 @@
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/start_attack(mob/living/owner, datum/action/cooldown/activated)
 	SIGNAL_HANDLER
 	if(activated == lava_swoop)
-		icon_state = "shadow"
+		icon_state = "dragon_shadow"
 		swooping = SWOOP_DAMAGEABLE
 
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/swoop_invulnerability_started()

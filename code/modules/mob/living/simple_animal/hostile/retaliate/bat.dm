@@ -70,7 +70,7 @@
 /mob/living/simple_animal/hostile/retaliate/bat/magmawing
 	name = "магмовый страж"
 	desc = "Будучи выпущенными очень близко к лаве, некоторые стражи приспосабливаются к экстремальной жаре и используют лаву как оружие..."
-	icon = 'icons/mob/lavaland/watcher.dmi'
+	icon = 'icons/mob/lavaland/lavaland_monsters_wide.dmi'
 	icon_state = "watcher_magmawing"
 	icon_living = "watcher_magmawing"
 	icon_dead = "watcher_magmawing_dead"
@@ -88,7 +88,7 @@
 /mob/living/simple_animal/hostile/retaliate/bat/icewing
 	name = "ледяной страж"
 	desc = "Очень редко некоторые стражи предпочитают обитать вдали от источников тепла. В отсутствие тепла они становятся ледяными и хрупкими, но стреляют гораздо более сильными морозными ударами."
-	icon = 'icons/mob/lavaland/watcher.dmi'
+	icon = 'icons/mob/lavaland/lavaland_monsters_wide.dmi'
 	icon_state = "watcher_icewing"
 	icon_living = "watcher_icewing"
 	icon_dead = "watcher_icewing_dead"

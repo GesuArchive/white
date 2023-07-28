@@ -96,7 +96,7 @@
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher
 	name = "watcher"
 	desc = "A levitating, eye-like creature held aloft by winglike formations of sinew. A sharp spine of crystal protrudes from its body."
-	icon = 'icons/mob/lavaland/watcher.dmi'
+	icon = 'icons/mob/lavaland/lavaland_monsters_wide.dmi'
 	icon_state = "watcher"
 	icon_living = "watcher"
 	icon_aggro = "watcher"
