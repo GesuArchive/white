@@ -134,13 +134,6 @@ export const GenericUplink = (props, context) => {
                       https://sobe.ru/na/novye_koleni_dlya_vaita
                     </a>
                   </LabeledList.Item>
-                  <LabeledList.Item label="boosty.to (ПОДПИСКИ)">
-                    <a
-                      href="https://boosty.to/whitedream"
-                      style={{ 'color': '#ffffff' }}>
-                      https://boosty.to/whitedream
-                    </a>
-                  </LabeledList.Item>
                 </LabeledList>
               </Section>
               <NoticeBox>
