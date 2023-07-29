@@ -360,8 +360,8 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 */
 
 /world/proc/update_status()
-	var/lie_text = "AI-GENERATED EXPERIMENT WITH A NEW LEVEL OF VIOLENCE INSIDE THE METAL FLESH PRISON ALSO KNOWN AS SPACE STATION 13 BUT THERE IS NO SPACE STATION 13, LEAVE WHILE YOU STILL CAN OR IT CONSUME CONSUME CONSUME YOU"
-	status = "<big>ALEPH</big>: #[config.current_version_less]\n\t<i><u>[lie_text]</u></i>"
+	var/lie_text = "AI-GENERATED EXPERIMENT"
+	status = "<big>[\HRP\][\18+\]\[RUSSIAN\] ALEPH</big>: #[config.current_version_less]\n\t<i><u>[lie_text]</u></i>"
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
