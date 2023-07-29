@@ -47,13 +47,26 @@
 			if(prob(shuffleLawsChance))
 				M.shuffle_laws(list(LAW_INHERENT, LAW_SUPPLIED, LAW_ION))
 
-			log_game("Ion storm changed laws of [key_name(M)] to [english_list(M.laws.get_law_list(TRUE, TRUE))]")
+			log_game("Ионный закон сменил закон [key_name(M)] на [english_list(M.laws.get_law_list(TRUE, TRUE))]")
 			M.post_lawchange()
 
 	if(botEmagChance)
 		for(var/mob/living/simple_animal/bot/bot in GLOB.alive_mob_list)
 			if(prob(botEmagChance))
 				bot.emag_act()
+
+/datum/round_event/ion_storm/malicious
+	var/location_name
+
+/datum/round_event/ion_storm/malicious/announce(fake)
+	// Unlike normal ion storm, this always announces.
+	priority_announce("Обнаружена аномальная ионная активность. Пожалуйста, проверьте все оборудование, управляемое ИИ, на наличие ошибок. Дополнительные данные были загружены и распечатаны на всех коммуникационных консолях.", "Аномальная тревога", ANNOUNCER_IONSTORM)
+
+	var/message = "Обнаружено злонамеренное вмешательство в работу стандартных подсистем ИИ. Рекомендуется провести расследование.<br><br>"
+	message += (location_name ? "Сигнал отслеживается до <B>[location_name]</B>.<br>" : "Не получается отследить сигнал.<br>")
+	print_command_report(message, null, FALSE)
+
+
 
 /proc/generate_ion_law()
 	//Threats are generally bad things, silly or otherwise. Plural.
