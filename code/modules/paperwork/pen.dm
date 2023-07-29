@@ -151,32 +151,32 @@
 	if(!istype(M))
 		return
 
-	if(!force)
-		if(user.zone_selected == BODY_ZONE_HEAD)
-			var/input = tgui_input_text(usr, "Что бы ты хотел написать у [M] на лбу?", "Засранец...", M.headstamp)
-			if(!input || length(input) >= 30)
-				to_chat(user, span_warning("Не хочу писать..."))
-				return
-			M.visible_message(user, span_danger("[user] начинает писать что-то на лбу <b>[M]</b>."))
-			var/speedofwriting = 40
-			if((HAS_TRAIT(user, TRAIT_CLUMSY)))
-				speedofwriting = 15
-			if(src.use_tool(M, user, speedofwriting, volume=50))
-				M.visible_message(user, span_danger("[user] написал <b>[input]</b на лбу <b>[M]</b>."))
-				M.headstamp = input
-				return
+	if(force)
+		return . = ..()
+
+	if(user.zone_selected == BODY_ZONE_HEAD)
+		var/input = tgui_input_text(usr, "Что бы ты хотел написать у [M] на лбу?", "Засранец...", M.headstamp)
+		if(!input || length(input) >= 30)
 			to_chat(user, span_warning("Не хочу писать..."))
 			return
-		if(M.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
-			to_chat(user, span_warning("You stab [M] with the pen."))
-			if(!stealth)
-				to_chat(M, span_danger("Что-то укололо меня!"))
-			. = 1
+		M.visible_message(user, span_danger("[user] начинает писать что-то на лбу <b>[M]</b>."))
+		var/speedofwriting = 40
+		if((HAS_TRAIT(user, TRAIT_CLUMSY)))
+			speedofwriting = 15
+		if(!use_tool(M, user, speedofwriting, volume=50))
+			to_chat(user, span_warning("Не хочу писать..."))
+			return
+		M.visible_message(user, span_danger("[user] пишет <big>[input]</big> на лбу <b>[M]</b>."))
+		M.headstamp = input
+		return
 
-		log_combat(user, M, "втыкает", src)
+	if(M.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
+		to_chat(user, span_warning("Тыкаю [M] ручкой."))
+		if(!stealth)
+			to_chat(M, span_danger("Что-то укололо меня!"))
+		. = 1
 
-	else
-		. = ..()
+	log_combat(user, M, "втыкает", src)
 
 /obj/item/pen/afterattack(obj/O, mob/living/user, proximity)
 	. = ..()

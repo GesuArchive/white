@@ -369,12 +369,12 @@
 			adjusted_time = (recipe.time * recipe.trait_modifier*builder.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER))
 		else
 			adjusted_time = recipe.time*builder.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER)
-		builder.mind.adjust_experience(/datum/skill/engineering, recipe.time)
 		if(!do_after(builder, adjusted_time, target = builder))
 			builder.balloon_alert(builder, "помешали!")
 			return
 		if(!building_checks(builder, recipe, multiplier))
 			return
+		builder.mind.adjust_experience(/datum/skill/engineering, recipe.time)
 
 	var/atom/created
 	if(recipe.max_res_amount > 1) // Is it a stack?
