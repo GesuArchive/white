@@ -21,7 +21,7 @@
 		return
 
 	var/list/cril = ask_crawler_for_support()
-	var/list/badlist = list("SS220", "Tau Ceti", "SS13.RU", "Fluffy", "Infinity")
+	var/list/badlist = list("SS220", "Tau Ceti", "SS13.RU", "Fluffy", "Infinity", "Paradise", "BlueMoon")
 
 	if(!cril)
 		return TRUE
