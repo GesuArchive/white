@@ -1061,4 +1061,4 @@ GLOBAL_PROTECT(all_dumb_admin_verbs)
 
 	LAZYADD(holder.last_verbs_used, list(list("verb" = params["verb"], "name" = params["name"], "desc" = params["desc"])))
 
-	ui_close(usr)
+	SStgui.close_uis(usr)
