@@ -363,7 +363,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 
 /world/proc/update_status()
 	var/lie_text = "AI-GENERATED EXPERIMENT"
-	status = "<big>\[HRP\]\[18+\]\[RUSSIAN\] ALEPH</big>: #[config.current_version_less]\n\t<i><u>[lie_text]</u></i>"
+	status = "<big>ALEPH</big>: #[config.current_version_less]\n\t<i><u>[lie_text]</u></i>"
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
