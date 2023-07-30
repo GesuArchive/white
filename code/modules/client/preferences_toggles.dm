@@ -16,26 +16,26 @@
 		winset(C, "[verbpath]", "is-checked = [!checked]")
 
 /datum/verbs/menu/settings/verb/setup_character()
-	set name = " ! Основные настройки"
+	set name = "Настройки"
 	set category = "Настройки"
 	set desc = "Основные настройки"
 	usr.client.prefs.current_tab = 2
 	usr.client.prefs.ShowChoices(usr)
 
 /datum/verbs/menu/settings/verb/setup_sound()
-	set name = " ! Настройка звука"
+	set name = "Звук"
 	set category = "Настройки"
 	set desc = "Настройки звука"
 	new /datum/sound_panel(usr)
 
 /datum/verbs/menu/settings/verb/setup_chat()
-	set name = " ! Настройка чата"
+	set name = "Чат"
 	set category = "Настройки"
 	set desc = "Настройки чата"
 	new /datum/chat_settings_panel(usr)
 
 /datum/verbs/menu/settings/verb/stop_client_sounds()
-	set name = "ПОЧИНИТЬ ЗВУК"
+	set name = "Починить звук"
 	set category = "Особенное"
 	set desc = "Остановить звуки"
 	SEND_SOUND(usr, sound(null))

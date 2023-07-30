@@ -1,9 +1,10 @@
 /// The defines for the appropriate config files
 #define WHITE_MENTOR_CONFIG_FILE "[global.config.directory]/mentors.txt"
 #define WHITE_EXRP_CONFIG_FILE "[global.config.directory]/whitelist_exrp.txt"
+#define WHITE_SOUP_CONFIG_FILE "[global.config.directory]/whitelist_soup.txt"
 
 /// The list of the available special player ranks
-#define WHITE_PLAYER_RANKS list("Mentor", "EXRP")
+#define WHITE_PLAYER_RANKS list("Mentor", "EXRP", "SOUP")
 
 /client/proc/manage_player_ranks()
 	set category = "Особенное"
@@ -58,8 +59,15 @@
 							to_chat(usr, span_warning("\"[player_to_be]\" is already a [group_title]!"))
 							return
 					// Now that we know that the ckey is valid and they're not already apart of that group, let's add them to it!
-					GLOB.whitelist_exrp[player_to_be] = TRUE
+					LAZYADD(GLOB.whitelist_exrp, player_to_be)
 					text2file(player_to_be, WHITE_EXRP_CONFIG_FILE)
+				if("SOUP")
+					for(var/a_soup as anything in GLOB.ya_ne_ebanulsya_prosto_produlo_i_mozg_vipal)
+						if(player_to_be == a_soup)
+							to_chat(usr, span_warning("\"[player_to_be]\" is already a [group_title]!"))
+							return
+					LAZYADD(GLOB.ya_ne_ebanulsya_prosto_produlo_i_mozg_vipal, player_to_be)
+					text2file(player_to_be, WHITE_SOUP_CONFIG_FILE)
 				else
 					return
 
@@ -97,6 +105,15 @@
 						to_chat(usr, span_warning("\"[player_that_was]\" was already not a [group_title]."))
 						return
 					save_exrp_players()
+				if("SOUP")
+					for(var/a_soup as anything in GLOB.ya_ne_ebanulsya_prosto_produlo_i_mozg_vipal)
+						if(player_that_was == a_soup)
+							GLOB.ya_ne_ebanulsya_prosto_produlo_i_mozg_vipal -= player_that_was
+							changes = TRUE
+					if(!changes)
+						to_chat(usr, span_warning("\"[player_that_was]\" was already not a [group_title]."))
+						return
+					save_soup_players()
 				else
 					return
 			message_admins("[key_name(usr)] has revoked [group_title] status from [player_that_was].")
@@ -136,6 +153,12 @@
 	for(var/exrp in GLOB.whitelist_exrp)
 		exrp_list += exrp + "\n"
 	rustg_file_write(exrp_list, WHITE_EXRP_CONFIG_FILE)
+
+/proc/save_soup_players()
+	var/soup_list = ""
+	for(var/soup in GLOB.ya_ne_ebanulsya_prosto_produlo_i_mozg_vipal)
+		soup_list += soup + "\n"
+	rustg_file_write(soup_list, WHITE_SOUP_CONFIG_FILE)
 
 #undef WHITE_MENTOR_CONFIG_FILE
 #undef WHITE_EXRP_CONFIG_FILE

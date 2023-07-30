@@ -145,6 +145,8 @@ GLOBAL_VAR(restart_counter)
 
 	load_whitelist_exrp()
 
+	load_whitelist_soup()
+
 	LoadVerbs(/datum/verbs/menu)
 
 	if(fexists(RESTART_COUNTER_PATH))

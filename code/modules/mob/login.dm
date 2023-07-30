@@ -32,6 +32,11 @@
 	computer_id	= client.computer_id
 	log_access("Mob Login: [key_name(src)] was assigned to a [type]")
 	world.update_status()
+
+
+	if(client.ckey in GLOB.ya_ne_ebanulsya_prosto_produlo_i_mozg_vipal)
+		return TRUE
+
 	client.clear_screen() //remove hud items just in case
 	client.images = list()
 	client.set_right_click_menu_mode(shift_to_open_context_menu)
