@@ -257,3 +257,24 @@
 	if(isopenturf(target) || istype(target, /turf/closed/indestructible))//shrunk floors wouldnt do anything except look weird, i-walls shouldn't be bypassable
 		return
 	target.AddComponent(/datum/component/shrink, shrink_time)
+
+/// BFG
+/obj/projectile/beam/bfg
+	name = "плазменный снаряд"
+	icon_state = "lava"
+	damage = 35
+	light_power = 2
+	light_color = "#ffff00"
+	speed = 1
+
+/obj/projectile/beam/bfg/Range()
+	. = ..()
+	for(var/atom/movable/passed in range(1, src))
+		if(passed == src)
+			continue
+		if(isliving(passed))
+			var/mob/living/m_passed = passed
+			m_passed.apply_damage(HEAT_DAMAGE_LEVEL_3, BURN)
+			new /obj/effect/temp_visual/ratvar/ocular_warden(get_turf(m_passed))
+		else
+			passed.fire_act(460, 100)

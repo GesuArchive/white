@@ -223,6 +223,28 @@
 	sub_category = list("Боеприпасы экзокостюмов")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
+/datum/design/mech_bfg
+	name = "Радиоактивная пушка \"Грейз\""
+	desc = "Позволяет создать Радиоактивную пушку \"Грейз\"."
+	id = "mech_bfg"
+	build_type = MECHFAB
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/bfg
+	materials = list(/datum/material/iron=12000,/datum/material/uranium=6000,/datum/material/diamond=2000)
+	construction_time = 10 SECONDS
+	category = list("Орудийные модули")
+	sub_category = list("Плазменное вооружение")
+
+/datum/design/mech_bfg_ammo
+	name = "Энергоячейки к Радиоактивной пушке \"Грейз\"."
+	desc = "Позволяет создавать энергоячейки к Радиоактивной пушке \"Грейз\"."
+	id = "mech_bfg_ammo"
+	build_type = PROTOLATHE | MECHFAB
+	build_path = /obj/item/mecha_ammo/bfg
+	materials = list(/datum/material/iron=6000,/datum/material/uranium=6000,/datum/material/diamond=2000)
+	construction_time = 20
+	category = list("Орудийные модули", "Боеприпасы")
+	sub_category = list("Боеприпасы экзокостюмов")
+
 /datum/design/mech_ion
 	name = "Тяжелое ионное орудие МК-4"
 	desc = "Оружие для боевых экзокостюмов. Стреляет эми импульсами повреждающими технику. Не попадите под собственный выстрел!"

@@ -66,6 +66,13 @@
 	load_audio = 'sound/weapons/gun/general/mag_bullet_insert.ogg'
 	ammo_type = "missiles_br"
 
+/obj/item/mecha_ammo/bfg
+	name = "Энергоячейски к \"РПГ\""
+	desc = "Коробка энергоячеек к Радиоактивной пушке Грейз."
+	icon_state = "bfg"
+	rounds = 5
+	ammo_type = "bfg"
+
 /obj/item/mecha_ammo/missiles_he
 	name = "Ракеты РСЗО \"Шторм-8\""
 	desc = "Коробка с ракетами, готовая к загрузке в ракетную систему экзокостюма."

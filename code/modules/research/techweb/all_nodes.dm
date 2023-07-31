@@ -2360,6 +2360,14 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
+/datum/techweb_node/mech_bfg
+	id = "mech_bfg"
+	display_name = "Радиоактивная пушка \"Грейз\"."
+	description = "Усовершенствованный вооружения для экзокостюмов."
+	prereq_ids = list("adv_beam_weapons")
+	design_ids = list("mech_bfg", "mech_bfg_ammo")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+
 /datum/techweb_node/mech_laser
 	id = "mech_laser"
 	display_name = "Легкий лазер ЭВ-ЛЛ \"Выжигатель\""
