@@ -122,6 +122,7 @@
 				break
 			++loaded
 			add_seed(G)
+			G.forceMove(src)
 		if (loaded)
 			to_chat(user, span_notice("You put as many seeds from [O.name] into [src] as you can."))
 		else
