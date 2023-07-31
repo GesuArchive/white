@@ -25,8 +25,6 @@
 	else
 		adjust_stacks(new_stacks)
 
-	update_particles()
-
 /datum/status_effect/fire_handler/on_creation(mob/living/new_owner, new_stacks, forced = FALSE)
 	. = ..()
 
@@ -77,6 +75,10 @@
 			adjust_stacks(override_effect.stacks)
 			qdel(override_effect)
 
+	update_particles()
+
+/datum/status_effect/fire_handler/on_apply()
+	. = ..()
 	update_particles()
 
 /datum/status_effect/fire_handler/on_remove()
@@ -249,6 +251,7 @@
 	cache_stacks()
 	update_overlay()
 	update_particles()
+	return TRUE
 
 /**
  * Handles mob extinguishing, should be the only way to set on_fire to FALSE
@@ -276,6 +279,7 @@
 		extinguish()
 	set_stacks(0)
 	update_overlay()
+	update_particles()
 	return ..()
 
 /datum/status_effect/fire_handler/fire_stacks/update_overlay()
@@ -292,11 +296,9 @@
 	stack_modifier = -1
 
 /datum/status_effect/fire_handler/wet_stacks/tick(delta_time)
-	adjust_stacks(-0.5 * delta_time)
+	adjust_stacks(-2 * delta_time)
 	if(stacks <= 0)
 		qdel(src)
-
-	update_particles()
 
 /datum/status_effect/fire_handler/wet_stacks/update_particles()
 	if(particle_effect)

@@ -1316,6 +1316,10 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	if(!fire_status || fire_status.on_fire)
 		return FALSE
 
+	var/datum/status_effect/fire_handler/wet_stacks/wet_status = has_status_effect(/datum/status_effect/fire_handler/wet_stacks)
+	if(wet_status)
+		remove_status_effect(wet_status)
+
 	return fire_status.ignite()
 
 /mob/living/proc/update_fire()
@@ -1332,15 +1336,9 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /mob/living/proc/extinguish_mob()
 	var/datum/status_effect/fire_handler/fire_stacks/fire_status = has_status_effect(/datum/status_effect/fire_handler/fire_stacks)
 	if(!fire_status || !fire_status.on_fire)
-		// make mob wet instead
-		var stacks = max(fire_stacks, 10)
-		apply_status_effect(/datum/status_effect/fire_handler/wet_stacks, stacks)
 		return
-	// remove fire and make mob wet
-	remove_status_effect(/datum/status_effect/fire_handler/fire_stacks)
-	var stacks = max(fire_stacks, 10)
-	apply_status_effect(/datum/status_effect/fire_handler/wet_stacks, stacks)
 
+	remove_status_effect(/datum/status_effect/fire_handler/fire_stacks)
 
 /**
  * Adjust the amount of fire stacks on a mob
