@@ -44,183 +44,221 @@
 
 //Ambience types
 
-#define GENERIC list('sound/ambience/white/ambi1.ogg',\
-					'sound/ambience/white/ambi2.ogg',\
-					'sound/ambience/white/ambi3.ogg',\
-					'sound/ambience/white/ambi4.ogg',\
-					'sound/ambience/white/ambi5.ogg',\
-					'sound/ambience/white/ambi6.ogg',\
-					'sound/ambience/white/ambi7.ogg',\
-					'sound/ambience/white/ambi8.ogg',\
-					'sound/ambience/white/ambi9.ogg',\
-					'sound/ambience/white/ambi10.ogg',\
-					'sound/ambience/white/ambi11.ogg',\
-					'sound/ambience/white/ambi12.ogg',\
-					'sound/ambience/white/ambi13.ogg',\
-					'sound/ambience/white/ambi14.ogg',\
-					'sound/ambience/white/ambi15.ogg',\
-					'sound/ambience/white/ambi16.ogg',\
-					'sound/ambience/white/ambi17.ogg',\
-					'sound/ambience/white/ambi18.ogg',\
-					'sound/ambience/white/ambi19.ogg',\
-					'sound/ambience/white/ambi20.ogg',\
-					'sound/ambience/white/ambi21.ogg')
+#define GENERIC list(\
+	'sound/ambience/white/ambi1.ogg',\
+	'sound/ambience/white/ambi2.ogg',\
+	'sound/ambience/white/ambi3.ogg',\
+	'sound/ambience/white/ambi4.ogg',\
+	'sound/ambience/white/ambi5.ogg',\
+	'sound/ambience/white/ambi6.ogg',\
+	'sound/ambience/white/ambi7.ogg',\
+	'sound/ambience/white/ambi8.ogg',\
+	'sound/ambience/white/ambi9.ogg',\
+	'sound/ambience/white/ambi10.ogg',\
+	'sound/ambience/white/ambi11.ogg',\
+	'sound/ambience/white/ambi12.ogg',\
+	'sound/ambience/white/ambi13.ogg',\
+	'sound/ambience/white/ambi14.ogg',\
+	'sound/ambience/white/ambi15.ogg',\
+	'sound/ambience/white/ambi16.ogg',\
+	'sound/ambience/white/ambi17.ogg')
 
 #define HOLY list('sound/ambience/white/ambichurch1.ogg')
 
-#define HIGHSEC list('sound/ambience/white/ambidanger1.ogg',\
-					'sound/ambience/white/ambidanger2.ogg',\
-					'sound/ambience/white/ambidanger3.ogg',\
-					'sound/ambience/white/ambidanger4.ogg',\
-					'sound/ambience/white/ambidanger5.ogg',\
-					'sound/ambience/white/ambidanger6.ogg')
+#define HIGHSEC list(\
+	'sound/ambience/white/ambidanger1.ogg',\
+	'sound/ambience/white/ambidanger2.ogg',\
+	'sound/ambience/white/ambidanger3.ogg',\
+	'sound/ambience/white/ambidanger4.ogg',\
+	'sound/ambience/white/ambidanger5.ogg',\
+	'sound/ambience/white/ambidanger6.ogg',\
+	'sound/ambience/white/ambidanger7.ogg',\
+	'sound/ambience/white/ambidanger8.ogg')
 
-#define RUINS list('sound/ambience/white/ambidanger1.ogg',\
-				'sound/ambience/white/ambidanger2.ogg',\
-				'sound/ambience/white/ambi1.ogg',\
-				'sound/ambience/white/ambi3.ogg')
+#define RUINS list(\
+	'sound/ambience/white/ambidanger1.ogg',\
+	'sound/ambience/white/ambidanger2.ogg',\
+	'sound/ambience/white/ambi1.ogg',\
+	'sound/ambience/white/ambi3.ogg')
 
-#define ENGINEERING list('sound/ambience/white/ambieng1.ogg',\
-						'sound/ambience/white/ambidanger2.ogg')
+#define ENGINEERING list(\
+	'sound/ambience/white/ambieng1.ogg',\
+	'sound/ambience/white/ambieng2.ogg',\
+	'sound/ambience/white/ambieng3.ogg',\
+	'sound/ambience/white/ambieng4.ogg',\
+	'sound/ambience/white/ambieng5.ogg',\
+	'sound/ambience/white/ambieng6.ogg',\
+	'sound/ambience/white/ambieng7.ogg',\
+	'sound/ambience/white/ambieng8.ogg')
 
-#define MINING list('sound/ambience/white/ambidanger1.ogg',\
-					'sound/ambience/white/ambidanger2.ogg',\
-					'white/valtos/sounds/prison/amb6.ogg')
+#define MINING list(\
+	'sound/ambience/white/ambimine1.ogg',\
+	'sound/ambience/white/ambimine2.ogg',\
+	'sound/ambience/white/ambimine3.ogg',\
+	'sound/ambience/white/ambimine4.ogg',\
+	'sound/ambience/white/ambimine5.ogg',\
+	'sound/ambience/white/ambimine6.ogg',\
+	'sound/ambience/white/ambimine7.ogg',\
+	'sound/ambience/white/ambimine8.ogg')
 
-#define MEDICAL list('sound/ambience/white/ambimed1.ogg',\
-					'sound/ambience/white/ambimed2.ogg')
+#define MEDICAL list(\
+	'sound/ambience/white/ambimed1.ogg',\
+	'sound/ambience/white/ambimed2.ogg',\
+	'sound/ambience/white/ambimed3.ogg')
 
-#define SPOOKY list('sound/ambience/white/ambimo1.ogg',\
-					'white/valtos/sounds/prison/amb7.ogg')
+#define SPOOKY list(\
+	'sound/ambience/white/ambimo1.ogg',\
+	'white/valtos/sounds/prison/amb7.ogg')
 
-#define SPACE list('sound/ambience/white/ambispace1.ogg',\
-				'sound/ambience/white/ambispace2.ogg',\
-				'sound/ambience/white/ambispace3.ogg',\
-				'sound/ambience/white/ambispace4.ogg') // Source - https://vk.com/wall-180293907_321
+#define SPACE list(\
+	'sound/ambience/white/ambispace1.ogg',\
+	'sound/ambience/white/ambispace2.ogg',\
+	'sound/ambience/white/ambispace3.ogg',\
+	'sound/ambience/white/ambispace4.ogg',\
+	'sound/ambience/white/ambispace5.ogg',\
+	'sound/ambience/white/ambispace6.ogg',\
+	'sound/ambience/white/ambispace7.ogg')
 
-#define MAINTENANCE list('sound/ambience/white/ambimaint1.ogg',\
-						'sound/ambience/white/ambimaint2.ogg')
+#define MAINTENANCE list(\
+	'sound/ambience/white/ambimaint1.ogg',\
+	'sound/ambience/white/ambimaint2.ogg',\
+	'sound/ambience/white/ambimaint3.ogg',\
+	'sound/ambience/white/ambimaint4.ogg',\
+	'sound/ambience/white/ambimaint5.ogg',\
+	'sound/ambience/white/ambimaint6.ogg')
 
-#define AWAY_MISSION list('sound/ambience/white/ambidanger2.ogg',\
-						'sound/ambience/white/ambidanger3.ogg')
+#define AWAY_MISSION list(\
+	'sound/ambience/white/ambidanger2.ogg',\
+	'sound/ambience/white/ambidanger3.ogg')
 
 #define YOHEI list('sound/ambience/white/ambiyohei.ogg')
 
-#define REEBE list('sound/ambience/ambireebe1.ogg',\
-				'sound/ambience/ambireebe2.ogg',\
-				'sound/ambience/ambireebe3.ogg')
+#define REEBE list(\
+	'sound/ambience/ambireebe1.ogg',\
+	'sound/ambience/ambireebe2.ogg',\
+	'sound/ambience/ambireebe3.ogg')
 
 
-#define CREEPY_SOUNDS list('sound/effects/ghost.ogg',\
-						'sound/effects/ghost2.ogg',\
-						'sound/effects/heart_beat.ogg',\
-						'sound/effects/screech.ogg',\
-						'sound/hallucinations/behind_you1.ogg',\
-						'sound/hallucinations/behind_you2.ogg',\
-						'sound/hallucinations/far_noise.ogg',\
-						'sound/hallucinations/growl1.ogg',\
-						'sound/hallucinations/growl2.ogg',\
-						'sound/hallucinations/growl3.ogg',\
-						'sound/hallucinations/im_here1.ogg',\
-						'sound/hallucinations/im_here2.ogg',\
-						'sound/hallucinations/i_see_you1.ogg',\
-						'sound/hallucinations/i_see_you2.ogg',\
-						'sound/hallucinations/look_up1.ogg',\
-						'sound/hallucinations/look_up2.ogg',\
-						'sound/hallucinations/over_here1.ogg',\
-						'sound/hallucinations/over_here2.ogg',\
-						'sound/hallucinations/over_here3.ogg',\
-						'sound/hallucinations/turn_around1.ogg',\
-						'sound/hallucinations/turn_around2.ogg',\
-						'sound/hallucinations/veryfar_noise.ogg',\
-						'sound/hallucinations/wail.ogg')
+#define CREEPY_SOUNDS list(\
+	'sound/effects/ghost.ogg',\
+	'sound/effects/ghost2.ogg',\
+	'sound/effects/heart_beat.ogg',\
+	'sound/effects/screech.ogg',\
+	'sound/hallucinations/behind_you1.ogg',\
+	'sound/hallucinations/behind_you2.ogg',\
+	'sound/hallucinations/far_noise.ogg',\
+	'sound/hallucinations/growl1.ogg',\
+	'sound/hallucinations/growl2.ogg',\
+	'sound/hallucinations/growl3.ogg',\
+	'sound/hallucinations/im_here1.ogg',\
+	'sound/hallucinations/im_here2.ogg',\
+	'sound/hallucinations/i_see_you1.ogg',\
+	'sound/hallucinations/i_see_you2.ogg',\
+	'sound/hallucinations/look_up1.ogg',\
+	'sound/hallucinations/look_up2.ogg',\
+	'sound/hallucinations/over_here1.ogg',\
+	'sound/hallucinations/over_here2.ogg',\
+	'sound/hallucinations/over_here3.ogg',\
+	'sound/hallucinations/turn_around1.ogg',\
+	'sound/hallucinations/turn_around2.ogg',\
+	'sound/hallucinations/veryfar_noise.ogg',\
+	'sound/hallucinations/wail.ogg')
 
-#define SOVIET_AMB list('white/valtos/sounds/prison/amb6.ogg',\
-						'white/valtos/sounds/prison/amb7.ogg',\
-						'white/valtos/sounds/prison/amb8.ogg')
+#define SOVIET_AMB list(\
+	'white/valtos/sounds/prison/amb6.ogg',\
+	'white/valtos/sounds/prison/amb7.ogg',\
+	'white/valtos/sounds/prison/amb8.ogg')
 
-#define RANGERS_AMB list('white/valtos/sounds/rangers/1.ogg',\
-						'white/valtos/sounds/rangers/2.ogg',\
-						'white/valtos/sounds/rangers/3.ogg',\
-						'white/valtos/sounds/rangers/4.ogg',\
-						'white/valtos/sounds/rangers/5.ogg')
+#define RANGERS_AMB list(\
+	'white/valtos/sounds/rangers/1.ogg',\
+	'white/valtos/sounds/rangers/2.ogg',\
+	'white/valtos/sounds/rangers/3.ogg',\
+	'white/valtos/sounds/rangers/4.ogg',\
+	'white/valtos/sounds/rangers/5.ogg')
 
 #define SOVIET_AMB_CAVES list('white/valtos/sounds/prison/ambout1.ogg')
 
 #define SCARLET_DAWN_AMBIENT list('white/valtos/sounds/dz/ambidawn.ogg')
 
-#define GENERIC_AMBIGEN list('sound/ambience/ambigen1.ogg',\
-						'sound/ambience/ambigen3.ogg',\
-						'sound/ambience/ambigen4.ogg',\
-						'sound/ambience/ambigen5.ogg',\
-						'sound/ambience/ambigen6.ogg',\
-						'sound/ambience/ambigen7.ogg',\
-						'sound/ambience/ambigen8.ogg',\
-						'sound/ambience/ambigen9.ogg',\
-						'sound/ambience/ambigen10.ogg',\
-						'sound/ambience/ambigen11.ogg',\
-						'sound/ambience/ambigen12.ogg',\
-						'sound/ambience/ambigen14.ogg',\
-						'sound/ambience/ambigen15.ogg',\
-						'sound/ambience/ambigen16.ogg')
+#define GENERIC_AMBIGEN list(\
+	'sound/ambience/ambigen1.ogg',\
+	'sound/ambience/ambigen3.ogg',\
+	'sound/ambience/ambigen4.ogg',\
+	'sound/ambience/ambigen5.ogg',\
+	'sound/ambience/ambigen6.ogg',\
+	'sound/ambience/ambigen7.ogg',\
+	'sound/ambience/ambigen8.ogg',\
+	'sound/ambience/ambigen9.ogg',\
+	'sound/ambience/ambigen10.ogg',\
+	'sound/ambience/ambigen11.ogg',\
+	'sound/ambience/ambigen12.ogg',\
+	'sound/ambience/ambigen14.ogg',\
+	'sound/ambience/ambigen15.ogg',\
+	'sound/ambience/ambigen16.ogg')
 
-#define TURBOLIFT list('white/jhnazar/sound/effects/lift/elevatormusic.ogg',\
-						'white/jhnazar/sound/effects/turbolift/elevatormusic1.ogg',\
-						'white/jhnazar/sound/effects/turbolift/elevatormusic2.ogg')
+#define TURBOLIFT list(\
+	'white/jhnazar/sound/effects/lift/elevatormusic.ogg',\
+	'white/jhnazar/sound/effects/turbolift/elevatormusic1.ogg',\
+	'white/jhnazar/sound/effects/turbolift/elevatormusic2.ogg')
 
-#define FAR_EXPLOSION_SOUNDS list('white/valtos/sounds/farexplosion/1.ogg',\
-						'white/valtos/sounds/farexplosion/2.ogg',\
-						'white/valtos/sounds/farexplosion/3.ogg',\
-						'white/valtos/sounds/farexplosion/4.ogg',\
-						'white/valtos/sounds/farexplosion/5.ogg',\
-						'white/valtos/sounds/farexplosion/6.ogg',\
-						'white/valtos/sounds/farexplosion/7.ogg',\
-						'white/valtos/sounds/farexplosion/8.ogg',\
-						'white/valtos/sounds/farexplosion/9.ogg',\
-						'sound/effects/explosionfar.ogg')
+#define FAR_EXPLOSION_SOUNDS list(\
+	'white/valtos/sounds/farexplosion/1.ogg',\
+	'white/valtos/sounds/farexplosion/2.ogg',\
+	'white/valtos/sounds/farexplosion/3.ogg',\
+	'white/valtos/sounds/farexplosion/4.ogg',\
+	'white/valtos/sounds/farexplosion/5.ogg',\
+	'white/valtos/sounds/farexplosion/6.ogg',\
+	'white/valtos/sounds/farexplosion/7.ogg',\
+	'white/valtos/sounds/farexplosion/8.ogg',\
+	'white/valtos/sounds/farexplosion/9.ogg',\
+	'sound/effects/explosionfar.ogg')
 
-#define WATER_FLOW_MINI list('white/valtos/sounds/voda1.ogg',\
-						'white/valtos/sounds/voda2.ogg',\
-						'white/valtos/sounds/voda3.ogg',\
-						'white/valtos/sounds/voda4.ogg',\
-						'white/valtos/sounds/voda5.ogg')
+#define WATER_FLOW_MINI list(\
+	'white/valtos/sounds/voda1.ogg',\
+	'white/valtos/sounds/voda2.ogg',\
+	'white/valtos/sounds/voda3.ogg',\
+	'white/valtos/sounds/voda4.ogg',\
+	'white/valtos/sounds/voda5.ogg')
 
-#define RANDOM_DEEPH_SOUNDS list('white/valtos/sounds/lifeweb/deeph1.ogg',\
-						'white/valtos/sounds/lifeweb/deeph2.ogg',\
-						'white/valtos/sounds/lifeweb/deeph3.ogg',\
-						'white/valtos/sounds/lifeweb/deeph4.ogg',\
-						'white/valtos/sounds/lifeweb/deeph5.ogg',\
-						'white/valtos/sounds/lifeweb/deeph6.ogg')
+#define RANDOM_DEEPH_SOUNDS list(\
+	'white/valtos/sounds/lifeweb/deeph1.ogg',\
+	'white/valtos/sounds/lifeweb/deeph2.ogg',\
+	'white/valtos/sounds/lifeweb/deeph3.ogg',\
+	'white/valtos/sounds/lifeweb/deeph4.ogg',\
+	'white/valtos/sounds/lifeweb/deeph5.ogg',\
+	'white/valtos/sounds/lifeweb/deeph6.ogg')
 
-#define RANDOM_DREAM_SOUNDS list('white/valtos/sounds/lifeweb/dream1.ogg',\
-						'white/valtos/sounds/lifeweb/dream2.ogg',\
-						'white/valtos/sounds/lifeweb/dream3.ogg',\
-						'white/valtos/sounds/lifeweb/dream4.ogg',\
-						'white/valtos/sounds/lifeweb/dream5.ogg')
+#define RANDOM_DREAM_SOUNDS list(\
+	'white/valtos/sounds/lifeweb/dream1.ogg',\
+	'white/valtos/sounds/lifeweb/dream2.ogg',\
+	'white/valtos/sounds/lifeweb/dream3.ogg',\
+	'white/valtos/sounds/lifeweb/dream4.ogg',\
+	'white/valtos/sounds/lifeweb/dream5.ogg')
 
 // how dumb i am
-#define RANDOM_DREAMER_SOUNDS list('white/valtos/sounds/lifeweb/hall1.ogg',\
-						'white/valtos/sounds/lifeweb/hall2.ogg',\
-						'white/valtos/sounds/lifeweb/hall3.ogg',\
-						'white/valtos/sounds/lifeweb/hall4.ogg',\
-						'white/valtos/sounds/lifeweb/hall5.ogg',\
-						'white/valtos/sounds/lifeweb/hall6.ogg',\
-						'white/valtos/sounds/lifeweb/hall7.ogg',\
-						'white/valtos/sounds/lifeweb/hall8.ogg',\
-						'white/valtos/sounds/lifeweb/hall9.ogg',\
-						'white/valtos/sounds/lifeweb/hall10.ogg',\
-						'white/valtos/sounds/lifeweb/hall11.ogg',\
-						'white/valtos/sounds/lifeweb/hall12.ogg',\
-						'white/valtos/sounds/lifeweb/hall13.ogg',\
-						'white/valtos/sounds/lifeweb/hall14.ogg',\
-						'white/valtos/sounds/lifeweb/hall15.ogg',\
-						'white/valtos/sounds/lifeweb/hall16.ogg',\
-						'white/valtos/sounds/lifeweb/hall17.ogg',\
-						'white/valtos/sounds/lifeweb/hall18.ogg',\
-						'white/valtos/sounds/lifeweb/hall19.ogg',\
-						'white/valtos/sounds/lifeweb/hall20.ogg',\
-						'white/valtos/sounds/lifeweb/hall21.ogg',\
-						'white/valtos/sounds/lifeweb/hall22.ogg')
+#define RANDOM_DREAMER_SOUNDS list(\
+	'white/valtos/sounds/lifeweb/hall1.ogg',\
+	'white/valtos/sounds/lifeweb/hall2.ogg',\
+	'white/valtos/sounds/lifeweb/hall3.ogg',\
+	'white/valtos/sounds/lifeweb/hall4.ogg',\
+	'white/valtos/sounds/lifeweb/hall5.ogg',\
+	'white/valtos/sounds/lifeweb/hall6.ogg',\
+	'white/valtos/sounds/lifeweb/hall7.ogg',\
+	'white/valtos/sounds/lifeweb/hall8.ogg',\
+	'white/valtos/sounds/lifeweb/hall9.ogg',\
+	'white/valtos/sounds/lifeweb/hall10.ogg',\
+	'white/valtos/sounds/lifeweb/hall11.ogg',\
+	'white/valtos/sounds/lifeweb/hall12.ogg',\
+	'white/valtos/sounds/lifeweb/hall13.ogg',\
+	'white/valtos/sounds/lifeweb/hall14.ogg',\
+	'white/valtos/sounds/lifeweb/hall15.ogg',\
+	'white/valtos/sounds/lifeweb/hall16.ogg',\
+	'white/valtos/sounds/lifeweb/hall17.ogg',\
+	'white/valtos/sounds/lifeweb/hall18.ogg',\
+	'white/valtos/sounds/lifeweb/hall19.ogg',\
+	'white/valtos/sounds/lifeweb/hall20.ogg',\
+	'white/valtos/sounds/lifeweb/hall21.ogg',\
+	'white/valtos/sounds/lifeweb/hall22.ogg')
 
 
 #define INTERACTION_SOUND_RANGE_MODIFIER -3
