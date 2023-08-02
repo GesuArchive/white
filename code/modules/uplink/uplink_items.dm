@@ -1831,6 +1831,13 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 10
 	purchasable_from = UPLINK_CLOWN_OPS | UPLINK_NUKE_OPS
 
+/datum/uplink_item/implants/emp_shield
+	name = "Коробка с имплантом ЭМИ щита"
+	desc = "Имплант, который делает вас и ваши внутренности невосприимчивыми к электромагнитным помехам, защищая вас от ионного оружия и ЭМИ. \
+			В связи с техническими ограничениями при слишком частом срабатывании перегружается и отключается на короткое время."
+	item = /obj/item/storage/box/syndie_kit/emp_shield
+	cost = 6
+
 //Race-specific items
 /datum/uplink_item/race_restricted
 	category = "Расовые"
