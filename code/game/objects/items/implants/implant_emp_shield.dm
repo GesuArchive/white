@@ -1,6 +1,8 @@
 /obj/item/implant/empshield
 	name = "Имплант ЭМИ щита"
 	desc = "Имплантат, полностью защищающий от электромагнитных импульсов. При слишком частом срабатывании он кратковременно отключается."
+	actions_types = null
+	activated = TRUE
 	var/lastemp = 0
 	var/numrecent = 0
 	var/warning = TRUE
