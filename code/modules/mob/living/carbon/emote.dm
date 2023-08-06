@@ -177,3 +177,17 @@
 	if(ishuman(user))
 		return pick('sound/misc/fingersnap1.ogg', 'sound/misc/fingersnap2.ogg')
 	return null
+
+/datum/emote/living/carbon/vomit
+	key = "vomit"
+	ru_name = "блевать"
+	message = "блюёт."
+	key_third_person = "блюёт"
+
+/datum/emote/living/carbon/vomit/run_emote(mob/user, params, type_override)
+	. = ..()
+	if (!. || !iscarbon(user))
+		return
+	else
+		var/mob/living/carbon/L = user
+		L.vomit(30, 0, 0, 0, 1, VOMIT_TOXIC, 0, 0, 30)
