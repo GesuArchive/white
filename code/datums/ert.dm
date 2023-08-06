@@ -17,10 +17,10 @@
 
 /datum/ert/blue
 	opendoors = FALSE
-	code = "Синий"
+	code = "Зеленый"
 
 /datum/ert/amber
-	code = "Янтарный"
+	code = "Синий"
 
 /datum/ert/red
 	leader_role = /datum/antagonist/ert/commander/red
@@ -30,20 +30,27 @@
 /datum/ert/deathsquad
 	roles = list(/datum/antagonist/ert/deathsquad)
 	leader_role = /datum/antagonist/ert/deathsquad/leader
-	rename_team = "Deathsquad"
+	rename_team = "Эскадрон Смерти"
 	code = "Дельта"
 	mission = "Не оставляйте свидетелей."
-	polldesc = "элитной ударной команде NanoTrasen"
+	polldesc = "эскадроне смерти НаноТрейзен"
 
 /datum/ert/marine
 	leader_role = /datum/antagonist/ert/marine
 	roles = list(/datum/antagonist/ert/marine/security, /datum/antagonist/ert/marine/engineer, /datum/antagonist/ert/marine/medic)
 	rename_team = "Marine Squad"
-	polldesc = "'элитной' ударной команде NanoTrasen"
+	polldesc = "спецназе НаноТрейзен"
 	opendoors = FALSE
 
+/datum/ert/inquisition
+	roles = list(/datum/antagonist/ert/chaplain/inquisitor, /datum/antagonist/ert/security/inquisitor, /datum/antagonist/ert/medic/inquisitor)
+	leader_role = /datum/antagonist/ert/commander/inquisitor
+	rename_team = "Инквизиция"
+	mission = "Уничтожьте все следы паранормальной активности на борту станции."
+	polldesc = "группе реагирования на паранормальные явления НаноТрейзен"
+
 /datum/ert/centcom_official
-	code = "Зелёный"
+	code = "Инспекция"
 	teamsize = 1
 	opendoors = FALSE
 	leader_role = /datum/antagonist/official
@@ -52,14 +59,34 @@
 	polldesc = "инспектором Центрального Командования"
 
 /datum/ert/centcom_official/New()
-	mission = "Проведите плановую проверку эффективности станции \"[station_name()]\" и её Капитана."
+	mission = "Проведите плановую проверку состояния станции \"[station_name()]\" и её экипажа."
 
-/datum/ert/inquisition
-	roles = list(/datum/antagonist/ert/chaplain/inquisitor, /datum/antagonist/ert/security/inquisitor, /datum/antagonist/ert/medic/inquisitor)
-	leader_role = /datum/antagonist/ert/commander/inquisitor
-	rename_team = "Инквизиция"
-	mission = "Уничтожьте все следы паранормальной активности на борту станции."
-	polldesc = "группе реагирования на паранормальные явления NanoTrasen"
+/datum/ert/guarded_official
+	leader_role = /datum/antagonist/official
+	roles = list(/datum/antagonist/ert/sobr)
+	opendoors = FALSE
+	rename_team = "Представитель ЦК и охрана"
+	teamsize = 3
+	polldesc = "инспектором центкома и его охраной"
+	mission = "Решить проблемы станции."
+
+/datum/ert/intern
+	leader_role = /datum/antagonist/ert/intern/leader
+	roles = list(/datum/antagonist/ert/intern)
+	teamsize = 5
+	opendoors = FALSE
+	rename_team = "Орда Интернов"
+	mission = "Помочь в разрешении конфликтов."
+	polldesc = "возможности неоплачиваемой стажировки в НаноТрейзен"
+
+/datum/ert/engi
+	leader_role = /datum/antagonist/ert/engineer
+	roles = list(/datum/antagonist/ert/engineer)
+	opendoors = FALSE
+	rename_team = "Ремонтная бригада"
+	teamsize = 3
+	polldesc = "ремонтной бригаде"
+	mission = "Восстановить станцию."
 
 /datum/ert/janitor
 	roles = list(/datum/antagonist/ert/janitor, /datum/antagonist/ert/janitor/heavy)
@@ -68,16 +95,7 @@
 	opendoors = FALSE
 	rename_team = "Уборщик"
 	mission = "Убери ВСЁ."
-	polldesc = "группе специальных уборщиков NanoTrasen"
-
-/datum/ert/intern
-	roles = list(/datum/antagonist/ert/intern)
-	leader_role = /datum/antagonist/ert/intern/leader
-	teamsize = 7
-	opendoors = FALSE
-	rename_team = "Орда Интернов"
-	mission = "Помочь в разрешении конфликтов."
-	polldesc = "возможности неоплачиваемой стажировки в NanoTrasen"
+	polldesc = "группе специальных уборщиков НаноТрейзен"
 
 /datum/ert/erp
 	roles = list(/datum/antagonist/ert/security/party, /datum/antagonist/ert/clown/party, /datum/antagonist/ert/engineer/party, /datum/antagonist/ert/janitor/party)
@@ -85,18 +103,8 @@
 	opendoors = FALSE
 	rename_team = "ЕРП"
 	mission = "Создайте развлечение для экипажа."
-	polldesc = "группе партийного реагирования NanoTrasen. Код: Радужный"
+	polldesc = "группе партийного реагирования НаноТрейзен. Код: Радужный"
 	code = "Радужный"
-
-
-/datum/ert/guarded_official
-	roles = list(/datum/antagonist/ert/sobr)
-	leader_role = /datum/antagonist/official
-	opendoors = FALSE
-	rename_team = "Представитель ЦК и охрана"
-	teamsize = 3
-	polldesc = "инспектором центкома и его охраной"
-	mission = "Решить проблемы станции."
 
 /datum/ert/chrono_legion
 	roles = list(/datum/antagonist/ert/chrono_legioner)

@@ -236,7 +236,10 @@
 	if(assess_patient(H))
 		last_found = world.time
 		if((last_newpatient_speak + 300) < world.time) //Don't spam these messages!
-			var/list/messagevoice = list("Эй, [H.name]! Подожди, я иду." = 'sound/voice/medbot/coming.ogg',"Постой, [H.name]! Я хочу помочь!" = 'sound/voice/medbot/help.ogg',"[H.name], вы ранены!" = 'sound/voice/medbot/injured.ogg')
+			var/list/messagevoice = list(
+				"Эй, [H.name]! Подожди, я иду." = 'sound/voice/medbot/coming.ogg',
+				"Постой, [H.name]! Я хочу помочь!" = 'sound/voice/medbot/help.ogg',
+				"[H.name], вы ранены!" = 'sound/voice/medbot/injured.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
 			playsound(src, messagevoice[message], 50, FALSE)
@@ -348,10 +351,21 @@
 	if(QDELETED(patient))
 		if(!shut_up && prob(1))
 			if(emagged && prob(30))
-				var/list/i_need_scissors = list('sound/voice/medbot/fuck_you.ogg', 'sound/voice/medbot/turn_off.ogg', 'sound/voice/medbot/im_different.ogg', 'sound/voice/medbot/close.ogg', 'sound/voice/medbot/shindemashou.ogg')
+				var/list/i_need_scissors = list(
+					'sound/voice/medbot/fuck_you.ogg',
+					'sound/voice/medbot/turn_off.ogg',
+					'sound/voice/medbot/im_different.ogg',
+					'sound/voice/medbot/close.ogg',
+					'sound/voice/medbot/shindemashou.ogg')
 				playsound(src, pick(i_need_scissors), 70)
 			else
-				var/list/messagevoice = list(/*"Радар, надень маску!" = 'sound/voice/medbot/radar.ogg',"Всегда есть подвох, и я лучший из них." = 'sound/voice/medbot/catch.ogg',*/"Я так и знал, лучше бы я стал пластическим хирургом." = 'sound/voice/medbot/surgeon.ogg',"Что это за медотсек? Все вокруг дохнут как мухи." = 'sound/voice/medbot/flies.ogg',"Delicious!" = 'sound/voice/medbot/delicious.ogg', "Почему мы все еще здесь? Просто, чтобы страдать?" = 'sound/voice/medbot/why.ogg') //Непереводимая игра слов непереводима. Хотя это даже не игра слов, это какая-то стрёмная цитата из какого-то там стрёмного сериала. Никто отсылку не поймёт, и звучит убого - выпиливаем.
+				var/list/messagevoice = list(
+					"Эй, надень маску!" = 'sound/voice/medbot/radar.ogg',
+					"Всегда есть подвох, и я лучший из них." = 'sound/voice/medbot/catch.ogg',
+					"Я так и знал, лучше бы я стал пластическим хирургом." = 'sound/voice/medbot/surgeon.ogg',
+					"Что это за медотсек? Все вокруг дохнут как мухи." = 'sound/voice/medbot/flies.ogg',
+					"Прэлесно!" = 'sound/voice/medbot/delicious.ogg',
+					"Почему мы все еще здесь? Просто, чтобы страдать?" = 'sound/voice/medbot/why.ogg')
 				var/message = pick(messagevoice)
 				speak(message)
 				playsound(src, messagevoice[message], 50)
@@ -465,7 +479,12 @@
 
 		if(world.time > last_tipping_action_voice + 15 SECONDS)
 			last_tipping_action_voice = world.time // message for tipping happens when we start interacting, message for righting comes after finishing
-			var/list/messagevoice = list("Эй, подожди..." = 'sound/voice/medbot/hey_wait.ogg',"Пожалуйста, не надо..." = 'sound/voice/medbot/please_dont.ogg',"Я доверял тебе..." = 'sound/voice/medbot/i_trusted_you.ogg', "Не-е-ет..." = 'sound/voice/medbot/nooo.ogg', "Ох, бля-" = 'sound/voice/medbot/oh_fuck.ogg')
+			var/list/messagevoice = list(
+				"Эй, подожди..." = 'sound/voice/medbot/hey_wait.ogg',
+				"Пожалуйста, не надо..." = 'sound/voice/medbot/please_dont.ogg',
+				"Я доверял тебе..." = 'sound/voice/medbot/i_trusted_you.ogg',
+				"Не-е-ет..." = 'sound/voice/medbot/nooo.ogg',
+				"Ох, бля-" = 'sound/voice/medbot/oh_fuck.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
 			playsound(src, messagevoice[message], 70, FALSE)
@@ -508,7 +527,10 @@
 		return
 
 	if(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_FAKEDEATH)))
-		var/list/messagevoice = list("Нет! Останься со мной!" = 'sound/voice/medbot/no.ogg',"Живи, мать твою! Живи!" = 'sound/voice/medbot/live.ogg',"Я никогда не терял пациентов... Не сегодня, имею в виду." = 'sound/voice/medbot/lost.ogg')
+		var/list/messagevoice = list(
+			"Нет! Останься со мной!" = 'sound/voice/medbot/no.ogg',
+			"Живи, мать твою! Живи!" = 'sound/voice/medbot/live.ogg',
+			"Я никогда не терял пациентов... Не сегодня, имею в виду." = 'sound/voice/medbot/lost.ogg')
 		var/message = pick(messagevoice)
 		speak(message)
 		playsound(src, messagevoice[message], 50)
@@ -546,7 +568,10 @@
 			if(C.maxHealth - C.get_organic_health() < heal_threshold)
 				to_chat(src, span_notice("[C] здоров! Программа не позволяет лечить чьи-либо раны без хотя бы [heal_threshold] урона любого типа ([heal_threshold + 5] для кислородного урона.)")) //ёбаный в рот этого казино блять
 
-			var/list/messagevoice = list("Все исправлено!" = 'sound/voice/medbot/patchedup.ogg',/*"Кто яблоко в день съедает, у того я не бываю." = 'sound/voice/medbot/apple.ogg'*/,"Поправляйся!" = 'sound/voice/medbot/feelbetter.ogg')
+			var/list/messagevoice = list(
+				"Все исправлено!" = 'sound/voice/medbot/patchedup.ogg',
+				/*"Кто яблоко в день съедает, у того я не бываю." = 'sound/voice/medbot/apple.ogg',*/
+				"Поправляйся!" = 'sound/voice/medbot/feelbetter.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
 			playsound(src, messagevoice[message], 50)

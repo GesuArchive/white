@@ -93,6 +93,7 @@
 	new /obj/item/wallframe/defib_mount(src)
 	new /obj/item/circuitboard/machine/mechfab/med(src)
 	new /obj/item/storage/photo_album/cmo(src)
+	new	/obj/item/lazarus_injector(src)
 	new /obj/item/storage/box/skillchips/medic(src)
 
 /obj/structure/closet/secure_closet/chief_medical/populate_contents_immediate()

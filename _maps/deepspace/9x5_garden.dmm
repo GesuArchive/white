@@ -7,7 +7,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "hx" = (
 /obj/machinery/hydroponics/soil,
 /obj/effect/turf_decal/delivery,
@@ -16,7 +16,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "iX" = (
 /obj/machinery/biogenerator,
 /obj/effect/turf_decal/tile/neutral,
@@ -24,10 +24,10 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "mj" = (
 /turf/closed/wall/riveted_wall,
-/area/template_noop)
+/area/ruin/unpowered)
 "mn" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/hydroponics/soil,
@@ -38,7 +38,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "qW" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/hydroponics/soil,
@@ -47,14 +47,14 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "yt" = (
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = -12
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "zv" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/tile/neutral{
@@ -76,7 +76,7 @@
 /obj/item/reagent_containers/glass/bottle/nutrient/rh,
 /obj/item/seeds/tower,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Bf" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -89,7 +89,7 @@
 	},
 /obj/structure/table,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Bs" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-22"
@@ -102,17 +102,17 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "BO" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Fk" = (
 /obj/effect/abstract/doorway_marker,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Hv" = (
 /obj/machinery/hydroponics/soil,
 /obj/effect/turf_decal/delivery,
@@ -123,14 +123,14 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "KH" = (
 /obj/structure/sink{
 	dir = 8;
 	pixel_x = 11
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Ne" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-21";
@@ -142,10 +142,10 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "NT" = (
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 mj

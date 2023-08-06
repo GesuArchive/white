@@ -225,6 +225,9 @@
 /turf/open/floor/plating/asteroid/snow/temperatre
 	initial_gas_mix = "o2=22;n2=82;TEMP=255.37"
 
+/turf/open/floor/plating/asteroid/snow/normal_temp
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
+
 /turf/open/floor/plating/asteroid/snow/atmosphere
 	initial_gas_mix = FROZEN_ATMOS
 	planetary_atmos = FALSE

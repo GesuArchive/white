@@ -1,7 +1,16 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ac" = (
+/turf/open/floor/wood,
+/area/service/bar)
 "ah" = (
 /obj/effect/spawner/random/entertainment/money_small,
-/turf/open/floor/plating/asteroid/dirty,
+/turf/open/floor/grass/gensgrass/dirty,
+/area/rust_zone)
+"al" = (
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
 /area/rust_zone)
 "ay" = (
 /obj/item/stack/spacecash/c10000,
@@ -11,9 +20,51 @@
 /obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/grass/gensgrass/dirty,
 /area/rust_zone)
+"aC" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"aD" = (
+/obj/structure/resource_spawner,
+/obj/machinery/light,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/storage)
+"aF" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
+"aN" = (
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 8
+	},
+/turf/open/floor/rospilovo,
+/area/engineering/main)
 "aV" = (
 /obj/effect/spawner/random/entertainment/coin,
 /turf/open/floor/grass/gensgrass,
+/area/rust_zone)
+"aY" = (
+/turf/closed/wall/mineral/wood,
+/area/service/bar)
+"bh" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
+/turf/open/floor/grass/fairy,
+/area/service/bar)
+"bk" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/turf/open/floor/rospilovo,
 /area/rust_zone)
 "bl" = (
 /obj/machinery/conveyor{
@@ -24,10 +75,50 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"bq" = (
+/obj/structure/table/rospilovo,
+/obj/item/circuitboard/machine/mechfab/engi,
+/turf/open/floor/trot,
+/area/engineering/main)
+"bA" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/engineering/main)
+"bH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"bM" = (
+/obj/structure/table/rospilovo,
+/obj/item/clothing/glasses/welding,
+/turf/open/floor/trot,
+/area/engineering/main)
+"bT" = (
+/obj/structure/chair/sofa/corp/corner{
+	pixel_y = 4;
+	pixel_x = 6
+	},
+/turf/open/floor/carpet/royalblack,
+/area/service/bar)
 "bU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/trot,
 /area/mine/production)
+"bV" = (
+/turf/open/floor/plating/rust,
+/area/engineering/storage)
+"ca" = (
+/obj/structure/resource_spawner/rich,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/storage)
 "ck" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
@@ -35,7 +126,14 @@
 /area/mine/storage)
 "cm" = (
 /obj/effect/mob_spawn/human/corpse/assistant,
-/turf/open/floor/plating/asteroid/dirty,
+/turf/open/floor/grass/gensgrass/dirty,
+/area/rust_zone)
+"cx" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
 /area/rust_zone)
 "cD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -43,9 +141,26 @@
 	},
 /turf/open/floor/plating/rust,
 /area/mine/storage)
+"cF" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/service/bar)
 "cL" = (
 /turf/open/floor/plating/grass,
 /area/rust_zone)
+"cQ" = (
+/obj/machinery/light,
+/turf/open/floor/trot,
+/area/engineering/main)
+"dp" = (
+/obj/machinery/deepfryer,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
 "ds" = (
 /obj/structure/resource_spawner,
 /turf/open/floor/grass/gensgrass/dirty,
@@ -54,8 +169,40 @@
 /obj/structure/resource_spawner/crate/rich,
 /turf/open/floor/beton,
 /area/rust_zone)
+"dD" = (
+/obj/structure/table/wood/poker,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
 "dR" = (
 /turf/open/genturf,
+/area/rust_zone)
+"dS" = (
+/obj/structure/resource_spawner/rich,
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"dV" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/trot,
+/area/engineering/storage)
+"dW" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/rust,
+/area/rust_zone)
+"dX" = (
+/obj/structure/table/rospilovo,
+/obj/effect/turf_decal/siding/white{
+	dir = 9
+	},
+/turf/open/floor/rospilovo,
 /area/rust_zone)
 "ed" = (
 /obj/machinery/light{
@@ -65,6 +212,12 @@
 /obj/structure/table,
 /turf/open/floor/plasteel/dark,
 /area/mine/storage)
+"er" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
 "eI" = (
 /obj/structure/resource_spawner/rich,
 /turf/open/floor/grass/gensgrass/dirty,
@@ -89,6 +242,48 @@
 /obj/structure/resource_spawner/rich,
 /turf/open/floor/beton,
 /area/rust_zone)
+"fW" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"fZ" = (
+/obj/structure/table/rospilovo,
+/obj/item/multitool{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/multitool{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/turf/open/floor/trot,
+/area/engineering/main)
+"gc" = (
+/obj/structure/table/wood/poker,
+/obj/machinery/reagentgrinder{
+	pixel_y = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"ge" = (
+/obj/structure/table/rospilovo,
+/obj/item/clothing/glasses/welding{
+	pixel_y = 15
+	},
+/obj/item/storage/belt/utility,
+/turf/open/floor/trot,
+/area/engineering/main)
+"gm" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/service/bar)
+"gn" = (
+/obj/structure/table/wood/poker,
+/turf/open/floor/carpet/blue,
+/area/service/bar)
 "gE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 8
@@ -96,6 +291,47 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/trot,
 /area/mine/production)
+"gH" = (
+/obj/structure/resource_spawner/crate,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/storage)
+"gJ" = (
+/obj/effect/turf_decal/weather/dirt,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/obj/effect/turf_decal/trimline/white/line,
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"gN" = (
+/obj/structure/rospilovo/okno{
+	icon_state = "okno4"
+	},
+/turf/closed/wall/rospilovo/bricks,
+/area/engineering/storage)
+"hb" = (
+/obj/machinery/vending/snack/green,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"hh" = (
+/obj/structure/table/wood/poker,
+/obj/item/book/manual/wiki/barman_recipes{
+	pixel_x = -18;
+	pixel_y = 3
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"hu" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/service/bar)
 "hx" = (
 /obj/structure/resource_spawner,
 /turf/open/floor/plating/grass/jungle,
@@ -108,21 +344,132 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/mine/storage)
+"hH" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood/corner,
+/turf/open/floor/wood,
+/area/service/bar)
 "hS" = (
-/obj/item/card/id/departmental_budget/eng,
+/turf/open/floor/trot,
+/area/engineering/main)
+"iq" = (
+/turf/open/floor/plasteel/dark/side,
+/area/service/bar)
+"ix" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
 /turf/open/floor/grass/gensgrass,
+/area/rust_zone)
+"iy" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/service/bar)
+"iR" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/white/line,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"iS" = (
+/obj/machinery/chem_master/condimaster{
+	desc = "Looks like a knock-off chem-master. Perhaps useful for separating liquids when mixing drinks precisely. Also dispenses condiments.";
+	name = "HoochMaster Deluxe"
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"iX" = (
+/obj/machinery/light,
+/obj/structure/chair/sofa/corp/right{
+	color = "#DE3A3A";
+	dir = 1;
+	pixel_x = 6
+	},
+/turf/open/floor/carpet/purple,
+/area/service/bar)
+"iZ" = (
+/obj/structure/musician/piano{
+	icon_state = "piano"
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"jf" = (
+/obj/structure/table/rospilovo,
+/obj/item/storage/belt/utility,
+/turf/open/floor/trot,
+/area/engineering/main)
+"jg" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/rospilovo,
+/area/engineering/main)
+"jt" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/cooking_oil,
+/turf/open/floor/plating/rust,
 /area/rust_zone)
 "jE" = (
 /obj/structure/resource_spawner/rich,
 /turf/open/floor/plating/grass/jungle,
 /area/rust_zone)
+"jO" = (
+/obj/structure/resource_spawner,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/turf/open/floor/grass/gensgrass,
+/area/rust_zone)
+"jP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/rust_zone)
 "kf" = (
 /obj/effect/random_mob_placer/combat_ai,
 /turf/open/floor/plating/rust,
 /area/mine/storage)
+"kg" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_y = 4;
+	pixel_x = 6
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
 "ki" = (
 /turf/closed/wall,
 /area/mine/production)
+"kl" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/grass/gensgrass/dirty,
+/area/rust_zone)
+"kp" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/service/bar)
 "ks" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 8
@@ -137,10 +484,26 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/trot,
 /area/mine/production)
+"lE" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel/dark,
+/area/rust_zone)
+"lG" = (
+/obj/machinery/door/airlock/public/glass,
+/turf/open/floor/wood/tile,
+/area/service/bar)
+"lH" = (
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/rospilovo,
+/area/rust_zone)
 "lK" = (
 /obj/structure/resource_spawner/crate,
 /turf/open/floor/beton,
 /area/rust_zone)
+"lQ" = (
+/obj/effect/turf_decal/siding/wood/corner,
+/turf/open/floor/wood,
+/area/service/bar)
 "lU" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -152,6 +515,27 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"lV" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"lW" = (
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/genturf,
+/area/rust_zone)
+"ma" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/turf/open/floor/plating/rust,
+/area/rust_zone)
+"mn" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/turf/open/genturf,
+/area/rust_zone)
 "mq" = (
 /obj/machinery/airalarm{
 	dir = 4;
@@ -161,6 +545,12 @@
 /area/mine/storage)
 "mw" = (
 /obj/item/card/id/departmental_budget/sci,
+/turf/open/floor/grass/gensgrass,
+/area/rust_zone)
+"my" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
 /turf/open/floor/grass/gensgrass,
 /area/rust_zone)
 "ne" = (
@@ -173,6 +563,18 @@
 	},
 /turf/open/floor/trot,
 /area/rust_zone)
+"nH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/bin,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/rust_zone)
+"nQ" = (
+/obj/machinery/autolathe,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
 "nX" = (
 /obj/machinery/door/airlock/glass,
 /obj/structure/cable,
@@ -183,9 +585,43 @@
 /obj/item/multitool,
 /turf/open/floor/plasteel/dark,
 /area/mine/storage)
+"on" = (
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"op" = (
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/rospilovo,
+/area/rust_zone)
 "ot" = (
 /turf/open/floor/plating/grass/jungle,
 /area/rust_zone)
+"oG" = (
+/obj/structure/table/wood,
+/obj/structure/reagent_dispensers/beerkeg{
+	pixel_y = 3
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"oR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/rust_zone)
+"oY" = (
+/obj/structure/chair/sofa/corp{
+	pixel_y = 4;
+	pixel_x = 6;
+	dir = 8
+	},
+/turf/open/floor/carpet/royalblack,
+/area/service/bar)
+"pd" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
 "pw" = (
 /obj/machinery/mineral/unloading_machine{
 	dir = 1;
@@ -198,6 +634,25 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"pF" = (
+/obj/machinery/chem_dispenser/drinks{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/table/wood,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"pJ" = (
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 4;
+	icon_state = "trimline"
+	},
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 8;
+	icon_state = "trimline"
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
 "pS" = (
 /obj/structure/cable,
 /obj/structure/table,
@@ -210,22 +665,69 @@
 	},
 /turf/open/floor/plating/rust,
 /area/mine/storage)
+"pX" = (
+/obj/machinery/vending/boozeomat,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
 "qa" = (
 /obj/item/card/id/departmental_budget/sec,
 /turf/open/floor/grass/gensgrass,
+/area/rust_zone)
+"qi" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/trot,
+/area/engineering/storage)
+"qj" = (
+/obj/effect/turf_decal/siding/wideplating_new/corner,
+/obj/effect/turf_decal/siding/wood/corner,
+/turf/open/floor/plating/grass/jungle,
 /area/rust_zone)
 "qy" = (
 /obj/structure/resource_spawner,
 /turf/open/floor/grass/gensgrass,
 /area/rust_zone)
+"qK" = (
+/obj/effect/turf_decal/siding/white/corner,
+/turf/open/floor/rospilovo,
+/area/engineering/main)
+"ra" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/grass/fairy,
+/area/service/bar)
+"re" = (
+/obj/machinery/processor,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"rg" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/grass/fairy,
+/area/service/bar)
 "rz" = (
 /obj/structure/resource_spawner/crate,
 /turf/open/floor/plating/grass,
 /area/rust_zone)
+"rA" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/rospilovo,
+/area/engineering/main)
 "rK" = (
 /obj/structure/resource_spawner/crate,
 /turf/open/floor/grass/gensgrass/dirty,
 /area/rust_zone)
+"rS" = (
+/obj/structure/rospilovo/okno{
+	icon_state = "okno4"
+	},
+/turf/closed/wall/rospilovo/bricks,
+/area/engineering/main)
 "rW" = (
 /obj/item/card/id/departmental_budget/sta,
 /turf/open/floor/trot,
@@ -235,10 +737,44 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/trot,
 /area/mine/production)
+"sp" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"sr" = (
+/obj/structure/water_source/puddle,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/turf/open/floor/grass/fairy,
+/area/service/bar)
+"su" = (
+/obj/machinery/griddle,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"sI" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 10
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
 "sK" = (
 /obj/effect/spawner/random/entertainment/coin,
-/turf/open/floor/plating/asteroid/dirty,
+/turf/open/floor/grass/gensgrass/dirty,
 /area/rust_zone)
+"sT" = (
+/turf/open/floor/stone,
+/area/rust_zone)
+"tg" = (
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"tj" = (
+/turf/open/floor/carpet/purple,
+/area/service/bar)
 "tL" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
@@ -248,6 +784,54 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plating/rust,
 /area/mine/storage)
+"tV" = (
+/obj/structure/table/wood/fancy/black,
+/turf/open/floor/wood,
+/area/service/bar)
+"tW" = (
+/obj/structure/chair/sofa/corp{
+	color = "#DE3A3A";
+	dir = 8;
+	pixel_x = 6
+	},
+/turf/open/floor/carpet/purple,
+/area/service/bar)
+"tY" = (
+/obj/structure/resource_spawner,
+/obj/effect/turf_decal/siding/white{
+	dir = 5
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"tZ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"uc" = (
+/obj/structure/cable,
+/turf/open/floor/plating/rust,
+/area/engineering/storage)
+"ue" = (
+/obj/machinery/button/door{
+	id = "garage";
+	name = "Гараж";
+	pixel_y = -32
+	},
+/obj/machinery/light,
+/turf/open/floor/trot,
+/area/engineering/main)
+"ui" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
 "ur" = (
 /obj/machinery/light/small,
 /obj/effect/turf_decal/stripes/line,
@@ -257,6 +841,26 @@
 /obj/machinery/mineral/processing_unit_console,
 /turf/closed/wall,
 /area/mine/production)
+"uJ" = (
+/obj/structure/table/rospilovo,
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"uK" = (
+/obj/machinery/vending/coffee,
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"uQ" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 5
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
 "uT" = (
 /obj/structure/table,
 /obj/item/pinpointer/deepcore{
@@ -271,23 +875,122 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/mine/storage)
+"uU" = (
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/wideplating_new,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/plating/grass/jungle,
+/area/rust_zone)
+"uY" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"uZ" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"vw" = (
+/turf/open/floor/rospilovo,
+/area/engineering/main)
+"vz" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/service/bar)
+"vC" = (
+/obj/structure/table/rospilovo,
+/obj/item/storage/toolbox/electrical,
+/obj/item/cable_coil_box{
+	pixel_y = -16;
+	pixel_x = -4
+	},
+/obj/item/cable_coil_box{
+	pixel_y = -16;
+	pixel_x = 6
+	},
+/turf/open/floor/trot,
+/area/engineering/main)
+"vG" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/grass/fairy,
+/area/service/bar)
 "vT" = (
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/trot,
 /area/rust_zone)
+"vU" = (
+/obj/structure/table/wood/fancy/purple,
+/turf/open/floor/wood,
+/area/service/bar)
+"wi" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/turf/open/floor/grass/gensgrass,
+/area/rust_zone)
+"wz" = (
+/obj/effect/turf_decal/siding/wideplating_new/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/grass/jungle,
+/area/rust_zone)
 "wA" = (
 /turf/open/floor/plating/asteroid/dirty,
 /area/rust_zone)
+"wB" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 5
+	},
+/turf/open/floor/rospilovo,
+/area/engineering/main)
+"xd" = (
+/obj/structure/cable,
+/obj/effect/random_mob_placer/combat_ai,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/storage)
+"xf" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/service/bar)
 "xm" = (
 /obj/structure/cable,
 /turf/open/floor/trot,
 /area/mine/production)
+"xv" = (
+/obj/structure/table/wood/poker,
+/turf/open/floor/carpet/purple,
+/area/service/bar)
+"xB" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/grass/gensgrass/dirty,
+/area/rust_zone)
 "xD" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"xE" = (
+/obj/structure/chair/sofa/corp/right{
+	color = "#DE3A3A";
+	dir = 4;
+	pixel_y = 4;
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/blue,
+/area/service/bar)
 "xM" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -296,6 +999,14 @@
 /obj/item/card/id/departmental_budget/tra,
 /turf/open/floor/plating/grass/jungle,
 /area/rust_zone)
+"xY" = (
+/obj/structure/resource_spawner/crate/rich,
+/obj/item/clothing/gloves/color/yellow{
+	pixel_y = 4
+	},
+/obj/machinery/light,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/storage)
 "xZ" = (
 /turf/open/floor/grass/gensgrass,
 /area/rust_zone)
@@ -306,9 +1017,42 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating/rust,
 /area/mine/storage)
+"yh" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/service/bar)
 "yv" = (
-/obj/item/card/id/departmental_budget/srv,
-/turf/open/floor/grass/gensgrass,
+/obj/machinery/light,
+/obj/structure/chair/sofa/corp/left{
+	dir = 1;
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/red,
+/area/service/bar)
+"yK" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/turf/open/floor/grass/gensgrass/dirty,
+/area/rust_zone)
+"yQ" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/turf/open/floor/grass/gensgrass/dirty,
+/area/rust_zone)
+"yT" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/white/line,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/turf/open/floor/rospilovo,
 /area/rust_zone)
 "yY" = (
 /obj/machinery/conveyor_switch/oneway{
@@ -327,20 +1071,99 @@
 /obj/structure/cable,
 /turf/open/floor/plating/rust,
 /area/mine/storage)
+"zp" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/power/port_gen/pacman,
+/turf/open/floor/plating/rust,
+/area/rust_zone)
+"zr" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"zu" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/turf/open/genturf,
+/area/rust_zone)
 "zx" = (
 /obj/structure/resource_spawner/crate/rich,
 /turf/open/floor/grass/gensgrass/dirty,
 /area/rust_zone)
+"zH" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/turf/open/genturf,
+/area/rust_zone)
+"zL" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 9
+	},
+/turf/open/floor/rospilovo,
+/area/engineering/main)
 "zM" = (
 /obj/item/stack/spacecash/c10000,
 /obj/structure/closet/crate/secure/owned{
 	locked = 0
 	},
 /obj/effect/spawner/random/entertainment/money_large,
-/turf/open/floor/plating/asteroid/dirty,
+/turf/open/floor/grass/gensgrass,
 /area/rust_zone)
+"Ad" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/chair/sofa/corp/right{
+	pixel_y = 4;
+	pixel_x = 6
+	},
+/turf/open/floor/carpet/royalblack,
+/area/service/bar)
 "Af" = (
 /obj/structure/resource_spawner/crate/rich,
+/turf/open/floor/plating/grass/jungle,
+/area/rust_zone)
+"Aj" = (
+/obj/structure/chair/sofa/corp/corner{
+	color = "#DE3A3A";
+	dir = 8;
+	pixel_x = 6
+	},
+/turf/open/floor/carpet/purple,
+/area/service/bar)
+"Al" = (
+/obj/structure/table/rospilovo,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/wrench,
+/obj/item/wirecutters{
+	pixel_x = 2;
+	pixel_y = -17
+	},
+/obj/item/screwdriver{
+	pixel_y = 9
+	},
+/turf/open/floor/trot,
+/area/engineering/main)
+"Aq" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/turf/open/floor/grass/gensgrass,
+/area/rust_zone)
+"Ar" = (
+/obj/effect/turf_decal/siding/wideplating_new/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
 /turf/open/floor/plating/grass/jungle,
 /area/rust_zone)
 "Ax" = (
@@ -364,6 +1187,75 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"AD" = (
+/obj/structure/table/wood/poker,
+/turf/open/floor/carpet/red,
+/area/service/bar)
+"AE" = (
+/obj/structure/closet/crate/bin,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"AH" = (
+/obj/machinery/power/port_gen/pacman,
+/obj/structure/cable,
+/turf/open/floor/plating/rust,
+/area/engineering/storage)
+"AO" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/turf/open/genturf,
+/area/rust_zone)
+"AW" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"AX" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"Bf" = (
+/obj/machinery/turntable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"Bh" = (
+/obj/structure/resource_spawner/crate,
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"Bq" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 4;
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/red,
+/area/service/bar)
+"BE" = (
+/obj/structure/table/rospilovo,
+/obj/item/weldingtool{
+	pixel_x = -2;
+	pixel_y = 6
+	},
+/obj/item/weldingtool{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/turf/open/floor/trot,
+/area/engineering/main)
+"BJ" = (
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/grass/gensgrass,
+/area/rust_zone)
 "BY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -371,6 +1263,20 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"Ci" = (
+/obj/structure/table/wood/poker,
+/obj/machinery/microwave{
+	pixel_y = 6
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"CI" = (
+/obj/structure/table/wood/poker,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
 "CJ" = (
 /obj/structure/table,
 /obj/item/stack/cable_coil/fifteen,
@@ -388,16 +1294,62 @@
 "CM" = (
 /turf/closed/wall/rust,
 /area/mine/storage)
+"CT" = (
+/obj/effect/turf_decal/weather/dirt,
+/obj/effect/turf_decal/trimline/white/line,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
 "Dc" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"Ds" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/genturf,
+/area/rust_zone)
+"Dv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/rust_zone)
+"DR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
 "Ea" = (
 /obj/effect/mob_spawn/human/corpse/cargo_tech,
 /turf/open/floor/plating/rust,
 /area/mine/storage)
+"Eb" = (
+/obj/structure/table/wood/poker,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	layer = 5;
+	pixel_y = 12;
+	pixel_x = -5
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"Ec" = (
+/obj/structure/table/wood/poker,
+/turf/open/floor/carpet/royalblack,
+/area/service/bar)
 "Ed" = (
 /obj/structure/cable,
 /turf/open/floor/plating/rust,
@@ -406,27 +1358,124 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/trot,
 /area/mine/production)
+"Ey" = (
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 4
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"ED" = (
+/obj/machinery/gibber,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
 "EL" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
 /area/mine/storage)
+"ER" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 8;
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/turf/open/floor/carpet/royalblack,
+/area/service/bar)
 "EU" = (
 /obj/item/card/id/departmental_budget/med,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
 /turf/open/floor/grass/gensgrass,
 /area/rust_zone)
+"Fd" = (
+/obj/structure/table/wood/poker,
+/obj/item/kitchen/rollingpin{
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"FC" = (
+/obj/effect/turf_decal/siding/wood/corner,
+/turf/open/floor/grass/fairy,
+/area/service/bar)
+"FJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood/corner,
+/turf/open/floor/plasteel/dark,
+/area/rust_zone)
+"FX" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/wood,
+/area/service/bar)
 "Gc" = (
 /turf/open/floor/plating/rust,
 /area/mine/storage)
+"Gj" = (
+/obj/structure/table/wood/poker,
+/obj/item/card/id/departmental_budget/srv{
+	pixel_y = 3
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
 "Gm" = (
-/obj/machinery/autolathe,
-/turf/open/floor/grass/gensgrass,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
+"Gn" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/genturf,
 /area/rust_zone)
+"Gq" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/turf/open/floor/grass/gensgrass/dirty,
+/area/rust_zone)
+"Gr" = (
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood,
+/area/service/bar)
+"Gz" = (
+/obj/effect/random_mob_placer/combat_ai,
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/engineering/main)
+"GA" = (
+/obj/structure/mineral_door/wood{
+	color = "#aaaaaa";
+	name = "деревянная дверь"
+	},
+/obj/structure/cable,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
+"GB" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/wood,
+/area/service/bar)
 "GH" = (
 /obj/machinery/atmospherics/components/unary/tank/air,
 /turf/open/floor/trot,
 /area/mine/production)
+"GM" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/grass/fairy,
+/area/service/bar)
+"GT" = (
+/obj/structure/table/wood/fancy/blue,
+/turf/open/floor/wood,
+/area/service/bar)
 "Hn" = (
 /obj/item/card/id/departmental_budget/civ,
 /turf/open/floor/grass/gensgrass/dirty,
@@ -442,8 +1491,25 @@
 /obj/structure/resource_spawner,
 /turf/open/floor/plating/grass,
 /area/rust_zone)
+"Hu" = (
+/obj/structure/cable,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/storage)
 "Hz" = (
 /turf/open/floor/grass/snow/actually_safe,
+/area/rust_zone)
+"Ih" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"Ij" = (
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"Ik" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/turf/open/floor/rospilovo,
 /area/rust_zone)
 "IC" = (
 /obj/effect/turf_decal/loading_area{
@@ -451,6 +1517,32 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"IJ" = (
+/obj/effect/mob_spawn/human/corpse/assistant,
+/turf/open/floor/grass/gensgrass,
+/area/rust_zone)
+"IN" = (
+/obj/effect/turf_decal/siding/wideplating_new/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/grass/jungle,
+/area/rust_zone)
+"IQ" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/grass/fairy,
+/area/service/bar)
+"Jb" = (
+/obj/structure/mineral_door/wood{
+	color = "#aaaaaa";
+	name = "деревянная дверь"
+	},
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
 "Jq" = (
 /obj/structure/resource_spawner/crate,
 /turf/open/floor/plating/grass/jungle,
@@ -464,10 +1556,25 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"JE" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/trot,
+/area/engineering/main)
+"JN" = (
+/turf/open/floor/carpet/royalblack,
+/area/service/bar)
 "JQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/trot,
+/area/rust_zone)
+"JU" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/turf/open/floor/grass/gensgrass,
 /area/rust_zone)
 "JV" = (
 /turf/open/floor/trot,
@@ -504,6 +1611,39 @@
 /obj/structure/resource_spawner/crate/rich,
 /turf/open/floor/grass/gensgrass,
 /area/rust_zone)
+"Lt" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"LC" = (
+/obj/machinery/vending/cigarette/beach,
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"LE" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"LX" = (
+/turf/closed/wall/rospilovo/bricks,
+/area/engineering/storage)
+"Mb" = (
+/obj/structure/table/rospilovo,
+/obj/item/circuitboard/machine/ore_redemption,
+/turf/open/floor/trot,
+/area/engineering/main)
+"Mn" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 6
+	},
+/turf/open/floor/rospilovo,
+/area/engineering/main)
 "Ms" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -514,11 +1654,81 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"Mw" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/white/line,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"MT" = (
+/obj/structure/table/rospilovo,
+/obj/item/crowbar{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/open/floor/trot,
+/area/engineering/main)
+"MW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/bin,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/rust_zone)
 "Nh" = (
 /obj/structure/cable,
 /obj/machinery/power/port_gen/pacman,
 /turf/open/floor/plating/rust,
 /area/mine/storage)
+"Nr" = (
+/obj/structure/table/wood/fancy/red,
+/turf/open/floor/wood,
+/area/service/bar)
+"Ns" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/trot,
+/area/engineering/main)
+"NE" = (
+/obj/structure/table/wood/poker,
+/obj/item/book/manual/wiki/cooking_to_serve_man{
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"NP" = (
+/obj/structure/chair/sofa/corp/right{
+	color = "#DE3A3A";
+	dir = 8;
+	pixel_x = 6
+	},
+/turf/open/floor/carpet/purple,
+/area/service/bar)
+"Oj" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 10
+	},
+/turf/open/floor/rospilovo,
+/area/engineering/main)
+"Ow" = (
+/obj/machinery/door/airlock/public/glass,
+/obj/structure/cable,
+/turf/open/floor/wood/tile,
+/area/service/bar)
+"OG" = (
+/obj/structure/closet/crate/bin,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood,
+/area/service/bar)
 "ON" = (
 /obj/item/card/id/departmental_budget/car,
 /turf/open/floor/plating/rust,
@@ -527,6 +1737,42 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/mine/production)
+"OV" = (
+/obj/structure/cable,
+/turf/open/floor/carpet/blue,
+/area/service/bar)
+"PC" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/white/line,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"PM" = (
+/obj/structure/table/wood/poker,
+/obj/item/lighter{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"PY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/resource_spawner,
+/turf/open/floor/plating/rust,
+/area/rust_zone)
+"Qe" = (
+/obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/table/wood,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
 "Ql" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical{
@@ -535,6 +1781,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/mine/storage)
+"Qr" = (
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/storage)
 "QK" = (
 /obj/structure/table,
 /obj/item/circuitboard/computer/cargo/express{
@@ -554,9 +1805,25 @@
 /obj/structure/resource_spawner/crate,
 /turf/open/floor/grass/gensgrass,
 /area/rust_zone)
+"Re" = (
+/obj/structure/table/rospilovo,
+/obj/item/stack/cable_coil/fifteen,
+/turf/open/floor/trot,
+/area/engineering/main)
+"Rs" = (
+/obj/machinery/oven,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
 "RC" = (
 /obj/structure/water_source/puddle,
 /turf/open/floor/grass/gensgrass/dirty,
+/area/rust_zone)
+"Sa" = (
+/obj/structure/resource_spawner/crate/rich,
+/obj/effect/turf_decal/siding/white{
+	dir = 6
+	},
+/turf/open/floor/rospilovo,
 /area/rust_zone)
 "Sv" = (
 /obj/structure/extinguisher_cabinet/directional/west,
@@ -568,6 +1835,27 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"SN" = (
+/obj/structure/chair/sofa/corp{
+	color = "#DE3A3A";
+	dir = 4;
+	pixel_y = 4;
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/blue,
+/area/service/bar)
+"Tn" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/turf/open/floor/grass/gensgrass,
+/area/rust_zone)
+"Tp" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/turf/open/genturf,
+/area/rust_zone)
 "Tq" = (
 /obj/item/pickaxe,
 /obj/structure/extinguisher_cabinet{
@@ -581,6 +1869,25 @@
 /obj/machinery/ore_silo,
 /turf/open/floor/trot,
 /area/mine/production)
+"TQ" = (
+/obj/structure/table/rospilovo,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/circuitboard/machine/ore_silo,
+/turf/open/floor/trot,
+/area/engineering/main)
+"TW" = (
+/obj/machinery/grill,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"TX" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/rospilovo,
+/area/rust_zone)
 "Uf" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -606,6 +1913,19 @@
 /obj/structure/resource_spawner/crate/rich,
 /turf/open/floor/trot,
 /area/mine/production)
+"Uo" = (
+/obj/structure/chair/sofa/corp/corner{
+	dir = 1;
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/red,
+/area/service/bar)
+"Uu" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "garage"
+	},
+/turf/open/floor/trot,
+/area/engineering/main)
 "Uv" = (
 /obj/machinery/light/small,
 /obj/effect/turf_decal/stripes/line,
@@ -614,6 +1934,48 @@
 	},
 /turf/open/floor/trot,
 /area/mine/production)
+"Uw" = (
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
+"UL" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/genturf,
+/area/rust_zone)
+"UM" = (
+/obj/structure/table/rospilovo,
+/obj/machinery/cell_charger,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
+"UV" = (
+/obj/structure/cable,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
+"Vf" = (
+/turf/open/floor/carpet/red,
+/area/service/bar)
+"VQ" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/chair/sofa/corp/left{
+	color = "#DE3A3A";
+	pixel_y = 4;
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/blue,
+/area/service/bar)
 "VY" = (
 /obj/machinery/camera{
 	c_tag = "Processing Area Room";
@@ -631,6 +1993,22 @@
 /obj/effect/baseturf_helper/beach/raw_stone,
 /turf/closed/wall/rust,
 /area/mine/production)
+"WD" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"WO" = (
+/obj/structure/table/rospilovo,
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"WS" = (
+/turf/open/floor/rospilovo/wood,
+/area/engineering/storage)
 "WZ" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -639,20 +2017,132 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating/rust,
 /area/mine/storage)
+"Xa" = (
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/stone,
+/area/rust_zone)
 "Xc" = (
 /obj/effect/baseturf_helper/beach/raw_stone,
 /turf/open/genturf,
 /area/rust_zone)
+"Xn" = (
+/turf/closed/wall/rospilovo/bricks,
+/area/engineering/main)
+"Xt" = (
+/obj/effect/turf_decal/trimline/white/line,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
+"Xw" = (
+/obj/structure/table/wood/poker,
+/turf/open/floor/plasteel/dark,
+/area/service/bar)
+"Xz" = (
+/obj/structure/chair/sofa/corp/corner{
+	color = "#DE3A3A";
+	dir = 4;
+	pixel_y = 4;
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/blue,
+/area/service/bar)
+"XD" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/service/bar)
 "XM" = (
 /turf/closed/wall/rust,
 /area/mine/production)
+"XT" = (
+/obj/structure/table/rospilovo,
+/obj/item/card/id/departmental_budget/eng,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
+"XU" = (
+/obj/effect/spawner/random/entertainment/arcade,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"XX" = (
+/obj/structure/chair/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/service/bar)
+"Yr" = (
+/obj/structure/table/rospilovo,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 12
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
+"Yv" = (
+/obj/structure/chair/sofa/corp{
+	dir = 4;
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/red,
+/area/service/bar)
+"YS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/resource_spawner/rich,
+/turf/open/floor/plating/rust,
+/area/rust_zone)
+"YZ" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/floor/rospilovo/wood,
+/area/engineering/main)
+"Ze" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/service/bar)
 "Zh" = (
 /obj/structure/resource_spawner/rich,
 /turf/open/floor/grass/gensgrass,
 /area/rust_zone)
+"Zi" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 9
+	},
+/turf/open/floor/rospilovo,
+/area/rust_zone)
 "Zs" = (
 /turf/open/floor/plasteel/dark,
 /area/mine/storage)
+"ZJ" = (
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/plating/grass/jungle,
+/area/rust_zone)
 
 (1,1,1) = {"
 Xc
@@ -733,9 +2223,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -990,9 +2480,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -1247,9 +2737,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -1504,9 +2994,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -1761,9 +3251,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -2018,9 +3508,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -2275,9 +3765,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -2532,9 +4022,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -2789,9 +4279,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -3046,9 +4536,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -3303,9 +4793,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -3560,9 +5050,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -3817,9 +5307,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -4074,9 +5564,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -4331,9 +5821,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -4588,9 +6078,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -4845,9 +6335,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -4945,8 +6435,8 @@ dR
 dR
 dR
 dR
-dR
-dR
+zl
+zl
 zl
 zl
 zl
@@ -5102,9 +6592,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -5201,9 +6691,9 @@ zl
 dR
 dR
 dR
-dR
-dR
-dR
+zl
+zl
+zl
 dR
 dR
 dR
@@ -5359,9 +6849,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -5457,9 +6947,9 @@ dR
 zl
 dR
 ah
-wA
-wA
-dR
+zl
+zl
+zl
 dR
 dR
 dR
@@ -5616,9 +7106,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -5713,8 +7203,8 @@ dR
 dR
 zl
 dR
-wA
-zM
+zl
+ay
 ah
 dR
 dR
@@ -5856,6 +7346,8 @@ dR
 dR
 dR
 dR
+AO
+AO
 dR
 dR
 dR
@@ -5871,11 +7363,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -5969,8 +7459,8 @@ zl
 zl
 dR
 dR
-dR
-wA
+zl
+zl
 ah
 cm
 dR
@@ -6112,6 +7602,10 @@ xZ
 dR
 dR
 dR
+zH
+wA
+wA
+Tp
 dR
 dR
 dR
@@ -6126,13 +7620,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -6225,9 +7715,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+zl
+zl
+zl
 dR
 dR
 dR
@@ -6355,10 +7845,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
+xZ
+xZ
+xZ
 dR
 dR
 xZ
@@ -6366,6 +7855,15 @@ xZ
 xZ
 xZ
 xZ
+xZ
+dR
+dR
+lW
+wA
+wA
+wA
+wA
+Tp
 dR
 dR
 dR
@@ -6379,17 +7877,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -6479,11 +7969,11 @@ xZ
 dR
 dR
 dR
+zl
+zl
 dR
-dR
-dR
-dR
-dR
+zl
+zl
 dR
 dR
 dR
@@ -6609,33 +8099,29 @@ dR
 zl
 zl
 zl
-dR
-dR
-dR
-dR
-dR
-xZ
-xZ
-xZ
-xZ
-dR
-dR
-dR
-dR
-dR
-dR
-xZ
-xZ
-xZ
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+Xa
+wA
+wA
+wA
+wA
+wA
+Gn
 dR
 dR
 dR
@@ -6647,6 +8133,10 @@ dR
 dR
 dR
 dR
+dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -6866,31 +8356,29 @@ dR
 zl
 zl
 zl
-zl
-zl
-dR
-dR
-dR
-xZ
-xZ
-xZ
-xZ
-dR
-dR
-dR
-dR
-dR
-xZ
-xZ
-xZ
-xZ
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+sT
+dX
+uJ
+er
+sI
+sT
+Zi
+er
+sI
+sT
+Zi
+er
+er
+er
+er
+er
+er
+Ik
+wA
+wA
+wA
+wA
+Tp
 dR
 dR
 dR
@@ -6903,7 +8391,9 @@ dR
 dR
 dR
 dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -7123,31 +8613,29 @@ dR
 dR
 dR
 dR
-zl
-zl
-dR
-xZ
-xZ
-xZ
-QN
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+sT
+WO
+Ij
+Ij
+op
+sT
+uY
+Ij
+op
+sT
+uY
+Ij
+Ij
+Ij
+Ij
+Ij
+Ij
+Ij
+Ik
+wA
+wA
+wA
+wA
 dR
 dR
 dR
@@ -7160,7 +8648,9 @@ dR
 dR
 dR
 dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -7380,31 +8870,29 @@ dR
 dR
 dR
 dR
-dR
-zl
-zl
-xZ
-xZ
-xZ
-Lm
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+sT
+WO
+Ij
+Ij
+op
+sT
+dV
+Lh
+dV
+sT
+uQ
+sp
+sp
+sp
+sp
+sp
+sp
+Ey
+Ij
+Ik
+wA
+wA
+zu
 dR
 dR
 dR
@@ -7417,7 +8905,9 @@ dR
 dR
 dR
 dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -7637,30 +9127,28 @@ zl
 dR
 dR
 dR
-dR
-zl
-zl
-zl
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-zl
-zl
-zl
-xZ
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-dR
-dR
+sT
+uY
+Ij
+Ij
+op
+Xn
+Xn
+Jb
+Xn
+Xn
+rS
+Xn
+Xn
+rS
+Xn
+Xn
+sT
+uY
+Ij
+lH
+wA
+Gq
 dR
 dR
 dR
@@ -7674,7 +9162,9 @@ dR
 dR
 dR
 dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -7894,32 +9384,32 @@ zl
 dR
 dR
 dR
+sT
+uY
+Ij
+Ij
+op
+Xn
+YZ
+Gm
+Gm
+Ns
+vC
+Re
+TQ
+BE
+jf
+Xn
+sT
+uY
+Ij
+Ij
+kl
+zl
 dR
 dR
 zl
 zl
-xZ
-xZ
-xZ
-zl
-zl
-xZ
-zl
-zl
-zl
-xZ
-xZ
-xZ
-dR
-dR
-zl
-zl
-zl
-zl
-dR
-dR
-zl
-zl
 zl
 dR
 dR
@@ -7929,9 +9419,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -8151,26 +9641,26 @@ zl
 dR
 dR
 dR
-dR
-dR
-xZ
-xZ
-zl
-zl
-zl
+sT
+uY
+Ij
+Ij
+Bh
+rS
+pd
 Gm
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-zl
-zl
-zl
-zl
+Gm
+hS
+hS
+hS
+hS
+hS
+bM
+rS
+sT
+uY
+Ij
+Ij
 dR
 zl
 zl
@@ -8186,9 +9676,9 @@ zl
 zl
 zl
 zl
-zl
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -8408,44 +9898,44 @@ dR
 zl
 dR
 dR
-dR
-dR
-xZ
-xZ
-xZ
-zl
-xZ
-xZ
-xZ
-xZ
-xZ
-zl
-zl
-zl
-zl
-xZ
-xZ
-xZ
-dR
-xZ
-dR
-dR
-dR
+sT
+tY
+dS
+sp
+Sa
+Xn
+UM
+Gm
+Gm
+hS
+zL
+rA
+rA
+Oj
+cQ
+Xn
+sT
+uY
+Ij
+Ij
 dR
 dR
 dR
 dR
 dR
 dR
-zl
-zl
-zl
-zl
-zl
-zl
-zl
+dR
+dR
 dR
 zl
+zl
+zl
+zl
+zl
+zl
+uY
+Xt
+op
 zl
 dR
 dR
@@ -8665,47 +10155,47 @@ dR
 zl
 dR
 dR
-dR
-dR
-xZ
-xZ
-xZ
-zl
-xZ
-xZ
-xZ
+sT
+LX
+LX
+LX
+LX
+Xn
+Yr
+Gm
+Gm
 hS
-zl
-zl
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-dR
-xZ
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-zl
-zl
-dR
-zl
-zl
-zl
-zl
+bA
+vw
+vw
+aN
+rA
+Uu
+er
+al
+Ij
+Ij
+er
+er
+er
+er
+er
+er
+er
+er
+er
+er
+er
+er
+er
+er
+er
+al
+Ij
+Ij
+yK
+yK
+yK
 dR
 dR
 dR
@@ -8922,48 +10412,48 @@ dR
 dR
 zl
 dR
-dR
-dR
-xZ
-xZ
-xZ
-xZ
-zl
-xZ
-xZ
-xZ
-KF
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-dR
-xZ
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
+sT
+LX
+ca
+gH
+xY
+Xn
+nQ
+Gm
+Gm
+hS
+Gz
+vw
+vw
+vw
+vw
+Uu
+Ij
+Ij
+Ij
+Ij
+pJ
+pJ
+pJ
+pJ
+pJ
+pJ
+pJ
+pJ
+pJ
+pJ
+pJ
+pJ
+pJ
+pJ
+pJ
+Ij
+Ij
+lH
+wA
+wA
+wA
+xB
 zl
 zl
 dR
@@ -9179,48 +10669,48 @@ dR
 dR
 zl
 dR
-dR
-dR
-xZ
-xZ
-xZ
-xZ
-zl
-xZ
-xZ
-zl
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-dR
-xZ
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
+sT
+gN
+WS
+WS
+WS
+Xn
+aF
+Gm
+Gm
+hS
+bA
+vw
+vw
+qK
+jg
+Uu
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+Ey
+Ij
+uZ
+wA
+wA
+wA
+yQ
 zl
 zl
 zl
@@ -9436,27 +10926,26 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-xZ
-xZ
-xZ
-xZ
-zl
-zl
-zl
-zl
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-dR
+sT
+LX
+Qr
+xd
+Hu
+GA
+UV
+Gm
+Gm
+hS
+wB
+jg
+jg
+Mn
+ue
+Xn
+sT
 xZ
 dR
+xZ
 dR
 dR
 dR
@@ -9472,15 +10961,16 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
+uY
+gJ
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+xB
 zl
 zl
 zl
@@ -9693,25 +11183,23 @@ dR
 dR
 dR
 zl
-dR
-xZ
-dR
-xZ
-xZ
-xZ
-xZ
-zl
-zl
-xZ
-zl
-zl
-xZ
-xZ
-xZ
-xZ
-xZ
-dR
-dR
+sT
+gN
+uc
+bV
+WS
+Xn
+Uw
+Gm
+Gm
+hS
+hS
+hS
+hS
+hS
+MT
+rS
+sT
 dR
 dR
 dR
@@ -9730,14 +11218,16 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
+uY
+gJ
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+yQ
 zl
 zl
 zl
@@ -9950,25 +11440,23 @@ dR
 dR
 dR
 zl
-xZ
-xZ
-dR
-xZ
-xZ
-xZ
-xZ
-xZ
-zl
-zl
-zl
-zl
-xZ
-xZ
-xZ
-xZ
-xZ
-dR
-dR
+sT
+LX
+AH
+bV
+aD
+Xn
+XT
+Gm
+Gm
+JE
+bq
+fZ
+Al
+Mb
+ge
+Xn
+sT
 dR
 dR
 dR
@@ -9987,15 +11475,17 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
+uY
+gJ
+wA
+wA
+zu
+mn
+wA
+wA
+wA
+wA
+xB
 zl
 zl
 zl
@@ -10207,25 +11697,23 @@ dR
 dR
 dR
 zl
-xZ
-xZ
-dR
-xZ
-xZ
-xZ
-xZ
-xZ
-zl
-zl
-zl
-zl
-xZ
-xZ
-xZ
-xZ
-xZ
-dR
-dR
+sT
+LX
+LX
+gN
+LX
+Xn
+Xn
+Jb
+Xn
+Xn
+rS
+Xn
+Xn
+rS
+Xn
+Xn
+sT
 dR
 dR
 dR
@@ -10244,15 +11732,17 @@ dR
 dR
 dR
 dR
+uY
+Xt
+Ik
+wA
+Gn
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
+mn
+wA
+wA
+xB
 zl
 zl
 zl
@@ -10464,25 +11954,25 @@ dR
 dR
 dR
 zl
+sT
+sT
+sT
+sT
+sT
+sT
+qi
+Lh
+qi
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
 xZ
 xZ
-dR
-xZ
-xZ
-xZ
-xZ
-xZ
-zl
-zl
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
 xZ
 dR
 dR
@@ -10499,16 +11989,16 @@ dR
 dR
 dR
 dR
+uY
+Xt
+Ij
+Ds
 dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
+Ds
+Ds
 zl
 zl
 dR
@@ -10731,8 +12221,8 @@ xZ
 xZ
 xZ
 xZ
-qy
-eI
+xZ
+zl
 zl
 xZ
 xZ
@@ -10756,9 +12246,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -11013,9 +12503,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -11253,8 +12743,8 @@ dR
 dR
 dR
 xZ
+KF
 xZ
-xZ
 dR
 dR
 dR
@@ -11270,9 +12760,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -11527,9 +13017,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+uY
+Xt
+op
 dR
 dR
 dR
@@ -11783,10 +13273,10 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
+AO
+bk
+Xt
+op
 dR
 dR
 dR
@@ -12039,11 +13529,11 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
+lW
+wA
+wA
+yT
+op
 dR
 dR
 dR
@@ -12296,11 +13786,11 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
+zH
+wA
+wA
+wA
+TX
 dR
 dR
 dR
@@ -12552,12 +14042,12 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
+lW
+wA
+wA
+wA
+wA
+TX
 dR
 dR
 dR
@@ -12809,12 +14299,12 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
+zH
+wA
+wA
+wA
+Mw
+op
 dR
 dR
 dR
@@ -13065,13 +14555,13 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+lW
+wA
+wA
+wA
+wA
+iR
+op
 dR
 dR
 dR
@@ -13322,14 +14812,14 @@ dR
 xZ
 xZ
 xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-dR
-dR
+BJ
+wA
+wA
+wA
+AW
+Xt
+bk
+AO
 dR
 dR
 dR
@@ -13580,14 +15070,14 @@ xZ
 xZ
 xZ
 xZ
-xZ
-xZ
-dR
-xZ
-xZ
-xZ
-xZ
-xZ
+ix
+ix
+UL
+Ij
+CT
+wA
+wA
+Tn
 dR
 dR
 dR
@@ -13838,14 +15328,14 @@ xZ
 xZ
 qy
 Zh
-qy
-xZ
-dR
-dR
-xZ
-xZ
-xZ
-dR
+jO
+wA
+zr
+PC
+wA
+wA
+wA
+Gn
 dR
 dR
 dR
@@ -14094,15 +15584,15 @@ xZ
 xZ
 xZ
 xZ
-xZ
-xZ
-xZ
-dR
-dR
-dR
-dR
-dR
-xZ
+wi
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+my
 xZ
 xZ
 dR
@@ -14350,15 +15840,15 @@ xZ
 xZ
 xZ
 xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-dR
+BJ
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+zu
 xZ
 xZ
 xZ
@@ -14608,13 +16098,13 @@ xZ
 xZ
 xZ
 xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
-xZ
+JU
+wA
+wA
+wA
+wA
+wA
+Aq
 dR
 dR
 dR
@@ -14866,11 +16356,11 @@ xZ
 xZ
 xZ
 xZ
-xZ
-xZ
-xZ
-xZ
-xZ
+JU
+wA
+wA
+wA
+Aq
 xZ
 xZ
 xZ
@@ -15125,8 +16615,8 @@ xZ
 xZ
 xZ
 EU
-xZ
-xZ
+ix
+ix
 xZ
 xZ
 xZ
@@ -19954,7 +21444,7 @@ dR
 dR
 dR
 dR
-zl
+dR
 zl
 zl
 dR
@@ -20470,7 +21960,7 @@ dR
 dR
 zl
 zl
-zl
+dR
 dR
 dR
 dR
@@ -20726,8 +22216,8 @@ dR
 dR
 dR
 zl
-zl
-zl
+dR
+dR
 dR
 dR
 dR
@@ -29565,7 +31055,7 @@ dR
 dR
 dR
 dR
-zl
+ot
 dR
 dR
 dR
@@ -29821,10 +31311,10 @@ dR
 dR
 dR
 dR
-zl
-zl
-dR
-dR
+ot
+ot
+ot
+ot
 dR
 dR
 zl
@@ -30077,11 +31567,11 @@ dR
 dR
 dR
 dR
-dR
-zl
-zl
-dR
-dR
+ot
+ot
+ot
+ot
+ot
 dR
 dR
 dR
@@ -30330,17 +31820,17 @@ dR
 dR
 dR
 dR
-dR
-zl
-zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
 dR
 dR
 dR
@@ -30586,19 +32076,19 @@ dR
 dR
 dR
 dR
-dR
-dR
-zl
-zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+ot
+ot
+ot
+ot
+ot
+ot
+lE
+lE
+lE
+lE
+ot
+ot
+ot
 dR
 dR
 zl
@@ -30843,21 +32333,21 @@ dR
 dR
 dR
 dR
-dR
-dR
-zl
-zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+ot
+ot
+dW
+ma
+ma
+FJ
+DR
+oR
+cx
+bH
+MW
+ot
+ot
+ot
+ot
 zl
 zl
 zl
@@ -31097,24 +32587,24 @@ dR
 dR
 dR
 dR
-dR
-dR
-zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+ot
+ot
+ot
+ot
+dW
+dW
+zp
+aY
+aY
+aY
+Ow
+lG
+aY
+aY
+aY
+ot
+ot
+ot
 dR
 dR
 dR
@@ -31354,24 +32844,24 @@ zl
 zl
 zl
 zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+ot
+ot
+ot
+dW
+dW
+jt
+aY
+aY
+OG
+XD
+hu
+Lt
+XD
+iZ
+aY
+aY
+ot
+ot
 dR
 dR
 dR
@@ -31610,26 +33100,26 @@ zl
 zl
 zl
 zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+ot
+ot
+ot
+ot
+PY
+aY
+aY
+aY
+XU
+hH
+yh
+kp
+yh
+yh
+XX
+uK
+aY
+aY
+aY
+ot
 dR
 dR
 dR
@@ -31867,28 +33357,28 @@ zl
 zl
 zl
 zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+ot
+ot
+ot
+ot
+YS
+aY
+Xz
+SN
+xE
+tZ
+on
+Ih
+on
+on
+FX
+Bq
+Yv
+Uo
+aY
+ot
+ot
+ot
 dR
 zl
 zl
@@ -32125,27 +33615,27 @@ dR
 dR
 dR
 dR
-dR
-zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+ot
+ot
+qj
+aY
+aY
+VQ
+gn
+gn
+Ih
+Ih
+Ih
+on
+on
+on
+AD
+AD
+yv
+aY
+aY
+Ar
+ot
 dR
 dR
 dR
@@ -32382,27 +33872,27 @@ dR
 dR
 dR
 dR
-dR
-dR
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-dR
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+ot
+ot
+uU
+aY
+tg
+OV
+OV
+Ih
+Ih
+WD
+Lt
+Lt
+GB
+on
+on
+Vf
+Vf
+on
+aY
+ZJ
+ot
 dR
 dR
 dR
@@ -32638,34 +34128,34 @@ dR
 dR
 dR
 dR
+ot
+ot
+ot
+uU
+re
+on
+gc
+CI
+on
+WD
+AX
+ac
+ac
+lV
+GB
+on
+dD
+Gj
+on
+pX
+ZJ
+ot
+ot
 dR
 dR
 dR
 zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
-zl
+xZ
 xZ
 dR
 dR
@@ -32895,30 +34385,30 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-zl
-dR
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-dR
-dR
-dR
-dR
+ot
+ot
+ot
+uU
+dp
+Ze
+iy
+Eb
+WD
+AX
+GT
+vG
+rg
+Nr
+lV
+GB
+hh
+Ze
+iy
+kg
+ZJ
+ot
+ot
+ot
 dR
 dR
 dR
@@ -33152,37 +34642,37 @@ dR
 dR
 dR
 dR
+ot
+ot
+ot
+uU
+TW
+xf
+iq
+Xw
+fW
+ac
+vG
+IQ
+sr
+rg
+ac
+Gr
+Xw
+xf
+iq
+pF
+ZJ
+ot
+ot
+ot
 dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-zl
-RC
-zl
-zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-zl
+xZ
+xZ
+xZ
 dR
 dR
 dR
@@ -33410,36 +34900,36 @@ dR
 dR
 dR
 dR
+ot
+ot
+uU
+su
+xf
+iq
+Xw
+fW
+ac
+ra
+bh
+FC
+GM
+ac
+Gr
+Xw
+xf
+iq
+Qe
+ZJ
+ot
+ot
 dR
 dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-zl
+xZ
+xZ
+xZ
 dR
 dR
 dR
@@ -33667,34 +35157,34 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
+ot
+ot
+uU
+Rs
+vz
+gm
+Fd
+FX
+LE
+tV
+ra
+GM
+vU
+lQ
+tZ
+Xw
+vz
+gm
+oG
+ZJ
+ot
+ot
 xZ
-dR
-dR
-dR
-dR
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
+xZ
+xZ
+xZ
+xZ
+xZ
 xZ
 xZ
 dR
@@ -33925,32 +35415,32 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
+ot
+uU
+ED
+on
+Ci
+NE
+on
+FX
+LE
+ac
+ac
+lQ
+tZ
+on
+CI
+PM
+on
+iS
+ZJ
+ot
 xZ
-zl
 xZ
-dR
-dR
-dR
-dR
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
+xZ
+xZ
+xZ
+xZ
 zl
 zl
 zl
@@ -34182,26 +35672,26 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-xZ
-xZ
-xZ
-zl
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-zl
+ot
+uU
+aY
+on
+JN
+JN
+on
+on
+FX
+yh
+yh
+tZ
+on
+on
+tj
+tj
+on
+aY
+ZJ
+ot
 dR
 dR
 dR
@@ -34439,26 +35929,26 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-xZ
-xZ
-dR
-zl
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-zl
+ot
+IN
+aY
+aY
+Ad
+Ec
+Ec
+on
+on
+on
+on
+on
+on
+xv
+xv
+iX
+aY
+aY
+wz
+ot
 dR
 dR
 dR
@@ -34696,26 +36186,26 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-xZ
-xZ
-dR
-dR
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
+ot
+ot
+ot
+aY
+bT
+oY
+ER
+GB
+on
+on
+on
+on
+WD
+NP
+tW
+Aj
+aY
+ot
+ot
+ot
 dR
 dR
 dR
@@ -34954,25 +36444,25 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
-dR
-dR
-dR
+ot
+ot
+aY
+aY
+aY
+LC
+cF
+Lt
+Lt
+Lt
+Lt
+hH
+hb
+aY
+aY
+aY
+ot
+ot
 xZ
-xZ
-dR
-dR
-zl
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
 dR
 dR
 dR
@@ -35212,24 +36702,24 @@ dR
 dR
 dR
 dR
-dR
-dR
+ot
+ot
+ot
+aY
+aY
+Bf
+aC
+yh
+yh
+aC
+AE
+aY
+aY
+ot
+ot
+ot
+ot
 xZ
-xZ
-xZ
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
 dR
 dR
 dR
@@ -35469,24 +36959,24 @@ dR
 dR
 dR
 dR
+ot
+ot
+ot
+ot
+aY
+aY
+aY
+lG
+lG
+aY
+aY
+aY
+ot
+ot
+ot
 dR
 dR
 xZ
-xZ
-xZ
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-zl
 dR
 dR
 dR
@@ -35728,18 +37218,18 @@ dR
 dR
 dR
 dR
-xZ
-xZ
-xZ
-dR
-dR
-dR
-zl
-zl
-dR
-dR
-dR
-dR
+ot
+ot
+ot
+nH
+ui
+Dv
+Dv
+ui
+jP
+ot
+ot
+ot
 dR
 dR
 dR
@@ -35986,16 +37476,16 @@ dR
 dR
 xZ
 xZ
-dR
-dR
-dR
-dR
-dR
-zl
-zl
-dR
-dR
-dR
+ot
+ot
+ot
+lE
+lE
+lE
+lE
+ot
+ot
+ot
 dR
 dR
 dR
@@ -36244,15 +37734,15 @@ dR
 xZ
 xZ
 dR
-zl
-zl
-zl
-zl
-dR
-dR
-dR
-dR
-dR
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
 dR
 dR
 dR
@@ -38421,9 +39911,9 @@ dR
 dR
 dR
 xZ
-wA
-wA
-sK
+xZ
+xZ
+aV
 xZ
 dR
 dR
@@ -38678,9 +40168,9 @@ dR
 dR
 dR
 xZ
-wA
+xZ
 zM
-wA
+xZ
 xZ
 dR
 dR
@@ -38935,9 +40425,9 @@ dR
 dR
 xZ
 xZ
-sK
-wA
-cm
+aV
+xZ
+IJ
 xZ
 dR
 dR
@@ -43611,8 +45101,8 @@ dR
 dR
 dR
 dR
-dR
-dR
+zl
+zl
 dR
 dR
 dR
@@ -43869,9 +45359,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+zl
+zl
+zl
 dR
 dR
 dR
@@ -44127,8 +45617,8 @@ dR
 dR
 dR
 dR
-wA
-wA
+zl
+zl
 sK
 dR
 dR
@@ -44383,12 +45873,12 @@ dR
 dR
 dR
 dR
-dR
-wA
-zM
-wA
-dR
-dR
+zl
+zl
+ay
+zl
+zl
+zl
 dR
 dR
 dR
@@ -44642,9 +46132,9 @@ dR
 dR
 dR
 sK
-wA
-wA
-dR
+zl
+zl
+zl
 dR
 zl
 zl
@@ -44899,9 +46389,9 @@ dR
 dR
 dR
 dR
-dR
-dR
-dR
+zl
+zl
+zl
 dR
 zl
 zl
@@ -51933,7 +53423,7 @@ xZ
 xZ
 zl
 zl
-xZ
+ay
 zl
 zl
 xZ
@@ -55088,7 +56578,7 @@ xZ
 xZ
 xZ
 xZ
-yv
+xZ
 xZ
 xZ
 xZ

@@ -95,7 +95,8 @@
 /area/shuttle/arrival)
 "l" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	use_power = 0
 	},
 /obj/structure/chair/comfy/shuttle,
 /obj/effect/turf_decal/bot,
@@ -128,7 +129,8 @@
 "p" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube"
+	icon_state = "tube";
+	use_power = 0
 	},
 /obj/effect/turf_decal/bot,
 /obj/structure/chair/comfy/shuttle,
@@ -195,7 +197,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube"
+	icon_state = "tube";
+	use_power = 0
 	},
 /obj/effect/turf_decal/bot,
 /obj/structure/chair/comfy/shuttle{
@@ -208,7 +211,9 @@
 	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	use_power = 0
+	},
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
@@ -225,7 +230,9 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/arrival)
 "B" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	use_power = 0
+	},
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
@@ -271,7 +278,6 @@
 /area/shuttle/arrival)
 "L" = (
 /obj/machinery/vending/wallmed{
-	name = "Emergency NanoMed";
 	use_power = 0
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,

@@ -11,7 +11,7 @@
 	pixel_x = 10;
 	pixel_y = 20
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "bl" = (
 /obj/effect/turf_decal/siding/thinplating_new/corner{
@@ -21,13 +21,13 @@
 	pixel_y = 4;
 	pixel_x = 11
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "co" = (
 /obj/structure/flora/ausbushes/sparsegrass{
 	pixel_y = 10
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "cx" = (
 /obj/effect/turf_decal/tile/blue,
@@ -45,20 +45,20 @@
 	pixel_y = 10
 	},
 /mob/living/simple_animal/pet/penguin/baby,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "cP" = (
 /obj/structure/statue/snow/snowlegion{
 	desc = "An off-putting snowman, something about it gives you a sense of dread instead of holiday cheer.";
 	anchored = 1
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "dz" = (
 /obj/structure/statue/snow/snowman{
 	anchored = 1
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "dP" = (
 /turf/open/floor/plasteel/dark/side{
@@ -66,7 +66,7 @@
 	},
 /area/hallway/primary/central/low_level_centre)
 "ea" = (
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "fk" = (
 /turf/template_noop,
@@ -74,11 +74,11 @@
 "fl" = (
 /obj/structure/window/reinforced,
 /obj/effect/turf_decal/siding/thinplating_new,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "fU" = (
 /obj/structure/flora/grass/brown,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "hf" = (
 /obj/structure/statue/snow/snowman{
@@ -90,7 +90,7 @@
 	pixel_y = 1;
 	pixel_x = 15
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "hF" = (
 /obj/structure/flora/rock/pile/icy{
@@ -99,7 +99,7 @@
 /obj/structure/flora/ausbushes/sparsegrass{
 	pixel_y = 10
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "io" = (
 /obj/structure/statue/snow/snowman{
@@ -109,13 +109,13 @@
 	pixel_x = -5;
 	pixel_y = 7
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "iN" = (
 /obj/structure/flora/grass/green{
 	pixel_x = -7
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "jD" = (
 /turf/open/floor/plasteel/dark/side{
@@ -141,18 +141,18 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 10
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "of" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "oj" = (
 /obj/structure/flora/rock/pile/icy{
 	pixel_y = 4;
 	pixel_x = 11
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "ou" = (
 /obj/structure/window/reinforced{
@@ -164,14 +164,14 @@
 /obj/structure/flora/bush{
 	pixel_x = 20
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "oO" = (
 /obj/effect/turf_decal/siding/thinplating_new/corner{
 	dir = 8
 	},
 /obj/structure/flora/grass/brown,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "pf" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -187,7 +187,7 @@
 	pixel_y = 6;
 	pixel_x = -4
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "qU" = (
 /obj/structure/flora/tree/pine{
@@ -195,7 +195,7 @@
 	pixel_x = 0
 	},
 /obj/structure/flora/grass/both,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "sB" = (
 /obj/machinery/light/floor,
@@ -208,13 +208,13 @@
 	dir = 10
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "sV" = (
 /obj/structure/flora/grass/green{
 	pixel_y = 14
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "up" = (
 /obj/structure/window/reinforced{
@@ -226,7 +226,7 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 5
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "xp" = (
 /obj/structure/window/reinforced{
@@ -239,11 +239,11 @@
 	pixel_y = 13;
 	pixel_x = -13
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "zq" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "Aw" = (
 /obj/structure/window/reinforced{
@@ -255,28 +255,28 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 9
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "AB" = (
 /obj/structure/flora/grass/both{
 	pixel_y = 12;
 	pixel_x = 20
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "AK" = (
 /obj/structure/statue/snow/snowlegion{
 	desc = "An off-putting snowman, something about it gives you a sense of dread instead of holiday cheer.";
 	anchored = 1
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Bl" = (
 /obj/effect/turf_decal/siding/thinplating_new/corner{
 	dir = 8
 	},
 /obj/structure/flora/grass/both,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Bx" = (
 /obj/effect/turf_decal/siding/thinplating_new/corner,
@@ -284,7 +284,7 @@
 	pixel_x = -16;
 	pixel_y = -6
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Cd" = (
 /obj/structure/window/reinforced{
@@ -296,7 +296,7 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 9
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Cs" = (
 /obj/structure/window/reinforced{
@@ -320,7 +320,7 @@
 /obj/structure/flora/ausbushes/sparsegrass{
 	pixel_x = 7
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "CW" = (
 /obj/effect/turf_decal/siding/thinplating_new/corner{
@@ -330,7 +330,7 @@
 	pixel_y = -5;
 	pixel_x = 20
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "DQ" = (
 /obj/structure/window/reinforced{
@@ -372,7 +372,7 @@
 	pixel_y = 15;
 	pixel_x = 7
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "HQ" = (
 /turf/open/floor/plasteel/dark/corner{
@@ -396,15 +396,15 @@
 	pixel_y = 28
 	},
 /mob/living/simple_animal/pet/penguin/baby,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Kg" = (
 /obj/structure/flora/tree/pine,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Km" = (
 /obj/structure/flora/tree/dead,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Kp" = (
 /obj/structure/window/reinforced{
@@ -422,22 +422,22 @@
 /obj/effect/turf_decal/siding/thinplating_new/corner{
 	dir = 4
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Nu" = (
 /obj/structure/flora/grass/brown,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Ny" = (
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "NB" = (
 /mob/living/simple_animal/pet/penguin/emperor,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "PF" = (
 /obj/structure/flora/grass/both,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "PL" = (
 /obj/effect/turf_decal/tile/blue{
@@ -471,11 +471,11 @@
 	pixel_y = -13;
 	pixel_x = 11
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "QR" = (
 /mob/living/simple_animal/deer,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "QU" = (
 /obj/machinery/light/floor/directional/north,
@@ -489,7 +489,7 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 5
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Rj" = (
 /obj/effect/turf_decal/weather/snow/corner,
@@ -510,17 +510,17 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 5
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Tp" = (
 /obj/structure/flora/tree/dead,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "TQ" = (
 /obj/structure/flora/rock/icy{
 	pixel_y = 6
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "Us" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -530,7 +530,7 @@
 /area/template_noop)
 "UB" = (
 /obj/structure/flora/tree/pine/xmas,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Vh" = (
 /obj/machinery/light/floor/directional/north,
@@ -548,7 +548,7 @@
 /area/hallway/primary/central/low_level_centre)
 "Vr" = (
 /obj/structure/flora/grass/green,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 "VI" = (
 /obj/structure/window/reinforced{
@@ -557,11 +557,11 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 1
 	},
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Wt" = (
 /obj/effect/turf_decal/siding/thinplating_new/corner,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/hallway/primary/central/low_level_centre)
 "Ww" = (
 /turf/open/floor/plasteel/dark/side{
@@ -578,7 +578,7 @@
 	pixel_x = 0
 	},
 /obj/structure/flora/grass/both,
-/turf/open/floor/plating/asteroid/snow/temperatre,
+/turf/open/floor/plating/asteroid/snow/normal_temp,
 /area/template_noop)
 
 (1,1,1) = {"

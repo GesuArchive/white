@@ -8,7 +8,7 @@
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "iA" = (
 /obj/structure/table,
 /obj/item/storage/box/bodybags{
@@ -24,7 +24,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "le" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/turf_decal/tile/neutral{
@@ -35,10 +35,10 @@
 	},
 /obj/effect/spawner/random/maintenance/seven,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "mj" = (
 /turf/closed/wall/riveted_wall,
-/area/template_noop)
+/area/ruin/unpowered)
 "nW" = (
 /obj/structure/bodycontainer/morgue,
 /obj/machinery/light{
@@ -49,7 +49,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "qf" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -61,17 +61,17 @@
 	pixel_x = -11
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "BO" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Fk" = (
 /obj/effect/abstract/doorway_marker,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "FA" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -88,29 +88,7 @@
 	pixel_y = -7
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
-"Hy" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/blood/hitsplatter{
-	dir = 8;
-	pixel_x = 6;
-	pixel_y = 6
-	},
-/obj/effect/decal/cleanable/blood/footprints,
-/obj/effect/decal/cleanable/blood/footprints{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "KO" = (
 /obj/structure/bodycontainer/morgue,
 /obj/effect/turf_decal/tile/neutral,
@@ -118,7 +96,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "OJ" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -132,7 +110,7 @@
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Px" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -143,7 +121,7 @@
 /obj/structure/closet/body_bag,
 /obj/effect/mob_spawn/human/corpse/cat_butcher,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Qv" = (
 /obj/structure/bodycontainer/morgue,
 /obj/item/radio/intercom{
@@ -158,7 +136,7 @@
 	network = list("outpost")
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Td" = (
 /obj/structure/table,
 /obj/item/clothing/gloves/color/latex,
@@ -174,7 +152,7 @@
 	pixel_y = 12
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "XV" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -185,7 +163,7 @@
 /obj/structure/closet/body_bag,
 /obj/effect/mob_spawn/human/corpse/assistant,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Yb" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -206,7 +184,7 @@
 	pixel_x = -4
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "YI" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -223,7 +201,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 mj
@@ -249,7 +227,7 @@ mj
 BO
 OJ
 FA
-Hy
+YI
 YI
 YI
 Yb

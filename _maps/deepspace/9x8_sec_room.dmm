@@ -8,7 +8,7 @@
 	},
 /obj/machinery/door/airlock/security/glass,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "eP" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -18,28 +18,28 @@
 	},
 /obj/structure/table/reinforced,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "iE" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "km" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "lE" = (
 /obj/effect/spawner/structure/window/reinforced/derelict,
 /turf/open/floor/plating/rust,
-/area/template_noop)
+/area/ruin/unpowered)
 "mj" = (
 /turf/closed/wall/riveted_wall,
-/area/template_noop)
+/area/ruin/unpowered)
 "nv" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -55,7 +55,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "qb" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -64,7 +64,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "wm" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/red,
@@ -84,7 +84,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/restraints/handcuffs,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "xO" = (
 /obj/machinery/vending/wardrobe/sec_wardrobe,
 /obj/effect/turf_decal/tile/red{
@@ -95,7 +95,7 @@
 	dir = 8
 	},
 /turf/open/space/basic,
-/area/template_noop)
+/area/ruin/unpowered)
 "CX" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -108,7 +108,7 @@
 	},
 /obj/structure/guncase/shotgun,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "FV" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -121,7 +121,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Js" = (
 /obj/machinery/computer/security{
 	dir = 8;
@@ -141,7 +141,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Kb" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -154,10 +154,10 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "NT" = (
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "NX" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
@@ -168,13 +168,13 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "OH" = (
 /obj/effect/abstract/open_area_marker{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Py" = (
 /obj/machinery/computer/secure_data{
 	dir = 8
@@ -187,11 +187,11 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Qi" = (
 /obj/effect/abstract/open_area_marker,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Sg" = (
 /obj/structure/closet/secure_closet/security,
 /obj/effect/turf_decal/tile/red,
@@ -202,7 +202,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "VZ" = (
 /obj/structure/table/reinforced,
 /obj/item/book/manual/wiki/security_space_law,
@@ -219,7 +219,7 @@
 /obj/item/crowbar,
 /obj/item/radio,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "YW" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
@@ -232,7 +232,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Zt" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -245,7 +245,7 @@
 	suit_type = /obj/item/clothing/suit/space/hardsuit/rig_sec
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 mj

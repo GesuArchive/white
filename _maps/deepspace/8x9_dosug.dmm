@@ -4,32 +4,32 @@
 /obj/item/stack/cable_coil,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "eU" = (
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/flora/ausbushes/grassybush,
 /obj/structure/flora/ausbushes/leafybush,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "mj" = (
 /turf/closed/wall/riveted_wall,
-/area/template_noop)
+/area/ruin/unpowered)
 "nD" = (
 /obj/structure/table/reinforced,
 /obj/item/stock_parts/cell/high,
 /obj/machinery/cell_charger,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "nM" = (
 /obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "rg" = (
 /obj/structure/table,
 /obj/item/stack/sheet/cardboard/fifty,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "ul" = (
 /obj/structure/table,
 /obj/item/stack/rods{
@@ -37,20 +37,20 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "vW" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "xd" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "xV" = (
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/flora/ausbushes/grassybush,
@@ -60,22 +60,22 @@
 	dir = 4
 	},
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "BO" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "En" = (
 /obj/machinery/vending/coffee,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "HB" = (
 /obj/structure/tank_dispenser/oxygen,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "HR" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light,
@@ -83,7 +83,7 @@
 /obj/item/radio,
 /obj/item/radio,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Jh" = (
 /obj/structure/table,
 /obj/item/crowbar/large{
@@ -92,23 +92,23 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Kq" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Nm" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/storage/toolbox/electrical,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "NH" = (
 /turf/template_noop,
 /area/template_noop)
 "NT" = (
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Oa" = (
 /obj/structure/table/reinforced,
 /obj/machinery/vending/wallmed{
@@ -118,29 +118,29 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Qc" = (
 /obj/machinery/vending/assist,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "Tk" = (
 /obj/machinery/vending/autodrobe/all_access,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "VU" = (
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "XG" = (
 /obj/machinery/vending/clothing,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "ZH" = (
 /obj/machinery/vending/sovietsoda,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 NH

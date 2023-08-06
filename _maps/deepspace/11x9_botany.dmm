@@ -6,7 +6,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/light,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "ca" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -16,12 +16,12 @@
 /obj/structure/flora/ausbushes/grassybush,
 /obj/structure/sign/departments/botany/directional/west,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "cA" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "eh" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/north,
@@ -29,7 +29,7 @@
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/leafybush,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "eP" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4;
@@ -39,27 +39,27 @@
 	slogan_delay = 700
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "hQ" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "hY" = (
 /obj/structure/table,
 /obj/item/hatchet{
 	pixel_y = 2
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "mj" = (
 /turf/closed/wall/riveted_wall,
-/area/template_noop)
+/area/ruin/unpowered)
 "mq" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "qe" = (
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -69,7 +69,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "sg" = (
 /obj/machinery/light{
 	dir = 8
@@ -81,7 +81,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "sj" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/east,
@@ -90,18 +90,18 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "sP" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4;
 	icon_state = "warningline"
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "tr" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "vn" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/north,
@@ -109,7 +109,7 @@
 /obj/structure/flora/ausbushes/pointybush,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "xq" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/east,
@@ -118,11 +118,11 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "xu" = (
 /obj/machinery/vending/wardrobe/hydro_wardrobe,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Ay" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4;
@@ -130,17 +130,17 @@
 	},
 /obj/machinery/seed_extractor,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "BO" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Fk" = (
 /obj/effect/abstract/doorway_marker,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Hx" = (
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/window/reinforced/spawner/north,
@@ -148,7 +148,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "JN" = (
 /obj/structure/table,
 /obj/item/shovel/spade{
@@ -168,7 +168,7 @@
 /obj/item/seeds/random,
 /obj/item/seeds/random,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Lb" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/flora/ausbushes/grassybush,
@@ -179,7 +179,7 @@
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "MF" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4;
@@ -187,13 +187,13 @@
 	},
 /obj/machinery/vending/hydronutrients,
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
+/area/ruin/unpowered)
 "NH" = (
 /turf/template_noop,
 /area/template_noop)
 "NT" = (
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Wq" = (
 /obj/structure/window/reinforced/spawner/north,
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -202,11 +202,11 @@
 /obj/structure/flora/ausbushes/grassybush,
 /obj/structure/sign/departments/botany/directional/west,
 /turf/open/floor/grass,
-/area/template_noop)
+/area/ruin/unpowered)
 "XY" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 NH

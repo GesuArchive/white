@@ -5,7 +5,7 @@
 /obj/item/electronics/airalarm,
 /obj/item/electronics/airlock,
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 "bI" = (
 /obj/structure/table/wood,
 /obj/item/storage/fancy/cigarettes/cigpack_uplift{
@@ -16,7 +16,7 @@
 	},
 /obj/item/lighter,
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 "dA" = (
 /obj/structure/table/wood,
 /obj/item/electronics/firelock,
@@ -26,7 +26,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 "iZ" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/photocopier,
@@ -36,49 +36,49 @@
 	},
 /obj/item/newspaper,
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 "lE" = (
 /obj/effect/spawner/structure/window/reinforced/derelict,
 /turf/open/floor/plating/rust,
-/area/template_noop)
+/area/ruin/unpowered)
 "mj" = (
 /turf/closed/wall/riveted_wall,
-/area/template_noop)
+/area/ruin/unpowered)
 "mZ" = (
 /obj/structure/chair/comfy/black{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 "nA" = (
 /obj/structure/table/wood,
 /obj/item/stack/sheet/glass,
 /obj/item/stack/sheet/glass,
 /obj/item/circuitboard/machine/microwave,
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 "oL" = (
 /obj/structure/chair/comfy/brown{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 "qG" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 "vW" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "BO" = (
 /obj/effect/abstract/doorway_marker{
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/template_noop)
+/area/ruin/unpowered)
 "Id" = (
 /obj/structure/table/wood,
 /obj/item/poster/random_contraband{
@@ -91,21 +91,21 @@
 	},
 /obj/item/poster/random_contraband,
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 "Lh" = (
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 "NT" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 "Oa" = (
 /obj/structure/table/wood,
 /obj/item/storage/briefcase,
 /obj/item/taperecorder,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
-/area/template_noop)
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 mj

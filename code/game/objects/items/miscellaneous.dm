@@ -1,6 +1,6 @@
 /obj/item/caution
-	desc = "Caution! Wet Floor!"
-	name = "wet floor sign"
+	name = "знак \"мокрый пол\""
+	desc = "ВНИМАНИЕ! МОКРЫЙ ПОЛ!"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "caution"
 	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
@@ -284,7 +284,10 @@
 	desc = "Despite his nickname, this wildlife expert was mainly known as a passionate environmentalist and conservationist, often coming in contact with dangerous wildlife to teach about the beauty of nature."
 
 /obj/item/storage/box/hero/carphunter/PopulateContents()
-	new /obj/item/clothing/suit/space/hardsuit/carp/old(src)
+	if(prob(20))
+		new /obj/item/clothing/suit/space/hardsuit/carp(src)
+	else
+		new /obj/item/clothing/suit/space/hardsuit/carp/old(src)
 	new /obj/item/clothing/mask/gas/carp(src)
 	new /obj/item/kitchen/knife/hunting(src)
 	new /obj/item/storage/box/papersack/meat(src)
