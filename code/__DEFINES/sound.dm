@@ -60,8 +60,7 @@
 	'sound/ambience/white/ambi13.ogg',\
 	'sound/ambience/white/ambi14.ogg',\
 	'sound/ambience/white/ambi15.ogg',\
-	'sound/ambience/white/ambi16.ogg',\
-	'sound/ambience/white/ambi17.ogg')
+	'sound/ambience/white/ambi16.ogg')
 
 #define HOLY list('sound/ambience/white/ambichurch1.ogg')
 
@@ -125,7 +124,8 @@
 	'sound/ambience/white/ambimaint3.ogg',\
 	'sound/ambience/white/ambimaint4.ogg',\
 	'sound/ambience/white/ambimaint5.ogg',\
-	'sound/ambience/white/ambimaint6.ogg')
+	'sound/ambience/white/ambimaint6.ogg',\
+	'sound/ambience/white/ambimaint7.ogg')
 
 #define AWAY_MISSION list(\
 	'sound/ambience/white/ambidanger2.ogg',\
