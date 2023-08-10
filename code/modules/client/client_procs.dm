@@ -497,6 +497,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(!prefs?.iconsent)
 		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;can_resize=0")
 
+	if(ismob(mob) || !isnewplayer(mob))
+		var/area/A = get_area(mob)
+		A?.play_ambience(src)
+
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CLIENT_CONNECT, src)
 	fully_created = TRUE
 

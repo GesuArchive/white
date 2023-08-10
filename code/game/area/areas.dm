@@ -88,7 +88,7 @@
 
 	var/ambience_volume = 15
 	var/ambience_index = AMBIENCE_GENERIC
-	var/list/ambientsounds
+	var/list/ambientsounds = GENERIC
 	var/list/ambigensounds
 	flags_1 = CAN_BE_DIRTY_1
 
@@ -451,21 +451,21 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	for(var/atom/movable/recipient as anything in arrived.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
 		SEND_SIGNAL(recipient, COMSIG_ENTER_AREA, src)
 
-	if(!isliving(arrived))
+	if(!ismob(arrived) || isnewplayer(arrived))
 		return
 
-	var/mob/living/L = arrived
-	if(!L.ckey)
+	var/mob/M = arrived
+	if(!M.ckey)
 		return
-
-	show_area_description(L)
 
 	//Ship ambience just loops if turned on.
-	if(L.client?.prefs.toggles & SOUND_SHIP_AMBIENCE)
-		SEND_SOUND(L, sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 15, channel = CHANNEL_BUZZ))
+	if(M.client?.prefs.toggles & SOUND_SHIP_AMBIENCE)
+		SEND_SOUND(M, sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 15, channel = CHANNEL_BUZZ))
 
-	if(L?.client && (L.client.prefs.toggles & SOUND_AMBIENCE))
-		play_ambience(L.client)
+	if(M?.client && (M.client.prefs.toggles & SOUND_AMBIENCE))
+		play_ambience(M.client)
+
+	show_area_description(M)
 
 /area/proc/show_area_description(mob/living/L)
 	if(isnull(description))
