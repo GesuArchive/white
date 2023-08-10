@@ -576,7 +576,7 @@
 /obj/item/kitchen/fork,
 /obj/item/lighter,
 /obj/item/screwdriver/nuke,
-/obj/item/melee/baton/loaded/german,
+/obj/item/melee/baton/loaded,
 /obj/item/surgical_drapes,
 /turf/open/floor/wood,
 /area/awaymission/vietnam/dark)

@@ -89,8 +89,3 @@ GLOBAL_DATUM(ctf_spawner, /obj/effect/landmark/ctf)
 	name = "Crusier"
 	description = "A CTF map that takes place across multiple space ships, one carring a powerful device that can accelerate those who obtain it"
 	mappath = "_maps/ctf/cruiser.dmm"
-
-/datum/map_template/ctf/miniwarfare
-	name = "Mini-Warfare"
-	description = "Две стороны, одна на юге, другая на севере. Сможет ли кто-то из них одержать победу?"
-	mappath = "_maps/ctf/miniwarfare.dmm"

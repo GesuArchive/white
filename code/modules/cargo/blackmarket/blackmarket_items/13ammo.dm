@@ -53,18 +53,6 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/mauser
-	name = "Магазин для Маузера (10mm)"
-	desc = "Магазин для Маузера"
-	item = /obj/item/ammo_box/magazine/mauser
-
-	price_min = BLACKMARKET_CRATE_VALUE * 100
-	price_max = BLACKMARKET_CRATE_VALUE * 500
-	stock_min = 1
-	stock_max = 50
-	availability_prob = 100
-
-
 /datum/blackmarket_item/ammo/m9mm
 	name = "Пистолетный магазин (9mm)"
 	desc = "ВНИМАНИЕ! Этот магазин может не походить к некоторым видам пистолетов. Будьте внимательны. Подходит для Стечкина и Макарова"
@@ -80,28 +68,6 @@
 	name = "Пистолетный магазин на 13 патронов (9mm)"
 	desc = "ВНИМАНИЕ! Этот магазин может не походить к некоторым видам пистолетов. Будьте внимательны. Подходит для 9mm pistol, handmade pistol и Maria"
 	item = /obj/item/ammo_box/magazine/fallout/m9mm
-
-	price_min = BLACKMARKET_CRATE_VALUE * 100
-	price_max = BLACKMARKET_CRATE_VALUE * 500
-	stock_min = 1
-	stock_max = 50
-	availability_prob = 100
-
-/datum/blackmarket_item/ammo/mc9mmt
-	name = "top mounted magazine (9mm)"
-	desc = "не ебу как перевести поэтому вот вам так. Сами поймёте. далеко не дети..."
-	item = /obj/item/ammo_box/magazine/wt550m9/mc9mmt
-
-	price_min = BLACKMARKET_CRATE_VALUE * 100
-	price_max = BLACKMARKET_CRATE_VALUE * 500
-	stock_min = 1
-	stock_max = 50
-	availability_prob = 100
-
-/datum/blackmarket_item/ammo/luger
-	name = "Магазин для Люгера (9mm)"
-	desc = "Магазин для Люгера"
-	item = /obj/item/ammo_box/magazine/luger
 
 	price_min = BLACKMARKET_CRATE_VALUE * 100
 	price_max = BLACKMARKET_CRATE_VALUE * 500
@@ -279,17 +245,6 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/mp40
-	name = "Магазин для МП-40 (9мм)"
-	desc = "Магазин для МП-40 калибра 9мм"
-	item = /obj/item/ammo_box/magazine/mp40
-
-	price_min = BLACKMARKET_CRATE_VALUE * 100
-	price_max = BLACKMARKET_CRATE_VALUE * 500
-	stock_min = 1
-	stock_max = 50
-	availability_prob = 100
-
 /datum/blackmarket_item/ammo/fallout/smgm10mm
 	name = "Магазин для СМГ (10мм)"
 	desc = "Магазин для СМГ калибра 10мм"
@@ -312,17 +267,6 @@
 	stock_max = 50
 	availability_prob = 100
 
-/datum/blackmarket_item/ammo/stg
-	name = "Магазин для СТГ"
-	desc = "Магазин для СТГ"
-	item = /obj/item/ammo_box/magazine/stg
-
-	price_min = BLACKMARKET_CRATE_VALUE * 100
-	price_max = BLACKMARKET_CRATE_VALUE * 500
-	stock_min = 1
-	stock_max = 50
-	availability_prob = 100
-
 /datum/blackmarket_item/ammo/m10mm/rifle
 	name = "Винтовочный магазин (10mm)"
 	desc = "Магазин для винтовок калибра 10мм. Внимание! Не путать с пистолетным магазином!"
@@ -338,28 +282,6 @@
 	name = "Магазин для штурмовой винтовки"
 	desc = "Магазин для штурмовой винтовки калибра asr"
 	item = /obj/item/ammo_box/magazine/assault_rifle
-
-	price_min = BLACKMARKET_CRATE_VALUE * 200
-	price_max = BLACKMARKET_CRATE_VALUE * 600
-	stock_min = 1
-	stock_max = 50
-	availability_prob = 100
-
-/datum/blackmarket_item/ammo/g43
-	name = "Магазин для g43 (5.56mm)"
-	desc = "Магазин для g43"
-	item = /obj/item/ammo_box/magazine/g43
-
-	price_min = BLACKMARKET_CRATE_VALUE * 200
-	price_max = BLACKMARKET_CRATE_VALUE * 600
-	stock_min = 1
-	stock_max = 50
-	availability_prob = 100
-
-/datum/blackmarket_item/ammo/fg42
-	name = "Магазин для fg42 (5.56mm)"
-	desc = "Магазин для fg42"
-	item = /obj/item/ammo_box/magazine/fg42
 
 	price_min = BLACKMARKET_CRATE_VALUE * 200
 	price_max = BLACKMARKET_CRATE_VALUE * 600
@@ -404,17 +326,6 @@
 	name = "Toploader магазин калибра (5.56mm)"
 	desc = "Магазин для винтовок калибром 5.56мм"
 	item = /obj/item/ammo_box/magazine/m556
-
-	price_min = BLACKMARKET_CRATE_VALUE * 200
-	price_max = BLACKMARKET_CRATE_VALUE * 600
-	stock_min = 1
-	stock_max = 50
-	availability_prob = 100
-
-/datum/blackmarket_item/ammo/m556mmrifle
-	name = "Винтовочный магазин калибра (5.56mm)"
-	desc = "Магазин для винтовок калибром 5.56мм"
-	item = /obj/item/ammo_box/magazine/m556/arg
 
 	price_min = BLACKMARKET_CRATE_VALUE * 200
 	price_max = BLACKMARKET_CRATE_VALUE * 600

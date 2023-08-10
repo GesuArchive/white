@@ -456,3 +456,48 @@
 
 /obj/item/gun/ballistic/automatic/evgenii/fuckyou
 	mag_type = /obj/item/ammo_box/magazine/evgenii/fuckyou
+
+/obj/item/gun/ballistic/automatic/carbine
+	name = "assault carbine"
+	desc = "The assault rifle is new standart automatic weapon"
+	icon_state = "carbinex"
+	inhand_icon_state = "carbinex"
+	w_class = 4
+	force = 10
+	fire_sound = 'sound/weapons/gun/rifle/batrifle_fire.ogg'
+	slot_flags = ITEM_SLOT_BACK
+	mag_type = /obj/item/ammo_box/magazine/carbine
+	fire_delay = 2
+	can_suppress = FALSE
+	burst_size = 3
+	can_bayonet = FALSE
+
+/obj/item/gun/ballistic/automatic/assault_rifle
+	name = "assault rifle"
+	desc = "Standart assault rifle."
+	icon_state = "arifle"
+	burst_size = 3
+	inhand_icon_state = "arifle"
+	w_class = 4
+	force = 10
+	fire_delay = 2
+	slot_flags = ITEM_SLOT_BACK
+	mag_type = /obj/item/ammo_box/magazine/assault_rifle
+	can_suppress = FALSE
+	can_bayonet = FALSE
+	fire_sound = 'sound/weapons/gun/rifle/gunshot3z.ogg'
+
+/obj/item/gun/ballistic/automatic/m90/unrestricted/z8
+	name = "bullpup assault rifle"
+	desc = "The Z8 Bulldog is an older model bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds. Makes you feel like a space marine when you hold it."
+	icon_state = "carbine"
+	inhand_icon_state = "carbine"
+	w_class = WEIGHT_CLASS_HUGE
+	force = 10
+	fire_sound = 'sound/weapons/gun/rifle/gunshot3.ogg'
+	slot_flags = ITEM_SLOT_BACK
+	mag_type = /obj/item/ammo_box/magazine/a556carbine
+	fire_delay = 2
+	can_suppress = FALSE
+	burst_size = 3
+	can_bayonet = FALSE

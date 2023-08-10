@@ -264,7 +264,7 @@
 		/obj/item/ammo_box/magazine/fallout/m9mm = 5,
 		/obj/item/card/id/advanced/gold/captains_spare = 5,
 		/obj/item/clothing/head/helmet/alt = 5,
-		/obj/item/clothing/suit/armor/opvest = 5,
+		/obj/item/clothing/suit/armor = 5,
 		/obj/item/gun/ballistic/automatic/pistol/tanner = 5,
 		/obj/item/ammo_box/c10mm = 5,
 	)

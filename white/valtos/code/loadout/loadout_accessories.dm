@@ -33,16 +33,6 @@
 	path = /obj/item/clothing/neck/stripedbluescarf
 	cost = 80
 
-/datum/gear/accessory/scarf/stripedgray
-	display_name = "Шарф, полосатый серый"
-	path = /obj/item/clothing/neck/stripedgrayscarf
-	cost = 150
-
-/datum/gear/accessory/scarf/stripedblack
-	display_name = "Шарф, полосатый чёрный"
-	path = /obj/item/clothing/neck/stripedblackscarf
-	cost = 150
-
 /datum/gear/accessory/armband_red
 	display_name = "Повязка, красная"
 	path = /obj/item/clothing/accessory/armband

@@ -69,3 +69,21 @@
 	ricochet_auto_aim_range = 4
 	ricochet_incidence_leeway = 0
 	ricochet_decay_chance = 0.9
+
+/obj/projectile/bullet/a792x57
+	damage = 3
+	stamina = 5
+	speed = 0.4
+	armour_penetration = 0
+
+/obj/projectile/bullet/a556
+	damage = 50
+	armour_penetration = 25
+
+/obj/projectile/bullet/carab
+	damage = 30
+	armour_penetration = 7.5
+
+/obj/projectile/bullet/assault_rifle
+	damage = 30
+	armour_penetration = 25

@@ -235,7 +235,6 @@ GLOBAL_LIST_INIT(admin_verbs_secured, list(
 	/client/proc/get_tacmap_for_test,
 	/client/proc/fuck_pie,
 	/client/proc/fix_air, /*resets air in designated radius to its default atmos composition*/
-	/client/proc/force_evenmaster_rules,
 	/client/proc/reestablish_db_connection, /*reattempt a connection to the database*/
 	/datum/admins/proc/kill_system32,
 	/client/proc/reload_whitelist,

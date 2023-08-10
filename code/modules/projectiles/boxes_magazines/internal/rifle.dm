@@ -22,3 +22,14 @@
 	max_ammo = 3
 	caliber = "pissball"
 	ammo_type = /obj/item/ammo_casing/caseless/pissball
+
+/obj/item/ammo_box/magazine/internal/boltaction98
+	name = "bolt action rifle internal magazine"
+	desc = "Oh god, this shouldn't be here"
+	ammo_type = /obj/item/ammo_casing/a792x57
+	caliber = "a792x57"
+	max_ammo = 5
+	multiload = 1
+
+/obj/item/ammo_box/magazine/internal/boltaction98/empty
+	start_empty = TRUE

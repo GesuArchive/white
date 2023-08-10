@@ -218,7 +218,7 @@
 	r_pocket = /obj/item/paper/vip_pasport
 	id = /obj/item/card/id
 	head = /obj/item/clothing/head/helmet
-	mask = /obj/item/clothing/mask/gas/german
+	mask = /obj/item/clothing/mask/gas
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/reagent_containers/pill/saver/vip = 1, /obj/item/clothing/gloves/color/yellow = 1)
 	r_hand = /obj/item/storage/toolbox/mechanical/old

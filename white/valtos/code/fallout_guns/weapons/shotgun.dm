@@ -84,11 +84,6 @@
 	extra_damage = 30
 	extra_penetration = 10
 
-/obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/warfare
-	extra_damage = 60
-	extra_penetration = 20
-	mag_type = /obj/item/ammo_box/magazine/internal/shot/sks/warfare
-
 /obj/item/gun/ballistic/shotgun/automatic/fallout/battle/sks/scoped
 	name = "Снайперский СКС"
 	desc = "Самозарядный карабин Симонова калибра 7.62 обладает приличной огневой мощью и несъемным магазином на 10 патронов. Заряжается патронами поштучно или при помощи скорозарядника. Эта версия отличается наличием прицела и дополнительной пробивной способностью."
@@ -130,13 +125,6 @@
 	ammo_type = /obj/item/ammo_casing/fallout/a762
 	caliber = "a762"
 	max_ammo = 10
-
-
-/obj/item/ammo_box/magazine/internal/shot/sks/warfare
-	name = "SKS internal magazine (7.62)"
-	ammo_type = /obj/item/ammo_casing/fallout/a762
-	caliber = "a762"
-	max_ammo = 5
 
 /obj/item/ammo_box/magazine/internal/shot/lever
 	name = "lever action shotgun internal tube magazine"

@@ -34,7 +34,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/vest/fieldmedic
 	suit_store = /obj/item/gun/energy/disabler
-	backpack_contents = list(/obj/item/storage/firstaid/medical/field_surgery = 1, /obj/item/optable = 1, /obj/item/storage/pill_bottle/soldier = 1)
+	backpack_contents = list(/obj/item/storage/firstaid/medical/field_surgery = 1, /obj/item/optable = 1)
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med

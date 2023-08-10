@@ -189,7 +189,7 @@
 
 	INVOKE_ASYNC(src, PROC_REF(updatename))
 
-	playsound(loc, 'white/Wzzzz/servitor.ogg', 70, TRUE)
+	playsound(loc, 'sound/effects/servitor.ogg', 70, TRUE)
 	aicamera = new/obj/item/camera/siliconcam/robot_camera(src)
 	toner = tonermax
 	diag_hud_set_borgcell()

@@ -51,14 +51,9 @@
 	name = "картошмель"
 	desc = "Удивительное растение, которое... Будем честны - какая-то непонятная херобора торчащая из земли и убивающая своим присутствием всех вокруг."
 	icon_state = "kartoshmel"
-	var/mob_type
 	var/spawned_mobs = 0
 	var/max_spawn = 1
 	var/cooldown = 0
-
-/obj/structure/flora/tree/boxplanet/kartoshmel/Initialize(mapload)
-	mob_type = rand(1, 5)
-	. = ..()
 
 /obj/structure/flora/tree/boxplanet/kartoshmel/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -70,17 +65,8 @@
 		if(max_spawn > spawned_mobs)
 			spawned_mobs++
 			var/turf/T = get_turf(src)
-			switch(mob_type)
-				if(1)
-					new /mob/living/simple_animal/hostile/skeleton/vanya(T)
-				if(2)
-					new /mob/living/simple_animal/hostile/vanya/killermeat(T)
-				if(3)
-					new /mob/living/simple_animal/hostile/vanya/leech(T)
-				if(4)
-					new /mob/living/simple_animal/hostile/faithless/vanya/chort(T)
-				if(5)
-					new /mob/living/simple_animal/hostile/faithless/vanya/drown(T)
+			var/mob/M = pick(subtypesof(/mob/living/simple_animal/hostile))
+			new M(T)
 		else
 			STOP_PROCESSING(SSobj, src)
 

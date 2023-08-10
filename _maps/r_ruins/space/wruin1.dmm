@@ -138,7 +138,7 @@
 /area/ruin/space/has_grav/powered/telepadovo)
 "aI" = (
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/melee/baton/loaded/german,
+/obj/item/melee/baton/loaded,
 /turf/open/floor/plasteel/durasteel,
 /area/ruin/space/has_grav/powered/telepadovo)
 "aJ" = (

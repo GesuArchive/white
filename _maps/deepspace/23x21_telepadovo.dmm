@@ -58,7 +58,7 @@
 "om" = (
 /obj/structure/safe/floor,
 /obj/item/reagent_containers/hypospray/combat/nanites,
-/obj/item/melee/baton/loaded/german,
+/obj/item/melee/baton/loaded,
 /turf/open/floor/plasteel/durasteel,
 /area/ruin/unpowered)
 "oS" = (

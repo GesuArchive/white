@@ -131,23 +131,6 @@
 	id = /obj/item/card/id/blue //it's blue
 	team_radio_freq = FREQ_CTF_BLUE
 
-/datum/outfit/ctf/blue/warfare
-	head = /obj/item/clothing/head/helmet/elite/blue
-	mask = /obj/item/clothing/mask/gas/german
-	uniform = /obj/item/clothing/under/victorian/vest
-	shoes = /obj/item/clothing/shoes/jackboots
-	gloves = /obj/item/clothing/gloves/fingerless
-	belt = /obj/item/melee/sabre/marineofficer
-	suit = /obj/item/clothing/suit/armor/opvest
-	r_hand = /obj/item/gun/ballistic/rifle/boltaction/kar98k
-	l_pocket = /obj/item/ammo_box/magazine/a792x57
-	r_pocket = /obj/item/ammo_box/magazine/a792x57
-
-/datum/outfit/ctf/blue/warfare/post_equip(mob/living/carbon/human/H)
-	. = ..()
-	H.add_client_colour(/datum/client_colour/warfare)
-	H.overlay_fullscreen("noisewwi", /atom/movable/screen/fullscreen/noisescreen/warfare)
-
 /datum/outfit/ctf/blue/instagib
 	name = "CTF Instagib (Blue)"
 	r_hand = /obj/item/gun/energy/laser/instakill/ctf/blue
@@ -217,23 +200,6 @@
 	r_pocket = /obj/item/ammo_box/magazine/recharge/ctf/rifle/yellow
 	id = /obj/item/card/id/yellow //it's yellow
 	team_radio_freq = FREQ_CTF_YELLOW
-
-/datum/outfit/ctf/yellow/warfare
-	head = /obj/item/clothing/head/helmet/elite/yellow
-	mask = /obj/item/clothing/mask/gas/german
-	uniform = /obj/item/clothing/under/victorian/vest
-	shoes = /obj/item/clothing/shoes/jackboots
-	gloves = /obj/item/clothing/gloves/fingerless
-	belt = /obj/item/melee/sabre/marineofficer
-	suit = /obj/item/clothing/suit/armor/opvest
-	r_hand = /obj/item/gun/ballistic/rifle/boltaction/kar98k
-	l_pocket = /obj/item/ammo_box/magazine/a792x57
-	r_pocket = /obj/item/ammo_box/magazine/a792x57
-
-/datum/outfit/ctf/yellow/warfare/post_equip(mob/living/carbon/human/H)
-	. = ..()
-	H.add_client_colour(/datum/client_colour/warfare)
-	H.overlay_fullscreen("noisewwi", /atom/movable/screen/fullscreen/noisescreen/warfare)
 
 /datum/outfit/ctf/yellow/instagib
 	name = "CTF Instagib (Yellow)"

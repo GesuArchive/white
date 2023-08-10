@@ -311,10 +311,6 @@
 	ctf_gear = list("Rifleman" = /datum/outfit/ctf/blue, "Assaulter" = /datum/outfit/ctf/assault/blue, "Marksman" = /datum/outfit/ctf/marksman/blue)
 	instagib_gear = list("Instagib" = /datum/outfit/ctf/blue/instagib)
 
-/obj/machinery/capture_the_flag/blue/warfare
-	player_traits = list()
-	ctf_gear = list("blue" = /datum/outfit/ctf/blue/warfare)
-
 /obj/machinery/capture_the_flag/green
 	name = "Зелёный контроллер \"Захвата Флага\""
 	icon_state = "greenbeacon"
@@ -330,10 +326,6 @@
 	team_span = "yellowteamradio"
 	ctf_gear = list("Rifleman" = /datum/outfit/ctf/yellow, "Assaulter" = /datum/outfit/ctf/assault/yellow, "Marksman" = /datum/outfit/ctf/marksman/yellow)
 	instagib_gear = list("Instagib" = /datum/outfit/ctf/yellow/instagib)
-
-/obj/machinery/capture_the_flag/yellow/warfare
-	player_traits = list()
-	ctf_gear = list("yellow" = /datum/outfit/ctf/yellow/warfare)
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/machinery/capture_the_flag/attack_ghost(mob/user)

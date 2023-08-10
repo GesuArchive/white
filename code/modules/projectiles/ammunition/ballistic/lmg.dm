@@ -31,3 +31,25 @@
 	name = "травматический патрон калибра 7.12x82мм"
 	desc = "Стандартная пуля заменена на резиновую болванку. Урон значительно снижен, однако такие попадания сильно изматывают цель, а пули могут рекошетить от стен. Используется в некоторых пулеметах."
 	projectile_type = /obj/projectile/bullet/mm712x82_bouncy
+
+/obj/item/ammo_casing/a792x57
+	name = "гильза 7.92x57mm"
+	caliber = "a792x57"
+	projectile_type = /obj/projectile/bullet/a792x57
+	icon_state = "rifle_casing"
+	inhand_icon_state = "rifle_casing"
+
+/obj/item/ammo_casing/a556carbine
+	desc = "гильза 5.56mm"
+	caliber = "229"
+	projectile_type = /obj/projectile/bullet/a556
+
+/obj/item/ammo_casing/carbine
+	desc = "A 5.56mm bullet casing."
+	caliber = "carab"
+	projectile_type = /obj/projectile/bullet/carab
+
+/obj/item/ammo_casing/assault_rifle
+	desc = "Assault rifle bullet casing."
+	caliber = "asr"
+	projectile_type = /obj/projectile/bullet/assault_rifle

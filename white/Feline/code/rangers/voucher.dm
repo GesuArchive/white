@@ -408,7 +408,6 @@
 	atom_storage.set_holdable(list(
 		/obj/item/melee/sabre/proton_cutter,
 		/obj/item/melee/classic_baton,
-		/obj/item/melee/baton/loaded/german,
 		/obj/item/gun/ballistic/automatic/pistol,
 		/obj/item/gun/ballistic/revolver,
 		/obj/item/gun/energy/e_gun/mini,

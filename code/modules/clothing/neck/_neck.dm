@@ -283,21 +283,6 @@
 	custom_price = PAYCHECK_ASSISTANT * 0.2
 	w_class = WEIGHT_CLASS_SMALL
 
-// вайтдрим зергивергио контенто
-/obj/item/clothing/neck/stripedgrayscarf
-	name = "полосатый серый шарф"
-	icon = 'white/Wzzzz/clothing/ties.dmi'
-	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
-	icon_state = "stripedgreyscarf"
-	custom_price = PAYCHECK_ASSISTANT * 0.2
-
-/obj/item/clothing/neck/stripedblackscarf
-	name = "полосатый черный шарф"
-	icon = 'white/Wzzzz/clothing/ties.dmi'
-	worn_icon = 'white/Wzzzz/clothing/mob/ties.dmi'
-	icon_state = "stripedblackscarf"
-	custom_price = PAYCHECK_ASSISTANT * 0.2
-
 /obj/item/clothing/neck/petcollar
 	name = "ошейник"
 	desc = "Для домашних животных."

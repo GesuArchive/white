@@ -72,7 +72,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 /datum/violence_gear/melee/sabre
 	name = "Сабля"
 	cost = 225
-	items = list(/obj/item/melee/sabre/german)
+	items = list(/obj/item/melee/sabre)
 	allowed_themes = list(VIOLENCE_THEME_STD)
 
 /datum/violence_gear/melee/katana

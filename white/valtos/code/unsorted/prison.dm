@@ -390,7 +390,7 @@
 	icon_state = "sovietvend"
 	product_ads = "За Царя и Страну.;А ты выполнил норму сегодня?;Слава Советскому Союзу!"
 	products = list(/obj/item/clothing/under/costume/soviet = 20, /obj/item/clothing/head/ushanka = 20, /obj/item/food/candy = 40,
-					/obj/item/reagent_containers/food/drinks/bottle/vodka = 40, /obj/item/kitchen/knife/butcher/machete = 10)
+					/obj/item/reagent_containers/food/drinks/bottle/vodka = 40, /obj/item/kitchen/knife/butcher = 10)
 	contraband = list(/obj/item/clothing/under/syndicate/tacticool = 20)
 	armor = list(melee = 100, bullet = 100, laser = 100, energy = 100, bomb = 0, bio = 0, rad = 0, fire = 100, acid = 50)
 	resistance_flags = FIRE_PROOF

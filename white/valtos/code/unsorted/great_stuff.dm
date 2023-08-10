@@ -256,8 +256,6 @@
 /obj/item/clothing/head/hijab
 	name = "хиджаб"
 	desc = "Ммм."
-	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
-	icon = 'white/Wzzzz/clothing/head.dmi'
 	dynamic_hair_suffix = ""
 	icon_state = "hijab"
 	inhand_icon_state = "hijab"
@@ -266,16 +264,12 @@
 /obj/item/clothing/head/taqiyah
 	name = "такиях"
 	desc = "Ооох."
-	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
-	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "taqiyah"
 	inhand_icon_state = "taqiyah"
 
 /obj/item/clothing/head/turban
 	name = "тюрбан"
 	desc = "Мягкий, ых."
-	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
-	icon = 'white/Wzzzz/clothing/head.dmi'
 	icon_state = "turban"
 	inhand_icon_state = "turban"
 

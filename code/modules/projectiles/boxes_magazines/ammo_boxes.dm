@@ -149,3 +149,9 @@
 	icon_state = "foambox_riot"
 	ammo_type = /obj/item/ammo_casing/caseless/foam_dart/riot
 	custom_materials = list(/datum/material/iron = 50000)
+
+/obj/item/ammo_box/n792x57
+	name = "ящик с патронами (7.92x57)"
+	icon_state = "10mmbox"
+	ammo_type = /obj/item/ammo_casing/a792x57
+	max_ammo = 14
