@@ -43,7 +43,7 @@
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .) //не ебу что это, но пожалуй оставлю.
 
 //копипаста из ballistic.dm, переделанная под мои нужды. (гильзы не вылетают на пол, а удаляются)
-/obj/item/gun/ballistic/energy_smg/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
+/obj/item/gun/ballistic/energy_smg/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
 	if(!semi_auto && from_firing)
 		return
 	var/obj/item/ammo_casing/AC = chambered //Find chambered round
@@ -63,7 +63,7 @@
 	if (user)
 		return //не даём передёргивать затвор кому попало
 	bolt_locked = FALSE
-	process_chamber(!chambered, FALSE)
+	process_chamber(!chambered, FALSE, shooter = user)
 	update_icon()
 
 /obj/item/gun/ballistic/energy_smg/insert_magazine(mob/user, obj/item/ammo_box/magazine/AM, display_message = TRUE)

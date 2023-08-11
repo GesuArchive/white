@@ -20,7 +20,7 @@
 	clumsy_check = 0
 	item_flags = NONE
 
-/obj/item/gun/energy/lovegun/process_chamber()
+/obj/item/gun/energy/lovegun/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
 	. = ..()
 	fire_sound = pick(random_sound)
 

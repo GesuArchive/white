@@ -51,7 +51,7 @@
 	update_icon()
 	return
 
-/obj/item/gun/ballistic/crossbow/process_chamber(empty_chamber = 0)
+/obj/item/gun/ballistic/crossbow/process_chamber(empty_chamber = FALSE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
 	chambered = null
 	charge = 0
 	update_icon()
