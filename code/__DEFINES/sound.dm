@@ -121,7 +121,6 @@
 #define MAINTENANCE list(\
 	'sound/ambience/white/ambimaint1.ogg',\
 	'sound/ambience/white/ambimaint2.ogg',\
-	'sound/ambience/white/ambimaint3.ogg',\
 	'sound/ambience/white/ambimaint4.ogg',\
 	'sound/ambience/white/ambimaint5.ogg',\
 	'sound/ambience/white/ambimaint6.ogg',\
