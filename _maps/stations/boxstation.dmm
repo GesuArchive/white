@@ -28303,7 +28303,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/external{
-	req_access_txt = "13
+	req_access_txt = "13"
 	},
 /turf/open/floor/plating,
 /area/maintenance/fore)
