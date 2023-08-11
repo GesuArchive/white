@@ -7,7 +7,7 @@
 
 /datum/keybinding/admin/admin_say
 	hotkey_keys = list("F5")
-	name = "admin_say"
+	name = ADMIN_CHANNEL
 	full_name = "Admin say"
 	description = "Talk with other admins."
 	keybind_signal = COMSIG_KB_ADMIN_ASAY_DOWN

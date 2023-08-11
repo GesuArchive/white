@@ -15,7 +15,7 @@ export const windowOpen = (channel: Channel) => {
  * Sending "close" logs it server side.
  */
 export const windowClose = () => {
-  setWindowVisibility(true);
+  setWindowVisibility(false);
   Byond.winset('map', {
     focus: true,
   });
@@ -29,6 +29,7 @@ export const windowLoad = () => {
     size: `${WINDOW_SIZES.width}x${WINDOW_SIZES.small}`,
     visible: false,
   });
+
   Byond.winset('map', {
     focus: true,
   });
@@ -39,9 +40,11 @@ export const windowLoad = () => {
  */
 export const windowSet = (size = WINDOW_SIZES.small) => {
   let sizeStr = `${WINDOW_SIZES.width}x${size}`;
+
   Byond.winset('tgui_say.browser', {
     size: sizeStr,
   });
+
   Byond.winset('tgui_say', {
     size: sizeStr,
   });

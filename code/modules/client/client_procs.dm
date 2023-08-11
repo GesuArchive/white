@@ -1007,7 +1007,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
  *
  * Handles adding macros for the keys that need it
  * And adding movement keys to the clients movement_keys list
- * At the time of writing this, communication(OOC, Say, IC) require macros
+ * At the time of writing this, communication(OOC, Say, IC, ASAY) require macros
  * Arguments:
  * * direct_prefs - the preference we're going to get keybinds from
  */

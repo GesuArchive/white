@@ -101,6 +101,7 @@ GLOBAL_PROTECT(href_token)
 		disassociate()
 		add_verb(client, /client/proc/readmin)
 		client.disable_combo_hud()
+		client.update_special_keybinds()
 
 /datum/admins/proc/associate(client/C)
 	if(IsAdminAdvancedProcCall())
@@ -122,6 +123,7 @@ GLOBAL_PROTECT(href_token)
 		owner.add_admin_verbs()	//TODO <--- todo what? the proc clearly exists and works since its the backbone to our entire admin system
 		remove_verb(owner, /client/proc/readmin)
 		owner.init_verbs() //re-initialize the verb list
+		owner.update_special_keybinds()
 		GLOB.admins |= C
 
 /datum/admins/proc/disassociate()
