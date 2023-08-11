@@ -216,7 +216,7 @@ export class TguiSay extends Component<{}, State> {
       Byond.sendMessage('thinking', { visible: false });
     }
 
-    this.channelIterator.set('Say');
+    this.channelIterator.set('Сказать');
     this.currentPrefix = prefix;
     this.setState({ buttonContent: RADIO_PREFIXES[prefix] });
     this.setValue(typed.slice(3));

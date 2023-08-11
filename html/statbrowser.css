@@ -268,21 +268,20 @@ img {
 	image-rendering: pixelated;
 	border-bottom: 1px solid #343434;
 }
-/*
+
 @media only screen and (min-width: 520px) {
 	img {
 		width: 48px;
 		object-fit: cover;
 	}
 	#statcontent {
-		padding: 2px 2px 2px 54px;
+		padding: 56px 2px 2px 2px;
 	}
 	#menu {
-		width: 48px;
+		height: 48px;
 	}
 	.button {
 		height: 52px;
 		width: 52px;
 	}
 }
-*/
