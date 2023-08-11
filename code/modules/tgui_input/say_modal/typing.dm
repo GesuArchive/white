@@ -39,7 +39,7 @@
 
 /** Removes typing/thinking indicators and flags the mob as not thinking */
 /datum/tgui_say/proc/stop_thinking()
-	client.mob.remove_all_indicators()
+	client.mob?.remove_all_indicators()
 
 /**
  * Handles the user typing. After a brief period of inactivity,
@@ -68,8 +68,9 @@
 /mob/living/create_thinking_indicator()
 	if(active_thinking_indicator || active_typing_indicator || !thinking_IC || stat != CONSCIOUS )
 		return FALSE
-	active_thinking_indicator = mutable_appearance('icons/mob/talk.dmi', "[bubble_icon]3", TYPING_LAYER, src, SOUND_EFFECT_VISUAL_PLANE)
+	active_thinking_indicator = mutable_appearance('icons/mob/talk.dmi', "[bubble_icon]3", TYPING_LAYER)
 	add_overlay(active_thinking_indicator)
+	play_fov_effect(src, 6, "talk", ignore_self = TRUE)
 
 /mob/living/remove_thinking_indicator()
 	if(!active_thinking_indicator)
@@ -80,8 +81,9 @@
 /mob/living/create_typing_indicator()
 	if(active_typing_indicator || active_thinking_indicator || !thinking_IC || stat != CONSCIOUS)
 		return FALSE
-	active_typing_indicator = mutable_appearance('icons/mob/talk.dmi', "[bubble_icon]0", TYPING_LAYER, src, SOUND_EFFECT_VISUAL_PLANE)
+	active_typing_indicator = mutable_appearance('icons/mob/talk.dmi', "[bubble_icon]0", TYPING_LAYER)
 	add_overlay(active_typing_indicator)
+	play_fov_effect(src, 6, "talk", ignore_self = TRUE)
 
 /mob/living/remove_typing_indicator()
 	if(!active_typing_indicator)
@@ -93,18 +95,3 @@
 	thinking_IC = FALSE
 	remove_thinking_indicator()
 	remove_typing_indicator()
-
-/*
-////Wrappers////
-//Keybindings were updated to change to use these wrappers. If you ever remove this file, revert those keybind changes
-/mob/verb/say_wrapper()
-	set name = ".сказать"
-	set hidden = 1
-	set instant = 1
-
-	create_typing_indicator()
-	var/message = input("", pick("Эй, послушай...", "И конечно же мы скажем...", "Вероятно надо сказать...", "Хотелось бы сказать...", "Слушай внимательно...")) as text|null
-	remove_typing_indicator()
-	if(message)
-		say_verb(message)
-*/

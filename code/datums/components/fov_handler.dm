@@ -24,7 +24,7 @@
 		qdel(src) //no QDEL hint for components, and we dont want this to print a warning regarding bad component application
 		return
 
-	for(var/atom/movable/screen/plane_master/plane_master in mob_parent.hud_used.get_true_plane_masters(FIELD_OF_VISION_BLOCKER_PLANE))
+	for(var/atom/movable/screen/plane_master/plane_master as anything in mob_parent.hud_used.get_true_plane_masters(FIELD_OF_VISION_BLOCKER_PLANE))
 		plane_master.unhide_plane(mob_parent)
 
 	blocker_mask = new
@@ -37,7 +37,7 @@
 
 /datum/component/fov_handler/Destroy()
 	var/mob/living/mob_parent = parent
-	for(var/atom/movable/screen/plane_master/plane_master in mob_parent.hud_used.get_true_plane_masters(FIELD_OF_VISION_BLOCKER_PLANE))
+	for(var/atom/movable/screen/plane_master/plane_master as anything in mob_parent.hud_used.get_true_plane_masters(FIELD_OF_VISION_BLOCKER_PLANE))
 		plane_master.hide_plane(mob_parent)
 
 	if(applied_mask)
@@ -98,13 +98,15 @@
 /datum/component/fov_handler/proc/remove_mask()
 	var/mob/parent_mob = parent
 	var/client/parent_client = parent_mob.client
+	// Prevents stupid ass hard deletes
+	parent_mob.hud_used.always_visible_inventory -= blocker_mask
+	parent_mob.hud_used.always_visible_inventory -= visual_shadow
 	if(!parent_client) //Love client volatility!!
 		return
 	applied_mask = FALSE
 	parent_client.screen -= blocker_mask
 	parent_client.screen -= visual_shadow
-	parent_mob.hud_used.always_visible_inventory -= blocker_mask
-	parent_mob.hud_used.always_visible_inventory -= visual_shadow
+
 
 /datum/component/fov_handler/proc/add_mask()
 	var/mob/parent_mob = parent
