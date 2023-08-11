@@ -184,7 +184,7 @@
 			AddElement(/datum/element/jamming, 25)
 			extra_damage = 80
 
-/obj/item/gun/ballistic/rifle/boltaction/kar98k/update_icon(var/add_scope = FALSE)
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/update_icon(add_scope = FALSE)
 	. = ..()
 	if (bolt_locked == FALSE)
 		icon_state = "kar98k_open"
@@ -221,7 +221,7 @@
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 2.5)
 
-/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/update_icon(var/add_scope = FALSE)
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/update_icon(add_scope = FALSE)
 	. = ..()
 	if (bolt_locked == FALSE)
 		icon_state = "kar98k_scope_open"
