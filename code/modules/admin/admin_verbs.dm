@@ -64,6 +64,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/respawn_character,
 	/client/proc/open_killcounter_counts,
 	/client/proc/secrets,
+	/client/proc/darknesshelper,
 	/datum/admins/proc/open_borgopanel,
 	/datum/admins/proc/view_all_circuits,
 	/datum/admins/proc/paintings_manager,
