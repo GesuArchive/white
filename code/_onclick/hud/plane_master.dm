@@ -335,16 +335,47 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/plane_master)
 	// If we're outside bounds AND we're the 0th plane, we need to show cause parallax is hacked to hell
 	return offset != 0 && is_outside_bounds
 
-/atom/movable/screen/plane_master/gravpulse
-	name = "Gravpulse"
+/atom/movable/screen/plane_master/singularity_0
+	name = "singularity_0 plane"
 	documentation = "Ok so this one's fun. Basically, we want to be able to distort the game plane when a grav annom is around.\
 		<br>So we draw the pattern we want to use to this plane, and it's then used as a render target by a distortion filter on the game plane.\
 		<br>Note the blend mode and lack of relay targets. This plane exists only to distort, it's never rendered anywhere."
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	plane = GRAVITY_PULSE_PLANE
+	plane = SINGULARITY_EFFECT_PLANE_0
+	render_target = SINGULO_RENDER_TARGET_0
 	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
-	blend_mode = BLEND_ADD
-	render_target = GRAVITY_PULSE_RENDER_TARGET
+	render_relay_planes = list()
+
+/atom/movable/screen/plane_master/singularity_1
+	name = "singularity_1 plane"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = SINGULARITY_EFFECT_PLANE_1
+	render_target = SINGULO_RENDER_TARGET_1
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
+	render_relay_planes = list()
+
+/atom/movable/screen/plane_master/singularity_2
+	name = "singularity_2 plane"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = SINGULARITY_EFFECT_PLANE_2
+	render_target = SINGULO_RENDER_TARGET_2
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
+	render_relay_planes = list()
+
+/atom/movable/screen/plane_master/singularity_3
+	name = "singularity_3 plane"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = SINGULARITY_EFFECT_PLANE_3
+	render_target = SINGULO_RENDER_TARGET_3
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
+	render_relay_planes = list()
+
+/atom/movable/screen/plane_master/anomaly
+	name = "anomaly plane"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = ANOMALY_PLANE
+	render_target = ANOMALY_RENDER_TARGET
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
 	render_relay_planes = list()
 
 ///Contains just the floor

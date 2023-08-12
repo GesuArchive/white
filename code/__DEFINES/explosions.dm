@@ -53,6 +53,8 @@
 #define EXARG_KEY_SILENT STRINGIFY(silent)
 /// Whether or not the explosion should produce smoke if it is large enough to warrant it.
 #define EXARG_KEY_SMOKE STRINGIFY(smoke)
+/// Motherfucker.
+#define EXARG_KEY_EXPLOSION_TYPE STRINGIFY(explosion_type)
 
 // Explodable component deletion values
 /// Makes the explodable component queue to reset its exploding status when it detonates.

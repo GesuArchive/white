@@ -183,9 +183,9 @@
 		if(!particle_effect)
 			particle_effect = new(owner, /particles/embers)
 		if(stacks > MOB_BIG_FIRE_STACK_THRESHOLD)
-			particle_effect.particles.spawning = 5
+			particle_effect?.particles?.spawning = 5
 		else
-			particle_effect.particles.spawning = 1
+			particle_effect?.particles?.spawning = 1
 	else if(particle_effect)
 		QDEL_NULL(particle_effect)
 

@@ -177,12 +177,12 @@ SUBSYSTEM_DEF(explosions)
  * * smoke: Whether to generate a smoke cloud provided the explosion is powerful enough to warrant it.
  * * explosion_cause: [Optional] The atom that caused the explosion, when different to the origin. Used for logging.
  */
-/proc/dyn_explosion(turf/epicenter, power, flame_range = 0, flash_range = null, adminlog = TRUE, ignorecap = TRUE, silent = FALSE, smoke = TRUE, atom/explosion_cause = null)
+/proc/dyn_explosion(turf/epicenter, power, flame_range = 0, flash_range = null, adminlog = TRUE, ignorecap = TRUE, silent = FALSE, smoke = TRUE, atom/explosion_cause = null, explosion_type = null)
 	if(!power)
 		return
 	var/range = 0
 	range = round((2 * power)**GLOB.DYN_EX_SCALE)
-	explosion(epicenter, devastation_range = round(range * 0.25), heavy_impact_range = round(range * 0.5), light_impact_range = round(range), flame_range = flame_range*range, flash_range = flash_range*range, adminlog = adminlog, ignorecap = ignorecap, silent = silent, smoke = smoke, explosion_cause = explosion_cause)
+	explosion(epicenter, devastation_range = round(range * 0.25), heavy_impact_range = round(range * 0.5), light_impact_range = round(range), flame_range = flame_range*range, flash_range = flash_range*range, adminlog = adminlog, ignorecap = ignorecap, silent = silent, smoke = smoke, explosion_cause = explosion_cause, explosion_type = explosion_type)
 
 
 
@@ -202,7 +202,7 @@ SUBSYSTEM_DEF(explosions)
  * - smoke: Whether to generate a smoke cloud provided the explosion is powerful enough to warrant it.
  * - explosion_cause: [Optional] The atom that caused the explosion, when different to the origin. Used for logging.
  */
-/proc/explosion(atom/origin, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 0, flame_range = 0, flash_range = 0, adminlog = TRUE, ignorecap = FALSE, silent = FALSE, smoke = FALSE, atom/explosion_cause = null)
+/proc/explosion(atom/origin, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 0, flame_range = 0, flash_range = 0, adminlog = TRUE, ignorecap = FALSE, silent = FALSE, smoke = FALSE, atom/explosion_cause = null, explosion_type = null)
 	. = SSexplosions.explode(arglist(args))
 
 	// MultiZ?
@@ -236,7 +236,7 @@ SUBSYSTEM_DEF(explosions)
  * - smoke: Whether to generate a smoke cloud provided the explosion is powerful enough to warrant it.
  * - explosion_cause: [Optional] The atom that caused the explosion, when different to the origin. Used for logging.
  */
-/datum/controller/subsystem/explosions/proc/explode(atom/origin, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 0, flame_range = 0, flash_range = 0, adminlog = TRUE, ignorecap = FALSE, silent = FALSE, smoke = FALSE, atom/explosion_cause = null)
+/datum/controller/subsystem/explosions/proc/explode(atom/origin, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 0, flame_range = 0, flash_range = 0, adminlog = TRUE, ignorecap = FALSE, silent = FALSE, smoke = FALSE, atom/explosion_cause = null, explosion_type = null)
 	var/list/arguments = list(
 		EXARG_KEY_ORIGIN = origin,
 		EXARG_KEY_DEV_RANGE = devastation_range,
@@ -249,6 +249,7 @@ SUBSYSTEM_DEF(explosions)
 		EXARG_KEY_SILENT = silent,
 		EXARG_KEY_SMOKE = smoke,
 		EXARG_KEY_EXPLOSION_CAUSE = explosion_cause ? explosion_cause : origin,
+		EXARG_KEY_EXPLOSION_TYPE = explosion_type,
 	)
 	var/atom/location = isturf(origin) ? origin : origin.loc
 	if(SEND_SIGNAL(origin, COMSIG_ATOM_EXPLODE, arguments) & COMSIG_CANCEL_EXPLOSION)
@@ -294,7 +295,7 @@ SUBSYSTEM_DEF(explosions)
  * - smoke: Whether to generate a smoke cloud provided the explosion is powerful enough to warrant it.
  * - explosion_cause: The atom that caused the explosion. Used for logging.
  */
-/datum/controller/subsystem/explosions/proc/propagate_blastwave(atom/epicenter, devastation_range, heavy_impact_range, light_impact_range, flame_range, flash_range, adminlog, ignorecap, silent, smoke, atom/explosion_cause)
+/datum/controller/subsystem/explosions/proc/propagate_blastwave(atom/epicenter, devastation_range, heavy_impact_range, light_impact_range, flame_range, flash_range, adminlog, ignorecap, silent, smoke, atom/explosion_cause, explosion_type)
 	epicenter = get_turf(epicenter)
 	if(!epicenter)
 		return
@@ -381,7 +382,9 @@ SUBSYSTEM_DEF(explosions)
 
 	if(heavy_impact_range > 1)
 		var/datum/effect_system/explosion/E
-		if(smoke)
+		if(explosion_type)
+			E = new explosion_type
+		else if(smoke)
 			E = new /datum/effect_system/explosion/smoke
 		else
 			E = new

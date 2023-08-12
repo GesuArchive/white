@@ -111,6 +111,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	icon_state = "darkmatter"
 	density = TRUE
 	anchored = TRUE
+	appearance_flags = PIXEL_SCALE // no tile bound to allow distortion to render outside of direct view
 	layer = MOB_LAYER
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1 | RAD_PROTECT_CONTENTS_1 | RAD_NO_CONTAMINATE_1
 	light_range = 4
@@ -312,7 +313,20 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	///Disables the sm's proccessing totally.
 	var/processes = TRUE
 
+	///Effect holder for the displacement filter to distort the SM based on its activity level
+	var/atom/movable/distortion_effect/distort
 
+	var/last_status
+
+/atom/movable/distortion_effect
+	name = ""
+	plane = ANOMALY_PLANE
+	appearance_flags = PIXEL_SCALE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "SM_base"
+	pixel_x = -32
+	pixel_y = -32
 
 /obj/machinery/power/supermatter_crystal/Initialize(mapload)
 	. = ..()
@@ -325,6 +339,9 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	radio.keyslot = new radio_key
 	radio.set_listening(FALSE)
 	radio.recalculateChannels()
+	distort = new(src)
+	add_overlay(distort)
+	add_emitter(/obj/emitter/sparkle, "supermatter_sparkle")
 	investigate_log("has been created.", INVESTIGATE_SUPERMATTER)
 	if(is_main_engine)
 		GLOB.main_supermatter_engine = src
@@ -352,6 +369,12 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	if(is_main_engine && GLOB.main_supermatter_engine == src)
 		GLOB.main_supermatter_engine = null
 	QDEL_NULL(soundloop)
+	distort.icon = 'icons/effects/32x32.dmi'
+	distort.icon_state = "SM_remnant"
+	distort.pixel_x = 0
+	distort.pixel_y = 0
+	distort.forceMove(get_turf(src))
+	distort = null
 	if(psyOverlay)
 		QDEL_NULL(psyOverlay)
 	return ..()
@@ -461,6 +484,37 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	if(final_countdown)
 		. += "casuality_field"
 
+// Switches the overlay based on the supermatter's current state; only called when the status has changed
+/obj/machinery/power/supermatter_crystal/proc/update_displacement()
+	cut_overlay(distort)
+	switch(last_status)
+		if(SUPERMATTER_INACTIVE)
+			distort.icon = 'icons/effects/96x96.dmi'
+			distort.icon_state = "SM_base"
+			distort.pixel_x = -32
+			distort.pixel_y = -32
+		if(SUPERMATTER_NORMAL, SUPERMATTER_NOTIFY, SUPERMATTER_WARNING)
+			distort.icon = 'icons/effects/96x96.dmi'
+			distort.icon_state = "SM_base_active"
+			distort.pixel_x = -32
+			distort.pixel_y = -32
+		if(SUPERMATTER_DANGER)
+			distort.icon = 'icons/effects/160x160.dmi'
+			distort.icon_state = "SM_delam_1"
+			distort.pixel_x = -64
+			distort.pixel_y = -64
+		if(SUPERMATTER_EMERGENCY)
+			distort.icon = 'icons/effects/224x224.dmi'
+			distort.icon_state = "SM_delam_2"
+			distort.pixel_x = -96
+			distort.pixel_y = -96
+		if(SUPERMATTER_DELAMINATING)
+			distort.icon = 'icons/effects/288x288.dmi'
+			distort.icon_state = "SM_delam_3"
+			distort.pixel_x = -128
+			distort.pixel_y = -128
+	add_overlay(distort)
+
 /obj/machinery/power/supermatter_crystal/proc/countdown()
 	set waitfor = FALSE
 
@@ -535,7 +589,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	for (var/obj/structure/sign/delamination_counter/sign as anything in GLOB.map_delamination_counters)
 		sign.update_count(ROUNDCOUNT_ENGINE_JUST_EXPLODED)
 	//Dear mappers, balance the sm max explosion radius to 17.5, 37, 39, 41
-	explosion(src, devastation_range = explosion_power * max(gasmix_power_ratio, 0.205) * 0.5 , heavy_impact_range = explosion_power * max(gasmix_power_ratio, 0.205) + 2, light_impact_range = explosion_power * max(gasmix_power_ratio, 0.205) + 4 , flash_range = explosion_power * max(gasmix_power_ratio, 0.205) + 6, adminlog = TRUE, ignorecap = TRUE)
+	explosion(src, devastation_range = explosion_power * max(gasmix_power_ratio, 0.205) * 0.5 , heavy_impact_range = explosion_power * max(gasmix_power_ratio, 0.205) + 2, light_impact_range = explosion_power * max(gasmix_power_ratio, 0.205) + 4 , flash_range = explosion_power * max(gasmix_power_ratio, 0.205) + 6, adminlog = TRUE, ignorecap = TRUE, explosion_type = /datum/effect_system/explosion/delamination)
 	qdel(src)
 
 
@@ -780,6 +834,12 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	for(var/mob/living/l in range(src, round((power / 100) ** 0.25)))
 		var/rads = (power / 10) * sqrt( 1 / max(get_dist(l, src),1) )
 		l.rad_act(rads)
+
+	// Checks if the status has changed, in order to update the displacement effect
+	var/current_status = get_status()
+	if(current_status != last_status)
+		last_status = current_status
+		update_displacement()
 
 	//Transitions between one function and another, one we use for the fast inital startup, the other is used to prevent errors with fusion temperatures.
 	//Use of the second function improves the power gain imparted by using co2
@@ -1299,7 +1359,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	var/turf/turf_loc = get_turf(src)
 	if(!turf_loc)
 		return
-	explosion(turf_loc, heavy_impact_range = round(portal_numbers/5), light_impact_range = round(portal_numbers), flash_range = 1, adminlog = TRUE, ignorecap = TRUE)
+	explosion(turf_loc, heavy_impact_range = round(portal_numbers/5), light_impact_range = round(portal_numbers), flash_range = 1, adminlog = TRUE, ignorecap = TRUE, explosion_type = /datum/effect_system/explosion/delamination)
 	. = new/obj/machinery/destabilized_crystal(turf_loc)
 	qdel(src)
 

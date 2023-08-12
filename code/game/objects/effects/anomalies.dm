@@ -111,12 +111,12 @@
 ///////////////////////
 
 /atom/movable/warp_effect
-	plane = GRAVITY_PULSE_PLANE
+	plane = ANOMALY_PLANE
 	appearance_flags = PIXEL_SCALE|LONG_GLIDE // no tile bound so you can see it around corners and so
-	icon = 'icons/effects/light_overlays/light_352.dmi'
-	icon_state = "light"
-	pixel_x = -176
-	pixel_y = -176
+	icon = 'icons/effects/288x288.dmi'
+	icon_state = "gravitational_anti_lens"
+	pixel_x = -126
+	pixel_y = -128
 
 /obj/effect/anomaly/grav
 	name = "гравитационная аномалия"

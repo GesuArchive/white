@@ -1,8 +1,13 @@
 /*
  * Copyright 2021 Gomble (https://github.com/AndrewL97)
  * Changes: Azrun (https://github.com/Azrun)
+ * Changes: Sovexe (https://github.com/Sovexe)
  * Licensed under MIT to Goonstation only (https://choosealicense.com/licenses/mit/)
  */
+
+
+
+///This was ported from my balls
 
 /*
 	atom.particles
@@ -20,7 +25,6 @@
 		Vars that apply when a particle spawns
 			lifespan	num	Maximum life of the particle, in ticks
 			fade	num	Fade-out time at end of lifespan, in ticks
-			fadein	num	Fade-in time, in ticks
 			icon	icon	Icon to use, if any; no icon means this particle will be a dot
 			Can be assigned a weighted list of icon files, to choose an icon at random
 			icon_state	text	Icon state to use, if any
@@ -38,12 +42,11 @@
 			drift	vector	Added acceleration every tick; e.g. a circle or sphere generator can be applied to produce snow or ember effects
 */
 
-GLOBAL_LIST_EMPTY(master_particle_info)
+//This should should have a default at some point
+GLOBAL_LIST_INIT(master_particle_info, list())
 
-/client/proc/open_particle_editor(atom/in_atom)
-	if(holder)
-		holder.particlic = new /datum/particle_editor(in_atom)
-		holder.particlic.ui_interact(mob)
+/// Takes an input string like "A" and turns it into a macro A
+#define TEXT_TO_MACRO(Y) if(#Y) return Y
 
 //some helpyers
 /datum/particle_editor/proc/ListToMatrix(list/L)
@@ -53,21 +56,29 @@ GLOBAL_LIST_EMPTY(master_particle_info)
 		if(6)
 			return matrix(L[1],L[2],L[3],L[4],L[5],L[6])
 
-/datum/particle_editor/proc/stringToList(str, toNum = FALSE)
+/datum/particle_editor/proc/stringToList(str, toNum = FALSE, restoreNull = FALSE)
 	. = splittext(str,regex(@"(?<!\\),"))
 	if(toNum)
 		for(var/i = 1; i <= length(.); ++i)
-			.[i] = text2num(.[i])
+			.[i] = stringToNum(.[i], restoreNull)
+	if(length(.) == 1 && (isnull(.[1]) || .[1] == ""))
+		. = null
+
+/datum/particle_editor/proc/stringToNum(str, restoreNull = FALSE)
+	. = text2num(str)
+	if(isnull(.) && restoreNull)
+		. = str
 
 /datum/particle_editor/proc/stringToMatrix(str)
 	return ListToMatrix(stringToList(str))
+
+
 
 
 /datum/particle_editor
 	var/atom/movable/target
 
 /datum/particle_editor/New(atom/target)
-	..()
 	src.target = target
 
 /datum/particle_editor/ui_state(mob/user)
@@ -102,9 +113,11 @@ GLOBAL_LIST_EMPTY(master_particle_info)
 		if("string") return L["value"]
 		if("float") return L["value"]
 		if("int") return L["value"]
-		if("color") return L["value"]
+		if("vector") return L["value"]
+		if("vector2") return L["value"]
+		if("color") return stringToNum(L["value"], TRUE)
 		if("text") return L["value"]
-		if("list") return stringToList(L["value"])
+		if("list") return stringToList(L["value"], TRUE, TRUE)
 		if("numList") return stringToList(L["value"],TRUE)
 		if("matrix") return ListToMatrix(L["value"])
 		if("generator") return generateGenerator(L["value"]) // This value should be a new list, if it isn't then we will explode
@@ -127,20 +140,30 @@ GLOBAL_LIST_EMPTY(master_particle_info)
 	var/a = length(stringToList(L["a"],TRUE)) > 1 ? stringToList(L["a"],TRUE) : text2num(L["a"])
 	var/b = length(stringToList(L["b"],TRUE)) > 1 ? stringToList(L["b"],TRUE) : text2num(L["b"])
 
+
+	var/rand_type = parse_rand_type(L["rand"])
+
 	switch(L["genType"])
-		if("num")    return generator(L["genType"], a, b)
-		if("vector") return generator(L["genType"], a, b)
-		if("box")    return generator(L["genType"], a, b)
+		if("num")    return generator(L["genType"], a, b, rand_type)
+		if("vector") return generator(L["genType"], a, b, rand_type)
+		if("box")    return generator(L["genType"], a, b, rand_type)
 		if("color") //Color can be string or matrix
-			a = length(a) > 1 ? ListToMatrix(a) : a
-			b = length(a) > 1 ? ListToMatrix(b) : b
-			return generator(L["genType"], a, b)
-		if("circle") return generator(L["genType"], a, b)
-		if("sphere") return generator(L["genType"], a, b)
-		if("square") return generator(L["genType"], a, b)
-		if("cube")   return generator(L["genType"], a, b)
+			a = length(a) > 1 ? a : L["a"]
+			b = length(b) > 1 ? b : L["b"]
+			return generator(L["genType"], a, b, rand_type)
+		if("circle") return generator(L["genType"], a, b, rand_type)
+		if("sphere") return generator(L["genType"], a, b, rand_type)
+		if("square") return generator(L["genType"], a, b, rand_type)
+		if("cube")   return generator(L["genType"], a, b, rand_type)
 	return null
 
+/datum/particle_editor/proc/parse_rand_type(rand_type)
+	switch(rand_type)
+		TEXT_TO_MACRO(UNIFORM_RAND)
+		TEXT_TO_MACRO(LINEAR_RAND)
+		TEXT_TO_MACRO(NORMAL_RAND)
+		TEXT_TO_MACRO(SQUARE_RAND)
+	CRASH("Unknown rand type [rand_type]")
 
 /datum/particle_editor/proc/debugOutput(L, nodeName)
 	if(istype(L,/list))
@@ -191,7 +214,37 @@ GLOBAL_LIST_EMPTY(master_particle_info)
 	particles = null
 
 /atom/movable/proc/modify_particle_value(varName, varVal)
+	var/list/default_particle = list(width = 100, ///DO NOT make this list look nicer, maintainers at tg didn't like the fact its like this and its funny so keep it :) - Borbop
+									height = 100,
+									count = 100,
+									spawning = 1,
+									bound1 = list(-1000, -1000, -1000),
+									bound2 = list(1000, 1000, 1000),
+									icon_state = "",
+									grow = list(0, 0),
+									position = list(0, 0, 0),
+									scale = list(1, 1),
+									velocity = list(0, 0, 0),
+									rotation = 0,
+									spin = 0,
+									friction = list(0, 0, 0),
+									drift = list(0, 0, 0),
+									gravity = list(0, 0, 0),
+									// The following variables either handle null or will evaluate to 0 via Particool
+									// gravity
+									// gradient
+									// transform
+									// lifespan
+									// fade
+									// fadein
+									// icon
+									// color
+									// color_change
+									)
+
 	if(particles)
+		if(isnull(varVal) && !isnull(default_particle[varName]))
+			varVal = default_particle[varName]
 		particles.vars[varName] = varVal
 
 /atom/movable/proc/transition_particle(time, list/new_params, easing, loop)

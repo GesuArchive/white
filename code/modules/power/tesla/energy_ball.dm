@@ -39,6 +39,7 @@
 	var/list/shocked_things = list()
 
 	var/atom/movable/singularity_effect/singulo_effect
+	var/atom/movable/singularity_lens/singulo_lens
 
 /obj/energy_ball/Initialize(mapload, starting_energy = 50, is_miniball = FALSE)
 	. = ..()
@@ -208,15 +209,24 @@
 	C.dust()
 
 /obj/energy_ball/update_icon(stage)
+	. = ..()
+
 	if(!singulo_effect)
 		singulo_effect = new(src)
-		singulo_effect.transform = matrix().Scale(2)
+		singulo_effect.transform = matrix().Scale(1.25)
 		vis_contents += singulo_effect
+
+	if(!singulo_lens)
+		singulo_lens = new(src)
+		singulo_lens.transform = matrix().Scale(0.2)
+		singulo_lens.pixel_x = -96
+		singulo_lens.pixel_y = -96
+		vis_contents += singulo_lens
 
 	singulo_effect.icon = icon
 	singulo_effect.icon_state = icon_state
 
-	. = ..()
+	singulo_lens.icon_state = "gravitational_anti_lens"
 
 /proc/tesla_zap(atom/source, zap_range = 3, power, zap_flags = ZAP_DEFAULT_FLAGS, list/shocked_targets = list())
 	if(QDELETED(source))

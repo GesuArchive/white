@@ -77,7 +77,27 @@
 
 /atom/movable/screen/plane_master/rendering_plate/game_plate/Initialize(mapload)
 	. = ..()
-	add_filter("displacer", 1, displacement_map_filter(render_source = OFFSET_RENDER_TARGET(GRAVITY_PULSE_RENDER_TARGET, offset), size = 10))
+	apply_singularity_effects()
+
+	add_filter("anomaly", 5, displacement_map_filter(render_source = OFFSET_RENDER_TARGET(ANOMALY_RENDER_TARGET, offset), size = 10))
+
+/atom/movable/screen/plane_master/rendering_plate/game_plate/proc/apply_singularity_effects()
+	add_filter("singularity_0", 1, displacement_map_filter(render_source = OFFSET_RENDER_TARGET(SINGULO_RENDER_TARGET_0, offset), size = -40))
+	add_filter("singularity_1", 2, displacement_map_filter(render_source = OFFSET_RENDER_TARGET(SINGULO_RENDER_TARGET_1, offset), size = 75))
+	add_filter("singularity_2", 3, displacement_map_filter(render_source = OFFSET_RENDER_TARGET(SINGULO_RENDER_TARGET_2, offset), size = 400))
+	add_filter("singularity_3", 4, displacement_map_filter(render_source = OFFSET_RENDER_TARGET(SINGULO_RENDER_TARGET_3, offset), size = 700))
+
+	animate(get_filter("singularity_0"), size = -20, time = 10, easing = LINEAR_EASING, loop = -1, flags = ANIMATION_PARALLEL)
+	animate(size = -30, time = 10, easing = LINEAR_EASING, loop = -1)
+
+	animate(get_filter("singularity_1"), size = 50, time = 10, easing = LINEAR_EASING, loop = -1, flags = ANIMATION_PARALLEL)
+	animate(size = 100, time = 10, easing = LINEAR_EASING, loop = -1)
+
+	animate(get_filter("singularity_2"), size = 400, time = 10, easing = LINEAR_EASING, loop = -1, flags = ANIMATION_PARALLEL)
+	animate(size = 300, time = 10, easing = LINEAR_EASING, loop = -1)
+
+	animate(get_filter("singularity_3"), size = 750, time = 10, easing = LINEAR_EASING, loop = -1, flags = ANIMATION_PARALLEL)
+	animate(size = 600, time = 10, easing = LINEAR_EASING, loop = -1)
 
 // Blackness renders weird when you view down openspace, because of transforms and borders and such
 // This is a consequence of not using lummy's grouped transparency, but I couldn't get that to work without totally fucking up

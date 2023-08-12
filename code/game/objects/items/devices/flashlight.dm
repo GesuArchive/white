@@ -311,12 +311,8 @@
 	else
 		update_brightness(null)
 
-/obj/item/flashlight/flare/update_brightness(mob/user = null)
-	..()
-	if(on)
-		inhand_icon_state = "[initial(inhand_icon_state)]-on"
-	else
-		inhand_icon_state = "[initial(inhand_icon_state)]"
+	remove_emitter("spark")
+	remove_emitter("smoke")
 
 /obj/item/flashlight/flare/attack_self(mob/user)
 
@@ -334,6 +330,9 @@
 		user.visible_message(span_notice("[user] зажигает [src.name].") , span_notice("Зажигаю [src.name]!"))
 		force = on_damage
 		damtype = BURN
+		if(!istype(src, /obj/item/flashlight/flare/torch))
+			add_emitter(/obj/emitter/sparks/flare, "spark", 10)
+			add_emitter(/obj/emitter/flare_smoke, "smoke", 9)
 		START_PROCESSING(SSobj, src)
 
 /obj/item/flashlight/flare/get_temperature()

@@ -110,7 +110,9 @@
 	burning = TRUE
 	set_light(6)
 	bonfire_burn()
-	particles = new /particles/bonfire()
+	add_emitter(/obj/emitter/fire, "fire")
+	add_emitter(/obj/emitter/sparks/fire, "fire_spark")
+	add_emitter(/obj/emitter/fire_smoke, "smoke", 9)
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/bonfire/fire_act(exposed_temperature, exposed_volume)
@@ -151,7 +153,9 @@
 		icon_state = "bonfire"
 		burning = FALSE
 		set_light(0)
-		QDEL_NULL(particles)
+		remove_emitter("fire")
+		remove_emitter("fire_spark")
+		remove_emitter("smoke")
 		STOP_PROCESSING(SSobj, src)
 
 /obj/structure/bonfire/buckle_mob(mob/living/buckled_mob, force = FALSE, check_loc = TRUE)
