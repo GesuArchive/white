@@ -117,7 +117,7 @@
 			oldtarget_name = C.name
 			speak("Уровень [threatlevel], предупреждение о нарушении!")
 			//playsound(src, pick('sound/voice/beepsky/criminal.ogg', 'sound/voice/beepsky/justice.ogg', 'sound/voice/beepsky/freeze.ogg'), 50, FALSE)
-			playsound(loc, pick('white/valtos/sounds/beepsky_russian/criminal.ogg', 'white/valtos/sounds/beepsky_russian/justice.ogg', 'white/valtos/sounds/beepsky_russian/freeze.ogg'), 50, FALSE)
+			//playsound(loc, pick('white/valtos/sounds/beepsky_russian/criminal.ogg', 'white/valtos/sounds/beepsky_russian/justice.ogg', 'white/valtos/sounds/beepsky_russian/freeze.ogg'), 50, FALSE)
 			playsound(src,'sound/weapons/saberon.ogg',50,TRUE,-1)
 			visible_message(span_warning("[capitalize(src.name)] зажигает свои энергомечи!"))
 			icon_state = "grievous-c"

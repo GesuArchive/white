@@ -363,8 +363,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 		last_freq = frequency
 
-		if(voice != "sentrybot" && (isbot(src) || issilicon(src) || isandroid(src) || is_ipc(src)))
-			voice = "sentrybot"
+		if(voice != "sentrybot" && (issilicon(src) || isandroid(src) || is_ipc(src)))
+			voice = pick("sentrybot", "glados_alt", "adventure_core_alt", "space_core_alt", "fact_core_alt", "turret_floor")
 
 		INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), src, html_decode(message), message_language, voice, listened, message_range = message_range, freq = frequency)
 

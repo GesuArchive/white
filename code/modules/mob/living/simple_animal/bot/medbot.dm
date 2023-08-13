@@ -242,7 +242,7 @@
 				"[H.name], вы ранены!" = 'sound/voice/medbot/injured.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
-			playsound(src, messagevoice[message], 50, FALSE)
+			//playsound(src, messagevoice[message], 50, FALSE)
 			last_newpatient_speak = world.time
 		return H
 	else
@@ -275,7 +275,7 @@
 		last_tipping_action_voice = world.time
 		var/message = pick(messagevoice)
 		speak(message)
-		playsound(src, messagevoice[message], 70)
+		//playsound(src, messagevoice[message], 70)
 	tipped_status = MEDBOT_PANIC_NONE
 	mode = BOT_IDLE
 	transform = matrix()
@@ -306,7 +306,7 @@
 	if(messagevoice)
 		var/message = pick(messagevoice)
 		speak(message)
-		playsound(src, messagevoice[message], 70)
+		//playsound(src, messagevoice[message], 70)
 	else if(prob(tipped_status * 0.2))
 		playsound(src, 'sound/machines/warning-buzzer.ogg', 30, extrarange=-2)
 
@@ -368,7 +368,7 @@
 					"Почему мы все еще здесь? Просто, чтобы страдать?" = 'sound/voice/medbot/why.ogg')
 				var/message = pick(messagevoice)
 				speak(message)
-				playsound(src, messagevoice[message], 50)
+				//playsound(src, messagevoice[message], 50)
 		var/scan_range = (stationary_mode ? 1 : DEFAULT_SCAN_RANGE) //If in stationary mode, scan range is limited to adjacent patients.
 		patient = scan(list(/mob/living/carbon/human), oldpatient, scan_range)
 		oldpatient = patient
@@ -487,7 +487,7 @@
 				"Ох, бля-" = 'sound/voice/medbot/oh_fuck.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
-			playsound(src, messagevoice[message], 70, FALSE)
+			//playsound(src, messagevoice[message], 70, FALSE)
 
 		if(do_after(H, 3 SECONDS, target=src))
 			tip_over(H)
@@ -533,7 +533,7 @@
 			"Я никогда не терял пациентов... Не сегодня, имею в виду." = 'sound/voice/medbot/lost.ogg')
 		var/message = pick(messagevoice)
 		speak(message)
-		playsound(src, messagevoice[message], 50)
+		//playsound(src, messagevoice[message], 50)
 		if(!stationary_mode)
 			oldpatient = patient
 			soft_reset()
@@ -574,7 +574,7 @@
 				"Поправляйся!" = 'sound/voice/medbot/feelbetter.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
-			playsound(src, messagevoice[message], 50)
+			//playsound(src, messagevoice[message], 50)
 			bot_reset()
 			tending = FALSE
 		else if(patient)

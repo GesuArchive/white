@@ -87,7 +87,7 @@
 	var/set_dir_on_move = TRUE
 
 	/// The voice that this movable makes when speaking
-	var/voice = "glados"
+	var/voice = null
 	var/last_freq = 0
 
 	/// The degree of thermal insulation that mobs in list/contents have from the external environment, between 0 and 1
@@ -144,6 +144,9 @@
 			AddComponent(/datum/component/overlay_lighting)
 		if(MOVABLE_LIGHT_DIRECTIONAL)
 			AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
+
+	if(!voice)
+		voice = pick("sentrybot", "glados_alt", "adventure_core_alt", "space_core_alt", "fact_core_alt", "turret_floor")
 
 /atom/movable/Destroy(force)
 	QDEL_NULL(language_holder)

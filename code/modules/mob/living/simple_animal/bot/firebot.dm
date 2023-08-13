@@ -195,7 +195,7 @@
 		"Сохраняйте это прохладным." = 'sound/voice/firebot/keepitcool.ogg'*/) //непереводимая игра слов.
 		var/message = pick(messagevoice)
 		speak(message)
-		playsound(src, messagevoice[message], 50)
+		//playsound(src, messagevoice[message], 50)
 
 	// Couldn't reach the target, reset and try again ignoring the old one
 	if(frustration > 8)
@@ -220,10 +220,10 @@
 		if((speech_cooldown + SPEECH_INTERVAL) < world.time)
 			if(ishuman(target_fire))
 				speak("Падай и катись!")//падение подразумевает остановку. На английском полная фраза Stop, drop and roll звучит лаконичней из-за краткости всех слов.
-				playsound(src, 'sound/voice/firebot/stopdropnroll.ogg', 50, FALSE)
+				//playsound(src, 'sound/voice/firebot/stopdropnroll.ogg', 50, FALSE)
 			else
 				speak("Тушу!")
-				playsound(src, 'sound/voice/firebot/extinguishing.ogg', 50, FALSE)
+				//playsound(src, 'sound/voice/firebot/extinguishing.ogg', 50, FALSE)
 			speech_cooldown = world.time
 
 			flick("firebot1_use", src)
@@ -276,7 +276,7 @@
 	if(is_burning(scan_target))
 		if((detected_cooldown + DETECTED_VOICE_INTERVAL) < world.time)
 			speak("Обнаружен открытый огонь!")
-			playsound(src, 'sound/voice/firebot/detected.ogg', 50, FALSE)
+			//playsound(src, 'sound/voice/firebot/detected.ogg', 50, FALSE)
 			detected_cooldown = world.time
 		result = scan_target
 
