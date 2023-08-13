@@ -2,6 +2,7 @@
 	key = "snort"
 	ru_name = "хрюкать"
 	key_third_person = "snorts"
+	message = "хрюкает."
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/snort/run_emote(mob/user, params)

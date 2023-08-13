@@ -197,6 +197,13 @@
 	hands_use_check = TRUE
 	var/wing_time = 20
 
+/datum/emote/living/flap/can_run_emote(mob/user, status_check, intentional)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.dna.features["wings"] != "None")
+			return TRUE
+	. = ..()
+
 /datum/emote/living/flap/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(. && ishuman(user))
@@ -296,13 +303,6 @@
 	ru_name = "ухмыляться"
 	key_third_person = "grins"
 	message = "ухмыляется."
-
-/datum/emote/living/groan
-	key = "groan"
-	ru_name = "стонать"
-	key_third_person = "groans"
-	message = "стонет!"
-	message_mime = "кажется стонет!"
 
 /datum/emote/living/grimace
 	key = "grimace"
@@ -563,6 +563,7 @@
 
 /datum/emote/living/plot
 	key = "plot"
+	ru_name = "жажда"
 	key_third_person = "корчится от жажды"
 	message = "корчится от жажды!"
 	emote_type = EMOTE_AUDIBLE

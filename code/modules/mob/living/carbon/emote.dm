@@ -1,12 +1,6 @@
 /datum/emote/living/carbon
 	mob_type_allowed_typecache = list(/mob/living/carbon)
 
-/datum/emote/living/carbon/airguitar
-	key = "airguitar"
-	ru_name = "гитарить"
-	message = "играет на воздухе и трясет головой, как шимпанзе-сафари."
-	hands_use_check = TRUE
-
 /datum/emote/living/carbon/blink
 	key = "blink"
 	ru_name = "моргнуть"
@@ -166,6 +160,7 @@
 
 /datum/emote/living/carbon/snap
 	key = "snap"
+	ru_name = "щёлкать"
 	key_third_person = "щёлкает"
 	message = "щёлкает пальцами."
 	message_param = "щелкает пальцами в сторону %t."

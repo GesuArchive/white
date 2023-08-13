@@ -125,7 +125,7 @@
 					'sound/creatures/monkey/monkey_screech_5.ogg',\
 					'sound/creatures/monkey/monkey_screech_6.ogg',\
 					'sound/creatures/monkey/monkey_screech_7.ogg')
-	if(ishumanbasic(H) || isfelinid(H))		
+	if(ishumanbasic(H) || isfelinid(H))
 		if(user.gender == FEMALE)
 			return pick('white/valtos/sounds/emotes/agony_female_1.ogg',\
 						'white/valtos/sounds/emotes/agony_female_2.ogg',\
@@ -146,7 +146,7 @@
 
 /datum/emote/living/carbon/human/pale
 	key = "pale"
-	ru_name = "обморок"
+	ru_name = "побледнеть"
 	message = "бледнеет на секунду."
 
 /datum/emote/living/carbon/human/raise
@@ -250,24 +250,6 @@
 	if(isturf(loc))
 		var/turf/T = loc
 		T.Entered(src)
-
-//Ayy lmao
-
-/datum/emote/living/carbon/human/dab
-	key = "dab"
-	ru_name = "дурачиться"
-	key_third_person = "dabs"
-	message = "бьёт себя рукой по лбу!"
-	hands_use_check = TRUE
-
-/datum/emote/living/carbon/human/dab/run_emote(mob/living/carbon/user, params)
-	. = ..()
-	if(. && ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/light_dab_angle = rand(35,55)
-		var/light_dab_speed = rand(3,7)
-		H.DabAnimation(angle = light_dab_angle , speed = light_dab_speed)
-		H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)
 
 ///Snowflake emotes only for le epic chimp
 /datum/emote/living/carbon/human/monkey

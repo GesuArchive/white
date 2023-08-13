@@ -1646,9 +1646,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		switch(affecting.body_zone)
 			if(BODY_ZONE_HEAD)
-				if(!I.get_sharpness() && armor_block < 40) //Арморблок снижен на 10 по просьбе Псины.
+				if(I.get_sharpness() == NONE && armor_block < 50)
 					if(prob(I.force * 2))
-						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.5)
+						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.6)
 						if(H.stat == CONSCIOUS)
 							H.visible_message(span_danger("[H] беспорядочно шатается!") , \
 											span_userdanger("Вам пришло письмо-о-о!"))
@@ -1659,7 +1659,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 						if(prob(5)) //Балансим шанс получить травму от двойного шанса на нокаут. (Дефолт=10)
 							H.gain_trauma(/datum/brain_trauma/mild/concussion)
 					else
-						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.2)
+						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.1)
 
 					if(H.mind && H.stat == CONSCIOUS && H != user && prob(I.force + ((100 - H.health) * 0.5))) // rev deconversion through blunt trauma.
 						var/datum/antagonist/rev/rev = H.mind.has_antag_datum(/datum/antagonist/rev)
