@@ -96,6 +96,8 @@
 	icon_living = "goliath"
 	icon_aggro = "goliath"
 	icon_dead = "goliath_dead"
+	pixel_x = -12
+	base_pixel_x = -12
 	throw_message = "does nothing to the tough hide of the"
 	pre_attack_icon = "goliath_preattack"
 	crusher_loot = /obj/item/crusher_trophy/goliath_tentacle

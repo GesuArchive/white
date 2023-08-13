@@ -4,7 +4,7 @@
 
 /mob/living/simple_animal/hostile/mining_drone
 	name = "шахтерский дрон"
-	desc = "The instructions printed on the side read: This is a small robot used to support miners, can be set to search and collect loose ore, or to help fend off wildlife."
+	desc = "Инструкция сбоку гласит: Этот маленький робот используется для поддержки шахтёров, может искать разбросанную руду или помогать уничтожать живность."
 	gender = NEUTER
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "mining_drone"
@@ -29,9 +29,16 @@
 	attack_sound = 'sound/weapons/circsawhit.ogg'
 	sentience_type = SENTIENCE_MINEBOT
 	speak_emote = list("констатирует")
-	wanted_objects = list(/obj/item/stack/ore/diamond, /obj/item/stack/ore/gold, /obj/item/stack/ore/silver,
-						  /obj/item/stack/ore/plasma, /obj/item/stack/ore/uranium, /obj/item/stack/ore/iron,
-						  /obj/item/stack/ore/bananium, /obj/item/stack/ore/titanium)
+	wanted_objects = list(
+		/obj/item/stack/ore/diamond,
+		/obj/item/stack/ore/gold,
+		/obj/item/stack/ore/silver,
+		/obj/item/stack/ore/plasma,
+		/obj/item/stack/ore/uranium,
+		/obj/item/stack/ore/iron,
+		/obj/item/stack/ore/bananium,
+		/obj/item/stack/ore/titanium
+	)
 	healable = 0
 	loot = list(/obj/effect/decal/cleanable/robot_debris)
 	del_on_death = TRUE
@@ -76,38 +83,38 @@
 	. = ..()
 	var/t_He = ru_who(TRUE)
 	var/t_him = ru_na()
-	var/t_s = p_s()
+	var/t_ego = ru_ego()
 	if(health < maxHealth)
 		if(health >= maxHealth * 0.5)
-			. += "<hr><span class='warning'>[t_He] look[t_s] slightly dented.</span>"
+			. += "<hr><span class='warning'>[t_He] выглядит немного подбитым.</span>"
 		else
-			. += "<hr><span class='boldwarning'>[t_He] look[t_s] severely dented!</span>"
-	. += {"<hr><span class='notice'>Using a mining scanner on [t_him] will instruct [t_him] to drop stored ore. <b>[max(0, LAZYLEN(contents) - 1)] Stored Ore</b>\n
-	Field repairs can be done with a welder."}
+			. += "<hr><span class='boldwarning'>[t_He] выглядит серьёзно подбитым!</span>"
+	. += {"<hr><span class='notice'>Использование нахтёрского сканнера на [t_him] проинструктирует [t_ego] сбросить руду. <b>[max(0, LAZYLEN(contents) - 1)] единиц запасённой руды</b>\n
+	Починка осуществляется сваркой."}
 	if(stored_gun?.max_mod_capacity)
-		. += "<hr><b>[stored_gun.get_remaining_mod_capacity()]%</b> mod capacity remaining."
+		. += "<hr><b>[stored_gun.get_remaining_mod_capacity()]%</b> запаса модификаций."
 		for(var/A in stored_gun.modkits)
 			var/obj/item/borg/upgrade/modkit/M = A
-			. += span_notice("\nThere is \a [M] installed, using <b>[M.cost]%</b> capacity.")
+			. += span_notice("\nЗдесь есть [M] внутри, использует <b>[M.cost]%</b> запаса.")
 
 /mob/living/simple_animal/hostile/mining_drone/welder_act(mob/living/user, obj/item/I)
 	..()
 	. = TRUE
 	if(mode == MINEDRONE_ATTACK)
-		to_chat(user, span_warning("[capitalize(src.name)] can't be repaired while in attack mode!"))
+		to_chat(user, span_warning("[capitalize(src.name)] должен расслабиться!"))
 		return
 
 	if(maxHealth == health)
-		to_chat(user, span_info("[capitalize(src.name)] is at full integrity."))
+		to_chat(user, span_info("[capitalize(src.name)] в полном порядке."))
 		return
 
 	if(I.use_tool(src, user, 0, volume=40))
 		adjustBruteLoss(-15)
-		to_chat(user, span_info("You repair some of the armor on [src]."))
+		to_chat(user, span_info("Чиню броню [src]."))
 
 /mob/living/simple_animal/hostile/mining_drone/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/mining_scanner) || istype(I, /obj/item/t_scanner/adv_mining_scanner))
-		to_chat(user, span_info("You instruct [src] to drop any collected ore."))
+		to_chat(user, span_info("Настраиваю [src] на сбор руды."))
 		DropOre()
 		return
 	if(I.tool_behaviour == TOOL_CROWBAR || istype(I, /obj/item/borg/upgrade/modkit))
@@ -120,7 +127,7 @@
 	if(stored_gun)
 		for(var/obj/item/borg/upgrade/modkit/M in stored_gun.modkits)
 			M.uninstall(stored_gun)
-	death_message = "blows apart!"
+	death_message = "разлетается на куски!"
 	..()
 
 /mob/living/simple_animal/hostile/mining_drone/attack_hand(mob/living/carbon/human/M)
@@ -131,9 +138,9 @@
 		toggle_mode()
 		switch(mode)
 			if(MINEDRONE_COLLECT)
-				to_chat(M, span_info("[capitalize(src.name)] has been set to search and store loose ore."))
+				to_chat(M, span_info("[capitalize(src.name)] теперь ищет руду."))
 			if(MINEDRONE_ATTACK)
-				to_chat(M, span_info("[capitalize(src.name)] has been set to attack hostile wildlife."))
+				to_chat(M, span_info("[capitalize(src.name)] теперь в режиме охоты."))
 		return
 
 /mob/living/simple_animal/hostile/mining_drone/CanAllowThrough(atom/movable/mover, border_dir)
@@ -155,7 +162,7 @@
 	minimum_distance = 1
 	retreat_distance = null
 	icon_state = "mining_drone"
-	to_chat(src, span_info("You are set to collect mode. You can now collect loose ore."))
+	to_chat(src, span_info("Мне нужно собирать руду."))
 
 /mob/living/simple_animal/hostile/mining_drone/proc/SetOffenseBehavior()
 	mode = MINEDRONE_ATTACK
@@ -166,7 +173,7 @@
 	retreat_distance = 2
 	minimum_distance = 1
 	icon_state = "mining_drone_offense"
-	to_chat(src, span_info("You are set to attack mode. You can now attack from range."))
+	to_chat(src, span_info("Мне нужно стрелять в монстров."))
 
 /mob/living/simple_animal/hostile/mining_drone/AttackingTarget()
 	if(istype(target, /obj/item/stack/ore) && mode == MINEDRONE_COLLECT)
@@ -188,10 +195,10 @@
 /mob/living/simple_animal/hostile/mining_drone/proc/DropOre(message = 1)
 	if(!contents.len)
 		if(message)
-			to_chat(src, span_warning("You attempt to dump your stored ore, but you have none!"))
+			to_chat(src, span_warning("Пытаюсь сбросить руду, но её нет!"))
 		return
 	if(message)
-		to_chat(src, span_notice("You dump your stored ore."))
+		to_chat(src, span_notice("Сбрасываю руду."))
 	for(var/obj/item/stack/ore/O in contents)
 		O.forceMove(drop_location())
 
@@ -201,7 +208,7 @@
 	. = ..()
 
 /datum/action/innate/minedrone/toggle_meson_vision
-	name = "Toggle Meson Vision"
+	name = "Мезонное зрение"
 	button_icon_state = "meson"
 
 /datum/action/innate/minedrone/toggle_meson_vision/Activate()
@@ -215,7 +222,7 @@
 
 	user.sync_lighting_plane_alpha()
 
-	to_chat(user, span_notice("You toggle your meson vision [(user.sight & SEE_TURFS) ? "on" : "off"]."))
+	to_chat(user, span_notice("Переключаю мезонки в состояние [(user.sight & SEE_TURFS) ? "вкл" : "выкл"]."))
 
 
 /mob/living/simple_animal/hostile/mining_drone/proc/toggle_mode()
@@ -234,18 +241,18 @@
 	overlay_icon_state = "bg_default_border"
 
 /datum/action/innate/minedrone/toggle_light
-	name = "Toggle Light"
+	name = "Переключить свет"
 	button_icon_state = "mech_lights_off"
 
 
 /datum/action/innate/minedrone/toggle_light/Activate()
 	var/mob/living/simple_animal/hostile/mining_drone/user = owner
 	user.set_light_on(!user.light_on)
-	to_chat(user, span_notice("You toggle your light [user.light_on ? "on" : "off"]."))
+	to_chat(user, span_notice("Переключаю свет в состояние [user.light_on ? "вкл" : "выкл"]."))
 
 
 /datum/action/innate/minedrone/toggle_mode
-	name = "Toggle Mode"
+	name = "Переключить режим"
 	button_icon_state = "mech_cycle_equip_off"
 
 /datum/action/innate/minedrone/toggle_mode/Activate()
@@ -253,7 +260,7 @@
 	user.toggle_mode()
 
 /datum/action/innate/minedrone/dump_ore
-	name = "Dump Ore"
+	name = "Сбросить руду"
 	button_icon_state = "mech_eject"
 
 /datum/action/innate/minedrone/dump_ore/Activate()
