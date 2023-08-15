@@ -914,8 +914,8 @@
 	area_flags = NOTELEPORT
 	has_gravity = TRUE
 	mood_bonus = -25
-	base_lighting_alpha = 255
-	base_lighting_color = COLOR_WHITE
+	base_lighting_alpha = 90
+	base_lighting_color = "#ffcccc"
 	static_lighting = FALSE
 	luminosity = 1
 	mood_message = span_red("Тут не очень приятно!\n")
