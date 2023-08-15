@@ -36,8 +36,6 @@
 	name = "гильза 7.92x57mm"
 	caliber = "a792x57"
 	projectile_type = /obj/projectile/bullet/a792x57
-	icon_state = "rifle_casing"
-	inhand_icon_state = "rifle_casing"
 
 /obj/item/ammo_casing/a556carbine
 	desc = "гильза 5.56mm"
