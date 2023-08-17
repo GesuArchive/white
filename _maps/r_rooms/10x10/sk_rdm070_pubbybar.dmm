@@ -136,6 +136,7 @@
 "z" = (
 /obj/structure/table,
 /obj/item/storage/fancy/cigarettes/cigars,
+/obj/item/storage/ashtray,
 /obj/item/stack/spacecash/c20,
 /turf/open/floor/plating,
 /area/template_noop)

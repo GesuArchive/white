@@ -100,6 +100,10 @@
 	path = /obj/item/clothing/suit/jacket/letterman_syndie
 	cost = 150
 
+/datum/gear/suit/jacket/oversized_jacket
+	display_name = "пиджак с большими плечами"
+	path = /obj/item/clothing/suit/jacket/oversized
+
 /datum/gear/suit/jacket/lawyer
 	display_name = "синий пиджак"
 	path = /obj/item/clothing/suit/toggle/lawyer

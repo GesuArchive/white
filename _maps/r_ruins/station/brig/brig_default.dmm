@@ -267,6 +267,7 @@
 	pixel_x = -18;
 	pixel_y = 7
 	},
+/obj/item/storage/ashtray/bronze,
 /obj/item/pen{
 	layer = 3.02;
 	pixel_y = 6;

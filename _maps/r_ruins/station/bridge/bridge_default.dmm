@@ -1981,6 +1981,7 @@
 "fk" = (
 /obj/item/book/manual/wiki/security_space_law,
 /obj/structure/table/wood,
+/obj/item/storage/ashtray/bronze,
 /turf/open/floor/carpet,
 /area/command/meeting_room)
 "fl" = (
@@ -3253,6 +3254,7 @@
 	pixel_y = 2
 	},
 /obj/item/clothing/mask/cigarette/cigar,
+/obj/item/storage/ashtray/bronze,
 /obj/item/reagent_containers/food/drinks/flask/gold,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)

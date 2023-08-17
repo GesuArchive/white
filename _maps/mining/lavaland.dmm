@@ -2049,6 +2049,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 5
 	},
+/obj/item/storage/ashtray,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "fE" = (

@@ -2589,6 +2589,7 @@
 /obj/item/storage/secure/safe/caps_spare{
 	pixel_x = -23
 	},
+/obj/item/storage/ashtray/bronze,
 /obj/machinery/newscaster{
 	pixel_y = -32
 	},

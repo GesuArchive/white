@@ -33,6 +33,7 @@
 	pixel_y = 4
 	},
 /obj/structure/table/wood/fancy/blue,
+/obj/item/storage/ashtray/bronze,
 /obj/machinery/computer/security/telescreen/entertainment/directional/south,
 /turf/open/floor/carpet/blue,
 /area/command/heads_quarters/captain/private)

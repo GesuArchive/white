@@ -4691,6 +4691,7 @@
 #include "white\maxsc\code\closet_hacking.dm"
 #include "white\maxsc\code\deadmin.dm"
 #include "white\maxsc\code\forge.dm"
+#include "white\nocringe\code\ashtray.dm"
 #include "white\nocringe\code\bath.dm"
 #include "white\other\telescience\telepad.dm"
 #include "white\other\telescience\telesci_calc.dm"

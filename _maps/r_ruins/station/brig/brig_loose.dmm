@@ -361,6 +361,7 @@
 	pixel_x = 5;
 	pixel_y = -1
 	},
+/obj/item/storage/ashtray/bronze,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hos)

@@ -543,6 +543,7 @@
 /obj/item/reagent_containers/food/drinks/shaker,
 /obj/item/storage/fancy/cigarettes/cigars/havana,
 /obj/effect/turf_decal/tile/bar,
+/obj/item/storage/ashtray/bronze,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},

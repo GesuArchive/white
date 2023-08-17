@@ -3736,6 +3736,7 @@
 	pixel_x = 28;
 	pixel_y = 5
 	},
+/obj/item/storage/ashtray/bronze,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)
 "Fd" = (

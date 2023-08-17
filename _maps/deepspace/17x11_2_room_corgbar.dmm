@@ -140,6 +140,7 @@
 	dir = 4
 	},
 /obj/item/reagent_containers/glass/rag,
+/obj/item/storage/ashtray,
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_y = 30
 	},

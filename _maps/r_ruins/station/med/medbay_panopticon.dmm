@@ -201,6 +201,7 @@
 /obj/effect/turf_decal/siding/blue/corner{
 	dir = 1
 	},
+/obj/item/storage/ashtray/glass,
 /obj/effect/spawner/random/food_or_drink/donkpockets{
 	pixel_x = 2;
 	pixel_y = 1

@@ -158,6 +158,7 @@
 	pixel_y = -1
 	},
 /obj/structure/table/wood,
+/obj/item/storage/ashtray/bronze,
 /obj/item/paper_bin{
 	pixel_x = -18;
 	pixel_y = 7

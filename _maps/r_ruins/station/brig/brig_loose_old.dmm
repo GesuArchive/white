@@ -521,6 +521,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/vodka/badminka,
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass,
+/obj/item/storage/ashtray/bronze,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hos)

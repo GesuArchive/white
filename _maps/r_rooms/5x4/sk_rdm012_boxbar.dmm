@@ -22,6 +22,7 @@
 /area/template_noop)
 "g" = (
 /obj/structure/table/wood,
+/obj/item/storage/ashtray,
 /obj/effect/spawner/random/maintenance/four,
 /turf/open/floor/wood,
 /area/template_noop)

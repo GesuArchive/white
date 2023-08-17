@@ -290,6 +290,7 @@
 	pixel_x = 7;
 	pixel_y = -6
 	},
+/obj/item/storage/ashtray/bronze,
 /obj/item/clothing/mask/cigarette/cigar{
 	pixel_x = -2;
 	pixel_y = -6

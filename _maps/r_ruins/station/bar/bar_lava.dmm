@@ -1427,6 +1427,16 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/service/kitchen)
+"Zx" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "barmanpriv";
+	name = "bar shutters"
+	},
+/obj/machinery/door/firedoor,
+/obj/item/storage/ashtray/glass,
+/turf/open/floor/light,
+/area/service/bar)
 "Zy" = (
 /obj/machinery/status_display/evac{
 	layer = 4;
@@ -1494,7 +1504,7 @@ dO
 xo
 zF
 zF
-sC
+Zx
 tf
 fQ
 rU

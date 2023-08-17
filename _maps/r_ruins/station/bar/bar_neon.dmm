@@ -687,6 +687,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/item/storage/ashtray/glass,
 /turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/service/bar)
 "cf" = (

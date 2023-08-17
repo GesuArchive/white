@@ -65,6 +65,7 @@
 "j" = (
 /obj/structure/table/wood/poker,
 /obj/effect/spawner/random/maintenance,
+/obj/item/storage/ashtray,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,
 /area/template_noop)

@@ -441,8 +441,8 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/jacket/oversized
-	name = "oversized jacket"
-	desc = "An oversized jacket."
+	name = "куртка оверсайз"
+	desc = "Черная куртка, которая выглядит слишком большой для вас."
 	icon_state = "jacket_oversized"
 	worn_icon = 'icons/mob/clothing/suits/jacket.dmi'
 	greyscale_config = /datum/greyscale_config/jacket_oversized

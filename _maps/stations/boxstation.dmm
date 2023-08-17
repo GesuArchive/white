@@ -31982,6 +31982,7 @@
 "iTF" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
+/obj/item/storage/ashtray,
 /turf/open/floor/carpet,
 /area/security/detectives_office)
 "iTH" = (
@@ -50964,6 +50965,7 @@
 /obj/item/reagent_containers/food/drinks/mug/tea{
 	pixel_x = 5
 	},
+/obj/item/storage/ashtray,
 /turf/open/floor/carpet/purple,
 /area/science/breakroom)
 "oCA" = (
@@ -55385,6 +55387,7 @@
 	dir = 8
 	},
 /obj/structure/sign/calendar/directional/north,
+/obj/item/storage/ashtray/bronze,
 /turf/open/floor/wood,
 /area/service/bar)
 "pUf" = (
@@ -71954,6 +71957,7 @@
 	},
 /obj/structure/table/wood/poker,
 /obj/item/clothing/mask/cigarette/cigar,
+/obj/item/storage/ashtray,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "uSZ" = (
@@ -75994,6 +75998,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/item/storage/ashtray/glass,
 /turf/open/floor/light,
 /area/service/bar)
 "wck" = (

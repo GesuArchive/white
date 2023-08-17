@@ -1387,6 +1387,7 @@
 	},
 /obj/structure/table/wood/poker,
 /obj/item/clothing/mask/cigarette/cigar,
+/obj/item/storage/ashtray,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "qs" = (
@@ -1794,6 +1795,23 @@
 	},
 /turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/service/bar)
+"Xp" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "barmanpriv";
+	name = "bar shutters"
+	},
+/obj/machinery/door/firedoor,
+/obj/item/storage/ashtray/glass,
+/turf/open/floor/light,
+/area/service/bar)
 "Xy" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -2016,7 +2034,7 @@ bH
 IU
 IU
 IU
-IU
+Xp
 cN
 af
 af

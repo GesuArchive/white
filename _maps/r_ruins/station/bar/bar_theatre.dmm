@@ -1101,6 +1101,7 @@
 	id = "barmanpriv";
 	name = "bar shutters"
 	},
+/obj/item/storage/ashtray/glass,
 /turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/service/bar)
 "MH" = (

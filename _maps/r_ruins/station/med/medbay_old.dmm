@@ -1881,6 +1881,7 @@
 /obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
+/obj/item/storage/ashtray/glass,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/open/floor/carpet/purple,
 /area/medical/break_room)

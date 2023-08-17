@@ -1063,6 +1063,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
+/obj/item/storage/ashtray/bronze,
 /obj/item/storage/secure/safe/caps_spare{
 	pixel_x = 36
 	},
