@@ -1189,6 +1189,20 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 /datum/uplink_item/stealthy_tools
 	category = "Стелс-гаджеты"
 
+	/datum/uplink_item/stealthy_tools/armorpolish
+	name = "Бронирующая полироль"
+	desc = "Этот полироль, рассчитанный на два применения, позволяет укрепить одежду до прочности, не уступающей стандартному бронежилету.  \
+			Усиленная нанитами, она позволит вам сохранить привлекательный внешний вид, пока вы устраиваете резню на станции. \
+			Осторожно, полировать можно только костюмы и головные уборы!"
+	item = /obj/item/armorpolish
+	cost = 9
+
+/datum/uplink_item/stealthy_tools/reflectivepolish
+    name = "Отражающая полироль"
+    desc = "Этот полироль, рассчитанный на два использования, укрепляет одежду, обеспечивая повышенную защиту от лазерного и энергитического оружия."
+    item = /obj/item/armorpolish/reflective
+    cost = 10
+
 /datum/uplink_item/stealthy_tools/agent_card
 	name = "Идентификационная карта агента"
 	desc = "Хамелеон-карта, не позволяющая ИИ отслеживать владельца. \
