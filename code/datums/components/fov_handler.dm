@@ -12,8 +12,6 @@
 	var/atom/movable/screen/fov_blocker/blocker_mask
 	/// The shadow mask applied to a client's screen
 	var/atom/movable/screen/fov_shadow/visual_shadow
-	/// check if fixeye is active
-	var/fixeye_enabled = FALSE
 
 /datum/component/fov_handler/Initialize(fov_type = FOV_180_DEGREES)
 	if(!isliving(parent))
@@ -107,7 +105,6 @@
 	parent_client.screen -= blocker_mask
 	parent_client.screen -= visual_shadow
 
-
 /datum/component/fov_handler/proc/add_mask()
 	var/mob/parent_mob = parent
 	var/client/parent_client = parent_mob.client
@@ -122,8 +119,6 @@
 /// When a direction of the user changes, so do the masks
 /datum/component/fov_handler/proc/on_dir_change(mob/source, old_dir, new_dir)
 	SIGNAL_HANDLER
-	if(fixeye_enabled)
-		return
 	blocker_mask?.dir = new_dir
 	visual_shadow?.dir = new_dir
 
@@ -132,24 +127,14 @@
 	SIGNAL_HANDLER
 	qdel(src)
 
-/datum/component/fov_handler/proc/enabled_fixeye(mob/source)
-	SIGNAL_HANDLER
-	fixeye_enabled = TRUE
-
-/datum/component/fov_handler/proc/disabled_fixeye(mob/source)
-	SIGNAL_HANDLER
-	fixeye_enabled = FALSE
-
 /datum/component/fov_handler/RegisterWithParent()
 	. = ..()
-	RegisterSignal(parent, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_change))
-	RegisterSignal(parent, COMSIG_LIVING_DEATH, PROC_REF(update_mask))
-	RegisterSignal(parent, COMSIG_LIVING_REVIVE, PROC_REF(update_mask))
-	RegisterSignal(parent, COMSIG_MOB_CLIENT_CHANGE_VIEW, PROC_REF(update_fov_size))
-	RegisterSignal(parent, COMSIG_MOB_RESET_PERSPECTIVE, PROC_REF(update_mask))
-	RegisterSignal(parent, COMSIG_MOB_LOGOUT, PROC_REF(mob_logout))
-	RegisterSignal(parent, COMSIG_LIVING_FIXEYE_ENABLED, PROC_REF(enabled_fixeye))
-	RegisterSignal(parent, COMSIG_LIVING_FIXEYE_DISABLED, PROC_REF(disabled_fixeye))
+	RegisterSignal(parent, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_change)
+	RegisterSignal(parent, COMSIG_LIVING_DEATH, .proc/update_mask)
+	RegisterSignal(parent, COMSIG_LIVING_REVIVE, .proc/update_mask)
+	RegisterSignal(parent, COMSIG_MOB_CLIENT_CHANGE_VIEW, .proc/update_fov_size)
+	RegisterSignal(parent, COMSIG_MOB_RESET_PERSPECTIVE, .proc/update_mask)
+	RegisterSignal(parent, COMSIG_MOB_LOGOUT, .proc/mob_logout)
 
 /datum/component/fov_handler/UnregisterFromParent()
 	. = ..()

@@ -15,7 +15,7 @@
 	if(remaining_uses != -1)
 		. += "Осталось [remaining_uses] использований."
 
-obj/item/armorpolish/afterattack(atom/target, mob/user, proximity)
+/obj/item/armorpolish/afterattack(atom/target, mob/user, proximity)
 	if(istype(target, /obj/item/clothing/suit) || istype(target, /obj/item/clothing/head))
 		var/obj/item/clothing/I = target;
 		//theos said 30/30/20/25

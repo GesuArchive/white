@@ -1189,7 +1189,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 /datum/uplink_item/stealthy_tools
 	category = "Стелс-гаджеты"
 
-	/datum/uplink_item/stealthy_tools/armorpolish
+/datum/uplink_item/stealthy_tools/armorpolish
 	name = "Бронирующая полироль"
 	desc = "Этот полироль, рассчитанный на два применения, позволяет укрепить одежду до прочности, не уступающей стандартному бронежилету.  \
 			Усиленная нанитами, она позволит вам сохранить привлекательный внешний вид, пока вы устраиваете резню на станции. \

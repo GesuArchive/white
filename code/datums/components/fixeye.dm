@@ -97,7 +97,7 @@
 	fixeye_flags &= ~FIXEYE_INACTIVE
 	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_ENABLED, silent, forced)
 	facedir = source.dir
-	RegisterSignal(source, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_change))
+	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, PROC_REF(on_dir_change))
 	RegisterSignal(source, COMSIG_MOB_CLIENT_MOVED, PROC_REF(on_client_move))
 	RegisterSignal(source, COMSIG_MOB_CLICKON, PROC_REF(on_clickon))
 	if(hud_icon)
@@ -124,7 +124,7 @@
 	fixeye_flags |= FIXEYE_INACTIVE
 	facedir = null
 	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_DISABLED, silent, forced)
-	UnregisterSignal(source, list(COMSIG_ATOM_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
+	UnregisterSignal(source, list(COMSIG_ATOM_PRE_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
 	if(hud_icon)
 		hud_icon.fixed_eye = FALSE
 		hud_icon.update_appearance()
@@ -191,7 +191,7 @@
 			return
 
 	//This is stupid but it works
-	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
+	UnregisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE)
 	var/new_dir = get_dir(source, A)
 	if(!(new_dir in GLOB.cardinals))
 		switch(new_dir)
@@ -206,4 +206,4 @@
 			else
 				new_dir = NORTH
 	source.setDir(new_dir)
-	RegisterSignal(source, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_change))
+	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, PROC_REF(on_dir_change))
