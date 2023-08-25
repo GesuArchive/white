@@ -159,6 +159,7 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
 		var/turf/open/O = src
 		__auxtools_update_turf_temp_info(isspaceturf(get_z_base_turf()) && !O.planetary_atmos)
 	else
+		update_air_ref(-1)
 		__auxtools_update_turf_temp_info(isspaceturf(get_z_base_turf()))
 
 	return INITIALIZE_HINT_NORMAL
