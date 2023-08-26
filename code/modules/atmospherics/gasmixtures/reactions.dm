@@ -276,7 +276,7 @@
 	if(!air.analyzer_results)
 		air.analyzer_results = new
 	var/list/cached_scan_results = air.analyzer_results
-	var/thermal_energy = air.thermal_energy()
+	var/thermal_energy = THERMAL_ENERGY(air)
 	var/reaction_energy = 0 //Reaction energy can be negative or positive, for both exothermic and endothermic reactions.
 	var/initial_plasma = air.get_moles(GAS_PLASMA)
 	var/initial_hydrogen = air.get_moles(GAS_HYDROGEN)

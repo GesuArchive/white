@@ -12,8 +12,6 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(GAS_O2, GAS_N2, GAS_CO2, GA
 
 // Also allows you to add new gases at runtime
 
-/proc/_auxtools_register_gas(datum/gas/gas) // makes sure auxtools knows stuff about this gas
-
 /datum/auxgm
 	var/list/datums = list()
 	var/list/specific_heats = list()
@@ -101,10 +99,6 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(GAS_O2, GAS_N2, GAS_CO2, GA
 				fire_products[g] = gas.fire_products
 			fire_enthalpies[g] = gas.fire_energy_released
 
-		_auxtools_register_gas(gas)
-
-/proc/finalize_gas_refs()
-
 /datum/auxgm/New()
 	for(var/gas_path in subtypesof(/datum/gas))
 		var/datum/gas/gas = new gas_path
@@ -112,7 +106,6 @@ GLOBAL_LIST_INIT(nonreactive_gases, typecacheof(list(GAS_O2, GAS_N2, GAS_CO2, GA
 	for(var/breathing_class_path in subtypesof(/datum/breathing_class))
 		var/datum/breathing_class/class = new breathing_class_path
 		breathing_classes[breathing_class_path] = class
-	finalize_gas_refs()
 
 /datum/auxgm/proc/get_by_flag(flag)
 	var/static/list/gases_by_flag

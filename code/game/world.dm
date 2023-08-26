@@ -98,8 +98,6 @@ GLOBAL_VAR(restart_counter)
  *			All atoms in both compiled and uncompiled maps are initialized()
  */
 /world/New()
-	//Keep the auxtools stuff at the top
-	AUXTOOLS_CHECK(AUXMOS)
 
 	if(cs_setup_threads())
 		log_world("CS active!")
@@ -289,13 +287,11 @@ GLOBAL_VAR(restart_counter)
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
 	if(CONFIG_GET(flag/this_shit_is_stable))
 		shelleo("curl -X POST http://localhost:3636/hard-reboot-white/[rid]")
-	AUXTOOLS_SHUTDOWN(AUXMOS)
 	AUXTOOLS_FULL_SHUTDOWN(AUXLUA)
 	..()
 
 /world/Del()
 	shutdown_logging() // makes sure the thread is closed before end, else we terminate
-	AUXTOOLS_SHUTDOWN(AUXMOS)
 	AUXTOOLS_FULL_SHUTDOWN(AUXLUA)
 	var/debug_server = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
 	if (debug_server)

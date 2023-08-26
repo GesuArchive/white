@@ -160,7 +160,6 @@
 		if(!istype(air,/datum/gas_mixture/turf))
 			air = new(2500,src)
 		air.copy_from_turf(src)
-		update_air_ref(planetary_atmos ? 1 : 2)
 	ImmediateCalculateAdjacentTurfs()
 
 /turf/open/proc/GetHeatCapacity()

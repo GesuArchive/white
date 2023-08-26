@@ -19,6 +19,7 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
 	// This shouldn't be modified directly, use the helper procs.
 	var/list/baseturfs = /turf/baseturf_bottom
 
+	var/temperature = T20C
 	var/initial_temperature = T20C
 	var/to_be_destroyed = 0 //Used for fire, if a melting temperature was reached, it will be destroyed
 	var/max_fire_temperature_sustained = 0 //The max temperature of the fire which it was subjected to
@@ -155,19 +156,14 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
 		overlays += image('white/valtos/icons/lifeweb/noise.dmi', icon_state = "[rand(1, 9)]")
 
 	ComponentInitialize()
-	if(isopenturf(src))
-		var/turf/open/O = src
-		__auxtools_update_turf_temp_info(isspaceturf(get_z_base_turf()) && !O.planetary_atmos)
-	else
-		__auxtools_update_turf_temp_info(isspaceturf(get_z_base_turf()))
 
 	return INITIALIZE_HINT_NORMAL
 
-/turf/proc/__auxtools_update_turf_temp_info()
-
 /turf/return_temperature()
+	return temperature
 
-/turf/proc/set_temperature()
+/turf/proc/set_temperature(temp)
+	temperature = temp
 
 /turf/proc/Initalize_Atmos(times_fired)
 	CALCULATE_ADJACENT_TURFS(src)

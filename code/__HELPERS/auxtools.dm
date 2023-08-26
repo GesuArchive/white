@@ -1,5 +1,4 @@
 /// Macro for getting the auxtools library file
-#define AUXMOS (world.system_type == MS_WINDOWS ? "auxtools/auxmos.dll" : __detect_auxtools("auxmos"))
 #define AUXLUA (world.system_type == MS_WINDOWS ? "auxtools/auxlua.dll" : __detect_auxtools("auxlua"))
 
 /proc/__detect_auxtools(library)

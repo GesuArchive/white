@@ -9,22 +9,29 @@
 	return
 
 /turf/open/hotspot_expose(exposed_temperature, exposed_volume, soh)
-	if(!air)
+	//If the air doesn't exist we just return false
+	var/list/air_gases = air?.gases
+	if(!air_gases)
 		return
 
-	if (air.get_oxidation_power(exposed_temperature) < 0.5)
+	. = air_gases[GAS_O2]
+	var/oxy = . ? .[MOLES] : 0
+	if (oxy < 0.5)
 		return
-	var/has_fuel = air.get_moles(GAS_PLASMA) > 0.5 || air.get_moles(GAS_TRITIUM) > 0.5 || air.get_fuel_amount(exposed_temperature) > 0.5
+	. = air_gases[GAS_PLASMA]
+	var/plas = . ? .[MOLES] : 0
+	. = air_gases[GAS_TRITIUM]
+	var/trit = . ? .[MOLES] : 0
 	if(active_hotspot)
 		if(soh)
-			if(has_fuel)
+			if(plas > 0.5 || trit > 0.5)
 				if(active_hotspot.temperature < exposed_temperature)
 					active_hotspot.temperature = exposed_temperature
 				if(active_hotspot.volume < exposed_volume)
 					active_hotspot.volume = exposed_volume
 		return
 
-	if((exposed_temperature > PLASMA_MINIMUM_BURN_TEMPERATURE) && has_fuel)
+	if((exposed_temperature > PLASMA_MINIMUM_BURN_TEMPERATURE) && (plas > 0.5 || trit > 0.5))
 		active_hotspot = new /obj/effect/hotspot(src, exposed_volume*25, exposed_temperature)
 
 //This is the icon for fire on turfs, also helps for nurturing small fires until they are full tile
@@ -157,12 +164,13 @@
 		qdel(src)
 		return
 
-	location.eg_reset_cooldowns()
+	if(location.excited_group)
+		location.excited_group.reset_cooldowns()
 
 	if((temperature < FIRE_MINIMUM_TEMPERATURE_TO_EXIST) || (volume <= 1))
 		qdel(src)
 		return
-	if(!location.air || location.air.get_oxidation_power() < 0.5 || (INSUFFICIENT(GAS_PLASMA) && INSUFFICIENT(GAS_TRITIUM) && location.air.get_fuel_amount() < 0.5))
+	if(!location.air || (INSUFFICIENT(GAS_PLASMA) && INSUFFICIENT(GAS_TRITIUM)))
 		qdel(src)
 		return
 

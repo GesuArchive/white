@@ -202,7 +202,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			return
 		var/turf/open/newTurf = .
 		newTurf.air.copy_from(stashed_air)
-		update_air_ref(planetary_atmos ? 1 : 2)
 		QDEL_NULL(stashed_air)
 	else
 		if(ispath(path, /turf/closed) || ispath(path, /turf/cordon))

@@ -73,10 +73,6 @@ All ShuttleMove procs go here
 		for(var/i in 0 to new_loc.get_missing_shuttles(newT)) //Start at 0 because get_missing_shuttles() will report 1 less missing shuttle because of the CopyOnTop()
 			newT.baseturfs.Insert(inject_index, /turf/baseturf_skipover/shuttle)
 
-	if(isopenturf(src))
-		var/turf/open/after_src_terf = src
-		update_air_ref(isspaceturf(src) ? 0 : (after_src_terf.planetary_atmos ? 1 : 2))
-
 	//Air stuff
 	newT.air_update_turf(TRUE)
 	air_update_turf(TRUE)

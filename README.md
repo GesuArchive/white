@@ -19,7 +19,6 @@
 	sudo apt update || true
 	sudo apt install -o libssl1.1:i386
 	bash tools/ci/install_rust_g.sh
-	bash tools/ci/install_auxmos.sh
 
 	# Установка BYOND и запуск сервера
 	bash tools/ci/install_byond.sh
