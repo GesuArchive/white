@@ -351,10 +351,9 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	if(found_client && !HAS_TRAIT(src, TRAIT_SIGN_LANG) && !message_mods[MODE_HEADSET])
 		var/frequency = 0
-		var/lowfreq = (voice in GLOB.tts_lowfreq)
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
-			frequency = (lowfreq ? 32000 : 55000) - (H.age * 200)
+			frequency = 32000 - (H.age * 200)
 			if(H.skin_tone in list("african1", "african2"))
 				frequency *= 0.75
 

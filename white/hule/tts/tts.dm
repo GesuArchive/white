@@ -1,37 +1,5 @@
 // TODO: перенести это всё в жсон и добавить кэширование
 
-GLOBAL_LIST_INIT(tts_lowfreq, list(
-	"aidar",
-	"baya",
-	"kseniya",
-	"xenia",
-	"eugene",
-	"mykyta",
-	"briman",
-	"kleiner_alt",
-	"father_grigori",
-	"vance",
-	"barni",
-	"gman_alt",
-	"alyx",
-	"mossman",
-	"bandit",
-	"papich_alt",
-	"bebey_alt",
-	"glados_alt",
-	"adventure_core_alt",
-	"barni",
-	"cicero",
-	"cirilla",
-	"fact_core_alt",
-	"kodlakwhitemane",
-	"lambert",
-	"sheogorath",
-	"space_core_alt",
-	"triss",
-	"turret_floor",
-))
-
 GLOBAL_LIST_INIT(tts_voices, list(
 	"aidar" 			 = "Разное: Айдар",
 	"baya" 				 = "Разное: Байя",
