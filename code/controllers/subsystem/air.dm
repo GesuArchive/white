@@ -50,6 +50,7 @@ SUBSYSTEM_DEF(air)
 	var/currentpart = SSAIR_REBUILD_PIPENETS
 
 	var/map_loading = TRUE
+	var/list/queued_for_activation
 
 	var/log_explosive_decompression = TRUE // If things get spammy, admemes can turn this off.
 
@@ -473,10 +474,14 @@ SUBSYSTEM_DEF(air)
 			return
 
 /datum/controller/subsystem/air/StartLoadingMap()
+	LAZYINITLIST(queued_for_activation)
 	map_loading = TRUE
 
 /datum/controller/subsystem/air/StopLoadingMap()
 	map_loading = FALSE
+	for(var/T in queued_for_activation)
+		add_to_active(T)
+	queued_for_activation.Cut()
 
 /datum/controller/subsystem/air/proc/pause_z(z_level)
 	LAZYADD(paused_z_levels, z_level)
@@ -537,3 +542,30 @@ SUBSYSTEM_DEF(air)
 		qdel(temp)
 
 	return pipe_init_dirs_cache[type]["[dir]"]
+
+/datum/controller/subsystem/air/proc/add_to_active(turf/open/T, blockchanges = 1)
+	if(istype(T) && T.air)
+		T.excited = TRUE
+		active_turfs |= T
+		if(currentpart == SSAIR_ACTIVETURFS)
+			currentrun |= T
+		if(blockchanges && T.excited_group)
+			T.excited_group.garbage_collect()
+	else if(T.flags_1 & INITIALIZED_1)
+		for(var/turf/S in T.atmos_adjacent_turfs)
+			add_to_active(S)
+	else if(map_loading)
+		if(queued_for_activation)
+			queued_for_activation[T] = T
+		return
+	else
+		T.requires_activation = TRUE
+
+/datum/controller/subsystem/air/proc/remove_from_active(turf/open/T)
+	active_turfs -= T
+	if(currentpart == SSAIR_ACTIVETURFS)
+		currentrun -= T
+	if(istype(T))
+		T.excited = FALSE
+		if(T.excited_group)
+			T.excited_group.garbage_collect()

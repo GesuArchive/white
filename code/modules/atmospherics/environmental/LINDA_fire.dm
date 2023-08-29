@@ -33,6 +33,7 @@
 
 	if((exposed_temperature > PLASMA_MINIMUM_BURN_TEMPERATURE) && (plas > 0.5 || trit > 0.5))
 		active_hotspot = new /obj/effect/hotspot(src, exposed_volume*25, exposed_temperature)
+		SSair.add_to_active(src)
 
 //This is the icon for fire on turfs, also helps for nurturing small fires until they are full tile
 /obj/effect/hotspot

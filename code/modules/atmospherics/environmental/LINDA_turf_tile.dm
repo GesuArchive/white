@@ -43,6 +43,9 @@
 /turf/open/Destroy()
 	if(active_hotspot)
 		QDEL_NULL(active_hotspot)
+	// Adds the adjacent turfs to the current atmos processing
+	for(var/near_turf in atmos_adjacent_turfs)
+		SSair.add_to_active(near_turf)
 	return ..()
 
 /////////////////GAS MIXTURE PROCS///////////////////
@@ -249,8 +252,8 @@
 				our_excited_group = excited_group //update our cache
 			should_share_air = TRUE
 		else if(our_air.compare(enemy_air))
-			//if(!enemy_tile.excited)
-				//SSair.add_to_active(enemy_tile)
+			if(!enemy_tile.excited)
+				SSair.add_to_active(enemy_tile)
 			var/datum/excited_group/EG = our_excited_group || enemy_excited_group || new
 			if(!our_excited_group)
 				EG.add_turf(src)
@@ -452,6 +455,7 @@
 	else //Both tiles are solid
 		other.share_temperature_mutual_solid(src, thermal_conductivity)
 	temperature_expose(null, temperature, null)
+	SSair.add_to_active(src)
 
 /turf/open/neighbor_conduct_with_src(turf/other)
 	if(!isclosedturf(other)) //Both tiles are open
@@ -459,7 +463,7 @@
 		T.air.temperature_share(air, WINDOW_HEAT_TRANSFER_COEFFICIENT)
 	else //Solid but neighbor is open
 		temperature_share_open_to_solid(other)
-	//SSair.add_to_active(src, 0)
+	SSair.add_to_active(src, 0)
 
 /turf/proc/super_conduct()
 	var/conductivity_directions = conductivity_directions()

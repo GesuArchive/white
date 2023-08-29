@@ -60,14 +60,10 @@
 			if (T.atmos_adjacent_turfs)
 				T.atmos_adjacent_turfs -= src
 			UNSETEMPTY(T.atmos_adjacent_turfs)
-			T.set_sleeping(T.blocks_air)
 		SEND_SIGNAL(T, COMSIG_TURF_CALCULATED_ADJACENT_ATMOS)
-		T.__update_auxtools_turf_adjacency_info(isspaceturf(T.get_z_base_turf()), -1)
 	UNSETEMPTY(atmos_adjacent_turfs)
 	SEND_SIGNAL(src, COMSIG_TURF_CALCULATED_ADJACENT_ATMOS)
 	src.atmos_adjacent_turfs = atmos_adjacent_turfs
-	set_sleeping(blocks_air)
-	__update_auxtools_turf_adjacency_info(isspaceturf(get_z_base_turf()))
 
 /turf/proc/ImmediateDisableAdjacency(disable_adjacent = TRUE)
 	if(SSair.thread_running())
@@ -81,13 +77,7 @@
 			if (T.atmos_adjacent_turfs)
 				T.atmos_adjacent_turfs -= src
 			UNSETEMPTY(T.atmos_adjacent_turfs)
-			T.__update_auxtools_turf_adjacency_info(isspaceturf(T.get_z_base_turf()), -1)
 	LAZYCLEARLIST(atmos_adjacent_turfs)
-	__update_auxtools_turf_adjacency_info(isspaceturf(get_z_base_turf()))
-
-/turf/proc/set_sleeping(should_sleep)
-
-/turf/proc/__update_auxtools_turf_adjacency_info()
 
 //returns a list of adjacent turfs that can share air with this one.
 //alldir includes adjacent diagonal tiles that can share
@@ -124,26 +114,43 @@
 
 	return adjacent_turfs
 
-/atom/proc/air_update_turf(command = 0)
-	if(!isturf(loc) && command)
+/atom/proc/air_update_turf(update = FALSE, remove = FALSE)
+	if(!SSair.initialized) // I'm sorry for polutting user code, I'll do 10 hail giacom's
 		return
-	var/turf/T = get_turf(loc)
-	T.air_update_turf(command)
+	var/turf/local_turf = get_turf(loc)
+	if(!local_turf)
+		return
+	local_turf.air_update_turf(update, remove)
 
-/turf/air_update_turf(command = 0)
-	if(command)
+/**
+ * A helper proc for dealing with atmos changes
+ *
+ * Ok so this thing is pretty much used as a catch all for all the situations someone might wanna change something
+ * About a turfs atmos. It's real clunky, and someone needs to clean it up, but not today.
+ * Arguments:
+ * * update - Has the state of the structures in the world changed? If so, update our adjacent atmos turf list, if not, don't.
+ * * remove - Are you removing an active turf (Read wall), or adding one
+*/
+/turf/air_update_turf(update = FALSE, remove = FALSE)
+	if(!SSair.initialized) // I'm sorry for polutting user code, I'll do 10 hail giacom's
+		return
+	if(update)
 		ImmediateCalculateAdjacentTurfs()
+	if(remove)
+		SSair.remove_from_active(src)
+	else
+		SSair.add_to_active(src)
 
-/atom/movable/proc/move_update_air(turf/T)
-	if(isturf(T))
-		T.air_update_turf(1)
-	air_update_turf(1)
+/atom/movable/proc/move_update_air(turf/target_turf)
+	if(isturf(target_turf))
+		target_turf.air_update_turf(TRUE, FALSE) //You're empty now
+	air_update_turf(TRUE, TRUE) //You aren't
 
 /atom/proc/atmos_spawn_air(text) //because a lot of people loves to copy paste awful code lets just make an easy proc to spawn your plasma fires
-	var/turf/open/T = get_turf(src)
-	if(!istype(T))
+	var/turf/open/local_turf = get_turf(src)
+	if(!istype(local_turf))
 		return
-	T.atmos_spawn_air(text)
+	local_turf.atmos_spawn_air(text)
 
 /turf/open/atmos_spawn_air(text)
 	if(!text || !air)
