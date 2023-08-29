@@ -135,20 +135,173 @@ What are the archived variables for?
 
 	return THERMAL_ENERGY(src) //see code/__DEFINES/atmospherics.dm; use the define in performance critical areas
 
+/**
+ * Counts how much pressure will there be if we impart MOLAR_ACCURACY amounts of our gas to the output gasmix.
+ * We do all of this without actually transferring it so dont worry about it changing the gasmix.
+ * Returns: Resulting pressure (number).
+ * Args:
+ * - output_air (gasmix).
+ */
+/datum/gas_mixture/proc/gas_pressure_minimum_transfer(datum/gas_mixture/output_air)
+	var/resulting_energy = THERMAL_ENERGY(output_air) + (MOLAR_ACCURACY / total_moles() * THERMAL_ENERGY(src))
+	var/resulting_capacity = output_air.heat_capacity() + (MOLAR_ACCURACY / total_moles() * heat_capacity())
+	return (output_air.total_moles() + MOLAR_ACCURACY) * R_IDEAL_GAS_EQUATION * (resulting_energy / resulting_capacity) / output_air.return_volume()
+
 /datum/gas_mixture/proc/scrub_into()
 	return // TODO ATMOS
 
 /datum/gas_mixture/proc/transfer_ratio_to()
 	return // TODO ATMOS
 
-/datum/gas_mixture/proc/remove_specific_ratio()
-	return // TODO ATMOS
+/datum/gas_mixture/proc/remove_specific_ratio(gas_id, ratio)
+	if(ratio <= 0)
+		return null
+	ratio = min(ratio, 1)
 
-/datum/gas_mixture/proc/gas_pressure_calculate()
-	return // TODO ATMOS
+	var/list/cached_gases = gases
+	var/datum/gas_mixture/removed = new type
+	var/list/removed_gases = removed.gases //accessing datum vars is slower than proc vars
 
-/datum/gas_mixture/proc/remove_specific()
-	return // TODO ATMOS
+	removed.temperature = temperature
+	ADD_GAS(gas_id, removed.gases)
+	removed_gases[gas_id][MOLES] = QUANTIZE(cached_gases[gas_id][MOLES] * ratio)
+	cached_gases[gas_id][MOLES] -= removed_gases[gas_id][MOLES]
+
+	garbage_collect(list(gas_id))
+
+	return removed
+
+/** Returns the amount of gas to be pumped to a specific container.
+ * Args:
+ * - output_air. The gas mix we want to pump to.
+ * - target_pressure. The target pressure we want.
+ * - ignore_temperature. Returns a cheaper form of gas calculation, useful if the temperature difference between the two gasmixes is low or nonexistant.
+ */
+/datum/gas_mixture/proc/gas_pressure_calculate(datum/gas_mixture/output_air, target_pressure, ignore_temperature = FALSE)
+	// So we dont need to iterate the gaslist multiple times.
+	var/our_moles = total_moles()
+	var/output_moles = output_air.total_moles()
+	var/output_pressure = output_air.return_pressure()
+
+	if(our_moles <= 0 || temperature <= 0)
+		return FALSE
+
+	var/pressure_delta = 0
+	if(output_air.temperature <= 0 || output_moles <= 0)
+		ignore_temperature = TRUE
+		pressure_delta = target_pressure
+	else
+		pressure_delta = target_pressure - output_pressure
+
+	if(pressure_delta < 0.01 || gas_pressure_minimum_transfer(output_air) > target_pressure)
+		return FALSE
+
+	if(ignore_temperature)
+		return (pressure_delta*output_air.volume)/(temperature * R_IDEAL_GAS_EQUATION)
+
+	// Lower and upper bound for the moles we must transfer to reach the pressure. The answer is bound to be here somewhere.
+	var/pv = target_pressure * output_air.volume
+	/// The PV/R part in the equation we will use later. Counted early because pv/(r*t) might not be equal to pv/r/t, messing our lower and upper limit.
+	var/pvr = pv / R_IDEAL_GAS_EQUATION
+	// These works by assuming our gas has extremely high heat capacity
+	// and the resultant gasmix will hit either the highest or lowest temperature possible.
+
+	/// This is the true lower limit, but numbers still can get lower than this due to floats.
+	var/lower_limit = max((pvr / max(temperature, output_air.temperature)) - output_moles, 0)
+	var/upper_limit = (pvr / min(temperature, output_air.temperature)) - output_moles // In theory this should never go below zero, the pressure_delta check above should account for this.
+
+	lower_limit = max(lower_limit -  0.01, 0)
+	upper_limit +=  0.01
+
+	/*
+	 * We have PV=nRT as a nice formula, we can rearrange it into nT = PV/R
+	 * But now both n and T can change, since any incoming moles also change our temperature.
+	 * So we need to unify both our n and T, somehow.
+	 *
+	 * We can rewrite T as (our old thermal energy + incoming thermal energy) divided by (our old heat capacity + incoming heat capacity)
+	 * T = (W1 + n/N2 * W2) / (C1 + n/N2 * C2). C being heat capacity, W being work, N being total moles.
+	 *
+	 * In total we now have our equation be: (N1 + n) * (W1 + n/N2 * W2) / (C1 + n/N2 * C2) = PV/R
+	 * Now you can rearrange this and find out that it's a quadratic equation and pretty much solvable with the formula. Will be a bit messy though.
+	 *
+	 * W2/N2n^2 +
+	 * (N1*W2/N2)n + W1n - ((PV/R)*C2/N2)n +
+	 * (-(PV/R)*C1) + N1W1 = 0
+	 *
+	 * We will represent each of these terms with A, B, and C. A for the n^2 part, B for the n^1 part, and C for the n^0 part.
+	 * We then put this into the famous (-b +/- sqrt(b^2-4ac)) / 2a formula.
+	 *
+	 * Oh, and one more thing. By "our" we mean the gasmix in the argument. We are the incoming one here. We are number 2, target is number 1.
+	 * If all this counting fucks up, we revert first to Newton's approximation, then the old simple formula.
+	 */
+
+	// Our thermal energy and moles
+	var/w2 = THERMAL_ENERGY(src)
+	var/n2 = our_moles
+	var/c2 = heat_capacity()
+
+	// Target thermal energy and moles
+	var/w1 = THERMAL_ENERGY(output_air)
+	var/n1 = output_moles
+	var/c1 = output_air.heat_capacity()
+
+	/// x^2 in the quadratic
+	var/a_value = w2/n2
+	/// x^1 in the quadratic
+	var/b_value = ((n1*w2)/n2) + w1 - (pvr*c2/n2)
+	/// x^0 in the quadratic
+	var/c_value = (-1*pvr*c1) + n1 * w1
+
+	. = gas_pressure_quadratic(a_value, b_value, c_value, lower_limit, upper_limit)
+	if(.)
+		return
+	. = gas_pressure_approximate(a_value, b_value, c_value, lower_limit, upper_limit)
+	if(.)
+		return
+	// Inaccurate and will probably explode but whatever.
+	return (pressure_delta*output_air.volume)/(temperature * R_IDEAL_GAS_EQUATION)
+
+/// Actually tries to solve the quadratic equation.
+/// Do mind that the numbers can get very big and might hit BYOND's single point float limit.
+/datum/gas_mixture/proc/gas_pressure_quadratic(a, b, c, lower_limit, upper_limit)
+	var/solution
+	if(IS_FINITE(a) && IS_FINITE(b) && IS_FINITE(c))
+		solution = max(SolveQuadratic(a, b, c))
+		if(solution > lower_limit && solution < upper_limit) //SolveQuadratic can return empty lists so be careful here
+			return solution
+	stack_trace("Failed to solve pressure quadratic equation. A: [a]. B: [b]. C:[c]. Current value = [solution]. Expected lower limit: [lower_limit]. Expected upper limit: [upper_limit].")
+	return FALSE
+
+/// Approximation of the quadratic equation using Newton-Raphson's Method.
+/// We use the slope of an approximate value to get closer to the root of a given equation.
+/datum/gas_mixture/proc/gas_pressure_approximate(a, b, c, lower_limit, upper_limit)
+	var/solution
+	if(IS_FINITE(a) && IS_FINITE(b) && IS_FINITE(c))
+		// We start at the extrema of the equation, added by a number.
+		// This way we will hopefully always converge on the positive root, while starting at a reasonable number.
+		solution = (-b / (2 * a)) + 200
+		for (var/iteration in 1 to 20)
+			var/diff = (a*solution**2 + b*solution + c) / (2*a*solution + b) // f(sol) / f'(sol)
+			solution -= diff // xn+1 = xn - f(sol) / f'(sol)
+			if(abs(diff) < MOLAR_ACCURACY && (solution > lower_limit) && (solution < upper_limit))
+				return solution
+	stack_trace("Newton's Approximation for pressure failed after 20 iterations. A: [a]. B: [b]. C:[c]. Current value: [solution]. Expected lower limit: [lower_limit]. Expected upper limit: [upper_limit].")
+	return FALSE
+
+/datum/gas_mixture/proc/remove_specific(gas_id, amount)
+	var/list/cached_gases = gases
+	amount = min(amount, cached_gases[gas_id][MOLES])
+	if(amount <= 0)
+		return null
+	var/datum/gas_mixture/removed = new type
+	var/list/removed_gases = removed.get_gases()
+	removed.temperature = return_temperature()
+	ADD_GAS(gas_id, removed.gases)
+	removed_gases[gas_id][MOLES] = amount
+	cached_gases[gas_id][MOLES] -= amount
+
+	garbage_collect(list(gas_id))
+	return removed
 
 /proc/equalize_all_gases_in_list()
 	return // TODO ATMOS

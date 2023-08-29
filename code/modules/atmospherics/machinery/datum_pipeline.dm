@@ -210,23 +210,55 @@
 		return remove_nulls_from_list(.)
 
 /datum/pipeline/proc/reconcile_air()
-	var/list/datum/gas_mixture/GL = list()
-	var/list/datum/pipeline/PL = list()
-	PL += src
+	var/list/datum/gas_mixture/gas_mixture_list = list()
+	var/list/datum/pipeline/pipeline_list = list()
+	pipeline_list += src
 
-	for(var/i = 1; i <= PL.len; i++) //can't do a for-each here because we may add to the list within the loop
-		var/datum/pipeline/P = PL[i]
-		if(!P)
+	for(var/i = 1; i <= pipeline_list.len; i++) //can't do a for-each here because we may add to the list within the loop
+		var/datum/pipeline/pipeline = pipeline_list[i]
+		if(!pipeline)
 			continue
-		GL += P.return_air()
-		for(var/atmosmch in P.other_atmosmch)
+		gas_mixture_list += pipeline.other_airs
+		gas_mixture_list += pipeline.air
+		for(var/atmosmch in pipeline.other_atmosmch)
 			if (istype(atmosmch, /obj/machinery/atmospherics/components/binary/valve))
-				var/obj/machinery/atmospherics/components/binary/valve/V = atmosmch
-				if(V.on)
-					PL |= V.parents[1]
-					PL |= V.parents[2]
+				var/obj/machinery/atmospherics/components/binary/valve/considered_valve = atmosmch
+				if(considered_valve.on)
+					pipeline_list |= considered_valve.parents[1]
+					pipeline_list |= considered_valve.parents[2]
 			else if (istype(atmosmch, /obj/machinery/atmospherics/components/unary/portables_connector))
-				var/obj/machinery/atmospherics/components/unary/portables_connector/C = atmosmch
-				if(C.connected_device)
-					GL += C.connected_device.air_contents
-	equalize_all_gases_in_list(GL)
+				var/obj/machinery/atmospherics/components/unary/portables_connector/considered_connector = atmosmch
+				if(considered_connector.connected_device)
+					gas_mixture_list += considered_connector.connected_device.return_air()
+
+	var/total_thermal_energy = 0
+	var/total_heat_capacity = 0
+	var/datum/gas_mixture/total_gas_mixture = new(0)
+
+	var/list/total_gases = total_gas_mixture.gases
+
+	for(var/mixture in gas_mixture_list)
+		var/datum/gas_mixture/gas_mixture = mixture
+		total_gas_mixture.volume += gas_mixture.volume
+
+		// This is sort of a combined merge + heat_capacity calculation
+
+		var/list/giver_gases = gas_mixture.gases
+		//gas transfer
+		for(var/giver_id in giver_gases)
+			var/giver_gas_data = giver_gases[giver_id]
+			ASSERT_GAS(giver_id, total_gas_mixture)
+			total_gases[giver_id][MOLES] += giver_gas_data[MOLES]
+			total_heat_capacity += giver_gas_data[MOLES] * giver_gas_data[GAS_META][META_GAS_SPECIFIC_HEAT]
+
+		total_thermal_energy += THERMAL_ENERGY(gas_mixture)
+
+	total_gas_mixture.temperature = total_heat_capacity ? (total_thermal_energy / total_heat_capacity) : 0
+
+	total_gas_mixture.garbage_collect()
+
+	if(total_gas_mixture.volume > 0)
+		//Update individual gas_mixtures by volume ratio
+		for(var/mixture in gas_mixture_list)
+			var/datum/gas_mixture/gas_mixture = mixture
+			gas_mixture.copy_from(total_gas_mixture, gas_mixture.volume / total_gas_mixture.volume)
