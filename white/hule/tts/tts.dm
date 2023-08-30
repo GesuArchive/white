@@ -47,6 +47,10 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"lambert" 			 = "Ведьмак: Ламберт",
 
 	"neco" 				 = "Аниме: Неко",
+	"polina" 		     = "Аниме: Полина",
+	"xrenoid" 		     = "Аниме: Хреноид",
+
+	"arthas" 		     = "Warcraft 3: Артас",
 
 	"kleiner" 			 = "HL2: Кляйнер",
 	"gman" 				 = "HL2: G-Man",
