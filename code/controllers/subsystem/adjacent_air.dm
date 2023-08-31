@@ -20,9 +20,6 @@ SUBSYSTEM_DEF(adjacent_air)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/adjacent_air/fire(resumed = FALSE, mc_check = TRUE)
-	if(SSair.thread_running())
-		pause()
-		return
 
 	var/list/disable_queue = src.disable_queue
 

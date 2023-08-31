@@ -40,9 +40,6 @@
 	return FALSE
 
 /turf/proc/ImmediateCalculateAdjacentTurfs()
-	if(SSair.thread_running())
-		CALCULATE_ADJACENT_TURFS(src)
-		return
 	var/canpass = CANATMOSPASS(src, src)
 	var/canvpass = CANVERTICALATMOSPASS(src, src)
 	for(var/direction in GLOB.cardinals_multiz)
@@ -66,9 +63,6 @@
 	src.atmos_adjacent_turfs = atmos_adjacent_turfs
 
 /turf/proc/ImmediateDisableAdjacency(disable_adjacent = TRUE)
-	if(SSair.thread_running())
-		SSadjacent_air.disable_queue[src] = disable_adjacent
-		return
 	if(disable_adjacent)
 		for(var/direction in GLOB.cardinals_multiz)
 			var/turf/T = get_step_multiz(src, direction)

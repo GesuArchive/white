@@ -128,9 +128,6 @@ SUBSYSTEM_DEF(air)
 
 	reset_all_air()
 
-/datum/controller/subsystem/air/proc/thread_running()
-	return FALSE
-
 /proc/fix_corrupted_atmos()
 
 /datum/admins/proc/fixcorruption()
