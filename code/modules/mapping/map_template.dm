@@ -126,7 +126,6 @@
 	var/y = round((world.maxy - height) * 0.5) + 1
 
 	var/datum/space_level/level = SSmapping.add_new_zlevel(name, level_traits, orbital_body_type = orbital_body_type, contain_turfs = FALSE)
-	SSair.pause_z(level.z_value)
 	var/datum/parsed_map/parsed = load_map(file(mappath), x, y, level.z_value, no_changeturf=(SSatoms.initialized == INITIALIZATION_INSSATOMS), placeOnTop=should_place_on_top, new_z = TRUE)
 	var/list/bounds = parsed.bounds
 	if(!bounds)
@@ -140,8 +139,6 @@
 
 	log_game("Z-level [name] ([mappath]) loaded at [x],[y],[world.maxz]")
 
-	SSair.unpause_z(level.z_value)
-
 	return level
 
 /datum/map_template/proc/load(turf/T, centered = FALSE, init_atmos = TRUE, finalize = TRUE)
@@ -153,12 +150,6 @@
 		return
 	if(T.y+height > world.maxy)
 		return
-
-	var/list/border = block(locate(max(T.x, 1), max(T.y, 1),  T.z),
-							locate(min(T.x+width, world.maxx), min(T.y+height, world.maxy), T.z))
-	for(var/L in border)
-		var/turf/turf_to_disable = L
-		turf_to_disable.ImmediateDisableAdjacency()
 
 	// Accept cached maps, but don't save them automatically - we don't want
 	// ruins clogging up memory for the whole round.

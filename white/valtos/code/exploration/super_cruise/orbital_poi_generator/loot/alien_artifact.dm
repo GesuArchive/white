@@ -173,9 +173,10 @@
 	effect_act_descs = list("вакуумный")
 
 /datum/artifact_effect/atmosfix/process(delta_time)
-	var/turf/T = get_turf(source_object)
-	var/datum/gas_mixture/air = T.return_air()
-	air.parse_gas_string(T.initial_gas_mix)
+	var/turf/open/T = get_turf(source_object)
+	var/datum/gas_mixture/GM = SSair.parse_gas_string(T.initial_gas_mix, /datum/gas_mixture/turf)
+	T.copy_air(GM)
+	T.update_visuals()
 
 //===================
 // Gravity Well
@@ -364,7 +365,7 @@
 		/datum/gas/miasma = 3,
 		/datum/gas/plasma = 3,
 		/datum/gas/tritium = 2,
-		/datum/gas/nitryl = 1
+		/datum/gas/nitrium = 1
 	)
 	var/datum/gas/input
 	var/datum/gas/output

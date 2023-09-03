@@ -67,11 +67,6 @@ GLOBAL_LIST_EMPTY(lifts)
 	/// A lazylist of REFs to all mobs which have a radial open currently
 	var/list/current_operators
 
-/datum/armor/structure_industrial_lift
-	melee = 50
-	fire = 80
-	acid = 50
-
 /obj/structure/industrial_lift/Initialize(mapload)
 	. = ..()
 	GLOB.lifts.Add(src)
@@ -828,11 +823,6 @@ GLOBAL_LIST_EMPTY(lifts)
 
 /obj/structure/industrial_lift/tram/subfloor/window
 	icon_state = "tram_subfloor_window"
-
-/datum/armor/structure_industrial_lift
-	melee = 50
-	fire = 80
-	acid = 50
 
 /obj/structure/industrial_lift/tram/AddItemOnLift(datum/source, atom/movable/AM)
 	. = ..()

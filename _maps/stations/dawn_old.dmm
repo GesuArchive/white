@@ -2753,9 +2753,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock_controller/incinerator_toxmix{
-	pixel_x = 24
-	},
+/obj/machinery/embedded_controller/radio/airlock_controller/incinerator_ordmix,
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
 "hy" = (
@@ -2769,9 +2767,7 @@
 	dir = 1;
 	flickering = 1
 	},
-/obj/machinery/airlock_sensor/incinerator_toxmix{
-	pixel_y = 24
-	},
+/obj/machinery/airlock_sensor/incinerator_ordmix,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/hidden,
 /turf/open/floor/engine,
 /area/science/mixing)
@@ -2789,7 +2785,7 @@
 /turf/open/floor/engine/vacuum,
 /area/science/mixing)
 "hC" = (
-/obj/machinery/door/poddoor/incinerator_toxmix,
+/obj/machinery/door/poddoor/incinerator_ordmix,
 /turf/open/floor/engine/vacuum,
 /area/science/mixing)
 "hD" = (
@@ -2936,7 +2932,7 @@
 	layer = 2.9
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /obj/machinery/door/window/eastright{
 	req_access_txt = "7"
 	},
@@ -2963,11 +2959,11 @@
 /area/science/mixing)
 "ia" = (
 /obj/effect/mapping_helpers/airlock/locked,
-/obj/machinery/door/airlock/research/glass/incinerator/toxmix_interior,
+/obj/machinery/door/airlock/research/glass/incinerator/ordmix_interior,
 /turf/open/floor/engine,
 /area/science/mixing)
 "ib" = (
-/obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_toxmix,
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_ordmix,
 /turf/open/floor/engine,
 /area/science/mixing)
 "ic" = (
@@ -2978,7 +2974,7 @@
 /area/hallway/secondary/exit)
 "id" = (
 /obj/effect/mapping_helpers/airlock/locked,
-/obj/machinery/door/airlock/research/glass/incinerator/toxmix_exterior,
+/obj/machinery/door/airlock/research/glass/incinerator/ordmix_exterior,
 /turf/open/floor/engine,
 /area/science/mixing)
 "ie" = (
@@ -2994,7 +2990,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "ii" = (
-/obj/machinery/igniter/incinerator_toxmix,
+/obj/machinery/igniter/incinerator_ordmix,
 /turf/open/floor/engine/vacuum,
 /area/science/mixing)
 "ij" = (
@@ -3164,14 +3160,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible{
 	dir = 4
 	},
-/obj/machinery/button/ignition/incinerator/toxmix{
-	pixel_x = 25;
-	pixel_y = -5
-	},
-/obj/machinery/button/door/incinerator_vent_toxmix{
-	pixel_x = 25;
-	pixel_y = 5
-	},
+/obj/machinery/button/ignition/incinerator/ordmix,
+/obj/machinery/button/door/incinerator_vent_ordmix,
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
 "iF" = (
@@ -6573,7 +6563,7 @@
 /obj/effect/turf_decal/tile/hex/yellow{
 	dir = 1
 	},
-/obj/machinery/air_sensor/atmos/carbon_tank,
+/obj/machinery/air_sensor/carbon_tank,
 /obj/machinery/light/small{
 	dir = 1;
 	flickering = 1
@@ -6583,7 +6573,7 @@
 "rI" = (
 /obj/structure/window/plasma/reinforced/spawner/east,
 /obj/structure/window/plasma/reinforced/spawner/north,
-/obj/machinery/air_sensor/atmos/nitrous_tank,
+/obj/machinery/air_sensor/nitrous_tank,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
 	},
@@ -6607,7 +6597,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/hex/purple,
-/obj/machinery/air_sensor/atmos/toxin_tank,
+/obj/machinery/air_sensor/plasma_tank,
 /obj/machinery/light/small{
 	dir = 1;
 	flickering = 1
@@ -6627,11 +6617,11 @@
 /obj/effect/turf_decal/tile/hex/green{
 	dir = 4
 	},
-/obj/machinery/air_sensor/atmos/mix_tank,
+/obj/machinery/air_sensor/mix_tank,
 /turf/open/floor/engine/vacuum,
 /area/engineering/atmos)
 "rL" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/engine_waste{
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/engine_waste{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
@@ -6676,7 +6666,7 @@
 /obj/structure/window/plasma/reinforced/spawner{
 	name = "south"
 	},
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/toxin_input,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/plasma_input,
 /obj/effect/turf_decal/tile/hex/purple{
 	dir = 1
 	},
@@ -7663,12 +7653,12 @@
 	flickering = 1
 	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/open/floor/plating,
 /area/engineering/main)
 "uL" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/open/floor/plating,
 /area/engineering/main)
 "uN" = (
@@ -8054,7 +8044,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/open/floor/plating,
 /area/engineering/main)
 "vT" = (
@@ -8062,7 +8052,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/open/floor/plating,
 /area/engineering/main)
 "vU" = (
@@ -8162,7 +8152,7 @@
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/aisat)
 "wg" = (
-/obj/machinery/atmospherics/components/unary/tank/air,
+/obj/machinery/atmospherics/components/tank/air,
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/aisat)
 "wh" = (
@@ -8623,7 +8613,7 @@
 	layer = 2.9
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "toxins"
@@ -10334,7 +10324,7 @@
 /turf/open/floor/plasteel/white,
 /area/command/heads_quarters/rd)
 "DY" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/siphon/atmos/air_output{
+/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/siphon/monitored/air_output{
 	dir = 8
 	},
 /turf/open/floor/engine/air,
@@ -11021,7 +11011,7 @@
 /obj/structure/window/plasma/reinforced/spawner{
 	name = "south"
 	},
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/mix_input,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/mix_input,
 /obj/effect/turf_decal/tile/hex/green{
 	dir = 8
 	},
@@ -11467,7 +11457,7 @@
 /obj/effect/turf_decal/tile/hex/green{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/mix_output,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/mix_output,
 /turf/open/floor/engine/vacuum,
 /area/engineering/atmos)
 "MJ" = (
@@ -12134,7 +12124,7 @@
 "RN" = (
 /obj/structure/window/plasma/reinforced/spawner/west,
 /obj/structure/window/plasma/reinforced/spawner/north,
-/obj/machinery/atmospherics/miner/toxins,
+/obj/machinery/atmospherics/miner/plasma,
 /obj/effect/turf_decal/tile/hex/purple{
 	dir = 1
 	},
@@ -12145,7 +12135,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/hex/purple,
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/open/floor/engine/plasma,
 /area/engineering/atmos)
 "RP" = (
@@ -12696,7 +12686,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/hex/purple,
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/toxin_output,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/plasma_output,
 /turf/open/floor/engine/plasma,
 /area/engineering/atmos)
 "Va" = (
@@ -12719,7 +12709,7 @@
 /obj/structure/window/plasma/reinforced/spawner{
 	name = "south"
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/nitrous_output,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrous_output,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
 	},
@@ -12892,7 +12882,7 @@
 /obj/structure/window/plasma/reinforced/spawner{
 	name = "south"
 	},
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/nitrous_input,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrous_input,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
 	},
@@ -13305,7 +13295,7 @@
 /obj/effect/turf_decal/tile/hex/yellow{
 	dir = 1
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/carbon_output,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/carbon_output,
 /turf/open/floor/engine/co2,
 /area/engineering/atmos)
 "YS" = (
@@ -13459,7 +13449,7 @@
 /obj/structure/window/plasma/reinforced/spawner{
 	name = "south"
 	},
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/carbon_input,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/carbon_input,
 /obj/effect/turf_decal/tile/hex/yellow,
 /obj/effect/turf_decal/tile/hex/yellow{
 	dir = 4

@@ -148,9 +148,6 @@
 	},
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/surface/outdoors)
-"aI" = (
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
 "aJ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/icemoon,
@@ -561,13 +558,6 @@
 /turf/open/floor/plasteel/icemoon,
 /area/icemoon/surface/outdoors)
 "bI" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
-	dir = 8;
-	icon_state = "pipe11-2"
-	},
-/turf/open/floor/plasteel/icemoon,
-/area/icemoon/surface/outdoors)
-"bJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
 	dir = 8;
 	icon_state = "pipe11-2"
@@ -1342,7 +1332,7 @@ aa
 aa
 aa
 aa
-aI
+aa
 aa
 be
 aa
@@ -1661,7 +1651,7 @@ aj
 aS
 bn
 aj
-bJ
+bI
 cj
 aB
 aB
@@ -1682,7 +1672,7 @@ aw
 aT
 bo
 aj
-bJ
+bI
 aj
 aj
 cK
@@ -1807,7 +1797,7 @@ aa
 aa
 ae
 bt
-bJ
+bI
 ae
 aa
 aa

@@ -226,7 +226,7 @@
 			device = C
 	..()
 
-/obj/machinery/button/door/incinerator_vent_toxmix
+/obj/machinery/button/door/incinerator_vent_ordmix
 	name = "управление системой вентиляции камеры сгорания"
 	id = INCINERATOR_ORDMIX_VENT
 	req_access = list(ACCESS_TOXINS)
@@ -285,7 +285,7 @@
 	name = "combustion chamber ignition switch"
 	desc = "A remote control switch for the combustion chamber's igniter."
 
-/obj/machinery/button/ignition/incinerator/toxmix
+/obj/machinery/button/ignition/incinerator/ordmix
 	id = INCINERATOR_ORDMIX_IGNITER
 
 /obj/machinery/button/ignition/incinerator/atmos

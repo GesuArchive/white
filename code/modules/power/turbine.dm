@@ -185,7 +185,7 @@
 		P += C.rating
 	productivity = P / 6
 
-/obj/machinery/power/turbine/BlockThermalConductivity()
+/obj/machinery/power/turbine/block_superconductivity()
 	return TRUE
 
 /obj/machinery/power/turbine/examine(mob/user)

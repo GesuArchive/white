@@ -1556,7 +1556,7 @@
 	enname = "Stimulum"
 	description = "Нестабильный экспериментальный газ, который значительно увеличивает энергию тех, кто его вдыхает, одновременно нанося все больший урон от токсинов с течением времени."
 	reagent_state = GAS
-	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
+	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitrium/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
 	color = "E1A116"
 	taste_description = "кислотность"
 	ph = 1.8
@@ -1578,23 +1578,23 @@
 	M.adjustToxLoss(0.1 * current_cycle * REM * delta_time, 0) // 1 toxin damage per cycle at cycle 10
 	..()
 
-/datum/reagent/nitryl
-	name = "Нитрил"
-	enname = "Nitryl"
+/datum/reagent/nitrium
+	name = "Нитриум"
+	enname = "Nitrium"
 	description = "A highly reactive gas that makes you feel faster."
 	reagent_state = GAS
-	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
+	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitrium/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
 	color = "90560B"
 	taste_description = "сжигание"
 	ph = 2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/nitryl/on_mob_metabolize(mob/living/L)
+/datum/reagent/nitrium/on_mob_metabolize(mob/living/L)
 	..()
-	L.add_movespeed_modifier(/datum/movespeed_modifier/reagent/nitryl)
+	L.add_movespeed_modifier(/datum/movespeed_modifier/reagent/nitrium)
 
-/datum/reagent/nitryl/on_mob_end_metabolize(mob/living/L)
-	L.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/nitryl)
+/datum/reagent/nitrium/on_mob_end_metabolize(mob/living/L)
+	L.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/nitrium)
 	..()
 
 /datum/reagent/freon
@@ -1602,7 +1602,7 @@
 	enname = "Freon"
 	description = "A powerful heat absorbent."
 	reagent_state = GAS
-	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
+	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitrium/freon/hypernoblium are handled through gas breathing, metabolism must be lower for breathcode to keep up
 	color = "90560B"
 	taste_description = "горение"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -1620,7 +1620,7 @@
 	enname = "Hyper-Noblium"
 	description = "A suppressive gas that stops gas reactions on those who inhale it."
 	reagent_state = GAS
-	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitryl/freon/hyper-nob are handled through gas breathing, metabolism must be lower for breathcode to keep up
+	metabolization_rate = REAGENTS_METABOLISM * 0.5 // Because stimulum/nitrium/freon/hyper-nob are handled through gas breathing, metabolism must be lower for breathcode to keep up
 	color = "90560B"
 	taste_description = "searingly cold"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED

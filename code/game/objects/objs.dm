@@ -53,6 +53,9 @@
 			return FALSE
 	return ..()
 
+/// A list of all /obj by their id_tag
+GLOBAL_LIST_EMPTY(objects_by_id_tag)
+
 // Call this if you want to add your object to a network
 /obj/proc/init_network_id(network_id)
 	var/area/A = get_area(src)
@@ -91,10 +94,14 @@
 		var/turf/T = loc
 		T.add_blueprints_preround(src)
 
+	if (id_tag)
+		GLOB.objects_by_id_tag[id_tag] = src
+
 /obj/Destroy(force)
 	if(!ismachinery(src))
 		STOP_PROCESSING(SSobj, src) // TODO: Have a processing bitflag to reduce on unnecessary loops through the processing lists
 	SStgui.close_uis(src)
+	GLOB.objects_by_id_tag -= id_tag
 	. = ..()
 
 

@@ -49,7 +49,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/emp_proof, 0)
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/motion, 0)
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 
-/obj/machinery/camera/preset/toxins //Bomb test site in space
+/obj/machinery/camera/preset/ordnance //Bomb test site in space
 	name = "полигонная камера"
 	desc = "Специально усиленная камера с длительным сроком службы батареи, используемая для наблюдения за местом испытания бомбы. К верхней части камеры приделана лампочка."
 	c_tag = "Bomb Testing Site"
@@ -59,11 +59,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 	light_range = 10
 	start_active = TRUE
 
-/obj/machinery/camera/preset/toxins/num1
+/obj/machinery/camera/preset/ordnance/num1
 	name = "полигонная камера №1"
 	c_tag = "Bomb Testing Site №1"
 
-/obj/machinery/camera/preset/toxins/num2
+/obj/machinery/camera/preset/ordnance/num2
 	name = "полигонная камера №2"
 	c_tag = "Bomb Testing Site №2"
 

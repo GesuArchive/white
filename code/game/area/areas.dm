@@ -121,8 +121,11 @@
 	//Lighting overlay
 	var/obj/effect/lighting_overlay
 
-	var/list/air_vent_info = list()
-	var/list/air_scrub_info = list()
+	/// List of all air vents in the area
+	var/list/obj/machinery/atmospherics/components/unary/vent_pump/air_vents = list()
+
+	/// List of all air scrubbers in the area
+	var/list/obj/machinery/atmospherics/components/unary/vent_scrubber/air_scrubbers = list()
 
 /**
  * A list of teleport locations
@@ -284,10 +287,23 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /area/Destroy()
 	if(GLOB.areas_by_type[type] == src)
 		GLOB.areas_by_type[type] = null
-	GLOB.sortedAreas -= src
-	GLOB.areas -= src
+	//this is not initialized until get_sorted_areas() is called so we have to do a null check
+	if(!isnull(GLOB.sortedAreas))
+		GLOB.sortedAreas -= src
+	//just for sanity sake cause why not
+	if(!isnull(GLOB.areas))
+		GLOB.areas -= src
+	//machinery cleanup
 	STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(alarm_manager)
+	firedoors = null
+	//atmos cleanup
+	firealarms = null
+	air_vents = null
+	air_scrubbers = null
+	//turf cleanup
+	contained_turfs = null
+	turfs_to_uncontain = null
 	return ..()
 
 /**

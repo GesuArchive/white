@@ -109,7 +109,7 @@
 	. = ..()
 	air_update_turf(TRUE)
 
-/obj/structure/holosign/barrier/atmos/BlockThermalConductivity()
+/obj/structure/holosign/barrier/atmos/block_superconductivity()
 	return TRUE
 
 /obj/structure/holosign/barrier/atmos/Destroy()

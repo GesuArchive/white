@@ -10,3 +10,6 @@
 	if(!embed_links)
 		message = GLOB.has_discord_embeddable_links.Replace(replacetext(message, "`", ""), " ```$1``` ")
 	webhook_send_ahelp(category, message)
+
+/// Handles text formatting for item use hints in examine text
+#define EXAMINE_HINT(text) ("<b>" + text + "</b>")

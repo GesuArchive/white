@@ -37,109 +37,117 @@
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/atmos_control
 
-/obj/item/circuitboard/computer/atmos_control/incinerator
-	name = "Incinerator Air Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/incinerator
+/obj/item/circuitboard/computer/atmos_control/nocontrol
+	name = "Atmospheric Monitor"
+	build_path = /obj/machinery/computer/atmos_control/nocontrol
+
+/obj/item/circuitboard/computer/atmos_control/noreconnect
+	name = "Atmospheric Control"
+	build_path = /obj/machinery/computer/atmos_control/noreconnect
+
+/obj/item/circuitboard/computer/atmos_control/fixed
+	name = "Atmospheric Monitor"
+	build_path = /obj/machinery/computer/atmos_control/fixed
+
+/obj/item/circuitboard/computer/atmos_control/nocontrol/master
+	name = "Station Atmospheric Monitor"
+	build_path = /obj/machinery/computer/atmos_control/nocontrol/master
+
+/obj/item/circuitboard/computer/atmos_control/nocontrol/incinerator
+	name = "Incinerator Chamber Monitor"
+	build_path = /obj/machinery/computer/atmos_control/nocontrol/incinerator
 
 /obj/item/circuitboard/computer/atmos_control/toxinsmix
 	name = "Toxins Mixing Air Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/toxinsmix
+	build_path = /obj/machinery/computer/atmos_control/ordnancemix
 
-/obj/item/circuitboard/computer/atmos_control/tank
-	name = "Tank Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank
+/obj/item/circuitboard/computer/atmos_control/oxygen_tank
+	name = "Oxygen Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/oxygen_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/oxygen_tank
-	name = "Oxygen Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/oxygen_tank
+/obj/item/circuitboard/computer/atmos_control/plasma_tank
+	name = "Plasma Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/plasma_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/toxin_tank
-	name = "Plasma Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/toxin_tank
+/obj/item/circuitboard/computer/atmos_control/air_tank
+	name = "Mixed Air Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/air_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/air_tank
-	name = "Mixed Air Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/air_tank
+/obj/item/circuitboard/computer/atmos_control/mix_tank
+	name = "Gas Mix Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/mix_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/mix_tank
-	name = "Gas Mix Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/mix_tank
+/obj/item/circuitboard/computer/atmos_control/nitrous_tank
+	name = "Nitrous Oxide Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/nitrous_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/nitrous_tank
-	name = "Nitrous Oxide Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/nitrous_tank
+/obj/item/circuitboard/computer/atmos_control/nitrogen_tank
+	name = "Nitrogen Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/nitrogen_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/nitrogen_tank
-	name = "Nitrogen Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/nitrogen_tank
+/obj/item/circuitboard/computer/atmos_control/carbon_tank
+	name = "Carbon Dioxide Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/carbon_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/carbon_tank
-	name = "Carbon Dioxide Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/carbon_tank
+/obj/item/circuitboard/computer/atmos_control/bz_tank
+	name = "BZ Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/bz_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/bz_tank
-	name = "BZ Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/bz_tank
+/obj/item/circuitboard/computer/atmos_control/freon_tank
+	name = "Freon Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/freon_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/freon_tank
-	name = "Freon Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/freon_tank
+/obj/item/circuitboard/computer/atmos_control/halon_tank
+	name = "Halon Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/halon_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/halon_tank
-	name = "Halon Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/halon_tank
+/obj/item/circuitboard/computer/atmos_control/healium_tank
+	name = "Healium Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/healium_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/healium_tank
-	name = "Healium Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/healium_tank
+/obj/item/circuitboard/computer/atmos_control/hydrogen_tank
+	name = "Hydrogen Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/hydrogen_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/hydrogen_tank
-	name = "Hydrogen Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/hydrogen_tank
+/obj/item/circuitboard/computer/atmos_control/hypernoblium_tank
+	name = "Hypernoblium Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/hypernoblium_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/hypernoblium_tank
-	name = "Hypernoblium Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/hypernoblium_tank
+/obj/item/circuitboard/computer/atmos_control/miasma_tank
+	name = "Miasma Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/miasma_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/miasma_tank
-	name = "Miasma Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/miasma_tank
+/obj/item/circuitboard/computer/atmos_control/nitrium_tank
+	name = "Nitrium Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/nitrium_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/nitryl_tank
-	name = "Nitryl Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/nitryl_tank
+/obj/item/circuitboard/computer/atmos_control/pluoxium_tank
+	name = "Pluoxium Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/pluoxium_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/pluoxium_tank
-	name = "Pluoxium Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/pluoxium_tank
+/obj/item/circuitboard/computer/atmos_control/proto_nitrate_tank
+	name = "Proto-Nitrate Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/proto_nitrate_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/proto_nitrate_tank
-	name = "Proto-Nitrate Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/proto_nitrate_tank
+/obj/item/circuitboard/computer/atmos_control/tritium_tank
+	name = "Tritium Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/tritium_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/stimulum_tank
-	name = "Stimulum Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/stimulum_tank
+/obj/item/circuitboard/computer/atmos_control/water_vapor
+	name = "Water Vapor Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/water_vapor
 
-/obj/item/circuitboard/computer/atmos_control/tank/tritium_tank
-	name = "Tritium Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/tritium_tank
+/obj/item/circuitboard/computer/atmos_control/zauker_tank
+	name = "Zauker Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/zauker_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/water_vapor
-	name = "Water Vapor Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/water_vapor
+/obj/item/circuitboard/computer/atmos_control/helium_tank
+	name = "Helium Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/helium_tank
 
-/obj/item/circuitboard/computer/atmos_control/tank/zauker_tank
-	name = "Zauker Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/zauker_tank
-
-/obj/item/circuitboard/computer/atmos_control/tank/helium_tank
-	name = "Helium Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/helium_tank
-
-/obj/item/circuitboard/computer/atmos_control/tank/antinoblium_tank
-	name = "Antinoblium Supply Control (Консоль)"
-	build_path = /obj/machinery/computer/atmos_control/tank/antinoblium_tank
+/obj/item/circuitboard/computer/atmos_control/antinoblium_tank
+	name = "Antinoblium Supply Control"
+	build_path = /obj/machinery/computer/atmos_control/antinoblium_tank
 
 /obj/item/circuitboard/computer/auxiliary_base
 	name = "Auxiliary Base Management Console (Консоль)"

@@ -269,7 +269,7 @@
 	else
 		INVOKE_ASYNC(src, PROC_REF(close))
 
-/obj/machinery/door/poddoor/incinerator_toxmix
+/obj/machinery/door/poddoor/incinerator_ordmix
 	name = "combustion chamber vent"
 	id = INCINERATOR_ORDMIX_VENT
 
@@ -297,7 +297,7 @@
 	name = "combustion chamber vent"
 	id = INCINERATOR_SYNDICATELAVA_AUXVENT
 
-/obj/machinery/door/poddoor/massdriver_toxins
+/obj/machinery/door/poddoor/massdriver_ordnance
 	name = "Toxins Launcher Bay Door"
 	id = MASSDRIVER_TOXINS
 

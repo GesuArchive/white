@@ -115,7 +115,7 @@ GLOBAL_VAR_INIT(blob_current_icon, pick('icons/mob/blob_64.dmi', 'icons/mob/blob
 						result++
 		. -= result - 1
 
-/obj/structure/blob/BlockThermalConductivity()
+/obj/structure/blob/block_superconductivity()
 	return atmosblock
 
 /obj/structure/blob/can_atmos_pass(turf/T)

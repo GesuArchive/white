@@ -130,15 +130,37 @@
 
 /datum/export/large/gas_canister/get_cost(obj/O)
 	var/obj/machinery/portable_atmospherics/canister/C = O
-	var/worth = 10
+	var/worth = cost
+	var/datum/gas_mixture/canister_mix = C.return_air()
+	var/canister_gas = canister_mix.gases
+	var/list/gases_to_check = list(
+								/datum/gas/bz,
+								/datum/gas/nitrium,
+								/datum/gas/hypernoblium,
+								/datum/gas/miasma,
+								/datum/gas/tritium,
+								/datum/gas/pluoxium,
+								/datum/gas/freon,
+								/datum/gas/hydrogen,
+								/datum/gas/healium,
+								/datum/gas/proto_nitrate,
+								/datum/gas/zauker,
+								/datum/gas/helium,
+								/datum/gas/antinoblium,
+								/datum/gas/halon,
+								)
 
-	worth += C.air_contents.get_moles(GAS_BZ)*1
-	worth += C.air_contents.get_moles(GAS_STIMULUM)*100
-	worth += C.air_contents.get_moles(GAS_HYPERNOB)*5
-	worth += C.air_contents.get_moles(GAS_MIASMA)*2
-	worth += C.air_contents.get_moles(GAS_TRITIUM)*5
-	worth += C.air_contents.get_moles(GAS_PLUOXIUM)*5
+	for(var/gasID in gases_to_check)
+		canister_mix.assert_gas(gasID)
+		if(canister_gas[gasID][MOLES] > 0)
+			worth += get_gas_value(gasID, canister_gas[gasID][MOLES])
+
+	canister_mix.garbage_collect()
 	return worth
+
+/datum/export/large/gas_canister/proc/get_gas_value(datum/gas/gasType, moles)
+	var/baseValue = initial(gasType.base_value)
+	return round((baseValue/k_elasticity) * (1 - NUM_E**(-1 * k_elasticity * moles)))
 
 /datum/export/large/enernet_coil
 	cost = CARGO_CRATE_VALUE

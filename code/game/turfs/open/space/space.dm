@@ -13,7 +13,10 @@
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 700000
 
-	var/static/datum/gas_mixture/immutable/space/space_gas
+	var/static/datum/gas_mixture/immutable/space/space_gas = new
+	// We do NOT want atmos adjacent turfs
+	init_air = FALSE
+	run_later = TRUE
 	plane = PLANE_SPACE
 	layer = SPACE_LAYER
 	light_power = 0.75

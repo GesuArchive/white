@@ -86,10 +86,8 @@
 /obj/structure/bed,
 /obj/item/bedsheet/centcom,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/wood,
 /area/shuttle/abandoned/crew)
 "am" = (
@@ -100,10 +98,8 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/wood,
 /area/shuttle/abandoned/crew)
 "an" = (
@@ -411,9 +407,8 @@
 "aT" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/small,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
@@ -640,10 +635,8 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
 	},
@@ -742,10 +735,8 @@
 	pixel_x = -3;
 	pixel_y = 5
 	},
-/obj/machinery/airalarm/all_access{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 1
 	},
@@ -899,10 +890,8 @@
 /turf/open/floor/plasteel,
 /area/shuttle/abandoned/bar)
 "bL" = (
-/obj/machinery/airalarm/all_access{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/secure_closet/freezer{
 	locked = 0;
@@ -1011,10 +1000,8 @@
 "bU" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/light/small/built{
 	dir = 4
 	},
@@ -1029,7 +1016,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -1236,10 +1223,8 @@
 /obj/item/megaphone,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -1501,9 +1486,8 @@
 /obj/item/extinguisher,
 /obj/item/extinguisher,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/turf_decal/box/white/corners{
 	dir = 4
 	},
@@ -1547,10 +1531,8 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/structure/spider/stickyweb,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
@@ -1643,9 +1625,8 @@
 	pixel_y = 3
 	},
 /obj/item/radio/off,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/abandoned/medbay)
@@ -2032,10 +2013,8 @@
 /obj/machinery/light/small/built{
 	dir = 4
 	},
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/plasteel/white/side,
 /area/shuttle/abandoned/medbay)
@@ -2155,10 +2134,8 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plasteel/white,
 /area/shuttle/abandoned/medbay)
 "dP" = (

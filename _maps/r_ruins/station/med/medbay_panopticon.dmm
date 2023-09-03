@@ -3188,7 +3188,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -4349,7 +4349,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/tier_2,
+/obj/machinery/portable_atmospherics/canister,
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "FC" = (

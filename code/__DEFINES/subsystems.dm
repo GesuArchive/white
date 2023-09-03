@@ -260,21 +260,19 @@
 */
 #define addtimer(args...) _addtimer(args, file = __FILE__, line = __LINE__)
 
-// SSair run section
+// Air subsystem subtasks
 #define SSAIR_PIPENETS 1
 #define SSAIR_ATMOSMACHINERY 2
-#define SSAIR_EXCITEDGROUPS 3
-#define SSAIR_HIGHPRESSURE 4
-#define SSAIR_HOTSPOTS 5
-#define SSAIR_TURF_CONDUCTION 6
-#define SSAIR_REBUILD_PIPENETS 7
-#define SSAIR_EQUALIZE 8
-#define SSAIR_ACTIVETURFS 9
-#define SSAIR_TURF_POST_PROCESS 10
-#define SSAIR_FINALIZE_TURFS 11
-#define SSAIR_ATMOSMACHINERY_AIR 12
-#define SSAIR_DEFERRED_AIRS 13
-#define SSAIR_PROCESS_ATOMS 14
+#define SSAIR_ACTIVETURFS 3
+#define SSAIR_HOTSPOTS 4
+#define SSAIR_EXCITEDGROUPS 5
+#define SSAIR_HIGHPRESSURE 6
+#define SSAIR_SUPERCONDUCTIVITY 7
+#define SSAIR_PROCESS_ATOMS 8
+
+// Pipeline rebuild helper defines, these suck but it'll do for now //Fools you actually merged it
+#define SSAIR_REBUILD_PIPELINE 1
+#define SSAIR_REBUILD_QUEUE 2
 
 // Explosion Subsystem subtasks
 #define SSEXPLOSIONS_MOVABLES 1

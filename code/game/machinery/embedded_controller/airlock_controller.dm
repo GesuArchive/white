@@ -210,7 +210,7 @@
 	var/sensor_tag
 	var/sanitize_external
 
-/obj/machinery/embedded_controller/radio/airlock_controller/incinerator_toxmix
+/obj/machinery/embedded_controller/radio/airlock_controller/incinerator_ordmix
 	name = "Incinerator Access Console"
 	airpump_tag = INCINERATOR_ORDMIX_DP_VENTPUMP
 	exterior_door_tag = INCINERATOR_ORDMIX_AIRLOCK_EXTERIOR

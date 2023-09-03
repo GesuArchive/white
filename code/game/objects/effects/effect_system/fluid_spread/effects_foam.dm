@@ -231,13 +231,15 @@
 
 	QDEL_NULL(hotspot)
 	var/datum/gas_mixture/air = location.air
-	if (air.get_moles(GAS_PLASMA))
-		var/scrub_amt = min(30, air.get_moles(GAS_PLASMA)) //Absorb some plasma
-		air.adjust_moles(GAS_PLASMA, -scrub_amt)
+	var/list/gases = air.gases
+	if (gases[/datum/gas/plasma])
+		var/scrub_amt = min(30, gases[/datum/gas/plasma][MOLES]) //Absorb some plasma
+		gases[/datum/gas/plasma][MOLES] -= scrub_amt
 		absorbed_plasma += scrub_amt
-	if (air.return_temperature() > T20C)
-		air.set_temperature(max(air.return_temperature() / 2, T20C))
-	location.air_update_turf(FALSE)
+	if (air.temperature > T20C)
+		air.temperature = max(air.temperature / 2, T20C)
+	air.garbage_collect()
+	location.air_update_turf(FALSE, FALSE)
 
 /obj/effect/particle_effect/fluid/foam/firefighting/make_result()
 	var/atom/movable/deposit = ..()
@@ -405,15 +407,18 @@
 	location.ClearWet()
 	if(location.air)
 		var/datum/gas_mixture/air = location.air
-		air.set_temperature(293.15)
+		air.temperature = T20C
 		for(var/obj/effect/hotspot/fire in location)
 			qdel(fire)
 
-		for(var/I in air.get_gases())
-			if(I == GAS_O2 || I == GAS_N2)
-				continue
-			air.set_moles(I, 0)
-		location.air_update_turf()
+		var/list/gases = air.gases
+		for(var/gas_type in gases)
+			switch(gas_type)
+				if(/datum/gas/oxygen, /datum/gas/nitrogen)
+					continue
+				else
+					gases[gas_type][MOLES] = 0
+		air.garbage_collect()
 
 	for(var/obj/machinery/atmospherics/components/unary/comp in location)
 		if(!comp.welded)

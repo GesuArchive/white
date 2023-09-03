@@ -12,10 +12,10 @@
 	var/obj/item/tank/T = O
 	return T.air_contents.get_moles(gas_type) >= moles_required
 
-/datum/bounty/item/engineering/gas/nitryl_tank
+/datum/bounty/item/engineering/gas/nitrium_tank
 	name = "Полная канистра Нитрила"
 	description = "Персонал станции 88, не являющиеся людьми, были вызван для тестирования препаратов, улучшающих их эффективность. Отправьте им резервуар, полный нитрила, чтобы они могли начать эксперимент."
-	gas_type = GAS_NITRYL
+	gas_type = GAS_NITRIUM
 
 /datum/bounty/item/engineering/gas/tritium_tank
 	name = "Полная канистра Трития"

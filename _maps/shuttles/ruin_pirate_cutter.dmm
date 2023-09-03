@@ -93,10 +93,8 @@
 "fS" = (
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
@@ -192,9 +190,8 @@
 /area/shuttle/caravan/pirate)
 "jo" = (
 /obj/structure/table,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/item/ammo_box/a40mm,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -710,18 +707,15 @@
 	pixel_x = -25
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/caravan/pirate)
 "DY" = (
 /obj/structure/closet/crate/secure/loot,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/caravan/pirate)
 "EB" = (
@@ -780,7 +774,7 @@
 /turf/open/floor/plating,
 /area/shuttle/caravan/pirate)
 "Gh" = (
-/obj/machinery/atmospherics/components/unary/tank/air,
+/obj/machinery/atmospherics/components/tank/air,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/shuttle/caravan/pirate)
@@ -856,10 +850,8 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/delivery,
-/obj/machinery/airalarm/all_access{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plasteel/white,
 /area/shuttle/caravan/pirate)
 "Ku" = (

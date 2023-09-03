@@ -410,10 +410,8 @@
 /turf/open/floor/engine,
 /area/engineering/main)
 "cL" = (
-/obj/machinery/airalarm/engine{
-	dir = 4;
-	pixel_x = -23
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/engine_access,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1;
@@ -748,7 +746,7 @@
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "eb" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/engine_waste{
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/engine_waste{
 	dir = 1
 	},
 /turf/open/floor/plating/airless,

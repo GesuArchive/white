@@ -31,13 +31,12 @@
 	var/list/high_filtering_gases = list(
 		GAS_PLASMA,
 		GAS_CO2,
-		GAS_NITROUS
+		GAS_N2O
 		)
 	///List of gases with medium filter priority
 	var/list/mid_filtering_gases = list(
-		GAS_NITRYL,
-		GAS_STIMULUM,
-		GAS_HYPERNOB,
+		GAS_NITRIUM,
+		GAS_HYPER_NOBLIUM,
 		GAS_BZ
 		)
 	///List of gases with low filter priority
@@ -105,5 +104,5 @@
 	high_filtering_gases = list(
 		GAS_O2,
 		GAS_CO2,
-		GAS_NITROUS
+		GAS_NITRIUM
 		)

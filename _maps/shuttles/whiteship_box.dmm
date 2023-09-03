@@ -45,9 +45,8 @@
 	dir = 1
 	},
 /obj/structure/bed,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/item/bedsheet,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /obj/effect/turf_decal/tile/neutral{
@@ -168,9 +167,8 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/item/storage/backpack/duffelbag/med/surgery{
 	pixel_y = 4
 	},
@@ -229,9 +227,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 1
 	},
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -600,10 +597,8 @@
 /area/shuttle/abandoned/engine)
 "aV" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/light/small/built,
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -692,10 +687,8 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/bin,
 /obj/item/trash/pistachios,
-/obj/machinery/airalarm/all_access{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/item/trash/can,
 /obj/item/light/bulb/broken,
 /obj/effect/turf_decal/tile/neutral,
@@ -793,9 +786,8 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/light/small/built{
 	dir = 1
 	},
@@ -804,7 +796,7 @@
 /area/shuttle/abandoned/engine)
 "bq" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
@@ -845,9 +837,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/shuttle/abandoned/medbay)
@@ -913,10 +904,8 @@
 /obj/structure/closet/secure_closet/medical2{
 	anchored = 1
 	},
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plasteel/white/side{
 	dir = 5
 	},
@@ -978,10 +967,8 @@
 /obj/structure/closet/firecloset{
 	anchored = 1
 	},
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
@@ -1535,9 +1522,8 @@
 /obj/item/pen{
 	pixel_x = 4
 	},
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/item/flashlight/pen{
 	pixel_x = -6;
 	pixel_y = -2
@@ -1605,9 +1591,8 @@
 /obj/machinery/vending/medical{
 	req_access = null
 	},
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plasteel/white,
 /area/shuttle/abandoned/medbay)
 "cM" = (
@@ -2000,10 +1985,8 @@
 /obj/machinery/light/small/built{
 	dir = 8
 	},
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Hospital Ship Bridge APC";

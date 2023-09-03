@@ -1,7 +1,6 @@
 /datum/gas_recipe/crystallizer/felinid
 	id = "felinid"
 	name = "Фелинид"
-	reaction_type = EXOTHERMIC_REACTION
 	energy_release = 950000
 	requirements = list(GAS_MIASMA = 10, GAS_BZ = 100, GAS_CO2 = 1000)
 	products = list(/mob/living/carbon/human/species/felinid/atmos = 1)

@@ -100,19 +100,9 @@
 	for(var/I in SSjob.latejoin_trackers)
 		var/turf/open/T = get_turf(I)
 		var/pressure = T.air.return_pressure()
-		if(pressure < WARNING_LOW_PRESSURE || pressure > WARNING_HIGH_PRESSURE)	//simple safety check
-			fix_air_in_area(get_area(T))
+		if(pressure < HAZARD_LOW_PRESSURE || pressure > HAZARD_HIGH_PRESSURE) //simple safety check
 			return TRUE
 	return FALSE
-
-/proc/fix_air_in_area(area/A)
-	var/datum/gas_mixture/GM = new
-	for(var/turf/open/F in A)
-		if(F.blocks_air)
-			continue
-		GM.parse_gas_string(F.initial_gas_mix)
-		F.copy_air(GM)
-		F.update_visuals()
 
 /obj/docking_port/mobile/arrivals/proc/PersonCheck()
 	for(var/V in GLOB.player_list)

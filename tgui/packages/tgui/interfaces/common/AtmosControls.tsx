@@ -1,13 +1,40 @@
-import { decodeHtmlEntities, capitalize } from 'common/string';
+import { BooleanLike } from 'common/react';
+import { decodeHtmlEntities } from 'common/string';
 import { useBackend } from '../../backend';
 import { Button, LabeledList, NumberInput, Section } from '../../components';
 import { getGasLabel } from '../../constants';
 
-export const Vent = (props, context) => {
-  const { vent } = props;
+export type VentProps = {
+  refID: string;
+  long_name: string;
+  power: BooleanLike;
+  checks: number;
+  excheck: BooleanLike;
+  incheck: BooleanLike;
+  direction: number;
+  external: number;
+  internal: number;
+  extdefault: number;
+  intdefault: number;
+};
+
+export type ScrubberProps = {
+  refID: string;
+  long_name: string;
+  power: BooleanLike;
+  scrubbing: BooleanLike;
+  widenet: BooleanLike;
+  filter_types: {
+    gas_id: string;
+    gas_name: string;
+    enabled: BooleanLike;
+  }[];
+};
+
+export const Vent = (props: VentProps, context) => {
   const { act } = useBackend(context);
   const {
-    id_tag,
+    refID,
     long_name,
     power,
     checks,
@@ -18,20 +45,18 @@ export const Vent = (props, context) => {
     internal,
     extdefault,
     intdefault,
-  } = vent;
+  } = props;
   return (
     <Section
-      level={2}
-      noborder
-      title={capitalize(decodeHtmlEntities(long_name))}
+      title={decodeHtmlEntities(long_name)}
       buttons={
         <Button
           icon={power ? 'power-off' : 'times'}
           selected={power}
-          content={power ? 'ВКЛ' : 'ВЫКЛ'}
+          content={power ? 'Вкл' : 'Выкл'}
           onClick={() =>
             act('power', {
-              id_tag,
+              ref: refID,
               val: Number(!power),
             })
           }
@@ -41,11 +66,11 @@ export const Vent = (props, context) => {
         <LabeledList.Item label="Режим">
           <Button
             icon="sign-in-alt"
-            content={direction ? 'Наполнение' : 'Откачка'}
+            content={direction ? 'Выдув' : 'Вдув'}
             color={!direction && 'danger'}
             onClick={() =>
               act('direction', {
-                id_tag,
+                ref: refID,
                 val: Number(!direction),
               })
             }
@@ -54,22 +79,22 @@ export const Vent = (props, context) => {
         <LabeledList.Item label="Регулятор давления">
           <Button
             icon="sign-in-alt"
-            content="Внутренний"
+            content="Внутреннее"
             selected={incheck}
             onClick={() =>
               act('incheck', {
-                id_tag,
+                ref: refID,
                 val: checks,
               })
             }
           />
           <Button
             icon="sign-out-alt"
-            content="Внешний"
+            content="Внешнее"
             selected={excheck}
             onClick={() =>
               act('excheck', {
-                id_tag,
+                ref: refID,
                 val: checks,
               })
             }
@@ -86,7 +111,7 @@ export const Vent = (props, context) => {
               maxValue={5066}
               onChange={(e, value) =>
                 act('set_internal_pressure', {
-                  id_tag,
+                  ref: refID,
                   value,
                 })
               }
@@ -94,10 +119,10 @@ export const Vent = (props, context) => {
             <Button
               icon="undo"
               disabled={intdefault}
-              content="Сбросить"
+              content="Сброс"
               onClick={() =>
                 act('reset_internal_pressure', {
-                  id_tag,
+                  ref: refID,
                 })
               }
             />
@@ -114,7 +139,7 @@ export const Vent = (props, context) => {
               maxValue={5066}
               onChange={(e, value) =>
                 act('set_external_pressure', {
-                  id_tag,
+                  ref: refID,
                   value,
                 })
               }
@@ -122,10 +147,10 @@ export const Vent = (props, context) => {
             <Button
               icon="undo"
               disabled={extdefault}
-              content="Сбросить"
+              content="Сброс"
               onClick={() =>
                 act('reset_external_pressure', {
-                  id_tag,
+                  ref: refID,
                 })
               }
             />
@@ -136,38 +161,34 @@ export const Vent = (props, context) => {
   );
 };
 
-export const Scrubber = (props, context) => {
-  const { scrubber } = props;
+export const Scrubber = (props: ScrubberProps, context) => {
   const { act } = useBackend(context);
-  const { long_name, power, scrubbing, id_tag, widenet, filter_types } =
-    scrubber;
+  const { long_name, power, scrubbing, refID, widenet, filter_types } = props;
   return (
     <Section
-      level={2}
-      noborder
-      title={capitalize(decodeHtmlEntities(long_name))}
+      title={decodeHtmlEntities(long_name)}
       buttons={
         <Button
           icon={power ? 'power-off' : 'times'}
-          content={power ? 'ВКЛ' : 'ВЫКЛ'}
+          content={power ? 'Вкл' : 'Выкл'}
           selected={power}
           onClick={() =>
             act('power', {
-              id_tag,
+              ref: refID,
               val: Number(!power),
             })
           }
         />
       }>
       <LabeledList>
-        <LabeledList.Item label="Режим">
+        <LabeledList.Item label="Mode">
           <Button
             icon={scrubbing ? 'filter' : 'sign-in-alt'}
             color={scrubbing || 'danger'}
-            content={scrubbing ? 'Чистка' : 'Выкачивание'}
+            content={scrubbing ? 'Фильтрация' : 'Выкачивание'}
             onClick={() =>
               act('scrubbing', {
-                id_tag,
+                ref: refID,
                 val: Number(!scrubbing),
               })
             }
@@ -175,10 +196,10 @@ export const Scrubber = (props, context) => {
           <Button
             icon={widenet ? 'expand' : 'compress'}
             selected={widenet}
-            content={widenet ? 'Расширенный радиус' : 'Обычный радиус'}
+            content={widenet ? 'Расширенный радиус' : 'Нормальный радиус'}
             onClick={() =>
               act('widenet', {
-                id_tag,
+                ref: refID,
                 val: Number(!widenet),
               })
             }
@@ -192,11 +213,10 @@ export const Scrubber = (props, context) => {
                 icon={filter.enabled ? 'check-square-o' : 'square-o'}
                 content={getGasLabel(filter.gas_id, filter.gas_name)}
                 title={filter.gas_name}
-                width={9}
                 selected={filter.enabled}
                 onClick={() =>
                   act('toggle_filter', {
-                    id_tag,
+                    ref: refID,
                     val: filter.gas_id,
                   })
                 }

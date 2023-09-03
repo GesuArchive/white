@@ -187,9 +187,9 @@
 		possibilities += "tempcold"
 	var/obj/item/organ/lungs/lungs = affected_carbon.get_organ_slot(ORGAN_SLOT_LUNGS)
 	if(lungs)
-		if(lungs.safe_breath_min)
+		if(lungs.safe_oxygen_min)
 			possibilities += "not_enough_oxy"
-		if(lungs.safe_breath_max)
+		if(lungs.safe_oxygen_max)
 			possibilities += "too_much_oxy"
 	var/type = pick(possibilities)
 	hallucination = new(affected_carbon, TRUE, type, 120 MINUTES)//last for a while basically

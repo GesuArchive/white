@@ -14,11 +14,7 @@
 		SSair.remove_from_active(T)
 	for(var/turf/open/T in map)
 		if(T.air)
-			if(T.initial_gas_mix)
-				T.air.parse_gas_string(T.initial_gas_mix)
-				T.set_temperature(T.air.return_temperature())
-			else
-				T.air.copy_from_turf(T)
+			T.air = T.create_gas_mixture()
 		SSair.add_to_active(T, TRUE)
 
 /datum/map_generator_module/bottom_layer/massdelete

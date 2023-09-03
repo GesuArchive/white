@@ -10,96 +10,60 @@ GLOBAL_LIST_INIT(atmos_components, typecacheof(list(/obj/machinery/atmospherics)
 	device_type = QUATERNARY
 	construction_type = /obj/item/pipe/quaternary
 	pipe_state = "manifold4w"
-	connection_num = 0
-	var/list/connections
-	var/static/list/mutable_appearance/center_cache = list()
-	var/mutable_appearance/pipe_appearance
+	///Current active connections
+	var/connections = NONE
 
-/* We use New() instead of Initialize() because these values are used in update_icon()
- * in the mapping subsystem init before Initialize() is called in the atoms subsystem init.
- */
-/obj/machinery/atmospherics/pipe/smart/Initialize(mapload)
-	icon_state = ""
-	. = ..()
+/obj/machinery/atmospherics/pipe/smart/update_pipe_icon()
+	icon = 'icons/obj/atmospherics/pipes/pipes_bitmask.dmi'
 
-/obj/machinery/atmospherics/pipe/smart/set_init_directions(init_dir)
-	if(init_dir)
-		initialize_directions =	init_dir
-	else
-		initialize_directions = ALL_CARDINALS
-
-/obj/machinery/atmospherics/pipe/smart/proc/check_connections()
-	var/mutable_appearance/center
-	connection_num = 0
+	//find all directions this pipe is connected with other nodes
 	connections = NONE
-	for(var/direction in GLOB.cardinals)
-		var/turf/turf = get_step(src, direction)
-		if(!turf)
-			continue
-		for(var/obj/machinery/atmospherics/machine in turf)
-			if(connection_check(machine, piping_layer))
-				connections |= direction
-				connection_num++
-				break
-
-	switch(connection_num)
-		if(0)
-			center = mutable_appearance('icons/obj/atmospherics/pipes/manifold.dmi', "manifold4w_center")
-			dir = SOUTH
-		if(1)
-			center = mutable_appearance('icons/obj/atmospherics/pipes/simple.dmi', "pipe00-3")
-			dir = connections
-		if(2)
-			center = mutable_appearance('icons/obj/atmospherics/pipes/simple.dmi', "pipe00-3")
-			dir = check_binary_direction(connections)
-		if(3)
-			center = mutable_appearance('icons/obj/atmospherics/pipes/manifold.dmi', "manifold_center")
-			dir = check_manifold_direction(connections)
-
-		if(4)
-			center = mutable_appearance('icons/obj/atmospherics/pipes/manifold.dmi', "manifold4w_center")
-			dir = NORTH
-	return center
-
-/obj/machinery/atmospherics/pipe/smart/proc/check_binary_direction(direction)
-	switch(direction)
-		if(EAST|WEST)
-			return EAST
-		if(SOUTH|NORTH)
-			return SOUTH
-		else
-			return direction
-
-/obj/machinery/atmospherics/pipe/smart/proc/check_manifold_direction(direction)
-	switch(direction)
-		if(NORTH|SOUTH|EAST)
-			return WEST
-		if(NORTH|SOUTH|WEST)
-			return EAST
-		if(NORTH|WEST|EAST)
-			return SOUTH
-		if(SOUTH|WEST|EAST)
-			return NORTH
-		else
-			return null
-
-/obj/machinery/atmospherics/pipe/smart/update_overlays()
-	. = ..()
-	var/mutable_appearance/center = center_cache["[piping_layer]"]
-	center = check_connections()
-	PIPING_LAYER_DOUBLE_SHIFT(center, piping_layer)
-	center_cache["[piping_layer]"] = center
-	pipe_appearance = center
-	. += center
-
-	update_layer()
-
-	//Add non-broken pieces
 	for(var/i in 1 to device_type)
 		if(!nodes[i])
 			continue
-		. += pipe_overlay('icons/obj/atmospherics/pipes/manifold.dmi', "pipe-[piping_layer]", get_dir(src, nodes[i]), set_layer = (layer + 0.01))
+		var/obj/machinery/atmospherics/node = nodes[i]
+		var/connected_dir = get_dir(src, node)
+		connections |= connected_dir
 
+	//set the correct direction for this node in case of binary directions
+	switch(connections)
+		if(EAST | WEST)
+			dir = EAST
+		if(SOUTH | NORTH)
+			dir = SOUTH
+		else
+			dir = connections
+
+	// Smart pipe icons differ from classic pipe icons in that we stop adding
+	// short pipe directions as soon as we find a valid sprite, rather than
+	// adding in all connectable directions.
+	// This prevents a lot of visual clutter, though it does make it harder to
+	// notice completely disconnected pipes.
+	var/bitfield = CARDINAL_TO_FULLPIPES(connections)
+	if(ISSTUB(connections))
+		var/bits_to_add = NONE
+		if(connections != NONE)
+			bits_to_add |= REVERSE_DIR(connections) & initialize_directions
+
+		var/candidate = 0
+		var/shift = 0
+
+		// Note that candidates "should" never reach 0, as stub pipes are not allowed and break things
+		while (ISSTUB(connections | bits_to_add) && (initialize_directions >> shift)!=0)
+			//lets see if this direction is eligable to be added
+			candidate = initialize_directions & (1 << shift)
+			//we dont want to add connections again else it creates wrong values & its also redundant[bitfield was already initialized with connections so we shoudnt append it again]
+			if(!(candidate & connections))
+				bits_to_add |= candidate
+			shift += 1
+		bitfield |= CARDINAL_TO_SHORTPIPES(bits_to_add)
+	icon_state = "[bitfield]_[piping_layer]"
+
+/obj/machinery/atmospherics/pipe/smart/set_init_directions(init_dir)
+	if(init_dir)
+		initialize_directions = init_dir
+	else
+		initialize_directions = ALL_CARDINALS
 
 //mapping helpers
 /obj/machinery/atmospherics/pipe/smart/simple

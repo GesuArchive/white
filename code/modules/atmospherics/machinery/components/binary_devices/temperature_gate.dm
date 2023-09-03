@@ -7,7 +7,6 @@
 	shift_underlay_only = FALSE
 	construction_type = /obj/item/pipe/directional
 	pipe_state = "tgate"
-
 	///If the temperature of the mix before the gate is lower than this, the gas will flow (if inverted, if the temperature of the mix before the gate is higher than this)
 	var/target_temperature = T0C
 	///Minimum allowed temperature
@@ -19,19 +18,30 @@
 	///Check if the gas is moving from one pipenet to the other
 	var/is_gas_flowing = FALSE
 
+/obj/machinery/atmospherics/components/binary/temperature_gate/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/machinery/atmospherics/components/binary/temperature_gate/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Turn [on ? "off" : "on"]"
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "Maximize target temperature"
+	return CONTEXTUAL_SCREENTIP_SET
+
 /obj/machinery/atmospherics/components/binary/temperature_gate/CtrlClick(mob/user)
 	if(can_interact(user))
 		on = !on
+		balloon_alert(user, "turned [on ? "on" : "off"]")
 		investigate_log("was turned [on ? "on" : "off"] by [key_name(user)]", INVESTIGATE_ATMOS)
-		update_icon()
+		update_appearance()
 	return ..()
 
 /obj/machinery/atmospherics/components/binary/temperature_gate/AltClick(mob/user)
 	if(can_interact(user))
 		target_temperature = max_temperature
 		investigate_log("was set to [target_temperature] K by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, span_notice("Выставляю температуру в [src] на [target_temperature] К."))
-		update_icon()
+		balloon_alert(user, "target temperature set to [target_temperature] K")
+		update_appearance()
 	return ..()
 
 
@@ -53,7 +63,6 @@
 
 
 /obj/machinery/atmospherics/components/binary/temperature_gate/process_atmos()
-
 	if(!on || !is_operational)
 		return
 
@@ -61,20 +70,25 @@
 	var/datum/gas_mixture/air2 = airs[2]
 
 	if(!inverted)
-		if(air1.return_temperature() < target_temperature)
+		if(air1.temperature < target_temperature)
 			if(air1.release_gas_to(air2, air1.return_pressure()))
 				update_parents()
 				is_gas_flowing = TRUE
 		else
 			is_gas_flowing = FALSE
 	else
-		if(air1.return_temperature() > target_temperature)
+		if(air1.temperature > target_temperature)
 			if(air1.release_gas_to(air2, air1.return_pressure()))
 				update_parents()
 				is_gas_flowing = TRUE
 		else
 			is_gas_flowing = FALSE
 	update_icon_nopipes()
+
+/obj/machinery/atmospherics/components/binary/temperature_gate/relaymove(mob/living/user, direction)
+	if(!on || direction != dir)
+		return
+	. = ..()
 
 /obj/machinery/atmospherics/components/binary/temperature_gate/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -110,7 +124,7 @@
 			if(.)
 				target_temperature = clamp(minimum_temperature, temperature, max_temperature)
 				investigate_log("was set to [target_temperature] K by [key_name(usr)]", INVESTIGATE_ATMOS)
-	update_icon()
+	update_appearance()
 
 /obj/machinery/atmospherics/components/binary/temperature_gate/can_unwrench(mob/user)
 	. = ..()

@@ -932,7 +932,7 @@
 	desc = "Набор \"сделай сам\" для создания своего собственного шаттла! Поставляется со всеми необходимыми деталями, чтобы доставить ваших людей к звездам!"
 	cost = BUY_CRATE_VALUE * 20
 	contains = list(
-		/obj/machinery/portable_atmospherics/canister/toxins,
+		/obj/machinery/portable_atmospherics/canister/plasma,
 		/obj/item/construction/rcd/loaded,
 		/obj/item/rcd_ammo/large,
 		/obj/item/rcd_ammo/large,

@@ -61,11 +61,4 @@
 	glass_amount = 2
 	receive_ricochet_chance_mod = 1.2
 
-/datum/armor/window_tram
-	melee = 80
-	bullet = 5
-	bomb = 45
-	fire = 99
-	acid = 100
-
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tram, 0)

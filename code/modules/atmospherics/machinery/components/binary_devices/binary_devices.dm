@@ -1,5 +1,5 @@
 /obj/machinery/atmospherics/components/binary
-	icon = 'icons/obj/atmospherics/components/binary_devices.dmi'
+	icon = 'icons/obj/machines/atmospherics/binary_devices.dmi'
 	dir = SOUTH
 	initialize_directions = SOUTH|NORTH
 	use_power = IDLE_POWER_USE
@@ -16,10 +16,14 @@
 			initialize_directions = EAST|WEST
 
 /obj/machinery/atmospherics/components/binary/get_node_connects()
-	return list(turn(dir, 180), dir)
+	return list(REVERSE_DIR(dir), dir)
 
-///Used by binary devices to set what the offset will be for each layer
-/obj/machinery/atmospherics/components/binary/set_overlay_offset(pipe_layer)
+/**
+ * Used by binary devices to set what the offset will be for each layer, called in update_icon_nopipes()
+ * Arguments:
+ * * -pipe_layer: is the pipe layer the component should be set to
+ */
+/obj/machinery/atmospherics/components/binary/proc/set_overlay_offset(pipe_layer)
 	switch(pipe_layer)
 		if(1, 3, 5)
 			return 1

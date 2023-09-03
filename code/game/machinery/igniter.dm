@@ -26,7 +26,7 @@
 	dir = EAST
 	pixel_x = -26
 
-/obj/machinery/igniter/incinerator_toxmix
+/obj/machinery/igniter/incinerator_ordmix
 	id = INCINERATOR_ORDMIX_IGNITER
 
 /obj/machinery/igniter/incinerator_atmos
@@ -83,7 +83,7 @@
 	var/last_spark = 0
 	var/datum/effect_system/spark_spread/spark_system
 
-/obj/machinery/sparker/toxmix
+/obj/machinery/sparker/ordmix
 	id = INCINERATOR_ORDMIX_IGNITER
 
 /obj/machinery/sparker/Initialize(mapload)

@@ -69,7 +69,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	null, \
 	new/datum/stack_recipe("Ступеньки", /obj/structure/stairs/unanchored, 5, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
 	null, \
-	new/datum/stack_recipe("каркас канистры", /obj/structure/canister_frame/machine/frame_tier_0, 5, time = 8, one_per_turf = TRUE, on_floor = TRUE, category = CAT_CONTAINERS), \
+	new/datum/stack_recipe("каркас канистры", /obj/structure/canister_frame/machine/unfinished_canister_frame, 5, time = 8, one_per_turf = TRUE, on_floor = TRUE, category = CAT_CONTAINERS), \
 	null, \
 	new/datum/stack_recipe("плитка для пола", /obj/item/stack/tile/plasteel, 1, 4, 20, category = CAT_TILES), \
 	new/datum/stack_recipe("желез. стержень", /obj/item/stack/rods, 1, 2, 60, category = CAT_MISC), \

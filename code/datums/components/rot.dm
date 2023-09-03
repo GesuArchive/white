@@ -70,11 +70,6 @@
 	start_time = world.time
 	active = TRUE
 
-	var/turf/open/T = get_turf(parent)
-	if(isopenturf(T) && T.air)
-		T.air.adjust_moles(GAS_MIASMA, strength)
-		T.air_update_turf()
-
 ///One of two procs that modifies blockers, this one handles adding a blocker and potentially ending the rot
 /datum/component/rot/proc/rest(blocker_type)
 	var/old_blockers = blockers
@@ -133,7 +128,7 @@
 	// Don't infect if you're chilled (I'd like to link this with the signals, but I can't come up with a good way to pull it off)
 	var/atom/atom_parent = parent
 	var/datum/gas_mixture/our_mix = atom_parent.return_air()
-	if(our_mix?.return_temperature() <= T0C-10)
+	if(our_mix?.temperature <= T0C-10)
 		return
 
 	if(!active)

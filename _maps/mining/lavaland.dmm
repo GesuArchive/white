@@ -1150,7 +1150,7 @@
 /turf/open/floor/plasteel/dark,
 /area/mine/living_quarters)
 "dp" = (
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 8
 	},
 /obj/machinery/light/small{
@@ -1281,7 +1281,7 @@
 /turf/open/floor/plasteel/dark,
 /area/mine/living_quarters)
 "dH" = (
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
@@ -5228,7 +5228,7 @@
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
 "Rq" = (
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 8
 	},
 /turf/open/floor/plating,

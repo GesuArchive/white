@@ -558,7 +558,7 @@
 	explosion_block = 2
 	glass_type = /obj/item/stack/sheet/plasmarglass
 
-/obj/structure/window/plasma/reinforced/BlockThermalConductivity()
+/obj/structure/window/plasma/reinforced/block_superconductivity()
 	return TRUE
 
 //entirely copypasted code

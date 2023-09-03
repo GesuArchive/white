@@ -892,11 +892,11 @@
 	},
 /area/awaymission/moonoutpost19/syndicate)
 "cd" = (
-/obj/machinery/airalarm/unlocked{
-	pixel_y = 23;
+/obj/machinery/airalarm/directional/south{
 	req_access = null;
 	req_access_txt = "150"
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
@@ -2213,10 +2213,10 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/machinery/airalarm/unlocked{
-	pixel_y = 23;
+/obj/machinery/airalarm/directional/south{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /obj/structure/cable,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006
@@ -2319,10 +2319,10 @@
 /obj/machinery/light/small/broken{
 	dir = 1
 	},
-/obj/machinery/airalarm/unlocked{
-	pixel_y = 23;
+/obj/machinery/airalarm/directional/south{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /obj/structure/alien/weeds,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
@@ -2628,10 +2628,10 @@
 	pixel_x = -3;
 	pixel_y = -2
 	},
-/obj/machinery/airalarm/unlocked{
-	pixel_y = 23;
+/obj/machinery/airalarm/directional/south{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -3142,11 +3142,10 @@
 /obj/machinery/light/broken{
 	dir = 4
 	},
-/obj/machinery/airalarm/unlocked{
-	dir = 8;
-	pixel_x = 23;
+/obj/machinery/airalarm/directional/west{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /obj/effect/turf_decal/tile/purple,
 /turf/open/floor/plasteel/white{
 	heat_capacity = 1e+006
@@ -3364,7 +3363,7 @@
 	name = "research director's locker";
 	req_access_txt = "201"
 	},
-/obj/item/storage/backpack/satchel/tox,
+/obj/item/storage/backpack/satchel/science,
 /obj/item/clothing/gloves/color/latex,
 /turf/open/floor/plasteel/cafeteria{
 	dir = 5
@@ -3386,10 +3385,10 @@
 /obj/machinery/light/small/broken{
 	dir = 1
 	},
-/obj/machinery/airalarm/unlocked{
-	pixel_y = 23;
+/obj/machinery/airalarm/directional/south{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /obj/item/paper/fluff/awaymissions/moonoutpost19/log/gerald,
 /turf/open/floor/plasteel/cafeteria{
 	dir = 5
@@ -3542,11 +3541,10 @@
 /obj/structure/table,
 /obj/item/storage/firstaid/regular,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/airalarm/unlocked{
-	dir = 8;
-	pixel_x = 23;
+/obj/machinery/airalarm/directional/west{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /turf/open/floor/plasteel/white/side{
 	dir = 8;
 	heat_capacity = 1e+006
@@ -3804,11 +3802,10 @@
 	},
 /area/awaymission/moonoutpost19/research)
 "ij" = (
-/obj/machinery/airalarm/unlocked{
-	dir = 4;
-	pixel_x = -23;
+/obj/machinery/airalarm/directional/east{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -4495,10 +4492,10 @@
 	},
 /area/awaymission/moonoutpost19/arrivals)
 "jI" = (
-/obj/machinery/airalarm/unlocked{
-	pixel_y = 23;
+/obj/machinery/airalarm/directional/south{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006
 	},
@@ -4620,10 +4617,10 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/airalarm/unlocked{
-	pixel_y = 23;
+/obj/machinery/airalarm/directional/south{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
@@ -4782,11 +4779,10 @@
 	dir = 4
 	},
 /obj/machinery/processor,
-/obj/machinery/airalarm/unlocked{
-	dir = 8;
-	pixel_x = 23;
+/obj/machinery/airalarm/directional/west{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /turf/open/floor/plasteel/cafeteria{
 	dir = 5
 	},
@@ -5221,11 +5217,10 @@
 	dir = 4
 	},
 /obj/structure/chair/wood,
-/obj/machinery/airalarm/unlocked{
-	dir = 8;
-	pixel_x = 23;
+/obj/machinery/airalarm/directional/west{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /turf/open/floor/carpet{
 	heat_capacity = 1e+006
 	},
@@ -5242,11 +5237,10 @@
 	},
 /obj/structure/table,
 /obj/item/storage/box,
-/obj/machinery/airalarm/unlocked{
-	dir = 4;
-	pixel_x = -23;
+/obj/machinery/airalarm/directional/east{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -5898,11 +5892,10 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/airalarm/unlocked{
-	dir = 8;
-	pixel_x = 23;
+/obj/machinery/airalarm/directional/west{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /turf/open/floor/carpet{
 	heat_capacity = 1e+006
 	},
@@ -6137,11 +6130,10 @@
 	},
 /area/awaymission/moonoutpost19/arrivals)
 "ny" = (
-/obj/machinery/airalarm/unlocked{
-	dir = 8;
-	pixel_x = 23;
+/obj/machinery/airalarm/directional/west{
 	req_access = null
 	},
+/obj/effect/mapping_helpers/airalarm/unlocked,
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel{
 	heat_capacity = 1e+006;

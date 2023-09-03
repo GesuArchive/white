@@ -20,7 +20,7 @@
 	. = ..()
 	if(istype(parent, /obj/machinery/atmospherics/components))
 		process_type = PROCESS_COMPONENT
-	else if(istype(parent, /obj/machinery))
+	else if(ismachinery(parent))
 		process_type = PROCESS_MACHINE
 	else if(isobj(parent))
 		process_type = PROCESS_OBJ
@@ -80,7 +80,7 @@
 	for(var/datum/gas_mixture/mix as anything in airs)
 		var/pressure = mix.return_pressure()
 		if(mix.release_gas_to(location.return_air(), pressure, true_rate))
-			location.air_update_turf()
+			location.air_update_turf(FALSE, FALSE)
 
 #undef PROCESS_OBJ
 #undef PROCESS_MACHINE

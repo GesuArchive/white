@@ -1,6 +1,8 @@
 /*
 It's like a regular ol' straight pipe, but you can turn it on and off.
 */
+#define MANUAL_VALVE "m"
+#define DIGITAL_VALVE "d"
 
 /obj/machinery/atmospherics/components/binary/valve
 	icon_state = "mvalve_map-3"
@@ -10,20 +12,15 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
-
 	interaction_flags_machine = INTERACT_MACHINE_OFFLINE | INTERACT_MACHINE_OPEN //Intentionally no allow_silicon flag
 	pipe_flags = PIPING_CARDINAL_AUTONORMALIZE | PIPING_BRIDGE
-
-	var/frequency = 0
-	var/id = null
-
-	var/valve_type = "m" //lets us have a nice, clean, OOP update_icon_nopipes()
-
 	construction_type = /obj/item/pipe/binary
 	pipe_state = "mvalve"
-
+	custom_reconcilation = TRUE
 	use_power = NO_POWER_USE
-
+	///Type of valve (manual or digital), used to set the icon of the component in update_icon_nopipes()
+	var/valve_type = MANUAL_VALVE
+	///Bool to stop interactions while the opening/closing animation is going
 	var/switching = FALSE
 
 /obj/machinery/atmospherics/components/binary/valve/update_icon_nopipes(animation = FALSE)
@@ -47,12 +44,23 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 		var/datum/pipeline/parent1 = parents[1]
 		parent1.reconcile_air()
 		investigate_log("was opened by [usr ? key_name(usr) : "a remote signal"]", INVESTIGATE_ATMOS)
+		balloon_alert_to_viewers("valve opened")
 		vent_movement |= VENTCRAWL_ALLOWED
 	else
 		update_icon_nopipes()
 		investigate_log("was closed by [usr ? key_name(usr) : "a remote signal"]", INVESTIGATE_ATMOS)
+		balloon_alert_to_viewers("valve closed")
 		vent_movement &= ~VENTCRAWL_ALLOWED
 
+
+// This is what handles the actual functionality of combining 2 pipenets when the valve is open
+// Basically when a pipenet updates it will consider both sides to be the same for the purpose of the gas update
+/obj/machinery/atmospherics/components/binary/valve/return_pipenets_for_reconcilation(datum/pipeline/requester)
+	. = ..()
+	if(!on)
+		return
+	. |= parents[1]
+	. |= parents[2]
 
 /obj/machinery/atmospherics/components/binary/valve/interact(mob/user)
 	add_fingerprint(usr)
@@ -63,22 +71,21 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 
 	playsound(src, 'white/valtos/sounds/valve.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 
-	addtimer(CALLBACK(src, PROC_REF(finish_interact)), 10)
+	addtimer(CALLBACK(src, PROC_REF(finish_interact)), 1 SECONDS)
 
 /**
  * Called by iteract() after a 1 second timer, calls toggle(), allows another interaction with the component.
  */
-/obj/machinery/atmospherics/components/binary/valve/finish_interact()
+/obj/machinery/atmospherics/components/binary/valve/proc/finish_interact()
 	set_open(!on)
 	switching = FALSE
-
 
 /obj/machinery/atmospherics/components/binary/valve/digital // can be controlled by AI
 	icon_state = "dvalve_map-3"
 
 	name = "Электронный вентиль"
 	desc = "Вентиль, контролируемый электроникой."
-	valve_type = "d"
+	valve_type = DIGITAL_VALVE
 	pipe_state = "dvalve"
 
 	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OFFLINE | INTERACT_MACHINE_OPEN | INTERACT_MACHINE_OPEN_SILICON
@@ -147,8 +154,7 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 		normalize_cardinal_directions()
 		icon_state = "dvalve_nopower-[set_overlay_offset(piping_layer)]"
 		return
-	..()
-
+	return..()
 
 /obj/machinery/atmospherics/components/binary/valve/layer2
 	piping_layer = 2
@@ -187,3 +193,6 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 /obj/machinery/atmospherics/components/binary/valve/digital/on/layer4
 	piping_layer = 4
 	icon_state = "dvalve_map-4"
+
+#undef MANUAL_VALVE
+#undef DIGITAL_VALVE

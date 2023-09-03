@@ -25,6 +25,9 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
 	var/max_fire_temperature_sustained = 0 //The max temperature of the fire which it was subjected to
 
 	var/blocks_air = FALSE
+	// If this turf should initialize atmos adjacent turfs or not
+	// Optimization, not for setting outside of initialize
+	var/init_air = TRUE
 
 	var/list/image/blueprint_data //for the station blueprints, images of objects eg: pipes
 
@@ -141,7 +144,7 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
 		Entered(AM)
 
 	if(requires_activation)
-		CALCULATE_ADJACENT_TURFS(src)
+		CALCULATE_ADJACENT_TURFS(src, KILL_EXCITED)
 
 	if (light_power && light_range)
 		update_light()
@@ -166,7 +169,7 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
 	temperature = temp
 
 /turf/proc/Initalize_Atmos(times_fired)
-	CALCULATE_ADJACENT_TURFS(src)
+	CALCULATE_ADJACENT_TURFS(src, KILL_EXCITED)
 
 /turf/Destroy(force)
 	. = QDEL_HINT_IWILLGC

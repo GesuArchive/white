@@ -16,7 +16,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	if(turf_type)
 		var/turf/newT = ChangeTurf(turf_type, baseturf_type, flags)
 		SSair.remove_from_active(newT)
-		CALCULATE_ADJACENT_TURFS(newT)
+		CALCULATE_ADJACENT_TURFS(newT, KILL_EXCITED)
 
 /turf/proc/copyTurf(turf/T)
 	if(T.type != type)
@@ -341,9 +341,9 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 /turf/proc/AfterChange(flags) //called after a turf has been replaced in ChangeTurf()
 	levelupdate()
 	if(flags & CHANGETURF_RECALC_ADJACENT)
-		ImmediateCalculateAdjacentTurfs()
+		immediate_calculate_adjacent_turfs()
 	else
-		CALCULATE_ADJACENT_TURFS(src)
+		CALCULATE_ADJACENT_TURFS(src, KILL_EXCITED)
 
 /turf/open/AfterChange(flags)
 	..()

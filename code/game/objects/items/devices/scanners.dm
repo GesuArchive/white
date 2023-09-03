@@ -677,6 +677,7 @@ GENE SCANNER
 	var/cooldown = FALSE
 	var/cooldown_time = 250
 	var/accuracy // 0 is the best accuracy.
+	var/list/last_gasmix_data
 
 /obj/item/analyzer/examine(mob/user)
 	. = ..()
@@ -695,60 +696,97 @@ GENE SCANNER
 	else
 		..()
 
-/obj/item/analyzer/attack_self(mob/user)
-	add_fingerprint(user)
-	scangasses(user)
+/obj/item/analyzer/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "GasAnalyzer", "Gas Analyzer")
+		ui.open()
 
-/obj/item/proc/scangasses(mob/user)
-	if (user.stat || user.is_blind())
+/obj/item/analyzer/ui_static_data(mob/user)
+	return return_atmos_handbooks()
+
+/obj/item/analyzer/ui_data(mob/user)
+	LAZYINITLIST(last_gasmix_data)
+	return list("gasmixes" = last_gasmix_data)
+
+/obj/item/analyzer/attack_self(mob/user, modifiers)
+	if(user.stat != CONSCIOUS || !user.can_read(src) || user.is_blind())
+		return
+	atmos_scan(user=user, target=get_turf(src), silent=FALSE)
+	on_analyze(source=src, target=get_turf(src))
+
+/obj/item/analyzer/attack_self_secondary(mob/user, modifiers)
+	if(user.stat != CONSCIOUS || !user.can_read(src) || user.is_blind())
 		return
 
-	var/turf/location = user.loc
-	if(!istype(location))
-		return
+	ui_interact(user)
 
-	var/datum/gas_mixture/environment = location.return_air()
+/// Called when our analyzer is used on something
+/obj/item/analyzer/proc/on_analyze(datum/source, atom/target)
+	SIGNAL_HANDLER
+	var/mixture = target.return_analyzable_air()
+	if(!mixture)
+		return FALSE
+	var/list/airs = islist(mixture) ? mixture : list(mixture)
+	var/list/new_gasmix_data = list()
+	for(var/datum/gas_mixture/air as anything in airs)
+		var/mix_name = capitalize(lowertext(target.name))
+		if(airs.len != 1) //not a unary gas mixture
+			mix_name += " - Часть [airs.Find(air)]"
+		new_gasmix_data += list(gas_mixture_parser(air, mix_name))
+	last_gasmix_data = new_gasmix_data
 
-	var/pressure = environment.return_pressure()
-	var/total_moles = environment.total_moles()
+/**
+ * Outputs a message to the user describing the target's gasmixes.
+ *
+ * Gets called by analyzer_act, which in turn is called by tool_act.
+ * Also used in other chat-based gas scans.
+ */
+/proc/atmos_scan(mob/user, atom/target, silent=FALSE)
+	var/mixture = target.return_analyzable_air()
+	if(!mixture)
+		return FALSE
 
-	to_chat(user, span_info("<B>Результат:</B>"))
-	if(abs(pressure - ONE_ATMOSPHERE) < 10)
-		to_chat(user, span_info("Давление: [round(pressure, 0.01)] кПа"))
-	else
-		to_chat(user, span_alert("Давление: [round(pressure, 0.01)] кПа"))
-	if(total_moles)
-		var/o2_concentration = environment.get_moles(GAS_O2)/total_moles
-		var/n2_concentration = environment.get_moles(GAS_N2)/total_moles
-		var/co2_concentration = environment.get_moles(GAS_CO2)/total_moles
-		var/plasma_concentration = environment.get_moles(GAS_PLASMA)/total_moles
+	var/icon = target
+	var/message = list()
+	if(!silent && isliving(user))
+		user.visible_message(span_notice("[user] использует анализатор [icon2html(icon, viewers(user))] на [target]."), span_notice("Использую анализатор [icon2html(icon, user)] на [target]."))
+	message += span_boldnotice("Результат анализа [icon2html(icon, user)] [target].")
 
-		if(abs(n2_concentration - N2STANDARD) < 20)
-			to_chat(user, span_info("Азот: [round(n2_concentration*100, 0.01)] % ([round(environment.get_moles(GAS_N2), 0.01)] моль)"))
+	var/list/airs = islist(mixture) ? mixture : list(mixture)
+	for(var/datum/gas_mixture/air as anything in airs)
+		var/mix_name = capitalize(lowertext(target.name))
+		if(airs.len > 1) //not a unary gas mixture
+			var/mix_number = airs.Find(air)
+			message += span_boldnotice("Часть [mix_number]")
+			mix_name += " - Часть [mix_number]"
+
+		var/total_moles = air.total_moles()
+		var/pressure = air.return_pressure()
+		var/volume = air.return_volume() //could just do mixture.volume... but safety, I guess?
+		var/temperature = air.return_temperature()
+		var/heat_capacity = air.heat_capacity()
+		var/thermal_energy = air.thermal_energy()
+
+		if(total_moles > 0)
+			message += span_notice("Молей: [round(total_moles, 0.01)] моль")
+
+			var/list/cached_gases = air.gases
+			for(var/id in cached_gases)
+				var/gas_concentration = cached_gases[id][MOLES]/total_moles
+				message += span_notice("[cached_gases[id][GAS_META][META_GAS_NAME]]: [round(cached_gases[id][MOLES], 0.01)] моль ([round(gas_concentration*100, 0.01)] %)")
+			message += span_notice("Температура: [round(temperature - T0C,0.01)] &deg;C ([round(temperature, 0.01)] K)")
+			message += span_notice("Объём: [volume] Л")
+			message += span_notice("Давление: [round(pressure, 0.01)] кПа")
+			message += span_notice("Теплоёмкость: [display_joules(heat_capacity)] / K")
+			message += span_notice("Термальная энергия: [display_joules(thermal_energy)]")
 		else
-			to_chat(user, span_alert("Азот: [round(n2_concentration*100, 0.01)] % ([round(environment.get_moles(GAS_N2), 0.01)] моль)"))
+			message += airs.len > 1 ? span_notice("Здесь вакуум!") : span_notice("[target] вакуумная!")
+			message += span_notice("Объём: [volume] Л") // don't want to change the order volume appears in, suck it
 
-		if(abs(o2_concentration - O2STANDARD) < 2)
-			to_chat(user, span_info("Кислород: [round(o2_concentration*100, 0.01)] % ([round(environment.get_moles(GAS_O2), 0.01)] моль)"))
-		else
-			to_chat(user, span_alert("Кислород: [round(o2_concentration*100, 0.01)] % ([round(environment.get_moles(GAS_O2), 0.01)] моль)"))
-
-		if(co2_concentration > 0.01)
-			to_chat(user, span_alert("CO2: [round(co2_concentration*100, 0.01)] % ([round(environment.get_moles(GAS_CO2), 0.01)] моль)"))
-		else
-			to_chat(user, span_info("CO2: [round(co2_concentration*100, 0.01)] % ([round(environment.get_moles(GAS_CO2), 0.01)] моль)"))
-
-		if(plasma_concentration > 0.005)
-			to_chat(user, span_alert("Плазма: [round(plasma_concentration*100, 0.01)] % ([round(environment.get_moles(GAS_PLASMA), 0.01)] моль)"))
-		else
-			to_chat(user, span_info("Плазма: [round(plasma_concentration*100, 0.01)] % ([round(environment.get_moles(GAS_PLASMA), 0.01)] моль)"))
-
-		for(var/id in environment.get_gases())
-			if(id in GLOB.hardcoded_gases)
-				continue
-			var/gas_concentration = environment.get_moles(id)/total_moles
-			to_chat(user, span_alert("[GLOB.gas_data.names[id]]: [round(gas_concentration*100, 0.01)] % ([round(environment.get_moles(id), 0.01)] моль)"))
-		to_chat(user, span_info("Температура: [round(environment.return_temperature()-T0C, 0.01)] &deg;C ([round(environment.return_temperature(), 0.01)] K)"))
+	// we let the join apply newlines so we do need handholding
+	to_chat(user, "<div class='examine_block'>[jointext(message, "\n")]</div>", type = MESSAGE_TYPE_INFO)
+	return TRUE
 
 /obj/item/analyzer/AltClick(mob/user) //Barometer output for measuring when the next storm happens
 	..()
@@ -833,7 +871,6 @@ GENE SCANNER
 		var/pressure = air_contents.return_pressure()
 		var/volume = air_contents.return_volume() //could just do mixture.volume... but safety, I guess?
 		var/temperature = air_contents.return_temperature()
-		var/cached_scan_results = air_contents.analyzer_results
 
 		if(total_moles > 0)
 			render_list += "<span class='notice'>Моли: [round(total_moles, 0.01)] моль</span>\
@@ -843,14 +880,10 @@ GENE SCANNER
 
 			for(var/id in air_contents.get_gases())
 				var/gas_concentration = air_contents.get_moles(id) / total_moles
-				render_list += span_notice("[GLOB.gas_data.names[id]]: [round(gas_concentration*100, 0.01)] % ([round(air_contents.get_moles(id), 0.01)] моль)")
+				render_list += span_notice("[GLOB.meta_gas_info[id][META_GAS_NAME]]: [round(gas_concentration*100, 0.01)] % ([round(air_contents.get_moles(id), 0.01)] моль)")
 			render_list += span_notice("Температура: [round(temperature - T0C,0.01)] &deg;C ([round(temperature, 0.01)] K)")
 		else
 			render_list += airs.len > 1 ? span_notice("Эта ячейка пуста!")  : span_notice("В [target] ничего нет!")
-
-		if(cached_scan_results && cached_scan_results["fusion"]) //notify the user if a fusion reaction was detected
-			render_list += "<span class='boldnotice'>Огромные объёмы нейтронов обнаружены в воздухе. Похоже тут происходит фьюжен.</span>\
-						\n<span class='notice'>Нестабильность последней фьюжен-реакции: [round(cached_scan_results["fusion"], 0.01)].</span>"
 
 	to_chat(user, jointext(render_list, "\n")) // we let the join apply newlines so we do need handholding
 	return TRUE
@@ -972,12 +1005,6 @@ GENE SCANNER
 
 	else
 		user.visible_message(span_notice("[user] не может проанализировать геном [M].") , span_warning("[M] не имеет считываемого генома!"))
-
-/obj/item/sequence_scanner/attack_self(mob/user)
-	display_sequence(user)
-
-/obj/item/sequence_scanner/attack_self_tk(mob/user)
-	return
 
 /obj/item/sequence_scanner/afterattack(obj/O, mob/user, proximity)
 	. = ..()

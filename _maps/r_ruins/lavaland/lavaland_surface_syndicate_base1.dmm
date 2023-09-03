@@ -40,10 +40,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/main)
 "ag" = (
-/obj/machinery/airalarm/syndicate{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -178,8 +176,7 @@
 "cP" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
 	dir = 8;
-	frequency = 1442;
-	id_tag = "syndie_lavaland_o2_out";
+	chamber_id = "syndie_lavaland_o2_out";
 	internal_pressure_bound = 5066;
 	name = "Plasma Out"
 	},
@@ -346,9 +343,8 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered/syndicate_lava_base/cargo)
 "dL" = (
-/obj/machinery/airalarm/syndicate{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/structure/closet/crate,
 /obj/item/extinguisher{
 	pixel_x = -5;
@@ -497,10 +493,8 @@
 	pixel_x = -3
 	},
 /obj/item/reagent_containers/dropper,
-/obj/machinery/airalarm/syndicate{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/screwdriver/nuke{
 	pixel_y = 18
@@ -1035,10 +1029,8 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered/syndicate_lava_base/testlab)
 "eN" = (
-/obj/machinery/airalarm/syndicate{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
@@ -1469,10 +1461,8 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/airalarm/syndicate{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/structure/table,
 /obj/item/clothing/suit/hazardvest,
 /obj/item/clothing/suit/hazardvest,
@@ -1569,9 +1559,8 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/airalarm/syndicate{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/main)
@@ -2033,10 +2022,8 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered/syndicate_lava_base/virology)
 "gU" = (
-/obj/machinery/airalarm/syndicate{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = -12;
@@ -2314,10 +2301,8 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered/syndicate_lava_base/main)
 "hx" = (
-/obj/machinery/airalarm/syndicate{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
@@ -2458,9 +2443,8 @@
 /obj/structure/table/wood,
 /obj/item/ammo_box/magazine/m9mm,
 /obj/item/ammo_box/magazine/sniper_rounds,
-/obj/machinery/airalarm/syndicate{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/plasteel/grimy,
 /area/ruin/unpowered/syndicate_lava_base/dormitories)
 "hN" = (
@@ -2483,9 +2467,8 @@
 "hQ" = (
 /obj/structure/table/wood,
 /obj/item/ammo_box/magazine/m9mm,
-/obj/machinery/airalarm/syndicate{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/plasteel/grimy,
 /area/ruin/unpowered/syndicate_lava_base/dormitories)
 "hR" = (
@@ -2857,9 +2840,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/dormitories)
 "iB" = (
-/obj/machinery/airalarm/syndicate{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/neutral{
@@ -3258,9 +3240,8 @@
 /obj/effect/mob_spawn/human/lavaland_syndicate{
 	dir = 4
 	},
-/obj/machinery/airalarm/syndicate{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/plasteel/grimy,
 /area/ruin/unpowered/syndicate_lava_base/dormitories)
 "jo" = (
@@ -3281,9 +3262,8 @@
 /obj/effect/mob_spawn/human/lavaland_syndicate{
 	dir = 8
 	},
-/obj/machinery/airalarm/syndicate{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/plasteel/grimy,
 /area/ruin/unpowered/syndicate_lava_base/dormitories)
 "jr" = (
@@ -3455,10 +3435,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/airalarm/syndicate{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 10
 	},
@@ -3758,10 +3736,8 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered/syndicate_lava_base/bar)
 "kq" = (
-/obj/machinery/airalarm/syndicate{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/vending/coffee{
 	extended_inventory = 1
 	},
@@ -3904,8 +3880,7 @@
 /area/ruin/unpowered/syndicate_lava_base/engineering)
 "kE" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
-	frequency = 1442;
-	id_tag = "syndie_lavaland_co2_out";
+	chamber_id = "syndie_lavaland_co2_out";
 	internal_pressure_bound = 5066;
 	name = "CO2 out"
 	},
@@ -4092,7 +4067,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/engineering)
 "la" = (
-/obj/machinery/portable_atmospherics/canister/tier_3,
+/obj/machinery/portable_atmospherics/canister,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/engineering)
 "lb" = (
@@ -4412,10 +4387,8 @@
 	},
 /area/ruin/unpowered/syndicate_lava_base/medbay)
 "lL" = (
-/obj/machinery/airalarm/syndicate{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -4476,10 +4449,8 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered/syndicate_lava_base/arrivals)
 "lU" = (
-/obj/machinery/airalarm/syndicate{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/structure/chair/stool,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -4602,10 +4573,8 @@
 	dir = 8;
 	pixel_x = 11
 	},
-/obj/machinery/airalarm/syndicate{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/medbay)
@@ -4968,7 +4937,7 @@
 	pixel_x = 6;
 	pixel_y = -40
 	},
-/obj/machinery/portable_atmospherics/canister/tier_3,
+/obj/machinery/portable_atmospherics/canister,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/engineering)
 "nf" = (
@@ -5281,10 +5250,8 @@
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/ruin/unpowered/syndicate_lava_base/engineering)
 "nH" = (
-/obj/machinery/airalarm/syndicate{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -5487,9 +5454,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/airalarm/syndicate{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
@@ -5830,8 +5796,7 @@
 "pJ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
 	dir = 8;
-	frequency = 1442;
-	id_tag = "syndie_lavaland_n2_out";
+	chamber_id = "syndie_lavaland_n2_out";
 	internal_pressure_bound = 5066;
 	name = "Nitrogen Out"
 	},
@@ -5917,8 +5882,7 @@
 "yg" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
 	dir = 8;
-	frequency = 1442;
-	id_tag = "syndie_lavaland_o2_out";
+	chamber_id = "syndie_lavaland_o2_out";
 	internal_pressure_bound = 5066;
 	name = "Oxygen Out"
 	},
@@ -5983,7 +5947,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/engineering)
 "Ed" = (
-/obj/machinery/portable_atmospherics/canister/tier_3,
+/obj/machinery/portable_atmospherics/canister,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/engineering)

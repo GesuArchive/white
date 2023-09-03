@@ -25,8 +25,6 @@
 
 /proc/_generate_space_ruin(center_x, center_y, center_z, border_x, border_y, datum/orbital_objective/linked_objective, forced_decoration, datum/ruin_event/ruin_event)
 
-	SSair.pause_z(center_z)
-
 	//Try and catch errors so that critical actions (unpausing the Z atmos) can happen.
 	log_mapping("Generating random ruin at [center_x], [center_y], [center_z]")
 
@@ -376,8 +374,6 @@
 		SSorbits.ruin_events += ruin_event
 
 	SSzclear.nullspaced_mobs.Cut()
-
-	SSair.unpause_z(center_z)
 
 	log_mapping("Finished generating ruin at [center_x], [center_y], [center_z]")
 

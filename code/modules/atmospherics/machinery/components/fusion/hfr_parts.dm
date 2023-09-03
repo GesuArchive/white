@@ -4,7 +4,7 @@
  */
 /obj/machinery/atmospherics/components/unary/hypertorus
 	icon = 'icons/obj/atmospherics/components/hypertorus.dmi'
-	icon_state = "core"
+	icon_state = "core_off"
 
 	name = "thermomachine"
 	desc = "Heats or cools gas in connected pipes."
@@ -49,26 +49,27 @@
 		return FALSE
 	if(user.a_intent == INTENT_HARM)
 		return FALSE
-	balloon_alert(user, "You start repairing the crack...")
-	if(tool.use_tool(src, user, 10 SECONDS, volume=30, amount=5))
-		balloon_alert(user, "You repaired the crack.")
+	balloon_alert(user, "repairing...")
+	if(tool.use_tool(src, user, 10 SECONDS, volume=30))
+		balloon_alert(user, "repaired")
 		cracked = FALSE
 		update_appearance()
 
 /obj/machinery/atmospherics/components/unary/hypertorus/default_change_direction_wrench(mob/user, obj/item/I)
 	. = ..()
 	if(.)
+		set_init_directions()
 		var/obj/machinery/atmospherics/node = nodes[1]
 		if(node)
 			node.disconnect(src)
 			nodes[1] = null
 			if(parents[1])
-				nullifyNode(parents[1])
-		atmosinit()
+				nullify_pipenet(parents[1])
+		atmos_init()
 		node = nodes[1]
 		if(node)
-			node.atmosinit()
-			node.addMember(src)
+			node.atmos_init()
+			node.add_member(src)
 		SSair.add_to_rebuild_queue(src)
 
 /obj/machinery/atmospherics/components/unary/hypertorus/update_icon_state()
@@ -88,6 +89,9 @@
 	var/image/crack = image(icon, icon_state = "crack")
 	crack.dir = dir
 	. += crack
+
+/obj/machinery/atmospherics/components/unary/hypertorus/update_layer()
+	return
 
 /obj/machinery/atmospherics/components/unary/hypertorus/fuel_input
 	name = "Термоядерный реактор - Топливный порт"
@@ -123,7 +127,7 @@
 	name = "hypertorus_core"
 	desc = "hypertorus_core"
 	icon = 'icons/obj/atmospherics/components/hypertorus.dmi'
-	icon_state = "core"
+	icon_state = "core_off"
 	move_resist = INFINITY
 	anchored = TRUE
 	density = TRUE
@@ -177,7 +181,7 @@
 
 /obj/machinery/hypertorus/interface/multitool_act(mob/living/user, obj/item/I)
 	. = ..()
-	var/turf/T = get_step(src,turn(dir,180))
+	var/turf/T = get_step(src,REVERSE_DIR(dir))
 	var/obj/machinery/atmospherics/components/unary/hypertorus/core/centre = locate() in T
 
 	if(!centre || !centre.check_part_connectivity())
@@ -198,6 +202,15 @@
 	else
 		to_chat(user, span_notice("Activate the machine first by using a multitool on the interface."))
 
+/obj/machinery/hypertorus/interface/proc/gas_list_to_gasid_list(list/gas_list)
+	var/list/gasid_list = list()
+	for(var/gas_type in gas_list)
+		var/datum/gas/gas = gas_type
+		gasid_list += initial(gas.id)
+	return gasid_list
+
+
+
 /obj/machinery/hypertorus/interface/ui_static_data()
 	var/data = list()
 	data["base_max_temperature"] = FUSION_MAXIMUM_TEMPERATURE
@@ -208,9 +221,9 @@
 		data["selectable_fuel"] += list(list(
 			"name" = recipe.name,
 			"id" = recipe.id,
-			"requirements" = recipe.requirements,
-			"fusion_byproducts" = recipe.primary_products,
-			"product_gases" = recipe.secondary_products,
+			"requirements" = gas_list_to_gasid_list(recipe.requirements),
+			"fusion_byproducts" = gas_list_to_gasid_list(recipe.primary_products),
+			"product_gases" = gas_list_to_gasid_list(recipe.secondary_products),
 			"recipe_cooling_multiplier" = recipe.negative_temperature_multiplier,
 			"recipe_heating_multiplier" = recipe.positive_temperature_multiplier,
 			"energy_loss_multiplier" = recipe.energy_concentration_multiplier,
@@ -231,29 +244,33 @@
 	//Internal Fusion gases
 	var/list/fusion_gasdata = list()
 	if(connected_core.internal_fusion.total_moles())
-		for(var/gas_id in connected_core.internal_fusion.get_gases())
+		for(var/gas_type in connected_core.internal_fusion.gases)
+			var/datum/gas/gas = gas_type
 			fusion_gasdata.Add(list(list(
-			"id"= gas_id,
-			"amount" = round(connected_core.internal_fusion.get_moles(gas_id), 0.01),
+			"id"= initial(gas.id),
+			"amount" = round(connected_core.internal_fusion.gases[gas][MOLES], 0.01),
 			)))
 	else
-		for(var/gas_id in connected_core.internal_fusion.get_gases())
+		for(var/gas_type in connected_core.internal_fusion.gases)
+			var/datum/gas/gas = gas_type
 			fusion_gasdata.Add(list(list(
-				"id"= gas_id,
+				"id"= initial(gas.id),
 				"amount" = 0,
 				)))
 	//Moderator gases
 	var/list/moderator_gasdata = list()
 	if(connected_core.moderator_internal.total_moles())
-		for(var/gas_id in connected_core.moderator_internal.get_gases())
+		for(var/gas_type in connected_core.moderator_internal.gases)
+			var/datum/gas/gas = gas_type
 			moderator_gasdata.Add(list(list(
-			"id"= gas_id,
-			"amount" = round(connected_core.moderator_internal.get_moles(gas_id), 0.01),
+			"id"= initial(gas.id),
+			"amount" = round(connected_core.moderator_internal.gases[gas][MOLES], 0.01),
 			)))
 	else
-		for(var/gas_id in connected_core.moderator_internal.get_gases())
+		for(var/gas_type in connected_core.moderator_internal.gases)
+			var/datum/gas/gas = gas_type
 			moderator_gasdata.Add(list(list(
-				"id"= gas_id,
+				"id"= initial(gas.id),
 				"amount" = 0,
 				)))
 
@@ -296,10 +313,11 @@
 
 	data["waste_remove"] = connected_core.waste_remove
 	data["filter_types"] = list()
-	for(var/id in GLOB.gas_data.ids)
-		data["filter_types"] += list(list("gas_id" = id, "gas_name" = GLOB.gas_data.names[id], "enabled" = (id in connected_core.moderator_scrubbing)))
+	for(var/path in GLOB.meta_gas_info)
+		var/list/gas = GLOB.meta_gas_info[path]
+		data["filter_types"] += list(list("gas_id" = gas[META_GAS_ID], "gas_name" = gas[META_GAS_NAME], "enabled" = (path in connected_core.moderator_scrubbing)))
 
-	data["cooling_volume"] = connected_core.airs[1].return_volume()
+	data["cooling_volume"] = connected_core.airs[1].volume
 	data["mod_filtering_rate"] = connected_core.moderator_filtering_rate
 
 	return data
@@ -351,7 +369,7 @@
 			connected_core.waste_remove = !connected_core.waste_remove
 			. = TRUE
 		if("filter")
-			connected_core.moderator_scrubbing ^= params["mode"]
+			connected_core.moderator_scrubbing ^= gas_id2path(params["mode"])
 			. = TRUE
 		if("mod_filtering_rate")
 			var/mod_filtering_rate = text2num(params["mod_filtering_rate"])
@@ -378,7 +396,7 @@
 		if("cooling_volume")
 			var/cooling_volume = text2num(params["cooling_volume"])
 			if(cooling_volume != null)
-				connected_core.airs[1].set_volume(clamp(cooling_volume, 50, 2000))
+				connected_core.airs[1].volume = clamp(cooling_volume, 50, 2000)
 				. = TRUE
 
 /obj/machinery/hypertorus/corner
@@ -389,7 +407,6 @@
 	icon_state_off = "corner_off"
 	icon_state_open = "corner_open"
 	icon_state_active = "corner_active"
-	dir = SOUTHEAST
 
 /obj/item/paper/guides/jobs/atmos/hypertorus
 	name = "paper- 'Краткое руководство по Термоядерныму Реактору'"
@@ -420,7 +437,7 @@
 	name = "HFR box"
 	desc = "If you see this, call the police."
 	icon = 'icons/obj/atmospherics/components/hypertorus.dmi'
-	icon_state = "box"
+	icon_state = "error"
 	///What kind of box are we handling?
 	var/box_type = "impossible"
 	///What's the path of the machine we making
@@ -441,14 +458,17 @@
 
 /obj/item/hfr_box/body/fuel_input
 	name = "Термоядерный реактор - Топливный порт"
+	icon_state = "box_fuel"
 	part_path = /obj/machinery/atmospherics/components/unary/hypertorus/fuel_input
 
 /obj/item/hfr_box/body/moderator_input
 	name = "Термоядерный реактор - Порт регулятора"
+	icon_state = "box_moderator"
 	part_path = /obj/machinery/atmospherics/components/unary/hypertorus/moderator_input
 
 /obj/item/hfr_box/body/waste_output
 	name = "Термоядерный реактор - Порт вывода"
+	icon_state = "box_waste"
 	part_path = /obj/machinery/atmospherics/components/unary/hypertorus/waste_output
 
 /obj/item/hfr_box/body/interface
@@ -469,6 +489,15 @@
 		var/direction = get_dir(src, box)
 		if(box.box_type == "corner")
 			if(ISDIAGONALDIR(direction))
+				switch(direction)
+					if(NORTHEAST)
+						direction = EAST
+					if(SOUTHEAST)
+						direction = SOUTH
+					if(SOUTHWEST)
+						direction = WEST
+					if(NORTHWEST)
+						direction = NORTH
 				box.dir = direction
 				parts |= box
 			continue

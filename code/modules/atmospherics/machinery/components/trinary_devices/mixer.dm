@@ -6,29 +6,41 @@
 	desc = "Смешивает газы."
 
 	can_unwrench = TRUE
-
-	var/target_pressure = ONE_ATMOSPHERE
-	var/node1_concentration = 0.5
-	var/node2_concentration = 0.5
-
 	construction_type = /obj/item/pipe/trinary/flippable
 	pipe_state = "mixer"
 
+	///Output pressure target
+	var/target_pressure = ONE_ATMOSPHERE
+	///Ratio between the node 1 and 2, determines the amount of gas transfered, sums up to 1
+	var/node1_concentration = 0.5
+	///Ratio between the node 1 and 2, determines the amount of gas transfered, sums up to 1
+	var/node2_concentration = 0.5
 	//node 3 is the outlet, nodes 1 & 2 are intakes
+
+/obj/machinery/atmospherics/components/trinary/mixer/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/machinery/atmospherics/components/trinary/mixer/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Turn [on ? "off" : "on"]"
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "Maximize target pressure"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/atmospherics/components/trinary/mixer/CtrlClick(mob/user)
 	if(can_interact(user))
 		on = !on
+		balloon_alert(user, "turned [on ? "on" : "off"]")
 		investigate_log("was turned [on ? "on" : "off"] by [key_name(user)]", INVESTIGATE_ATMOS)
-		update_icon()
+		update_appearance()
 	return ..()
 
 /obj/machinery/atmospherics/components/trinary/mixer/AltClick(mob/user)
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, span_notice("Выкручиваю давление [src] на [target_pressure] кПа."))
-		update_icon()
+		balloon_alert(user, "выкручиваю давление [src] на [target_pressure] кПа.")
+		update_appearance()
 	return ..()
 
 /obj/machinery/atmospherics/components/trinary/mixer/update_overlays()
@@ -37,7 +49,7 @@
 		if(!(direction & initialize_directions))
 			continue
 
-		. += getpipeimage(icon, "cap", direction, pipe_color, piping_layer, TRUE)
+		. += get_pipe_image(icon, "cap", direction, pipe_color, piping_layer, TRUE)
 
 /obj/machinery/atmospherics/components/trinary/mixer/update_icon_nopipes()
 	var/on_state = on && nodes[1] && nodes[2] && nodes[3] && is_operational
@@ -46,7 +58,7 @@
 /obj/machinery/atmospherics/components/trinary/mixer/New()
 	..()
 	var/datum/gas_mixture/air3 = airs[3]
-	air3.set_volume(300)
+	air3.volume = 300
 	airs[3] = air3
 
 /obj/machinery/atmospherics/components/trinary/mixer/process_atmos()
@@ -70,26 +82,26 @@
 		return
 
 	//Calculate necessary moles to transfer using PV=nRT
-	var/general_transfer = (target_pressure - output_starting_pressure) * air3.return_volume() / R_IDEAL_GAS_EQUATION
+	var/general_transfer = (target_pressure - output_starting_pressure) * air3.volume / R_IDEAL_GAS_EQUATION
 
-	var/transfer_moles1 = air1.return_temperature() ? node1_concentration * general_transfer / air1.return_temperature() : 0
-	var/transfer_moles2 = air2.return_temperature() ? node2_concentration * general_transfer / air2.return_temperature() : 0
+	var/transfer_moles1 = air1.temperature ? node1_concentration * general_transfer / air1.temperature : 0
+	var/transfer_moles2 = air2.temperature ? node2_concentration * general_transfer / air2.temperature : 0
 
 	var/air1_moles = air1.total_moles()
 	var/air2_moles = air2.total_moles()
 
 	if(!node2_concentration)
-		if(air1.return_temperature() <= 0)
+		if(air1.temperature <= 0)
 			return
 		transfer_moles1 = min(transfer_moles1, air1_moles)
 		transfer_moles2 = 0
 	else if(!node1_concentration)
-		if(air2.return_temperature() <= 0)
+		if(air2.temperature <= 0)
 			return
 		transfer_moles2 = min(transfer_moles2, air2_moles)
 		transfer_moles1 = 0
 	else
-		if(air1.return_temperature() <= 0 || air2.return_temperature() <= 0)
+		if(air1.temperature <= 0 || air2.temperature <= 0)
 			return
 		if((transfer_moles2 <= 0) || (transfer_moles1 <= 0))
 			return
@@ -102,17 +114,19 @@
 	//Actually transfer the gas
 
 	if(transfer_moles1)
-		air1.transfer_to(air3, transfer_moles1)
+		var/datum/gas_mixture/removed1 = air1.remove(transfer_moles1)
+		air3.merge(removed1)
 		var/datum/pipeline/parent1 = parents[1]
-		parent1?.update = TRUE
+		parent1.update = TRUE
 
 	if(transfer_moles2)
-		air2.transfer_to(air3, transfer_moles2)
+		var/datum/gas_mixture/removed2 = air2.remove(transfer_moles2)
+		air3.merge(removed2)
 		var/datum/pipeline/parent2 = parents[2]
-		parent2?.update = TRUE
+		parent2.update = TRUE
 
 	var/datum/pipeline/parent3 = parents[3]
-	parent3?.update = TRUE
+	parent3.update = TRUE
 
 /obj/machinery/atmospherics/components/trinary/mixer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -152,23 +166,23 @@
 		if("node1")
 			var/value = text2num(params["concentration"])
 			adjust_node1_value(value)
-			investigate_log("was set to [node1_concentration] % on node 1 by [key_name(usr)]", INVESTIGATE_ATMOS)
+			investigate_log("was set to [100 * node1_concentration] % on node 1 by [key_name(usr)]", INVESTIGATE_ATMOS)
 			. = TRUE
 		if("node2")
 			var/value = text2num(params["concentration"])
 			adjust_node1_value(100 - value)
-			investigate_log("was set to [node2_concentration] % on node 2 by [key_name(usr)]", INVESTIGATE_ATMOS)
+			investigate_log("was set to [100 * node2_concentration] % on node 2 by [key_name(usr)]", INVESTIGATE_ATMOS)
 			. = TRUE
-	update_icon()
+	update_appearance()
 
-/obj/machinery/atmospherics/components/trinary/mixer/adjust_node1_value(newValue)
+/obj/machinery/atmospherics/components/trinary/mixer/proc/adjust_node1_value(newValue)
 	node1_concentration = newValue / 100
 	node2_concentration = 1 - node1_concentration
 
 /obj/machinery/atmospherics/components/trinary/mixer/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!"))
+		to_chat(user, span_warning("You cannot unwrench [src], turn it off first!"))
 		return FALSE
 
 // mapping

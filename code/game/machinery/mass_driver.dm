@@ -12,7 +12,7 @@
 	name = "священный выброс"
 	id = MASSDRIVER_CHAPEL
 
-/obj/machinery/mass_driver/toxins
+/obj/machinery/mass_driver/ordnance
 	id = MASSDRIVER_TOXINS
 
 /obj/machinery/mass_driver/trash

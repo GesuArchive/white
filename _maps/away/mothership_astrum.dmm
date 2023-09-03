@@ -2108,7 +2108,7 @@
 /obj/machinery/porta_turret/syndicate/pod{
 	faction = list("Abductor");
 	max_integrity = 120;
-
+	
 	},
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)

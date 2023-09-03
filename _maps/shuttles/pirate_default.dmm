@@ -6,10 +6,8 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/pod/dark,
@@ -91,10 +89,8 @@
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/pirate)
 "ak" = (
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/machinery/airalarm/directional/east,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
 	dir = 8
@@ -173,10 +169,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/pod/dark,
@@ -322,10 +316,8 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/airalarm/all_access{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -586,9 +578,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/item/gun/energy/laser{
@@ -698,10 +689,8 @@
 /turf/open/floor/plasteel,
 /area/shuttle/pirate)
 "bC" = (
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -1046,7 +1035,7 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "km" = (
-/obj/machinery/atmospherics/components/unary/tank/air,
+/obj/machinery/atmospherics/components/tank/air,
 /obj/effect/turf_decal/bot,
 /obj/machinery/firealarm{
 	pixel_y = 24
@@ -1073,9 +1062,8 @@
 "np" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/turf_decal/bot,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/pirate)
@@ -1205,9 +1193,8 @@
 /turf/open/floor/plasteel,
 /area/shuttle/pirate)
 "OD" = (
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = 32
 	},
@@ -1234,9 +1221,8 @@
 /turf/open/floor/plasteel,
 /area/shuttle/pirate)
 "RY" = (
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = -32

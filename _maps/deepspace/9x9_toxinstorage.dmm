@@ -6,7 +6,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "c" = (
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/engine,
 /area/ruin/unpowered)

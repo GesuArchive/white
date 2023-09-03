@@ -65,14 +65,14 @@
 		nodes[1] = null
 	if(!parents[1])
 		return
-	nullifyPipenet(parents[1])
+	nullify_pipenet(parents[1])
 
-	atmosinit()
+	atmos_init()
 	node = nodes[1]
 	if(node)
-		node.atmosinit()
-		node.addMember(src)
-	build_network()
+		node.atmos_init()
+		node.add_member(src)
+	SSair.add_to_rebuild_queue(src)
 	return TRUE
 
 /obj/machinery/atmospherics/components/unary/shuttle/engine_heater/RefreshParts()

@@ -1017,7 +1017,7 @@
 /turf/open/indestructible/boss,
 /area/awaymission/prison/warden)
 "fe" = (
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/open/floor/plating,
 /area/awaymission/prison)
 "fg" = (
@@ -2351,7 +2351,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/cellb)
 "mG" = (
-/obj/machinery/atmospherics/miner/toxins,
+/obj/machinery/atmospherics/miner/plasma,
 /turf/open/floor/plating,
 /area/awaymission/prison)
 "mH" = (
@@ -2744,9 +2744,7 @@
 /turf/open/floor/plasteel/cult,
 /area/awaymission/prison/secret)
 "oL" = (
-/obj/machinery/computer/atmos_control/tank/toxin_tank{
-	dir = 4
-	},
+/obj/machinery/computer/atmos_control/plasma_tank,
 /turf/open/floor/plasteel,
 /area/awaymission/prison)
 "oM" = (
@@ -3618,7 +3616,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/prison/med)
 "tV" = (
-/obj/machinery/computer/atmos_control/tank/nitrous_tank{
+/obj/machinery/computer/atmos_control/nitrous_tank{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -4562,7 +4560,7 @@
 /turf/open/indestructible/boss/air,
 /area/awaymission/prison/warden)
 "yZ" = (
-/obj/machinery/computer/atmos_control/tank/nitrogen_tank{
+/obj/machinery/computer/atmos_control/nitrogen_tank{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -4815,7 +4813,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/awaymission/prison/guard)
 "Au" = (
-/obj/machinery/computer/atmos_control/tank/carbon_tank{
+/obj/machinery/computer/atmos_control/carbon_tank{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -8755,7 +8753,7 @@
 /turf/open/indestructible/white,
 /area/awaymission/prison)
 "Xl" = (
-/obj/machinery/computer/atmos_control/tank/air_tank{
+/obj/machinery/computer/atmos_control/air_tank{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -8933,7 +8931,7 @@
 /turf/open/floor/carpet,
 /area/awaymission/prison/solitary)
 "Yv" = (
-/obj/machinery/computer/atmos_control/tank/oxygen_tank{
+/obj/machinery/computer/atmos_control/oxygen_tank{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood,

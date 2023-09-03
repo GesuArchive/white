@@ -49,7 +49,7 @@
 	var/datum/gas_mixture/moderator_internal
 	///Set the filtering list of the waste remove
 	var/list/moderator_scrubbing = list(
-		GAS_HELIUM,
+		/datum/gas/helium,
 		)
 	///Set the amount of moles per tick should be removed from the moderator by filtering
 	var/moderator_filtering_rate = 100
@@ -159,27 +159,21 @@
 	///Var used in the meltdown phase
 	var/final_countdown = FALSE
 
+	///Flags used in the alert proc to select what messages to show when the HFR is delaminating (HYPERTORUS_FLAG_HIGH_POWER_DAMAGE | HYPERTORUS_FLAG_HIGH_FUEL_MIX_MOLE | HYPERTORUS_FLAG_IRON_CONTENT_DAMAGE | HYPERTORUS_FLAG_IRON_CONTENT_INCREASE | HYPERTORUS_FLAG_EMPED)
+	var/warning_damage_flags = NONE
+
 /obj/machinery/atmospherics/components/unary/hypertorus/core/Initialize(mapload)
 	. = ..()
 	internal_fusion = new
-	internal_fusion.set_volume(5000)
+	internal_fusion.volume = 5000
 	moderator_internal = new
-	moderator_internal.set_volume(10000)
+	moderator_internal.volume = 10000
 
 	radio = new(src)
 	radio.keyslot = new radio_key
 	radio.set_listening(FALSE)
 	radio.recalculateChannels()
 	investigate_log("has been created.", INVESTIGATE_HYPERTORUS)
-
-	RegisterSignal(src.loc, COMSIG_ATOM_ENTERED, PROC_REF(on_entered))
-
-	for(var/atom/movable/movable_object in src.loc)
-		SEND_SIGNAL(movable_object, COMSIG_MOVABLE_SECLUDED_LOCATION)
-
-/obj/machinery/atmospherics/components/unary/hypertorus/core/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-	SIGNAL_HANDLER
-	SEND_SIGNAL(arrived, COMSIG_MOVABLE_SECLUDED_LOCATION) // to prevent stationloving items (eg. nuke disk) being teleported onto core
 
 /obj/machinery/atmospherics/components/unary/hypertorus/core/Destroy()
 	unregister_signals(TRUE)

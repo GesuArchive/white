@@ -1813,6 +1813,7 @@
 /obj/item/computer_disk{
 	pixel_x = 8;
 	pixel_y = -10;
+
 	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plasteel/airless,
@@ -2220,7 +2221,7 @@
 /turf/open/floor/plating,
 /area/cargo/exploration_prep)
 "Cs" = (
-/obj/machinery/atmospherics/components/unary/tank/air,
+/obj/machinery/atmospherics/components/tank/air,
 /turf/open/floor/plating,
 /area/science/research)
 "Cw" = (
@@ -2603,7 +2604,7 @@
 /area/engineering/storage_shared)
 "GP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -2682,7 +2683,7 @@
 /turf/open/floor/plating,
 /area/mine/lobby)
 "HM" = (
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -2780,7 +2781,7 @@
 /turf/open/space/basic,
 /area/mine/lobby)
 "Ir" = (
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -3697,7 +3698,7 @@
 /turf/open/floor/plating/asteroid/airless/cave,
 /area/mine/unexplored)
 "Td" = (
-/obj/machinery/atmospherics/miner/toxins,
+/obj/machinery/atmospherics/miner/plasma,
 /turf/open/floor/plating/asteroid/airless/cave,
 /area/mine/unexplored)
 "Te" = (
@@ -4212,7 +4213,7 @@
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
 "ZM" = (
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 4
 	},
 /turf/open/floor/plasteel,

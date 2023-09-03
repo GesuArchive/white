@@ -205,7 +205,7 @@
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "aD" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/engine_waste,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/engine_waste,
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
 /area/engineering/main)
@@ -672,10 +672,8 @@
 	dir = 8;
 	network = list("ss13","engine")
 	},
-/obj/machinery/airalarm/engine{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/engine_access,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
 	dir = 8

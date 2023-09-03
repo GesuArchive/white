@@ -171,7 +171,7 @@
 	var/max_moles = min_moles
 	// okay this is a bit hacky. First, we set density to 0 and recalculate our adjacent turfs
 	density = FALSE
-	T.ImmediateCalculateAdjacentTurfs()
+	T.immediate_calculate_adjacent_turfs()
 	// then we use those adjacent turfs to figure out what the difference between the lowest and highest pressures we'd be holding is
 	for(var/turf/open/T2 in T.atmos_adjacent_turfs)
 		if((flags_1 & ON_BORDER_1) && get_dir(src, T2) != dir)
@@ -182,7 +182,7 @@
 		if(moles > max_moles)
 			max_moles = moles
 	density = TRUE
-	T.ImmediateCalculateAdjacentTurfs() // alright lets put it back
+	T.immediate_calculate_adjacent_turfs() // alright lets put it back
 	return max_moles - min_moles > 20
 /**
  * Called when attempting to remove the seal from an airlock
@@ -483,7 +483,7 @@
 	if(!glass && GLOB.cameranet)
 		GLOB.cameranet.updateVisibility(src, 0)
 
-/obj/machinery/door/BlockThermalConductivity() // All non-glass airlocks block heat, this is intended.
+/obj/machinery/door/block_superconductivity() // All non-glass airlocks block heat, this is intended.
 	if(opacity || heat_proof)
 		return TRUE
 	return FALSE

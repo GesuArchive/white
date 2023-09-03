@@ -24,21 +24,21 @@
 				. = FALSE
 			switch(dir)
 				if(SOUTHEAST)
-					if(object.dir != dir)
+					if(object.dir != SOUTH)
 						. = FALSE
 				if(SOUTHWEST)
-					if(object.dir != dir)
+					if(object.dir != WEST)
 						. = FALSE
 				if(NORTHEAST)
-					if(object.dir != dir)
+					if(object.dir != EAST)
 						. = FALSE
 				if(NORTHWEST)
-					if(object.dir != dir)
+					if(object.dir != NORTH)
 						. = FALSE
 			corners |= object
 			continue
 
-		if(get_step(object,turn(object.dir,180)) != loc)
+		if(get_step(object,REVERSE_DIR(object.dir)) != loc)
 			. = FALSE
 
 		if(istype(object,/obj/machinery/hypertorus/interface))
@@ -53,7 +53,7 @@
 		if(object.panel_open)
 			. = FALSE
 
-		if(get_step(object,turn(object.dir,180)) != loc)
+		if(get_step(object,REVERSE_DIR(object.dir)) != loc)
 			. = FALSE
 
 		if(istype(object,/obj/machinery/atmospherics/components/unary/hypertorus/fuel_input))
@@ -162,6 +162,18 @@
 		corners = list()
 	QDEL_NULL(soundloop)
 
+/obj/machinery/atmospherics/components/unary/hypertorus/core/proc/assert_gases()
+	//Assert the gases that will be used/created during the process
+
+	internal_fusion.assert_gas(/datum/gas/antinoblium)
+
+	moderator_internal.assert_gases(arglist(GLOB.meta_gas_info))
+
+	if (!selected_fuel)
+		return
+
+	internal_fusion.assert_gases(arglist(selected_fuel.requirements | selected_fuel.primary_products))
+
 /**
  * Updates all related pipenets from all connected components
  */
@@ -171,16 +183,16 @@
 	linked_output.update_parents()
 	linked_moderator.update_parents()
 
-/obj/machinery/atmospherics/components/unary/hypertorus/core/proc/update_temperature_status(delta_time)
+/obj/machinery/atmospherics/components/unary/hypertorus/core/proc/update_temperature_status(seconds_per_tick)
 	fusion_temperature_archived = fusion_temperature
-	fusion_temperature = internal_fusion.return_temperature()
+	fusion_temperature = internal_fusion.temperature
 	moderator_temperature_archived = moderator_temperature
-	moderator_temperature = moderator_internal.return_temperature()
+	moderator_temperature = moderator_internal.temperature
 	coolant_temperature_archived = coolant_temperature
-	coolant_temperature = airs[1].return_temperature()
+	coolant_temperature = airs[1].temperature
 	output_temperature_archived = output_temperature
-	output_temperature = linked_output.airs[1].return_temperature()
-	temperature_period = delta_time
+	output_temperature = linked_output.airs[1].temperature
+	temperature_period = seconds_per_tick
 
 	//Set the power level of the fusion process
 	switch(fusion_temperature)
@@ -207,9 +219,9 @@
 	if(last_accent_sound < world.time && prob(20))
 		var/aggression = min(((critical_threshold_proximity / 800) * ((power_level) / 5)), 1.0) * 100
 		if(critical_threshold_proximity >= 300)
-			playsound(src, "hypertorusmelting", max(50, aggression), FALSE, 40, 30, falloff_distance = 10)
+			playsound(src, SFX_HYPERTORUS_MELTING, max(50, aggression), FALSE, 40, 30, falloff_distance = 10)
 		else
-			playsound(src, "hypertoruscalm", max(50, aggression), FALSE, 25, 25, falloff_distance = 10)
+			playsound(src, SFX_HYPERTORUS_CALM, max(50, aggression), FALSE, 25, 25, falloff_distance = 10)
 		var/next_sound = round((100 - aggression) * 5) + 5
 		last_accent_sound = world.time + max(HYPERTORUS_ACCENT_SOUND_MIN_COOLDOWN, next_sound)
 
@@ -228,7 +240,8 @@
 	if(!internal_fusion.total_moles())
 		return FALSE
 	for(var/gas_type in selected_fuel.requirements)
-		if(internal_fusion.get_moles(gas_type) < FUSION_MOLE_THRESHOLD)
+		internal_fusion.assert_gas(gas_type)
+		if(internal_fusion.gases[gas_type][MOLES] < FUSION_MOLE_THRESHOLD)
 			return FALSE
 	return TRUE
 
@@ -248,7 +261,7 @@
 /obj/machinery/atmospherics/components/unary/hypertorus/core/proc/check_gas_requirements()
 	var/datum/gas_mixture/contents = linked_input.airs[1]
 	for(var/gas_type in selected_fuel.requirements)
-		if(!contents.get_moles(gas_type))
+		if(!contents.gases[gas_type] || !contents.gases[gas_type][MOLES])
 			return FALSE
 	return TRUE
 
@@ -256,6 +269,8 @@
 /obj/machinery/atmospherics/components/unary/hypertorus/core/proc/dump_gases()
 	var/datum/gas_mixture/remove = internal_fusion.remove(internal_fusion.total_moles())
 	linked_output.airs[1].merge(remove)
+	internal_fusion.garbage_collect()
+	linked_input.airs[1].garbage_collect()
 
 /**
  * Called by alarm() in this file
@@ -312,7 +327,7 @@
 	var/area/area = get_area(src)
 	if (!area)
 		return 0
-	var/obj/machinery/power/apc/apc = locate(/obj/machinery/power/apc) in area
+	var/obj/machinery/power/apc/apc = area.apc
 	if (!apc)
 		return 0
 	var/obj/item/stock_parts/cell/cell = apc.cell
@@ -338,10 +353,11 @@
 				investigate_log("has reached the emergency point for the first time.", INVESTIGATE_HYPERTORUS)
 				message_admins("[src] has reached the emergency point [ADMIN_JMP(src)].")
 				has_reached_emergency = TRUE
+			send_radio_explanation()
 		else if(critical_threshold_proximity >= critical_threshold_proximity_archived) // The damage is still going up
 			radio.talk_into(src, "[warning_alert] Integrity: [get_integrity_percent()]%", engineering_channel)
 			lastwarning = REALTIMEOFDAY - (WARNING_TIME_DELAY * 5)
-
+			send_radio_explanation()
 		else // Phew, we're safe
 			radio.talk_into(src, "[safe_alert] Integrity: [get_integrity_percent()]%", engineering_channel)
 			lastwarning = REALTIMEOFDAY
@@ -349,6 +365,39 @@
 	//Melt
 	if(critical_threshold_proximity > melting_point)
 		countdown()
+
+/obj/machinery/atmospherics/components/unary/hypertorus/core/emp_act(severity)
+	. = ..()
+	if (. & EMP_PROTECT_SELF)
+		return
+	warning_damage_flags |= HYPERTORUS_FLAG_EMPED
+
+
+/**
+ * Called by check_alert() in this file
+ * Called to explain in radio what the issues are with the HFR
+ */
+/obj/machinery/atmospherics/components/unary/hypertorus/core/proc/send_radio_explanation()
+
+	if(warning_damage_flags & HYPERTORUS_FLAG_EMPED)
+		var/list/characters = list()
+		characters += GLOB.alphabet
+		//characters += GLOB.alphabet_upper
+		//characters += GLOB.numerals
+		//characters += GLOB.space
+		//characters += GLOB.space //double the amount of them
+		var/message = random_string(rand(50,70), characters)
+		radio.talk_into(src, "[message]", engineering_channel)
+		return
+
+	if(warning_damage_flags & HYPERTORUS_FLAG_HIGH_POWER_DAMAGE)
+		radio.talk_into(src, "Warning! Shield destabilizing due to excessive power!", engineering_channel)
+	if(warning_damage_flags & HYPERTORUS_FLAG_IRON_CONTENT_DAMAGE)
+		radio.talk_into(src, "Warning! Iron shards are damaging the internal core shielding!", engineering_channel)
+	if(warning_damage_flags & HYPERTORUS_FLAG_HIGH_FUEL_MIX_MOLE)
+		radio.talk_into(src, "Warning! Fuel mix moles reaching critical levels!", engineering_channel)
+	if(warning_damage_flags & HYPERTORUS_FLAG_IRON_CONTENT_INCREASE)
+		radio.talk_into(src, "Warning! Iron amount inside the core is increasing!", engineering_channel)
 
 /**
  * Called by check_alert() in this file
@@ -363,17 +412,27 @@
 
 	var/critical = selected_fuel.meltdown_flags & HYPERTORUS_FLAG_CRITICAL_MELTDOWN
 	if(critical)
-		priority_announce("ВНИМАНИЕ - Взрыв создаст серьёзные разрушения на станции, а волна ЭМИ уничтожит всю электронику. \
-				Отойдите от реактора на максимально возможное расстояние или попытайтесь его починить.", "Тревога")
+		priority_announce("WARNING - The explosion will likely cover a big part of the station and the coming EMP will wipe out most of the electronics. \
+				Get as far away as possible from the reactor or find a way to shut it down.", "Alert")
 	var/speaking = "[emergency_alert] The Hypertorus fusion reactor has reached critical integrity failure. Emergency magnetic dampeners online."
 	radio.talk_into(src, speaking, common_channel, language = get_selected_language())
+
+	notify_ghosts(
+		"The [src] has begun melting down!",
+		source = src,
+		header = "Meltdown Incoming",
+		action = NOTIFY_ORBIT,
+		ghost_sound = 'sound/machines/warning-buzzer.ogg',
+		notify_volume = 75
+	)
+
 	for(var/i in HYPERTORUS_COUNTDOWN_TIME to 0 step -10)
 		if(critical_threshold_proximity < melting_point) // Cutting it a bit close there engineers
 			radio.talk_into(src, "[safe_alert] Failsafe has been disengaged.", common_channel)
 			final_countdown = FALSE
 			return
 		else if((i % 50) != 0 && i > 50) // A message once every 5 seconds until the final 5 seconds which count down individualy
-			sleep(10)
+			sleep(1 SECONDS)
 			continue
 		else if(i > 50)
 			if(i == 10 SECONDS && critical)
@@ -382,7 +441,7 @@
 		else
 			speaking = "[i*0.1]..."
 		radio.talk_into(src, speaking, common_channel)
-		sleep(10)
+		sleep(1 SECONDS)
 
 	meltdown()
 
@@ -507,29 +566,6 @@
 
 	qdel(src)
 
-/**
- * Induce hallucinations in nearby humans.
- *
- * force will make hallucinations ignore meson protection.
- */
-/obj/machinery/atmospherics/components/unary/hypertorus/core/proc/induce_hallucination(strength, delta_time, force=FALSE)
-	for(var/mob/living/carbon/human/human in view(src, HALLUCINATION_HFR(heat_output)))
-		if(!force && istype(human.glasses, /obj/item/clothing/glasses/meson))
-			continue
-		var/distance_root = sqrt(1 / max(1, get_dist(human, src)))
-		human.hallucination += strength * distance_root * delta_time
-		human.hallucination = clamp(human.hallucination, 0, 200)
-
-/**
- * Emit radiation
- */
-/obj/machinery/atmospherics/components/unary/hypertorus/core/proc/emit_rads()
-	radiation_pulse(
-		src,
-		range_modifier = 6,
-		intensity = 0.3,
-	)
-
 /*
  * HFR cracking related procs
  */
@@ -553,7 +589,7 @@
 		return
 	origin_turf.assume_air(remove_mixture)
 
-/obj/machinery/atmospherics/components/unary/hypertorus/core/proc/check_spill(delta_time)
+/obj/machinery/atmospherics/components/unary/hypertorus/core/proc/check_spill(seconds_per_tick)
 	var/obj/machinery/atmospherics/components/unary/hypertorus/cracked_part = check_cracked_parts()
 	if (cracked_part)
 		// We have an existing crack
@@ -569,7 +605,7 @@
 		else
 			// Gotta go fast
 			leak_rate = HYPERTORUS_STRONG_SPILL_RATE
-		spill_gases(cracked_part, moderator_internal, ratio = 1 - (1 - leak_rate) ** delta_time)
+		spill_gases(cracked_part, moderator_internal, ratio = 1 - (1 - leak_rate) ** seconds_per_tick)
 		return
 
 	if (moderator_internal.total_moles() < HYPERTORUS_HYPERCRITICAL_MOLES)
@@ -601,4 +637,3 @@
 		)
 	spill_gases(cracked_part, moderator_internal, ratio = HYPERTORUS_STRONG_SPILL_INITIAL)
 	return
-

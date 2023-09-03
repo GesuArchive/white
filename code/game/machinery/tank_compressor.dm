@@ -120,7 +120,7 @@
 		return
 
 	/// Prevent pumping if tank is taking damage but still below pressure limit. Here to prevent exploiting the buffer system.
-	if((inserted_tank.integrity <= 0) && (tank_air.return_pressure() <= TANK_LEAK_PRESSURE))
+	if((inserted_tank.obj_integrity <= 0) && (tank_air.return_pressure() <= TANK_LEAK_PRESSURE))
 		active = FALSE
 		return
 
@@ -176,8 +176,8 @@
 	new_record.name = "Запись #[record_number]"
 	new_record.experiment_source = inserted_tank.name
 	new_record.timestamp = station_time_timestamp()
-	for(var/gas_id in leaked_gas_buffer.get_gases())
-		new_record.gas_data[gas_id] = leaked_gas_buffer.get_moles(gas_id)
+	for(var/gas_path in leaked_gas_buffer.gases)
+		new_record.gas_data[gas_path] = leaked_gas_buffer.gases[gas_path][MOLES]
 
 	compressor_record += new_record
 	record_number += 1
@@ -239,8 +239,8 @@
 
 /obj/machinery/atmospherics/components/binary/tank_compressor/update_overlays()
 	. = ..()
-	. += getpipeimage(icon, "[base_icon_state]-pipe", dir, COLOR_VIBRANT_LIME, piping_layer)
-	. += getpipeimage(icon, "[base_icon_state]-pipe", turn(dir, 180), COLOR_RED, piping_layer)
+	. += get_pipe_image(icon, "[base_icon_state]-pipe", dir, COLOR_VIBRANT_LIME, piping_layer)
+	. += get_pipe_image(icon, "[base_icon_state]-pipe", turn(dir, 180), COLOR_RED, piping_layer)
 	if(!istype(inserted_tank))
 		. += mutable_appearance(icon, "[base_icon_state]-doors")
 	if(panel_open)
@@ -289,7 +289,7 @@
 	data["tankPresent"] = inserted_tank ? TRUE : FALSE
 	var/datum/gas_mixture/tank_air = inserted_tank?.return_air()
 	data["tankPressure"] = tank_air?.return_pressure()
-	data["leaking"] = inserted_tank?.integrity <= 0
+	data["leaking"] = inserted_tank?.obj_integrity <= 0
 
 	data["active"] = active
 	data["transferRate"] = transfer_rate

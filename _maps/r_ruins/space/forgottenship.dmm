@@ -626,9 +626,8 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "bP" = (
-/obj/machinery/airalarm/syndicate{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "bQ" = (
@@ -694,9 +693,6 @@
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "bZ" = (
 /turf/closed/wall/r_wall/syndicate,
-/area/ruin/space/has_grav/syndicate_forgotten_ship)
-"ca" = (
-/turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "cb" = (
 /obj/machinery/computer/atmos_alert{
@@ -989,7 +985,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "cM" = (
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium/red,
@@ -2934,7 +2930,7 @@ cu
 aw
 aT
 aw
-ca
+aw
 aw
 cb
 aw

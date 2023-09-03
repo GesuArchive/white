@@ -80,7 +80,7 @@
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/switchblade(src)
 	new /obj/item/clothing/head/soft/black/columbine(src)
-	new /obj/effect/spawner/newbomb/timer/syndicate(src)
+	new /obj/effect/spawner/newbomb/tritium(src)
 
 /obj/item/storage/box/syndicate/shooteruzis/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/mini_uzi(src)

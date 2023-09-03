@@ -77,7 +77,7 @@
 	if(!t_loc)
 		return
 
-	for(var/turf/spread_turf in t_loc.GetAtmosAdjacentTurfs())
+	for(var/turf/spread_turf in t_loc.get_atmos_adjacent_turfs())
 		if(group.total_size > group.target_size)
 			break
 		if(locate(type) in spread_turf)

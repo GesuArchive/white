@@ -32,7 +32,7 @@
 			"bonus_desc" = escape_value(botany_item.bonus_desc),
 			"foodtype" = escape_value(botany_item.foodtype),
 		))
-
+/* TODO: починить
 	else if(istype(bounty, /datum/bounty/item/engineering/gas))
 		var/datum/bounty/item/engineering/gas/gas_item = bounty
 
@@ -41,9 +41,9 @@
 			"wanted_types" = format_item_list(gas_item.wanted_types),
 			"exclude_types" = format_item_list(gas_item.exclude_types),
 			"special_include_types" = format_item_list(gas_item.special_include_types),
-			"gas_type" = escape_value(GLOB.gas_data.names[gas_item.gas_type]),
+			"gas_type" = escape_value(gases[gas_id][MOLES] * gas_id.base_value),
 		))
-
+*/
 	else if(istype(bounty, /datum/bounty/item))
 		var/datum/bounty/item/bounty_item = bounty
 

@@ -161,10 +161,10 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	///The list of gases we will be interacting with in process_atoms()
 	var/list/gases_we_care_about = list(
 		GAS_O2,
-		GAS_H2O,
+		GAS_WATER_VAPOR,
 		GAS_PLASMA,
 		GAS_CO2,
-		GAS_NITROUS,
+		GAS_N2O,
 		GAS_N2,
 		GAS_PLUOXIUM,
 		GAS_TRITIUM,
@@ -179,10 +179,10 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	///The list of gases mapped against their current comp. We use this to calculate different values the supermatter uses, like power or heat resistance. It doesn't perfectly match the air around the sm, instead moving up at a rate determined by gas_change_rate per call. Ranges from 0 to 1
 	var/list/gas_comp = list(
 		GAS_O2 = 0,
-		GAS_H2O = 0,
+		GAS_WATER_VAPOR = 0,
 		GAS_PLASMA = 0,
 		GAS_CO2 = 0,
-		GAS_NITROUS = 0,
+		GAS_N2O = 0,
 		GAS_N2 = 0,
 		GAS_PLUOXIUM = 0,
 		GAS_TRITIUM = 0,
@@ -196,7 +196,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	///The list of gases mapped against their transmit values. We use it to determine the effect different gases have on radiation
 	var/list/gas_trans = list(
 		GAS_O2 = OXYGEN_TRANSMIT_MODIFIER,
-		GAS_H2O = H2O_TRANSMIT_MODIFIER,
+		GAS_WATER_VAPOR = H2O_TRANSMIT_MODIFIER,
 		GAS_PLASMA = PLASMA_TRANSMIT_MODIFIER,
 		GAS_PLUOXIUM = PLUOXIUM_TRANSMIT_MODIFIER,
 		GAS_TRITIUM = TRITIUM_TRANSMIT_MODIFIER,
@@ -209,7 +209,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	///The list of gases mapped against their heat penaltys. We use it to determin molar and heat output
 	var/list/gas_heat = list(
 		GAS_O2 = OXYGEN_HEAT_PENALTY,
-		GAS_H2O = H2O_HEAT_PENALTY,
+		GAS_WATER_VAPOR = H2O_HEAT_PENALTY,
 		GAS_PLASMA = PLASMA_HEAT_PENALTY,
 		GAS_CO2 = CO2_HEAT_PENALTY,
 		GAS_N2 = NITROGEN_HEAT_PENALTY,
@@ -224,14 +224,14 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	)
 	///The list of gases mapped against their heat resistance. We use it to moderate heat damage.
 	var/list/gas_resist = list(
-		GAS_NITROUS = N2O_HEAT_RESISTANCE,
+		GAS_N2O = N2O_HEAT_RESISTANCE,
 		GAS_HYDROGEN = HYDROGEN_HEAT_RESISTANCE,
 		GAS_PROTO_NITRATE = PROTO_NITRATE_HEAT_RESISTANCE,
 	)
 	///The list of gases mapped against their powermix ratio
 	var/list/gas_powermix = list(
 		GAS_O2 = 1,
-		GAS_H2O = 1,
+		GAS_WATER_VAPOR = 1,
 		GAS_PLASMA = 1,
 		GAS_CO2 = 1,
 		GAS_N2 = -1,
@@ -421,13 +421,13 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		data["SM_moles"] = air.total_moles()
 		for(var/gasid in air.get_gases())
 			gasdata.Add(list(list(
-			"name"= GLOB.gas_data.names[gasid],
+			"name"= air.gases[gasid][GAS_META][META_GAS_NAME],
 			"amount" = round(100*air.get_moles(gasid)/air.total_moles(),0.01))))
 
 	else
 		for(var/gasid in air.get_gases())
 			gasdata.Add(list(list(
-				"name"= GLOB.gas_data.names[gasid],
+				"name"= air.gases[gasid][GAS_META][META_GAS_NAME],
 				"amount" = 0)))
 
 	data["gases"] = gasdata
@@ -715,7 +715,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		var/list/resistance_mod = gases_we_care_about.Copy()
 
 		//We're concerned about pluoxium being too easy to abuse at low percents, so we make sure there's a substantial amount.
-		var/h2obonus = 1 - (gas_comp[GAS_H2O] * 0.25)//At max this value should be 0.75
+		var/h2obonus = 1 - (gas_comp[GAS_WATER_VAPOR] * 0.25)//At max this value should be 0.75
 		var/freonbonus = (gas_comp[GAS_FREON] <= 0.03) //Let's just yeet power output if this shit is high
 
 

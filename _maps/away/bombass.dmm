@@ -964,7 +964,7 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
-
+	
 	},
 /area/awaymission/bombass)
 "dK" = (
@@ -977,7 +977,7 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
-
+	
 	},
 /area/awaymission/bombass/indoors)
 "dP" = (
@@ -1114,7 +1114,7 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
-
+	
 	},
 /area/awaymission/bombass/indoors)
 "ew" = (

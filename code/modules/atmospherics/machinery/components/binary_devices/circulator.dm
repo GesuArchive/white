@@ -44,10 +44,10 @@
 
 /obj/machinery/atmospherics/components/binary/circulator/Destroy()
 	if(generator)
-		disconnectFromGenerator()
+		disconnect_from_generator()
 	return ..()
 
-/obj/machinery/atmospherics/components/binary/circulator/return_transfer_air()
+/obj/machinery/atmospherics/components/binary/circulator/proc/return_transfer_air()
 
 	var/datum/gas_mixture/air1 = airs[1]
 	var/datum/gas_mixture/air2 = airs[2]
@@ -61,10 +61,10 @@
 		return null
 
 	//Calculate necessary moles to transfer using PV = nRT
-	if(air2.return_temperature()>0)
+	if(air2.temperature>0)
 		var/pressure_delta = (input_starting_pressure - output_starting_pressure)/2
 
-		var/transfer_moles = pressure_delta*air1.return_volume()/(air2.return_temperature() * R_IDEAL_GAS_EQUATION)
+		var/transfer_moles = (pressure_delta*air1.volume)/(air2.temperature * R_IDEAL_GAS_EQUATION)
 
 		last_pressure_delta = pressure_delta
 
@@ -93,7 +93,7 @@
 
 			var/image/cap
 			if(node)
-				cap = getpipeimage(icon, "cap", direction, node.pipe_color, piping_layer = piping_layer)
+				cap = get_pipe_image(icon, "cap", direction, node.pipe_color, piping_layer = piping_layer)
 
 			add_overlay(cap)
 
@@ -169,26 +169,25 @@
 	if(node1)
 		node1.disconnect(src)
 		nodes[1] = null
-		nullifyPipenet(parents[1])
+		nullify_pipenet(parents[1])
 	if(node2)
 		node2.disconnect(src)
 		nodes[2] = null
-		nullifyPipenet(parents[2])
+		if(parents[2])
+			nullify_pipenet(parents[2])
 
 	if(anchored)
 		set_init_directions()
-		atmosinit()
+		atmos_init()
 		node1 = nodes[1]
 		if(node1)
-			node1.atmosinit()
-			node1.addMember(src)
+			node1.atmos_init()
+			node1.add_member(src)
 		node2 = nodes[2]
 		if(node2)
-			node2.atmosinit()
-			node2.addMember(src)
-		build_network()
-
-	update_icon()
+			node2.atmos_init()
+			node2.add_member(src)
+		SSair.add_to_rebuild_queue(src)
 
 	return TRUE
 
@@ -250,9 +249,9 @@
 
 /obj/machinery/atmospherics/components/binary/circulator/on_deconstruction()
 	if(generator)
-		disconnectFromGenerator()
+		disconnect_from_generator()
 
-/obj/machinery/atmospherics/components/binary/circulator/disconnectFromGenerator()
+/obj/machinery/atmospherics/components/binary/circulator/proc/disconnect_from_generator()
 	if(mode)
 		generator.cold_circ = null
 	else
@@ -260,17 +259,16 @@
 	generator.update_icon()
 	generator = null
 
-/obj/machinery/atmospherics/components/binary/circulator/setPipingLayer(new_layer)
-	..()
-	pixel_x = 0
-	pixel_y = 0
-
 /obj/machinery/atmospherics/components/binary/circulator/verb/circulator_flip()
 	set name = "Крутить"
 	set category = "Объект"
 	set src in oview(1)
 
 	if(!ishuman(usr))
+		return
+
+	if(anchored)
+		to_chat(usr, span_danger("[src] прикручен!"))
 		return
 
 	flipped = !flipped

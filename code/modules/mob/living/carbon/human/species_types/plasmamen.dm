@@ -45,7 +45,7 @@
 	if(!atmos_sealed && (!istype(H.w_uniform, /obj/item/clothing/under/plasmaman) || !istype(H.head, /obj/item/clothing/head/helmet/space/plasmaman) || !istype(H.gloves, /obj/item/clothing/gloves)))
 		var/datum/gas_mixture/environment = H.loc.return_air()
 		if(environment?.total_moles())
-			if(environment.get_moles(GAS_HYPERNOB) && (environment.get_moles(GAS_HYPERNOB)) >= 5)
+			if(environment.get_moles(GAS_HYPER_NOBLIUM) && (environment.get_moles(GAS_HYPER_NOBLIUM)) >= 5)
 				if(H.on_fire && H.fire_stacks > 0)
 					H.adjust_wet_stacks(10 * delta_time)
 			else if(!HAS_TRAIT(H, TRAIT_NOFIRE))

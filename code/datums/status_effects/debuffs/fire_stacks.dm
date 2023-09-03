@@ -170,7 +170,7 @@
 		return TRUE
 
 	var/datum/gas_mixture/air = owner.loc.return_air()
-	if(air.get_moles(GAS_O2) < 1)
+	if(!air.gases[/datum/gas/oxygen] || air.gases[/datum/gas/oxygen][MOLES] < 1)
 		qdel(src)
 		return TRUE
 
@@ -288,6 +288,11 @@
 /datum/status_effect/fire_handler/fire_stacks/on_apply()
 	. = ..()
 	update_overlay()
+
+/obj/effect/dummy/lighting_obj/moblight/fire
+	name = "fire"
+	light_color = LIGHT_COLOR_FIRE
+	light_range = LIGHT_RANGE_FIRE
 
 /datum/status_effect/fire_handler/wet_stacks
 	id = "wet_stacks"

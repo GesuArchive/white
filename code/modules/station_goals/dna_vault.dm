@@ -254,8 +254,8 @@
 			to_chat(H, span_notice("Я чувствую абсолютную устойчивость к токсинам, переносимым воздушно-капельным путем."))
 			if(locate(/obj/item/organ/lungs) in H.internal_organs)
 				var/obj/item/organ/lungs/L = H.internal_organs_slot[ORGAN_SLOT_LUNGS]
-				L.safe_breath_min = 0
-				L.safe_breath_max = 10000
+				L.safe_oxygen_min = 0
+				L.safe_oxygen_max = 10000
 			ADD_TRAIT(H, TRAIT_VIRUSIMMUNE, "dna_vault")
 		if(VAULT_NOBREATH)
 			to_chat(H, span_notice("Замечаю что более не нуждаюсь в дыхании."))

@@ -821,7 +821,7 @@
 /area/ruin/space/derelict/bridge)
 "ee" = (
 /obj/structure/window/reinforced,
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plasteel/airless,
 /area/ruin/space/derelict/singularity_engine)
@@ -2609,7 +2609,7 @@
 	},
 /area/ruin/space/derelict/atmospherics)
 "lO" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/engine_waste,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/engine_waste,
 /turf/open/floor/engine/air{
 	initial_gas_mix = "o2=20000;n2=80000;TEMP=293.15"
 	},
@@ -3252,7 +3252,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/derelict/bridge)
 "pZ" = (
-/obj/machinery/air_sensor/atmos/air_tank,
+/obj/machinery/air_sensor/air_tank,
 /turf/open/floor/engine/air{
 	initial_gas_mix = "o2=20000;n2=80000;TEMP=293.15"
 	},

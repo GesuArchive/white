@@ -201,9 +201,9 @@
 	for(var/turf/open/T in view(2, src))
 		if(isspaceturf(T))
 			continue
-		var/datum/gas_mixture/gas = T.return_air()
-		gas.parse_gas_string(OPENTURF_DEFAULT_ATMOS)
-		T.air_update_turf()
+		var/datum/gas_mixture/GM = SSair.parse_gas_string(OPENTURF_DEFAULT_ATMOS, /datum/gas_mixture/turf)
+		T.copy_air(GM)
+		T.update_visuals()
 
 /obj/structure/slime_crystal/metal
 	colour = "metal"

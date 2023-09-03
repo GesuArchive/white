@@ -109,7 +109,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/machinery/portable_atmospherics/canister/tier_2/toxins,
+/obj/machinery/portable_atmospherics/canister,
 /turf/open/floor/plating,
 /area/shuttle/exploration)
 "lT" = (
@@ -140,7 +140,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 1;
 	piping_layer = 4
 	},

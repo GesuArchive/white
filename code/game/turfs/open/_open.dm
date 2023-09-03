@@ -153,14 +153,15 @@
 /turf/open/indestructible/airblock
 	icon_state = "bluespace"
 	blocks_air = TRUE
+	init_air = FALSE
 	baseturfs = /turf/open/indestructible/airblock
 
-/turf/open/Initalize_Atmos(times_fired)
-	if(!blocks_air)
-		if(!istype(air,/datum/gas_mixture/turf))
-			air = new(2500,src)
-		air.copy_from_turf(src)
-	ImmediateCalculateAdjacentTurfs()
+/turf/open/Initalize_Atmos(time)
+	excited = FALSE
+	update_visuals()
+
+	current_cycle = time
+	init_immediate_calculate_adjacent_turfs()
 
 /turf/open/proc/GetHeatCapacity()
 	. = air.heat_capacity()
@@ -172,7 +173,7 @@
 	air.set_temperature(air.return_temperature() + temp)
 	air_update_turf()
 
-/turf/open/proc/freon_gas_act()
+/turf/open/proc/freeze_turf()
 	for(var/obj/I in contents)
 		if(I.resistance_flags & FREEZE_PROOF)
 			continue

@@ -8,7 +8,6 @@
 	//canSmoothWith = list(SMOOTH_GROUP_OPENSPACE)
 	//smoothing_groups = list(SMOOTH_GROUP_OPENSPACE)
 	baseturfs = /turf/open/openspace
-	can_atmos_passVertical = ATMOS_PASS_YES
 	intact = FALSE //this means wires go on top
 	pathing_pass_method = TURF_PATHING_PASS_PROC
 	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT

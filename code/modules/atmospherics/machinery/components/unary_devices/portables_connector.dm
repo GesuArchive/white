@@ -1,8 +1,8 @@
 /obj/machinery/atmospherics/components/unary/portables_connector
 	icon_state = "connector_map-3"
 
-	name = "порт подключения"
-	desc = "Для подключения всего, что связано с атмосферой."
+	name = "connector port"
+	desc = "For connecting portables devices related to atmospherics control."
 
 	can_unwrench = TRUE
 
@@ -13,12 +13,15 @@
 
 	pipe_flags = PIPING_ONE_PER_TURF
 	pipe_state = "connector"
+	custom_reconcilation = TRUE
+
+	///Reference to the connected device
 	var/obj/machinery/portable_atmospherics/connected_device
 
 /obj/machinery/atmospherics/components/unary/portables_connector/New()
-	..()
+	. = ..()
 	var/datum/gas_mixture/air_contents = airs[1]
-	air_contents.set_volume(0)
+	air_contents.volume = 0
 
 /obj/machinery/atmospherics/components/unary/portables_connector/Destroy()
 	if(connected_device)
@@ -29,7 +32,7 @@
 	icon_state = "connector"
 	if(showpipe)
 		cut_overlays()
-		var/image/cap = getpipeimage(icon, "connector_cap", initialize_directions, pipe_color)
+		var/image/cap = get_pipe_image(icon, "connector_cap", initialize_directions, pipe_color)
 		add_overlay(cap)
 
 /obj/machinery/atmospherics/components/unary/portables_connector/process_atmos()
@@ -37,10 +40,16 @@
 		return
 	update_parents()
 
+/obj/machinery/atmospherics/components/unary/portables_connector/return_airs_for_reconcilation(datum/pipeline/requester)
+	. = ..()
+	if(!connected_device)
+		return
+	. += connected_device.return_air()
+
 /obj/machinery/atmospherics/components/unary/portables_connector/can_unwrench(mob/user)
 	. = ..()
 	if(. && connected_device)
-		to_chat(user, span_warning("Не могу открутить [src.name], надо отключить от него [connected_device] сначала!"))
+		to_chat(user, span_warning("You cannot unwrench [src], detach [connected_device] first!"))
 		return FALSE
 
 /obj/machinery/atmospherics/components/unary/portables_connector/layer2

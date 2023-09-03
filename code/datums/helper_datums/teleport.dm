@@ -130,15 +130,17 @@
 	if(!floor_gas_mixture)
 		return
 
-	if(!(floor_gas_mixture.get_moles(GAS_O2) >= 16))
-		return
-	if(floor_gas_mixture.get_moles(GAS_PLASMA) >= 1)
-		return
-	if(floor_gas_mixture.get_moles(GAS_CO2) >= 10)
-		return
+	var/list/floor_gases = floor_gas_mixture.gases
+	var/static/list/gases_to_check = list(
+		/datum/gas/oxygen = list(16, 100),
+		/datum/gas/nitrogen,
+		/datum/gas/carbon_dioxide = list(0, 10)
+	)
+	if(!check_gases(floor_gases, gases_to_check))
+		return FALSE
 
 	// Aim for goldilocks temperatures and pressure
-	if((floor_gas_mixture.return_temperature() <= 270) || (floor_gas_mixture.return_temperature() >= 360))
+	if((floor_gas_mixture.temperature <= 270) || (floor_gas_mixture.temperature >= 360))
 		return
 	var/pressure = floor_gas_mixture.return_pressure()
 	if((pressure <= 20) || (pressure >= 550))

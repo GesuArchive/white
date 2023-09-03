@@ -1798,7 +1798,7 @@
 /turf/open/floor/plating/airless,
 /area/science/lab)
 "hg" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/oxygen_output,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/oxygen_output,
 /obj/effect/turf_decal/tile/hex/blue,
 /obj/effect/turf_decal/tile/hex/blue{
 	dir = 8
@@ -4877,7 +4877,7 @@
 /turf/open/floor/plasteel,
 /area/construction/storage_wing)
 "sm" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/oxygen_input,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/oxygen_input,
 /obj/effect/turf_decal/tile/hex/blue,
 /obj/effect/turf_decal/tile/hex/blue{
 	dir = 8
@@ -5691,7 +5691,7 @@
 "vk" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/item/target/alien/anchored,
-/obj/machinery/camera/preset/toxins/num1{
+/obj/machinery/camera/preset/ordnance/num1{
 	dir = 10
 	},
 /turf/open/indestructible/labfloor,
@@ -5760,7 +5760,7 @@
 /turf/open/space/basic,
 /area/space)
 "vv" = (
-/obj/machinery/atmospherics/components/unary/tank/air,
+/obj/machinery/atmospherics/components/tank/air,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/captain/private)
 "vw" = (
@@ -6534,10 +6534,8 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/airalarm/server{
-	dir = 1;
-	pixel_y = -22
-	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/tlv_no_checks,
 /obj/machinery/rnd/server,
 /turf/open/floor/circuit/telecomms/server,
 /area/science/server)
@@ -7183,7 +7181,7 @@
 /turf/open/floor/plating,
 /area/mine/lobby)
 "AI" = (
-/obj/machinery/atmospherics/components/unary/tank/air,
+/obj/machinery/atmospherics/components/tank/air,
 /turf/closed/mineral/random,
 /area/mine/unexplored)
 "AJ" = (
@@ -8053,7 +8051,7 @@
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/siphon/atmos/air_output,
+/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/siphon/monitored/air_output,
 /turf/open/floor/engine/air,
 /area/engineering/atmos/upper)
 "Ed" = (
@@ -8546,7 +8544,7 @@
 /turf/open/floor/plasteel,
 /area/space)
 "FI" = (
-/obj/machinery/air_sensor/atmos/nitrogen_tank,
+/obj/machinery/air_sensor/nitrogen_tank,
 /obj/effect/turf_decal/tile/hex/red,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
@@ -8644,7 +8642,7 @@
 /turf/open/floor/plasteel/monofloor/airless,
 /area/engineering/atmos/upper)
 "Gb" = (
-/obj/machinery/computer/atmos_control/tank/air_tank,
+/obj/machinery/computer/atmos_control/air_tank,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible{
 	dir = 10
 	},
@@ -9124,7 +9122,7 @@
 /turf/open/floor/plating,
 /area/mine/lobby)
 "HM" = (
-/obj/machinery/atmospherics/components/unary/tank/air{
+/obj/machinery/atmospherics/components/tank/air{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -9580,7 +9578,7 @@
 /turf/open/floor/plasteel,
 /area/science/lab)
 "Ji" = (
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /obj/effect/turf_decal/box,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
@@ -9799,7 +9797,7 @@
 /area/science/test_area)
 "JS" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/camera/preset/toxins/num2,
+/obj/machinery/camera/preset/ordnance/num2,
 /obj/structure/marker_beacon/burgundy,
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -9821,7 +9819,7 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/virology)
 "JV" = (
-/obj/machinery/air_sensor/atmos/oxygen_tank,
+/obj/machinery/air_sensor/oxygen_tank,
 /obj/effect/turf_decal/tile/hex/blue,
 /obj/effect/turf_decal/tile/hex/blue{
 	dir = 1
@@ -9995,7 +9993,7 @@
 /area/science/test_area)
 "KC" = (
 /obj/effect/turf_decal/tile/yellow,
-/obj/machinery/portable_atmospherics/canister/tier_2,
+/obj/machinery/portable_atmospherics/canister,
 /turf/open/floor/plasteel/dark/side{
 	dir = 6
 	},
@@ -11605,7 +11603,7 @@
 	},
 /area/engineering/lobby)
 "QO" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/nitrogen_input,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrogen_input,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 4
 	},
@@ -11659,7 +11657,7 @@
 /area/medical/medbay/central)
 "QY" = (
 /obj/effect/turf_decal/tile/yellow,
-/obj/machinery/portable_atmospherics/canister/tier_2,
+/obj/machinery/portable_atmospherics/canister,
 /turf/open/floor/plasteel/dark/side{
 	dir = 4
 	},
@@ -12225,7 +12223,7 @@
 /turf/open/floor/plating/foam,
 /area/medical/sleeper)
 "SV" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/nitrogen_output,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrogen_output,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 4
 	},
@@ -12339,7 +12337,7 @@
 /obj/effect/turf_decal/tile/hex/blue{
 	dir = 8
 	},
-/obj/machinery/atmospherics/components/unary/outlet_injector/atmos/air_input,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/air_input,
 /turf/open/floor/engine/air,
 /area/engineering/atmos/upper)
 "Tw" = (
@@ -12765,7 +12763,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/maintenance/radshelter)
 "UM" = (
-/obj/machinery/computer/atmos_control/tank/oxygen_tank,
+/obj/machinery/computer/atmos_control/oxygen_tank,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -12888,7 +12886,7 @@
 /turf/open/space/basic,
 /area/space)
 "Vs" = (
-/obj/machinery/computer/atmos_control/tank/nitrogen_tank,
+/obj/machinery/computer/atmos_control/nitrogen_tank,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -12972,7 +12970,7 @@
 /turf/open/floor/plasteel/dark,
 /area/cargo/warehouse)
 "VL" = (
-/obj/machinery/atmospherics/miner/toxins,
+/obj/machinery/atmospherics/miner/plasma,
 /turf/open/floor/plating/asteroid/airless,
 /area/mine/unexplored)
 "VN" = (
@@ -13100,7 +13098,7 @@
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
-/obj/machinery/air_sensor/atmos/air_tank,
+/obj/machinery/air_sensor/air_tank,
 /turf/open/floor/engine/air,
 /area/engineering/atmos/upper)
 "Wn" = (
@@ -13651,10 +13649,7 @@
 	pixel_x = 24;
 	pixel_y = -24
 	},
-/obj/machinery/computer/security/telescreen/toxins{
-	dir = 8;
-	pixel_x = 30
-	},
+/obj/machinery/computer/security/telescreen/ordnance,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},

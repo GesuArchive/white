@@ -1377,7 +1377,7 @@
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "en" = (
-/obj/machinery/atmospherics/components/unary/tank/air,
+/obj/machinery/atmospherics/components/tank/air,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "eo" = (
@@ -1867,7 +1867,7 @@
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dockingbay)
 "fZ" = (
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engines)
 "ga" = (
