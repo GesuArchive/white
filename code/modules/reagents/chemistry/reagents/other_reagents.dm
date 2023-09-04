@@ -1579,7 +1579,7 @@
 	..()
 
 /datum/reagent/nitrium
-	name = "Нитриум"
+	name = "Нитрий"
 	enname = "Nitrium"
 	description = "A highly reactive gas that makes you feel faster."
 	reagent_state = GAS

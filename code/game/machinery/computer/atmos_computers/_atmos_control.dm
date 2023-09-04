@@ -1,7 +1,7 @@
 /// GENERAL AIR CONTROL (a.k.a atmos computer)
 /obj/machinery/computer/atmos_control
-	name = "atmospherics monitoring"
-	desc = "Used to monitor the station's atmospherics sensors."
+	name = "консоль АТМОСа"
+	desc = "Используется для мониторинга атмосферных датчиков станции."
 	icon_screen = "tank"
 	icon_keyboard = "atmos_key"
 	circuit = /obj/item/circuitboard/computer/atmos_control
@@ -30,7 +30,7 @@
 
 	var/static/list/multitool_tips = list(
 		TOOL_MULTITOOL = list(
-			SCREENTIP_CONTEXT_LMB = "Link Sensor",
+			SCREENTIP_CONTEXT_LMB = "Подключить сенсор",
 		)
 	)
 	AddElement(/datum/element/contextual_screentip_tools, multitool_tips)
@@ -44,7 +44,7 @@
 
 /obj/machinery/computer/atmos_control/examine(mob/user)
 	. = ..()
-	. += span_notice("Use a multitool to link a air sensor to this computer")
+	. += span_notice("<hr>Используй мультитул для привязки к сенсору.")
 
 /// Reconnect only works for station based chambers.
 /obj/machinery/computer/atmos_control/proc/reconnect(mob/user)
@@ -69,7 +69,7 @@
 		available_devices[GLOB.station_gas_chambers[chamber_identifier]] = chamber_identifier
 
 	// As long as we dont put any funny chars in the strings it should match.
-	var/new_name = tgui_input_list(user, "Select the device set", "Reconnect", available_devices)
+	var/new_name = tgui_input_list(user, "Выбери устройство", "Переподключение", available_devices)
 	if(isnull(new_name))
 		return FALSE
 	var/new_id = available_devices[new_name]
@@ -83,7 +83,7 @@
 			atmos_chambers[chamber_id] = always_displayed_chambers[chamber_id]
 	atmos_chambers[new_id] = new_name
 
-	name = new_name + (control ? " Control" : " Monitor")
+	name = new_name + (control ? " управляющая" : " мониторящая")
 
 	return TRUE
 
@@ -98,7 +98,7 @@
 			was_multi_tooled = TRUE
 		//register the sensor's unique ID with it's assositated chamber
 		connected_sensors[sensor.chamber_id] = sensor.id_tag
-		user.balloon_alert(user, "sensor connected to [src]")
+		user.balloon_alert(user, "сенсор подключен к [src]")
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 
 	return

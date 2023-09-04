@@ -126,7 +126,7 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 /datum/gas_mixture/proc/adjust_moles(gas_id, amount)
 	var/gas_path = gas_id2path(gas_id)
 	ASSERT_GAS(gas_path, src)
-	gases[gas_path][MOLES] = amount
+	gases[gas_path][MOLES] += amount
 	garbage_collect()
 
 /// Checks to see if gas amount exists in mixture.

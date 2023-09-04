@@ -98,7 +98,7 @@
 		losebreath--
 		if(prob(10))
 			INVOKE_ASYNC(src, PROC_REF(emote), "gasp")
-		if(istype(loc, /obj/))
+		if(isobj(loc))
 			var/obj/loc_as_obj = loc
 			loc_as_obj.handle_internal_lifeform(src,0)
 	else
@@ -112,18 +112,16 @@
 				breath = loc_as_obj.handle_internal_lifeform(src, BREATH_VOLUME)
 
 			else if(isturf(loc)) //Breathe from loc as turf
-				var/breath_ratio = 0
+				var/breath_moles = 0
 				if(environment)
-					breath_ratio = BREATH_VOLUME/environment.return_volume()
+					breath_moles = environment.total_moles()*BREATH_PERCENTAGE
 
-				breath = loc.remove_air_ratio(breath_ratio)
+				breath = loc.remove_air(breath_moles)
 		else //Breathe from loc as obj again
-			if(istype(loc, /obj/))
+			if(isobj(loc))
 				var/obj/loc_as_obj = loc
 				loc_as_obj.handle_internal_lifeform(src,0)
 
-	if(breath)
-		breath.set_volume(BREATH_VOLUME)
 	check_breath(breath)
 
 	if(breath)

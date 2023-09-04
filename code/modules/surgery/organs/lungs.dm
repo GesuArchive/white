@@ -318,7 +318,7 @@
 		var/healium_pp = breath.get_breath_partial_pressure(breath.get_moles(GAS_HEALIUM))
 		if(healium_pp > gas_stimulation_min)
 			if(prob(15))
-				to_chat(H, span_alert("Your head starts spinning and your lungs burn!"))
+				to_chat(H, span_alert("Голова кружится и лёгкие горят!"))
 				SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "chemical_euphoria", /datum/mood_event/chemical_euphoria)
 				H.emote("gasp")
 		else
@@ -367,7 +367,7 @@
 			if(prob(0.5 * miasma_pp))
 				var/datum/disease/advance/miasma_disease = new /datum/disease/advance/random(min(round(max(miasma_pp/2, 1), 1), 6), min(round(max(miasma_pp, 1), 1), 8))
 				//tl;dr the first argument chooses the smaller of miasma_pp/2 or 6(typical max virus symptoms), the second chooses the smaller of miasma_pp or 8(max virus symptom level) //
-				miasma_disease.name = "Unknown"//^each argument has a minimum of 1 and rounds to the nearest value. Feel free to change the pp scaling I couldn't decide on good numbers for it.
+				miasma_disease.name = "Неизвестный"//^each argument has a minimum of 1 and rounds to the nearest value. Feel free to change the pp scaling I couldn't decide on good numbers for it.
 				miasma_disease.try_infect(owner)
 
 			// Miasma side effects
