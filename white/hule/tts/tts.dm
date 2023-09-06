@@ -53,17 +53,14 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"arthas" 		     = "Warcraft 3: Артас",
 	"rexxar" 		     = "Warcraft 3: Рексар",
 	"voljin" 		     = "Warcraft 3: Вол'джин",
-	"forester" 		     = "Warcraft 3: Лесник",
 	"illidan" 		     = "Warcraft 3: Иллидан",
 
 	"azir" 		     	 = "LoL: Азир",
 	"caitlyn" 		     = "LoL: Кэйтлин",
 	"ekko" 		     	 = "LoL: Экко",
 	"twitch" 		     = "LoL: Твич",
-	"strelok" 		     = "LoL: Стрелок",
 	"ziggs" 		     = "LoL: Зиггс",
 	"rexxar" 		     = "LoL: Рексар",
-	"strelok" 		     = "LoL: Стрелок",
 
 	"tracer" 		     = "Overwatch: Трейсер",
 
@@ -79,7 +76,9 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"mossman" 			 = "HL2: Джудит Моссман",
 
 	"bandit" 			 = "S.T.A.L.K.E.R: Бандит",
-	"sidorovich" 		 = "S.T.A.L.K.E.R: Сидорович"
+	"sidorovich" 		 = "S.T.A.L.K.E.R: Сидорович",
+	"strelok" 		     = "S.T.A.L.K.E.R: Стрелок",
+	"forester" 		     = "S.T.A.L.K.E.R: Лесник"
 ))
 
 /proc/open_sound_channel_for_tts()
