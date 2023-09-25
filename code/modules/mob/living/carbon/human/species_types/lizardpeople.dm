@@ -132,6 +132,33 @@ Lizard subspecies: ASHWALKERS
 	species_language_holder = /datum/language_holder/lizard/ash
 
 /*
+ Lizard subspecies: DRACONIDS
+ These guys only come from the dragon's blood bottle from lavaland. They're basically just lizards with all-around marginally better stats and fire resistance.
+ Sadly they only get digitigrade legs. Can't have everything!
+*/
+/datum/species/lizard/draconid
+	name = "Draconid"
+	id = "draconid"
+	limbs_id = "lizard"
+	fixed_mut_color = "A02720" 	//Deep red
+	species_traits = list(MUTCOLORS,EYECOLOR,LIPS,DIGITIGRADE,HAS_FLESH,HAS_BONE)
+	inherent_traits = list(TRAIT_RESISTHEAT, TRAIT_ADVANCEDTOOLUSER, TRAIT_CAN_STRIP, TRAIT_CAN_USE_FLIGHT_POTION)	//Dragons like fire
+	burnmod = 0.9
+	punchdamagelow = 3
+	punchdamagehigh = 12
+	punchstunthreshold = 12	//+2 claws of powergaming
+
+/datum/species/lizard/draconid/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+	. = ..()
+	C.weather_immunities |= "ash"
+
+/datum/species/lizard/draconid/on_species_loss(mob/living/carbon/C)
+	. = ..()
+	C.weather_immunities -= "ash"
+
+// yogs end
+
+/*
 Lizard subspecies: SILVER SCALED
 */
 /datum/species/lizard/silverscale
