@@ -20,6 +20,10 @@ export const Canister = (props, context) => {
     defaultReleasePressure,
     minReleasePressure,
     maxReleasePressure,
+    hasHypernobCrystal,
+    reactionSuppressionEnabled,
+    hasCell,
+    cellCharge,
     pressureLimit,
     valveOpen,
     isPrototype,
@@ -30,7 +34,7 @@ export const Canister = (props, context) => {
     restricted,
   } = data;
   return (
-    <Window width={300} height={275}>
+    <Window width={350} height={335}>
       <Window.Content>
         <Flex direction="column" height="100%">
           <Flex.Item mb={1}>
@@ -43,14 +47,22 @@ export const Canister = (props, context) => {
                       mr={1}
                       icon={restricted ? 'lock' : 'unlock'}
                       color="caution"
+                      content={restricted ? 'Инженерный' : 'Публичный'}
                       onClick={() => act('restricted')}
                     />
                   )}
+                  <Button
+                    icon={data.shielding ? 'power-off' : 'times'}
+                    content={data.shielding ? 'Щит-ВКЛ' : 'Щит-ВЫКЛ'}
+                    selected={data.shielding}
+                    onClick={() => act('shielding')}
+                  />
                   <Button
                     icon="pencil-alt"
                     content="Переименовать"
                     onClick={() => act('relabel')}
                   />
+                  <Button icon="palette" onClick={() => act('recolor')} />
                 </>
               }>
               <LabeledControls>
@@ -90,7 +102,7 @@ export const Canister = (props, context) => {
                       fluid
                       position="absolute"
                       top="-2px"
-                      right="-24px"
+                      right="-20px"
                       color="transparent"
                       icon="fast-forward"
                       onClick={() =>
@@ -102,8 +114,8 @@ export const Canister = (props, context) => {
                     <Button
                       fluid
                       position="absolute"
-                      top="20px"
-                      right="-24px"
+                      top="16px"
+                      right="-20px"
                       color="transparent"
                       icon="undo"
                       onClick={() =>
@@ -117,7 +129,7 @@ export const Canister = (props, context) => {
                 <LabeledControls.Item label="Вентиль">
                   <Button
                     my={0.5}
-                    width="55px"
+                    width="50px"
                     lineHeight={2}
                     fontSize="11px"
                     color={
@@ -141,6 +153,27 @@ export const Canister = (props, context) => {
                   </Tooltip>
                 </LabeledControls.Item>
               </LabeledControls>
+            </Section>
+            <Section>
+              <LabeledList>
+                <LabeledList.Item label="Заряд">
+                  {hasCell ? cellCharge + '%' : 'Нет батарейки'}
+                </LabeledList.Item>
+                {!!hasHypernobCrystal && (
+                  <LabeledList.Item label="Подавление реакций">
+                    <Button
+                      icon={
+                        data.reactionSuppressionEnabled ? 'snowflake' : 'times'
+                      }
+                      content={
+                        data.reactionSuppressionEnabled ? 'Включено' : 'Выключено'
+                      }
+                      selected={data.reactionSuppressionEnabled}
+                      onClick={() => act('reaction_suppression')}
+                    />
+                  </LabeledList.Item>
+                )}
+              </LabeledList>
             </Section>
           </Flex.Item>
           <Flex.Item grow={1}>
