@@ -1,7 +1,6 @@
-//wip wip wup
 /obj/structure/mirror
-	name = "mirror"
-	desc = "Mirror mirror on the wall, who's the most robust of them all?"
+	name = "зеркало"
+	desc = "Свет мой, зеркальце, скажи, да всю правду доложи! Я ль на свете всех сильнее, всех робастней и милее?"
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "mirror"
 	density = FALSE
@@ -27,8 +26,21 @@
 
 /obj/structure/mirror/Initialize(mapload)
 	. = ..()
+	var/static/list/reflection_filter = alpha_mask_filter(icon = icon('icons/obj/watercloset.dmi', "mirror_mask"))
+	var/static/matrix/reflection_matrix = matrix(0.75, 0, 0, 0, 0.75, 0)
+	var/datum/callback/can_reflect = CALLBACK(src, PROC_REF(can_reflect))
+	var/list/update_signals = list(COMSIG_OBJ_BREAK)
+	AddComponent(/datum/component/reflection, reflection_filter = reflection_filter, reflection_matrix = reflection_matrix, can_reflect = can_reflect, update_signals = update_signals)
 	if(icon_state == "mirror_broke" && !broken)
 		obj_break(null, mapload)
+
+/obj/structure/mirror/proc/can_reflect(atom/movable/target)
+	///I'm doing it this way too, because the signal is sent before the broken variable is set to TRUE.
+	if(obj_integrity <= integrity_failure * max_integrity)
+		return FALSE
+	if(broken || !isliving(target) || HAS_TRAIT(target, TRAIT_NO_MIRROR_REFLECTION))
+		return FALSE
+	return TRUE
 
 /obj/structure/mirror/attack_hand(mob/user)
 	. = ..()

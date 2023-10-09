@@ -856,3 +856,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 //Traits applied to the mind
 /// This mob is considered dead for the sake of objectives
 #define MIND_TRAIT_OBJECTIVE_DEAD "mind_trait_objective_dead"
+
+/// If the movable shouldn't be reflected by mirrors.
+#define TRAIT_NO_MIRROR_REFLECTION "no_mirror_reflection"

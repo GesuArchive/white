@@ -777,6 +777,7 @@
 #include "code\datums\components\punchcooldown.dm"
 #include "code\datums\components\puzzgrid.dm"
 #include "code\datums\components\radioactive.dm"
+#include "code\datums\components\reflection.dm"
 #include "code\datums\components\religious_tool.dm"
 #include "code\datums\components\remote_materials.dm"
 #include "code\datums\components\rename.dm"
