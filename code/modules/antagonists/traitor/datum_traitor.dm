@@ -253,9 +253,13 @@
 		return
 	var/law = "Достигнуть целей любой ценой."
 	var/law_borg = "Достигнуть целей в моей программе любой ценой."
+
 	killer.set_zeroth_law(law, law_borg)
 	killer.set_syndie_radio()
+	killer.laws.protected_zeroth = TRUE
+
 	to_chat(killer, "Моя радиосвязь улучшена! Используй :t для разговора с другими агентами Синдиката!")
+
 	killer.add_malf_picker()
 
 /datum/antagonist/traitor/proc/equip(silent = FALSE)

@@ -54,6 +54,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/cmd_admin_direct_narrate,	/*send text directly to a player with no padding. Useful for narratives and fluff-text*/
 	/client/proc/cmd_admin_check_player_exp, /* shows players by playtime */
 	/client/proc/toggle_combo_hud, // toggle display of the combination pizza antag and taco sci/med/eng hud
+	/client/proc/cmd_admin_law_panel,
 	/client/proc/toggle_AI_interact, /*toggle admin ability to interact with machines as an AI*/
 	/client/proc/deadchat,
 	/client/proc/toggleprayers,
@@ -309,6 +310,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/toggle_nuke,
 	/client/proc/cmd_display_del_log,
 	/client/proc/toggle_combo_hud,
+	/client/proc/cmd_admin_law_panel,
 	/client/proc/debug_huds_wrapper,
 	/client/proc/fuck_pie,
 	))
@@ -1060,3 +1062,21 @@ GLOBAL_PROTECT(all_dumb_admin_verbs)
 	LAZYADD(holder.last_verbs_used, list(list("verb" = params["verb"], "name" = params["name"], "desc" = params["desc"])))
 
 	SStgui.close_uis(usr)
+
+/client/proc/list_law_changes()
+	set name = "List Law Changes"
+	set category = "Дбг"
+	if(!holder)
+		return
+	holder.list_law_changes()
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "List Law Changes") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+
+/datum/admins/proc/list_law_changes() // поебать
+	if(!SSticker.HasRoundStarted())
+		tgui_alert(usr, "The game hasn't started yet!")
+		return
+	var/data = "<b>Showing last [length(GLOB.lawchanges)] law changes.</b><hr>"
+	for(var/entry in GLOB.lawchanges)
+		data += "[entry]<BR>"
+	usr << browse(data, "window=lawchanges;size=800x500")
+

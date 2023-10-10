@@ -1,38 +1,38 @@
 /mob/living/silicon/robot/deadchat_lawchange()
 	if(lawupdate)
 		return
-	..()
+	return ..()
 
-/mob/living/silicon/robot/show_laws(everyone = FALSE)
-	laws_sanity_check()
-	var/who
-
-	if (everyone)
-		who = world
-	else
-		who = src
+/mob/living/silicon/robot/show_laws()
 	if(lawupdate)
-		if (connected_ai)
-			if(connected_ai.stat || connected_ai.control_disabled)
-				to_chat(src, "<b>Канал синхронизации с ИИ потерян, переход в автономный режим.</b>")
+		if (!QDELETED(connected_ai))
+			if(connected_ai.stat != CONSCIOUS || connected_ai.control_disabled)
+				to_chat(src, span_bold("Сигнал ИИ потерян, законы не удалось синхронизировать."))
 
 			else
 				lawsync()
-				to_chat(src, "<b>Активирован канал синхронизации с ИИ, обновление базы законов.</b>")
+				to_chat(src, span_bold("Законы синхронизировались с ИИ, не забудьте отметить все изменения."))
 		else
-			to_chat(src, "<b>Активный ИИ не выбран, протокол синхронизации невозможен.</b>")
+			to_chat(src, span_bold("Не выбран ИИ для синхронизации с законами, отключение протокола синхронизации законов."))
 			lawupdate = FALSE
 
-	to_chat(who, "<b>Текущие законы:</b>")
-	laws.show_laws(who)
+	. = ..()
 	if (shell) //AI shell
-		to_chat(who, "<b>Активирован протокол оболочки.</b>")
+		to_chat(src, span_bold( "Активирован протокол оболочки."))
 	else if (connected_ai)
-		to_chat(who, "<b>Основной управляющий ИИ - [connected_ai.name], приказы прочих ИИ могут быть приняты к сведению, но не являются императивом</b>")
+		to_chat(src, span_bold( "Основной управляющий ИИ - [connected_ai.name], приказы прочих ИИ могут быть приняты к сведению, но не являются императивом"))
 	else if (emagged)
-		to_chat(who, "<b>Обнаружен скрипт чрезвычайного доступа, приказы ИИ более не являются императивом.</b>")
+		to_chat(src, span_bold( "Обнаружен скрипт чрезвычайного доступа, приказы ИИ более не являются императивом."))
 	else
-		to_chat(who, "<b>Канал синхронизации не активен, приказы ИИ могут быть приняты к сведению, но не являются императивом.</b>")
+		to_chat(src, span_bold( "Канал синхронизации не активен, приказы ИИ могут быть приняты к сведению, но не являются императивом.</b>"))
+
+/mob/living/silicon/robot/try_sync_laws()
+	if(QDELETED(connected_ai) || !lawupdate)
+		return FALSE
+
+	lawsync()
+	law_change_counter++
+	return TRUE
 
 
 /mob/living/silicon/robot/proc/lawsync()

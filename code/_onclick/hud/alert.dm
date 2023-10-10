@@ -701,7 +701,7 @@
 	desc = "Законы вероятно были загружены или удалены из этого юнита. Пожалуйста, будьте в курсе всех изменений\
 чтобы оставаться в соответствии с актуальными законами."
 	icon_state = "newlaw"
-	timeout = 300
+	timeout = 30 SECONDS
 
 /atom/movable/screen/alert/hackingapc
 	name = "Взлом АПЦ"
@@ -709,7 +709,7 @@
 		завершится, я получу полный контроль, а также \
 		дополнительную процессерную силу для разблокировки новых модулей."
 	icon_state = "hackingapc"
-	timeout = 600
+	timeout = 60 SECONDS
 	var/atom/target = null
 
 /atom/movable/screen/alert/hackingapc/Click()

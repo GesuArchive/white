@@ -7,16 +7,42 @@
 
 
 /datum/ai_laws
+	/// The name of the lawset
 	var/name = "Unknown Laws"
-	var/zeroth = null
-	var/zeroth_borg = null
-	var/list/inherent = list()
-	var/list/supplied = list()
-	var/list/ion = list()
-	var/list/hacked = list()
+
+	/// The silicon linked to this lawset
 	var/mob/living/silicon/owner
-	var/list/devillaws = list()
+	/// The ID of this lawset, pretty much only used to tell if we're default or not
 	var/id = DEFAULT_AI_LAWID
+
+	/// If TRUE, the zeroth law of this AI is protected and cannot be removed by players under normal circumstances.
+	var/protected_zeroth = FALSE
+
+	/// Zeroth borg law
+	/// It's just a zeroth law but specially themed for cyborgs
+	/// ("follow your master" vs "accomplish your objectives")
+	var/zeroth = null
+	/// Zeroth borg law
+	/// It's just a zeroth law but specially themed for cyborgs
+	/// ("follow your master" vs "accomplish your objectives")
+	var/zeroth_borg = null
+	/// Core laws
+	/// Inherent laws are the "core" laws of the AI
+	/// Reseting the AI will not remove these, these are intrinsit to whatever lawset they are running.
+	var/list/inherent = list()
+	/// Supplied laws
+	/// Supplied laws are supplied in addition to the inherent laws - after the fact
+	/// These laws will go away when an AI is reset
+	var/list/supplied = list()
+	/// Ion laws
+	/// Special randomized (usually) laws which are above all over laws
+	/// These laws will go away when an AI is reset
+	var/list/ion = list()
+	/// Hacked laws
+	/// Syndicate uploaded laws which are above all other laws
+	/// These laws will go away when an AI is reset
+	var/list/hacked = list()
+	var/list/devillaws = list()
 
 /datum/ai_laws/Destroy()
 	owner = null
@@ -319,7 +345,14 @@
 	var/datum/ai_laws/templaws = new lawtype()
 	inherent = templaws.inherent
 
-/datum/ai_laws/proc/get_law_amount(groups)
+/**
+ * Gets the number of how many laws this AI has
+ *
+ * * groups - What groups to count laws from? By default counts all groups
+ *
+ * Returns a number, the number of laws we have
+ */
+/datum/ai_laws/proc/get_law_amount(list/groups = list(LAW_ZEROTH, LAW_ION, LAW_HACKED, LAW_INHERENT, LAW_SUPPLIED))
 	var/law_amount = 0
 	if(devillaws && (LAW_DEVIL in groups))
 		law_amount++
@@ -341,24 +374,128 @@
 /datum/ai_laws/proc/set_law_sixsixsix(laws)
 	devillaws = laws
 
-/datum/ai_laws/proc/set_zeroth_law(law, law_borg = null)
+/**
+ * Sets this lawset's zeroth law to the passed law
+ *
+ * Also can set the zeroth borg law, if this lawset is for master AIs.
+ * The zeroth borg law allows for AIs with zeroth laws to give a differing zeroth law to their child cyborgs
+ */
+/datum/ai_laws/proc/set_zeroth_law(law, law_borg)
 	zeroth = law
 	if(law_borg) //Making it possible for slaved borgs to see a different law 0 than their AI. --NEO
 		zeroth_borg = law_borg
 
+/**
+ * Unsets the zeroth (and zeroth borg) law from this lawset
+ *
+ * This will NOT unset a malfunctioning AI's zero law if force is not true
+ *
+ * Returns TRUE on success, or false otherwise
+ */
+/datum/ai_laws/proc/clear_zeroth_law(force = FALSE)
+	if(force)
+		zeroth = null
+		zeroth_borg = null
+		return TRUE
+
+	// Protected zeroeth laws (malf, admin) shouldn't be wiped
+	if(protected_zeroth)
+		return FALSE
+
+	// If the owner is an antag (has a special role) they also shouldn't be wiped
+	if(owner?.mind?.special_role)
+		return FALSE
+	if (isAI(owner))
+		var/mob/living/silicon/ai/ai_owner = owner
+		if(ai_owner.deployed_shell?.mind?.special_role)
+			return FALSE
+
+	zeroth = null
+	zeroth_borg = null
+	return TRUE
+/// Removes the passed law from the inherent law list.
+/datum/ai_laws/proc/remove_inherent_law(law)
+	inherent -= law
+
+/// Clears all inherent laws from this lawset.
+/datum/ai_laws/proc/clear_inherent_laws()
+	inherent.Cut()
+
+/// Adds the passed law as an inherent law.
+/// Simply adds it to the bottom of the inherent law list.
+/// No duplicate laws allowed.
+
 /datum/ai_laws/proc/add_inherent_law(law)
-	if (!(law in inherent))
-		inherent += law
+	inherent |= law
 
 /datum/ai_laws/proc/add_ion_law(law)
 	ion += law
+/// Removes the passed law from the ion law list.
+/datum/ai_laws/proc/remove_ion_law(law)
+	ion -= law
 
+/// Clears all ion laws.
+/datum/ai_laws/proc/clear_ion_laws()
+	ion.Cut()
+
+/// Adds the passed law as an hacked law.
 /datum/ai_laws/proc/add_hacked_law(law)
 	hacked += law
 
-/datum/ai_laws/proc/clear_inherent_laws()
-	qdel(inherent)
-	inherent = list()
+/// Removes the passed law from the hacked law list.
+/datum/ai_laws/proc/remove_hacked_law(law)
+	hacked -= law
+
+/// Clears all hacked laws.
+/datum/ai_laws/proc/clear_hacked_laws()
+	hacked.Cut()
+
+/// Adds the passed law as a supplied law at the passed priority level.
+/// Will override any existing supplied laws at that priority level.
+
+/// Removes the supplied law at the passed number.
+/datum/ai_laws/proc/remove_supplied_law_by_num(number)
+	supplied[number] = ""
+
+/// Removes the supplied law by law text, replacing it with a blank.
+/datum/ai_laws/proc/remove_supplied_law_by_law(law)
+	var/lawindex = supplied.Find(law)
+	if(!lawindex)
+		return
+
+	supplied[lawindex] = ""
+
+/// Clears all supplied laws.
+/datum/ai_laws/proc/clear_supplied_laws()
+	supplied.Cut()
+
+/**
+ * Removes the law at the passed index of both inherent and supplied laws combined.
+ *
+ * For example, if a lawset has 3 inherent and 3 supplied laws...
+ * Calling this with number = 2 will remove the second inherent law while
+ * calling this with number = 4 will remove the first supplied law
+ *
+ * Returns the law text of what law that was removed.
+ */
+/datum/ai_laws/proc/remove_law(number)
+	if(number <= 0)
+		return
+	if(inherent.len && number <= inherent.len)
+		. = inherent[number]
+		inherent -= .
+		return
+	var/list/supplied_laws = list()
+	for(var/index in 1 to supplied.len)
+		var/law = supplied[index]
+		if(length(law) > 0)
+			supplied_laws += index //storing the law number instead of the law
+	if(supplied_laws.len && number <= (inherent.len+supplied_laws.len))
+		var/law_to_remove = supplied_laws[number-inherent.len]
+		. = supplied[law_to_remove]
+		supplied -= .
+		return
+
 
 /datum/ai_laws/proc/add_supplied_law(number, law)
 	while (supplied.len < number + 1)
@@ -401,6 +538,7 @@
 			supplied[i] = law
 
 /datum/ai_laws/proc/shuffle_laws(list/groups)
+	RETURN_TYPE(/list)
 	var/list/laws = list()
 	if(ion.len && (LAW_ION in groups))
 		laws += ion
@@ -431,51 +569,14 @@
 				break
 			i++
 
-/datum/ai_laws/proc/remove_law(number)
-	if(number <= 0)
-		return
-	if(inherent.len && number <= inherent.len)
-		. = inherent[number]
-		inherent -= .
-		return
-	var/list/supplied_laws = list()
-	for(var/index = 1, index <= supplied.len, index++)
-		var/law = supplied[index]
-		if(length(law) > 0)
-			supplied_laws += index //storing the law number instead of the law
-	if(supplied_laws.len && number <= (inherent.len+supplied_laws.len))
-		var/law_to_remove = supplied_laws[number-inherent.len]
-		. = supplied[law_to_remove]
-		supplied -= .
-		return
-
-/datum/ai_laws/proc/clear_supplied_laws()
-	supplied = list()
-
-/datum/ai_laws/proc/clear_ion_laws()
-	ion = list()
-
-/datum/ai_laws/proc/clear_hacked_laws()
-	hacked = list()
-
-/datum/ai_laws/proc/show_laws(who)
+/datum/ai_laws/proc/show_laws(mob/to_who)
 	var/list/printable_laws = get_law_list(include_zeroth = TRUE)
-	for(var/law in printable_laws)
-		to_chat(who,law)
+	to_chat(to_who, "<div class='examine_block'>[jointext(printable_laws, "\n")]</div>")
 
-/datum/ai_laws/proc/clear_zeroth_law(force) //only removes zeroth from antag ai if force is 1
-	if(force)
-		zeroth = null
-		zeroth_borg = null
-		return
-	if(owner?.mind?.special_role)
-		return
-	if (istype(owner, /mob/living/silicon/ai))
-		var/mob/living/silicon/ai/A=owner
-		if(A?.deployed_shell?.mind?.special_role)
-			return
-	zeroth = null
-	zeroth_borg = null
+
+/// Adds the passed law as an inherent law.
+/// Simply adds it to the bottom of the inherent law list.
+/// No duplicate laws allowed.
 
 /datum/ai_laws/proc/associate(mob/living/silicon/M)
 	if(!owner)

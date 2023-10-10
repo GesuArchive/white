@@ -284,7 +284,7 @@ AI MODULES
 	..()
 
 /obj/item/ai_module/remove/install(datum/ai_laws/law_datum, mob/user)
-	if(lawpos > (law_datum.get_law_amount(list(LAW_INHERENT = 1, LAW_SUPPLIED = 1))))
+	if(lawpos > law_datum.get_law_amount(list(LAW_INHERENT, LAW_SUPPLIED)))
 		to_chat(user, span_warning("Закона с № [lawpos] не существует!"))
 		return
 	..()
