@@ -32,7 +32,7 @@
 			var/mob/living/victim_living = victim
 			victim_living.Paralyze(10 SECONDS)
 			victim_living.adjustBruteLoss(5)
-			to_chat(victim, span_userdanger("You're slammed into the floor by [caster]!"))
+			to_chat(victim, span_userdanger("Меня отталкивает прочь от [caster]!"))
 	else
 		if(sparkle_path)
 			// Created sparkles will disappear on their own
@@ -41,14 +41,14 @@
 		if(isliving(victim))
 			var/mob/living/victim_living = victim
 			victim_living.Paralyze(4 SECONDS)
-			to_chat(victim, span_userdanger("You're thrown back by [caster]!"))
+			to_chat(victim, span_userdanger("Меня отбрасывает назад от [caster]!"))
 
 		// So stuff gets tossed around at the same time.
 		victim.safe_throw_at(throwtarget, ((clamp((max_throw - (clamp(dist_from_caster - 2, 0, dist_from_caster))), 3, max_throw))), 1, caster, force = repulse_force)
 
 /datum/action/cooldown/spell/aoe/repulse/wizard
-	name = "Repulse"
-	desc = "This spell throws everything around the user away."
+	name = "Отталкивание"
+	desc = "Заклинание отбрасывает все, что находится вокруг пользователя."
 	button_icon_state = "repulse"
 	sound = 'sound/magic/repulse.ogg'
 
@@ -61,8 +61,8 @@
 	cooldown_reduction_per_rank = 6.25 SECONDS
 
 /datum/action/cooldown/spell/aoe/repulse/xeno
-	name = "Tail Sweep"
-	desc = "Throw back attackers with a sweep of your tail."
+	name = "Взмах хвоста"
+	desc = "Используй свой хвост чтобы отбросить неприятеля."
 	background_icon_state = "bg_alien"
 	overlay_icon_state = "bg_alien_border"
 	button_icon = 'icons/mob/actions/actions_xeno.dmi'
@@ -88,8 +88,8 @@
 	return ..()
 
 /datum/action/cooldown/spell/aoe/repulse/xeno/weak
-	name = "Weak Tail Sweep"
-	desc = "Throw back attackers with a sweep of your tail."
+	name = "Слабый взмах хвоста"
+	desc = "Используй свой хвост чтобы отбросить неприятеля."
 	sound = 'sound/magic/tail_swing.ogg'
 	cooldown_time = 20 SECONDS
 	aoe_radius = 1

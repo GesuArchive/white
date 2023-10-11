@@ -1,6 +1,6 @@
 /datum/action/cooldown/spell/aoe/area_conversion
-	name = "Area Conversion"
-	desc = "This spell instantly converts a small area around you."
+	name = "Преобразование пространства"
+	desc = "Заклинание, которое мгновенно конвертирует небольшую область вокруг вас."
 	background_icon_state = "bg_cult"
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "areaconvert"
