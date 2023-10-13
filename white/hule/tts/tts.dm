@@ -36,6 +36,12 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"sentrybot" 		 = "Fallout: Сентрибот",
 
 	"soldier" 			 = "TF2: Солдат",
+	"engineer" 			 = "TF2: Инженер",
+	"heavy" 			 = "TF2: Хэви",
+	"medic" 			 = "TF2: Медик",
+	"sniper" 			 = "TF2: Снайпер",
+	"spy" 			 	 = "TF2: Шпион",
+	"demoman" 			 = "TF2: Подрывник",
 
 	"cicero" 			 = "Скурим: Цицерон",
 	"sheogorath" 		 = "Скурим: Шеогорат",
@@ -49,6 +55,7 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"neco" 				 = "Аниме: Неко",
 	"polina" 		     = "Аниме: Полина",
 	"xrenoid" 		     = "Аниме: Хреноид",
+	"valtos" 		     = "Аниме: Валтос",
 
 	"arthas" 		     = "Warcraft 3: Артас",
 	"rexxar" 		     = "Warcraft 3: Рексар",
