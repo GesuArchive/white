@@ -1,7 +1,7 @@
 // Normal strength
 
 /datum/round_event_control/meteor_wave
-	name = "Метеоритная волна: Стандарт"
+	name = "Метеоритная волна: Нормальное"
 	typepath = /datum/round_event/meteor_wave
 	weight = 25
 	min_players = 20
@@ -47,7 +47,7 @@
 		meteor.target = station_target
 
 /datum/round_event/meteor_wave/on_admin_trigger()
-	if(alert(usr, "Запускать метеориты прямо сейчас? (Это не изменит оповещение, просто отправит их быстрее! Риск лишения кнопок увеличен!)", "Запуск метеоритов", "Да", "Нет") == "Да")
+	if(alert(usr, "Запускать метеориты прямо сейчас? (Это не изменит оповещение, просто отправит их быстрее! Никто не узнает!)", "Запуск метеоритов", "Да", "Нет") == "Да")
 		announceWhen = 1
 		meteor_time = 1 MINUTES
 
@@ -73,8 +73,6 @@
 			wave_type = GLOB.meteorsC
 		if("halloween")
 			wave_type = GLOB.meteorsSPOOKY
-		if("bluespace")
-			wave_type = GLOB.meteors_bluespace
 		else
 			WARNING("Wave name of [wave_name] not recognised.")
 			kill()
@@ -83,7 +81,7 @@
 	priority_announce("Метеоры были обнаружены на пути столкновения со станцией.", "Метеоритная тревога", ANNOUNCER_METEORS)
 
 /datum/round_event_control/meteor_wave/threatening
-	name = "Метеоритная волна: Сильная"
+	name = "Метеоритная волна: Угрожающая"
 	typepath = /datum/round_event/meteor_wave/threatening
 	weight = 20
 	min_players = 20
@@ -104,13 +102,3 @@
 /datum/round_event/meteor_wave/catastrophic
 	wave_name = "catastrophic"
 
-/datum/round_event_control/meteor_wave/bluespace
-	name = "Метеоритная волна: Блюспейс"
-	typepath = /datum/round_event/meteor_wave/bluespace
-	weight = 20
-	min_players = 20
-	max_occurrences = 60
-	earliest_start = 35 MINUTES
-
-/datum/round_event/meteor_wave/bluespace
-	wave_name = "bluespace"

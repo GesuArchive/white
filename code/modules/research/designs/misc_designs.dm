@@ -364,17 +364,6 @@
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
-/datum/design/eng_gloves
-	name = "Перчатки мастера"
-	desc = "Высокотехнологичные инженерные перчатки. Корректируют движения пользователя посредством наночипов с заложенными программами для инженерных работ. Защищают от ударов током и высоких температур."
-	id = "eng_gloves"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/iron=2000, /datum/material/silver=1500, /datum/material/gold = 1000)
-	build_path = /obj/item/clothing/gloves/color/latex/engineering
-	category = list("Снаряжение", "Инженерное снаряжение")
-	sub_category = list("Экипировка")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/lavarods
 	name = "Жаропрочные стержни"

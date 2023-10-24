@@ -115,7 +115,7 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/belt/holster/detective/full/ert
-	name = "кобура СОБРа"
+	name = "кобура осназа"
 	desc = "Надев это, вы чувствуете себя крутым, но подозреваете, что это всего лишь перекрашенная кобура детектива со складов NT."
 	icon_state = "syndicate_holster"
 	inhand_icon_state = "syndicate_holster"

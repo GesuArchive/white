@@ -1,4 +1,4 @@
-/*
+	/*
  * Just for you beauitful mappers.
  *
  * These are the mapping spawners for shuttles, on spawn depending on the difficulty of the area weapons will by dynamically applied.

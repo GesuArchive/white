@@ -48,7 +48,7 @@
 	category = list("initial","Еда")
 
 /datum/design/ethanol
-	name = "Этанол 10 единиц"
+	name = "Этанол 10 ед."
 	desc = "Известный алкоголь с множеством применений."
 	id = "ethanol"
 	build_type = BIOGENERATOR
@@ -57,7 +57,7 @@
 	category = list("initial","Еда")
 
 /datum/design/cream
-	name = "Сливки 10 единиц"
+	name = "Сливки 10 ед."
 	desc = "Жирные сливки, изготовленные из натурального молока. Почему бы тебе не смешать это со скотчем, а?"
 	id = "cream"
 	build_type = BIOGENERATOR
@@ -93,7 +93,7 @@
 	category = list("initial","Химикаты")
 
 /datum/design/l4z_nut
-	name = "Left 4 Zed 25 единиц"
+	name = "Left 4 Zed 25 ед."
 	desc = "Нестабильные удобрения, из-за которой растения мутируют чаще, чем обычно."
 	id = "l4z_nut"
 	build_type = BIOGENERATOR
@@ -102,7 +102,7 @@
 	category = list("initial","Химикаты")
 
 /datum/design/rh_nut
-	name = "Надежный Урожай 25 единиц"
+	name = "Robust Harvest 25 ед."
 	desc = "Очень мощное удобрение, которое замедляет мутацию растений."
 	id = "rh_nut"
 	build_type = BIOGENERATOR
@@ -111,7 +111,7 @@
 	category = list("initial","Химикаты")
 
 /datum/design/end_gro
-	name = "Эндуро-рост 25 единиц"
+	name = "Эндуро-рост 25 ед."
 	desc = "Специализированная подкормка, которая уменьшает количество продукта и их потенциал, но повышает выносливость растений."
 	id = "end_gro"
 	build_type = BIOGENERATOR
@@ -120,7 +120,7 @@
 	category = list("initial","Химикаты")
 
 /datum/design/liq_earth
-	name = "Жидкая Встряска 25 единиц"
+	name = "Жидкая Встряска 25 ед."
 	desc = "Специализированная подкормка, которая увеличивает скорость роста растения, но также ухудшает его восприимчивость к сорнякам."
 	id = "liq_earth"
 	build_type = BIOGENERATOR
@@ -129,7 +129,7 @@
 	category = list("initial","Химикаты")
 
 /datum/design/weed_killer
-	name = "Гербицид против сорняков 25 единиц"
+	name = "Уничтожитель сорняков 25 ед."
 	desc = "Опасный токсин для выведения сорняков. Не употреблять внутрь!"
 	id = "weed_killer"
 	build_type = BIOGENERATOR
@@ -138,7 +138,7 @@
 	category = list("initial","Химикаты")
 
 /datum/design/pest_spray
-	name = "Пестицид против паразитов 25 единиц"
+	name = "Уничтожитель паразитов 25 ед."
 	desc = "Опасный токсин для убийства насекомых. Не употреблять внутрь!"
 	id = "pest_spray"
 	build_type = BIOGENERATOR
@@ -147,7 +147,7 @@
 	category = list("initial","Химикаты")
 
 /datum/design/org_pest_spray
-	name = "Пестицид мягкого действия 25 единиц"
+	name = "Натуральный уничтожитель паразитов 25 ед."
 	desc = "Органическая смесь, используемая для убийства насекомых с более мягкими последствиями. Не употреблять внутрь!"
 	id = "org_pest_spray"
 	build_type = BIOGENERATOR

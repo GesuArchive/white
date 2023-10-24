@@ -14,12 +14,7 @@ GLOBAL_LIST_INIT(meteors_normal, list(
 	/obj/effect/meteor/dust=3,
 	/obj/effect/meteor/medium=8,
 	/obj/effect/meteor/big=3,
-	/obj/effect/meteor/silver=4,
-	/obj/effect/meteor/gold=4,
-	/obj/effect/meteor/titanium=3,
-	/obj/effect/meteor/diamond=1,
 	/obj/effect/meteor/flaming=1,
-	/obj/effect/meteor/bsc=1,
 	/obj/effect/meteor/irradiated=3
 	))
 
@@ -27,25 +22,14 @@ GLOBAL_LIST_INIT(meteors_normal, list(
 GLOBAL_LIST_INIT(meteors_threatening, list(
 	/obj/effect/meteor/medium=4,
 	/obj/effect/meteor/big=8,
-	/obj/effect/meteor/silver=6,
-	/obj/effect/meteor/gold=6,
-	/obj/effect/meteor/titanium=7,
-	/obj/effect/meteor/diamond=3,
 	/obj/effect/meteor/flaming=3,
-	/obj/effect/meteor/bsc=3,
 	/obj/effect/meteor/irradiated=3
 	))
 
 //	Ужасный
 GLOBAL_LIST_INIT(meteors_catastrophic, list(
 	/obj/effect/meteor/medium=5,
-	/obj/effect/meteor/big=75,
-	/obj/effect/meteor/silver=30,
-	/obj/effect/meteor/gold=30,
-	/obj/effect/meteor/titanium=40,
-	/obj/effect/meteor/diamond=10,
 	/obj/effect/meteor/flaming=10,
-	/obj/effect/meteor/bsc=10,
 	/obj/effect/meteor/irradiated=10,
 	/obj/effect/meteor/tunguska = 1
 	))
@@ -59,8 +43,6 @@ GLOBAL_LIST_INIT(meteorsB, list(
 //	Тыквенный
 GLOBAL_LIST_INIT(meteorsSPOOKY, list(/obj/effect/meteor/pumpkin))
 
-//	Блюспейс
-GLOBAL_LIST_INIT(meteors_bluespace, list(/obj/effect/meteor/bsc))
 
 ///////////////////////////////
 //Meteor spawning global procs
@@ -303,72 +285,6 @@ GLOBAL_LIST_INIT(meteors_bluespace, list(/obj/effect/meteor/bsc))
 	..()
 	explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3, flash_range = 4, adminlog = FALSE)
 
-//Серебряный метеор
-/obj/effect/meteor/silver
-	name = "блестящий метеорит"
-	icon_state = "silver"
-	heavy = TRUE
-	meteordrop = list(/obj/item/stack/ore/silver)
-	threat = 15
-
-/obj/effect/meteor/silver/meteor_effect()
-	..()
-	explosion(src, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 4, flash_range = 8, adminlog = FALSE)
-
-//Золотой метеор
-/obj/effect/meteor/gold
-	name = "золотой метеорит"
-	icon_state = "gold"
-	heavy = TRUE
-	meteordrop = list(/obj/item/stack/ore/gold)
-	threat = 15
-
-/obj/effect/meteor/gold/meteor_effect()
-	..()
-	explosion(src, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 3, flash_range = 6, adminlog = FALSE)
-
-//Титановый метеор
-/obj/effect/meteor/titanium
-	name = "матовый метеорит"
-	icon_state = "titanium"
-	heavy = TRUE
-	meteordrop = list(/obj/item/stack/ore/titanium)
-	threat = 15
-
-/obj/effect/meteor/titanium/meteor_effect()
-	..()
-	explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3, flash_range = 4, adminlog = FALSE)
-
-//Алмазный метеор
-/obj/effect/meteor/diamond
-	name = "переливающийся метеорит"
-	icon_state = "diamond"
-	heavy = TRUE
-	meteordrop = list(/obj/item/stack/ore/diamond)
-	threat = 15
-
-/obj/effect/meteor/diamond/meteor_effect()
-	..()
-	explosion(src, devastation_range = 1, heavy_impact_range = 3, light_impact_range = 4, flash_range = 5, adminlog = FALSE)
-
-//Блюспейс метеор
-/obj/effect/meteor/bsc
-	name = "пульсирующий метеорит"
-	icon_state = "bsc"
-	heavy = FALSE
-	meteordrop = list(/obj/item/stack/ore/bluespace_crystal)
-	threat = 15
-/*
-/obj/effect/meteor/bsc/ram_turf(turf/T)
-	..()
-	new /obj/effect/particle_effect/sparks(loc)
-	playsound(loc, "zap", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-//	do_teleport(T, get_turf(T), 8, asoundin = 'sound/effects/phasein.ogg', channel = TELEPORT_CHANNEL_BLUESPACE)
-*/
-
-/obj/effect/meteor/bsc/meteor_effect()
-	..()
-	explosion(src, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 0, flash_range = 3, adminlog = FALSE)
 
 //Плазменный метеор
 /obj/effect/meteor/flaming

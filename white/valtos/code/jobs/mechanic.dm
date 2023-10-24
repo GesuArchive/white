@@ -33,9 +33,9 @@
 	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
 	suit = /obj/item/clothing/suit/mechanicus
-	gloves = /obj/item/clothing/gloves/color/latex/engineering
+	gloves = /obj/item/clothing/gloves/color/yellow
 	shoes = /obj/item/clothing/shoes/workboots
-	belt = /obj/item/storage/part_replacer/tier2
+	belt = /obj/item/storage/part_replacer
 	l_pocket = /obj/item/modular_computer/tablet/pda/engineering
 	r_pocket = /obj/item/t_scanner
 

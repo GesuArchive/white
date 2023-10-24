@@ -250,8 +250,8 @@
 	pet_bonus_emote = "счастливо блупает!"
 
 /mob/living/simple_animal/hostile/carp/cayenne
-	name = "Кайен"
-	real_name = "Кайен"
+	name = "Кайенна"
+	real_name = "Кайенна"
 	desc = "Неудачный эксперимент Синдиката по созданию взвода боевых карпов. На текущий момент служит вспомогательным агентом психологической поддержки."
 	gender = FEMALE
 	speak_emote = list("пищит")
@@ -277,56 +277,6 @@
 		colored_disk_mouth = mutable_appearance(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/carp/disk_mouth, greyscale_colors))
 	ADD_TRAIT(src, TRAIT_DISK_VERIFIER, INNATE_TRAIT) //carp can verify disky
 	ADD_TRAIT(src, TRAIT_ADVANCEDTOOLUSER, INNATE_TRAIT) //carp SMART
-
-/mob/living/simple_animal/hostile/carp/cayenne/ekaterina
-	name = "Екатерина"
-	real_name = "Екатерина"
-	desc = "Екатерина настоящая королева среди карпов, её всегда выделяли ласковый взгляд и скромная улыбка из 380 зубов."
-	faction = list("neutral")
-	health = 300
-	maxHealth = 300
-	ai_controller = /datum/ai_controller/hostile_friend
-	icon_dead = "magicarp_dead"
-	icon_gib = "magicarp_gib"
-	icon_living = "magicarp"
-	icon_state = "magicarp"
-	tame_chance = 20
-	bonus_tame_chance = 15
-	random_color = FALSE
-
-/mob/living/simple_animal/hostile/carp/cayenne/ekaterina/Initialize(mapload)
-	. = ..()
-	colored_disk_mouth = mutable_appearance(disk_overlay_file, "disk_mouth_red")
-
-/mob/living/simple_animal/hostile/carp/cayenne/ekaterina/belka
-	name = "Белка"
-	real_name = "Белка"
-	desc = "Всегда радуется при виде упитанных ассистентов."
-	health = 250
-	maxHealth = 250
-	icon_state = "base"
-	icon_living = "base"
-	icon_dead = "base_dead"
-	icon_gib = "carp_gib"
-
-/mob/living/simple_animal/hostile/carp/cayenne/Initialize(mapload)
-	. = ..()
-	colored_disk_mouth = mutable_appearance(disk_overlay_file, "disk_mouth")
-
-/mob/living/simple_animal/hostile/carp/cayenne/ekaterina/strelka
-	name = "Стрелка"
-	real_name = "Стрелка"
-	desc = "Предпочитает исключительно гастрономическую любовь."
-	health = 250
-	maxHealth = 250
-	icon_state = "carp"
-	icon_living = "carp"
-	icon_dead = "carp_dead"
-	icon_gib = "carp_gib"
-
-/mob/living/simple_animal/hostile/carp/cayenne/Initialize(mapload)
-	. = ..()
-	colored_disk_mouth = mutable_appearance(disk_overlay_file, "disk_mouth_blue")
 
 /mob/living/simple_animal/hostile/carp/cayenne/death(gibbed)
 	if(disky)

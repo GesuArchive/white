@@ -66,9 +66,6 @@
 		return 10
 	return 0
 
-/obj/machinery/porta_turret/armory/low_power
-	lethal_projectile = /obj/projectile/beam/laser
-
 /obj/projectile/beam/laser/penetrator
 	damage = 40
 	projectile_piercing = PASSMOB

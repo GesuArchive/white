@@ -213,21 +213,6 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	transfer_prints = FALSE
 
-/obj/item/clothing/gloves/color/latex/engineering
-	name = "перчатки мастера"
-	desc = "Высокотехнологичные инженерные перчатки. Корректируют движения пользователя посредством наночипов с заложенными программами для инженерных работ. Защищают от ударов током и высоких температур."
-	icon = 'icons/obj/clothing/clockwork_garb.dmi'
-	icon_state = "clockwork_gauntlets"
-	inhand_icon_state = "clockwork_gauntlets"
-	siemens_coefficient = 0
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, FIRE = 0, ACID = 0)
-	clothing_traits = list(TRAIT_QUICK_BUILD)
-	cold_protection = HANDS
-	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
-	heat_protection = HANDS
-	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
-	custom_materials = list(/datum/material/iron=2000, /datum/material/silver=1500, /datum/material/gold = 1000)
-
 /obj/item/clothing/gloves/color/white
 	name = "белые перчатки"
 	desc = "Выглядят довольно причудливо."

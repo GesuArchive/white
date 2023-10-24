@@ -323,7 +323,7 @@
 	return ..()
 
 /datum/reagent/toxin/plantbgone
-	name = "Гербицид общего назначения"
+	name = "Plant-B-Gone"
 	enname = "Plant-B-Gone"
 	description = "Опасный токсин для выведения всех растений. Не употреблять внутрь!"
 	color = "#49002E" // rgb: 73, 0, 46
@@ -361,7 +361,7 @@
 		exposed_carbon.adjustToxLoss(min(round(0.4 * reac_volume, 0.1), 10))
 
 /datum/reagent/toxin/plantbgone/weedkiller
-	name = "Гербицид против сорняков"
+	name = "Уничтожитель сорняков"
 	enname = "Weed Killer"
 	description = "Опасный токсин для выведения сорняков. Не употреблять внутрь!"
 	color = "#4B004B" // rgb: 75, 0, 75
@@ -377,9 +377,9 @@
 		mytray.adjustWeeds(-rand(1,2))
 
 /datum/reagent/toxin/pestkiller
-	name = "Пестицид против паразитов"
+	name = "Уничтожитель паразитов"
 	enname = "Pest Killer"
-	description = "Опасный токсин для убийства насекомых. Не употреблять внутрь!"
+	description = "Опасный токсин для убийства паразитов. Не употреблять внутрь!"
 	color = "#4B004B" // rgb: 75, 0, 75
 	toxpwr = 1
 	ph = 3.2
@@ -400,7 +400,7 @@
 		exposed_mob.adjustToxLoss(damage)
 
 /datum/reagent/toxin/pestkiller/organic
-	name = "Пестицид мягкого действия"
+	name = "Натуральный уничтожитель паразитов"
 	enname = "Natural Pest Killer"
 	description = "Органическая смесь, используемая для убийства насекомых с более мягкими последствиями. Не употреблять внутрь!"
 	color = "#4b2400" // rgb: 75, 0, 75
