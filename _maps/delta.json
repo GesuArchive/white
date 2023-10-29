@@ -1,0 +1,12 @@
+{
+	"version": 1,
+	"map_name": "Delta",
+	"map_path": "stations",
+	"map_file": "delta.dmm",
+	"shuttles": {
+		"emergency": "emergency_delta",
+		"ferry": "ferry_fancy",
+		"cargo": "cargo_delta",
+		"whiteship": "whiteship_delta"
+	}
+}

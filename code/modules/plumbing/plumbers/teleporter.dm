@@ -3,6 +3,7 @@
 	name = "chemical beacon"
 	desc = "A bluespace anchor for chemicals. Does not require power. Use a multitool linked to a Chemical Recipient on this machine to start teleporting reagents."
 	icon_state = "beacon"
+
 	density = FALSE
 
 	///whoever we teleport our chems to
@@ -45,13 +46,12 @@
 ///Transfer reagents and display a flashing icon
 /obj/machinery/plumbing/sender/proc/teleport_chemicals(obj/machinery/plumbing/receiver/R, amount)
 	flick(initial(icon_state) + "_flash", src)
-	reagents.trans_to(R, amount)
+	reagents.trans_to(R, amount, round_robin = TRUE)
 
 ///A bluespace output pipe for plumbing. Supports multiple recipients. Must be constructed with a circuit board
 /obj/machinery/plumbing/receiver
-	name = "chemical recipient"
-	desc = "Receives chemicals from one or more chemical beacons. Use a multitool on this machine and then all subsequent chemical beacons. Reset by opening the \
-	panel and cutting the main wire."
+	name = "Химический приемник"
+	desc = "Принимает химикаты с маяков. Используйте мультитул для связи с маяками через буфер. Для сброса открутите крышку и перекусите главный провод."
 	icon_state = "recipient"
 
 	buffer = 150
@@ -72,11 +72,11 @@
 		return
 
 	var/obj/item/multitool/M = I
-	M.set_buffer(src)
-	balloon_alert(user, "saved to multitool buffer")
+	M.buffer = src
+	to_chat(user, span_notice("You store linkage information in [I] buffer."))
 	return TRUE
 
-/obj/machinery/plumbing/receiver/process(seconds_per_tick)
+/obj/machinery/plumbing/receiver/process(delta_time)
 	if(machine_stat & NOPOWER || panel_open)
 		return
 
@@ -95,7 +95,7 @@
 
 		next_index++
 
-		use_power(active_power_usage * seconds_per_tick)
+		use_power(active_power_usage * delta_time)
 
 ///Notify all senders to forget us
 /obj/machinery/plumbing/receiver/proc/lose_senders()
@@ -109,7 +109,7 @@
 
 /obj/machinery/plumbing/receiver/attackby(obj/item/I, mob/user, params)
 	if(default_deconstruction_screwdriver(user, icon_state + "_open", initial(icon_state), I))
-		update_appearance()
+		update_icon()
 		return
 
 	if(default_pry_open(I))

@@ -1,76 +1,50 @@
-import { Box, Button, Flex } from '../../components';
-
 import { useBackend } from '../../backend';
-
-type InputButtonsData = {
-  large_buttons: boolean;
-  swapped_buttons: boolean;
-};
+import { Button, Stack } from '../../components';
 
 type InputButtonsProps = {
-  input: string | number | string[];
-  message?: string;
+  input: string | number | null;
+  inputIsValid?: Validator;
+};
+
+export type Validator = {
+  isValid: boolean;
+  error: string | null;
 };
 
 export const InputButtons = (props: InputButtonsProps, context) => {
-  const { act, data } = useBackend<InputButtonsData>(context);
-  const { large_buttons, swapped_buttons } = data;
-  const { input, message } = props;
+  const { act } = useBackend(context);
+  const { input, inputIsValid } = props;
   const submitButton = (
     <Button
       color="good"
-      fluid={!!large_buttons}
-      height={!!large_buttons && 2}
+      fluid={1}
+      height={2}
+      disabled={inputIsValid && !inputIsValid.isValid}
       onClick={() => act('submit', { entry: input })}
-      m={0.5}
-      pl={2}
-      pr={2}
-      pt={large_buttons ? 0.33 : 0}
+      pt={0.33}
       textAlign="center"
-      tooltip={large_buttons && message}
-      width={!large_buttons && 6}>
-      {large_buttons ? 'SUBMIT' : 'Submit'}
+      tooltip={inputIsValid?.error}>
+      ОТПРАВИТЬ
     </Button>
   );
   const cancelButton = (
     <Button
       color="bad"
-      fluid={!!large_buttons}
-      height={!!large_buttons && 2}
+      fluid={1}
+      height={2}
       onClick={() => act('cancel')}
-      m={0.5}
-      pl={2}
-      pr={2}
-      pt={large_buttons ? 0.33 : 0}
-      textAlign="center"
-      width={!large_buttons && 6}>
-      {large_buttons ? 'CANCEL' : 'Cancel'}
+      pt={0.33}
+      textAlign="center">
+      ОТМЕНА
     </Button>
   );
+  const leftButton = cancelButton;
+  const rightButton = submitButton;
 
   return (
-    <Flex
-      align="center"
-      direction={!swapped_buttons ? 'row' : 'row-reverse'}
-      fill
-      justify="space-around">
-      {large_buttons ? (
-        <Flex.Item grow>{cancelButton}</Flex.Item>
-      ) : (
-        <Flex.Item>{cancelButton}</Flex.Item>
-      )}
-      {!large_buttons && message && (
-        <Flex.Item>
-          <Box color="label" textAlign="center">
-            {message}
-          </Box>
-        </Flex.Item>
-      )}
-      {large_buttons ? (
-        <Flex.Item grow>{submitButton}</Flex.Item>
-      ) : (
-        <Flex.Item>{submitButton}</Flex.Item>
-      )}
-    </Flex>
+    <Stack>
+      <Stack.Item grow>{leftButton}</Stack.Item>
+      <Stack.Item grow>{rightButton}</Stack.Item>
+    </Stack>
   );
 };

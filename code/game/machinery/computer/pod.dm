@@ -1,6 +1,6 @@
 /obj/machinery/computer/pod
-	name = "mass driver launch control"
-	desc = "A combined blastdoor and mass driver control unit."
+	name = "управление массовым выбросом"
+	desc = "Комбинированный блок управления бронедверью и массовым выбросом."
 	processing_flags = START_PROCESSING_MANUALLY
 	/// Connected mass driver
 	var/obj/machinery/mass_driver/connected = null
@@ -22,7 +22,7 @@
 			connected = M
 			break
 
-/obj/machinery/computer/pod/process(seconds_per_tick)
+/obj/machinery/computer/pod/process(delta_time)
 	if(COOLDOWN_FINISHED(src, massdriver_countdown))
 		timing = FALSE
 		// alarm() sleeps, so we want to end processing first and can't rely on return PROCESS_KILL
@@ -44,13 +44,13 @@
 		if(M.id == id)
 			M.open()
 
-	sleep(2 SECONDS)
+	sleep(20)
 	for(var/obj/machinery/mass_driver/M in range(range, src))
 		if(M.id == id)
 			M.power = connected.power
 			M.drive()
 
-	sleep(5 SECONDS)
+	sleep(50)
 	for(var/obj/machinery/door/poddoor/M in range(range, src))
 		if(M.id == id)
 			M.close()
@@ -83,7 +83,7 @@
 	if(.)
 		return
 	if(!allowed(usr))
-		to_chat(usr, span_warning("Access denied."))
+		to_chat(usr, span_warning("Доступ запрещён."))
 		return
 
 	switch(action)
@@ -139,13 +139,13 @@
 
 /obj/machinery/computer/pod/old/mass_driver_controller
 	name = "\improper Mass Driver Controller"
-	icon = 'icons/obj/machines/wallmounts.dmi'
+	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_control_standby"
-	icon_screen = null
+	icon_keyboard = null
 	density = FALSE
 
 /obj/machinery/computer/pod/old/mass_driver_controller/ordnancedriver
-	id = MASSDRIVER_ORDNANCE
+	id = MASSDRIVER_TOXINS
 
 //for maps where pod doors are outside of the standard 4 tile controller detection range (ie Pubbystation)
 /obj/machinery/computer/pod/old/mass_driver_controller/ordnancedriver/longrange

@@ -1,13 +1,13 @@
 /**********************Jaunter**********************/
 /obj/item/wormhole_jaunter
-	name = "wormhole jaunter"
-	desc = "A single use device harnessing outdated wormhole technology, Nanotrasen has since turned its eyes to bluespace for more accurate teleportation. The wormholes it creates are unpleasant to travel through, to say the least.\nThanks to modifications provided by the Free Golems, this jaunter can be worn on the belt to provide protection from chasms."
+	name = "генератор Червоточин"
+	desc = "Одноразовое устройство использующее древнюю технологию червоточин, Нанотрейзен перешёл на блюспейс технологии благодаря этому. Путешествовать через эти дыры не самое приятное дело.\nСпасибо за модификации от Свободных Големов, этот генератор может спасти от бездны, если находится на поясе."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "Jaunter"
 	inhand_icon_state = "electronic"
 	worn_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	throwforce = 0
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
@@ -23,7 +23,7 @@
 	var/turf/device_turf = get_turf(src)
 	if(!device_turf || is_centcom_level(device_turf.z) || is_reserved_level(device_turf.z))
 		if(user)
-			to_chat(user, span_notice("You're having difficulties getting the [src.name] to work."))
+			to_chat(user, span_notice("Какие-то трудности у меня с [src.name]."))
 		return FALSE
 	return TRUE
 
@@ -47,9 +47,9 @@
 
 	if(!can_jaunter_teleport())
 		if(user)
-			to_chat(user, span_notice("\The [src] found no beacons in the world to anchor a wormhole to."))
+			to_chat(user, span_notice("[capitalize(src.name)] не может найти маяков."))
 		else
-			visible_message(span_notice("\The [src] found no beacons in the world to anchor a wormhole to!"))
+			visible_message(span_notice("[capitalize(src.name)] не может найти маяков!"))
 		return TRUE // used for chasm code
 
 	var/list/destinations = get_destinations()
@@ -65,6 +65,7 @@
 	qdel(src)
 	return FALSE // used for chasm code
 
+
 /obj/item/wormhole_jaunter/emp_act(power)
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
@@ -78,30 +79,29 @@
 
 	var/mob/M = loc
 	if(istype(M) && triggered)
-		M.visible_message(span_warning("Your [src.name] overloads and activates!"))
+		M.visible_message(span_warning("[capitalize(src.name)] перегружается и активируется!"))
 		SSblackbox.record_feedback("tally", "jaunter", 1, "EMP") // EMP accidental activation
 		activate(M, FALSE, TRUE)
 	else if(triggered)
-		visible_message(span_warning("\The [src] overloads and activates!"))
+		visible_message(span_warning("[capitalize(src.name)] перегружается и активируется!"))
 		activate()
 
 /obj/item/wormhole_jaunter/proc/chasm_react(mob/user)
 	var/fall_into_chasm = activate(user, FALSE, TRUE)
 
 	if(!fall_into_chasm)
-		to_chat(user, span_notice("Your [src.name] activates, saving you from the chasm!"))
+		to_chat(user, span_notice("[capitalize(name)] активируется, спасая меня от бездны!"))
 		SSblackbox.record_feedback("tally", "jaunter", 1, "Chasm") // chasm automatic activation
 	return fall_into_chasm
 
 //jaunter tunnel
 /obj/effect/portal/jaunt_tunnel
-	name = "jaunt tunnel"
+	name = "червивый туннель"
 	icon = 'icons/effects/anomalies.dmi'
 	icon_state = "vortex"
-	desc = "A stable hole in the universe made by a wormhole jaunter. Turbulent doesn't even begin to describe how rough passage through one of these is, but at least it will always get you somewhere near a beacon."
+	desc = "Стабильная дырка. Также может привести к маяку."
 	mech_sized = TRUE //save your ripley
 	innate_accuracy_penalty = 6
-	light_on = FALSE
 
 /obj/effect/portal/jaunt_tunnel/teleport(atom/movable/M)
 	. = ..()

@@ -4,6 +4,7 @@
  *Attaching this element to something will make it float, and get a special ai controller!
  */
 /datum/element/cursed
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/cursed/Attach(datum/target, slot)
 	. = ..()
@@ -11,7 +12,7 @@
 		return COMPONENT_INCOMPATIBLE
 	var/obj/item/master = target
 	var/datum/ai_controller/ai = new /datum/ai_controller/cursed(master)
-	ai.set_blackboard_key(BB_TARGET_SLOT, slot)
+	ai.blackboard[BB_TARGET_SLOT] = slot
 	master.ai_controller = ai
 	master.AddElement(/datum/element/movetype_handler)
 	ADD_TRAIT(master, TRAIT_MOVE_FLYING, ELEMENT_TRAIT(type))

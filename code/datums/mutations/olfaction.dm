@@ -1,12 +1,12 @@
 /datum/mutation/human/olfaction
-	name = "Transcendent Olfaction"
-	desc = "Your sense of smell is comparable to that of a canine."
+	name = "Сверхчувствительное обоняние"
+	desc = "Изменяет обонятельные рецепторы подопытного, усиливая их чувствительность до уровня сравнимого с охотничьими гончими."
 	quality = POSITIVE
 	difficulty = 12
-	text_gain_indication = "<span class='notice'>Smells begin to make more sense...</span>"
-	text_lose_indication = "<span class='notice'>Your sense of smell goes back to normal.</span>"
+	text_gain_indication = span_notice("Запахи стали определяться намного четче...")
+	text_lose_indication = span_notice("Я больше не чувствую всей палитры запахов.")
 	power_path = /datum/action/cooldown/spell/olfaction
-	instability = 30
+	instability = 10
 	synchronizer_coeff = 1
 
 /datum/mutation/human/olfaction/modify()
@@ -18,9 +18,8 @@
 	to_modify.sensitivity = GET_MUTATION_SYNCHRONIZER(src)
 
 /datum/action/cooldown/spell/olfaction
-	name = "Remember the Scent"
-	desc = "Get a scent off of the item you're currently holding to track it. \
-		With an empty hand, you'll track the scent you've remembered."
+	name = "Запомнить запах"
+	desc = "Вы запоминаете запах предмета, который вы держите в руках, чтобы отследить его владельца. Если ваши руки пусты, то вы встанете на след запаха, который запомнили."
 	button_icon_state = "nose"
 
 	cooldown_time = 10 SECONDS
@@ -37,7 +36,7 @@
 
 	var/mob/living/living_cast_on = cast_on
 	if(ishuman(living_cast_on) && !living_cast_on.get_bodypart(BODY_ZONE_HEAD))
-		to_chat(owner, span_warning("You have no nose!"))
+		to_chat(owner, span_warning("Носа нет!"))
 		return FALSE
 
 	return TRUE
@@ -50,8 +49,7 @@
 
 	if(cached_gases[/datum/gas/miasma])
 		cast_on.adjust_disgust(sensitivity * 45)
-		to_chat(cast_on, span_warning("With your overly sensitive nose, \
-			you get a whiff of stench and feel sick! Try moving to a cleaner area!"))
+		to_chat(cast_on, span_warning("УЖАСНАЯ ВОНЬ! Слишком отвратительный запах для моего чувствительного носа! Надо убраться отсюда подальше!"))
 		return
 
 	var/atom/sniffed = cast_on.get_active_held_item()
@@ -72,30 +70,27 @@
 
 	// There are no finger prints on the atom, so nothing to track
 	if(!length(possibles))
-		to_chat(caster, span_warning("Despite your best efforts, there are no scents to be found on [sniffed]..."))
+		to_chat(caster, span_warning("Стараюсь учуять хоть что-то, но не могу уловить никаких запахов на [sniffed]..."))
 		return
 
-	var/mob/living/carbon/new_target = tgui_input_list(caster, "Scent to remember", "Scent Tracking", sort_names(possibles))
+	var/mob/living/carbon/new_target = tgui_input_list(caster, "Выберите запах для отслеживания", "Scent Tracking", sort_names(possibles))
 	if(QDELETED(src) || QDELETED(caster))
 		return
 
 	if(QDELETED(new_target))
 		// We don't have a new target OR an old target
 		if(QDELETED(old_target))
-			to_chat(caster, span_warning("You decide against remembering any scents. \
-				Instead, you notice your own nose in your peripheral vision. \
-				This goes on to remind you of that one time you started breathing manually and couldn't stop. \
-				What an awful day that was."))
+			to_chat(caster, span_warning("Решаю не запоминать никаких запахов. Вместо этого замечаю свой собственный нос боковым зрением. Это напоминает мне день, когда я сконцентрировался на контроле своего дыхания и не мог остановиться потому что боялся задохнуться. Это был ужасный день."))
 			tracking_ref = null
 
 		// We don't have a new target, but we have an old target to fall back on
 		else
-			to_chat(caster, span_notice("You return to tracking [old_target]. The hunt continues."))
+			to_chat(caster, span_notice("Улавливаю запах [old_target]. Охота началась."))
 			on_the_trail(caster)
 		return
 
 	// We have a new target to track
-	to_chat(caster, span_notice("You pick up the scent of [new_target]. The hunt begins."))
+	to_chat(caster, span_notice("Улавливаю запах [new_target]. Охота началась."))
 	tracking_ref = WEAKREF(new_target)
 	on_the_trail(caster)
 
@@ -105,8 +100,7 @@
 	// Either our weakref failed to resolve (our target's gone),
 	// or we never had a target in the first place
 	if(QDELETED(current_target))
-		to_chat(caster, span_warning("You're not holding anything to smell, \
-			and you haven't smelled anything you can track. You smell your skin instead; it's kinda salty."))
+		to_chat(caster, span_warning("У меня нет ничего, что можно было бы понюхать, и я не чую ничего, что можно было бы отследить. Вместо этого нюхаю кожу на своей руке, она немного соленая."))
 		tracking_ref = null
 		return
 
@@ -116,24 +110,23 @@
 /datum/action/cooldown/spell/olfaction/proc/on_the_trail(mob/living/caster)
 	var/mob/living/carbon/current_target = tracking_ref?.resolve()
 	if(!current_target)
-		to_chat(caster, span_warning("You're not tracking a scent, but the game thought you were. \
-			Something's gone wrong! Report this as a bug."))
+		to_chat(caster, span_warning("ТЕХНИЧЕСКАЯ ОШИБКА, сообщите в кодербас. Носитель не идет по следу, но зафиксирован как идущий по следу."))
 		stack_trace("[type] - on_the_trail was called when no tracking target was set.")
 		tracking_ref = null
 		return
 
 	if(current_target == caster)
-		to_chat(caster, span_warning("You smell out the trail to yourself. Yep, it's you."))
+		to_chat(caster, span_warning("Чую след ведущий прямо к... ну да прямо ко мне..."))
 		return
 
 	if(caster.z < current_target.z)
-		to_chat(caster, span_warning("The trail leads... way up above you? Huh. They must be really, really far away."))
+		to_chat(caster, span_warning("След тянется куда-то далеко-далеко в необозримые дали, вы не чувствуете присутствия вашей цели на обозримом горизонте."))
 		return
 
 	else if(caster.z > current_target.z)
-		to_chat(caster, span_warning("The trail leads... way down below you? Huh. They must be really, really far away."))
+		to_chat(caster, span_warning("След тянется куда-то далеко-далеко в необозримые дали, вы не чувствуете присутствия вашей цели на обозримом горизонте."))
 		return
 
-	var/direction_text = span_bold("[dir2text(get_dir(caster, current_target))]")
+	var/direction_text = span_bold("[dir2ru_text(get_dir(caster, current_target))]")
 	if(direction_text)
-		to_chat(caster, span_notice("You consider [current_target]'s scent. The trail leads [direction_text]."))
+		to_chat(caster, span_notice("Улавливаю запах [current_target]. След ведет на <b>[direction_text].</b>"))

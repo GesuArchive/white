@@ -33,7 +33,7 @@
 	src.controller = controller
 	src.extra_info = extra_info
 	if(extra_info)
-		RegisterSignal(extra_info, COMSIG_QDELETING, PROC_REF(info_deleted))
+		RegisterSignal(extra_info, COMSIG_PARENT_QDELETING, PROC_REF(info_deleted))
 	src.moving = moving
 	src.priority = priority
 	src.flags = flags
@@ -112,15 +112,10 @@
 		qdel(src)
 		return
 
-	var/visual_delay = controller.visual_delay
-	var/old_dir = moving.dir
-	var/old_loc = moving.loc
+	var/visual_delay = controller?.visual_delay
 
-	owner?.processing_move_loop_flags = flags
+	owner?.processing_move_loop_flags = flags|MOVED_BY_MOVEMENT_LOOP
 	var/result = move() //Result is an enum value. Enums defined in __DEFINES/movement.dm
-	if(moving)
-		var/direction = get_dir(old_loc, moving.loc)
-		SEND_SIGNAL(moving, COMSIG_MOVABLE_MOVED_FROM_LOOP, src, old_dir, direction)
 	owner?.processing_move_loop_flags = NONE
 
 	SEND_SIGNAL(src, COMSIG_MOVELOOP_POSTPROCESS, result, delay * visual_delay)
@@ -246,7 +241,7 @@
 	target = chasing
 
 	if(!isturf(target))
-		RegisterSignal(target, COMSIG_QDELETING, PROC_REF(handle_no_target)) //Don't do this for turfs, because we don't care
+		RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(handle_no_target)) //Don't do this for turfs, because we don't care
 
 /datum/move_loop/has_target/compare_loops(datum/move_loop/loop_type, priority, flags, extra_info, delay, timeout, atom/chasing)
 	if(..() && chasing == target)
@@ -301,7 +296,7 @@
  * repath_delay - How often we're allowed to recalculate our path
  * max_path_length - The maximum number of steps we can take in a given path to search (default: 30, 0 = infinite)
  * miminum_distance - Minimum distance to the target before path returns, could be used to get near a target, but not right to it - for an AI mob with a gun, for example
- * access - A list representing what access we have and what doors we can open
+ * id - An ID card representing what access we have and what doors we can open
  * simulated_only -  Whether we consider turfs without atmos simulation (AKA do we want to ignore space)
  * avoid - If we want to avoid a specific turf, like if we're a mulebot who already got blocked by some turf
  * skip_first -  Whether or not to delete the first item in the path. This would be done because the first item is the starting tile, which can break things
@@ -318,7 +313,7 @@
 	repath_delay,
 	max_path_length,
 	minimum_distance,
-	list/access,
+	obj/item/card/id/id,
 	simulated_only,
 	turf/avoid,
 	skip_first,
@@ -339,7 +334,7 @@
 		repath_delay,
 		max_path_length,
 		minimum_distance,
-		access,
+		id,
 		simulated_only,
 		avoid,
 		skip_first,
@@ -352,8 +347,8 @@
 	var/max_path_length
 	///Minimum distance to the target before path returns
 	var/minimum_distance
-	///A list representing what access we have and what doors we can open.
-	var/list/access
+	///An ID card representing what access we have and what doors we can open. Kill me
+	var/obj/item/card/id/id
 	///Whether we consider turfs without atmos simulation (AKA do we want to ignore space)
 	var/simulated_only
 	///A perticular turf to avoid
@@ -366,28 +361,30 @@
 	COOLDOWN_DECLARE(repath_cooldown)
 	///Bool used to determine if we're already making a path in JPS. this prevents us from re-pathing while we're already busy.
 	var/is_pathing = FALSE
-	///Callbacks to invoke once we make a path
-	var/list/datum/callback/on_finish_callbacks
+	///Callback to invoke once we make a path
+	var/datum/callback/on_finish_callback
 
 /datum/move_loop/has_target/jps/New(datum/movement_packet/owner, datum/controller/subsystem/movement/controller, atom/moving, priority, flags, datum/extra_info)
 	. = ..()
-	on_finish_callbacks += CALLBACK(src, PROC_REF(on_finish_pathing))
+	on_finish_callback = CALLBACK(src, PROC_REF(on_finish_pathing))
 
-/datum/move_loop/has_target/jps/setup(delay, timeout, atom/chasing, repath_delay, max_path_length, minimum_distance, list/access, simulated_only, turf/avoid, skip_first, list/initial_path)
+/datum/move_loop/has_target/jps/setup(delay, timeout, atom/chasing, repath_delay, max_path_length, minimum_distance, obj/item/card/id/id, simulated_only, turf/avoid, skip_first, list/initial_path)
 	. = ..()
 	if(!.)
 		return
 	src.repath_delay = repath_delay
 	src.max_path_length = max_path_length
 	src.minimum_distance = minimum_distance
-	src.access = access
+	src.id = id
 	src.simulated_only = simulated_only
 	src.avoid = avoid
 	src.skip_first = skip_first
 	movement_path = initial_path?.Copy()
+	if(isidcard(id))
+		RegisterSignal(id, COMSIG_PARENT_QDELETING, PROC_REF(handle_no_id)) //I prefer erroring to harddels. If this breaks anything consider making id info into a datum or something
 
-/datum/move_loop/has_target/jps/compare_loops(datum/move_loop/loop_type, priority, flags, extra_info, delay, timeout, atom/chasing, repath_delay, max_path_length, minimum_distance, list/access, simulated_only, turf/avoid, skip_first, initial_path)
-	if(..() && repath_delay == src.repath_delay && max_path_length == src.max_path_length && minimum_distance == src.minimum_distance && access ~= src.access && simulated_only == src.simulated_only && avoid == src.avoid)
+/datum/move_loop/has_target/jps/compare_loops(datum/move_loop/loop_type, priority, flags, extra_info, delay, timeout, atom/chasing, repath_delay, max_path_length, minimum_distance, obj/item/card/id/id, simulated_only, turf/avoid, skip_first, initial_path)
+	if(..() && repath_delay == src.repath_delay && max_path_length == src.max_path_length && minimum_distance == src.minimum_distance && id == src.id && simulated_only == src.simulated_only && avoid == src.avoid)
 		return TRUE
 	return FALSE
 
@@ -401,16 +398,20 @@
 	movement_path = null
 
 /datum/move_loop/has_target/jps/Destroy()
+	id = null //Kill me
 	avoid = null
-	on_finish_callbacks = null
 	return ..()
+
+/datum/move_loop/has_target/jps/proc/handle_no_id()
+	SIGNAL_HANDLER
+	id = null
 
 ///Tries to calculate a new path for this moveloop.
 /datum/move_loop/has_target/jps/proc/recalculate_path()
 	if(!COOLDOWN_FINISHED(src, repath_cooldown))
 		return
 	COOLDOWN_START(src, repath_cooldown, repath_delay)
-	if(SSpathfinder.pathfind(moving, target, max_path_length, minimum_distance, access, simulated_only, avoid, skip_first, on_finish = on_finish_callbacks))
+	if(SSpathfinder.pathfind(moving, target, max_path_length, minimum_distance, id, simulated_only, avoid, skip_first, on_finish = on_finish_callback))
 		is_pathing = TRUE
 		SEND_SIGNAL(src, COMSIG_MOVELOOP_JPS_REPATH)
 

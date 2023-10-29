@@ -7,7 +7,6 @@
 	overlay_icon_state = "bg_mime_border"
 	button_icon = 'icons/mob/actions/actions_mime.dmi'
 	button_icon_state = "invisible_box"
-	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED|AB_CHECK_INCAPACITATED
 	panel = "Mime"
 	sound = null
 
@@ -30,7 +29,7 @@
 	. = ..()
 	invocation = span_notice("<b>[cast_on]</b> moves [cast_on.p_their()] hands in the shape of a cube, pressing a box out of the air.")
 
-/datum/action/cooldown/spell/conjure_item/invisible_box/make_item(atom/caster)
+/datum/action/cooldown/spell/conjure_item/invisible_box/make_item()
 	. = ..()
 	var/obj/item/made_box = .
 	made_box.alpha = 255

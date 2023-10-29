@@ -1,81 +1,52 @@
 {
-	"": ["general area"],
+	"": ["всём теле"],
 
 	"head": [
-		"@pick(left_right)eyebrow",
-		"@pick(left_right)cheekbone",
-		"nose",
-		"neck",
-		"throat",
-		"jawline",
-		"entire face"
+		"левой брови",
+		"скулах",
+		"шее",
+		"глотке",
+		"челюстях",
+		"лице"
 	],
 
 	"chest": [
-		"upper chest",
-		"@pick(upper_lower)abdomen",
-		"midsection",
-		"collarbone",
-		"lower back"
+		"груди",
+		"нижней части живота",
+		"животе",
+		"ключице",
+		"нижней части спины"
 	],
 
 	"l_arm": [
-		"@pick(inner_outer)left forearm",
-		"@pick(inner_outer)left wrist",
-		"left elbow",
-		"left bicep",
-		"left shoulder",
-		"left hand"
+		"левом предплечье",
+		"левом запястье",
+		"левом локте",
+		"левом бицепсе",
+		"левом плече"
 	],
 
 	"r_arm": [
-		"@pick(inner_outer)right forearm",
-		"@pick(inner_outer)right wrist",
-		"right elbow",
-		"right bicep",
-		"right shoulder",
-		"right hand"
+		"правом предплечье",
+		"правом запястье",
+		"правом локте",
+		"правом бицепсе",
+		"правом плече"
 	],
 
 	"l_leg": [
-		"@pick(inner_outer)left thigh",
-		"@pick(free_move)left calf",
-		"@pick(free_move)left hip",
-		"left kneecap",
-		"@pick(free_move)left shin"
+		"левой бедренной кости",
+		"левой голени",
+		"левом бедре",
+		"левом колене",
+		"левой ступне"
 	],
 
 	"r_leg": [
-		"@pick(inner_outer)right thigh",
-		"@pick(free_move)right calf",
-		"@pick(free_move)right hip",
-		"right kneecap",
-		"@pick(free_move)right shin"
-	],
-
-
-	"inner_outer" : [
-		"inner ",
-		"outer ",
-		"",
-		""
-	],
-	"upper_lower" : [
-		"upper ",
-		"lower ",
-		"",
-		""
-	],
-	"free_move" : [
-		"inner ",
-		"outer ",
-		"upper ",
-		"lower ",
-		"",
-		""
-	],
-	"left_right" : [
-		"left ",
-		"right "
+		"правой бедренной кости",
+		"правой голени",
+		"правом бедре",
+		"правом колене",
+		"правой ступне"
 	]
 }

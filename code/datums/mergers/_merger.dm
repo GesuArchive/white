@@ -18,6 +18,9 @@
 	var/debug_color
 #endif
 
+	/// Signals in members to trigger a refresh
+	var/static/list/refresh_signals = list(COMSIG_MOVABLE_MOVED)
+
 /datum/merger/New(id, list/merged_typecache, atom/origin, attempt_merge_proc)
 #if MERGERS_DEBUG
 	debug_color = rgb(rand(0, 255), rand(0, 255), rand(0, 255))
@@ -35,8 +38,8 @@
 
 /datum/merger/proc/RemoveMember(atom/thing, clean=TRUE)
 	SEND_SIGNAL(thing, COMSIG_MERGER_REMOVING, src)
-	UnregisterSignal(thing, COMSIG_MOVABLE_MOVED)
-	UnregisterSignal(thing, COMSIG_QDELETING)
+	UnregisterSignal(thing, refresh_signals)
+	UnregisterSignal(thing, COMSIG_PARENT_QDELETING)
 	if(!thing.mergers)
 		return
 	thing.mergers -= id
@@ -49,8 +52,8 @@
 
 /datum/merger/proc/AddMember(atom/thing, connected_dir) // note that this fires for the origin of the merger as well
 	SEND_SIGNAL(thing, COMSIG_MERGER_ADDING, src)
-	RegisterSignal(thing, COMSIG_MOVABLE_MOVED, PROC_REF(QueueRefresh))
-	RegisterSignal(thing, COMSIG_QDELETING, PROC_REF(HandleMemberDel))
+	RegisterSignals(thing, refresh_signals, PROC_REF(QueueRefresh))
+	RegisterSignal(thing, COMSIG_PARENT_QDELETING, PROC_REF(HandleMemberDel))
 	if(!thing.mergers)
 		thing.mergers = list()
 	else if(thing.mergers[id])
@@ -131,7 +134,7 @@
 /datum/merger/proc/check_turf(turf/location, list/found_turfs, asking_from)
 	var/found_something = FALSE
 	// if asking_from is invalid (like if it's 0), we get a random output. that's bad, let's check for falsyness
-	var/us_to_them = asking_from && REVERSE_DIR(asking_from)
+	var/us_to_them = asking_from && turn(asking_from, 180)
 
 	if(found_turfs[location])
 		found_turfs[location][MERGE_TURF_PACKET_DIR] |= us_to_them

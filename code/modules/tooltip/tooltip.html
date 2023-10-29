@@ -3,7 +3,7 @@
 <head>
 	<title>Tooltip</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<style type="text/css">
 		body, html {
 			margin: 0;
@@ -77,14 +77,17 @@
 		.slimecore .wrap {border-color: #18640E;}
 		.slimecore .content {color: #6EA161; border-color: #11450B; background-color: #354E35;}
 
-		.operative .wrap {border-color: #13121b;}
-		.operative .content {color: #b01232; border-color: #13121b; background-color: #282831;}
+		.operative .wrap {border-color: #1E0101;}
+		.operative .content {color: #FFFFFF; border-color: #750000; background-color: #350000;}
 
 		.trasen-knox .wrap {border-color: #998e81;}
 		.trasen-knox .content {color: #3ce375; border-color: #998e81; background-color: #1e1d21;}
 
-		.detective .wrap {border-color: #2c0F0c;}
-		.detective .wrap {color: #c7b08b; border-color: #2c0F0c; background-color: #221c1a;}
+		.syndikats .wrap {border-color: #13121b;}
+		.syndikats .content {color: #b01232; border-color: #13121b; background-color: #282831;}
+
+		.neoscreen .wrap {border: 1px solid #FFA800;}
+		.neoscreen .content {color: #FFA800; border-color: #222222; background-color: #222222;}
 
 	</style>
 </head>
@@ -204,11 +207,6 @@
 					}
 				}
 
-				//Handle special cases (for fuck sake)
-				if (tooltip.special !== 'none') {
-					//Put yo special cases here
-				}
-
 				//Clamp values
 				left = (left < 0 ? 0 : (left > tilesShownX ? tilesShownX : left));
 				top = (top < 0 ? 0 : (top > tilesShownY ? tilesShownY : top));
@@ -217,7 +215,7 @@
 				var posX = Math.round(((left - 1) * realIconSizeX) + leftOffset + tooltip.padding); //-1 to position at the left of the target tile
 				var posY = Math.round(((tilesShownY - top + 1) * realIconSizeY) + topOffset + tooltip.padding); //+1 to position at the bottom of the target tile
 
-				//alert(mapWidth+' | '+mapHeight+' | '+tilesShown+' | '+realIconSize+' | '+leftOffset+' | '+topOffset+' | '+left+' | '+top+' | '+posX+' | '+posY); //DEBUG
+				//alert(mapWidth+' | '+mapHeight+' | '+leftOffset+' | '+topOffset+' | '+left+' | '+top+' | '+posX+' | '+posY); //DEBUG
 
 				$('body').attr('class', tooltip.theme);
 
@@ -237,6 +235,13 @@
 				var docWidth	= Math.floor($wrap.outerWidth() * pixelRatio),
 					docHeight	= Math.floor($wrap.outerHeight() * pixelRatio);
 
+				if(isNaN(posX)) {
+					posX = mapWidth - docWidth;
+					if(top == 1) {
+						posX = docWidth;
+					}
+				}
+
 				if (posY + docHeight > map.size.y) { //Is the bottom edge below the window? Snap it up if so
 					posY = (posY - docHeight) - realIconSizeY - tooltip.padding;
 				}
@@ -248,14 +253,13 @@
 					tooltip.hide();
 				});
 			},
-			update: function(params, client_vw , clien_vh , text, theme, special) {
+			update: function(params, client_vw , clien_vh , text, theme) {
 				//Assign our global object
 				tooltip.params = $.parseJSON(params);
 				tooltip.client_view_w = parseInt(client_vw);
 				tooltip.client_view_h = parseInt(clien_vh);
 				tooltip.text = text;
 				tooltip.theme = theme;
-				tooltip.special = special;
 
 				//Go get the map details
 				window.location = 'byond://winget?callback=tooltip.updateCallback;id=mapwindow.map;property=size,view-size';

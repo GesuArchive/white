@@ -1,25 +1,27 @@
 /obj/machinery/vending/modularpc
-	name = "\improper Deluxe Silicate Selections"
-	desc = "All the parts you need to build your own custom pc."
+	name = "Командор-64"
+	desc = "Все детали, необходимые для создания собственного ПК."
 	icon_state = "modularpc"
 	icon_deny = "modularpc-deny"
-	panel_type = "panel21"
 	light_mask = "modular-light-mask"
-	product_ads = "Get your gamer gear!;The best GPUs for all of your space-crypto needs!;The most robust cooling!;The finest RGB in space!"
-	vend_reply = "Game on!"
+	product_ads = "Получите свое игровое снаряжение!;Лучшие графические процессоры для всех ваших потребностей в области космической криптовалюты!;Самое надежное охлаждение!;Лучшая RGB-подсветка в космосе!"
+	vend_reply = "Игра началась!"
 	products = list(
-		/obj/item/computer_disk = 8,
 		/obj/item/modular_computer/laptop = 4,
-		/obj/item/modular_computer/pda = 4,
+		/obj/item/modular_computer/tablet = 4,
+		/obj/item/computer_disk = 8,
+		/obj/item/computer_hardware/battery = 8,
+		/obj/item/stock_parts/cell/computer = 8,
 	)
 	premium = list(
+		/obj/item/computer_hardware/card_slot = 2,
 		/obj/item/pai_card = 2,
 	)
 	refill_canister = /obj/item/vending_refill/modularpc
-	default_price = PAYCHECK_CREW
-	extra_price = PAYCHECK_COMMAND
+	default_price = PAYCHECK_MEDIUM
+	extra_price = PAYCHECK_HARD
 	payment_department = ACCOUNT_SCI
 
 /obj/item/vending_refill/modularpc
-	machine_name = "Deluxe Silicate Selections"
+	machine_name = "Командор-64"
 	icon_state = "refill_engi"

@@ -17,23 +17,44 @@
 
 /datum/action/cooldown/spell/forcewall/cast(atom/cast_on)
 	. = ..()
-	for(var/turf/cast_turf as anything in get_turfs())
-		spawn_wall(cast_turf)
+	new wall_type(get_turf(owner), owner)
 
-/// This proc returns all the turfs on which we will spawn the walls.
-/datum/action/cooldown/spell/forcewall/proc/get_turfs()
-	return list(get_turf(owner), get_step(owner, turn(owner.dir, 90)), get_step(owner, turn(owner.dir, 270)))
+	if(owner.dir == SOUTH || owner.dir == NORTH)
+		new wall_type(get_step(owner, EAST), owner, antimagic_flags)
+		new wall_type(get_step(owner, WEST), owner, antimagic_flags)
 
-/// This proc spawns a wall on the given turf.
-/datum/action/cooldown/spell/forcewall/proc/spawn_wall(turf/cast_turf)
-	new wall_type(cast_turf, owner, antimagic_flags)
+	else
+		new wall_type(get_step(owner, NORTH), owner, antimagic_flags)
+		new wall_type(get_step(owner, SOUTH), owner, antimagic_flags)
+
+/// The wizard's forcefield, summoned by forcewall
+/obj/effect/forcefield/wizard
+	/// Flags for what antimagic can just ignore our forcefields
+	var/antimagic_flags = MAGIC_RESISTANCE
+	/// A weakref to whoever casted our forcefield.
+	var/datum/weakref/caster_weakref
+
+/obj/effect/forcefield/wizard/Initialize(mapload, mob/caster, flags = MAGIC_RESISTANCE)
+	. = ..()
+	if(caster)
+		caster_weakref = WEAKREF(caster)
+	antimagic_flags = flags
+
+/obj/effect/forcefield/wizard/CanAllowThrough(atom/movable/mover, border_dir)
+	if(IS_WEAKREF_OF(mover, caster_weakref))
+		return TRUE
+	if(isliving(mover))
+		var/mob/living/living_mover = mover
+		if(living_mover.can_block_magic(antimagic_flags, charge_cost = 0))
+			return TRUE
+
+	return ..()
 
 /datum/action/cooldown/spell/forcewall/cult
 	name = "Shield"
 	desc = "This spell creates a temporary forcefield to shield yourself and allies from incoming fire."
 	background_icon_state = "bg_demon"
 	overlay_icon_state = "bg_demon_border"
-
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "cultforcewall"
 
@@ -49,7 +70,6 @@
 	overlay_icon_state = "bg_mime_border"
 	button_icon = 'icons/mob/actions/actions_mime.dmi'
 	button_icon_state = "invisible_blockade"
-	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED|AB_CHECK_INCAPACITATED
 	panel = "Mime"
 	sound = null
 

@@ -10,7 +10,6 @@ import { NowPlayingWidget, useAudio } from './audio';
 import { ChatPanel, ChatTabs } from './chat';
 import { useGame } from './game';
 import { Notifications } from './Notifications';
-import { PingIndicator } from './ping';
 import { ReconnectButton } from './reconnect';
 import { SettingsPanel, useSettings } from './settings';
 
@@ -39,14 +38,11 @@ export const Panel = (props, context) => {
                 <ChatTabs />
               </Stack.Item>
               <Stack.Item>
-                <PingIndicator />
-              </Stack.Item>
-              <Stack.Item>
                 <Button
                   color="grey"
                   selected={audio.visible}
                   icon="music"
-                  tooltip="Music player"
+                  tooltip="Плеер"
                   tooltipPosition="bottom-start"
                   onClick={() => audio.toggle()}
                 />
@@ -56,7 +52,7 @@ export const Panel = (props, context) => {
                   icon={settings.visible ? 'times' : 'cog'}
                   selected={settings.visible}
                   tooltip={
-                    settings.visible ? 'Close settings' : 'Open settings'
+                    settings.visible ? 'Закрыть настройки' : 'Открыть настройки'
                   }
                   tooltipPosition="bottom-start"
                   onClick={() => settings.toggle()}
@@ -85,14 +81,14 @@ export const Panel = (props, context) => {
             <Notifications>
               {game.connectionLostAt && (
                 <Notifications.Item rightSlot={<ReconnectButton />}>
-                  You are either AFK, experiencing lag or the connection has
-                  closed.
+                  Сервер не отвечает. Если надоело ждать, то можете нажать на
+                  одну из кнопок ниже.
                 </Notifications.Item>
               )}
               {game.roundRestartedAt && (
                 <Notifications.Item>
-                  The connection has been closed because the server is
-                  restarting. Please wait while you automatically reconnect.
+                  Перезагрузка сервера. Пожалуйста, подождите. Игра сама
+                  переподключится к серверу.
                 </Notifications.Item>
               )}
             </Notifications>
@@ -117,7 +113,7 @@ const HoboPanel = (props, context) => {
           }}
           selected={settings.visible}
           onClick={() => settings.toggle()}>
-          Settings
+          Настройки
         </Button>
         {(settings.visible && <SettingsPanel />) || (
           <ChatPanel lineHeight={settings.lineHeight} />

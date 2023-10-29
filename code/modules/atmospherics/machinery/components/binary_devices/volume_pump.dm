@@ -5,15 +5,16 @@
 //
 // Thus, the two variables affect pump operation are set in New():
 //   air1.volume
-//     This is the volume of gas available to the pump that may be transferred to the output
+//     This is the volume of gas available to the pump that may be transfered to the output
 //   air2.volume
 //     Higher quantities of this cause more air to be perfected later
 //     but overall network volume is also increased as this increases...
 
 /obj/machinery/atmospherics/components/binary/volume_pump
 	icon_state = "volpump_map-3"
-	name = "volumetric gas pump"
-	desc = "A pump that moves gas by volume."
+	name = "объемный насос"
+	desc = "Альтернативный вид насоса - он значительно медленнее обычного газового насоса, однако его главное преимущество в том, что он не ограничен давлением и продолжает закачку до максимального заполнения канистры или системы труб."
+
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
 	construction_type = /obj/item/pipe/directional
@@ -45,7 +46,7 @@
 	if(can_interact(user))
 		transfer_rate = MAX_TRANSFER_RATE
 		investigate_log("was set to [transfer_rate] L/s by [key_name(user)]", INVESTIGATE_ATMOS)
-		balloon_alert(user, "volume output set to [transfer_rate] L/s")
+		balloon_alert(user, "максимально выкручиваю силу потока на [transfer_rate] Л/с")
 		update_appearance()
 	return ..()
 
@@ -144,17 +145,17 @@
 /obj/machinery/atmospherics/components/binary/volume_pump/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, span_warning("You cannot unwrench [src], turn it off first!"))
+		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!"))
 		return FALSE
 
 /obj/machinery/atmospherics/components/binary/volume_pump/multitool_act(mob/living/user, obj/item/I)
 	if(!overclocked)
 		overclocked = TRUE
-		to_chat(user, "The pump makes a grinding noise and air starts to hiss out as you disable its pressure limits.")
+		to_chat(user, "Помпа начинает скрежетать и выпускать воздух как только ограничитель давления выключается.")
 		update_icon()
 	else
 		overclocked = FALSE
-		to_chat(user, "The pump quiets down as you turn its limiters back on.")
+		to_chat(user, "Помпа затихает как только я включаю ограничитель давления.")
 		update_icon()
 	return TRUE
 

@@ -8,13 +8,13 @@
 	mob_biotypes = MOB_ORGANIC
 	pass_flags = PASSTABLE | PASSGRILLE
 	gender = NEUTER
-	emote_see = list("jiggles", "bounces in place")
-	speak_emote = list("blorbles")
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	emote_see = list("покачивается", "подпрыгивает")
+	speak_emote = list("пузырит")
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	hud_type = /datum/hud/ooze
 	minbodytemp = 250
 	maxbodytemp = INFINITY
-	faction = list(FACTION_SLIME)
+	faction = list("slime")
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	health = 200
@@ -22,35 +22,42 @@
 	attack_verb_continuous = "slimes"
 	attack_verb_simple = "slime"
 	attack_sound = 'sound/effects/blobattack.ogg'
-	combat_mode = TRUE
+	a_intent = INTENT_HARM
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	mob_size = MOB_SIZE_LARGE
 	initial_language_holder = /datum/language_holder/slime
-	footstep_type = FOOTSTEP_MOB_SLIME
+
 	///Oozes have their own nutrition. Changes based on them eating
 	var/ooze_nutrition = 50
 	var/ooze_nutrition_loss = -0.15
 	var/ooze_metabolism_modifier = 2
-	///Bitfield of edible food types
-	var/edible_food_types = MEAT
 
 /mob/living/simple_animal/hostile/ooze/Initialize(mapload)
 	. = ..()
 	create_reagents(300)
 	add_cell_sample()
+	AddElement(/datum/element/footstep, FOOTSTEP_MOB_SLIME, 0)
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
-	AddElement(/datum/element/content_barfer)
 
 /mob/living/simple_animal/hostile/ooze/attacked_by(obj/item/I, mob/living/user)
-	if(!eat_atom(I, TRUE))
+	if(!check_edible(I))
 		return ..()
+	eat_atom(I)
 
 /mob/living/simple_animal/hostile/ooze/AttackingTarget(atom/attacked_target)
-	if(!eat_atom(attacked_target))
+	if(!check_edible(attacked_target))
 		return ..()
+	eat_atom(attacked_target)
+
+/mob/living/simple_animal/hostile/ooze/UnarmedAttack(atom/A)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		return
+	if(!check_edible(A))
+		return ..()
+	eat_atom(A)
 
 ///Handles nutrition gain/loss of mob and also makes it take damage if it's too low on nutrition, only happens for sentient mobs.
-/mob/living/simple_animal/hostile/ooze/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/hostile/ooze/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
 
 	if(!mind && stat != DEAD)//no mind no change
@@ -61,15 +68,23 @@
 	//Eat a bit of all the reagents we have. Gaining nutrition for actual nutritional ones.
 	for(var/i in reagents.reagent_list)
 		var/datum/reagent/reagent = i
-		var/consumption_amount = min(reagents.get_reagent_amount(reagent.type), ooze_metabolism_modifier * REAGENTS_METABOLISM * seconds_per_tick)
+		var/consumption_amount = min(reagents.get_reagent_amount(reagent.type), ooze_metabolism_modifier * REAGENTS_METABOLISM * delta_time)
 		if(istype(reagent, /datum/reagent/consumable))
 			var/datum/reagent/consumable/consumable = reagent
-			nutrition_change += consumption_amount * consumable.get_nutriment_factor(src)
+			nutrition_change += consumption_amount * consumable.nutriment_factor
 		reagents.remove_reagent(reagent.type, consumption_amount)
 	adjust_ooze_nutrition(nutrition_change)
 
 	if(ooze_nutrition <= 0)
-		adjustBruteLoss(0.25 * seconds_per_tick)
+		adjustBruteLoss(0.25 * delta_time)
+
+///Returns whether or not the supplied movable atom is edible.
+/mob/living/simple_animal/hostile/ooze/proc/check_edible(atom/movable/potential_food)
+	if(ismob(potential_food))
+		return FALSE
+	if(istype(potential_food, /obj/item/reagent_containers/food))
+		var/obj/item/reagent_containers/food/meal = potential_food
+		return (meal.foodtype & MEAT) //Dont forget to add edible component compat here later
 
 ///Does ooze_nutrition + supplied amount and clamps it within 0 and 500
 /mob/living/simple_animal/hostile/ooze/proc/adjust_ooze_nutrition(amount)
@@ -77,14 +92,11 @@
 	updateNutritionDisplay()
 
 ///Tries to transfer the atoms reagents then delete it
-/mob/living/simple_animal/hostile/ooze/proc/eat_atom(atom/eat_target, silent)
-	if(isnull(eat_target))
-		return
-	if(SEND_SIGNAL(eat_target, COMSIG_OOZE_EAT_ATOM, src, edible_food_types) & COMPONENT_ATOM_EATEN)
-		return
-	if(silent || !isitem(eat_target)) //Don't bother reporting it for everything
-		return
-	to_chat(src, span_warning("[eat_target] cannot be eaten!"))
+/mob/living/simple_animal/hostile/ooze/proc/eat_atom(obj/item/eaten_atom)
+	eaten_atom.reagents.trans_to(src, eaten_atom.reagents.total_volume, transfered_by = src)
+	src.visible_message("<span class='warning>[src] eats [eaten_atom]!</span>", span_notice("You eat [eaten_atom]."))
+	playsound(loc,'sound/items/eatfood.ogg', rand(30,50), TRUE)
+	qdel(eaten_atom)
 
 ///Updates the display that shows the mobs nutrition
 /mob/living/simple_animal/hostile/ooze/proc/updateNutritionDisplay()
@@ -98,7 +110,7 @@
 ///Its good stats and high mobility makes this a good assasin type creature. It's vulnerabilites against cold, shotguns and
 /mob/living/simple_animal/hostile/ooze/gelatinous
 	name = "Gelatinous Cube"
-	desc = "A cubic ooze native to Sholus VII.\nSince the advent of space travel this species has established itself in the waste treatment facilities of several space colonies.\nIt is often considered to be the third most infamous invasive species due to its highly aggressive and predatory nature."
+	desc = "A cubic ooze native to Sholus VII.\nSince the advent of space travel this species has established itself in the waste treatment facilities of several space colonies.\nIt is often considered to be the third most infamous invasive species due to its highly agressive and predatory nature."
 	speed = 1
 	damage_coeff = list(BRUTE = 1, BURN = 0.6, TOX = 0.5, CLONE = 1.5, STAMINA = 0, OXY = 1)
 	melee_damage_lower = 20
@@ -139,7 +151,6 @@
 	name = "Metabolic boost"
 	desc = "Gain a temporary speed boost. Costs 10 nutrition and slowly raises your temperature"
 	background_icon_state = "bg_hive"
-	overlay_icon_state = "bg_hive_border"
 	button_icon = 'icons/mob/actions/actions_slime.dmi'
 	button_icon_state = "metabolic_boost"
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE
@@ -157,16 +168,10 @@
 	return (ooze.ooze_nutrition >= nutrition_cost && !active)
 
 ///Give the mob a speed boost, heat it up every second, and end the ability in 6 seconds
-/datum/action/cooldown/metabolicboost/Activate(atom/target)
-	StartCooldown(10 SECONDS)
-	trigger_boost()
-	StartCooldown()
-	return TRUE
-
-/*
- * Actually trigger the boost.
- */
-/datum/action/cooldown/metabolicboost/proc/trigger_boost()
+/datum/action/cooldown/metabolicboost/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/mob/living/simple_animal/hostile/ooze/ooze = owner
 	ooze.add_movespeed_modifier(/datum/movespeed_modifier/metabolicboost)
 	var/timerid = addtimer(CALLBACK(src, PROC_REF(HeatUp)), 1 SECONDS, TIMER_STOPPABLE | TIMER_LOOP) //Heat up every second
@@ -188,6 +193,7 @@
 	deltimer(timerid)
 	active = FALSE
 	StartCooldown()
+	build_all_button_icons()
 
 
 ///This action lets you consume the mob you're currently pulling. I'M GONNA CONSUUUUUME (this is considered one of the funny memes in the 2019-2020 era)
@@ -195,17 +201,20 @@
 	name = "Consume"
 	desc = "Consume a mob that you are dragging to gain nutrition from them"
 	background_icon_state = "bg_hive"
-	overlay_icon_state = "bg_hive_border"
 	button_icon = 'icons/mob/actions/actions_slime.dmi'
 	button_icon_state = "consume"
-	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE|AB_CHECK_INCAPACITATED
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE
 	///The mob thats being consumed by this creature
 	var/mob/living/vored_mob
 
 ///Register for owner death
 /datum/action/consume/New(Target)
 	. = ..()
-	RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(stop_consuming))
+	RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
+	RegisterSignal(owner, COMSIG_PARENT_PREQDELETED, PROC_REF(handle_mob_deletion))
+
+/datum/action/consume/proc/handle_mob_deletion()
+	stop_consuming() //Shit out the vored mob before u go go
 
 ///Try to consume the pulled mob
 /datum/action/consume/Trigger(trigger_flags)
@@ -219,7 +228,7 @@
 	if(vored_mob)
 		to_chat(src, span_warning("You are already consuming another creature!"))
 		return FALSE
-	owner.visible_message(span_warning("[ooze] starts attempting to devour [target]!"), span_notice("You start attempting to devour [target]."))
+	owner.visible_message("<span class='warning>[ooze] starts attempting to devour [target]!</span>", span_notice("You start attempting to devour [target]."))
 	if(!do_after(ooze, 15, target = ooze.pulling))
 		return FALSE
 	var/mob/living/eat_target = ooze.pulling
@@ -233,21 +242,18 @@
 /datum/action/consume/proc/start_consuming(mob/living/target)
 	vored_mob = target
 	vored_mob.forceMove(owner) ///AAAAAAAAAAAAAAAAAAAAAAHHH!!!
-	RegisterSignal(vored_mob, COMSIG_QDELETING, PROC_REF(stop_consuming))
+	RegisterSignal(vored_mob, COMSIG_PARENT_PREQDELETED, PROC_REF(handle_mob_deletion))
 	playsound(owner,'sound/items/eatfood.ogg', rand(30,50), TRUE)
-	owner.visible_message(span_warning("[src] devours [target]!"), span_notice("You devour [target]."))
+	owner.visible_message("<span class='warning>[src] devours [target]!</span>", span_notice("You devour [target]."))
 	START_PROCESSING(SSprocessing, src)
 
 ///Stop consuming the mob; dump them on the floor
 /datum/action/consume/proc/stop_consuming()
-	SIGNAL_HANDLER
 	STOP_PROCESSING(SSprocessing, src)
-	if (isnull(vored_mob))
-		return
 	vored_mob.forceMove(get_turf(owner))
 	playsound(get_turf(owner), 'sound/effects/splat.ogg', 50, TRUE)
-	owner.visible_message(span_warning("[owner] pukes out [vored_mob]!"), span_notice("You puke out [vored_mob]."))
-	UnregisterSignal(vored_mob, COMSIG_QDELETING)
+	owner.visible_message("<span class='warning>[owner] pukes out [vored_mob]!</span>", span_notice("You puke out [vored_mob]."))
+	UnregisterSignal(vored_mob, COMSIG_PARENT_PREQDELETED)
 	vored_mob = null
 
 ///Gain health for the consumption and dump some clone loss on the target.
@@ -261,9 +267,10 @@
 	if(vored_mob.getBruteLoss() >= 200)
 		stop_consuming()
 
-/datum/action/consume/Remove(mob/remove_from)
+///On owner death dump the current vored mob
+/datum/action/consume/proc/on_owner_death()
+	SIGNAL_HANDLER
 	stop_consuming()
-	return ..()
 
 
 ///* Gelatinious Grapes code below *\\\\
@@ -283,7 +290,6 @@
 	melee_damage_upper = 12
 	obj_damage = 15
 	death_message = "deflates and spills its vital juices!"
-	edible_food_types = MEAT | VEGETABLES
 
 /mob/living/simple_animal/hostile/ooze/grapes/Initialize(mapload)
 	. = ..()
@@ -291,6 +297,15 @@
 	glob_shooter.Grant(src)
 	var/datum/action/cooldown/gel_cocoon/gel_cocoon = new(src)
 	gel_cocoon.Grant(src)
+
+/mob/living/simple_animal/hostile/ooze/grapes/check_edible(atom/movable/potential_food)
+	if(ismob(potential_food))
+		return FALSE
+	var/foodtype
+	if(istype(potential_food, /obj/item/reagent_containers/food))
+		var/obj/item/reagent_containers/food/meal = potential_food
+		foodtype = meal.foodtype
+	return foodtype & MEAT || foodtype & VEGETABLES //Dont forget to add edible component compat here later
 
 /mob/living/simple_animal/hostile/ooze/grapes/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_GRAPE, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
@@ -300,10 +315,9 @@
 	name = "Fire Mending globule"
 	desc = "Fires a mending globule at someone, healing a specific limb of theirs."
 	background_icon_state = "bg_hive"
-	overlay_icon_state = "bg_hive_border"
 	button_icon = 'icons/mob/actions/actions_slime.dmi'
 	button_icon_state = "globules"
-	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
+	check_flags = AB_CHECK_CONSCIOUS
 	cooldown_time = 5 SECONDS
 	click_to_activate = TRUE
 
@@ -359,8 +373,6 @@
 	globule.def_zone = caller.zone_selected
 	globule.fire()
 
-	StartCooldown()
-
 	return TRUE
 
 // Needs to return TRUE otherwise PreActivate() will fail, see above
@@ -373,13 +385,14 @@
 	icon_state = "glob_projectile"
 	shrapnel_type = /obj/item/mending_globule
 	embedding = list("embed_chance" = 100, ignore_throwspeed_threshold = TRUE, "pain_mult" = 0, "jostle_pain_mult" = 0, "fall_chance" = 0.5)
+	nodamage = TRUE
 	damage = 0
 
 ///This item is what is embedded into the mob, and actually handles healing of mending globules
 /obj/item/mending_globule
 	name = "mending globule"
 	desc = "It somehow heals those who touch it."
-	icon = 'icons/obj/science/vatgrowing.dmi'
+	icon = 'icons/obj/xenobiology/vatgrowing.dmi'
 	icon_state = "globule"
 	embedding = list("embed_chance" = 100, ignore_throwspeed_threshold = TRUE, "pain_mult" = 0, "jostle_pain_mult" = 0, "fall_chance" = 0.5)
 	var/obj/item/bodypart/bodypart
@@ -415,16 +428,16 @@
 	name = "Gel Cocoon"
 	desc = "Puts a mob inside of a cocoon, allowing it to slowly heal."
 	background_icon_state = "bg_hive"
-	overlay_icon_state = "bg_hive_border"
 	button_icon = 'icons/mob/actions/actions_slime.dmi'
 	button_icon_state = "gel_cocoon"
-	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE|AB_CHECK_INCAPACITATED
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE
 	cooldown_time = 10 SECONDS
 
 /datum/action/cooldown/gel_cocoon/Activate(atom/target)
 	StartCooldown(10 SECONDS)
 	gel_cocoon()
 	StartCooldown()
+	build_all_button_icons()
 
 ///Try to put the pulled mob in a cocoon
 /datum/action/cooldown/gel_cocoon/proc/gel_cocoon()
@@ -456,7 +469,7 @@
 /obj/structure/gel_cocoon
 	name = "gel cocoon"
 	desc = "It looks gross, but helpful."
-	icon = 'icons/obj/science/vatgrowing.dmi'
+	icon = 'icons/obj/xenobiology/vatgrowing.dmi'
 	icon_state = "gel_cocoon"
 	max_integrity = 50
 	var/mob/living/carbon/inhabitant

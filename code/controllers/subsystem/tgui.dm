@@ -19,8 +19,10 @@ SUBSYSTEM_DEF(tgui)
 
 	/// A list of UIs scheduled to process
 	var/list/current_run = list()
-	/// A list of all open UIs
-	var/list/all_uis = list()
+	/// A list of open UIs
+	var/list/open_uis = list()
+	/// A list of open UIs, grouped by src_object.
+	var/list/open_uis_by_src = list()
 	/// The HTML base used for all UIs.
 	var/basehtml
 
@@ -30,18 +32,17 @@ SUBSYSTEM_DEF(tgui)
 	var/polyfill = file2text('tgui/public/tgui-polyfill.min.js')
 	polyfill = "<script>\n[polyfill]\n</script>"
 	basehtml = replacetextEx(basehtml, "<!-- tgui:inline-polyfill -->", polyfill)
-	basehtml = replacetextEx(basehtml, "<!-- tgui:nt-copyright -->", "Nanotrasen (c) 2525-[CURRENT_STATION_YEAR]")
 
 /datum/controller/subsystem/tgui/Shutdown()
 	close_all_uis()
 
 /datum/controller/subsystem/tgui/stat_entry(msg)
-	msg = "P:[length(all_uis)]"
+	msg = "P:[length(open_uis)]"
 	return ..()
 
 /datum/controller/subsystem/tgui/fire(resumed = FALSE)
 	if(!resumed)
-		src.current_run = all_uis.Copy()
+		src.current_run = open_uis.Copy()
 	// Cache for sanic speed (lists are references anyways)
 	var/list/current_run = src.current_run
 	while(current_run.len)
@@ -51,7 +52,7 @@ SUBSYSTEM_DEF(tgui)
 		if(ui?.user && ui.src_object)
 			ui.process(wait * 0.1)
 		else
-			ui.close(0)
+			open_uis.Remove(ui)
 		if(MC_TICK_CHECK)
 			return
 
@@ -170,14 +171,27 @@ SUBSYSTEM_DEF(tgui)
  * return datum/tgui The found UI.
  */
 /datum/controller/subsystem/tgui/proc/get_open_ui(mob/user, datum/src_object)
+	var/key = "[REF(src_object)]"
 	// No UIs opened for this src_object
-	if(!LAZYLEN(src_object?.open_uis))
+	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
 		return null
-	for(var/datum/tgui/ui in src_object.open_uis)
+	for(var/datum/tgui/ui in open_uis_by_src[key])
 		// Make sure we have the right user
 		if(ui.user == user)
 			return ui
 	return null
+
+/**
+ * public
+ *
+ * Gets all open UIs on a src object
+ */
+/datum/controller/subsystem/tgui/proc/get_all_open_uis(datum/src_object)
+	var/key = "[REF(src_object)]"
+	// No UIs opened for this src_object
+	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
+		return list()
+	return open_uis_by_src[key]
 
 /**
  * public
@@ -189,14 +203,15 @@ SUBSYSTEM_DEF(tgui)
  * return int The number of UIs updated.
  */
 /datum/controller/subsystem/tgui/proc/update_uis(datum/src_object)
-	// No UIs opened for this src_object
-	if(!LAZYLEN(src_object?.open_uis))
-		return 0
 	var/count = 0
-	for(var/datum/tgui/ui in src_object.open_uis)
+	var/key = "[REF(src_object)]"
+	// No UIs opened for this src_object
+	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
+		return count
+	for(var/datum/tgui/ui in open_uis_by_src[key])
 		// Check if UI is valid.
 		if(ui?.src_object && ui.user && ui.src_object.ui_host(ui.user))
-			INVOKE_ASYNC(ui, TYPE_PROC_REF(/datum/tgui, process), wait * 0.1, TRUE)
+			ui.process(wait * 0.1, force = 1)
 			count++
 	return count
 
@@ -210,11 +225,12 @@ SUBSYSTEM_DEF(tgui)
  * return int The number of UIs closed.
  */
 /datum/controller/subsystem/tgui/proc/close_uis(datum/src_object)
-	// No UIs opened for this src_object
-	if(!LAZYLEN(src_object?.open_uis))
-		return 0
 	var/count = 0
-	for(var/datum/tgui/ui in src_object.open_uis)
+	var/key = "[REF(src_object)]"
+	// No UIs opened for this src_object
+	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
+		return count
+	for(var/datum/tgui/ui in open_uis_by_src[key])
 		// Check if UI is valid.
 		if(ui?.src_object && ui.user && ui.src_object.ui_host(ui.user))
 			ui.close()
@@ -230,11 +246,12 @@ SUBSYSTEM_DEF(tgui)
  */
 /datum/controller/subsystem/tgui/proc/close_all_uis()
 	var/count = 0
-	for(var/datum/tgui/ui in all_uis)
-		// Check if UI is valid.
-		if(ui?.src_object && ui.user && ui.src_object.ui_host(ui.user))
-			ui.close()
-			count++
+	for(var/key in open_uis_by_src)
+		for(var/datum/tgui/ui in open_uis_by_src[key])
+			// Check if UI is valid.
+			if(ui?.src_object && ui.user && ui.src_object.ui_host(ui.user))
+				ui.close()
+				count++
 	return count
 
 /**
@@ -285,9 +302,13 @@ SUBSYSTEM_DEF(tgui)
  * required ui datum/tgui The UI to be added.
  */
 /datum/controller/subsystem/tgui/proc/on_open(datum/tgui/ui)
-	ui.user?.tgui_open_uis |= ui
-	LAZYOR(ui.src_object.open_uis, ui)
-	all_uis |= ui
+	var/key = "[REF(ui.src_object)]"
+	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
+		open_uis_by_src[key] = list()
+	ui.user.tgui_open_uis |= ui
+	var/list/uis = open_uis_by_src[key]
+	uis |= ui
+	open_uis |= ui
 
 /**
  * private
@@ -299,14 +320,18 @@ SUBSYSTEM_DEF(tgui)
  * return bool If the UI was removed or not.
  */
 /datum/controller/subsystem/tgui/proc/on_close(datum/tgui/ui)
+	var/key = "[REF(ui.src_object)]"
+	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
+		return FALSE
 	// Remove it from the list of processing UIs.
-	all_uis -= ui
-	current_run -= ui
+	open_uis.Remove(ui)
 	// If the user exists, remove it from them too.
 	if(ui.user)
-		ui.user.tgui_open_uis -= ui
-	if(ui.src_object)
-		LAZYREMOVE(ui.src_object.open_uis, ui)
+		ui.user.tgui_open_uis.Remove(ui)
+	var/list/uis = open_uis_by_src[key]
+	uis.Remove(ui)
+	if(length(uis) == 0)
+		open_uis_by_src.Remove(key)
 	return TRUE
 
 /**
@@ -341,7 +366,29 @@ SUBSYSTEM_DEF(tgui)
 	for(var/datum/tgui/ui in source.tgui_open_uis)
 		// Inform the UIs of their new owner.
 		ui.user = target
-		target.tgui_open_uis += ui
+		target.tgui_open_uis.Add(ui)
 	// Clear the old list.
 	source.tgui_open_uis.Cut()
 	return TRUE
+
+/**
+ * public
+ *
+ * Update all static data for UIs attached to src_object.
+ *
+ * required src_object datum The object/datum which owns the UIs.
+ *
+ * return int The number of UIs updated.
+ */
+/datum/controller/subsystem/tgui/proc/update_uis_static_data(datum/src_object)
+	var/count = 0
+	var/key = "[REF(src_object)]"
+	// No UIs opened for this src_object
+	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
+		return count
+	for(var/datum/tgui/ui in open_uis_by_src[key])
+		// Check if UI is valid.
+		if(ui?.src_object && ui.user && ui.src_object.ui_host(ui.user))
+			ui.send_full_update()
+			count++
+	return count

@@ -7,6 +7,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	move_resist = INFINITY
 	throwforce = 0
 
+
 /mob/dead/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
 	if(flags_1 & INITIALIZED_1)
@@ -23,50 +24,30 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 		add_verb(src, /mob/dead/proc/server_hop)
 	set_focus(src)
 	become_hearing_sensitive()
-	log_mob_tag("TAG: [tag] CREATED: [key_name(src)] \[[src.type]\]")
 	return INITIALIZE_HINT_NORMAL
 
 /mob/dead/canUseStorage()
 	return FALSE
 
-/mob/dead/get_status_tab_items()
-	. = ..()
-	if(SSticker.HasRoundStarted())
-		return
-	var/time_remaining = SSticker.GetTimeLeft()
-	if(time_remaining > 0)
-		. += "Time To Start: [round(time_remaining/10)]s"
-	else if(time_remaining == -10)
-		. += "Time To Start: DELAYED"
-	else
-		. += "Time To Start: SOON"
-
-	. += "Players: [LAZYLEN(GLOB.clients)]"
-	if(client.holder)
-		. += "Players Ready: [SSticker.totalPlayersReady]"
-		. += "Admins Ready: [SSticker.total_admins_ready] / [length(GLOB.admins)]"
-
-#define SERVER_HOPPER_TRAIT "server_hopper"
-
 /mob/dead/proc/server_hop()
 	set category = "OOC"
-	set name = "Server Hop"
+	set name = "Server Hop!"
 	set desc= "Jump to the other server"
-	if(HAS_TRAIT(src, TRAIT_NO_TRANSFORM)) // in case the round is ending and a cinematic is already playing we don't wanna clash with that (yes i know)
+	if(notransform)
 		return
 	var/list/our_id = CONFIG_GET(string/cross_comms_name)
 	var/list/csa = CONFIG_GET(keyed_list/cross_server) - our_id
 	var/pick
-	switch(length(csa))
+	switch(csa.len)
 		if(0)
 			remove_verb(src, /mob/dead/proc/server_hop)
 			to_chat(src, span_notice("Server Hop has been disabled."))
 		if(1)
 			pick = csa[1]
 		else
-			pick = tgui_input_list(src, "Server to jump to", "Server Hop", csa)
+			pick = tgui_input_list(src, "Pick a server to jump to", "Server Hop", csa)
 
-	if(isnull(pick))
+	if(!pick)
 		return
 
 	var/addr = csa[pick]
@@ -76,11 +57,11 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 
 	var/client/C = client
 	to_chat(C, span_notice("Sending you to [pick]."))
-	new /atom/movable/screen/splash(null, null, C)
+	new /atom/movable/screen/splash(C)
 
-	ADD_TRAIT(src, TRAIT_NO_TRANSFORM, SERVER_HOPPER_TRAIT)
-	sleep(2.9 SECONDS) //let the animation play
-	REMOVE_TRAIT(src, TRAIT_NO_TRANSFORM, SERVER_HOPPER_TRAIT)
+	notransform = TRUE
+	sleep(29)	//let the animation play
+	notransform = FALSE
 
 	if(!C)
 		return
@@ -88,8 +69,6 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	winset(src, null, "command=.options") //other wise the user never knows if byond is downloading resources
 
 	C << link("[addr]")
-
-#undef SERVER_HOPPER_TRAIT
 
 /mob/dead/proc/update_z(new_z) // 1+ to register, null to unregister
 	if (registered_z != new_z)

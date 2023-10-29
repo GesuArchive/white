@@ -63,9 +63,6 @@
 		if (isindestructiblewall(check_turf))
 			target_area -= check_turf
 			continue
-		if (check_turf.holodeck_compatible)
-			target_area -= check_turf
-			continue
 
 	return target_area
 
@@ -77,13 +74,12 @@
  */
 /datum/armour_dimensional_theme/proc/convert_turf(turf/to_convert)
 	if (isfloorturf(to_convert))
-		var/turf/open/open_turf = to_convert
-		open_turf.replace_floor(replace_floor, flags = CHANGETURF_INHERIT_AIR)
+		to_convert.ChangeTurf(replace_floor, flags = CHANGETURF_INHERIT_AIR)
 	else if (iswallturf(to_convert))
 		to_convert.ChangeTurf(replace_wall)
 
 	if (material)
-		var/list/custom_materials = list(GET_MATERIAL_REF(material) = SHEET_MATERIAL_AMOUNT)
+		var/list/custom_materials = list(GET_MATERIAL_REF(material) = MINERAL_MATERIAL_AMOUNT)
 		to_convert.set_custom_materials(custom_materials)
 
 /**
@@ -96,14 +92,13 @@
 /datum/armour_dimensional_theme/proc/place_barriers(turf/source, list/target_area)
 	target_area -= source
 	for (var/turf/check_turf as anything in target_area)
-		if (!check_turf.is_blocked_turf(exclude_mobs = TRUE))
-			continue
-		target_area -= check_turf
+		if (check_turf.density)
+			target_area -= check_turf
 
 	var/to_place = rand(MIN_BARRIERS, MAX_BARRIERS)
 	var/list/custom_materials = list()
 	if (material)
-		custom_materials = list(GET_MATERIAL_REF(material) = SHEET_MATERIAL_AMOUNT)
+		custom_materials = list(GET_MATERIAL_REF(material) = MINERAL_MATERIAL_AMOUNT)
 
 	while (target_area.len > 0 && to_place > 0)
 		var/turf/place_turf = pick(target_area)
@@ -136,22 +131,22 @@
 /datum/armour_dimensional_theme/safe/snow
 	material = /datum/material/snow
 	replace_wall = /turf/closed/wall/mineral/snow
-	replace_floor = /turf/open/floor/fake_snow
+	replace_floor = /turf/open/floor/grass/snow/actually_safe
 	barricade = /obj/structure/statue/snow/snowman
 
 /datum/armour_dimensional_theme/safe/space
 	material = /datum/material/glass
-	replace_wall = /turf/closed/wall/rock/porous
+	replace_wall = /turf/closed/wall/mineral
 	replace_floor = /turf/open/floor/fakespace
-	barricade = /obj/machinery/door/airlock/external/glass/ruin
+	barricade = /obj/machinery/door/airlock/external/glass
 
 /datum/armour_dimensional_theme/safe/glass
 	material = /datum/material/glass
 	replace_floor = /turf/open/floor/glass
 
 /datum/armour_dimensional_theme/safe/secure
-	replace_wall = /turf/closed/wall/mineral/plastitanium/nodiagonal
-	replace_floor = /turf/open/floor/mineral/plastitanium
+	replace_wall = /turf/closed/wall/r_wall
+	replace_floor = /turf/open/floor/engine
 	barricade = /obj/structure/holosign/barrier
 
 /datum/armour_dimensional_theme/safe/meat
@@ -171,7 +166,7 @@
 
 /datum/armour_dimensional_theme/dangerous/plasma
 	material = /datum/material/plasma
-	barricade = /obj/structure/statue/plasma/xeno
+	barricade = /obj/structure/statue/plasma
 
 /datum/armour_dimensional_theme/dangerous/ice
 	material = /datum/material/snow
@@ -180,7 +175,7 @@
 	barricade = /obj/structure/statue/snow/snowlegion
 
 /datum/armour_dimensional_theme/dangerous/lavaland
-	replace_floor = /turf/open/floor/fakebasalt
+	replace_floor = /turf/open/floor/grass/fakebasalt
 	replace_wall = /turf/closed/wall/mineral/cult
 
 /// Replace the barrier spawning to instead create weak lava.

@@ -1,6 +1,6 @@
 /obj/effect/oneway
-	name = "one way effect"
-	desc = "Only lets things in from it's dir."
+	name = " Односторонний эффект"
+	desc = "Принимает вещи только из одного направления."
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = "field_dir"
 	invisibility = INVISIBILITY_MAXIMUM
@@ -8,12 +8,12 @@
 
 /obj/effect/oneway/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
-	return . && (REVERSE_DIR(border_dir) == dir || get_turf(mover) == get_turf(src))
+	return . && border_dir == dir
 
 
 /obj/effect/wind
-	name = "wind effect"
-	desc = "Creates pressure effect in it's direction. Use sparingly."
+	name = "Воздушный эффект"
+	desc = "Создает давление в своем направлении. Использовать осторожно"
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = "field_dir"
 	invisibility = INVISIBILITY_MAXIMUM
@@ -30,8 +30,8 @@
 
 //Keep these rare due to cost of doing these checks
 /obj/effect/path_blocker
-	name = "magic barrier"
-	desc = "You shall not pass."
+	name = "Магический барьер"
+	desc = "Ты не пройдешь."
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = "blocker" //todo make this actually look fine when visible
 	anchored = TRUE
@@ -53,7 +53,7 @@
 	return !reverse
 
 /obj/structure/pitgrate
-	name = "pit grate"
+	name = "Слив"
 	icon = 'icons/obj/smooth_structures/lattice.dmi'
 	icon_state = "lattice-255"
 	plane = FLOOR_PLANE
@@ -73,17 +73,14 @@
 	SIGNAL_HANDLER
 
 	if(button.id == id) //No range checks because this is admin abuse mostly.
-		toggle()
+		INVOKE_ASYNC(src, PROC_REF(toggle))
 
 /obj/structure/pitgrate/proc/update_openspace()
 	var/turf/open/openspace/T = get_turf(src)
 	if(!istype(T))
 		return
 	//Simple way to keep plane conflicts away, could probably be upgraded to something less nuclear with 513
-	if(!open)
-		T.SetInvisibility(INVISIBILITY_MAXIMUM, id=type)
-	else
-		T.RemoveInvisibility(type)
+	T.invisibility = open ? 0 : INVISIBILITY_MAXIMUM
 
 /obj/structure/pitgrate/proc/toggle()
 	open = !open
@@ -96,7 +93,7 @@
 		obj_flags |= BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
 	SET_PLANE_IMPLICIT(src, ABOVE_LIGHTING_PLANE) //What matters it's one above openspace, so our animation is not dependant on what's there. Up to revision with 513
 	animate(src,alpha = talpha,time = 10)
-	addtimer(CALLBACK(src, PROC_REF(reset_plane)),10)
+	addtimer(CALLBACK(src,PROC_REF(reset_plane)),10)
 	if(hidden)
 		update_openspace()
 	var/turf/T = get_turf(src)
@@ -114,7 +111,7 @@
 	. = ..()
 
 /obj/structure/pitgrate/hidden
-	name = "floor"
-	icon = 'icons/turf/floors.dmi'
+	name = "Пол"
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "floor"
 	hidden = TRUE

@@ -1,8 +1,8 @@
 //Cleanbot
 /mob/living/simple_animal/bot/hygienebot
-	name = "\improper Hygienebot"
-	desc = "A flying cleaning robot, he'll chase down people who can't shower properly!"
-	icon = 'icons/mob/silicon/aibots.dmi'
+	name = "Гигиенобот"
+	desc = "Летающий робот-уборщик, преследующий людей, которые не умеют принимать душ."
+	icon = 'icons/mob/aibots.dmi'
 	icon_state = "hygienebot"
 	base_icon_state = "hygienebot"
 	pass_flags = PASSMOB | PASSFLAPS | PASSTABLE
@@ -11,31 +11,19 @@
 	anchored = FALSE
 	health = 100
 	maxHealth = 100
-
-	maints_access_required = list(ACCESS_ROBOTICS, ACCESS_JANITOR)
 	radio_key = /obj/item/encryptionkey/headset_service
 	radio_channel = RADIO_CHANNEL_SERVICE //Service
-	bot_mode_flags = ~BOT_MODE_CAN_BE_SAPIENT
 	bot_type = HYGIENE_BOT
-	hackables = "cleaning service protocols"
+	model = "Cleanbot"
+	bot_core_type = /obj/machinery/bot_core/hygienebot
+	window_id = "autoclean"
+	window_name = "Автоматический очиститель персонала X2"
+	pass_flags = PASSMOB | PASSFLAPS
 	path_image_color = "#993299"
+	allow_pai = FALSE
+	layer = ABOVE_MOB_LAYER
 
-	automated_announcements = list(
-		HYGIENEBOT_VOICED_UNHYGIENIC = 'sound/voice/hygienebot/unhygienicclient.ogg',
-		HYGIENEBOT_VOICED_ENJOY_DAY = 'sound/voice/hygienebot/cleanandtidy.ogg',
-		HYGIENEBOT_VOICED_THREAT_AIRLOCK = 'sound/voice/hygienebot/dragyouout.ogg',
-		HYGIENEBOT_VOICED_FOUL_SMELL = 'sound/voice/hygienebot/foulsmelling.ogg',
-		HYGIENEBOT_VOICED_TROGLODYTE = 'sound/voice/hygienebot/troglodyte.ogg',
-		HYGIENEBOT_VOICED_GREEN_CLOUD = 'sound/voice/hygienebot/greencloud.ogg',
-		HYGIENEBOT_VOICED_ARSEHOLE = 'sound/voice/hygienebot/letmeclean.ogg',
-		HYGIENEBOT_VOICED_THREAT_ARTERIES = 'sound/voice/hygienebot/cutarteries.ogg',
-		HYGIENEBOT_VOICED_STOP_RUNNING = 'sound/voice/hygienebot/stoprunning.ogg',
-		HYGIENEBOT_VOICED_FUCKING_FINALLY = 'sound/voice/hygienebot/finally.ogg',
-		HYGIENEBOT_VOICED_THANK_GOD = 'sound/voice/hygienebot/thankgod.ogg',
-		HYGIENEBOT_VOICED_DEGENERATE = 'sound/voice/hygienebot/degenerate.ogg',
-	)
-
-	///The human target the bot is trying to wash.
+	///The human target the bot пытается wash.
 	var/mob/living/carbon/human/target
 	///The mob's current speed, which varies based on how long the bot chases it's target.
 	var/currentspeed = 5
@@ -54,7 +42,7 @@
 
 /mob/living/simple_animal/bot/hygienebot/Initialize(mapload)
 	. = ..()
-	update_appearance(UPDATE_ICON)
+	update_icon()
 
 	// Doing this hurts my soul, but simplebot access reworks are for another day.
 	var/datum/id_trim/job/jani_trim = SSid_access.trim_singletons_by_path[/datum/id_trim/job/janitor]
@@ -65,14 +53,15 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-	ADD_TRAIT(src, TRAIT_SPRAY_PAINTABLE, INNATE_TRAIT)
-
 /mob/living/simple_animal/bot/hygienebot/explode()
+	visible_message(span_boldannounce("[capitalize(src.name)] взрывается и разбрызгивает вокруг пену!"))
+	do_sparks(3, TRUE, src)
+	on = FALSE
 	var/datum/effect_system/fluid_spread/foam/foam = new
 	foam.set_up(2, holder = src, location = loc)
 	foam.start()
 
-	return ..()
+	..()
 
 /mob/living/simple_animal/bot/hygienebot/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
@@ -81,16 +70,22 @@
 
 /mob/living/simple_animal/bot/hygienebot/update_icon_state()
 	. = ..()
-	icon_state = "[base_icon_state][bot_mode_flags & BOT_MODE_ON ? "-on" : null]"
+	if(on)
+		icon_state = "hygienebot-on"
+	else
+		icon_state = "hygienebot"
 
 
 /mob/living/simple_animal/bot/hygienebot/update_overlays()
 	. = ..()
-	if(bot_mode_flags & BOT_MODE_ON)
-		. += mutable_appearance(icon, "hygienebot-flame")
+	if(on)
+		var/mutable_appearance/fire_overlay = mutable_appearance(icon, "hygienebot-flame")
+		. +=fire_overlay
+
 
 	if(washing)
-		. += mutable_appearance(icon, bot_cover_flags & BOT_COVER_EMAGGED ? "hygienebot-fire" : "hygienebot-water")
+		var/mutable_appearance/water_overlay = mutable_appearance(icon, emagged ? "hygienebot-fire" : "hygienebot-water")
+		. += water_overlay
 
 
 /mob/living/simple_animal/bot/hygienebot/turn_off()
@@ -111,22 +106,20 @@
 	if(washing)
 		do_wash(loc)
 		for(var/AM in loc)
-			if (AM == src)
-				continue
 			do_wash(AM)
-		if(isopenturf(loc) && !(bot_cover_flags & BOT_COVER_EMAGGED))
+		if(isopenturf(loc) && !emagged)
 			var/turf/open/tile = loc
 			tile.MakeSlippery(TURF_WET_WATER, min_wet_time = 10 SECONDS, wet_time_to_add = 5 SECONDS)
 
 	switch(mode)
-		if(BOT_IDLE) // idle
+		if(BOT_IDLE)		// idle
 			SSmove_manager.stop_looping(src)
-			look_for_lowhygiene() // see if any disgusting fucks are in range
-			if(!mode && bot_mode_flags & BOT_MODE_AUTOPATROL) // still idle, and set to patrol
-				mode = BOT_START_PATROL // switch to patrol mode
+			look_for_lowhygiene()	// see if any disgusting fucks are in range
+			if(!mode && auto_patrol)	// still idle, and set to patrol
+				mode = BOT_START_PATROL	// switch to patrol mode
 
-		if(BOT_HUNT) // hunting for stinkman
-			if(bot_cover_flags & BOT_COVER_EMAGGED) //lol fuck em up
+		if(BOT_HUNT)		// hunting for stinkman
+			if(emagged) //lol fuck em up
 				currentspeed = 3.5
 				start_washing()
 				mad = TRUE
@@ -142,13 +135,8 @@
 				if(target.loc == loc && isturf(target.loc)) //LADIES AND GENTLEMAN WE GOTEM PREPARE TO DUMP
 					start_washing()
 					if(mad)
-						var/static/list/relief = list(
-							HYGIENEBOT_VOICED_FUCKING_FINALLY,
-							HYGIENEBOT_VOICED_THANK_GOD,
-							HYGIENEBOT_VOICED_DEGENERATE,
-						)
-						speak(pick(relief))
-						playsound(loc, 'sound/effects/hygienebot_angry.ogg', 60, 1) //i think it should still make robot noises too
+						speak("На тебя ушло много времени, тупой дегенерат.", "Неужели ОНО соизволило снизойти до меня.", "Спасибо боже, ты наконец остановился, скотина.")
+						playsound(loc, 'sound/effects/hygienebot_angry.ogg', 60, 1)
 						mad = FALSE
 					mode = BOT_SHOWERSTANCE
 				else
@@ -159,17 +147,8 @@
 						return
 					SSmove_manager.move_to(src, target, 0, currentspeed)
 					if(mad && prob(min(frustration * 2, 60)))
-						var/static/list/threats = list(
-							HYGIENEBOT_VOICED_THREAT_AIRLOCK,
-							HYGIENEBOT_VOICED_FOUL_SMELL,
-							HYGIENEBOT_VOICED_TROGLODYTE,
-							HYGIENEBOT_VOICED_GREEN_CLOUD,
-							HYGIENEBOT_VOICED_ARSEHOLE,
-							HYGIENEBOT_VOICED_THREAT_ARTERIES,
-							HYGIENEBOT_VOICED_STOP_RUNNING,
-						)
-						speak(pick(threats))
 						playsound(loc, 'sound/effects/hygienebot_angry.ogg', 60, 1)
+						speak(pick("Вернись обратно, вонючий педик!", "ПРЕКРАТИ БЕЖАТЬ ИЛИ Я ВСКРОЮ ТЕБЕ БЕДРЕННУЮ АРТЕРИЮ!", "Дай же мне просто помыть тебя, ублюдок!", "ХВАТИТ. УБЕГАТЬ.", "Если ты сейчас же не перестанешь убегать от меня, то я выкину тебя в космос, скотина.", "Я просто хочу помыть тебя, чертов троглодит.", "Если ты сейчас же не подойдёшь ко мне, то я пущу в тебя зелёный дым."))
 					if((get_dist(src, target)) >= olddist)
 						frustration++
 					else
@@ -179,7 +158,7 @@
 
 		if(BOT_SHOWERSTANCE)
 			if(check_purity(target))
-				speak(HYGIENEBOT_VOICED_ENJOY_DAY)
+				speak("Наслаждайтесь чистым и опрятным днем!")
 				playsound(loc, 'sound/effects/hygienebot_happy.ogg', 60, 1)
 				back_to_idle()
 				return
@@ -218,9 +197,9 @@
 		if(!check_purity(H)) //Theyre impure
 			target = H
 			oldtarget_name = H.name
-			speak(HYGIENEBOT_VOICED_UNHYGIENIC)
+			speak("Обнаружен антисанитарный клиент. Пожалуйста, стойте спокойно.")
 			playsound(loc, 'sound/effects/hygienebot_happy.ogg', 60, 1)
-			visible_message("<b>[src]</b> points at [H.name]!")
+			visible_message("<b>[capitalize(src.name)]</b> направляется к [H.name]!")
 			mode = BOT_HUNT
 			INVOKE_ASYNC(src, PROC_REF(handle_automated_action))
 			break
@@ -229,14 +208,31 @@
 
 /mob/living/simple_animal/bot/hygienebot/proc/start_washing()
 	washing = TRUE
-	update_appearance()
+	update_icon()
 
 /mob/living/simple_animal/bot/hygienebot/proc/stop_washing()
 	washing = FALSE
-	update_appearance()
+	update_icon()
+
+
+
+/mob/living/simple_animal/bot/hygienebot/get_controls(mob/user)
+	var/list/dat = list()
+	dat += hack(user)
+	dat += showpai(user)
+	dat += {"
+<TT><B>Автоматический санитарный юнит X2</B></TT><BR><BR>
+Состояние: ["<A href='?src=[REF(src)];power=[TRUE]'>[on ? "Вкл" : "Выкл"]</A>"]<BR>
+Управление поведением [locked ? "заблокировано" : "разблокировано"]<BR>
+Техническая панель [open ? "открыта" : "закрыта"]"}
+
+	if(!locked || issilicon(user) || isAdminGhostAI(user))
+		dat += {"<BR> Авто-патруль: ["<A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Вкл" : "Выкл"]</A>"]"}
+
+	return	dat.Join("")
 
 /mob/living/simple_animal/bot/hygienebot/proc/check_purity(mob/living/L)
-	if((bot_cover_flags & BOT_COVER_EMAGGED) && L.stat != DEAD)
+	if((emagged == 2) && L.stat != DEAD)
 		return FALSE
 
 	for(var/X in list(ITEM_SLOT_HEAD, ITEM_SLOT_MASK, ITEM_SLOT_ICLOTHING, ITEM_SLOT_OCLOTHING, ITEM_SLOT_FEET))
@@ -247,7 +243,12 @@
 	return TRUE
 
 /mob/living/simple_animal/bot/hygienebot/proc/do_wash(atom/A)
-	if(bot_cover_flags & BOT_COVER_EMAGGED)
+	if(emagged)
 		A.fire_act()  //lol pranked no cleaning besides that
 	else
 		A.wash(CLEAN_WASH)
+
+
+
+/obj/machinery/bot_core/hygienebot
+	req_one_access = list(ACCESS_JANITOR, ACCESS_ROBOTICS)

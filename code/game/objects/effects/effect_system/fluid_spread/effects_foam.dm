@@ -11,7 +11,7 @@
  * Similar to smoke, but slower and mobs absorb its reagent through their exposed skin.
  */
 /obj/effect/particle_effect/fluid/foam
-	name = "foam"
+	name = "пена"
 	icon_state = "foam"
 	opacity = FALSE
 	anchored = TRUE
@@ -76,73 +76,61 @@
 	transfer_fingerprints_to(result)
 	return result
 
-/obj/effect/particle_effect/fluid/foam/process(seconds_per_tick)
-	var/ds_seconds_per_tick = seconds_per_tick SECONDS
-	lifetime -= ds_seconds_per_tick
+/obj/effect/particle_effect/fluid/foam/process(delta_time)
+	var/ds_delta_time = delta_time SECONDS
+	lifetime -= ds_delta_time
 	if(lifetime <= 0)
 		kill_foam()
 		return
 
-	if(ismob(loc))
-		stack_trace("A foam effect ([type]) was created within a mob! (Actual location: [loc] ([loc.type]))")
-		qdel(src)
-		return
-
-	var/fraction = (ds_seconds_per_tick * MINIMUM_FOAM_DILUTION) / (initial(lifetime) * max(MINIMUM_FOAM_DILUTION, group.total_size))
-
-	if(isturf(loc))
-		var/turf/turf_location = loc
-		for(var/obj/object in turf_location)
-			if(object == src)
-				continue
-			if(turf_location.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && HAS_TRAIT(object, TRAIT_T_RAY_VISIBLE))
-				continue
-			reagents.expose(object, VAPOR, fraction)
+	var/fraction = (ds_delta_time * MINIMUM_FOAM_DILUTION) / (initial(lifetime) * max(MINIMUM_FOAM_DILUTION, group.total_size))
+	var/turf/location = loc
+	for(var/obj/object in location)
+		if(object == src)
+			continue
+		if(location.intact && HAS_TRAIT(object, TRAIT_T_RAY_VISIBLE))
+			continue
+		reagents.expose(object, VAPOR, fraction)
 
 	var/hit = 0
-	for(var/mob/living/foamer in loc)
-		hit += foam_mob(foamer, seconds_per_tick)
+	for(var/mob/living/foamer in location)
+		hit += foam_mob(foamer, delta_time)
 	if(hit)
-		lifetime += ds_seconds_per_tick //this is so the decrease from mobs hit and the natural decrease don't cumulate.
+		lifetime += ds_delta_time //this is so the decrease from mobs hit and the natural decrease don't cumulate.
 
-	reagents.expose(loc, VAPOR, fraction)
+	reagents.expose(location, VAPOR, fraction)
 
 /**
  * Applies the effect of this foam to a mob.
  *
  * Arguments:
  * - [foaming][/mob/living]: The mob that this foam is acting on.
- * - seconds_per_tick: The amount of time that this foam is acting on them over.
+ * - delta_time: The amount of time that this foam is acting on them over.
  *
  * Returns:
  * - [TRUE]: If the foam was successfully applied to the mob. Used to scale how quickly foam dissipates according to the number of mobs it is applied to.
  * - [FALSE]: Otherwise.
  */
-/obj/effect/particle_effect/fluid/foam/proc/foam_mob(mob/living/foaming, seconds_per_tick)
+/obj/effect/particle_effect/fluid/foam/proc/foam_mob(mob/living/foaming, delta_time)
 	if(lifetime <= 0)
 		return FALSE
 	if(!istype(foaming))
 		return FALSE
 
-	seconds_per_tick = min(seconds_per_tick SECONDS, lifetime)
-	var/fraction = (seconds_per_tick * MINIMUM_FOAM_DILUTION) / (initial(lifetime) * max(MINIMUM_FOAM_DILUTION, group.total_size))
+	delta_time = min(delta_time SECONDS, lifetime)
+	var/fraction = (delta_time * MINIMUM_FOAM_DILUTION) / (initial(lifetime) * max(MINIMUM_FOAM_DILUTION, group.total_size))
 	reagents.expose(foaming, VAPOR, fraction)
-	lifetime -= seconds_per_tick
+	lifetime -= delta_time
 	return TRUE
 
-/obj/effect/particle_effect/fluid/foam/spread(seconds_per_tick = 0.2 SECONDS)
+/obj/effect/particle_effect/fluid/foam/spread(delta_time = 0.2 SECONDS)
 	if(group.total_size > group.target_size)
 		return
 	var/turf/location = get_turf(src)
 	if(!istype(location))
 		return FALSE
 
-	var/datum/can_pass_info/info = new(no_id = TRUE)
-	for(var/iter_dir in GLOB.cardinals)
-		var/turf/spread_turf = get_step(src, iter_dir)
-		if(spread_turf?.density || spread_turf.LinkBlockedWithAccess(spread_turf, info))
-			continue
-
+	for(var/turf/spread_turf as anything in location.reachableAdjacentTurfs())
 		var/obj/effect/particle_effect/fluid/foam/foundfoam = locate() in spread_turf //Don't spread foam where there's already foam!
 		if(foundfoam)
 			continue
@@ -150,7 +138,7 @@
 			continue
 
 		for(var/mob/living/foaming in spread_turf)
-			foam_mob(foaming, seconds_per_tick)
+			foam_mob(foaming, delta_time)
 
 		var/obj/effect/particle_effect/fluid/foam/spread_foam = new type(spread_turf, group, src)
 		reagents.copy_to(spread_foam, (reagents.total_volume))
@@ -184,9 +172,9 @@
 	QDEL_NULL(chemholder)
 	return ..()
 
-/datum/effect_system/fluid_spread/foam/set_up(range = 1, amount = DIAMOND_AREA(range), atom/holder, atom/location = null, datum/reagents/carry = null, result_type = null, stop_reactions = FALSE)
+/datum/effect_system/fluid_spread/foam/set_up(range = 1, amount = DIAMOND_AREA(range), atom/holder, atom/location = null, datum/reagents/carry = null, result_type = null)
 	. = ..()
-	carry?.copy_to(chemholder, carry.total_volume, no_react = stop_reactions)
+	carry?.copy_to(chemholder, carry.total_volume)
 	if(!isnull(result_type))
 		src.result_type = result_type
 
@@ -204,14 +192,6 @@
 	SSfoam.queue_spread(foam)
 
 
-// Short-lived foam
-/// A foam variant which dissipates quickly.
-/obj/effect/particle_effect/fluid/foam/short_life
-	lifetime = 1 SECONDS
-
-/datum/effect_system/fluid_spread/foam/short
-	effect_type = /obj/effect/particle_effect/fluid/foam/short_life
-
 // Long lasting foam
 /// A foam variant which lasts for an extended amount of time.
 /obj/effect/particle_effect/fluid/foam/long_life
@@ -226,7 +206,7 @@
 // Firefighting foam
 /// A variant of foam which absorbs plasma in the air if there is a fire.
 /obj/effect/particle_effect/fluid/foam/firefighting
-	name = "firefighting foam"
+	name = "пожарная пена"
 	lifetime = 20 //doesn't last as long as normal foam
 	result_type = /obj/effect/decal/cleanable/plasma
 	allow_duplicate_results = FALSE
@@ -268,7 +248,7 @@
 		absorbed_plasma = 0
 	return deposit
 
-/obj/effect/particle_effect/fluid/foam/firefighting/foam_mob(mob/living/foaming, seconds_per_tick)
+/obj/effect/particle_effect/fluid/foam/firefighting/foam_mob(mob/living/foaming, delta_time)
 	if(!istype(foaming))
 		return
 	foaming.adjust_wet_stacks(2)
@@ -281,7 +261,7 @@
 
 /// A foam variant which
 /obj/effect/particle_effect/fluid/foam/metal
-	name = "aluminium foam"
+	name = "металлопена"
 	result_type = /obj/structure/foamedmetal
 	icon_state = "mfoam"
 	slippery_foam = FALSE
@@ -300,8 +280,7 @@
 	layer = EDGED_TURF_LAYER
 	plane = GAME_PLANE_UPPER
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	name = "foamed metal"
-	desc = "A lightweight foamed metal wall that can be used as base to construct a wall."
+	name = "металлопена"
 	gender = PLURAL
 	max_integrity = 20
 	can_atmos_pass = ATMOS_PASS_DENSITY
@@ -334,7 +313,7 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
-	to_chat(user, span_warning("You hit [src] but bounce off it!"))
+	to_chat(user, span_warning("Бью [src], но ей всё равно!"))
 	playsound(src.loc, 'sound/weapons/tap.ogg', 100, TRUE)
 
 /obj/structure/foamedmetal/attackby(obj/item/W, mob/user, params)
@@ -353,13 +332,13 @@
 	var/obj/item/stack/sheet/sheet_for_plating = W
 	if(istype(sheet_for_plating, /obj/item/stack/sheet/iron))
 		if(sheet_for_plating.get_amount() < 2)
-			to_chat(user, span_warning("You need two sheets of iron to finish a wall on [src]!"))
+			to_chat(user, span_warning("Потребуется два листа металла для создания стены на [src]!"))
 			return
-		to_chat(user, span_notice("You start adding plating to the foam structure..."))
+		to_chat(user, span_notice("Начинаю добавлять металл..."))
 		if (do_after(user, 40 * platingmodifier, target = src))
 			if(!sheet_for_plating.use(2))
 				return
-			to_chat(user, span_notice("You add the plating."))
+			to_chat(user, span_notice("Добавляю металл."))
 			var/turf/T = get_turf(src)
 			T.PlaceOnTop(/turf/closed/wall/metal_foam_base)
 			transfer_fingerprints_to(T)
@@ -370,7 +349,7 @@
 
 /// A metal foam variant which produces slightly sturdier walls.
 /obj/effect/particle_effect/fluid/foam/metal/iron
-	name = "iron foam"
+	name = "металлопена"
 	result_type = /obj/structure/foamedmetal/iron
 
 /// A factory which produces iron metal foam.
@@ -384,7 +363,7 @@
 
 /// A variant of metal foam which only produces walls at area boundaries.
 /obj/effect/particle_effect/fluid/foam/metal/smart
-	name = "smart foam"
+	name = "умная пена"
 
 /// A factory which produces smart aluminium metal foam.
 /datum/effect_system/fluid_spread/foam/metal/smart
@@ -406,13 +385,13 @@
 
 /// A foam variant which produces atmos resin walls.
 /obj/effect/particle_effect/fluid/foam/metal/resin
-	name = "resin foam"
+	name = "резиновая пена"
 	result_type = /obj/structure/foamedmetal/resin
 
 /// Atmos Backpack Resin, transparent, prevents atmos and filters the air
 /obj/structure/foamedmetal/resin
-	name = "\improper ATMOS Resin"
-	desc = "A lightweight, transparent resin used to suffocate fires, scrub the air of toxins, and restore the air to a safe temperature. It can be used as base to construct a wall."
+	name = "пожарная пена"
+	desc = "Легкий прозрачный полимер, используемый для тушения пожаров, очистки воздуха от токсинов и восстановления безопасной температуры воздуха."
 	opacity = FALSE
 	icon_state = "atmos_resin"
 	alpha = 120
@@ -451,29 +430,3 @@
 		potential_tinder.extinguish_mob()
 	for(var/obj/item/potential_tinder in location)
 		potential_tinder.extinguish()
-
-/datum/effect_system/fluid_spread/foam/dirty
-	effect_type = /obj/effect/particle_effect/fluid/foam/dirty
-
-/obj/effect/particle_effect/fluid/foam/dirty
-	name = "dirty foam"
-	allow_duplicate_results = FALSE
-	result_type = /obj/effect/decal/cleanable/dirt
-
-/obj/effect/spawner/foam_starter
-	var/datum/effect_system/fluid_spread/foam/foam_type = /datum/effect_system/fluid_spread/foam
-	var/foam_size = 4
-
-/obj/effect/spawner/foam_starter/Initialize(mapload)
-	. = ..()
-
-	var/datum/effect_system/fluid_spread/foam/foam = new foam_type()
-	foam.set_up(foam_size, holder = src, location = loc)
-	foam.start()
-
-/obj/effect/spawner/foam_starter/small
-	foam_size = 2
-
-#undef MINIMUM_FOAM_DILUTION_RANGE
-#undef MINIMUM_FOAM_DILUTION
-#undef FOAM_REAGENT_SCALE

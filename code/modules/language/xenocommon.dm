@@ -1,8 +1,8 @@
 /datum/language/xenocommon
-	name = "Xenomorph"
-	desc = "The common tongue of the xenomorphs."
+	name = "Ксеноморфский"
+	desc = "Общий язык ксеноморфов."
 	key = "4"
-	syllables = list("sss","sSs","SSS")
+	syllables = list("ссс","сСс","ССС")
 	default_priority = 50
 
 	icon_state = "xeno"

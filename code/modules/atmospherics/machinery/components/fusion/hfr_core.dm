@@ -2,9 +2,9 @@
  * This section contain the hfr core with all the variables and the Initialize() and Destroy() procs
  */
 /obj/machinery/atmospherics/components/unary/hypertorus/core
-	name = "HFR core"
-	desc = "This is the Hypertorus Fusion Reactor core, an advanced piece of technology to finely tune the reaction inside of the machine. It has I/O for cooling gases."
-	icon = 'icons/obj/machines/atmospherics/hypertorus.dmi'
+	name = "Термоядерный реактор - Ядро"
+	desc = "Ядро термоядерного реактора, передовая технология для точной настройки протекания реакции внутри машины. Он имеет ввод-вывод для охлаждения газов."
+	icon = 'icons/obj/atmospherics/components/hypertorus.dmi'
 	icon_state = "core_off"
 	circuit = /obj/item/circuitboard/machine/HFR_core
 	use_power = IDLE_POWER_USE
@@ -174,10 +174,6 @@
 	radio.set_listening(FALSE)
 	radio.recalculateChannels()
 	investigate_log("has been created.", INVESTIGATE_HYPERTORUS)
-
-	// Our center is unreachable, so prevent stuff from getting stuck in there
-	var/static/list/turf_traits = list(TRAIT_SECLUDED_LOCATION)
-	AddElement(/datum/element/give_turf_traits, turf_traits)
 
 /obj/machinery/atmospherics/components/unary/hypertorus/core/Destroy()
 	unregister_signals(TRUE)

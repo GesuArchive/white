@@ -1,7 +1,7 @@
 /obj/item/plate
-	name = "plate"
-	desc = "Holds food, powerful. Good for morale when you're not eating your spaghetti off of a desk."
-	icon = 'icons/obj/service/kitchen.dmi'
+	name = "тарелка"
+	desc = "На неё можно положить еду. Хорошо подходит для поднятия настроения, ведь вам не приходится есть с пола."
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "plate"
 	w_class = WEIGHT_CLASS_BULKY //No backpack.
 	///How many things fit on this plate?
@@ -11,22 +11,15 @@
 	///The max height offset the food can reach on the plate
 	var/max_height_offset = 5
 	///Offset of where the click is calculated from, due to how food is positioned in their DMIs.
-	var/placement_offset = -15
-	/// If the plate will shatter when thrown
-	var/fragile = TRUE
+	var/placement_offset = -12
 
-/obj/item/plate/Initialize(mapload)
-	. = ..()
-
-	if(fragile)
-		AddElement(/datum/element/shatters_when_thrown)
 
 /obj/item/plate/attackby(obj/item/I, mob/user, params)
 	if(!IS_EDIBLE(I))
-		to_chat(user, span_notice("[src] is made for food, and food alone!"))
+		to_chat(user, span_notice("[src] для еды и только для еды!"))
 		return
 	if(contents.len >= max_items)
-		to_chat(user, span_notice("[src] can't fit more items!"))
+		to_chat(user, span_notice("[src] полная!"))
 		return
 	var/list/modifiers = params2list(params)
 	//Center the icon where the user clicked.
@@ -35,7 +28,7 @@
 	if(user.transferItemToLoc(I, src, silent = FALSE))
 		I.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -max_x_offset, max_x_offset)
 		I.pixel_y = min(text2num(LAZYACCESS(modifiers, ICON_Y)) + placement_offset, max_height_offset)
-		to_chat(user, span_notice("You place [I] on [src]."))
+		to_chat(user, span_notice("Положил [I] на [src]."))
 		AddToPlate(I, user)
 	else
 		return ..()
@@ -55,20 +48,20 @@
 	item_to_plate.flags_1 |= IS_ONTOP_1
 	item_to_plate.vis_flags |= VIS_INHERIT_PLANE
 	RegisterSignal(item_to_plate, COMSIG_MOVABLE_MOVED, PROC_REF(ItemMoved))
-	RegisterSignal(item_to_plate, COMSIG_QDELETING, PROC_REF(ItemMoved))
+	RegisterSignal(item_to_plate, COMSIG_PARENT_QDELETING, PROC_REF(ItemMoved))
 	// We gotta offset ourselves via pixel_w/z, so we don't end up z fighting with the plane
 	item_to_plate.pixel_w = item_to_plate.pixel_x
 	item_to_plate.pixel_z = item_to_plate.pixel_y
 	item_to_plate.pixel_x = 0
 	item_to_plate.pixel_y = 0
-	update_appearance()
+	update_icon()
 
 ///This proc cleans up any signals on the item when it is removed from a plate, and ensures it has the correct state again.
 /obj/item/plate/proc/ItemRemovedFromPlate(obj/item/removed_item)
 	removed_item.flags_1 &= ~IS_ONTOP_1
 	removed_item.vis_flags &= ~VIS_INHERIT_PLANE
 	vis_contents -= removed_item
-	UnregisterSignal(removed_item, list(COMSIG_MOVABLE_MOVED, COMSIG_QDELETING))
+	UnregisterSignal(removed_item, list(COMSIG_MOVABLE_MOVED, COMSIG_PARENT_QDELETING))
 	// Resettt
 	removed_item.pixel_x = removed_item.pixel_w
 	removed_item.pixel_y = removed_item.pixel_z
@@ -79,38 +72,3 @@
 /obj/item/plate/proc/ItemMoved(obj/item/moved_item, atom/OldLoc, Dir, Forced)
 	SIGNAL_HANDLER
 	ItemRemovedFromPlate(moved_item)
-
-/obj/item/plate/large
-	name = "buffet plate"
-	desc = "A large plate made for the professional catering industry but also apppreciated by mukbangers and other persons of considerable size and heft."
-	icon_state = "plate_large"
-	max_items = 12
-	max_x_offset = 8
-	max_height_offset = 12
-
-/obj/item/plate/small
-	name = "appetizer plate"
-	desc = "A small plate, perfect for appetizers, desserts or trendy modern cusine."
-	icon_state = "plate_small"
-	max_items = 4
-	max_x_offset = 4
-	max_height_offset = 5
-
-/obj/item/plate_shard
-	name = "ceramic shard"
-	icon = 'icons/obj/service/kitchen.dmi'
-	icon_state = "plate_shard1"
-	base_icon_state = "plate_shard"
-	w_class = WEIGHT_CLASS_TINY
-	force = 5
-	throwforce = 5
-	sharpness = SHARP_EDGED
-	/// How many variants of shard there are
-	var/variants = 5
-
-/obj/item/plate_shard/Initialize(mapload)
-	. = ..()
-
-	AddComponent(/datum/component/caltrop, min_damage = force)
-
-	icon_state = "[base_icon_state][pick(1,variants)]"

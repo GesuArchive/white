@@ -9,12 +9,12 @@
 	var/target_path
 
 /datum/smite/supply_pod_quick/configure(client/user)
-	var/attempted_target_path = input(
+	var/attempted_target_path = tgui_input_text(
 		user,
 		"Enter typepath of an atom you'd like to send with the pod (type \"empty\" to send an empty pod):",
 		"Typepath",
 		"/obj/item/food/grown/harebell",
-	) as null|text
+	)
 
 	if (isnull(attempted_target_path)) //The user pressed "Cancel"
 		return FALSE
@@ -34,6 +34,7 @@
 
 /datum/smite/supply_pod_quick/effect(client/user, mob/living/target)
 	. = ..()
+
 	podspawn(list(
 		"target" = get_turf(target),
 		"path" = /obj/structure/closet/supplypod/centcompod,

@@ -28,8 +28,7 @@ SUBSYSTEM_DEF(server_maint)
 		"mob_list" = GLOB.mob_list,
 		"alive_mob_list" = GLOB.alive_mob_list,
 		"suicided_mob_list" = GLOB.suicided_mob_list,
-		"dead_mob_list" = GLOB.dead_mob_list,
-		"keyloop_list" = GLOB.keyloop_list, //A null here will cause new clients to be unable to move. totally unacceptable
+		"dead_mob_list" = GLOB.dead_mob_list
 	)
 	return SS_INIT_SUCCESS
 
@@ -77,19 +76,15 @@ SUBSYSTEM_DEF(server_maint)
 			return
 
 /datum/controller/subsystem/server_maint/Shutdown()
-	kick_clients_in_lobby(span_boldannounce("The round came to an end with you in the lobby."), TRUE) //second parameter ensures only afk clients are kicked
+	kick_clients_in_lobby(span_boldannounce("The round came to an end with you in the lobby.") , TRUE) //second parameter ensures only afk clients are kicked
 	var/server = CONFIG_GET(string/server)
 	for(var/thing in GLOB.clients)
 		if(!thing)
 			continue
 		var/client/C = thing
 		C?.tgui_panel?.send_roundrestart()
-		if(server) //if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
+		if(server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 			C << link("byond://[server]")
-	var/datum/tgs_version/tgsversion = world.TgsVersion()
-	if(tgsversion)
-		SSblackbox.record_feedback("text", "server_tools", 1, tgsversion.raw_parameter)
-
 
 /datum/controller/subsystem/server_maint/proc/UpdateHubStatus()
 	if(!CONFIG_GET(flag/hub) || !CONFIG_GET(number/max_hub_pop))

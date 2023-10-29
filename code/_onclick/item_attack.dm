@@ -59,15 +59,7 @@
 		if (after_attack_secondary_result == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN || after_attack_secondary_result == SECONDARY_ATTACK_CONTINUE_CHAIN)
 			return TRUE
 
-	var/afterattack_result = afterattack(target, user, TRUE, params)
-
-	if (!(afterattack_result & AFTERATTACK_PROCESSED_ITEM) && isitem(target))
-		if (isnull(user.get_inactive_held_item()))
-			SStutorials.suggest_tutorial(user, /datum/tutorial/switch_hands, params2list(params))
-		else
-			SStutorials.suggest_tutorial(user, /datum/tutorial/drop, params2list(params))
-
-	return afterattack_result & TRUE //this is really stupid but its needed because afterattack can return TRUE | FLAGS.
+	return afterattack(target, user, TRUE, params)
 
 /// Called when the item is in the active hand, and clicked; alternately, there is an 'activate held object' verb or you can hit pagedown.
 /obj/item/proc/attack_self(mob/user, modifiers)
@@ -120,14 +112,14 @@
  * Called on an object being hit by an item
  *
  * Arguments:
- * * obj/item/attacking_item - The item hitting this atom
+ * * obj/item/W - The item hitting this atom
  * * mob/user - The wielder of this item
  * * params - click params such as alt/shift etc
  *
  * See: [/obj/item/proc/melee_attack_chain]
  */
-/atom/proc/attackby(obj/item/attacking_item, mob/user, params)
-	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACKBY, attacking_item, user, params) & COMPONENT_NO_AFTERATTACK)
+/atom/proc/attackby(obj/item/W, mob/user, params)
+	if(SEND_SIGNAL(src, COMSIG_PARENT_ATTACKBY, W, user, params) & COMPONENT_NO_AFTERATTACK)
 		return TRUE
 	return FALSE
 
@@ -142,7 +134,7 @@
  * See: [/obj/item/proc/melee_attack_chain]
  */
 /atom/proc/attackby_secondary(obj/item/weapon, mob/user, params)
-	var/signal_result = SEND_SIGNAL(src, COMSIG_ATOM_ATTACKBY_SECONDARY, weapon, user, params)
+	var/signal_result = SEND_SIGNAL(src, COMSIG_PARENT_ATTACKBY_SECONDARY, weapon, user, params)
 
 	if(signal_result & COMPONENT_SECONDARY_CANCEL_ATTACK_CHAIN)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -153,26 +145,20 @@
 	return SECONDARY_ATTACK_CALL_NORMAL
 
 /obj/attackby(obj/item/attacking_item, mob/user, params)
-	return ..() || ((obj_flags & CAN_BE_HIT) && attacking_item.attack_atom(src, user, params))
+	return ..() || ((obj_flags & CAN_BE_HIT) && attacking_item.attack_obj(src, user, params))
 
-/mob/living/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(can_perform_surgery(user, params))
-		return TRUE
-
+/mob/living/attackby(obj/item/I, mob/living/user, params)
 	if(..())
 		return TRUE
-	user.changeNext_move(attacking_item.attack_speed)
-	return attacking_item.attack(src, user, params)
+	user.changeNext_move(CLICK_CD_MELEE)
+	return I.attack(src, user, params)
 
 /mob/living/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	var/result = weapon.attack_secondary(src, user, params)
 
 	// Normal attackby updates click cooldown, so we have to make up for it
 	if (result != SECONDARY_ATTACK_CALL_NORMAL)
-		if(weapon.secondary_attack_speed)
-			user.changeNext_move(weapon.secondary_attack_speed)
-		else
-			user.changeNext_move(weapon.attack_speed)
+		user.changeNext_move(CLICK_CD_MELEE)
 
 	return result
 
@@ -180,41 +166,38 @@
  * Called from [/mob/living/proc/attackby]
  *
  * Arguments:
- * * mob/living/target_mob - The mob being hit by this item
+ * * mob/living/M - The mob being hit by this item
  * * mob/living/user - The mob hitting with this item
  * * params - Click params of this attack
  */
-/obj/item/proc/attack(mob/living/target_mob, mob/living/user, params)
-	var/signal_return = SEND_SIGNAL(src, COMSIG_ITEM_ATTACK, target_mob, user, params)
+/obj/item/proc/attack(mob/living/M, mob/living/user, params)
+	var/signal_return = SEND_SIGNAL(src, COMSIG_ITEM_ATTACK, M, user, params)
 	if(signal_return & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return TRUE
 	if(signal_return & COMPONENT_SKIP_ATTACK)
 		return
 
-	SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK, target_mob, user, params)
+	SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK, M, user, params)
 
 	if(item_flags & NOBLUDGEON)
 		return
 
-	if(damtype != STAMINA && force && HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("You don't want to harm other living beings!"))
+	if(force && HAS_TRAIT(user, TRAIT_PACIFISM))
+		to_chat(user, span_warning("Не хочу вредить живым существам!"))
 		return
 
-	if(!force && !HAS_TRAIT(src, TRAIT_CUSTOM_TAP_SOUND))
+	if(!force)
 		playsound(loc, 'sound/weapons/tap.ogg', get_clamped_volume(), TRUE, -1)
 	else if(hitsound)
 		playsound(loc, hitsound, get_clamped_volume(), TRUE, extrarange = stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 
-	target_mob.lastattacker = user.real_name
-	target_mob.lastattackerckey = user.ckey
-
-	if(force && target_mob == user && user.client)
+	if(force && M == user && user.client)
 		user.client.give_award(/datum/award/achievement/misc/selfouch, user)
 
-	user.do_attack_animation(target_mob)
-	target_mob.attacked_by(src, user)
+	user.do_attack_animation(M)
+	M.attacked_by(src, user)
 
-	log_combat(user, target_mob, "attacked", src.name, "(COMBAT MODE: [uppertext(user.combat_mode)]) (DAMTYPE: [uppertext(damtype)])")
+	log_combat(user, M, "attacked", src.name, "(DAMTYPE: [uppertext(damtype)])")
 	add_fingerprint(user)
 
 /// The equivalent of [/obj/item/proc/attack] but for alternate attacks, AKA right clicking
@@ -229,48 +212,42 @@
 
 	return SECONDARY_ATTACK_CALL_NORMAL
 
-/// The equivalent of the standard version of [/obj/item/proc/attack] but for non mob targets.
-/obj/item/proc/attack_atom(atom/attacked_atom, mob/living/user, params)
-	if(SEND_SIGNAL(src, COMSIG_ITEM_ATTACK_ATOM, attacked_atom, user) & COMPONENT_CANCEL_ATTACK_CHAIN)
+/// The equivalent of the standard version of [/obj/item/proc/attack] but for object targets.
+/obj/item/proc/attack_obj(obj/O, mob/living/user, params)
+	if(SEND_SIGNAL(src, COMSIG_ITEM_ATTACK_OBJ, O, user) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return
 	if(item_flags & NOBLUDGEON)
 		return
-	user.changeNext_move(attack_speed)
-	user.do_attack_animation(attacked_atom)
-	attacked_atom.attacked_by(src, user)
+	user.changeNext_move(CLICK_CD_MELEE)
+	user.do_attack_animation(O)
+	O.attacked_by(src, user)
 
-/// Called from [/obj/item/proc/attack_atom] and [/obj/item/proc/attack] if the attack succeeds
-/atom/proc/attacked_by(obj/item/attacking_item, mob/living/user)
-	if(!uses_integrity)
-		CRASH("attacked_by() was called on an object that doesnt use integrity!")
+/// Called from [/obj/item/proc/attack_obj] and [/obj/item/proc/attack] if the attack succeeds
+/atom/movable/proc/attacked_by()
+	return
 
-	if(!attacking_item.force)
-		return
+/obj/attacked_by(obj/item/I, mob/living/user)
+	if(I.force)
+		var/no_damage = TRUE
+		if(take_damage(I.force, I.damtype, MELEE, 1))
+			no_damage = FALSE
+		//only witnesses close by and the victim see a hit message.
+		log_combat(user, src, "attacked", I)
+		user.visible_message(span_danger("<b>[user]</b> бьёт <b>[src]</b> используя <b>[I]</b>[no_damage ? ", не оставляя даже царапины" : ""]!"), \
+			span_danger("Бью <b>[src]</b> используя <b>[I]</b>[no_damage ? ", не оставляя даже царапины" : ""]!"), null, COMBAT_MESSAGE_RANGE)
 
-	var/damage = take_damage(attacking_item.force, attacking_item.damtype, MELEE, 1)
-	//only witnesses close by and the victim see a hit message.
-	user.visible_message(span_danger("[user] hits [src] with [attacking_item][damage ? "." : ", without leaving a mark!"]"), \
-		span_danger("You hit [src] with [attacking_item][damage ? "." : ", without leaving a mark!"]"), null, COMBAT_MESSAGE_RANGE)
-	log_combat(user, src, "attacked", attacking_item)
-
-/area/attacked_by(obj/item/attacking_item, mob/living/user)
-	CRASH("areas are NOT supposed to have attacked_by() called on them!")
-
-/mob/living/attacked_by(obj/item/attacking_item, mob/living/user)
-	send_item_attack_message(attacking_item, user)
-	if(!attacking_item.force)
-		return FALSE
-	var/damage = attacking_item.force
-	if(mob_biotypes & MOB_ROBOTIC)
-		damage *= attacking_item.demolition_mod
-	apply_damage(damage, attacking_item.damtype, attacking_item = attacking_item)
-	if(attacking_item.damtype == BRUTE && prob(33))
-		attacking_item.add_mob_blood(src)
-		var/turf/location = get_turf(src)
-		add_splatter_floor(location)
-		if(get_dist(user, src) <= 1) //people with TK won't get smeared with blood
-			user.add_mob_blood(src)
-	return TRUE //successful attack
+/mob/living/attacked_by(obj/item/I, mob/living/user)
+	send_item_attack_message(I, user)
+	if(I.force)
+		apply_damage(I.force, I.damtype)
+		if(I.damtype == BRUTE)
+			if(prob(33))
+				I.add_mob_blood(src)
+				var/turf/location = get_turf(src)
+				add_splatter_floor(location)
+				if(get_dist(user, src) <= 1) //people with TK won't get smeared with blood
+					user.add_mob_blood(src)
+		return TRUE //successful attack
 
 /mob/living/simple_animal/attacked_by(obj/item/I, mob/living/user)
 	if(!attack_threshold_check(I.force, I.damtype, MELEE, FALSE))
@@ -278,16 +255,8 @@
 	else
 		return ..()
 
-/mob/living/basic/attacked_by(obj/item/I, mob/living/user)
-	if(!attack_threshold_check(I.force, I.damtype, MELEE, FALSE))
-		playsound(loc, 'sound/weapons/tap.ogg', I.get_clamped_volume(), TRUE, -1)
-	else
-		return ..()
-
 /**
- * Last proc in the [/obj/item/proc/melee_attack_chain].
- * Returns a bitfield containing AFTERATTACK_PROCESSED_ITEM if the user is likely intending to use this item on another item.
- * Some consumers currently return TRUE to mean "processed". These are not consistent and should be taken with a grain of salt.
+ * Last proc in the [/obj/item/proc/melee_attack_chain]
  *
  * Arguments:
  * * atom/target - The thing that was hit
@@ -296,11 +265,12 @@
  * * click_parameters - is the params string from byond [/atom/proc/Click] code, see that documentation.
  */
 /obj/item/proc/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	. = NONE
-	. |= SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user, proximity_flag, click_parameters)
+
+	if(GLOB.random_damage_goes_on)
+		random_type_damage(target, proximity_flag)
+
+	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user, proximity_flag, click_parameters)
 	SEND_SIGNAL(user, COMSIG_MOB_ITEM_AFTERATTACK, target, src, proximity_flag, click_parameters)
-	SEND_SIGNAL(target, COMSIG_ATOM_AFTER_ATTACKEDBY, src, user, proximity_flag, click_parameters)
-	return .
 
 /**
  * Called at the end of the attack chain if the user right-clicked.
@@ -320,7 +290,6 @@
 
 	if(signal_result & COMPONENT_SECONDARY_CONTINUE_ATTACK_CHAIN)
 		return SECONDARY_ATTACK_CONTINUE_CHAIN
-
 	return SECONDARY_ATTACK_CALL_NORMAL
 
 /// Called if the target gets deleted by our attack
@@ -338,22 +307,20 @@
 /mob/living/proc/send_item_attack_message(obj/item/I, mob/living/user, hit_area, obj/item/bodypart/hit_bodypart)
 	if(!I.force && !length(I.attack_verb_simple) && !length(I.attack_verb_continuous))
 		return
-	var/message_verb_continuous = length(I.attack_verb_continuous) ? "[pick(I.attack_verb_continuous)]" : "attacks"
-	var/message_verb_simple = length(I.attack_verb_simple) ? "[pick(I.attack_verb_simple)]" : "attack"
+	var/message_verb_continuous = length(I.attack_verb_continuous) ? "[pick(I.attack_verb_continuous)]" : "бьёт"
+	var/message_verb_simple = length(I.attack_verb_simple) ? "[pick(I.attack_verb_simple)]" : "бьёт"
 	var/message_hit_area = ""
 	if(hit_area)
-		message_hit_area = " in the [hit_area]"
-	var/attack_message_spectator = "[src] [message_verb_continuous][message_hit_area] with [I]!"
-	var/attack_message_victim = "Something [message_verb_continuous] you[message_hit_area] with [I]!"
-	var/attack_message_attacker = "You [message_verb_simple] [src][message_hit_area] with [I]!"
+		message_hit_area = " в [ru_parse_zone(hit_area)]"
+	var/attack_message_spectator = "<b>[src]</b> [message_verb_continuous][message_hit_area] <b>[skloname(I.name, TVORITELNI, I.gender)]</b>!"
+	var/attack_message_victim = "[capitalize(message_verb_continuous)][message_hit_area] <b>[skloname(I.name, TVORITELNI, I.gender)]</b>!"
+	var/attack_message_attacker = "Моя атака [message_verb_simple] <b>[src]</b>[message_hit_area] <b>[skloname(I.name, TVORITELNI, I.gender)]</b>!"
 	if(user in viewers(src, null))
-		attack_message_spectator = "[user] [message_verb_continuous] [src][message_hit_area] with [I]!"
-		attack_message_victim = "[user] [message_verb_continuous] you[message_hit_area] with [I]!"
+		attack_message_spectator = "<b>[user]</b> [message_verb_continuous] <b>[skloname(src.name, VINITELNI, gender)]</b>[message_hit_area] [skloname(I.name, TVORITELNI, I.gender)]!"
+		attack_message_victim = "<b>[user]</b> [message_verb_continuous] меня[message_hit_area] [skloname(I.name, TVORITELNI, I.gender)]!"
 	if(user == src)
-		attack_message_victim = "You [message_verb_simple] yourself[message_hit_area] with [I]."
-	visible_message(span_danger("[attack_message_spectator]"),\
-		span_userdanger("[attack_message_victim]"), null, COMBAT_MESSAGE_RANGE, user)
-	if(is_blind())
-		to_chat(src, span_danger("Someone hits you[message_hit_area]!"))
+		attack_message_victim = "Моя атака [message_verb_simple] меня[message_hit_area] [skloname(I.name, TVORITELNI, I.gender)]"
+	visible_message(span_danger("[attack_message_spectator]") ,\
+		span_userdanger("[attack_message_victim]") , null, COMBAT_MESSAGE_RANGE, user)
 	to_chat(user, span_danger("[attack_message_attacker]"))
 	return 1

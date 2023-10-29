@@ -3,7 +3,7 @@
 	name = "carving knife"
 	desc = "A small knife made of cold steel, pure and perfect. Its sharpness can carve into titanium itself - \
 		but only few can evoke the dangers that lurk beneath reality."
-	icon = 'icons/obj/antags/eldritch.dmi'
+	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "rune_carver"
 	flags_1 = CONDUCT_1
 	sharpness = SHARP_EDGED
@@ -11,7 +11,7 @@
 	wound_bonus = 20
 	force = 10
 	throwforce = 20
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "rends")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "rend")
 	actions_types = list(/datum/action/item_action/rune_shatter)
@@ -126,8 +126,7 @@
 /datum/action/item_action/rune_shatter
 	name = "Rune Break"
 	desc = "Destroys all runes carved by this blade."
-	background_icon_state = "bg_heretic"
-	overlay_icon_state = "bg_heretic_border"
+	background_icon_state = "bg_ecult"
 	button_icon_state = "rune_break"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 
@@ -168,7 +167,7 @@
 /obj/structure/trap/eldritch
 	name = "elder carving"
 	desc = "Collection of unknown symbols, they remind you of days long gone..."
-	icon = 'icons/obj/service/hand_of_god_structures.dmi'
+	icon = 'icons/obj/eldritch.dmi'
 	/// A tip displayed to heretics who examine the rune carver. Explains what the rune does.
 	var/carver_tip
 	/// Reference to trap owner mob
@@ -239,11 +238,11 @@
 		return
 	var/mob/living/carbon/carbon_victim = victim
 	carbon_victim.adjustStaminaLoss(80)
-	carbon_victim.adjust_silence(20 SECONDS)
-	carbon_victim.adjust_stutter(1 MINUTES)
-	carbon_victim.adjust_confusion(5 SECONDS)
-	carbon_victim.set_jitter_if_lower(20 SECONDS)
-	carbon_victim.set_dizzy_if_lower(40 SECONDS)
-	carbon_victim.adjust_temp_blindness(4 SECONDS)
-	carbon_victim.add_mood_event("gates_of_mansus", /datum/mood_event/gates_of_mansus)
+	carbon_victim.silent += 10
+	carbon_victim.stuttering += 1 MINUTES
+	carbon_victim.add_confusion(5 SECONDS)
+	carbon_victim.Jitter(20 SECONDS)
+	carbon_victim.Dizzy(40 SECONDS)
+	carbon_victim.blind_eyes(2)
+	SEND_SIGNAL(carbon_victim, COMSIG_ADD_MOOD_EVENT, "gates_of_mansus", /datum/mood_event/gates_of_mansus)
 	playsound(src, 'sound/magic/blind.ogg', 75, TRUE)

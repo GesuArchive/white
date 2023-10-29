@@ -40,11 +40,13 @@ export class DraggableControl extends Component {
           suppressingFlicker: true,
         });
         clearTimeout(this.flickerTimer);
-        this.flickerTimer = setTimeout(() => {
-          this.setState({
-            suppressingFlicker: false,
-          });
-        }, suppressFlicker);
+        this.flickerTimer = setTimeout(
+          () =>
+            this.setState({
+              suppressingFlicker: false,
+            }),
+          suppressFlicker
+        );
       }
     };
 
@@ -79,14 +81,8 @@ export class DraggableControl extends Component {
     };
 
     this.handleDragMove = (e) => {
-      // prettier-ignore
-      const {
-        minValue,
-        maxValue,
-        step,
-        stepPixelSize,
-        dragMatrix,
-      } = this.props;
+      const { minValue, maxValue, step, stepPixelSize, dragMatrix } =
+        this.props;
       this.setState((prevState) => {
         const state = { ...prevState };
         const offset = getScalarScreenOffset(e, dragMatrix) - state.origin;
@@ -174,7 +170,6 @@ export class DraggableControl extends Component {
     if (dragging || suppressingFlicker) {
       displayValue = intermediateValue;
     }
-    // prettier-ignore
     const displayElement = (
       <>
         {
@@ -186,7 +181,6 @@ export class DraggableControl extends Component {
         { (unit ? ' ' + unit : '') }
       </>
     );
-
     // Setup an input element
     // Handles direct input via the keyboard
     const inputElement = (
@@ -258,7 +252,6 @@ export class DraggableControl extends Component {
             this.setState({
               editing: false,
             });
-            return;
           }
         }}
       />

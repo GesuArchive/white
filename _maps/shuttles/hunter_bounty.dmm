@@ -5,6 +5,11 @@
 "b" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/hunter)
+"c" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/airlock/external,
+/turf/open/floor/plating,
+/area/shuttle/hunter)
 "d" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -12,24 +17,28 @@
 /turf/open/floor/plating,
 /area/shuttle/hunter)
 "e" = (
-/obj/machinery/power/shuttle_engine/propulsion{
-	dir = 8
+/obj/machinery/shuttle/engine/ion{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
+/area/shuttle/hunter)
+"f" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
 /area/shuttle/hunter)
 "g" = (
 /obj/structure/sign/warning/vacuum/external,
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/hunter)
 "h" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
 /area/shuttle/hunter)
 "i" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/structure/grille,
+/obj/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/shuttle/hunter)
 "j" = (
@@ -41,8 +50,10 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/hunter)
 "l" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/light/small/directional/west,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
 /turf/open/floor/plating,
 /area/shuttle/hunter)
 "m" = (
@@ -53,6 +64,7 @@
 /area/shuttle/hunter)
 "n" = (
 /obj/structure/table,
+/obj/machinery/light/directional/north,
 /turf/open/floor/pod/light,
 /area/shuttle/hunter)
 "o" = (
@@ -62,23 +74,28 @@
 /turf/open/floor/pod/light,
 /area/shuttle/hunter)
 "p" = (
-/obj/effect/mob_spawn/ghost_role/human/fugitive/bounty/hook,
+/obj/effect/mob_spawn/human/fugitive/bounty/hook,
 /turf/open/floor/pod/light,
 /area/shuttle/hunter)
 "q" = (
-/obj/machinery/power/shuttle_engine/heater{
-	dir = 8
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 4
+	},
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/hunter)
 "r" = (
 /obj/machinery/computer/launchpad{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "s" = (
+/obj/machinery/light/directional/north,
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "t" = (
@@ -103,8 +120,8 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "x" = (
-/obj/machinery/fugitive_locator,
-/turf/open/floor/pod/light,
+/obj/structure/table,
+/turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "y" = (
 /obj/structure/chair/office{
@@ -119,13 +136,24 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "A" = (
-/obj/machinery/computer/shuttle/hunter{
+/obj/machinery/computer/shuttle_flight/hunter{
 	dir = 8
 	},
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "B" = (
 /obj/machinery/launchpad,
+/obj/structure/cable,
+/turf/open/floor/pod/dark,
+/area/shuttle/hunter)
+"C" = (
+/obj/item/multitool,
+/turf/open/floor/pod/dark,
+/area/shuttle/hunter)
+"D" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "E" = (
@@ -135,6 +163,7 @@
 /area/shuttle/hunter)
 "F" = (
 /obj/machinery/power/smes,
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "G" = (
@@ -145,13 +174,16 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "I" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/hunter{
-	dir = 8
-	},
 /turf/open/floor/pod/dark,
+/area/shuttle/hunter)
+"J" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical,
+/turf/open/floor/pod/light,
 /area/shuttle/hunter)
 "K" = (
 /obj/machinery/suit_storage_unit/standard_unit{
@@ -159,22 +191,36 @@
 	},
 /turf/open/floor/pod/light,
 /area/shuttle/hunter)
+"L" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/docking_port/stationary{
+	dwidth = 11;
+	height = 16;
+	id = "pirateship_home";
+	name = "Deep Space";
+	width = 17
+	},
+/obj/docking_port/mobile{
+	id = "huntership";
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
+	name = "hunter shuttle";
+	rechargeTime = 1800
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/shuttle/hunter)
 "M" = (
-/obj/effect/mob_spawn/ghost_role/human/fugitive/bounty/armor{
+/obj/effect/mob_spawn/human/fugitive/bounty/armor{
 	dir = 1
 	},
 /turf/open/floor/pod/light,
 /area/shuttle/hunter)
 "N" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/airlock/external/ruin,
-/obj/effect/mapping_helpers/airlock/access/all/hunter,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/plating,
-/area/shuttle/hunter)
-"O" = (
-/obj/machinery/light/floor,
-/turf/open/floor/pod/dark,
+/obj/structure/cable,
+/turf/closed/wall/mineral/plastitanium,
 /area/shuttle/hunter)
 "P" = (
 /obj/structure/fluff/empty_sleeper{
@@ -183,83 +229,42 @@
 /turf/open/floor/pod/light,
 /area/shuttle/hunter)
 "Q" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external/ruin,
-/obj/effect/mapping_helpers/airlock/access/all/hunter,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/plating,
-/area/shuttle/hunter)
-"R" = (
-/obj/structure/table,
-/obj/item/pinpointer/shuttle{
-	pixel_y = 4
-	},
+/obj/structure/curtain/bounty,
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
-"S" = (
-/obj/structure/table,
-/obj/item/storage/toolbox/mechanical,
-/obj/machinery/light/small/directional/north,
-/turf/open/floor/pod/light,
-/area/shuttle/hunter)
-"T" = (
-/obj/structure/tank_dispenser/oxygen,
+"R" = (
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "U" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/airlock/external/ruin,
-/obj/structure/fans/tiny,
-/obj/effect/mapping_helpers/airlock/access/all/hunter,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/plating,
-/area/shuttle/hunter)
-"V" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external/ruin,
-/obj/docking_port/stationary{
-	dwidth = 11;
-	height = 16;
-	name = "Deep Space";
-	shuttle_id = "pirate_home";
-	width = 17
-	},
-/obj/docking_port/mobile{
-	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
-	name = "hunter shuttle";
-	rechargeTime = 1800;
-	shuttle_id = "huntership"
-	},
-/obj/structure/fans/tiny,
-/obj/effect/mapping_helpers/airlock/access/all/hunter,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/plating,
-/area/shuttle/hunter)
-"W" = (
 /obj/machinery/suit_storage_unit/standard_unit{
 	storage_type = /obj/item/tank/internals/oxygen/yellow
 	},
-/obj/machinery/light/small/directional/south,
+/obj/machinery/light/directional/south,
 /turf/open/floor/pod/light,
 /area/shuttle/hunter)
-"X" = (
-/obj/effect/turf_decal/stripes/line{
+"V" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/pod/dark,
+/area/shuttle/hunter)
+"W" = (
+/obj/machinery/power/terminal{
 	dir = 8
 	},
-/obj/machinery/light/floor,
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "Y" = (
 /obj/structure/table,
-/obj/item/multitool,
-/turf/open/floor/pod/dark,
+/obj/machinery/light/directional/east,
+/turf/open/floor/pod/light,
 /area/shuttle/hunter)
 "Z" = (
-/obj/effect/mob_spawn/ghost_role/human/fugitive/bounty/synth,
+/obj/effect/mob_spawn/human/fugitive/bounty/synth,
 /turf/open/floor/pod/light,
 /area/shuttle/hunter)
 
@@ -327,13 +332,13 @@ b
 b
 b
 q
-b
-b
+N
+N
 r
 B
 F
-b
-b
+N
+N
 q
 b
 b
@@ -343,30 +348,30 @@ b
 b
 g
 b
-T
+b
 s
-s
-s
-G
+C
+W
+b
 b
 g
 b
 b
 "}
 (7,1,1) = {"
-U
+f
+d
 h
 j
-Q
-s
-t
-X
-H
-s
-N
-d
 l
-V
+t
+D
+H
+c
+d
+h
+j
+L
 "}
 (8,1,1) = {"
 b
@@ -376,7 +381,7 @@ b
 b
 u
 u
-u
+Q
 b
 b
 i
@@ -390,8 +395,8 @@ i
 b
 m
 v
-s
-s
+I
+R
 K
 b
 i
@@ -405,9 +410,9 @@ i
 k
 n
 w
-Y
-s
-K
+G
+R
+U
 b
 i
 a
@@ -418,11 +423,11 @@ a
 a
 a
 b
-S
-R
+J
+x
 E
-s
-W
+R
+K
 b
 a
 a
@@ -435,8 +440,8 @@ a
 b
 o
 y
-s
-s
+I
+R
 K
 b
 a
@@ -451,7 +456,7 @@ i
 b
 u
 u
-u
+Q
 b
 i
 a
@@ -464,9 +469,9 @@ a
 a
 i
 p
-s
-O
-s
+I
+I
+R
 P
 i
 a
@@ -480,8 +485,8 @@ a
 i
 Z
 z
-s
-z
+I
+V
 M
 i
 a
@@ -495,8 +500,8 @@ a
 b
 i
 A
-x
-I
+Y
+R
 i
 b
 a

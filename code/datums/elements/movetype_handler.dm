@@ -1,3 +1,7 @@
+#define DO_FLOATING_ANIM(target) \
+	animate(target, pixel_y = 2, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE);\
+	animate(pixel_y = -2, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
+
 /**
  * An element that enables and disables movetype bitflags whenever the relative traits are added or removed.
  * It also handles the +2/-2 pixel y anim loop typical of mobs possessing the FLYING or FLOATING movetypes.
@@ -40,7 +44,7 @@
 
 	attached_atoms -= source
 	paused_floating_anim_atoms -= source
-	STOP_FLOATING_ANIM(source)
+	stop_floating(source)
 	return ..()
 
 /// Called when a movement type trait is added to the movable. Enables the relative bitflag.
@@ -49,11 +53,10 @@
 	var/flag = GLOB.movement_type_trait_to_flag[trait]
 	if(source.movement_type & flag)
 		return
-	var/old_state = source.movement_type
-	source.movement_type |= flag
-	if(!(old_state & (FLOATING|FLYING)) && (source.movement_type & (FLOATING|FLYING)) && !paused_floating_anim_atoms[source] && !HAS_TRAIT(source, TRAIT_NO_FLOATING_ANIM))
+	if(!(source.movement_type & (FLOATING|FLYING)) && (trait == TRAIT_MOVE_FLYING || trait == TRAIT_MOVE_FLOATING) && !paused_floating_anim_atoms[source] && !HAS_TRAIT(source, TRAIT_NO_FLOATING_ANIM))
 		DO_FLOATING_ANIM(source)
-	SEND_SIGNAL(source, COMSIG_MOVETYPE_FLAG_ENABLED, flag, old_state)
+	source.movement_type |= flag
+	SEND_SIGNAL(source, COMSIG_MOVETYPE_FLAG_ENABLED, flag)
 
 /// Called when a movement type trait is removed from the movable. Disables the relative bitflag if it wasn't there in the compile-time bitfield.
 /datum/element/movetype_handler/proc/on_movement_type_trait_loss(atom/movable/source, trait)
@@ -61,19 +64,18 @@
 	var/flag = GLOB.movement_type_trait_to_flag[trait]
 	if(initial(source.movement_type) & flag)
 		return
-	var/old_state = source.movement_type
 	source.movement_type &= ~flag
-	if((old_state & (FLOATING|FLYING)) && !(source.movement_type & (FLOATING|FLYING)))
-		STOP_FLOATING_ANIM(source)
+	if((trait == TRAIT_MOVE_FLYING || trait == TRAIT_MOVE_FLOATING) && !(source.movement_type & (FLOATING|FLYING)))
+		stop_floating(source)
 		var/turf/pitfall = source.loc //Things that don't fly fall in open space.
 		if(istype(pitfall))
 			pitfall.zFall(source)
-	SEND_SIGNAL(source, COMSIG_MOVETYPE_FLAG_DISABLED, flag, old_state)
+	SEND_SIGNAL(source, COMSIG_MOVETYPE_FLAG_DISABLED, flag)
 
 /// Called when the TRAIT_NO_FLOATING_ANIM trait is added to the movable. Stops it from bobbing up and down.
 /datum/element/movetype_handler/proc/on_no_floating_anim_trait_gain(atom/movable/source, trait)
 	SIGNAL_HANDLER
-	STOP_FLOATING_ANIM(source)
+	stop_floating(source)
 
 /// Called when the TRAIT_NO_FLOATING_ANIM trait is removed from the mob. Restarts the bobbing animation.
 /datum/element/movetype_handler/proc/on_no_floating_anim_trait_loss(atom/movable/source, trait)
@@ -85,7 +87,7 @@
 /datum/element/movetype_handler/proc/pause_floating_anim(atom/movable/source, timer)
 	SIGNAL_HANDLER
 	if(paused_floating_anim_atoms[source] < world.time + timer)
-		STOP_FLOATING_ANIM(source)
+		stop_floating(source)
 		if(!length(paused_floating_anim_atoms))
 			START_PROCESSING(SSdcs, src) //1 second tickrate.
 		paused_floating_anim_atoms[source] = world.time + timer
@@ -99,3 +101,13 @@
 			paused_floating_anim_atoms -= paused
 	if(!length(paused_floating_anim_atoms))
 		STOP_PROCESSING(SSdcs, src)
+
+/// Stops the above. Also not a comsig proc.
+/datum/element/movetype_handler/proc/stop_floating(atom/movable/target)
+	var/final_pixel_y = target.base_pixel_y
+	if(isliving(target)) //Living mobs also have a 'body_position_pixel_y_offset' variable that has to be taken into account here.
+		var/mob/living/living_target = target
+		final_pixel_y += living_target.body_position_pixel_y_offset
+	animate(target, pixel_y = final_pixel_y, time = 1 SECONDS)
+
+#undef DO_FLOATING_ANIM

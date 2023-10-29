@@ -1,12 +1,10 @@
 /obj/machinery/dna_scannernew
-	name = "\improper DNA scanner"
-	desc = "It scans DNA structures."
+	name = "Манипулятор ДНК"
+	desc = "При подключении к консоли позволяет видоизменять ДНК подопытного для получения ценной информации и коррекции генетического кода."
 	icon = 'icons/obj/machines/cloning.dmi'
 	icon_state = "scanner"
-	base_icon_state = "scanner"
 	density = TRUE
-	obj_flags = BLOCKS_CONSTRUCTION // Becomes undense when the door is open
-	occupant_typecache = list(/mob/living, /obj/item/bodypart/head, /obj/item/organ/internal/brain)
+	occupant_typecache = list(/mob/living, /obj/item/bodypart/head, /obj/item/organ/brain)
 	circuit = /obj/item/circuitboard/machine/dnascanner
 	var/locked = FALSE
 	var/damage_coeff
@@ -21,36 +19,36 @@
 	scan_level = 0
 	damage_coeff = 0
 	precision_coeff = 0
-	for(var/datum/stock_part/scanning_module/scanning_module in component_parts)
-		scan_level += scanning_module.tier
-	for(var/datum/stock_part/matter_bin/matter_bin in component_parts)
-		precision_coeff = matter_bin.tier
-	for(var/datum/stock_part/micro_laser/micro_laser in component_parts)
-		damage_coeff = micro_laser.tier
+	for(var/obj/item/stock_parts/scanning_module/P in component_parts)
+		scan_level += P.rating
+	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
+		precision_coeff = M.rating
+	for(var/obj/item/stock_parts/micro_laser/P in component_parts)
+		damage_coeff = P.rating
 
 /obj/machinery/dna_scannernew/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Radiation pulse accuracy increased by factor <b>[precision_coeff**2]</b>.<br>Radiation pulse damage decreased by factor <b>[damage_coeff**2]</b>.")
+		. += "<hr><span class='notice'>Дисплей: Radiation pulse accuracy increased by factor <b>[precision_coeff**2]</b>.<br>Radiation pulse damage decreased by factor <b>[damage_coeff**2]</b>.</span>"
 
 /obj/machinery/dna_scannernew/update_icon_state()
+	. = ..()
 	//no power or maintenance
 	if(machine_stat & (NOPOWER|BROKEN))
-		icon_state = "[base_icon_state][state_open ? "_open" : null]_unpowered"
-		return ..()
+		icon_state = initial(icon_state)+ (state_open ? "_open" : "") + "_unpowered"
+		return
 
 	if((machine_stat & MAINT) || panel_open)
-		icon_state = "[base_icon_state][state_open ? "_open" : null]_maintenance"
-		return ..()
+		icon_state = initial(icon_state)+ (state_open ? "_open" : "") + "_maintenance"
+		return
 
 	//running and someone in there
 	if(occupant)
-		icon_state = "[base_icon_state]_occupied"
-		return ..()
+		icon_state = initial(icon_state)+ "_occupied"
+		return
 
 	//running
-	icon_state = "[base_icon_state][state_open ? "_open" : null]"
-	return ..()
+	icon_state = initial(icon_state)+ (state_open ? "_open" : "")
 
 /obj/machinery/dna_scannernew/proc/toggle_open(mob/user)
 	if(panel_open)
@@ -73,14 +71,14 @@
 		return
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	user.visible_message(span_notice("You see [user] kicking against the door of [src]!"), \
-		span_notice("You lean on the back of [src] and start pushing the door open... (this will take about [DisplayTimeText(breakout_time)].)"), \
+	user.visible_message(span_notice("You see [user] kicking against the door of [src]!") , \
+		span_notice("You lean on the back of [src] and start pushing the door open... (this will take about [DisplayTimeText(breakout_time)].)") , \
 		span_hear("You hear a metallic creaking from [src]."))
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src || state_open || !locked)
 			return
 		locked = FALSE
-		user.visible_message(span_warning("[user] successfully broke out of [src]!"), \
+		user.visible_message(span_warning("[user] successfully broke out of [src]!") , \
 			span_notice("You successfully break out of [src]!"))
 		open_machine()
 
@@ -91,7 +89,7 @@
 			return C
 	return null
 
-/obj/machinery/dna_scannernew/close_machine(mob/living/carbon/user, density_to_set = TRUE)
+/obj/machinery/dna_scannernew/close_machine(mob/living/carbon/user)
 	if(!state_open)
 		return FALSE
 
@@ -104,7 +102,7 @@
 
 	return TRUE
 
-/obj/machinery/dna_scannernew/open_machine(drop = TRUE, density_to_set = FALSE)
+/obj/machinery/dna_scannernew/open_machine()
 	if(state_open)
 		return FALSE
 
@@ -119,17 +117,17 @@
 	if(user.stat || locked)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, span_warning("[src]'s door won't budge!"))
+			to_chat(user, span_warning("[capitalize(src.name)] door won't budge!"))
 		return
 	open_machine()
 
 /obj/machinery/dna_scannernew/attackby(obj/item/I, mob/user, params)
 
 	if(!occupant && default_deconstruction_screwdriver(user, icon_state, icon_state, I))//sent icon_state is irrelevant...
-		update_appearance()//..since we're updating the icon here, since the scanner can be unpowered when opened/closed
+		update_icon()//..since we're updating the icon here, since the scanner can be unpowered when opened/closed
 		return
 
-	if(default_pry_open(I, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE))
+	if(default_pry_open(I))
 		return
 
 	if(default_deconstruction_crowbar(I))
@@ -148,10 +146,10 @@
 //This is only called by the scanner. if you ever want to use this outside of that context you'll need to refactor things a bit
 /obj/machinery/dna_scannernew/proc/set_linked_console(new_console)
 	if(linked_console)
-		UnregisterSignal(linked_console, COMSIG_QDELETING)
+		UnregisterSignal(linked_console, COMSIG_PARENT_QDELETING)
 	linked_console = new_console
 	if(linked_console)
-		RegisterSignal(linked_console, COMSIG_QDELETING, PROC_REF(react_to_console_del))
+		RegisterSignal(linked_console, COMSIG_PARENT_QDELETING, PROC_REF(react_to_console_del))
 
 /obj/machinery/dna_scannernew/proc/react_to_console_del(datum/source)
 	SIGNAL_HANDLER
@@ -160,7 +158,7 @@
 
 //Just for transferring between genetics machines.
 /obj/item/disk/data
-	name = "DNA data disk"
+	name = "ДНК диск"
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
 	var/list/genetic_makeup_buffer = list()
 	var/list/mutations = list()
@@ -169,20 +167,8 @@
 
 /obj/item/disk/data/Initialize(mapload)
 	. = ..()
-	icon_state = "datadisk[rand(0,7)]"
+	icon_state = "datadisk[rand(0,6)]"
 	add_overlay("datadisk_gene")
-
-/obj/item/disk/data/debug
-	name = "\improper CentCom DNA disk"
-	desc = "A debug item for genetics"
-	custom_materials = null
-
-/obj/item/disk/data/debug/Initialize(mapload)
-	. = ..()
-	// Grabs all instances of mutations and adds them to the disk
-	for(var/datum/mutation/human/mut as anything in subtypesof(/datum/mutation/human))
-		var/datum/mutation/human/ref = GET_INITIALIZED_MUTATION(mut)
-		mutations += ref
 
 /obj/item/disk/data/attack_self(mob/user)
 	read_only = !read_only
@@ -190,4 +176,4 @@
 
 /obj/item/disk/data/examine(mob/user)
 	. = ..()
-	. += "The write-protect tab is set to [read_only ? "protected" : "unprotected"]."
+	. += "<hr>The write-protect tab is set to [read_only ? "protected" : "unprotected"]."

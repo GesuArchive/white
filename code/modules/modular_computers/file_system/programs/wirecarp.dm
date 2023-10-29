@@ -1,9 +1,9 @@
 /datum/computer_file/program/ntnetmonitor
 	filename = "wirecarp"
-	filedesc = "WireCarp"
+	filedesc = "ВайрКарп"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "comm_monitor"
-	extended_desc = "This program monitors stationwide NTNet network, provides access to logging systems, and allows for configuration changes"
+	extended_desc = "Эта программа отслеживает сеть NTNet по всей станции, предоставляет доступ к системам ведения журнала и позволяет вносить изменения в конфигурацию"
 	size = 12
 	requires_ntnet = TRUE
 	required_access = list(ACCESS_NETWORK) //NETWORK CONTROL IS A MORE SECURE PROGRAM.
@@ -12,57 +12,85 @@
 	program_icon = "network-wired"
 
 /datum/computer_file/program/ntnetmonitor/ui_act(action, list/params, datum/tgui/ui)
+	. = ..()
+	if(.)
+		return
 	switch(action)
 		if("resetIDS")
-			SSmodular_computers.intrusion_detection_alarm = FALSE
+			if(SSnetworks.station_network)
+				SSnetworks.station_network.resetIDS()
 			return TRUE
 		if("toggleIDS")
-			SSmodular_computers.intrusion_detection_enabled = !SSmodular_computers.intrusion_detection_enabled
+			if(SSnetworks.station_network)
+				SSnetworks.station_network.toggleIDS()
 			return TRUE
-		if("toggle_relay")
-			var/obj/machinery/ntnet_relay/target_relay = locate(params["ref"]) in GLOB.ntnet_relays
-			if(!istype(target_relay))
+		if("toggleWireless")
+			if(!SSnetworks.station_network)
 				return
-			target_relay.set_relay_enabled(!target_relay.relay_enabled)
+
+			// NTNet is disabled. Enabling can be done without user prompt
+			if(SSnetworks.station_network.setting_disabled)
+				SSnetworks.station_network.setting_disabled = FALSE
+				return TRUE
+
+			SSnetworks.station_network.setting_disabled = TRUE
 			return TRUE
 		if("purgelogs")
-			SSmodular_computers.purge_logs()
+			if(SSnetworks.station_network)
+				SSnetworks.purge_logs()
+			return TRUE
+		if("updatemaxlogs")
+			var/logcount = params["new_number"]
+			if(SSnetworks.station_network)
+				SSnetworks.update_max_log_count(logcount)
+			return TRUE
+		if("toggle_function")
+			if(!SSnetworks.station_network)
+				return
+			SSnetworks.station_network.toggle_function(text2num(params["id"]))
 			return TRUE
 		if("toggle_mass_pda")
-			if(!(params["ref"] in GLOB.pda_messengers))
+			if(!SSnetworks.station_network)
 				return
-			var/datum/computer_file/program/messenger/target_messenger = GLOB.pda_messengers[params["ref"]]
-			target_messenger.spam_mode = !target_messenger.spam_mode
-			return TRUE
+
+			var/obj/item/modular_computer/target_tablet = locate(params["ref"]) in GLOB.TabletMessengers
+			if(!istype(target_tablet))
+				return
+			for(var/datum/computer_file/program/messenger/messenger_app in computer.stored_files)
+				messenger_app.spam_mode = !messenger_app.spam_mode
 
 /datum/computer_file/program/ntnetmonitor/ui_data(mob/user)
-	var/list/data = list()
+	if(!SSnetworks.station_network)
+		return
+	var/list/data = get_header_data()
 
-	data["ntnetrelays"] = list()
-	for(var/obj/machinery/ntnet_relay/relays as anything in GLOB.ntnet_relays)
-		var/list/relay_data = list()
-		relay_data["is_operational"] = !!relays.is_operational
-		relay_data["name"] = relays.name
-		relay_data["ref"] = REF(relays)
+	data["ntnetstatus"] = SSnetworks.station_network.check_function()
+	data["ntnetrelays"] = SSnetworks.relays.len
+	data["idsstatus"] = SSnetworks.station_network.intrusion_detection_enabled
+	data["idsalarm"] = SSnetworks.station_network.intrusion_detection_alarm
 
-		data["ntnetrelays"] += list(relay_data)
-
-	data["idsstatus"] = SSmodular_computers.intrusion_detection_enabled
-	data["idsalarm"] = SSmodular_computers.intrusion_detection_alarm
+	data["config_softwaredownload"] = SSnetworks.station_network.setting_softwaredownload
+	data["config_peertopeer"] = SSnetworks.station_network.setting_peertopeer
+	data["config_communication"] = SSnetworks.station_network.setting_communication
+	data["config_systemcontrol"] = SSnetworks.station_network.setting_systemcontrol
 
 	data["ntnetlogs"] = list()
-	for(var/i in SSmodular_computers.logs)
+	data["minlogs"] = MIN_NTNET_LOGS
+	data["maxlogs"] = MAX_NTNET_LOGS
+
+	for(var/i in SSnetworks.logs)
 		data["ntnetlogs"] += list(list("entry" = i))
+	data["ntnetmaxlogs"] = SSnetworks.setting_maxlogcount
 
 	data["tablets"] = list()
-	for(var/messenger_ref in get_messengers_sorted_by_name())
-		var/datum/computer_file/program/messenger/app = GLOB.pda_messengers[messenger_ref]
-		var/obj/item/modular_computer/pda = app.computer
-
+	for(var/obj/item/modular_computer/messenger in GetViewableDevices())
 		var/list/tablet_data = list()
-		tablet_data["enabled_spam"] = app.spam_mode
-		tablet_data["name"] = pda.saved_identification
-		tablet_data["ref"] = REF(app)
+		if(messenger.saved_identification)
+			for(var/datum/computer_file/program/messenger/messenger_app in computer.stored_files)
+				tablet_data["enabled_spam"] += messenger_app.spam_mode
+
+			tablet_data["name"] += messenger.saved_identification
+			tablet_data["ref"] += REF(messenger)
 
 		data["tablets"] += list(tablet_data)
 

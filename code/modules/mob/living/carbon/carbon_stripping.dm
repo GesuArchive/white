@@ -55,7 +55,7 @@
 /// A strippable item for a hand
 /datum/strippable_item/hand
 	// Putting dangerous clothing in our hand is fine.
-	show_visible_message = FALSE
+	warn_dangerous_clothing = FALSE
 
 	/// Which hand?
 	var/hand_index
@@ -78,7 +78,7 @@
 	var/mob/mob_source = source
 
 	if (!mob_source.can_put_in_hand(equipping, hand_index))
-		to_chat(src, span_warning("\The [equipping] doesn't fit in that place!"))
+		to_chat(src, span_warning("<b>[capitalize(equipping)]</b> doesn't fit in that place!"))
 		return FALSE
 
 	return TRUE
@@ -93,7 +93,7 @@
 
 	var/mob/mob_source = source
 
-	if (!do_after(user, equipping.equip_delay_other, source))
+	if (!do_mob(user, source, equipping.equip_delay_other))
 		return FALSE
 
 	if (!mob_source.can_put_in_hand(equipping, hand_index))

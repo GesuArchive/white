@@ -1,0 +1,391 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/effect/abstract/open_area_marker{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"c" = (
+/obj/structure/table,
+/obj/item/reagent_containers/food/drinks/bottle/tomatojuice{
+	pixel_x = -5
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"h" = (
+/obj/structure/table,
+/obj/item/food/tomato_sauce{
+	pixel_x = -1;
+	pixel_y = 11
+	},
+/obj/item/food/kebab,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"l" = (
+/obj/effect/decal/cleanable/food/salt,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"m" = (
+/obj/structure/chair,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"p" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"q" = (
+/obj/structure/table,
+/obj/item/reagent_containers/food/drinks/waterbottle/relic{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/food/burger/empoweredburger{
+	pixel_x = -4
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"r" = (
+/obj/effect/decal/cleanable/food/egg_smudge,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"s" = (
+/obj/structure/table,
+/obj/item/food/hotdog,
+/obj/item/reagent_containers/food/drinks/beer{
+	pixel_x = -6;
+	pixel_y = 11
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"u" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin/unpowered)
+"v" = (
+/obj/item/food/spacefreezy{
+	pixel_y = 5
+	},
+/obj/item/food/spacefreezy{
+	pixel_y = 5
+	},
+/obj/structure/closet/secure_closet/freezer/kitchen/mining,
+/obj/item/food/spacefreezy{
+	pixel_y = 5
+	},
+/obj/item/food/spacefreezy{
+	pixel_y = 5
+	},
+/obj/item/food/hotdog,
+/obj/item/food/hotdog,
+/obj/item/food/hotdog,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"x" = (
+/obj/structure/table,
+/obj/item/food/taco{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/soda_cans/cola{
+	pixel_y = 11;
+	pixel_x = 8
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"y" = (
+/obj/structure/closet/secure_closet/freezer/kitchen/mining,
+/obj/item/food/cheesewheel,
+/obj/effect/decal/cleanable/food/flour,
+/obj/item/food/sandwich{
+	pixel_x = -5;
+	pixel_y = 10
+	},
+/obj/item/food/sandwich{
+	pixel_x = -5;
+	pixel_y = 10
+	},
+/obj/item/food/sandwich{
+	pixel_x = -5;
+	pixel_y = 10
+	},
+/obj/item/food/burger/baconburger{
+	pixel_y = 5;
+	pixel_x = 4
+	},
+/obj/item/food/burger/baconburger{
+	pixel_y = 5;
+	pixel_x = 4
+	},
+/obj/item/food/burger/baconburger{
+	pixel_y = 5;
+	pixel_x = 4
+	},
+/obj/item/food/burger{
+	pixel_x = -4
+	},
+/obj/item/food/burger{
+	pixel_x = -4
+	},
+/obj/item/food/burger{
+	pixel_x = -4
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"z" = (
+/obj/structure/table_frame,
+/obj/effect/spawner/random/decoration/glowstick/on,
+/obj/effect/decal/cleanable/plastic,
+/obj/effect/decal/cleanable/shreds,
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"B" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"C" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"D" = (
+/obj/structure/table,
+/obj/item/reagent_containers/food/drinks/coffee{
+	pixel_x = 9;
+	pixel_y = 5
+	},
+/obj/item/food/burger{
+	pixel_x = -4
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"E" = (
+/obj/structure/table/reinforced,
+/obj/item/food/pizza/sassysage,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"F" = (
+/obj/machinery/door/window/eastright{
+	base_state = "left";
+	dir = 2;
+	icon_state = "left"
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"G" = (
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"I" = (
+/obj/machinery/smartfridge/food,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"J" = (
+/obj/structure/table/reinforced,
+/obj/item/food/pizza/meat,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"K" = (
+/obj/effect/spawner/random/decoration/glowstick/on,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"L" = (
+/obj/structure/table,
+/obj/item/food/sandwich{
+	pixel_x = -5;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/flask/det{
+	pixel_x = 7
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"M" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"O" = (
+/obj/effect/decal/cleanable/food/tomato_smudge,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"S" = (
+/obj/structure/table,
+/obj/item/reagent_containers/food/drinks/soda_cans/dr_gibb{
+	pixel_y = 1;
+	pixel_x = -5
+	},
+/obj/item/food/burger/baconburger{
+	pixel_y = 5;
+	pixel_x = 4
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"U" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"X" = (
+/obj/structure/table,
+/obj/machinery/microwave{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/obj/structure/window,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+"Y" = (
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Z" = (
+/obj/structure/table,
+/obj/machinery/reagentgrinder,
+/turf/open/floor/plasteel/cafeteria,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+u
+u
+u
+u
+u
+p
+u
+u
+u
+u
+u
+"}
+(2,1,1) = {"
+u
+v
+y
+Z
+X
+Y
+Y
+Y
+Y
+Y
+u
+"}
+(3,1,1) = {"
+u
+r
+K
+G
+F
+Y
+m
+S
+M
+Y
+u
+"}
+(4,1,1) = {"
+u
+B
+E
+J
+I
+Y
+m
+h
+M
+Y
+u
+"}
+(5,1,1) = {"
+Y
+C
+Y
+O
+Y
+Y
+m
+x
+M
+Y
+u
+"}
+(6,1,1) = {"
+b
+Y
+Y
+Y
+C
+Y
+l
+G
+G
+Y
+u
+"}
+(7,1,1) = {"
+Y
+Y
+m
+D
+M
+G
+m
+z
+M
+Y
+u
+"}
+(8,1,1) = {"
+u
+Y
+m
+c
+M
+G
+m
+s
+M
+Y
+u
+"}
+(9,1,1) = {"
+u
+Y
+m
+L
+M
+G
+m
+q
+M
+Y
+u
+"}
+(10,1,1) = {"
+u
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+u
+"}
+(11,1,1) = {"
+u
+u
+u
+u
+u
+U
+u
+u
+u
+u
+u
+"}

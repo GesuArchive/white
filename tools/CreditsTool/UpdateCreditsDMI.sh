@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #If you hit github's rate limit, add a 3rd parameter here that is a github personal access token
-./CreditsTool tgstation tgstation
+./CreditsTool frosty-dev white
 
-rm ../../icons/credits.dmi
+#rm ../../icons/credits.dmi
 
 for filename in credit_pngs/*.png; do
 	realname=$(basename "$filename")

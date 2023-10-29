@@ -1,7 +1,10 @@
 /datum/admins/proc/spawn_objasmob(object as text)
-	set category = "Debug"
+	set category = "Дбг.Маппинг"
 	set desc = "(obj path) Spawn object-mob"
 	set name = "Spawn object-mob"
+
+	if(!object)
+		object = tgui_input_text(usr, "", "Spawn object-mob")
 
 	if(!check_rights(R_SPAWN))
 		return
@@ -37,7 +40,7 @@
 
 		basemob = text2path(mainsettings["mobtype"]["value"])
 		if (!ispath(basemob, /mob/living/simple_animal/hostile/mimic/copy) || !ispath(chosen_obj, /obj))
-			to_chat(usr, "Mob or object path invalid", confidential = TRUE)
+			to_chat(usr, "Mob or object path invalid")
 
 		basemob = new basemob(get_turf(usr), new chosen_obj(get_turf(usr)), usr, mainsettings["dropitem"]["value"] == "Yes" ? FALSE : TRUE, (mainsettings["googlyeyes"]["value"] == "Yes" ? FALSE : TRUE))
 
@@ -56,7 +59,7 @@
 			if (!isnum(mainsettings["maxhealth"]["value"]))
 				mainsettings["maxhealth"]["value"] = text2num(mainsettings["maxhealth"]["value"])
 			if (mainsettings["maxhealth"]["value"] > 0)
-				basemob.maxHealth = basemob.maxHealth = mainsettings["maxhealth"]["value"]
+				basemob.maxHealth = basemob.maxHealth =  mainsettings["maxhealth"]["value"]
 
 		if (mainsettings["name"]["value"])
 			basemob.name = basemob.real_name = html_decode(mainsettings["name"]["value"])
@@ -66,4 +69,4 @@
 
 
 		log_admin("[key_name(usr)] spawned a sentient object-mob [basemob] from [chosen_obj] at [AREACOORD(usr)]")
-		SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn object-mob") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+		SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn object-mob") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

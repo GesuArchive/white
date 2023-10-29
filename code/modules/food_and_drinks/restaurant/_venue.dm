@@ -1,3 +1,6 @@
+#define VENUE_RESTAURANT "Restaurant Venue"
+#define VENUE_BAR "Bar Venue"
+
 ///Represents the abstract concept of a food venue in the code.
 /datum/venue
 	///Name of the venue, also used for the icon state of any radials it can be selected in
@@ -31,7 +34,7 @@
 	///Seats linked to this venue, assoc list of key holosign of seat position, and value of robot assigned to it, if any.
 	var/list/linked_seats = list()
 
-/datum/venue/process(seconds_per_tick)
+/datum/venue/process(delta_time)
 	if(!COOLDOWN_FINISHED(src, visit_cooldown))
 		return
 	COOLDOWN_START(src, visit_cooldown, rand(min_time_between_visitor, max_time_between_visitor))
@@ -60,80 +63,23 @@
 	if (initial(customer_type.is_unique))
 		customer_types -= customer_type
 
-	var/mob/living/basic/robot_customer/new_customer = new /mob/living/basic/robot_customer(get_turf(restaurant_portal), customer_type, src)
+	var/mob/living/simple_animal/robot_customer/new_customer = new /mob/living/simple_animal/robot_customer(get_turf(restaurant_portal), customer_type, src)
 	current_visitors += new_customer
 
-/datum/venue/proc/order_food(mob/living/basic/robot_customer/customer_pawn, datum/customer_data/customer_data)
-	var/order = pick_weight(customer_data.orderable_objects[venue_type])
-	var/list/order_args // Only for custom orders - arguments passed into New
-	var/image/food_image
-	var/food_line
-
-	if(ispath(order, /datum/reagent))
-		// This is pain
-		var/datum/reagent/reagent_order = order
-		order_args = list("reagent_type" = reagent_order)
-		order = initial(reagent_order.restaurant_order)
-
-	if(ispath(order, /datum/custom_order)) // generate the special order
-		var/datum/custom_order/custom_order = new order(arglist(order_args || list()))
-		food_image = custom_order.get_order_appearance(src)
-		food_line = custom_order.get_order_line(src)
-		order = custom_order.dispense_order()
-	else
-		food_image = get_food_appearance(order)
-		food_line = order_food_line(order)
-
-	customer_pawn.say(food_line)
-
-	// common code for the food thoughts appearance
-	food_image.loc = customer_pawn
-	food_image.pixel_y = 32
-	food_image.pixel_x = 16
-	SET_PLANE_EXPLICIT(food_image, HUD_PLANE, customer_pawn)
-	food_image.plane = HUD_PLANE
-	food_image.appearance_flags = RESET_COLOR
-	customer_pawn.hud_to_show_on_hover = customer_pawn.add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/food_demands, "food_thoughts", food_image)
-
-	return order
+/datum/venue/proc/order_food(mob/living/simple_animal/robot_customer/customer_pawn, datum/customer_data/customer_data)
+	return
 
 ///Checks if the object used is correct for the venue
 /datum/venue/proc/is_correct_order(atom/movable/object_used, wanted_item)
-	if(istype(wanted_item, /datum/custom_order))
-		var/datum/custom_order/custom_order = wanted_item
-		return custom_order.is_correct_order(object_used)
 	return FALSE
-
-///gets the appearance of the ordered object that shows up when hovering your cursor over the customer mob.
-/datum/venue/proc/get_food_appearance(order)
-	return
 
 ///The line the robot says when ordering
 /datum/venue/proc/order_food_line(order)
 	return "broken venue pls call a coder"
 
 ///Effects for when a customer receives their order at this venue
-/datum/venue/proc/on_get_order(mob/living/basic/robot_customer/customer_pawn, obj/item/order_item)
-	SHOULD_CALL_PARENT(TRUE)
-
-	// This is an item typepath, a reagent typepath, or a custom order datum instance.
-	var/order = customer_pawn.ai_controller.blackboard[BB_CUSTOMER_CURRENT_ORDER]
-
-	. = SEND_SIGNAL(order_item, COMSIG_ITEM_SOLD_TO_CUSTOMER, customer_pawn)
-
-	for(var/datum/reagent/reagent as anything in order_item.reagents?.reagent_list)
-		// Our order can be a reagent within the item we're receiving
-		if(reagent.type == order)
-			. |= SEND_SIGNAL(reagent, COMSIG_REAGENT_SOLD_TO_CUSTOMER, customer_pawn, order_item)
-			break
-
-	// Order can be a /datum/custom_order instance
-	if(istype(order, /datum/custom_order))
-		var/datum/custom_order/special_order = order
-		. |= special_order.handle_get_order(customer_pawn, order_item)
-
-	if(. & TRANSACTION_SUCCESS)
-		customers_served++
+/datum/venue/proc/on_get_order(mob/living/simple_animal/robot_customer/customer_pawn, obj/item/order_item)
+	SEND_SIGNAL(order_item, COMSIG_ITEM_SOLD_TO_CUSTOMER, customer_pawn, order_item)
 
 ///Toggles whether the venue is open or not
 /datum/venue/proc/toggle_open()
@@ -152,12 +98,12 @@
 	open = FALSE
 	restaurant_portal.update_icon()
 	STOP_PROCESSING(SSobj, src)
-	for(var/mob/living/basic/robot_customer as anything in current_visitors)
-		robot_customer.ai_controller.set_blackboard_key(BB_CUSTOMER_LEAVING, TRUE) //LEAVEEEEEE
+	for(var/mob/living/simple_animal/robot_customer as anything in current_visitors)
+		robot_customer.ai_controller.blackboard[BB_CUSTOMER_LEAVING] = TRUE //LEAVEEEEEE
 
 /obj/machinery/restaurant_portal
-	name = "restaurant portal"
-	desc = "A robot-only gate into the wonders of Space Station cuisine!"
+	name = "портал ресторана"
+	desc = "Портал от Всемирной Организации Роботов-Гурманов!"
 	icon = 'icons/obj/machines/restaurant_portal.dmi'
 	icon_state = "portal"
 	anchored = TRUE
@@ -195,7 +141,7 @@
 		return ..()
 
 	if(!(linked_venue.req_access in used_id.GetAccess()))
-		to_chat(user, span_warning("This card lacks the access to change this venues status."))
+		to_chat(user, span_warning("У этой карты нет доступа для изменения статуса этого заведения."))
 		return
 
 	linked_venue.toggle_open()
@@ -208,7 +154,7 @@
 	var/obj/item/card/id/used_id = I
 
 	if(!(linked_venue.req_access in used_id.GetAccess()))
-		to_chat(user, span_warning("This card lacks the access to change this venues status."))
+		to_chat(user, span_warning("У этой карты нет доступа для изменения статуса этого заведения."))
 		return
 
 	var/list/radial_items = list()
@@ -216,7 +162,7 @@
 
 	for(var/type_key in SSrestaurant.all_venues)
 		var/datum/venue/venue = SSrestaurant.all_venues[type_key]
-		radial_items[venue.name] = image('icons/obj/machines/restaurant_portal.dmi', venue.name)
+		radial_items[venue.name] = image('icons/effects/effects.dmi', venue.name)
 		radial_results[venue.name] = venue
 
 	var/choice = show_radial_menu(user, src, radial_items, null, require_near = TRUE)
@@ -229,10 +175,10 @@
 	turned_on_portal = WEAKREF(user)
 
 	if(!(chosen_venue.req_access in used_id.GetAccess()))
-		to_chat(user, span_warning("This card lacks the access to change this venues status."))
+		to_chat(user, span_warning("У этой карты нет доступа для изменения статуса этого заведения."))
 		return
 
-	to_chat(user, span_notice("You change the portal's linked venue."))
+	to_chat(user, span_notice("Изменяю привязку портала."))
 
 	if(linked_venue && linked_venue.restaurant_portal) //We're already linked, unlink us.
 		if(linked_venue.open)
@@ -245,18 +191,18 @@
 
 
 /obj/item/holosign_creator/robot_seat
-	name = "seating indicator placer"
+	name = "голопроектор посадочных мест"
 	icon_state = "signmaker_service"
 	creation_time = 1 SECONDS
 	holosign_type = /obj/structure/holosign/robot_seat
-	desc = "Use this to place seats for your restaurant guests!"
+	desc = "Используйте это, чтобы пометить места для гостей ресторана!"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/item/holosign_creator/robot_seat/attack_self(mob/user)
 	return
 /obj/structure/holosign/robot_seat
 	density = FALSE
-	desc = "Used to indicate a place to sit for a robot tourist. I better be careful."
+	desc = "Указывает посадочное место для роботов-гурманов."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "eating_zone"
 	layer = BELOW_MOB_LAYER

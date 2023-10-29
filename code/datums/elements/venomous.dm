@@ -1,10 +1,10 @@
 /**
  * Venomous element; which makes the attacks of the simplemob attached poison the enemy.
  *
- * Used for spiders, frogs, and bees!
+ * Used for spiders and bees!
  */
 /datum/element/venomous
-	element_flags = ELEMENT_BESPOKE
+	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH_ON_HOST_DESTROY
 	argument_hash_start_idx = 2
 	///Path of the reagent added
 	var/poison_type
@@ -13,15 +13,43 @@
 
 /datum/element/venomous/Attach(datum/target, poison_type, amount_added)
 	. = ..()
+
+	if(isgun(target))
+		RegisterSignal(target, COMSIG_PROJECTILE_ON_HIT, PROC_REF(projectile_hit))
+	else if(isitem(target))
+		RegisterSignal(target, COMSIG_ITEM_AFTERATTACK, PROC_REF(item_afterattack))
+	else if(ishostile(target))
+		RegisterSignal(target, COMSIG_HOSTILE_POST_ATTACKINGTARGET, PROC_REF(hostile_attackingtarget))
+	else
+		return ELEMENT_INCOMPATIBLE
+
 	src.poison_type = poison_type
 	src.amount_added = amount_added
-	target.AddComponent(/datum/component/on_hit_effect, CALLBACK(src, PROC_REF(do_venom)))
 
 /datum/element/venomous/Detach(datum/target)
-	qdel(target.GetComponent(/datum/component/on_hit_effect))
+	UnregisterSignal(target, list(COMSIG_PROJECTILE_ON_HIT, COMSIG_ITEM_AFTERATTACK, COMSIG_HOSTILE_POST_ATTACKINGTARGET))
 	return ..()
 
-/datum/element/venomous/proc/do_venom(datum/element_owner, atom/venom_source, mob/living/target, hit_zone)
+/datum/element/venomous/proc/projectile_hit(atom/fired_from, atom/movable/firer, atom/target, Angle)
+	SIGNAL_HANDLER
+
+	add_reagent(target)
+
+/datum/element/venomous/proc/item_afterattack(obj/item/source, atom/target, mob/user, proximity_flag, click_parameters)
+	SIGNAL_HANDLER
+
+	if(!proximity_flag)
+		return
+	add_reagent(target)
+
+/datum/element/venomous/proc/hostile_attackingtarget(mob/living/simple_animal/hostile/attacker, atom/target, success)
+	SIGNAL_HANDLER
+
+	if(!success)
+		return
+	add_reagent(target)
+
+/datum/element/venomous/proc/add_reagent(mob/living/target)
 	if(!istype(target))
 		return
 	if(target.stat == DEAD)

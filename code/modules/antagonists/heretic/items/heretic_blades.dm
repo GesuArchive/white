@@ -2,7 +2,7 @@
 /obj/item/melee/sickly_blade
 	name = "\improper sickly blade"
 	desc = "A sickly green crescent blade, decorated with an ornamental eye. You feel like you're being watched..."
-	icon = 'icons/obj/weapons/khopesh.dmi'
+	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "eldritch_blade"
 	inhand_icon_state = "eldritch_blade"
 	lefthand_file = 'icons/mob/inhands/64x64_lefthand.dmi'
@@ -12,12 +12,9 @@
 	flags_1 = CONDUCT_1
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_NORMAL
-	force = 20
+	force = 17
 	throwforce = 10
-	toolspeed = 0.375
-	demolition_mod = 0.8
-	hitsound = 'sound/weapons/bladeslice.ogg'
-	armour_penetration = 35
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "rends")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "rend")
 	var/after_use_message = ""
@@ -71,39 +68,21 @@
 
 // Path of Ash's blade
 /obj/item/melee/sickly_blade/ash
-	name = "\improper ashen blade"
-	desc = "Molten and unwrought, a hunk of metal warped to cinders and slag. \
-		Unmade, it aspires to be more than it is, and shears soot-filled wounds with a blunt edge."
+	name = "пепельный клинок"
+	desc = "Расплавленный и незавершённый кусок металла, на котором виднеются пепел и шлак. \
+		Незаконченный, он желает стать чем-то большим, срезая ломти мяса своим тупым лезвием и наполняя их пеплом."
 	icon_state = "ash_blade"
 	inhand_icon_state = "ash_blade"
-	after_use_message = "The Nightwatcher hears your call..."
-	resistance_flags = FIRE_PROOF
+	after_use_message = "Ночной Страж услышал ваш зов..."
 
 // Path of Flesh's blade
 /obj/item/melee/sickly_blade/flesh
-	name = "\improper bloody blade"
-	desc = "A crescent blade born from a fleshwarped creature. \
-		Keenly aware, it seeks to spread to others the suffering it has endured from its dreadful origins."
+	name = "кровавый клинок"
+	desc = "Плотоядное существо в виде серповидного клинка. \
+		Будьте осторожны, ведь оно готово поделиться своими страданиями с каждой своей жертвой."
 	icon_state = "flesh_blade"
 	inhand_icon_state = "flesh_blade"
-	after_use_message = "The Marshal hears your call..."
-
-/obj/item/melee/sickly_blade/flesh/Initialize(mapload)
-	. = ..()
-
-	AddComponent(
-		/datum/component/blood_walk,\
-		blood_type = /obj/effect/decal/cleanable/blood,\
-		blood_spawn_chance = 66.6,\
-		max_blood = INFINITY,\
-	)
-
-	AddComponent(
-		/datum/component/bloody_spreader,\
-		blood_left = INFINITY,\
-		blood_dna = list("Unknown DNA" = "X*"),\
-		diseases = null,\
-	)
+	after_use_message = "Маршал услышал ваш зов..."
 
 // Path of Void's blade
 /obj/item/melee/sickly_blade/void
@@ -114,32 +93,11 @@
 	inhand_icon_state = "void_blade"
 	after_use_message = "The Aristocrat hears your call..."
 
-// Path of the Blade's... blade.
-// Opting for /dark instead of /blade to avoid "sickly_blade/blade".
+// Path of the Blade's... blade
+// Opting for /dark (darkened blade) instead of /blade to avoid "sickly_blade/blade".
 /obj/item/melee/sickly_blade/dark
-	name = "\improper sundered blade"
-	desc = "A galliant blade, sundered and torn. \
-		Furiously, the blade cuts. Silver scars bind it forever to its dark purpose."
+	name = "затемнённый клинок"
+	desc = "Величественно сияющий серповидный клинок, изготовленный из блестящего серебра. Слепая ярость сочится изнутри."
 	icon_state = "dark_blade"
 	inhand_icon_state = "dark_blade"
-	after_use_message = "The Torn Champion hears your call..."
-
-// Path of Cosmos's blade
-/obj/item/melee/sickly_blade/cosmic
-	name = "\improper cosmic blade"
-	desc = "A mote of celestial resonance, shaped into a star-woven blade. \
-		An iridescent exile, carving radiant trails, desperately seeking unification."
-	icon_state = "cosmic_blade"
-	inhand_icon_state = "cosmic_blade"
-	after_use_message = "The Stargazer hears your call..."
-
-// Path of Knock's blade
-/obj/item/melee/sickly_blade/knock
-	name = "\improper key blade"
-	desc = "A blade and a key, a key to what? \
-		What grand gates does it open?"
-	icon_state = "key_blade"
-	inhand_icon_state = "key_blade"
-	after_use_message = "The Mother of Ants hears your call..."
-	tool_behaviour = TOOL_CROWBAR
-	toolspeed = 1.3
+	after_use_message = "Полковник услышал ваш зов..."

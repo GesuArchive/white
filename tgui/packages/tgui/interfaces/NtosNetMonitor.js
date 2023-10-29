@@ -1,179 +1,163 @@
-import { useBackend, useSharedState } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Icon, Section, Stack, Tabs } from '../components';
+import { useBackend } from '../backend';
+import { Box, Button, LabeledList, NoticeBox, NumberInput, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export const NtosNetMonitor = (props, context) => {
   const { act, data } = useBackend(context);
-  const [tab_main, setTab_main] = useSharedState(context, 'tab_main', 1);
   const {
     ntnetrelays,
+    ntnetstatus,
+    config_softwaredownload,
+    config_peertopeer,
+    config_communication,
+    config_systemcontrol,
     idsalarm,
     idsstatus,
+    ntnetmaxlogs,
+    maxlogs,
+    minlogs,
     ntnetlogs = [],
-    tablets = [],
   } = data;
   return (
     <NtosWindow>
       <NtosWindow.Content scrollable>
-        <Stack.Item>
-          <Tabs>
-            <Tabs.Tab
-              icon="network-wired"
-              lineHeight="23px"
-              selected={tab_main === 1}
-              onClick={() => setTab_main(1)}>
-              NtNet
-            </Tabs.Tab>
-            <Tabs.Tab
-              icon="tablet"
-              lineHeight="23px"
-              selected={tab_main === 2}
-              onClick={() => setTab_main(2)}>
-              Tablets ({tablets.length})
-            </Tabs.Tab>
-          </Tabs>
-        </Stack.Item>
-        {tab_main === 1 && (
-          <Stack.Item>
-            <MainPage
-              ntnetrelays={ntnetrelays}
-              idsalarm={idsalarm}
-              idsstatus={idsstatus}
-              ntnetlogs={ntnetlogs}
-            />
-          </Stack.Item>
-        )}
-        {tab_main === 2 && (
-          <Stack.Item>
-            <TabletPage tablets={tablets} />
-          </Stack.Item>
-        )}
-      </NtosWindow.Content>
-    </NtosWindow>
-  );
-};
-
-const MainPage = (props, context) => {
-  const { ntnetrelays, idsalarm, idsstatus, ntnetlogs = [] } = props;
-  const { act, data } = useBackend(context);
-  return (
-    <Section>
-      <NoticeBox>
-        WARNING: Disabling wireless transmitters when using a wireless device
-        may prevent you from reenabling them!
-      </NoticeBox>
-      <Section title="Wireless Connectivity">
-        {ntnetrelays.map((relay) => (
-          <Section
-            key={relay.ref}
-            title={relay.name}
-            buttons={
-              <Button.Confirm
-                color={relay.is_operational ? 'good' : 'bad'}
-                content={relay.is_operational ? 'ENABLED' : 'DISABLED'}
-                onClick={() =>
-                  act('toggle_relay', {
-                    ref: relay.ref,
-                  })
-                }
-              />
-            }
-          />
-        ))}
-      </Section>
-      <Section title="Security Systems">
-        {!!idsalarm && (
-          <>
-            <NoticeBox>NETWORK INCURSION DETECTED</NoticeBox>
-            <Box italics>
-              Abnormal activity has been detected in the network. Check system
-              logs for more information
-            </Box>
-          </>
-        )}
-        <LabeledList>
-          <LabeledList.Item
-            label="IDS Status"
-            buttons={
-              <>
-                <Button
-                  icon={idsstatus ? 'power-off' : 'times'}
-                  content={idsstatus ? 'ENABLED' : 'DISABLED'}
-                  selected={idsstatus}
-                  onClick={() => act('toggleIDS')}
-                />
-                <Button
-                  icon="sync"
-                  content="Reset"
-                  color="bad"
-                  onClick={() => act('resetIDS')}
-                />
-              </>
-            }
-          />
-        </LabeledList>
+        <NoticeBox>
+          ВНИМАНИЕ: Отключение беспроводной передачи данных через беспроводное
+          устройство может затруднить её обратное включение!
+        </NoticeBox>
         <Section
-          title="System Log"
+          title="Беспроводная сеть"
           buttons={
             <Button.Confirm
-              icon="trash"
-              content="Clear Logs"
-              onClick={() => act('purgelogs')}
+              icon={ntnetstatus ? 'power-off' : 'times'}
+              content={ntnetstatus ? 'ВКЛЮЧЕНА' : 'ОТКЛЮЧЕНА'}
+              selected={ntnetstatus}
+              onClick={() => act('toggleWireless')}
             />
           }>
-          {ntnetlogs.map((log) => (
-            <Box key={log.entry} className="candystripe">
-              {log.entry}
-            </Box>
-          ))}
+          {ntnetrelays ? (
+            <LabeledList>
+              <LabeledList.Item label="Активные реле NTNet">
+                {ntnetrelays}
+              </LabeledList.Item>
+            </LabeledList>
+          ) : (
+            'Не обнаружено'
+          )}
         </Section>
-      </Section>
-    </Section>
-  );
-};
-
-const TabletPage = (props, context) => {
-  const { tablets } = props;
-  const { act, data } = useBackend(context);
-  if (!tablets.length) {
-    return <NoticeBox>No tablets detected.</NoticeBox>;
-  }
-  return (
-    <Section>
-      <Stack vertical mt={1}>
-        <Section fill textAlign="center">
-          <Icon name="comment" mr={1} />
-          Active Tablets
+        <Section title="Настройка файрвола">
+          <LabeledList>
+            <LabeledList.Item
+              label="Репозитории"
+              buttons={
+                <Button
+                  icon={config_softwaredownload ? 'power-off' : 'times'}
+                  content={config_softwaredownload ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
+                  selected={config_softwaredownload}
+                  onClick={() => act('toggle_function', { id: '1' })}
+                />
+              }
+            />
+            <LabeledList.Item
+              label="P2P трафик"
+              buttons={
+                <Button
+                  icon={config_peertopeer ? 'power-off' : 'times'}
+                  content={config_peertopeer ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
+                  selected={config_peertopeer}
+                  onClick={() => act('toggle_function', { id: '2' })}
+                />
+              }
+            />
+            <LabeledList.Item
+              label="Системы связи"
+              buttons={
+                <Button
+                  icon={config_communication ? 'power-off' : 'times'}
+                  content={config_communication ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
+                  selected={config_communication}
+                  onClick={() => act('toggle_function', { id: '3' })}
+                />
+              }
+            />
+            <LabeledList.Item
+              label="Удалённый контроль систем"
+              buttons={
+                <Button
+                  icon={config_systemcontrol ? 'power-off' : 'times'}
+                  content={config_systemcontrol ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
+                  selected={config_systemcontrol}
+                  onClick={() => act('toggle_function', { id: '4' })}
+                />
+              }
+            />
+          </LabeledList>
         </Section>
-      </Stack>
-      <Stack vertical mt={1}>
-        <Section fill>
-          <Stack vertical>
-            {tablets.map((tablet) => (
-              <Section
-                key={tablet.ref}
-                title={tablet.name}
-                buttons={
-                  <Button.Confirm
-                    icon={tablet.enabled_spam ? 'unlock' : 'lock'}
-                    color={tablet.enabled_spam ? 'good' : 'default'}
-                    content={
-                      tablet.enabled_spam
-                        ? 'Restrict Mass PDA'
-                        : 'Allow Mass PDA'
-                    }
-                    onClick={() =>
-                      act('toggle_mass_pda', {
-                        ref: tablet.ref,
-                      })
-                    }
+        <Section title="Безопасность">
+          {!!idsalarm && (
+            <>
+              <NoticeBox>ОБНАРУЖЕНО ВТОРЖЕНИЕ В СЕТЬ</NoticeBox>
+              <Box italics>
+                В сети обнаружена аномальная активность. Проверьте системные
+                журналы для получения дополнительной информации
+              </Box>
+            </>
+          )}
+          <LabeledList>
+            <LabeledList.Item
+              label="Слежение"
+              buttons={
+                <>
+                  <Button
+                    icon={idsstatus ? 'power-off' : 'times'}
+                    content={idsstatus ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
+                    selected={idsstatus}
+                    onClick={() => act('toggleIDS')}
                   />
-                }
+                  <Button
+                    icon="sync"
+                    content="Сбросить состояние"
+                    color="bad"
+                    onClick={() => act('resetIDS')}
+                  />
+                </>
+              }
+            />
+            <LabeledList.Item
+              label="Максимальное число строк"
+              buttons={
+                <NumberInput
+                  value={ntnetmaxlogs}
+                  minValue={minlogs}
+                  maxValue={maxlogs}
+                  width="39px"
+                  onChange={(e, value) =>
+                    act('updatemaxlogs', {
+                      new_number: value,
+                    })
+                  }
+                />
+              }
+            />
+          </LabeledList>
+          <Section
+            title="Системный журнал"
+            level={2}
+            buttons={
+              <Button.Confirm
+                icon="trash"
+                content="Очистить"
+                onClick={() => act('purgelogs')}
               />
+            }>
+            {ntnetlogs.map((log) => (
+              <Box key={log.entry} className="candystripe">
+                {log.entry}
+              </Box>
             ))}
-          </Stack>
+          </Section>
         </Section>
-      </Stack>
-    </Section>
+      </NtosWindow.Content>
+    </NtosWindow>
   );
 };

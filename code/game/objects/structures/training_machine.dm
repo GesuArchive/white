@@ -13,9 +13,9 @@
  * movespeed controlled by cooldown macros. Can attach obj/item/target, obj/item/training_toolbox, and can buckle mobs to this.
  */
 /obj/structure/training_machine
-	name = "AURUMILL-Brand MkII. Personnel Training Machine"
-	desc = "Used for combat training simulations. Accepts standard training targets. A pair of buckling straps are attached."
-	icon = 'icons/obj/machines/sec.dmi'
+	name = "тренировочный бот"
+	desc = "Используется для моделирования боевой подготовки. Может удерживать стандартные тренировочные мишени. К нему прикреплена пара ремней с пряжками."
+	icon = 'icons/obj/objects.dmi'
 	icon_state = "training_machine"
 	can_buckle = TRUE
 	buckle_lying = 0
@@ -24,7 +24,7 @@
 	var/moving = FALSE
 	///The distance the machine is allowed to roam from its starting point
 	var/range = 1
-	///A random spot within range that the trainer is trying to reach
+	///A random spot within range that the trainer пытается reach
 	var/turf/target_position
 	///The turf the machine was on when it was activated
 	var/turf/starting_turf
@@ -47,7 +47,7 @@
 /**
  * Called on a normal destruction, so we have a cool explosion and toss whatever's attached
  */
-/obj/structure/training_machine/atom_destruction(damage_flag)
+/obj/structure/training_machine/obj_destruction(damage_flag)
 	remove_attached_item(throwing = TRUE)
 	explosion(src, light_impact_range = 1, flash_range = 2)
 	return ..()
@@ -83,7 +83,7 @@
 	if(.)
 		return
 	if (moving && obj_flags & EMAGGED)
-		visible_message(span_warning("The [src]'s control panel fizzles slightly."))
+		visible_message(span_warning("Панель управления бота искрит и дымиться."))
 		return
 	switch(action)
 		if("toggle")
@@ -98,7 +98,7 @@
 			move_speed = clamp(range_input, MIN_SPEED, MAX_SPEED)
 			. = TRUE
 
-/obj/structure/training_machine/attack_hand(mob/user, list/modifiers)
+/obj/structure/training_machine/attack_hand(mob/user)
 	ui_interact(user)
 
 /**
@@ -107,17 +107,17 @@
  * Meant for attaching an item to the machine, should only be a training toolbox or target. If emagged, the
  * machine will gain an auto-attached syndicate toolbox, so in that case we shouldn't be able to swap it out
  */
-/obj/structure/training_machine/attackby(obj/item/target, mob/living/user)
-	if (user.combat_mode)
+/obj/structure/training_machine/attackby(obj/item/target, mob/user)
+	if (user.a_intent != INTENT_HELP)
 		return ..()
 	if (!istype(target, /obj/item/training_toolbox) && !istype(target, /obj/item/target))
 		return ..()
 	if (obj_flags & EMAGGED)
-		to_chat(user, span_warning("The toolbox is somehow stuck on! It won't budge!"))
+		to_chat(user, span_warning("Ящик застрял, кажетсяего не вытащить!"))
 		return
 	attach_item(target)
-	to_chat(user, span_notice("You attach \the [attached_item] to the training device."))
-	playsound(src, SFX_RUSTLE, 50, TRUE)
+	to_chat(user, span_notice("Присоединяю [attached_item] к тренировочному боту."))
+	playsound(src, "rustle", 50, TRUE)
 
 /**
  * Attach an item to the machine
@@ -133,7 +133,7 @@
 	attached_item.forceMove(src)
 	attached_item.vis_flags |= VIS_INHERIT_ID | VIS_INHERIT_PLANE
 	vis_contents += attached_item
-	RegisterSignal(attached_item, COMSIG_QDELETING, PROC_REF(on_attached_delete))
+	RegisterSignal(attached_item, COMSIG_PARENT_QDELETING, PROC_REF(on_attached_delete))
 	handle_density()
 
 /**
@@ -142,10 +142,9 @@
  * Cleans up behavior for when the attached item is deleted or removed.
  */
 /obj/structure/training_machine/proc/on_attached_delete()
-	SIGNAL_HANDLER
-	UnregisterSignal(attached_item, COMSIG_QDELETING)
+	UnregisterSignal(attached_item, COMSIG_PARENT_QDELETING)
 	vis_contents -= attached_item
-	attached_item.vis_flags &= ~(VIS_INHERIT_ID | VIS_INHERIT_PLANE)
+	attached_item &= ~(VIS_INHERIT_ID | VIS_INHERIT_PLANE)
 	attached_item = null
 	handle_density()
 
@@ -162,10 +161,10 @@
 	if (!attached_item)
 		return
 	if (istype(attached_item, /obj/item/storage/toolbox/syndicate))
-		UnregisterSignal(attached_item, COMSIG_QDELETING)
+		UnregisterSignal(attached_item, COMSIG_PARENT_QDELETING)
 		qdel(attached_item)
 	else if (user)
-		INVOKE_ASYNC(user, TYPE_PROC_REF(/mob, put_in_hands), attached_item)
+		INVOKE_ASYNC(user, /mob/proc/put_in_hands, attached_item)
 	else
 		attached_item.forceMove(drop_location())
 	if (throwing && !QDELETED(attached_item)) //Fun little thing where we throw out the old attached item when emagged
@@ -176,7 +175,7 @@
 
 /obj/structure/training_machine/AltClick(mob/user)
 	. = ..()
-	if(!user.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH|ALLOW_RESTING))
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, NO_TK, FLOOR_OKAY))
 		return
 	if(has_buckled_mobs())
 		user_unbuckle_mob(buckled_mobs[1], user)
@@ -184,11 +183,11 @@
 	if (!attached_item)
 		return
 	if (obj_flags & EMAGGED)
-		to_chat(user, span_warning("The toolbox is somehow stuck on! It won't budge!"))
+		to_chat(user, span_warning("Ящик застрял и не извлекается!"))
 		return
-	to_chat(user, span_notice("You remove \the [attached_item] from the training device."))
+	to_chat(user, span_notice("Извлекаю [attached_item] из захвата бота."))
 	remove_attached_item(user)
-	playsound(src, SFX_RUSTLE, 50, TRUE)
+	playsound(src, "rustle", 50, TRUE)
 
 /**
  * Toggle the machine's movement
@@ -206,7 +205,7 @@
  * Arguments
  * * Message - the message the machine says when stopping
  */
-/obj/structure/training_machine/proc/stop_moving(message = "Ending training simulation.")
+/obj/structure/training_machine/proc/stop_moving(message = "Завершение боевой симуляции.")
 	moving = FALSE
 	starting_turf = null
 	say(message)
@@ -221,7 +220,7 @@
 /obj/structure/training_machine/proc/start_moving()
 	moving = TRUE
 	starting_turf = get_turf(src)
-	say("Beginning training simulation.")
+	say("Начало боевой симуляции. К БОЮ!")
 	playsound(src,'sound/machines/triple_beep.ogg',50,FALSE)
 	START_PROCESSING(SSfastprocess, src)
 
@@ -244,7 +243,7 @@
 	if (!target_position)
 		target_position = find_target_position()
 		if (!target_position)
-			stop_moving("ERROR! Cannot calculate suitable movement path.")
+			stop_moving("ОШИБКА! Сбой логистики перемещения!")
 	var/turf/nextStep = get_step_towards(src, target_position)
 	if (!Move(nextStep, get_dir(src, nextStep)))
 		target_position = null //We couldn't move towards the target turf, so find a new target turf
@@ -285,7 +284,7 @@
 		return
 	do_attack_animation(target, null, attached_item)
 	if (obj_flags & EMAGGED)
-		target.apply_damage(attached_item.force, BRUTE, BODY_ZONE_CHEST, attacking_item = attached_item)
+		target.apply_damage(attached_item.force, BRUTE, BODY_ZONE_CHEST)
 	playsound(src, 'sound/weapons/smash.ogg', 15, TRUE)
 	COOLDOWN_START(src, attack_cooldown, rand(MIN_ATTACK_DELAY, MAX_ATTACK_DELAY))
 
@@ -314,28 +313,27 @@
 /**
  * Emagging causes a deadly, unremovable syndicate toolbox to be attached to the machine
  */
-/obj/structure/training_machine/emag_act(mob/user, obj/item/card/emag/emag_card)
+/obj/structure/training_machine/emag_act(mob/user)
 	. = ..()
 	if (obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
 	remove_attached_item(throwing = TRUE) //Toss out the old attached item!
 	attach_item(new /obj/item/storage/toolbox/syndicate(src))
-	to_chat(user, span_warning("You override the training machine's safety protocols, and activate its realistic combat feature. A toolbox pops out of a slot on the top."))
+	to_chat(user, span_warning("Переопределяю протоколы безопасности тренажера и активирую его реальную боевую функцию. Из прорези в верхней части выскакивает ящик с инструментами."))
 	playsound(src, 'sound/machines/click.ogg', 50, TRUE)
 	add_overlay("evil_trainer")
-	return TRUE
 
 /obj/structure/training_machine/examine(mob/user)
 	. = ..()
 	var/has_buckled_mob = has_buckled_mobs()
 	if(has_buckled_mob)
-		. += span_notice("<b>Alt-Click to unbuckle \the [buckled_mobs[1]]</b>")
+		. += span_notice("<b>ПКМ для снятия [buckled_mobs[1]]</b>")
 	if (obj_flags & EMAGGED)
-		. += span_warning("It has a dangerous-looking toolbox attached to it, and the control panel is smoking sightly...")
+		. += span_warning("К нему прикреплен опасно выглядящий набор инструментов, а панель управления слегка дымится...")
 	else if (!has_buckled_mob && attached_item) //Can't removed the syndicate toolbox!
-		. += span_notice("<b>Alt-Click to remove \the [attached_item]</b>")
-	. += span_notice("<b>Click to open control interface.</b>")
+		. += span_notice("<b>ПКМ для изъятия [attached_item]</b>")
+	. += span_notice("<b>Клик для открытия панели управления.</b>")
 
 /**
  * Device that simply counts the number of times you've hit a mob or target with. Looks like a toolbox but isn't.
@@ -343,10 +341,9 @@
  * Also has a 'Lap' function for keeping track of hits made at a certain point. Also, looks kinda like his grace for laughs and pranks.
  */
 /obj/item/training_toolbox
-	name = "Training Toolbox"
-	desc = "AURUMILL-Brand Baby's First Training Toolbox. A digital display on the back keeps track of hits made by the user. Second toolbox sold separately!"
-	icon = 'icons/obj/storage/toolbox.dmi'
-	icon_state = "gold"
+	name = "тренировочный ящик для инструментов"
+	desc = "Первый детский набор для тренировок от бренда РОБАСТФЕСТ. Цифровой дисплей на задней панели отслеживает количество применений к голове противника, сделанных пользователем. Второй набор инструментов продается отдельно!"
+	icon_state = "his_grace_ascended"
 	inhand_icon_state = "toolbox_gold"
 	lefthand_file = 'icons/mob/inhands/equipment/toolbox_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/toolbox_righthand.dmi'
@@ -358,12 +355,12 @@
 	w_class = WEIGHT_CLASS_BULKY
 	///Total number of hits made against a valid target
 	var/total_hits = 0
-	///Number of hits made since the Lap button (alt-click) was last pushed
+	///Number of hits made since the Lap button (ПКМ) was last pushed
 	var/lap_hits = 0
 
-/obj/item/training_toolbox/afterattack(atom/target, mob/living/user, proximity)
+/obj/item/training_toolbox/afterattack(atom/target, mob/user, proximity)
 	. = ..()
-	if (!proximity || target == user || !user.combat_mode)
+	if (!proximity || target == user || user.a_intent == INTENT_HELP)
 		return
 	if (check_hit(target))
 		user.changeNext_move(CLICK_CD_MELEE)
@@ -398,21 +395,19 @@
 
 /obj/item/training_toolbox/AltClick(mob/user)
 	. = ..()
-	if(!can_interact(user))
-		return
-	to_chat(user, span_notice("You push the 'Lap' button on the toolbox's display."))
+	to_chat(user, span_notice("Вы нажимаете кнопку \"Цикл\" на дисплее панели инструментов."))
 	lap_hits = initial(lap_hits)
 
 /obj/item/training_toolbox/examine(mob/user)
 	. = ..()
 	if(!in_range(src, user) && !isobserver(user))
-		. += span_notice("You can see a display on the back. You'll need to get closer to read it, though.")
+		. += span_notice("На его боку есть дисплей, отсюда не видно что на нем написано.")
 		return
-	. += span_notice("A display on the back reads:")
-	. += span_notice("Total Hits: <b>[total_hits]</b>")
+	. += span_notice("Надпись на дисплее:")
+	. += span_notice("Всего ударов: <b>[total_hits]</b>")
 	if (lap_hits != total_hits)
-		. += span_notice("Current Lap: <b>[lap_hits]</b>")
-	. += span_notice("<b>Alt-Click to 'Lap' the hit counter.</b>")
+		. += span_notice("Текущий Цикл: <b>[lap_hits]</b>")
+	. += span_notice("<b>ПКМ для 'Цикла' счета.</b>")
 
 #undef MIN_RANGE
 #undef MIN_SPEED

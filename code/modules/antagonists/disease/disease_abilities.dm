@@ -21,8 +21,10 @@ new /datum/disease_ability/symptom/medium/visionloss,
 new /datum/disease_ability/symptom/medium/deafness,
 new /datum/disease_ability/symptom/powerful/narcolepsy,
 new /datum/disease_ability/symptom/medium/fever,
-new /datum/disease_ability/symptom/medium/chills,
+new /datum/disease_ability/symptom/medium/shivering,
 new /datum/disease_ability/symptom/medium/headache,
+new /datum/disease_ability/symptom/medium/nano_boost,
+new /datum/disease_ability/symptom/medium/nano_destroy,
 new /datum/disease_ability/symptom/medium/viraladaptation,
 new /datum/disease_ability/symptom/medium/viralevolution,
 new /datum/disease_ability/symptom/medium/disfiguration,
@@ -75,7 +77,7 @@ new /datum/disease_ability/symptom/powerful/youth
 			stage_speed += initial(S.stage_speed)
 			transmittable += initial(S.transmittable)
 			threshold_block += initial(S.threshold_descs)
-			stat_block = "Resistance: [resistance]<br>Stealth: [stealth]<br>Stage Speed: [stage_speed]<br>Transmissibility: [transmittable]<br><br>"
+			stat_block = "Сопротивление: [resistance]<br>Скрытность: [stealth]<br>Скорость распостранения: [stage_speed]<br>Способность к передаче: [transmittable]<br><br>"
 			if(symptoms.len == 1) //lazy boy's dream
 				name = initial(S.name)
 				if(short_desc == "")
@@ -92,7 +94,7 @@ new /datum/disease_ability/symptom/powerful/youth
 
 /datum/disease_ability/proc/Buy(mob/camera/disease/D, silent = FALSE, trigger_cooldown = TRUE)
 	if(!silent)
-		to_chat(D, span_notice("Purchased [name]."))
+		to_chat(D, span_notice("Адаптировано [name]."))
 	D.points -= cost
 	D.unpurchased_abilities -= src
 	if(trigger_cooldown)
@@ -121,7 +123,7 @@ new /datum/disease_ability/symptom/powerful/youth
 
 /datum/disease_ability/proc/Refund(mob/camera/disease/D, silent = FALSE, trigger_cooldown = TRUE)
 	if(!silent)
-		to_chat(D, span_notice("Refunded [name]."))
+		to_chat(D, span_notice("Деградировало [name]."))
 	D.points += cost
 	D.unpurchased_abilities[src] = TRUE
 	if(trigger_cooldown)
@@ -154,133 +156,120 @@ new /datum/disease_ability/symptom/powerful/youth
 //active abilities and their associated actions
 
 /datum/disease_ability/action/cough
-	name = "Voluntary Coughing"
+	name = "Вынужденный кашель"
 	actions = list(/datum/action/cooldown/disease_cough)
 	cost = 0
 	required_total_points = 0
 	start_with = TRUE
-	short_desc = "Force the host you are following to cough, spreading your infection to those nearby."
-	long_desc = "Force the host you are following to cough with extra force, spreading your infection to those within two meters of your host even if your transmissibility is low.<br>Cooldown: 10 seconds"
+	short_desc = "Заставьте носителя, за которым вы следите, кашлять, распространяя вашу инфекцию на тех, кто находится поблизости."
+	long_desc = " Заставьте носителя, за которым вы следите, кашлять с особой силой, распространяя вашу инфекцию на тех, кто находится в радиусе двух метров от вашего зараженного, даже при низкой степени вирулентности.<br>Перезарядка: 10 секунд"
 
 
 /datum/action/cooldown/disease_cough
-	name = "Cough"
+	name = "Кашель"
 	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "cough"
-	desc = "Force the host you are following to cough with extra force, spreading your infection to those within two meters of your host even if your transmissibility is low.<br>Cooldown: 10 seconds"
+	desc = "Заставьте носителя, за которым вы следите, кашлять с особой силой, распространяя вашу инфекцию на тех, кто находится в радиусе двух метров от вашего зараженного, даже при низкой степени вирулентности.<br>Перезарядка: 10 секунд"
 	cooldown_time = 100
+	click_to_activate = TRUE
 
-/datum/action/cooldown/disease_cough/Activate(atom/target)
-	StartCooldown(10 SECONDS)
-	trigger_cough()
+/datum/action/cooldown/disease_cough/Trigger(trigger_flags)
+	if(!..())
+		return FALSE
+	var/mob/camera/disease/D = owner
+	var/mob/living/L = D.following_host
+	if(!L)
+		return FALSE
+	if(L.stat != CONSCIOUS)
+		to_chat(D, span_warning("Чтобы кашлять, заражённый должен быть в сознании."))
+		return FALSE
+	to_chat(D, span_notice("Заставляю [L.real_name] кашлять."))
+	L.emote("cough")
+	if(L.CanSpreadAirborneDisease()) //don't spread germs if they covered their mouth
+		var/datum/disease/advance/sentient_disease/SD = D.hosts[L]
+		SD.spread(2)
 	StartCooldown()
 	return TRUE
 
-/*
- * Cause a cough to happen from the host.
- */
-/datum/action/cooldown/disease_cough/proc/trigger_cough()
-	var/mob/camera/disease/our_disease = owner
-	var/mob/living/host = our_disease.following_host
-	if(!host)
-		return FALSE
-	if(host.stat != CONSCIOUS)
-		to_chat(our_disease, span_warning("Your host must be conscious to cough."))
-		return FALSE
-	to_chat(our_disease, span_notice("You force [host.real_name] to cough."))
-	host.emote("cough")
-	if(host.CanSpreadAirborneDisease()) //don't spread germs if they covered their mouth
-		var/datum/disease/advance/sentient_disease/disease_datum = our_disease.hosts[host]
-		disease_datum.spread(2)
-	return TRUE
 
 /datum/disease_ability/action/sneeze
-	name = "Voluntary Sneezing"
+	name = "Вынужденное Чихание"
 	actions = list(/datum/action/cooldown/disease_sneeze)
 	cost = 2
 	required_total_points = 3
-	short_desc = "Force the host you are following to sneeze, spreading your infection to those in front of them."
-	long_desc = "Force the host you are following to sneeze with extra force, spreading your infection to any victims in a 4 meter cone in front of your host.<br>Cooldown: 20 seconds"
+	short_desc = "Заставьте заражённого, за которым вы следите, чихнуть, распространяя вашу инфекцию на тех, кто находится перед ними."
+	long_desc = "Заставьте заражённого, за которым вы следуете, чихать с особой силой, распространяя вашу инфекцию на множество жертв в 4-метровом конусе перед вашим носителем.<br>Перезарядка: 20 секунд"
 
 /datum/action/cooldown/disease_sneeze
-	name = "Sneeze"
+	name = "Чихание"
 	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "sneeze"
-	desc = "Force the host you are following to sneeze with extra force, spreading your infection to any victims in a 4 meter cone in front of your host even if your transmissibility is low.<br>Cooldown: 20 seconds"
+	desc = "Заставьте заражённого, за которым вы следуете, чихать с особой силой, распространяя вашу инфекцию на множество жертв в 4-метровом конусе перед вашим носителем, даже при низкой степени вирулентности.<br>Перезарядка: 20 секунд"
 	cooldown_time = 200
+	click_to_activate = TRUE
 
-/datum/action/cooldown/disease_sneeze/Activate(atom/target)
-	StartCooldown(10 SECONDS)
-	trigger_sneeze()
+/datum/action/cooldown/disease_sneeze/Trigger(trigger_flags)
+	if(!..())
+		return FALSE
+	var/mob/camera/disease/D = owner
+	var/mob/living/L = D.following_host
+	if(!L)
+		return FALSE
+	if(L.stat != CONSCIOUS)
+		to_chat(D, span_warning("Чтобы чихать, заражённый должен быть в сознании."))
+		return FALSE
+	to_chat(D, span_notice("Заставляю [L.real_name] чихать."))
+	L.emote("sneeze")
+	if(L.CanSpreadAirborneDisease()) //don't spread germs if they covered their mouth
+		var/datum/disease/advance/sentient_disease/SD = D.hosts[L]
+
+		for(var/mob/living/M in oview(4, SD.affected_mob))
+			if(is_source_facing_target(SD.affected_mob, M) && disease_air_spread_walk(get_turf(SD.affected_mob), get_turf(M)))
+				M.AirborneContractDisease(SD, TRUE)
+
 	StartCooldown()
 	return TRUE
 
-/*
- * Cause a sneeze to happen from the host.
- */
-/datum/action/cooldown/disease_sneeze/proc/trigger_sneeze()
-	var/mob/camera/disease/our_disease = owner
-	var/mob/living/host = our_disease.following_host
-	if(!host)
-		return FALSE
-	if(host.stat != CONSCIOUS)
-		to_chat(our_disease, span_warning("Your host must be conscious to sneeze."))
-		return FALSE
-	to_chat(our_disease, span_notice("You force [host.real_name] to sneeze."))
-	host.emote("sneeze")
-	if(host.CanSpreadAirborneDisease()) //don't spread germs if they covered their mouth
-		var/datum/disease/advance/sentient_disease/disease_datum = our_disease.hosts[host]
-		for(var/mob/living/nearby_mob in oview(4, disease_datum.affected_mob))
-			if(!is_source_facing_target(disease_datum.affected_mob, nearby_mob))
-				continue
-			if(!disease_air_spread_walk(get_turf(disease_datum.affected_mob), get_turf(nearby_mob)))
-				continue
-			nearby_mob.AirborneContractDisease(disease_datum, TRUE)
-
-	return TRUE
 
 /datum/disease_ability/action/infect
-	name = "Secrete Infection"
+	name = "Контактное заражение"
 	actions = list(/datum/action/cooldown/disease_infect)
 	cost = 2
 	required_total_points = 3
-	short_desc = "Cause all objects your host is touching to become infectious for a limited time, spreading your infection to anyone who touches them."
-	long_desc = "Cause the host you are following to excrete an infective substance from their pores, causing all objects touching their skin to transmit your infection to anyone who touches them for the next 30 seconds. This includes the floor, if they are not wearing shoes, and any items they are holding, if they are not wearing gloves.<br>Cooldown: 40 seconds"
+	short_desc = "Выделить из тела заражённого, часть вируса, чтобы все объекты, к которым прикасается ваш носитель, стали заразными в течение ограниченного времени, распространяя вашу инфекцию на всех, кто к ним прикасается."
+	long_desc = "Заставьте носителя, за которым вы следите, выделять инфекционное вещество из своих пор, в результате чего все предметы, соприкасающиеся с их кожей, передадут вашу инфекцию любому, кто прикоснется к ним в течение следующих 30 секунд. Это включает в себя пол, если на них нет обуви, и любые предметы, которые они держат в руках, если на них нет перчаток.<br>Перезарядка: 40 секунд"
 
 /datum/action/cooldown/disease_infect
-	name = "Secrete Infection"
+	name = "Контактное заражение"
 	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "infect"
-	desc = "Cause the host you are following to excrete an infective substance from their pores, causing all objects touching their skin to transmit your infection to anyone who touches them for the next 30 seconds.<br>Cooldown: 40 seconds"
+	desc = "Заставьте носителя, за которым вы следите, выделять инфекционное вещество из своих пор, в результате чего все предметы, соприкасающиеся с их кожей, передадут вашу инфекцию любому, кто прикоснется к ним в течение следующих 30 секунд.<br>Перезарядка: 40 секунд"
 	cooldown_time = 400
+	click_to_activate = TRUE
 
-/datum/action/cooldown/disease_infect/Activate(atom/target)
-	StartCooldown(10 SECONDS)
-	trigger_infection()
-	StartCooldown()
-	return TRUE
-
-/*
- * Trigger the infection action.
- */
-/datum/action/cooldown/disease_infect/proc/trigger_infection()
-	var/mob/camera/disease/our_disease = owner
-	var/mob/living/carbon/human/host = our_disease.following_host
-	if(!host)
+/datum/action/cooldown/disease_infect/Trigger(trigger_flags)
+	if(!..())
 		return FALSE
-	for(var/obj/thing as anything in host.get_equipped_items(include_accessories = TRUE))
-		thing.AddComponent(/datum/component/infective, our_disease.disease_template, 300)
+	var/mob/camera/disease/D = owner
+	var/mob/living/carbon/human/H = D.following_host
+	if(!H)
+		return FALSE
+	for(var/V in H.get_equipped_items(FALSE))
+		var/obj/O = V
+		O.AddComponent(/datum/component/infective, D.disease_template, 300)
 	//no shoes? infect the floor.
-	if(!host.shoes)
-		var/turf/host_turf = get_turf(host)
-		if(host_turf && !isspaceturf(host_turf))
-			host_turf.AddComponent(/datum/component/infective, our_disease.disease_template, 300)
+	if(!H.shoes)
+		var/turf/T = get_turf(H)
+		if(T && !isspaceturf(T))
+			T.AddComponent(/datum/component/infective, D.disease_template, 300)
 	//no gloves? infect whatever we are holding.
-	if(!host.gloves)
-		for(var/obj/held_thing as anything in host.held_items)
-			if(isnull(held_thing))
+	if(!H.gloves)
+		for(var/V in H.held_items)
+			if(!V)
 				continue
-			held_thing.AddComponent(/datum/component/infective, our_disease.disease_template, 300)
+			var/obj/O = V
+			O.AddComponent(/datum/component/infective, D.disease_template, 300)
+	StartCooldown()
 	return TRUE
 
 /*******************BASE SYMPTOM TYPES*******************/
@@ -290,39 +279,39 @@ new /datum/disease_ability/symptom/powerful/youth
 /datum/disease_ability/symptom/mild
 	cost = 2
 	required_total_points = 4
-	category = "Symptom (Weak)"
+	category = "Симптом (Слабый)"
 
 /datum/disease_ability/symptom/medium
 	cost = 4
 	required_total_points = 8
-	category = "Symptom"
+	category = "Симптом"
 
 /datum/disease_ability/symptom/medium/heal
 	cost = 5
-	category = "Symptom (+)"
+	category = "Симптом (+)"
 
 /datum/disease_ability/symptom/powerful
 	cost = 4
 	required_total_points = 16
-	category = "Symptom (Strong)"
+	category = "Симптом (Сильный)"
 
 /datum/disease_ability/symptom/powerful/heal
 	cost = 8
-	category = "Symptom (Strong+)"
+	category = "Симптом (Сильный+)"
 
 /******MILD******/
 
 /datum/disease_ability/symptom/mild/cough
-	name = "Involuntary Coughing"
+	name = "Непроизвольный Кашель"
 	symptoms = list(/datum/symptom/cough)
-	short_desc = "Cause victims to cough intermittently."
-	long_desc = "Cause victims to cough intermittently, spreading your infection."
+	short_desc = "Заставляет жертв периодически кашлять."
+	long_desc = "Заставляет жертв периодически кашлять, распространяя вашу инфекцию."
 
 /datum/disease_ability/symptom/mild/sneeze
-	name = "Involuntary Sneezing"
+	name = "Непроизвольное Чихание"
 	symptoms = list(/datum/symptom/sneeze)
-	short_desc = "Cause victims to sneeze intermittently."
-	long_desc = "Cause victims to sneeze intermittently, spreading your infection and also increasing transmissibility and resistance, at the cost of stealth."
+	short_desc = "Заставляет жертв периодически чихать."
+	long_desc = "Заставляет жертв периодически чихать, распространяя вашу инфекцию, а также увеличивая вероятность передачи и устойчивость за счет скрытности."
 
 /******MEDIUM******/
 
@@ -331,38 +320,38 @@ new /datum/disease_ability/symptom/powerful/youth
 
 /datum/disease_ability/symptom/medium/beard
 	symptoms = list(/datum/symptom/beard)
-	short_desc = "Cause all victims to grow a luscious beard."
-	long_desc = "Cause all victims to grow a luscious beard. Ineffective against Santa Claus."
+	short_desc = "Заставить всех жертв отрастить роскошную бороду."
+	long_desc = "Заставь всех жертв отрастить роскошную бороду. Неэффективен против Деда Мороза."
 
 /datum/disease_ability/symptom/medium/hallucigen
 	symptoms = list(/datum/symptom/hallucigen)
-	short_desc = "Cause victims to hallucinate."
-	long_desc = "Cause victims to hallucinate. Decreases stats, especially resistance."
+	short_desc = "Вызывают у жертв галлюцинации."
+	long_desc = "Вызывают у жертв галлюцинации. Уменьшает характеристики, особенно сопротивление."
 
 /datum/disease_ability/symptom/medium/choking
 	symptoms = list(/datum/symptom/choking)
-	short_desc = "Cause victims to choke."
-	long_desc = "Cause victims to choke, threatening asphyxiation. Decreases stats, especially transmissibility."
+	short_desc = "Заставляют жертв задыхаться."
+	long_desc = "Заставляют жертв задыхаться, угрожая удушьем. Уменьшает характеристики, особенно способность к передаче."
 
 /datum/disease_ability/symptom/medium/confusion
 	symptoms = list(/datum/symptom/confusion)
-	short_desc = "Cause victims to become confused."
-	long_desc = "Cause victims to become confused intermittently."
+	short_desc = "Дезориентирует жертву."
+	long_desc = "Периодически дезориентирует жертву."
 
 /datum/disease_ability/symptom/medium/vomit
 	symptoms = list(/datum/symptom/vomit)
-	short_desc = "Cause victims to vomit."
-	long_desc = "Cause victims to vomit. Slightly increases transmissibility. Vomiting also also causes the victims to lose nutrition and removes some toxin damage."
+	short_desc = "Вызывает у жертвы рвоту."
+	long_desc = "Вызывают у жертвы рвоту. Незначительно увеличивает передаваемость. Рвота также приводит к тому, что жертвы теряют питание и устраняют некоторые повреждения от токсинов."
 
 /datum/disease_ability/symptom/medium/voice_change
 	symptoms = list(/datum/symptom/voice_change)
-	short_desc = "Change the voice of victims."
-	long_desc = "Change the voice of victims, causing confusion in communications."
+	short_desc = "Изменяет голос жертвы."
+	long_desc = "Изменять голос жертвы, вызывая путаницу в общении."
 
 /datum/disease_ability/symptom/medium/visionloss
 	symptoms = list(/datum/symptom/visionloss)
-	short_desc = "Damage the eyes of victims, eventually causing blindness."
-	long_desc = "Damage the eyes of victims, eventually causing blindness. Decreases all stats."
+	short_desc = "Повреждает глаза жертвы, в конечном итоге вызывая слепоту."
+	long_desc = "Повреждает глаза жертвы, в конечном итоге вызывая слепоту. Уменьшает все характеристики."
 
 /datum/disease_ability/symptom/medium/deafness
 	symptoms = list(/datum/symptom/deafness)
@@ -370,16 +359,22 @@ new /datum/disease_ability/symptom/powerful/youth
 /datum/disease_ability/symptom/medium/fever
 	symptoms = list(/datum/symptom/fever)
 
-/datum/disease_ability/symptom/medium/chills
-	symptoms = list(/datum/symptom/chills)
+/datum/disease_ability/symptom/medium/shivering
+	symptoms = list(/datum/symptom/shivering)
 
 /datum/disease_ability/symptom/medium/headache
 	symptoms = list(/datum/symptom/headache)
 
+/datum/disease_ability/symptom/medium/nano_boost
+	symptoms = list(/datum/symptom/nano_boost)
+
+/datum/disease_ability/symptom/medium/nano_destroy
+	symptoms = list(/datum/symptom/nano_destroy)
+
 /datum/disease_ability/symptom/medium/viraladaptation
 	symptoms = list(/datum/symptom/viraladaptation)
-	short_desc = "Cause your infection to become more resistant to detection and eradication."
-	long_desc = "Cause your infection to mimic the function of normal body cells, becoming much harder to spot and to eradicate, but reducing its speed."
+	short_desc = "Сделать вашу инфекцию более устойчивой к обнаружению и исцелению."
+	long_desc = "Заставьте вашу инфекцию имитировать функцию нормальных клеток организма, что значительно затруднит обнаружение и исцеление, но снизит ее скорость распространения."
 
 /datum/disease_ability/symptom/medium/viralevolution
 	symptoms = list(/datum/symptom/viralevolution)
@@ -392,18 +387,18 @@ new /datum/disease_ability/symptom/powerful/youth
 
 /datum/disease_ability/symptom/medium/itching
 	symptoms = list(/datum/symptom/itching)
-	short_desc = "Cause victims to itch."
-	long_desc = "Cause victims to itch, increasing all stats except stealth."
+	short_desc = "Вызывают у жертвы зуд."
+	long_desc = "Вызывает у жертвы зуд, увеличивая все характеристики, кроме скрытности."
 
 /datum/disease_ability/symptom/medium/heal/weight_loss
 	symptoms = list(/datum/symptom/weight_loss)
-	short_desc = "Cause victims to lose weight."
-	long_desc = "Cause victims to lose weight, and make it almost impossible for them to gain nutrition from food. Reduced nutrition allows your infection to spread more easily from hosts, especially by sneezing."
+	short_desc = "Ускоряет метаболизм заражённых, вынуждая их менее эффективно перерабатывать питательные вещества и голодать."
+	long_desc = "Ускоряет метаболизм заражённых, вынуждая их менее эффективно перерабатывать питательные вещества и голодать. Недостаточное питание позволяет вашей инфекции легче распространяться от носителей, особенно при чихании."
 
 /datum/disease_ability/symptom/medium/heal/sensory_restoration
 	symptoms = list(/datum/symptom/sensory_restoration)
-	short_desc = "Regenerate eye and ear damage of victims."
-	long_desc = "Regenerate eye and ear damage of victims."
+	short_desc = "Ускоряет восстановление глаз и ушей у инфицированных людей."
+	long_desc = "Ускоряет восстановление глаз и ушей у инфицированных людей."
 
 /datum/disease_ability/symptom/medium/heal/mind_restoration
 	symptoms = list(/datum/symptom/mind_restoration)
@@ -428,8 +423,8 @@ new /datum/disease_ability/symptom/powerful/youth
 
 /datum/disease_ability/symptom/powerful/youth
 	symptoms = list(/datum/symptom/youth)
-	short_desc = "Cause victims to become eternally young."
-	long_desc = "Cause victims to become eternally young. Provides boosts to all stats except transmissibility."
+	short_desc = "Улучшает генетическую структуру и процесс обновления клеток, тем самым дарую носителю вечную молодость."
+	long_desc = "Улучшает генетическую структуру и процесс обновления клеток, тем самым дарую носителю вечную молодость. Обеспечивает повышение всех характеристик, кроме способности к передаче."
 
 /****HEALING SUBTYPE****/
 
@@ -444,8 +439,8 @@ new /datum/disease_ability/symptom/powerful/youth
 
 /datum/disease_ability/symptom/powerful/heal/metabolism
 	symptoms = list(/datum/symptom/heal/metabolism)
-	short_desc = "Increase the metabolism of victims, causing them to process chemicals and grow hungry faster."
-	long_desc = "Increase the metabolism of victims, causing them to process chemicals twice as fast and grow hungry more quickly."
+	short_desc = "Увеличивают метаболизм заражённых, заставляя их перерабатывать химические вещества и быстрее голодать."
+	long_desc = "Увеличивают метаболизм заражённых, заставляя их перерабатывать химические вещества в два раза быстрее и быстрее испытывать голод."
 
 /datum/disease_ability/symptom/powerful/heal/dark
 	symptoms = list(/datum/symptom/heal/darkness)
@@ -461,5 +456,5 @@ new /datum/disease_ability/symptom/powerful/youth
 
 /datum/disease_ability/symptom/powerful/heal/coma
 	symptoms = list(/datum/symptom/heal/coma)
-	short_desc = "Cause victims to fall into a healing coma when hurt."
-	long_desc = "Cause victims to fall into a healing coma when hurt."
+	short_desc = "При тяжелых ранениях вынуждает заражённых впадать в коматозное состояние неотличимое от смерти, во время которого все силы организма мобилизуются для восстановления."
+	long_desc = "При тяжелых ранениях вынуждает заражённых впадать в коматозное состояние неотличимое от смерти, во время которого все силы организма мобилизуются для восстановления."

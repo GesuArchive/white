@@ -3,7 +3,7 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/mining)
 "b" = (
-/obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/effect/spawner/structure/window/shuttle,
 /turf/open/floor/plating,
 /area/shuttle/mining)
 "c" = (
@@ -11,7 +11,7 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "d" = (
-/obj/machinery/computer/shuttle/mining,
+/obj/machinery/computer/shuttle_flight/mining,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "e" = (
@@ -24,7 +24,15 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "g" = (
-/obj/machinery/light/directional/west,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/camera/autoname{
+	dir = 5;
+	start_active = 1
+	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/mining)
 "h" = (
@@ -33,37 +41,74 @@
 	},
 /obj/docking_port/mobile{
 	dir = 8;
-	shuttle_id = "mining";
+	id = "mining";
 	name = "mining shuttle";
 	port_direction = 4
 	},
+/obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/mining)
 "i" = (
-/obj/structure/closet/crate,
+/obj/structure/ore_box,
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "j" = (
-/obj/machinery/power/shuttle_engine/heater,
-/obj/structure/window/reinforced/spawner/directional/north{
+/obj/structure/window/reinforced{
+	dir = 1;
 	layer = 2.9
 	},
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/structure/window/reinforced/spawner/directional/east,
-/turf/open/floor/plating,
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
 /area/shuttle/mining)
 "k" = (
-/obj/structure/ore_box,
+/obj/structure/cable,
+/obj/machinery/power/smes/engineering,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "l" = (
-/obj/machinery/power/shuttle_engine/propulsion/burst,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"A" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/mining)
+"O" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/power/terminal,
+/turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "Q" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+"V" = (
+/obj/structure/cable,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+"X" = (
+/obj/structure/closet/crate,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/mining)
 
@@ -79,9 +124,9 @@ a
 (2,1,1) = {"
 a
 c
-e
+X
 g
-f
+A
 i
 a
 "}
@@ -98,8 +143,8 @@ l
 a
 c
 e
-e
-f
+V
+O
 k
 a
 "}

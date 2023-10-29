@@ -33,25 +33,28 @@
 	default = string
 	apply()
 
-/datum/view_data/proc/afterViewChange()
+/datum/view_data/proc/safeApplyFormat()
 	if(isZooming())
 		assertFormat()
-	else
-		resetFormat()
+		return
+	resetFormat()
 	if(chief?.mob)
 		SEND_SIGNAL(chief.mob, COMSIG_VIEWDATA_UPDATE, getView())
 
 /datum/view_data/proc/assertFormat()//T-Pose
 	winset(chief, "mapwindow.map", "zoom=0")
+	winset(chief, "mapwindow.hud", "zoom=0")
 	zoom = 0
 
 /datum/view_data/proc/resetFormat()//Cuck
-	zoom = chief?.prefs.read_preference(/datum/preference/numeric/pixel_size)
+	zoom = chief?.prefs.pixel_size
 	winset(chief, "mapwindow.map", "zoom=[zoom]")
+	winset(chief, "mapwindow.hud", "zoom=[zoom]")
 	chief?.attempt_auto_fit_viewport() // If you change zoom mode, fit the viewport
 
 /datum/view_data/proc/setZoomMode()
-	winset(chief, "mapwindow.map", "zoom-mode=[chief?.prefs.read_preference(/datum/preference/choiced/scaling_method)]")
+	winset(chief, "mapwindow.map", "zoom-mode=[chief?.prefs.scaling_method]")
+	winset(chief, "mapwindow.hud", "zoom-mode=[chief?.prefs.scaling_method]")
 
 /datum/view_data/proc/isZooming()
 	return (width || height)
@@ -101,7 +104,7 @@
 
 /datum/view_data/proc/apply()
 	chief?.change_view(getView())
-	afterViewChange()
+	safeApplyFormat()
 
 /datum/view_data/proc/supress()
 	is_suppressed = TRUE
@@ -138,7 +141,5 @@
 	//Ready for this one?
 	setTo(radius)
 
-/proc/getScreenSize(widescreen)
-	if(widescreen)
-		return CONFIG_GET(string/default_view)
-	return CONFIG_GET(string/default_view_square)
+/client/proc/getScreenSize()
+	return "[prefs.widescreenwidth]x15"

@@ -4,8 +4,9 @@
  * Immobile (but not dense) shell that can receive and dispense money.
  */
 /obj/structure/money_bot
-	name = "money bot"
-	icon = 'icons/obj/science/circuits.dmi'
+	name = "денежный бот"
+	desc = "Неподвижная оболочка, похожая на обычную оболочку бота, но принимающая денежные вводы и также способная выдавать деньги. Деньги берутся из внутреннего хранилища денег."
+	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_large"
 
 	density = FALSE
@@ -35,13 +36,13 @@
 		return
 	set_anchored(!anchored)
 	tool.play_tool_sound(src)
-	balloon_alert(user, anchored ? "secured" : "unsecured")
+	balloon_alert(user, "You [anchored?"secure":"unsecure"] [src].")
 	return TRUE
 
 
 /obj/item/circuit_component/money_dispenser
-	display_name = "Money Dispenser"
-	desc = "Used to dispense money from the money bot. Money is taken from the internal storage of money."
+	display_name = "Раздатчик денег"
+	desc = "Используется для выдачи денег с помощью денежного бота. Деньги берутся из внутреннего хранилища денег."
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	/// The amount of money to dispense
@@ -103,14 +104,14 @@
 	if(istype(shell, /obj/structure/money_bot))
 		attached_bot = shell
 		total_money.set_output(attached_bot.stored_money)
-		RegisterSignal(shell, COMSIG_ATOM_ATTACKBY, PROC_REF(handle_money_insert))
+		RegisterSignal(shell, COMSIG_PARENT_ATTACKBY, PROC_REF(handle_money_insert))
 		RegisterSignal(shell, COMSIG_MONEYBOT_ADD_MONEY, PROC_REF(handle_money_update))
 		RegisterSignal(parent, COMSIG_CIRCUIT_SET_LOCKED, PROC_REF(on_set_locked))
 		attached_bot.locked = parent.locked
 
 /obj/item/circuit_component/money_bot/unregister_shell(atom/movable/shell)
 	UnregisterSignal(shell, list(
-		COMSIG_ATOM_ATTACKBY,
+		COMSIG_PARENT_ATTACKBY,
 		COMSIG_MONEYBOT_ADD_MONEY,
 	))
 	total_money.set_output(null)
@@ -149,5 +150,4 @@
  * * new_value - A boolean that determines if the circuit is locked or not.
  **/
 /obj/item/circuit_component/money_bot/proc/on_set_locked(datum/source, new_value)
-	SIGNAL_HANDLER
 	attached_bot.locked = new_value

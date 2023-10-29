@@ -10,6 +10,7 @@ import { useBackend, useSharedState, useLocalState } from '../backend';
 import { BountyBoardContent } from './BountyBoard';
 import { UserDetails } from './Vending';
 import { BlockQuote, Box, Button, Divider, LabeledList, Modal, Section, Stack, Tabs, TextArea } from '../components';
+import { Window } from '../layouts';
 import { marked } from 'marked';
 import { sanitizeText } from '../sanitize';
 
@@ -27,33 +28,35 @@ export const Newscaster = (props, context) => {
     NEWSCASTER_SCREEN
   );
   return (
-    <>
+    <Window width={575} height={560}>
       <NewscasterChannelCreation />
       <NewscasterCommentCreation />
-      <Stack fill vertical>
-        <NewscasterWantedScreen />
-        <Stack.Item>
-          <Tabs fluid textAlign="center">
-            <Tabs.Tab
-              color="Green"
-              selected={screenmode === NEWSCASTER_SCREEN}
-              onClick={() => setScreenmode(NEWSCASTER_SCREEN)}>
-              Newscaster
-            </Tabs.Tab>
-            <Tabs.Tab
-              Color="Blue"
-              selected={screenmode === BOUNTYBOARD_SCREEN}
-              onClick={() => setScreenmode(BOUNTYBOARD_SCREEN)}>
-              Bounty Board
-            </Tabs.Tab>
-          </Tabs>
-        </Stack.Item>
-        <Stack.Item grow>
-          {screenmode === NEWSCASTER_SCREEN && <NewscasterContent />}
-          {screenmode === BOUNTYBOARD_SCREEN && <BountyBoardContent />}
-        </Stack.Item>
-      </Stack>
-    </>
+      <NewscasterWantedScreen />
+      <Window.Content scrollable>
+        <Stack fill vertical>
+          <Stack.Item>
+            <Tabs fluid textAlign="center">
+              <Tabs.Tab
+                color="Green"
+                selected={screenmode === NEWSCASTER_SCREEN}
+                onClick={() => setScreenmode(NEWSCASTER_SCREEN)}>
+                Newscaster
+              </Tabs.Tab>
+              <Tabs.Tab
+                Color="Blue"
+                selected={screenmode === BOUNTYBOARD_SCREEN}
+                onClick={() => setScreenmode(BOUNTYBOARD_SCREEN)}>
+                Bounty Board
+              </Tabs.Tab>
+            </Tabs>
+          </Stack.Item>
+          <Stack.Item grow>
+            {screenmode === NEWSCASTER_SCREEN && <NewscasterContent />}
+            {screenmode === BOUNTYBOARD_SCREEN && <BountyBoardContent />}
+          </Stack.Item>
+        </Stack>
+      </Window.Content>
+    </Window>
   );
 };
 
@@ -234,17 +237,19 @@ const NewscasterWantedScreen = (props, context) => {
                   onClick={() => act('cancelCreation')}
                 />
               </Box>
-              <Section>
-                <Box bold>{activeWanted.criminal}</Box>
-                <Box italic>{activeWanted.crime}</Box>
-              </Section>
-              <Box
-                as="img"
-                src={activeWanted.image ? activeWanted.image : null}
-              />
-              <Box italic>
-                Posted by {activeWanted.author ? activeWanted.author : 'N/A'}
-              </Box>
+              {!!activeWanted.active && (
+                <>
+                  <Section>
+                    <Box bold>{activeWanted.criminal}</Box>
+                    <Box italic>{activeWanted.crime}</Box>
+                  </Section>
+                  <Box as="img" src={activeWanted?.image} />
+                  <Box italic>
+                    Posted by{' '}
+                    {activeWanted.author ? activeWanted.author : 'N/A'}
+                  </Box>
+                </>
+              )}
             </Stack.Item>
           </Stack>
           <Divider />
@@ -339,7 +344,7 @@ const NewscasterContent = (props, context) => {
 };
 
 /** The Channel Box is the basic channel information where buttons live.*/
-const NewscasterChannelBox = (props, context) => {
+const NewscasterChannelBox = (_, context) => {
   const { act, data } = useBackend(context);
   const {
     channelName,
@@ -348,7 +353,7 @@ const NewscasterChannelBox = (props, context) => {
     channelAuthor,
     channelCensored,
     viewing_channel,
-    admin_mode,
+    security_mode,
     photo_data,
     paper,
     user,
@@ -393,16 +398,16 @@ const NewscasterChannelBox = (props, context) => {
               }
               onClick={() => act('togglePhoto')}
             />
-            {!!admin_mode && (
+            {!!security_mode && (
               <Button
                 icon="ban"
                 content={'D-Notice'}
                 tooltip="Censor the whole channel and it's \
                   contents as dangerous to the station. Cannot be undone."
-                disabled={!admin_mode || !viewing_channel}
+                disabled={!security_mode || !viewing_channel}
                 onClick={() =>
                   act('channelDNotice', {
-                    secure: admin_mode,
+                    secure: security_mode,
                     channel: viewing_channel,
                   })
                 }
@@ -426,7 +431,7 @@ const NewscasterChannelBox = (props, context) => {
 /** Channel select is the left-hand menu where all the channels are listed. */
 const NewscasterChannelSelector = (props, context) => {
   const { act, data } = useBackend(context);
-  const { channels = [], viewing_channel, wanted = [] } = data;
+  const { channels = [], viewing_channel, security_mode, wanted = [] } = data;
   return (
     <Section minHeight="100%" width={window.innerWidth - 410 + 'px'}>
       <Tabs vertical>
@@ -488,12 +493,12 @@ const processedText = (value) => {
 };
 
 /** This is where the channels comments get spangled out (tm) */
-const NewscasterChannelMessages = (props, context) => {
+const NewscasterChannelMessages = (_, context) => {
   const { act, data } = useBackend(context);
   const {
     messages = [],
     viewing_channel,
-    admin_mode,
+    security_mode,
     channelCensored,
     channelLocked,
     channelAuthor,
@@ -533,11 +538,11 @@ const NewscasterChannelMessages = (props, context) => {
             }
             buttons={
               <>
-                {!!admin_mode && (
+                {!!security_mode && (
                   <Button
                     icon="comment-slash"
                     tooltip="Censor Story"
-                    disabled={!admin_mode}
+                    disabled={!security_mode}
                     onClick={() =>
                       act('storyCensor', {
                         messageID: message.ID,
@@ -545,11 +550,11 @@ const NewscasterChannelMessages = (props, context) => {
                     }
                   />
                 )}
-                {!!admin_mode && (
+                {!!security_mode && (
                   <Button
                     icon="user-slash"
                     tooltip="Censor Author"
-                    disabled={!admin_mode}
+                    disabled={!security_mode}
                     onClick={() =>
                       act('authorCensor', {
                         messageID: message.ID,

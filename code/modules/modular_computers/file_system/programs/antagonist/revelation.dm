@@ -1,9 +1,9 @@
 /datum/computer_file/program/revelation
 	filename = "revelation"
-	filedesc = "Revelation"
+	filedesc = "Откровение"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "hostile"
-	extended_desc = "This virus can destroy hard drive of system it is executed on. It may be obfuscated to look like another non-malicious program. Once armed, it will destroy the system upon next execution."
+	extended_desc = "Скрипт уничтожающий все данные на устройстве, на котором он был запущен. Программа может изменять имя любое другое для дополнительной скрытности. После взвода, скрипт уничтожит операционную систему при следующем открытии программы."
 	size = 13
 	requires_ntnet = FALSE
 	available_on_ntnet = FALSE
@@ -19,27 +19,28 @@
 
 /datum/computer_file/program/revelation/proc/activate()
 	if(computer)
-		if(istype(computer, /obj/item/modular_computer/pda/silicon)) //If this is a borg's integrated tablet
-			var/obj/item/modular_computer/pda/silicon/modularInterface = computer
-			to_chat(modularInterface.silicon_owner,span_userdanger("SYSTEM PURGE DETECTED/"))
-			addtimer(CALLBACK(modularInterface.silicon_owner, TYPE_PROC_REF(/mob/living/silicon/robot/, death)), 2 SECONDS, TIMER_UNIQUE)
+		if(istype(computer, /obj/item/modular_computer/tablet/integrated)) //If this is a borg's integrated tablet
+			var/obj/item/modular_computer/tablet/integrated/modularInterface = computer
+			to_chat(modularInterface.silicon_owner, span_userdanger("ОБНАРУЖЕНА ЧИСТКА СИСТЕМЫ/"))
+			addtimer(CALLBACK(modularInterface.silicon_owner, TYPE_PROC_REF(/mob/living/silicon/robot, death)), 2 SECONDS, TIMER_UNIQUE)
 			return
 
-		computer.visible_message(span_notice("\The [computer]'s screen brightly flashes and loud electrical buzzing is heard."))
+		computer.visible_message(span_notice("[computer] экран ярко мерцает, и слышно громкое жужжание электричества."))
 		computer.enabled = FALSE
 		computer.update_appearance()
-
-		QDEL_LIST(computer.stored_files)
-
+		var/obj/item/computer_hardware/battery/battery_module = computer.all_components[MC_CELL]
 		computer.take_damage(25, BRUTE, 0, 0)
-
-		if(computer.internal_cell && prob(25))
-			QDEL_NULL(computer.internal_cell)
-			computer.visible_message(span_notice("\The [computer]'s battery explodes in rain of sparks."))
+		if(battery_module && prob(25))
+			qdel(battery_module)
+			computer.visible_message(span_notice("Батарея [computer] взрывается дождём из искр."))
 			var/datum/effect_system/spark_spread/spark_system = new /datum/effect_system/spark_spread
 			spark_system.start()
 
-/datum/computer_file/program/revelation/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+
+/datum/computer_file/program/revelation/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
 	switch(action)
 		if("PRG_arm")
 			armed = !armed
@@ -61,7 +62,7 @@
 	return temp
 
 /datum/computer_file/program/revelation/ui_data(mob/user)
-	var/list/data = list()
+	var/list/data = get_header_data()
 
 	data["armed"] = armed
 

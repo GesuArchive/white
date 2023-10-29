@@ -4,9 +4,9 @@
  * Placed machine that handles destructive experiments (but can also do the normal ones)
  */
 /obj/machinery/destructive_scanner
-	name = "Experimental Destructive Scanner"
-	desc = "A much larger version of the hand-held scanner, a charred label warns about its destructive capabilities."
-	icon = 'icons/obj/machines/destructive_scanner.dmi'
+	name = "экспериментально-деструктивный сканер"
+	desc = "Гораздо более крупная версия ручного сканера, обугленная этикетка предупреждает о его разрушительных возможностях."
+	icon = 'icons/obj/machines/experisci.dmi'
 	icon_state = "tube_open"
 	circuit = /obj/item/circuitboard/machine/destructive_scanner
 	layer = MOB_LAYER
@@ -19,17 +19,10 @@
 // Late load to ensure the component initialization occurs after the machines are initialized
 /obj/machinery/destructive_scanner/LateInitialize()
 	. = ..()
-
-	var/static/list/destructive_signals = list(
-		COMSIG_MACHINERY_DESTRUCTIVE_SCAN = TYPE_PROC_REF(/datum/component/experiment_handler, try_run_destructive_experiment),
-	)
-
 	AddComponent(/datum/component/experiment_handler, \
 		allowed_experiments = list(/datum/experiment/scanning),\
 		config_mode = EXPERIMENT_CONFIG_CLICK, \
-		start_experiment_callback = CALLBACK(src, PROC_REF(activate)), \
-		experiment_signals = destructive_signals, \
-	)
+		start_experiment_callback = CALLBACK(src, PROC_REF(activate)))
 
 ///Activates the machine; checks if it can actually scan, then starts.
 /obj/machinery/destructive_scanner/proc/activate()
@@ -37,7 +30,7 @@
 	var/aggressive = FALSE
 	for(var/mob/living/living_mob in pickup_zone)
 		if(!(obj_flags & EMAGGED) && ishuman(living_mob)) //Can only kill humans when emagged.
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 25)
+			playsound(src, 'white/valtos/sounds/error1.ogg', 25)
 			say("Cannot scan with humans inside.")
 			return
 		aggressive = TRUE
@@ -88,19 +81,17 @@
 		movable_atom.forceMove(this_turf)
 		if(isliving(movable_atom))
 			var/mob/living/fucked_up_thing = movable_atom
-			fucked_up_thing.investigate_log("has been gibbed by [src].", INVESTIGATE_DEATHS)
-			fucked_up_thing.gib(DROP_ALL_REMAINS)
+			fucked_up_thing.gib()
 
 	SEND_SIGNAL(src, COMSIG_MACHINERY_DESTRUCTIVE_SCAN, scanned_atoms)
 
 
-/obj/machinery/destructive_scanner/emag_act(mob/user, obj/item/card/emag/emag_card)
+/obj/machinery/destructive_scanner/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
-		return FALSE
+		return
 	obj_flags |= EMAGGED
-	playsound(src, SFX_SPARKS, 75, TRUE, SILENCED_SOUND_EXTRARANGE)
-	balloon_alert(user, "safety sensor BIOS disabled")
-	return TRUE
+	playsound(src, "zap", 75, TRUE, SILENCED_SOUND_EXTRARANGE)
+	to_chat(user, span_notice("You disable the safety sensor BIOS on [src]."))
 
 /obj/machinery/destructive_scanner/update_icon_state()
 	. = ..()

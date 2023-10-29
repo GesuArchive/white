@@ -1,11 +1,11 @@
-//NEVER USE THIS IT SUX -PETETHEGOAT
+//NEVER USE THIS IT SUX	-PETETHEGOAT
 //IT SUCKS A BIT LESS -GIACOM
 
 /obj/item/paint
 	gender= PLURAL
 	name = "paint"
 	desc = "Used to recolor floors and walls. Can be removed by the janitor."
-	icon = 'icons/obj/art/paint.dmi'
+	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "paint_neutral"
 	inhand_icon_state = "paintcan"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -15,10 +15,6 @@
 	var/paint_color = COLOR_WHITE
 	/// How many uses are left
 	var/paintleft = 10
-
-/obj/item/paint/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/falling_hazard, damage = 20, wound_bonus = 5, hardhat_safety = TRUE, crushes = FALSE) // You ever watched home alone?
 
 /obj/item/paint/red
 	name = "red paint"
@@ -55,18 +51,17 @@
 	paint_color = COLOR_WHITE
 	icon_state = "paint_white"
 
+/obj/item/paint/gray
+	name = "gray paint"
+	paint_color = COLOR_GRAY
+	icon_state = "paint_gray"
+
 /obj/item/paint/anycolor
 	gender = PLURAL
 	name = "adaptive paint"
 	icon_state = "paint_neutral"
 
-/obj/item/paint/anycolor/cyborg
-	paintleft = INFINITY
-
 /obj/item/paint/anycolor/attack_self(mob/user)
-	if(paintleft <= 0)
-		balloon_alert(user, "no paint left!")
-		return	// Don't do any of the following because there's no paint left to be able to change the color of
 	var/list/possible_colors = list(
 		"black" = image(icon = src.icon, icon_state = "paint_black"),
 		"blue" = image(icon = src.icon, icon_state = "paint_blue"),
@@ -74,7 +69,8 @@
 		"red" = image(icon = src.icon, icon_state = "paint_red"),
 		"violet" = image(icon = src.icon, icon_state = "paint_violet"),
 		"white" = image(icon = src.icon, icon_state = "paint_white"),
-		"yellow" = image(icon = src.icon, icon_state = "paint_yellow")
+		"yellow" = image(icon = src.icon, icon_state = "paint_yellow"),
+		"gray" = image(icon = src.icon, icon_state = "paint_gray")
 		)
 	var/picked_color = show_radial_menu(user, src, possible_colors, custom_check = CALLBACK(src, PROC_REF(check_menu), user), radius = 38, require_near = TRUE)
 	switch(picked_color)
@@ -92,6 +88,8 @@
 			paint_color = COLOR_WHITE
 		if("yellow")
 			paint_color = COLOR_YELLOW
+		if("gray")
+			paint_color = COLOR_GRAY
 		else
 			return
 	icon_state = "paint_[picked_color]"
@@ -119,15 +117,14 @@
 	if(paintleft <= 0)
 		icon_state = "paint_empty"
 		return
-	if(!isturf(target) || isspaceturf(target))
+	if(!isturf(target) || isspaceturf(target) || isopenspace(target))
 		return
-	paintleft--
 	target.add_atom_colour(paint_color, WASHABLE_COLOUR_PRIORITY)
 
 /obj/item/paint/paint_remover
-	gender = PLURAL
-	name = "paint remover"
-	desc = "Used to remove color from anything."
+	gender =  PLURAL
+	name = "растворитель"
+	desc = "Используется для удаления краски с чего-угодно."
 	icon_state = "paint_neutral"
 
 /obj/item/paint/paint_remover/afterattack(atom/target, mob/user, proximity)
@@ -136,6 +133,5 @@
 		return
 	if(!isturf(target) || !isobj(target))
 		return
-	. |= AFTERATTACK_PROCESSED_ITEM
 	if(target.color != initial(target.color))
 		target.remove_atom_colour(WASHABLE_COLOUR_PRIORITY)

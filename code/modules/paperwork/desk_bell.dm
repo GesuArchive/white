@@ -1,9 +1,9 @@
 // A receptionist's bell
 
 /obj/structure/desk_bell
-	name = "desk bell"
-	desc = "The cornerstone of any customer service job. You feel an unending urge to ring it."
-	icon = 'icons/obj/service/bureaucracy.dmi'
+	name = "Звонок"
+	desc = "Нужно срочно нажать на это."
+	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "desk_bell"
 	layer = OBJ_LAYER
 	anchored = FALSE
@@ -28,16 +28,16 @@
 	. = ..()
 
 	if(held_item?.tool_behaviour == TOOL_WRENCH)
-		context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+		context[SCREENTIP_CONTEXT_RMB] = "Разобрать"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(broken_ringer)
 		if(held_item?.tool_behaviour == TOOL_SCREWDRIVER)
-			context[SCREENTIP_CONTEXT_LMB] = "Fix"
+			context[SCREENTIP_CONTEXT_LMB] = "Починить"
 	else
-		var/click_context = "Ring"
+		var/click_context = "Дзынь"
 		if(prob(1))
-			click_context = "Annoy"
+			click_context = "Раздражать"
 		context[SCREENTIP_CONTEXT_LMB] = click_context
 	return CONTEXTUAL_SCREENTIP_SET
 
@@ -46,13 +46,10 @@
 	if(!COOLDOWN_FINISHED(src, ring_cooldown) && ring_cooldown_length)
 		return TRUE
 	if(!ring_bell(user))
-		to_chat(user, span_notice("[src] is silent. Some idiot broke it."))
+		to_chat(user, span_notice("[src] сломан. Какой-то идиот сломал его."))
 	if(ring_cooldown_length)
 		COOLDOWN_START(src, ring_cooldown, ring_cooldown_length)
 	return TRUE
-
-/obj/structure/desk_bell/attack_paw(mob/user, list/modifiers)
-	return attack_hand(user, modifiers)
 
 /obj/structure/desk_bell/attackby(obj/item/weapon, mob/living/user, params)
 	. = ..()
@@ -62,10 +59,10 @@
 // Fix the clapper
 /obj/structure/desk_bell/screwdriver_act(mob/living/user, obj/item/tool)
 	if(broken_ringer)
-		balloon_alert(user, "repairing...")
+		balloon_alert(user, "чиним...")
 		tool.play_tool_sound(src)
 		if(tool.use_tool(src, user, 5 SECONDS))
-			balloon_alert_to_viewers("repaired")
+			balloon_alert_to_viewers("починено")
 			playsound(user, 'sound/items/change_drill.ogg', 50, vary = TRUE)
 			broken_ringer = FALSE
 			times_rang = 0
@@ -75,10 +72,10 @@
 
 // Deconstruct
 /obj/structure/desk_bell/wrench_act_secondary(mob/living/user, obj/item/tool)
-	balloon_alert(user, "taking apart...")
+	balloon_alert(user, "разбираем...")
 	tool.play_tool_sound(src)
 	if(tool.use_tool(src, user, 5 SECONDS))
-		balloon_alert(user, "disassembled")
+		balloon_alert(user, "разобрано")
 		playsound(user, 'sound/items/deconstruct.ogg', 50, vary = TRUE)
 		if(!broken_ringer) // Drop 2 if it's not broken.
 			new/obj/item/stack/sheet/iron(drop_location())
@@ -90,7 +87,7 @@
 /// Check if the clapper breaks, and if it does, break it
 /obj/structure/desk_bell/proc/check_clapper(mob/living/user)
 	if(((times_rang >= 10000) || prob(times_rang/100)) && ring_cooldown_length)
-		to_chat(user, span_notice("You hear [src]'s clapper fall off of its hinge. Nice job, you broke it."))
+		to_chat(user, span_notice("Слышу как защёлкиватель [src] выпадает из паза. Отличная работа."))
 		broken_ringer = TRUE
 
 /// Ring the bell
@@ -107,20 +104,21 @@
 // A warning to all who enter; the ringing sound STACKS. It won't be deafening because it only goes every decisecond,
 // but I did feel like my ears were going to start bleeding when I tested it with my autoclicker.
 /obj/structure/desk_bell/speed_demon
-	desc = "The cornerstone of any customer service job. This one's been modified for hyper-performance."
+	desc = "Нужно срочно нажать на это и не раз."
 	ring_cooldown_length = 0
 
 /obj/structure/desk_bell/MouseDrop(obj/over_object, src_location, over_location)
-	if(!istype(over_object, /obj/vehicle/ridden/wheelchair))
+	if((!istype(over_object, /obj/vehicle/ridden/wheelchair)))
 		return
 	if(!Adjacent(over_object) || !Adjacent(usr))
 		return
 	var/obj/vehicle/ridden/wheelchair/target = over_object
 	if(target.bell_attached)
-		usr.balloon_alert(usr, "already has a bell!")
+		usr.balloon_alert(usr, "уже имеет звонок!")
 		return
-	usr.balloon_alert(usr, "attaching bell...")
-	if(!do_after(usr, 0.5 SECONDS))
+	usr.balloon_alert(usr, "присоединяем...")
+	if(!do_after(usr, 5))
 		return
 	target.attach_bell(src)
+	qdel(src)
 	return ..()

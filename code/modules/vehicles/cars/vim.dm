@@ -5,11 +5,11 @@
  * For the critters that cannot be understood, there is a sound creator in the mecha. It also has headlights.
  */
 /obj/vehicle/sealed/car/vim
-	name = "\improper Vim"
+	name = "Vim"
 	desc = "An minature exosuit from Nanotrasen, developed to let the irreplacable station pets live a little longer."
 	icon_state = "vim"
 	max_integrity = 50
-	armor_type = /datum/armor/car_vim
+	armor = list(MELEE = 70, BULLET = 40, LASER = 40, ENERGY = 0, BOMB = 30, BIO = 0, FIRE = 80, ACID = 80)
 	enter_delay = 20
 	movedelay = 0.6
 	engine_sound_length = 0.3 SECONDS
@@ -18,17 +18,11 @@
 	light_power = 2
 	light_on = FALSE
 	engine_sound = 'sound/effects/servostep.ogg'
+	///TRUE while the vim is being welded
+	var/being_repaired = FALSE
 	///Maximum size of a mob trying to enter the mech
 	var/maximum_mob_size = MOB_SIZE_SMALL
 	COOLDOWN_DECLARE(sound_cooldown)
-
-/datum/armor/car_vim
-	melee = 70
-	bullet = 40
-	laser = 40
-	bomb = 30
-	fire = 80
-	acid = 80
 
 /obj/vehicle/sealed/car/vim/Initialize(mapload)
 	. = ..()
@@ -40,16 +34,16 @@
 
 /obj/vehicle/sealed/car/vim/examine(mob/user)
 	. = ..()
-	. += span_notice("[src] can be repaired with a welder.")
+	. += span_notice("<hr>[src] can be repaired with a welder.")
 
-/obj/vehicle/sealed/car/vim/atom_destruction(damage_flag)
+/obj/vehicle/sealed/car/vim/obj_destruction(damage_flag)
 	new /obj/effect/decal/cleanable/oil(get_turf(src))
 	do_sparks(5, TRUE, src)
 	visible_message(span_boldannounce("[src] blows apart!"))
 	return ..()
 
 /obj/vehicle/sealed/car/vim/mob_try_enter(mob/entering)
-	if(!isanimal_or_basicmob(entering))
+	if(!isliving(entering))
 		return FALSE
 	var/mob/living/animal_or_basic = entering
 	if(animal_or_basic.mob_size > maximum_mob_size)
@@ -57,38 +51,35 @@
 		return FALSE
 	return ..()
 
-/obj/vehicle/sealed/car/vim/welder_act(mob/living/user, obj/item/W)
-	if(user.combat_mode)
-		return
+/obj/vehicle/sealed/car/vim/welder_act(mob/living/user, obj/item/tool)
+	. = ..()
 	. = TRUE
-	if(DOING_INTERACTION(user, src))
-		balloon_alert(user, "you're already repairing it!")
+	if(!tool.tool_start_check(user))
 		return
-	if(atom_integrity >= max_integrity)
-		balloon_alert(user, "it's not damaged!")
+	if(being_repaired)
+		user.balloon_alert(user, "already being repaired!")
 		return
-	if(!W.tool_start_check(user, amount=1))
+	if(obj_integrity == max_integrity)
+		user.balloon_alert(user, "already fully repaired!")
 		return
-	user.balloon_alert_to_viewers("started welding [src]", "started repairing [src]")
+
+	user.balloon_alert(user, "repairing [src]...")
 	audible_message(span_hear("You hear welding."))
-	var/did_the_thing
-	while(atom_integrity < max_integrity)
-		if(W.use_tool(src, user, 2.5 SECONDS, volume=50))
-			did_the_thing = TRUE
-			atom_integrity += min(VIM_HEAL_AMOUNT, (max_integrity - atom_integrity))
-			audible_message(span_hear("You hear welding."))
-		else
-			break
-	if(did_the_thing)
-		user.balloon_alert_to_viewers("[(atom_integrity >= max_integrity) ? "fully" : "partially"] repaired [src]")
-	else
-		user.balloon_alert_to_viewers("stopped welding [src]", "interrupted the repair!")
+	being_repaired = TRUE
+	if(!tool.use_tool(src, user, 3 SECONDS, volume=50))
+		being_repaired = FALSE
+		user.balloon_alert(user, "interrupted!")
+		return
+	being_repaired = FALSE
+
+	obj_integrity = min(obj_integrity + VIM_HEAL_AMOUNT, max_integrity)
+	user.balloon_alert(user, "[obj_integrity == max_integrity ? "fully " : ""]repaired [src]")
 
 /obj/vehicle/sealed/car/vim/mob_enter(mob/newoccupant, silent = FALSE)
 	. = ..()
 	update_appearance()
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, TRUE)
-	if(atom_integrity == max_integrity)
+	if(obj_integrity == max_integrity)
 		SEND_SOUND(newoccupant, sound('sound/mecha/nominal.ogg',volume=50))
 
 /obj/vehicle/sealed/car/vim/mob_try_exit(mob/pilot, mob/user, silent = FALSE, randomstep = FALSE)

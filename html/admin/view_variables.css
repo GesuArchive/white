@@ -1,37 +1,56 @@
 body {
 	font-family: Verdana, sans-serif;
 	font-size: 9pt;
+	background: #070707;
+	color: #aaa;
 }
+
 .value {
 	font-family: "Courier New", monospace;
-	font-size: 8pt;
+	font-size: 10pt;
 	display: inline-block;
+	font-weight: bold;
+	color: #fff;
+	background: #000;
+	border-radius: 3px;
+}
+
+a {
+	color: #f70;
+}
+
+a:visited {
+	color: #260;
 }
 
 table.matrix {
 	border-collapse: collapse; border-spacing: 0;
 	font-size: 7pt;
 }
+
 .matrix td{
 	text-align: center;
 	padding: 0 1ex 0ex 1ex;
 }
+
 table.matrixbrak {
 	border-collapse: collapse; border-spacing: 0;
 }
+
 table.matrixbrak td.lbrak {
 	width: 0.8ex;
 	font-size: 50%;
-	border-top: solid 0.25ex black;
-	border-bottom: solid 0.25ex black;
-	border-left: solid 0.5ex black;
+	border-top: solid 0.25ex white;
+	border-bottom: solid 0.25ex white;
+	border-left: solid 0.5ex white;
 	border-right: none;
 }
+
 table.matrixbrak td.rbrak {
 		width: 0.8ex;
 		font-size: 50%;
-		border-top: solid 0.25ex black;
-		border-bottom: solid 0.25ex black;
-		border-right: solid 0.5ex black;
+		border-top: solid 0.25ex white;
+		border-bottom: solid 0.25ex white;
+		border-right: solid 0.5ex white;
 		border-left: none;
 }

@@ -5,7 +5,7 @@
 	name = "plant graft"
 	desc = "A carefully cut graft off of a freshly grown plant. Can be grafted onto a plant in order to share unique plant traits onto a plant."
 	w_class = WEIGHT_CLASS_TINY
-	icon = 'icons/obj/service/hydroponics/equipment.dmi'
+	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "graft_plant"
 	worn_icon_state = "graft"
 	attack_verb_continuous = list("plants", "vegitizes", "crops", "reaps", "farms")
@@ -45,7 +45,7 @@
 
 	var/static/list/hovering_item_typechecks = list(
 		/obj/item/plant_analyzer = list(
-			SCREENTIP_CONTEXT_LMB = "Scan graft",
+			SCREENTIP_CONTEXT_LMB = "Сканировать",
 		),
 	)
 
@@ -53,4 +53,10 @@
 
 /obj/item/graft/Destroy()
 	QDEL_NULL(stored_trait)
+	return ..()
+
+/obj/item/graft/attackby(obj/item/I, mob/living/user, params)
+	if(istype(I, /obj/item/plant_analyzer) && user.a_intent == INTENT_HELP)
+		var/obj/item/plant_analyzer/plant_analyzer = I
+		to_chat(user, plant_analyzer.get_graft_text(src))
 	return ..()

@@ -11,20 +11,20 @@ export const LaborClaimConsole = (props, context) => {
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Status">{status_info}</LabeledList.Item>
-            <LabeledList.Item label="Shuttle controls">
+            <LabeledList.Item label="Состояние">{status_info}</LabeledList.Item>
+            <LabeledList.Item label="Управление шаттлом">
               <Button
-                content="Move shuttle"
+                content="Выслать шаттл"
                 disabled={!can_go_home}
                 onClick={() => act('move_shuttle')}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Points">{id_points}</LabeledList.Item>
+            <LabeledList.Item label="Очки">{id_points}</LabeledList.Item>
             <LabeledList.Item
-              label="Unclaimed points"
+              label="Свободные очки"
               buttons={
                 <Button
-                  content="Claim points"
+                  content="Забрать"
                   disabled={!unclaimed_points}
                   onClick={() => act('claim_points')}
                 />
@@ -33,12 +33,12 @@ export const LaborClaimConsole = (props, context) => {
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Material values">
+        <Section title="Ценность материалов">
           <Table>
             <Table.Row header>
-              <Table.Cell>Material</Table.Cell>
+              <Table.Cell>Материал</Table.Cell>
               <Table.Cell collapsing textAlign="right">
-                Value
+                Цена
               </Table.Cell>
             </Table.Row>
             {ores.map((ore) => (

@@ -120,9 +120,11 @@
 	//Reagents check should be handled in the calculate_yield() from multiplier
 
 	//If the product/reactants are too impure
-	for(var/datum/reagent/reagent as anything in holder.reagent_list)
+	for(var/r in holder.reagent_list)
+		var/datum/reagent/reagent = r
 		//this is done this way to reduce processing compared to holder.has_reagent(P)
-		for(var/datum/reagent/catalyst as anything in reaction.required_catalysts)
+		for(var/c in reaction.required_catalysts)
+			var/datum/reagent/catalyst = c
 			if(catalyst == reagent.type)
 				total_matching_catalysts++
 		if(istype(reagent, /datum/reagent/catalyst_agent))
@@ -179,25 +181,25 @@
 	return TRUE
 
 /*
-* Deals with lag - allows a reaction to speed up to 3x from seconds_per_tick
+* Deals with lag - allows a reaction to speed up to 3x from delta_time
 * "Charged" time (time_deficit) discharges by incrementing reactions by doubling them
-* If seconds_per_tick is greater than 1.5, then we save the extra time for the next ticks
+* If delta_time is greater than 1.5, then we save the extra time for the next ticks
 *
 * Arguments:
-* * seconds_per_tick - the time between the last proc in world.time
+* * delta_time - the time between the last proc in world.time
 */
-/datum/equilibrium/proc/deal_with_time(seconds_per_tick)
-	if(seconds_per_tick > 1)
-		time_deficit += seconds_per_tick - 1
-		seconds_per_tick = 1 //Lets make sure reactions aren't super speedy and blow people up from a big lag spike
+/datum/equilibrium/proc/deal_with_time(delta_time)
+	if(delta_time > 1)
+		time_deficit += delta_time - 1
+		delta_time = 1 //Lets make sure reactions aren't super speedy and blow people up from a big lag spike
 	else if (time_deficit)
 		if(time_deficit < 0.25)
-			seconds_per_tick += time_deficit
+			delta_time += time_deficit
 			time_deficit = 0
 		else
-			seconds_per_tick += 0.25
-			time_deficit -= 0.25
-	return seconds_per_tick
+			delta_time += 0.25
+			time_deficit = 0.25
+	return delta_time
 
 /*
 * Main method of checking for explosive - or failed states
@@ -239,10 +241,10 @@
 * Then adds/removes reagents
 * Then alters the holder pH and temperature, and calls reaction_step
 * Arguments:
-* * seconds_per_tick - the time displacement between the last call and the current, 1 is a standard step
+* * delta_time - the time displacement between the last call and the current, 1 is a standard step
 * * purity_modifier - how much to modify the step's purity by (0 - 1)
 */
-/datum/equilibrium/proc/react_timestep(seconds_per_tick, purity_modifier = 1)
+/datum/equilibrium/proc/react_timestep(delta_time, purity_modifier = 1)
 	if(to_delete)
 		//This occurs when it explodes
 		return FALSE
@@ -252,7 +254,7 @@
 	if(!calculate_yield())//So that this can detect if we're missing reagents
 		to_delete = TRUE
 		return
-	seconds_per_tick = deal_with_time(seconds_per_tick)
+	delta_time = deal_with_time(delta_time)
 
 	delta_t = 0 //how far off optimal temp we care
 	delta_ph = 0 //How far off the pH we are
@@ -319,13 +321,13 @@
 	purity *= purity_modifier
 
 	//Now we calculate how much to add - this is normalised to the rate up limiter
-	var/delta_chem_factor = (reaction.rate_up_lim*delta_t)*seconds_per_tick//add/remove factor
+	var/delta_chem_factor = (reaction.rate_up_lim*delta_t)*delta_time//add/remove factor
 	var/total_step_added = 0
 	//keep limited
 	if(delta_chem_factor > step_target_vol)
 		delta_chem_factor = step_target_vol
-	else if (delta_chem_factor < CHEMICAL_QUANTISATION_LEVEL)
-		delta_chem_factor = CHEMICAL_QUANTISATION_LEVEL
+	else if (delta_chem_factor < CHEMICAL_VOLUME_MINIMUM)
+		delta_chem_factor = CHEMICAL_VOLUME_MINIMUM
 	//Normalise to multiproducts
 	delta_chem_factor /= product_ratio
 	//delta_chem_factor = round(delta_chem_factor, CHEMICAL_QUANTISATION_LEVEL) // Might not be needed - left here incase testmerge shows that it does. Remove before full commit.
@@ -345,8 +347,21 @@
 	for(var/product in reaction.results)
 		//create the products
 		step_add = delta_chem_factor * reaction.results[product]
+		//If we make purities in real time
+		if(reaction.reaction_flags & REACTION_REAL_TIME_SPLIT && purity < 1)
+			var/datum/reagent/product_ref = GLOB.chemical_reagents_list[product]
+			if(purity < reaction.purity_min && product_ref.failed_chem) //If we're failed
+				holder.add_reagent(product_ref.failed_chem, step_add, null, cached_temp, (1-purity), override_base_ph = TRUE)
+			else if(purity < product_ref.inverse_chem_val && product_ref.inverse_chem) //If we're inverse
+				holder.add_reagent(product_ref.inverse_chem, step_add, null, cached_temp, (1-purity), override_base_ph = TRUE)
+			else if(product_ref.impure_chem && product_ref.impure_chem) //if we're impure
+				holder.add_reagent(product*purity, step_add, null, cached_temp, purity, override_base_ph = TRUE)
+				holder.add_reagent(product_ref.impure_chem*(1-purity), step_add, null, cached_temp, (1-purity), override_base_ph = TRUE)
+			else //We can get here if the flag is set, but there's no associated impure_chem assigned. In some cases this is desired (i.e. multiver only wants to real time split it's inverse chem)
+				holder.add_reagent(product, step_add, null, cached_temp, purity, override_base_ph = TRUE)
 		//Default handiling
-		holder.add_reagent(product, step_add, null, cached_temp, purity, override_base_ph = TRUE)
+		else
+			holder.add_reagent(product, step_add, null, cached_temp, purity, override_base_ph = TRUE)
 
 		//Apply pH changes
 		var/pH_adjust
@@ -360,9 +375,9 @@
 
 	#ifdef REAGENTS_TESTING //Kept in so that people who want to write fermireactions can contact me with this log so I can help them
 	if(GLOB.Debug2) //I want my spans for my sanity
-		message_admins("<span class='green'>Reaction step active for:[reaction.type]</span>")
-		message_admins("<span class='notice'>|Reaction conditions| Temp: [holder.chem_temp], pH: [holder.ph], reactions: [length(holder.reaction_list)], awaiting reactions: [length(holder.failed_but_capable_reactions)], no. reagents:[length(holder.reagent_list)], no. prev reagents: [length(holder.previous_reagent_list)]</span>")
-		message_admins("<span class='warning'>Reaction vars: PreReacted:[reacted_vol] of [step_target_vol] of total [target_vol]. delta_t [delta_t], multiplier [multiplier], delta_chem_factor [delta_chem_factor] Pfactor [product_ratio], purity of [purity] from a delta_ph of [delta_ph]. DeltaTime: [seconds_per_tick]</span>")
+		message_admins("<span class='green'>Reaction step active for:[reaction.type]</spans>")
+		message_admins("<span class='notice'>|Reaction conditions| Temp: [holder.chem_temp], pH: [holder.ph], reactions: [length(holder.reaction_list)], awaiting reactions: [length(holder.failed_but_capable_reactions)], no. reagents:[length(holder.reagent_list)], no. prev reagents: [length(holder.previous_reagent_list)]<spans>")
+		message_admins("<span class='warning'>Reaction vars: PreReacted:[reacted_vol] of [step_target_vol] of total [target_vol]. delta_t [delta_t], multiplier [multiplier], delta_chem_factor [delta_chem_factor] Pfactor [product_ratio], purity of [purity] from a delta_ph of [delta_ph]. DeltaTime: [delta_time]")
 	#endif
 
 	//Apply thermal output of reaction to beaker

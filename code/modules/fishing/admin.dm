@@ -1,7 +1,7 @@
 // Helper tool to see fishing probabilities with different setups
 /datum/admins/proc/fishing_calculator()
 	set name = "Fishing Calculator"
-	set category = "Debug"
+	set category = "Дбг"
 
 	if(!check_rights(R_DEBUG))
 		return

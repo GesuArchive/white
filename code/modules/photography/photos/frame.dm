@@ -1,11 +1,10 @@
 // Picture frames
 
 /obj/item/wallframe/picture
-	name = "picture frame"
-	desc = "The perfect showcase for your favorite deathtrap memories."
+	name = "рамка картины"
+	desc = "Лучший способ показать всем лучшие смертельные ловушки."
 	icon = 'icons/obj/signs.dmi'
-	custom_materials = list(/datum/material/wood =SHEET_MATERIAL_AMOUNT)
-	resistance_flags = FLAMMABLE
+	custom_materials = list(/datum/material/wood = 2000)
 	flags_1 = 0
 	icon_state = "frame-overlay"
 	result_path = /obj/structure/sign/picture_frame
@@ -18,22 +17,22 @@
 			if(!user.transferItemToLoc(I, src))
 				return
 			displayed = I
-			update_appearance()
+			update_icon()
 		else
-			to_chat(user, span_warning("\The [src] already contains a photo."))
+			to_chat(user, "<span class=notice><b>[src.name]</b> уже содержит фотографию.</span>")
 	..()
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/wallframe/picture/attack_hand(mob/user, list/modifiers)
+/obj/item/wallframe/picture/attack_hand(mob/user)
 	if(user.get_inactive_held_item() != src)
 		..()
 		return
 	if(contents.len)
 		var/obj/item/I = pick(contents)
 		user.put_in_hands(I)
-		to_chat(user, span_notice("You carefully remove the photo from \the [src]."))
+		to_chat(user, span_notice("Аккуратно достаю фотографию из <b>[src.name]</b>."))
 		displayed = null
-		update_appearance()
+		update_icon()
 	return ..()
 
 /obj/item/wallframe/picture/attack_self(mob/user)
@@ -62,19 +61,18 @@
 		I.forceMove(PF)
 
 /obj/structure/sign/picture_frame
-	name = "picture frame"
-	desc = "Every time you look it makes you laugh."
+	name = "фоторамка"
+	desc = "Заставляет ржать после каждого просмотра."
 	icon = 'icons/obj/signs.dmi'
 	icon_state = "frame-overlay"
-	custom_materials = list(/datum/material/wood =SHEET_MATERIAL_AMOUNT)
-	resistance_flags = FLAMMABLE
+	custom_materials = list(/datum/material/wood = 2000)
 	var/obj/item/photo/framed
-	var/persistence_id
-	var/del_id_on_destroy = FALSE
-	var/art_value = OK_ART
+	var/persistence_id = "random"
 	var/can_decon = TRUE
 
 #define FRAME_DEFINE(id) /obj/structure/sign/picture_frame/##id/persistence_id = #id
+
+FRAME_DEFINE(centcom)
 
 //Put default persistent frame defines here!
 
@@ -82,15 +80,13 @@
 
 /obj/structure/sign/picture_frame/Initialize(mapload, dir, building)
 	. = ..()
-	AddElement(/datum/element/art, art_value)
+	AddElement(/datum/element/art, OK_ART)
 	LAZYADD(SSpersistence.photo_frames, src)
 	if(dir)
 		setDir(dir)
 
 /obj/structure/sign/picture_frame/Destroy()
 	LAZYREMOVE(SSpersistence.photo_frames, src)
-	if(persistence_id && del_id_on_destroy)
-		SSpersistence.remove_photo_frames(persistence_id)
 	return ..()
 
 /obj/structure/sign/picture_frame/proc/get_photo_id()
@@ -99,7 +95,7 @@
 
 //Manual loading, DO NOT USE FOR HARDCODED/MAPPED IN ALBUMS. This is for if an album needs to be loaded mid-round from an ID.
 /obj/structure/sign/picture_frame/proc/persistence_load()
-	var/list/data = SSpersistence.get_photo_frames()
+	var/list/data = SSpersistence.GetPhotoFrames()
 	if(data[persistence_id])
 		load_from_id(data[persistence_id])
 
@@ -111,56 +107,42 @@
 		else
 			qdel(framed)
 		framed = P
-		update_appearance()
+		update_icon()
 
 /obj/structure/sign/picture_frame/examine(mob/user)
-	. = ..()
-	if(in_range(src, user))
-		framed?.show(user)
-
-/// Internal proc
-/obj/structure/sign/picture_frame/proc/try_deconstruct(mob/living/user, obj/item/tool)
-	if(!can_decon)
-		return FALSE
-	to_chat(user, span_notice("You start unsecuring [name]..."))
-	if(tool.use_tool(src, user, 3 SECONDS, volume=50))
-		playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		to_chat(user, span_notice("You unsecure [name]."))
-		deconstruct()
-	return TRUE
-
-/obj/structure/sign/picture_frame/screwdriver_act(mob/living/user, obj/item/tool)
-	return try_deconstruct(user, tool)
-
-/obj/structure/sign/picture_frame/wrench_act(mob/living/user, obj/item/tool)
-	return try_deconstruct(user, tool)
-
-/obj/structure/sign/picture_frame/wirecutter_act(mob/living/user, obj/item/tool)
-	if (!framed)
-		return FALSE
-	tool.play_tool_sound(src)
-	framed.forceMove(drop_location())
-	user.visible_message(span_warning("[user] cuts away [framed] from [src]!"))
-	framed = null
-	update_appearance()
-	return TOOL_ACT_TOOLTYPE_SUCCESS
-
+	if(in_range(src, user) && framed)
+		framed.show(user)
+		return list()
+	else
+		return ..()
 
 /obj/structure/sign/picture_frame/attackby(obj/item/I, mob/user, params)
+	if(can_decon && (I.tool_behaviour == TOOL_SCREWDRIVER || I.tool_behaviour == TOOL_WRENCH))
+		to_chat(user, span_notice("Начинаю разбирать [name]..."))
+		if(I.use_tool(src, user, 30, volume=50))
+			playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
+			to_chat(user, span_notice("Разбираю [name]."))
+			deconstruct()
 
-	if(istype(I, /obj/item/photo))
-		if(framed)
-			to_chat(user, span_warning("\The [src] already contains a photo."))
-			return TRUE
-		var/obj/item/photo/P = I
-		if(!user.transferItemToLoc(P, src))
-			return
-		framed = P
-		update_appearance()
-		return TRUE
+	else if(I.tool_behaviour == TOOL_WIRECUTTER && framed)
+		framed.forceMove(drop_location())
+		framed = null
+		user.visible_message(span_warning("[user] снимает [framed] с [src]!"))
+		return
+
+	else if(istype(I, /obj/item/photo))
+		if(!framed)
+			var/obj/item/photo/P = I
+			if(!user.transferItemToLoc(P, src))
+				return
+			framed = P
+			update_icon()
+		else
+			to_chat(user, "<span class=notice><b>[src.name]</b> уже содержит фотографию.</span>")
+
 	..()
 
-/obj/structure/sign/picture_frame/attack_hand(mob/user, list/modifiers)
+/obj/structure/sign/picture_frame/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -181,20 +163,32 @@
 		if(contents.len)
 			var/obj/item/I = pick(contents)
 			I.forceMove(F)
-		F.update_appearance()
+		F.update_icon()
 	qdel(src)
 
 
 /obj/structure/sign/picture_frame/showroom
-	name = "distinguished crew display"
-	desc = "A photo frame to commemorate crewmembers that distinguished themselves in the line of duty. WARNING: unauthorized tampering will be severely punished."
+	name = "фоторамка героев"
+	desc = "Здесь вы точно увидите настоящего героя. ВНИМАНИЕ: Замена фотографии без разрешения может караться баллоном в жопе."
 	can_decon = FALSE
+
+//persistent frames, make sure the same ID doesn't appear more than once per map
+/obj/structure/sign/picture_frame/showroom/one
+	persistence_id = "frame_showroom1"
+
+/obj/structure/sign/picture_frame/showroom/two
+	persistence_id = "frame_showroom2"
+
+/obj/structure/sign/picture_frame/showroom/three
+	persistence_id = "frame_showroom3"
+
+/obj/structure/sign/picture_frame/showroom/four
+	persistence_id = "frame_showroom4"
 
 /// This used to be a plaque portrait of a monkey. Now it's been revamped into something more.
 /obj/structure/sign/picture_frame/portrait
 	icon_state = "frame-monkey"
 	can_decon = FALSE
-	art_value = GOOD_ART
 	var/portrait_name
 	var/portrait_state
 	var/portrait_desc
@@ -203,7 +197,7 @@
 	. = ..()
 	switch(rand(1,4))
 		if(1) // Deempisi
-			name = "\improper Mr. Deempisi portrait"
+			name = "Mr. Deempisi portrait"
 			icon_state = "frame-monkey"
 			desc = "Under the portrait a plaque reads: 'While the meat grinder may not have spared you, fear not. Not one part of you has gone to waste... You were delicious.'"
 		if(2) // A fruit
@@ -211,7 +205,7 @@
 			icon_state = "frame-fruit"
 			desc = "<i>Ceci n'est pas une orange.</i>"
 		if(3) // Rat
-			name = "\improper Tom portrait"
+			name = "Tom portrait"
 			desc = "Jerry the cat is still not amused."
 			icon_state = "frame-rat"
 		if(4) // Ratvar
@@ -247,40 +241,4 @@
 /obj/structure/sign/picture_frame/portrait/examine_more(mob/user)
 	. = ..()
 	if(!framed)
-		. += span_notice("The frame and the picture are glued together, but you guess you could slip a photo between the two.")
-
-//persistent frames, make sure the same ID doesn't appear more than once per map
-/obj/structure/sign/picture_frame/showroom/one
-	persistence_id = "frame_showroom1"
-
-/obj/structure/sign/picture_frame/showroom/two
-	persistence_id = "frame_showroom2"
-
-/obj/structure/sign/picture_frame/showroom/three
-	persistence_id = "frame_showroom3"
-
-/obj/structure/sign/picture_frame/showroom/four
-	persistence_id = "frame_showroom4"
-
-// for the hall of fame escape shuttle
-/obj/structure/sign/picture_frame/hall_of_fame/one
-	persistence_id = "frame_hall_of_fame_1"
-
-/obj/structure/sign/picture_frame/hall_of_fame/two
-	persistence_id = "frame_hall_of_fame_2"
-
-/obj/structure/sign/picture_frame/hall_of_fame/three
-	persistence_id = "frame_hall_of_fame_3"
-
-/obj/structure/sign/picture_frame/hall_of_fame/four
-	persistence_id = "frame_hall_of_fame_4"
-
-/obj/structure/sign/picture_frame/portrait/bar
-	persistence_id = "frame_bar"
-	del_id_on_destroy = TRUE
-
-///Generates a persistence id unique to the current map. Every bar should feel a little bit different after all.
-/obj/structure/sign/picture_frame/portrait/bar/Initialize(mapload)
-	if(SSmapping.config.map_path != CUSTOM_MAP_PATH) //skip adminloaded custom maps.
-		persistence_id = "frame_bar_[SSmapping.config.map_name]"
-	return ..()
+		. += span_notice("<hr>The frame and the picture are glued together, but you guess you could slip a photo between the two.")

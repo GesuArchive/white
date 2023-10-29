@@ -53,54 +53,59 @@ const ExperimentStageRow = (props) => {
 
 export const TechwebServer = (props, context) => {
   const { act, data } = useBackend(context);
-  const { techwebs } = props;
+  const { servers } = props;
 
-  return techwebs.map((server, index) => (
-    <Box key={index} m={1} className="ExperimentTechwebServer__Web">
+  return (
+    <Box m={1} className="ExperimentTechwebServer__Web">
       <Flex
         align="center"
         justify="space-between"
         className="ExperimentTechwebServer__WebHeader">
         <Flex.Item className="ExperimentTechwebServer__WebName">
-          {server.web_id} / {server.web_org}
+          {servers[0].web_id} / {servers[0].web_org}
         </Flex.Item>
         <Flex.Item>
           <Button
             onClick={() =>
-              server.selected
+              servers[0].selected
                 ? act('clear_server')
-                : act('select_server', { 'ref': server.ref })
+                : act('select_server', { 'ref': servers[0].ref })
             }
-            content={server.selected ? 'Disconnect' : 'Connect'}
-            backgroundColor={server.selected ? 'good' : 'rgba(0, 0, 0, 0.4)'}
+            content={servers[0].selected ? 'Отключить' : 'Подключить'}
+            backgroundColor={servers[0].selected ? 'red' : 'green'}
+            color={servers[0].selected ? 'black' : 'white'}
             className="ExperimentTechwebServer__ConnectButton"
           />
         </Flex.Item>
       </Flex>
       <Box className="ExperimentTechwebServer__WebContent">
         <span>
-          Connectivity to this web is maintained by the following servers...
+          Подключение к этой сети удовлетворяется следующими серверами...
         </span>
         <LabeledList>
-          {server.all_servers.map((individual_servers, new_index) => (
-            <Box key={new_index}>{individual_servers}</Box>
-          ))}
+          {servers.map((server, index) => {
+            return (
+              <LabeledList.Item key={index} label={server.name}>
+                <i>В локации {server.location}</i>
+              </LabeledList.Item>
+            );
+          })}
         </LabeledList>
       </Box>
     </Box>
-  ));
+  );
 };
 
 export const ExperimentConfigure = (props, context) => {
   const { act, data } = useBackend(context);
   const { always_active, has_start_callback } = data;
-  let techwebs = data.techwebs ?? [];
+  let servers = data.servers ?? [];
 
   const experiments = sortBy((exp) => exp.name)(data.experiments ?? []);
 
   // Group servers together by web
   let webs = new Map();
-  techwebs.forEach((x) => {
+  servers.forEach((x) => {
     if (x.web_id !== null) {
       if (!webs.has(x.web_id)) {
         webs.set(x.web_id, []);
@@ -110,39 +115,39 @@ export const ExperimentConfigure = (props, context) => {
   });
 
   return (
-    <Window resizable width={600} height={735}>
+    <Window width={600} height={735}>
       <Window.Content>
         <Flex direction="column" height="100%">
           <Flex.Item mb={1}>
-            <Section title="Servers">
+            <Section title="Серверы">
               <Box>
                 {webs.size > 0
-                  ? 'Please select a techweb to connect to...'
-                  : 'Found no servers connected to a techweb!'}
+                  ? 'Выберите технологическую сеть...'
+                  : 'Не найдено доступных сетей!'}
               </Box>
               {webs.size > 0 &&
-                Array.from(webs, ([techweb, techwebs]) => (
-                  <TechwebServer key={techweb} techwebs={techwebs} />
+                Array.from(webs, ([techweb, servers]) => (
+                  <TechwebServer key={techweb} servers={servers} />
                 ))}
             </Section>
           </Flex.Item>
           <Flex.Item mb={has_start_callback ? 1 : 0} grow={1}>
-            {techwebs.some((e) => e.selected) && (
+            {servers.some((e) => e.selected) && (
               <Section
-                title="Experiments"
+                title="Эксперименты"
                 className="ExperimentConfigure__ExperimentsContainer">
                 <Flex.Item mb={1}>
                   {(experiments.length &&
                     always_active &&
-                    'This device is configured to attempt to perform all available' +
-                      ' experiments, so no further configuration is necessary.') ||
+                    'Это устройство настроено на проведение всех доступных' +
+                      ' экспериментов, так что должно работать как надо.') ||
                     (experiments.length &&
-                      'Select one of the following experiments...') ||
-                    'No experiments found on this web'}
+                      'Выберите подходящий эксперимент...') ||
+                    'Не обнаружено экспериментов в сети'}
                 </Flex.Item>
                 <Flex.Item>
                   {experiments.map((exp, i) => {
-                    return <Experiment key={i} exp={exp} />;
+                    return <Experiment key={i} exp={exp} controllable />;
                   })}
                 </Flex.Item>
               </Section>
@@ -156,7 +161,7 @@ export const ExperimentConfigure = (props, context) => {
                 onClick={() => act('start_experiment_callback')}
                 disabled={!experiments.some((e) => e.selected)}
                 icon="flask">
-                Perform Experiment
+                Провести эксперимент
               </Button>
             </Flex.Item>
           )}
@@ -168,24 +173,44 @@ export const ExperimentConfigure = (props, context) => {
 
 export const Experiment = (props, context) => {
   const { act, data } = useBackend(context);
-  const { exp } = props;
-  const { name, description, tag, selected, progress, performance_hint, ref } =
-    exp;
+  const { exp, controllable } = props;
+  const {
+    name,
+    description,
+    tag,
+    selectable,
+    selected,
+    progress,
+    performance_hint,
+    ref,
+  } = exp;
 
   return (
     <Box m={1} key={ref} className="ExperimentConfigure__ExperimentPanel">
       <Button
         fluid
         onClick={() =>
-          selected
+          controllable &&
+          (selected
             ? act('clear_experiment')
-            : act('select_experiment', { 'ref': ref })
+            : act('select_experiment', { 'ref': ref }))
         }
-        backgroundColor={selected ? 'good' : '#40628a'}
-        className="ExperimentConfigure__ExperimentName">
+        backgroundColor={selected ? 'good' : '#111111'}
+        className="ExperimentConfigure__ExperimentName"
+        disabled={controllable && !selectable}>
         <Flex align="center" justify="space-between">
-          <Flex.Item color={'white'}>{name}</Flex.Item>
-          <Flex.Item color={'rgba(255, 255, 255, 0.5)'}>
+          <Flex.Item
+            color={
+              !controllable || selectable ? 'white' : 'rgba(0, 0, 0, 0.6)'
+            }>
+            {name}
+          </Flex.Item>
+          <Flex.Item
+            color={
+              !controllable || selectable
+                ? 'rgba(255, 255, 255, 0.5)'
+                : 'rgba(0, 0, 0, 0.5)'
+            }>
             <Box className="ExperimentConfigure__TagContainer">
               {tag}
               <Tooltip content={performance_hint} position="bottom-start">

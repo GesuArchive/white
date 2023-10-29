@@ -1,17 +1,17 @@
 
 /datum/action/item_action/cult_dagger
-	name = "Draw Blood Rune"
-	desc = "Use the ritual dagger to create a powerful blood rune"
+	name = "Создать кровавую руну"
+	desc = "Используйте ритуальный кинжал, чтобы создать мощную кровавую руну"
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "draw"
 	buttontooltipstyle = "cult"
 	background_icon_state = "bg_demon"
 	overlay_icon_state = "bg_demon_border"
-
 	default_button_position = "6:157,4:-2"
 
 /datum/action/item_action/cult_dagger/Grant(mob/grant_to)
 	if(!IS_CULTIST(grant_to))
+		Remove(owner)
 		return
 
 	return ..()
@@ -29,11 +29,11 @@
 		return
 
 	if(!isliving(owner))
-		to_chat(owner, span_warning("You lack the necessary living force for this action."))
+		to_chat(owner, span_warning("Мне не хватает необходимой жизненной силы для этого действия."))
 		return
 
 	var/mob/living/living_owner = owner
 	if (living_owner.usable_hands <= 0)
-		to_chat(living_owner, span_warning("You don't have any usable hands!"))
+		to_chat(living_owner, span_warning("Как я буду делать это без рук?"))
 	else
-		to_chat(living_owner, span_warning("Your hands are full!"))
+		to_chat(living_owner, span_warning("Мои руки заняты!"))

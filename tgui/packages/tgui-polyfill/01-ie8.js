@@ -5,7 +5,6 @@
  */
 
 /* eslint-disable */
-// prettier-ignore
 (function(window){
   /*! (C) WebReflection Mit Style License */
   if (document.createEvent) return;
@@ -370,7 +369,7 @@
         var
           self = this,
           ontype = 'on' + type,
-          temple = self[SECRET] ||
+          temple =  self[SECRET] ||
                       defineProperty(
                         self, SECRET, {value: {}}
                       )[SECRET],
@@ -441,7 +440,7 @@
         var
           self = this,
           ontype = 'on' + e.type,
-          temple = self[SECRET],
+          temple =  self[SECRET],
           currentType = temple && temple[ontype],
           valid = !!currentType,
           parentNode
@@ -467,7 +466,7 @@
         var
           self = this,
           ontype = 'on' + type,
-          temple = self[SECRET],
+          temple =  self[SECRET],
           currentType = temple && temple[ontype],
           handlers = currentType && currentType.h,
           i = handlers ? find(handlers, handler) : -1
@@ -501,7 +500,7 @@
         var
           self = this,
           ontype = 'on' + type,
-          temple = self[SECRET] ||
+          temple =  self[SECRET] ||
                       defineProperty(
                         self, SECRET, {value: {}}
                       )[SECRET],
@@ -523,7 +522,7 @@
         var
           self = this,
           ontype = 'on' + e.type,
-          temple = self[SECRET],
+          temple =  self[SECRET],
           currentType = temple && temple[ontype],
           valid = !!currentType
         ;

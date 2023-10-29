@@ -1,15 +1,15 @@
 //does low brute damage, oxygen damage, and stamina damage and wets tiles when damaged
 /datum/blobstrain/reagent/pressurized_slime
-	name = "Pressurized Slime"
-	description = "will do low brute and oxygen damage, high stamina damage, and makes tiles under targets very slippery."
-	effectdesc = "will also make tiles slippery near attacked blobs."
-	analyzerdescdamage = "Does low brute and oxygen damage, high stamina damage, and makes tiles under targets very slippery, extinguishing them. Is resistant to brute attacks."
-	analyzerdesceffect = "When attacked or killed, lubricates nearby tiles, extinguishing anything on them."
+	name = "Сжатая слизь"
+	description = "будет наносить низкий грубый урон, кислород и выносливость, а также мокрые плитки под целями."
+	effectdesc = "также будет намочить плитки рядом с атакованными или убитыми пятнами."
+	analyzerdescdamage = "Наносит низкий грубый урон, низкий кислородный урон, истощает выносливость и смачивает плитки под целями, тушая их. Устойчив к грубым атакам."
+	analyzerdesceffect = "Когда атакован или убит, смазывает близлежащие плитки, тушая что-либо на них."
 	color = "#AAAABB"
 	complementary_color = "#BBBBAA"
-	blobbernaut_message = "emits slime at"
-	message = "The blob splashes into you"
-	message_living = ", and you gasp for breath"
+	blobbernaut_message = "испускает слизь в"
+	message = "Масса испускает что-то в меня"
+	message_living = " и становится трудно дышать"
 	reagent = /datum/reagent/blob/pressurized_slime
 
 /datum/blobstrain/reagent/pressurized_slime/damage_reaction(obj/structure/blob/B, damage, damage_type, damage_flag)
@@ -21,7 +21,7 @@
 
 /datum/blobstrain/reagent/pressurized_slime/death_reaction(obj/structure/blob/B, damage_flag)
 	if(damage_flag == MELEE || damage_flag == BULLET || damage_flag == LASER)
-		B.visible_message(span_boldwarning("The blob ruptures, spraying the area with liquid!"))
+		B.visible_message(span_boldwarning("Масс разрывается, орошая область жидкостью!"))
 		extinguisharea(B, 50)
 
 /datum/blobstrain/reagent/pressurized_slime/proc/extinguisharea(obj/structure/blob/B, probchance)
@@ -35,8 +35,9 @@
 				L.extinguish_mob()
 
 /datum/reagent/blob/pressurized_slime
-	name = "Pressurized Slime"
-	taste_description = "a sponge"
+	name = "Сжатая слизь"
+	enname = "Pressurized Slime"
+	taste_description = "губка"
 	color = "#AAAABB"
 
 /datum/reagent/blob/pressurized_slime/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/overmind)
@@ -45,7 +46,7 @@
 	var/turf/open/location_turf = get_turf(exposed_mob)
 	if(istype(location_turf) && prob(reac_volume))
 		location_turf.MakeSlippery(TURF_WET_LUBE, min_wet_time = 10 SECONDS, wet_time_to_add = 5 SECONDS)
-		exposed_mob.adjust_wet_stacks(reac_volume / 10)
+		exposed_mob.adjust_wet_stacks((reac_volume / 10))
 	exposed_mob.apply_damage(0.4*reac_volume, BRUTE, wound_bonus=CANT_WOUND)
 	if(exposed_mob)
 		exposed_mob.adjustStaminaLoss(reac_volume, FALSE)

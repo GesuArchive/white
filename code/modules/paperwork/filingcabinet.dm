@@ -1,9 +1,9 @@
 /* Filing cabinets!
  * Contains:
- * Filing Cabinets
- * Security Record Cabinets
- * Medical Record Cabinets
- * Employment Contract Cabinets
+ *		Filing Cabinets
+ *		Security Record Cabinets
+ *		Medical Record Cabinets
+ *		Employment Contract Cabinets
  */
 
 
@@ -11,24 +11,26 @@
  * Filing Cabinets
  */
 /obj/structure/filingcabinet
-	name = "filing cabinet"
-	desc = "A large cabinet with drawers."
-	icon = 'icons/obj/service/bureaucracy.dmi'
+	name = "Картотека"
+	desc = "Большой шкаф с ящиками."
+	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "filingcabinet"
 	density = TRUE
 	anchored = TRUE
 
+
 /obj/structure/filingcabinet/chestdrawer
-	name = "chest drawer"
+	name = "Комод"
 	icon_state = "chestdrawer"
 
 /obj/structure/filingcabinet/chestdrawer/wheeled
-	name = "rolling chest drawer"
-	desc = "A small cabinet with drawers. This one has wheels!"
+	name = "Комод на колёсиках"
+	desc = "Небольшой шкаф с ящиками. У этого есть колёсики!"
 	anchored = FALSE
 
-/obj/structure/filingcabinet/filingcabinet //not changing the path to avoid unnecessary map issues, but please don't name stuff like this in the future -Pete
+/obj/structure/filingcabinet/filingcabinet	//not changing the path to avoid unnecessary map issues, but please don't name stuff like this in the future -Pete
 	icon_state = "tallcabinet"
+
 
 /obj/structure/filingcabinet/Initialize(mapload)
 	. = ..()
@@ -44,66 +46,46 @@
 			I.forceMove(loc)
 	qdel(src)
 
-/obj/structure/filingcabinet/attackby(obj/item/P, mob/living/user, params)
-	var/list/modifiers = params2list(params)
-	if(P.tool_behaviour == TOOL_WRENCH && LAZYACCESS(modifiers, RIGHT_CLICK))
-		to_chat(user, span_notice("You begin to [anchored ? "unwrench" : "wrench"] [src]."))
+/obj/structure/filingcabinet/attackby(obj/item/P, mob/user, params)
+	if(P.tool_behaviour == TOOL_WRENCH && user.a_intent != INTENT_HELP)
+		to_chat(user, span_notice("Начинаю [anchored ? "unwrench" : "wrench"] [src]."))
 		if(P.use_tool(src, user, 20, volume=50))
-			to_chat(user, span_notice("You successfully [anchored ? "unwrench" : "wrench"] [src]."))
+			to_chat(user, span_notice("Успешно [anchored ? "unwrench" : "wrench"] [src]."))
 			set_anchored(!anchored)
 	else if(P.w_class < WEIGHT_CLASS_NORMAL)
 		if(!user.transferItemToLoc(P, src))
 			return
-		to_chat(user, span_notice("You put [P] in [src]."))
+		to_chat(user, span_notice("Кладу [P] в [src]."))
 		icon_state = "[initial(icon_state)]-open"
-		sleep(0.5 SECONDS)
+		sleep(5)
 		icon_state = initial(icon_state)
-	else if(!user.combat_mode)
-		to_chat(user, span_warning("You can't put [P] in [src]!"))
+		updateUsrDialog()
+	else if(user.a_intent != INTENT_HARM)
+		to_chat(user, span_warning("Не могу положить [P] в [src]!"))
 	else
 		return ..()
 
-/obj/structure/filingcabinet/attack_hand(mob/living/carbon/user, list/modifiers)
+
+/obj/structure/filingcabinet/ui_interact(mob/user)
 	. = ..()
-	ui_interact(user)
-
-/obj/structure/filingcabinet/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "FilingCabinet")
-		ui.open()
-
-/obj/structure/filingcabinet/ui_data(mob/user)
-	var/list/data = list()
-
-	data["cabinet_name"] = "[name]"
-	data["contents"] = list()
-	data["contents_ref"] = list()
-	for(var/obj/item/content in src)
-		data["contents"] += "[content]"
-		data["contents_ref"] += "[REF(content)]"
-
-	return data
-
-/obj/structure/filingcabinet/ui_act(action, params)
-	. = ..()
-	if(.)
+	if(contents.len <= 0)
+		to_chat(user, span_notice("[capitalize(src.name)] пуст."))
 		return
 
-	switch(action)
-		// Take the object out
-		if("remove_object")
-			var/obj/item/content = locate(params["ref"]) in src
-			if(istype(content) && in_range(src, usr))
-				usr.put_in_hands(content)
-				icon_state = "[initial(icon_state)]-open"
-				addtimer(VARSET_CALLBACK(src, icon_state, initial(icon_state)), 5)
-				return TRUE
+	var/dat = "<center><table>"
+	var/i
+	for(i=contents.len, i>=1, i--)
+		var/obj/item/P = contents[i]
+		dat += "<tr><td><a href='?src=[REF(src)];retrieve=[REF(P)]'>[P.name]</a></td></tr>"
+	dat += "</table></center>"
+	user << browse("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>[name]</title></head><body>[dat]</body></html>", "window=filingcabinet;size=350x300")
+
 
 /obj/structure/filingcabinet/attack_tk(mob/user)
 	if(anchored)
 		return attack_self_tk(user)
 	return ..()
+
 
 /obj/structure/filingcabinet/attack_self_tk(mob/user)
 	. = COMPONENT_CANCEL_ATTACK_CHAIN
@@ -113,9 +95,24 @@
 			I.forceMove(loc)
 			if(prob(25))
 				step_rand(I)
-			to_chat(user, span_notice("You pull \a [I] out of [src] at random."))
+			to_chat(user, span_notice("Случайно вытаскиваю \a [I] из [src]."))
 			return
-	to_chat(user, span_notice("You find nothing in [src]."))
+	to_chat(user, span_notice("Ничего не нахожу в [src]."))
+
+
+/obj/structure/filingcabinet/Topic(href, href_list)
+	if(!usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(usr)))
+		return
+	if(href_list["retrieve"])
+		usr << browse("", "window=filingcabinet") // Close the menu
+
+		var/obj/item/P = locate(href_list["retrieve"]) in src //contents[retrieveindex]
+		if(istype(P) && in_range(src, usr))
+			usr.put_in_hands(P)
+			updateUsrDialog()
+			icon_state = "[initial(icon_state)]-open"
+			addtimer(VARSET_CALLBACK(src, icon_state, initial(icon_state)), 5)
+
 
 /*
  * Security Record Cabinets
@@ -124,15 +121,25 @@
 	var/virgin = TRUE
 
 /obj/structure/filingcabinet/security/proc/populate()
-	if(!virgin)
-		return
-	for(var/datum/record/crew/target in GLOB.manifest.general)
-		var/obj/item/paper/rapsheet = target.get_rapsheet()
-		rapsheet.forceMove(src)
-		virgin = FALSE //tabbing here is correct- it's possible for people to try and use it
-					//before the records have been generated, so we do this inside the loop.
+	if(virgin)
+		for(var/datum/data/record/G in GLOB.data_core.general)
+			var/datum/data/record/S = find_record("name", G.fields["name"], GLOB.data_core.security)
+			if(!S)
+				continue
+			var/obj/item/paper/P = new /obj/item/paper(src)
+			P.info = "<CENTER><B>Security Record</B></CENTER><BR>"
+			P.info += "Name: [G.fields["name"]] ID: [G.fields["id"]]<BR>\nGender: [G.fields["gender"]]<BR>\nAge: [G.fields["age"]]<BR>\nFingerprint: [G.fields["fingerprint"]]<BR>\nPhysical Status: [G.fields["p_stat"]]<BR>\nMental Status: [G.fields["m_stat"]]<BR>"
+			P.info += "<BR>\n<CENTER><B>Security Data</B></CENTER><BR>\nCriminal Status: [S.fields["criminal"]]<BR>\n<BR>\nCrimes: [S.fields["crim"]]<BR>\nDetails: [S.fields["crim_d"]]<BR>\n<BR>\nImportant Notes:<BR>\n\t[S.fields["notes"]]<BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>"
+			var/counter = 1
+			while(S.fields["com_[counter]"])
+				P.info += "[S.fields["com_[counter]"]]<BR>"
+				counter++
+			P.info += "</TT>"
+			P.name = "бумага - '[G.fields["name"]]'"
+			virgin = FALSE	//tabbing here is correct- it's possible for people to try and use it
+						//before the records have been generated, so we do this inside the loop.
 
-/obj/structure/filingcabinet/security/attack_hand(mob/user, list/modifiers)
+/obj/structure/filingcabinet/security/attack_hand()
 	populate()
 	return ..()
 
@@ -148,22 +155,26 @@
 	var/virgin = TRUE
 
 /obj/structure/filingcabinet/medical/proc/populate()
-	if(!virgin)
-		return
-	for(var/datum/record/crew/record in GLOB.manifest.general)
-		var/obj/item/paper/med_record_paper = new /obj/item/paper(src)
-		var/med_record_text = "<CENTER><B>Medical Record</B></CENTER><BR>"
-		med_record_text += "Name: [record.name] Rank: [record.rank]<BR>\nGender: [record.gender]<BR>\nAge: [record.age]<BR>"
-		med_record_text += "<BR>\n<CENTER><B>Medical Data</B></CENTER><BR>\nBlood Type: [record.blood_type]<BR>\nDNA: [record.dna_string]<BR>\n<BR>\nPhysical Status: [record.physical_status]<BR>\nMental Status: [record.mental_status]<BR>\nMinor Disabilities: [record.minor_disabilities]<BR>\nDetails: [record.minor_disabilities_desc]<BR>\n<BR>\nMajor Disabilities: [record.major_disabilities]<BR>\nDetails: [record.major_disabilities_desc]<BR>\n<BR>\nImportant Notes:<BR>\n\t[record.medical_notes]<BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>"
-		med_record_text += "</TT>"
-		med_record_paper.add_raw_text(med_record_text)
-		med_record_paper.name = "paper - '[record.name]'"
-		med_record_paper.update_appearance()
-		virgin = FALSE //tabbing here is correct- it's possible for people to try and use it
+	if(virgin)
+		for(var/datum/data/record/G in GLOB.data_core.general)
+			var/datum/data/record/M = find_record("name", G.fields["name"], GLOB.data_core.medical)
+			if(!M)
+				continue
+			var/obj/item/paper/P = new /obj/item/paper(src)
+			P.info = "<CENTER><B>Medical Record</B></CENTER><BR>"
+			P.info += "Name: [G.fields["name"]] ID: [G.fields["id"]]<BR>\nGender: [G.fields["gender"]]<BR>\nAge: [G.fields["age"]]<BR>\nFingerprint: [G.fields["fingerprint"]]<BR>\nPhysical Status: [G.fields["p_stat"]]<BR>\nMental Status: [G.fields["m_stat"]]<BR>"
+			P.info += "<BR>\n<CENTER><B>Medical Data</B></CENTER><BR>\nBlood Type: [M.fields["blood_type"]]<BR>\nDNA: [M.fields["b_dna"]]<BR>\n<BR>\nMinor Disabilities: [M.fields["mi_dis"]]<BR>\nDetails: [M.fields["mi_dis_d"]]<BR>\n<BR>\nMajor Disabilities: [M.fields["ma_dis"]]<BR>\nDetails: [M.fields["ma_dis_d"]]<BR>\n<BR>\nAllergies: [M.fields["alg"]]<BR>\nDetails: [M.fields["alg_d"]]<BR>\n<BR>\nCurrent Diseases: [M.fields["cdi"]] (per disease info placed in log/comment section)<BR>\nDetails: [M.fields["cdi_d"]]<BR>\n<BR>\nImportant Notes:<BR>\n\t[M.fields["notes"]]<BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>"
+			var/counter = 1
+			while(M.fields["com_[counter]"])
+				P.info += "[M.fields["com_[counter]"]]<BR>"
+				counter++
+			P.info += "</TT>"
+			P.name = "бумага - '[G.fields["name"]]'"
+			virgin = FALSE	//tabbing here is correct- it's possible for people to try and use it
 						//before the records have been generated, so we do this inside the loop.
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/structure/filingcabinet/medical/attack_hand(mob/user, list/modifiers)
+/obj/structure/filingcabinet/medical/attack_hand()
 	populate()
 	return ..()
 
@@ -192,13 +203,17 @@ GLOBAL_LIST_EMPTY(employmentCabinets)
 
 /obj/structure/filingcabinet/employment/proc/fillCurrent()
 	//This proc fills the cabinet with the current crew.
-	for(var/datum/record/locked/target in GLOB.manifest.locked)
-		var/datum/mind/filed_mind = target.mind_ref.resolve()
-		if(filed_mind && ishuman(filed_mind.current))
-			addFile(filed_mind.current)
+	for(var/record in GLOB.data_core.locked)
+		var/datum/data/record/G = record
+		if(!G)
+			continue
+		var/datum/mind/M = G.fields["mindref"]
+		if(M && ishuman(M.current))
+			addFile(M.current)
+
 
 /obj/structure/filingcabinet/employment/proc/addFile(mob/living/carbon/human/employee)
-	new /obj/item/paper/employment_contract(src, employee.mind.name)
+	new /obj/item/paper/contract/employment(src, employee)
 
 /obj/structure/filingcabinet/employment/interact(mob/user)
 	if(virgin)

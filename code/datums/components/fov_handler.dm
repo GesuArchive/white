@@ -27,7 +27,7 @@
 
 	blocker_mask = new
 	visual_shadow = new
-	visual_shadow.alpha = parent_client?.prefs.read_preference(/datum/preference/numeric/fov_darkness)
+	visual_shadow.alpha = 255
 	set_fov_angle(fov_type)
 	on_dir_change(mob_parent, mob_parent.dir, mob_parent.dir)
 	update_fov_size()
@@ -105,7 +105,6 @@
 	parent_client.screen -= blocker_mask
 	parent_client.screen -= visual_shadow
 
-
 /datum/component/fov_handler/proc/add_mask()
 	var/mob/parent_mob = parent
 	var/client/parent_client = parent_mob.client
@@ -120,8 +119,8 @@
 /// When a direction of the user changes, so do the masks
 /datum/component/fov_handler/proc/on_dir_change(mob/source, old_dir, new_dir)
 	SIGNAL_HANDLER
-	blocker_mask.dir = new_dir
-	visual_shadow.dir = new_dir
+	blocker_mask?.dir = new_dir
+	visual_shadow?.dir = new_dir
 
 /// When a mob logs out, delete the component
 /datum/component/fov_handler/proc/mob_logout(mob/source)
@@ -130,12 +129,12 @@
 
 /datum/component/fov_handler/RegisterWithParent()
 	. = ..()
-	RegisterSignal(parent, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_change))
-	RegisterSignal(parent, COMSIG_LIVING_DEATH, PROC_REF(update_mask))
-	RegisterSignal(parent, COMSIG_LIVING_REVIVE, PROC_REF(update_mask))
-	RegisterSignal(parent, COMSIG_MOB_CLIENT_CHANGE_VIEW, PROC_REF(update_fov_size))
-	RegisterSignal(parent, COMSIG_MOB_RESET_PERSPECTIVE, PROC_REF(update_mask))
-	RegisterSignal(parent, COMSIG_MOB_LOGOUT, PROC_REF(mob_logout))
+	RegisterSignal(parent, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_change)
+	RegisterSignal(parent, COMSIG_LIVING_DEATH, .proc/update_mask)
+	RegisterSignal(parent, COMSIG_LIVING_REVIVE, .proc/update_mask)
+	RegisterSignal(parent, COMSIG_MOB_CLIENT_CHANGE_VIEW, .proc/update_fov_size)
+	RegisterSignal(parent, COMSIG_MOB_RESET_PERSPECTIVE, .proc/update_mask)
+	RegisterSignal(parent, COMSIG_MOB_LOGOUT, .proc/mob_logout)
 
 /datum/component/fov_handler/UnregisterFromParent()
 	. = ..()

@@ -1,4 +1,3 @@
-GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 
 //////////////////////////////////////////////
 //                                          //
@@ -14,10 +13,13 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 	protected_roles = list(
 		JOB_CAPTAIN,
 		JOB_DETECTIVE,
+		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_HEAD_OF_SECURITY,
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_INTERN,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -53,7 +55,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 /datum/dynamic_ruleset/roundstart/malf_ai
 	name = "Malfunctioning AI"
 	antag_flag = ROLE_MALF
-	antag_datum = /datum/antagonist/malf_ai
+	antag_datum = /datum/antagonist/traitor
 	minimum_required_age = 14
 	exclusive_roles = list(JOB_AI)
 	required_candidates = 1
@@ -87,70 +89,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 		new_malf.mind.special_role = ROLE_MALF
 		GLOB.pre_setup_antags += new_malf.mind
 		// We need an AI for the malf roundstart ruleset to execute. This means that players who get selected as malf AI get priority, because antag selection comes before role selection.
-		LAZYADDASSOC(SSjob.dynamic_forced_occupations, new_malf, "AI")
-	return TRUE
-
-//////////////////////////////////////////
-//                                      //
-//           BLOOD BROTHERS             //
-//                                      //
-//////////////////////////////////////////
-
-/datum/dynamic_ruleset/roundstart/traitorbro
-	name = "Blood Brothers"
-	antag_flag = ROLE_BROTHER
-	antag_datum = /datum/antagonist/brother
-	protected_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_HEAD_OF_SECURITY,
-		JOB_PRISONER,
-		JOB_SECURITY_OFFICER,
-		JOB_WARDEN,
-	)
-	restricted_roles = list(
-		JOB_AI,
-		JOB_CYBORG,
-	)
-	required_candidates = 2
-	weight = 2
-	cost = 12
-	scaling_cost = 15
-	requirements = list(40,30,30,20,20,15,15,15,10,10)
-	antag_cap = 2 // Can pick 3 per team, but rare enough it doesn't matter.
-	var/list/datum/team/brother_team/pre_brother_teams = list()
-	var/const/min_team_size = 2
-
-/datum/dynamic_ruleset/roundstart/traitorbro/forget_startup()
-	pre_brother_teams = list()
-	return ..()
-
-/datum/dynamic_ruleset/roundstart/traitorbro/pre_execute(population)
-	. = ..()
-	var/num_teams = (get_antag_cap(population)/min_team_size) * (scaled_times + 1) // 1 team per scaling
-	for(var/j = 1 to num_teams)
-		if(candidates.len < min_team_size || candidates.len < required_candidates)
-			break
-		var/datum/team/brother_team/team = new
-		var/team_size = prob(10) ? min(3, candidates.len) : 2
-		for(var/k = 1 to team_size)
-			var/mob/bro = pick_n_take(candidates)
-			assigned += bro.mind
-			team.add_member(bro.mind)
-			bro.mind.special_role = "brother"
-			bro.mind.restricted_roles = restricted_roles
-			GLOB.pre_setup_antags += bro.mind
-		pre_brother_teams += team
-	return TRUE
-
-/datum/dynamic_ruleset/roundstart/traitorbro/execute()
-	for(var/datum/team/brother_team/team in pre_brother_teams)
-		team.pick_meeting_area()
-		team.forge_brother_objectives()
-		for(var/datum/mind/M in team.members)
-			M.add_antag_datum(/datum/antagonist/brother, team)
-			GLOB.pre_setup_antags -= M
-		team.update_name()
+		LAZYADDASSOC(SSjob.dynamic_forced_occupations, new_malf, JOB_AI)
 	return TRUE
 
 //////////////////////////////////////////////
@@ -166,10 +105,14 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 	protected_roles = list(
 		JOB_CAPTAIN,
 		JOB_DETECTIVE,
+		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_HEAD_OF_SECURITY,
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_RANGER,
+		JOB_INTERN,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -215,10 +158,14 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 	protected_roles = list(
 		JOB_CAPTAIN,
 		JOB_DETECTIVE,
+		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_HEAD_OF_SECURITY,
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_RANGER,
+		JOB_INTERN,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -226,11 +173,10 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 	)
 	required_candidates = 1
 	weight = 3
-	cost = 10
+	cost = 15
 	scaling_cost = 9
-	requirements = list(101,101,60,30,30,25,20,15,10,10)
+	requirements = list(101,101,101,40,35,20,20,15,10,10)
 	antag_cap = list("denominator" = 24)
-	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_HERETIC_SACRIFICE)
 
 
 /datum/dynamic_ruleset/roundstart/heretics/pre_execute(population)
@@ -279,29 +225,14 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 	weight = 2
 	cost = 20
 	requirements = list(90,90,90,80,60,40,30,20,10,10)
-	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_WIZARDDEN)
+	var/list/roundstart_wizards = list()
 
-/datum/dynamic_ruleset/roundstart/wizard/ready(forced = FALSE)
-	if(!check_candidates())
-		return FALSE
-	if(!length(GLOB.wizardstart))
+/datum/dynamic_ruleset/roundstart/wizard/acceptable(population=0, threat=0)
+	if(GLOB.wizardstart.len == 0)
 		log_admin("Cannot accept Wizard ruleset. Couldn't find any wizard spawn points.")
 		message_admins("Cannot accept Wizard ruleset. Couldn't find any wizard spawn points.")
 		return FALSE
 	return ..()
-
-/datum/dynamic_ruleset/roundstart/wizard/round_result()
-	for(var/datum/antagonist/wizard/wiz in GLOB.antagonists)
-		var/mob/living/real_wiz = wiz.owner?.current
-		if(isnull(real_wiz))
-			continue
-
-		var/turf/wiz_location = get_turf(real_wiz)
-		// If this wiz is alive AND not in an away level, then we know not all wizards are dead and can leave entirely
-		if(considered_alive(wiz.owner) && wiz_location && !is_away_level(wiz_location.z))
-			return
-
-	SSticker.news_report = WIZARD_KILLED
 
 /datum/dynamic_ruleset/roundstart/wizard/pre_execute()
 	. = ..()
@@ -310,7 +241,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 	var/mob/M = pick_n_take(candidates)
 	if (M)
 		assigned += M.mind
-		M.mind.set_assigned_role(SSjob.GetJobType(/datum/job/space_wizard))
+		M.mind.assigned_role = ROLE_WIZARD
 		M.mind.special_role = ROLE_WIZARD
 
 	return TRUE
@@ -381,25 +312,13 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 	return TRUE
 
 /datum/dynamic_ruleset/roundstart/bloodcult/round_result()
+	..()
 	if(main_cult.check_cult_victory())
 		SSticker.mode_result = "win - cult win"
 		SSticker.news_report = CULT_SUMMON
-		return
-
-	SSticker.mode_result = "loss - staff stopped the cult"
-
-	if(main_cult.size_at_maximum == 0)
-		CRASH("Cult team existed with a size_at_maximum of 0 at round end!")
-
-	// If more than a certain ratio of our cultists have escaped, give the "cult escape" resport.
-	// Otherwise, give the "cult failure" report.
-	var/ratio_to_be_considered_escaped = 0.5
-	var/escaped_cultists = 0
-	for(var/datum/mind/escapee as anything in main_cult.members)
-		if(considered_escaped(escapee))
-			escaped_cultists++
-
-	SSticker.news_report = (escaped_cultists / main_cult.size_at_maximum) >= ratio_to_be_considered_escaped ? CULT_ESCAPE : CULT_FAILURE
+	else
+		SSticker.mode_result = "loss - staff stopped the cult"
+		SSticker.news_report = CULT_FAILURE
 
 //////////////////////////////////////////////
 //                                          //
@@ -423,7 +342,6 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 	requirements = list(90,90,90,80,60,40,30,20,10,10)
 	flags = HIGH_IMPACT_RULESET
 	antag_cap = list("denominator" = 18, "offset" = 1)
-	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_NUKIEBASE)
 	var/required_role = ROLE_NUCLEAR_OPERATIVE
 	var/datum/team/nuclear/nuke_team
 
@@ -440,7 +358,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 			break
 		var/mob/M = pick_n_take(candidates)
 		assigned += M.mind
-		M.mind.set_assigned_role(SSjob.GetJobType(/datum/job/nuclear_operative))
+		M.mind.assigned_role = ROLE_NUCLEAR_OPERATIVE
 		M.mind.special_role = ROLE_NUCLEAR_OPERATIVE
 	return TRUE
 
@@ -465,10 +383,10 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 			SSticker.news_report = NUKE_SYNDICATE_BASE
 		if(NUKE_RESULT_NUKE_WIN)
 			SSticker.mode_result = "win - syndicate nuke"
-			SSticker.news_report = STATION_DESTROYED_NUKE
+			SSticker.news_report = STATION_NUKED
 		if(NUKE_RESULT_NOSURVIVORS)
 			SSticker.mode_result = "halfwin - syndicate nuke - did not evacuate in time"
-			SSticker.news_report = STATION_DESTROYED_NUKE
+			SSticker.news_report = STATION_NUKED
 		if(NUKE_RESULT_WRONG_STATION)
 			SSticker.mode_result = "halfwin - blew wrong station"
 			SSticker.news_report = NUKE_MISS
@@ -560,7 +478,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 			log_dynamic("[ruletype] [name] discarded [M.name] from head revolutionary due to ineligibility.")
 	if(revolution.members.len)
 		revolution.update_objectives()
-		revolution.update_rev_heads()
+		revolution.update_heads()
 		SSshuttle.registerHostileEnvironment(revolution)
 		return TRUE
 	log_dynamic("[ruletype] [name] failed to get any eligible headrevs. Refunding [cost] threat.")
@@ -576,10 +494,6 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 		return
 
 	finished = winner
-
-	if(winner == REVOLUTION_VICTORY)
-		GLOB.revolutionary_win = TRUE
-
 	return RULESET_STOP_PROCESSING
 
 /// Checks for revhead loss conditions and other antag datums.
@@ -637,17 +551,16 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 
 /datum/dynamic_ruleset/roundstart/nuclear/clown_ops/pre_execute()
 	. = ..()
-	if(!.)
-		return
-
-	var/list/nukes = SSmachines.get_machines_by_type(/obj/machinery/nuclearbomb/syndicate)
-	for(var/obj/machinery/nuclearbomb/syndicate/nuke as anything in nukes)
-		new /obj/machinery/nuclearbomb/syndicate/bananium(nuke.loc)
-		qdel(nuke)
-
-	for(var/datum/mind/clowns in assigned)
-		clowns.set_assigned_role(SSjob.GetJobType(/datum/job/clown_operative))
-		clowns.special_role = ROLE_CLOWN_OPERATIVE
+	if(.)
+		var/obj/machinery/nuclearbomb/syndicate/syndicate_nuke = locate() in GLOB.nuke_list
+		if(syndicate_nuke)
+			var/turf/nuke_turf = get_turf(syndicate_nuke)
+			if(nuke_turf)
+				new /obj/machinery/nuclearbomb/syndicate/bananium(nuke_turf)
+				qdel(syndicate_nuke)
+		for(var/datum/mind/clowns in assigned)
+			clowns.assigned_role = ROLE_CLOWN_OPERATIVE
+			clowns.special_role = ROLE_CLOWN_OPERATIVE
 
 //////////////////////////////////////////////
 //                                          //
@@ -684,6 +597,55 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 
 	spawn_meteors(ramp_up_final, wavetype)
 
+/// Ruleset for thieves
+/datum/dynamic_ruleset/roundstart/thieves
+	name = "Thieves"
+	antag_flag = ROLE_THIEF
+	antag_datum = /datum/antagonist/traitor
+	protected_roles = list(
+		JOB_CAPTAIN,
+		JOB_DETECTIVE,
+		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
+		JOB_HEAD_OF_SECURITY,
+		JOB_PRISONER,
+		JOB_SECURITY_OFFICER,
+		JOB_WARDEN,
+		JOB_RANGER,
+		JOB_INTERN,
+	)
+	restricted_roles = list(
+		JOB_AI,
+		JOB_CYBORG,
+	)
+	required_candidates = 1
+	weight = 3
+	cost = 4 //very cheap cost for the round
+	scaling_cost = 0
+	requirements = list(8,8,8,8,8,8,8,8,8,8)
+	antag_cap = list("denominator" = 24, "offset" = 2)
+	flags = LONE_RULESET
+
+/datum/dynamic_ruleset/roundstart/thieves/pre_execute(population)
+	. = ..()
+	var/num_thieves = get_antag_cap(population) * (scaled_times + 1)
+	for (var/i = 1 to num_thieves)
+		if(candidates.len <= 0)
+			break
+		var/mob/chosen_mind = pick_n_take(candidates)
+		assigned += chosen_mind.mind
+		chosen_mind.mind.restricted_roles = restricted_roles
+		chosen_mind.mind.special_role = ROLE_THIEF
+		GLOB.pre_setup_antags += chosen_mind.mind
+	return TRUE
+
+/datum/dynamic_ruleset/roundstart/thieves/execute()
+	for(var/datum/mind/chosen_mind as anything in assigned)
+		var/datum/antagonist/traitor/new_antag = new antag_datum
+		chosen_mind.add_antag_datum(new_antag)
+		GLOB.pre_setup_antags -= chosen_mind
+	return TRUE
+
 /// Ruleset for Nations
 /datum/dynamic_ruleset/roundstart/nations
 	name = "Nations"
@@ -708,4 +670,53 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 	for(var/department_type in department_types)
 		create_separatist_nation(department_type, announcement = FALSE, dangerous = FALSE, message_admins = FALSE)
 
-	GLOB.round_default_lawset = /datum/ai_laws/united_nations
+
+//////////////////////////////////////////////
+//                                          //
+//              Bloodsuckers                //
+//                                          //
+//////////////////////////////////////////////
+
+/datum/dynamic_ruleset/roundstart/bloodsucker
+	name = "Bloodsuckers"
+	antag_flag = ROLE_BLOODSUCKER
+	antag_datum = /datum/antagonist/bloodsucker
+	minimum_required_age = 0
+	protected_roles = list(
+		JOB_CAPTAIN,
+		JOB_DETECTIVE,
+		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
+		JOB_HEAD_OF_SECURITY,
+		JOB_PRISONER,
+		JOB_SECURITY_OFFICER,
+		JOB_WARDEN,
+		JOB_RANGER,
+		JOB_INTERN,
+	)
+	restricted_roles = list(
+		JOB_AI,
+		JOB_CYBORG,
+	)
+	required_candidates = 1
+	weight = 6
+	cost = 5 //
+	scaling_cost = 10
+	requirements = list(8,8,8,8,8,8,8,8,8,8)
+	antag_cap = list("denominator" = 38)
+
+
+/datum/dynamic_ruleset/roundstart/bloodsucker/pre_execute(population)
+	. = ..()
+	var/num_bloodsuckers = get_antag_cap(population) * (scaled_times + 1)
+	for (var/i = 1 to num_bloodsuckers)
+		if(candidates.len <= 0)
+			break
+		var/mob/M = pick_n_take(candidates)
+		assigned += M.mind
+		M.mind.special_role = ROLE_BLOODSUCKER
+		M.mind.restricted_roles = restricted_roles
+		GLOB.pre_setup_antags += M.mind
+	return TRUE
+
+

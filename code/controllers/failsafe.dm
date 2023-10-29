@@ -4,7 +4,6 @@
  * Pretty much pokes the MC to make sure it's still alive.
  **/
 
-// See initialization order in /code/game/world.dm
 GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 
 /datum/controller/failsafe // This thing pretty much just keeps poking the master controller
@@ -16,7 +15,7 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 	// The alert level. For every failed poke, we drop a DEFCON level. Once we hit DEFCON 1, restart the MC.
 	var/defcon = 5
 	//the world.time of the last check, so the mc can restart US if we hang.
-	// (Real friends look out for *eachother*)
+	//	(Real friends look out for *eachother*)
 	var/lasttick = 0
 
 	// Track the MC iteration to make sure its still on track.
@@ -31,7 +30,7 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 	Failsafe = src
 	Initialize()
 
-/datum/controller/failsafe/Initialize()
+/datum/controller/failsafe/Initialize(mapload)
 	set waitfor = FALSE
 	Failsafe.Loop()
 	if (!Master || defcon == 0) //Master is gone/not responding and Failsafe just exited its loop
@@ -42,7 +41,7 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 				break
 			else if (defcon == 1) //Exit Failsafe if we weren't able to recover the MC in the last stage
 				log_game("FailSafe: Failed to recover MC while in emergency state. Failsafe exiting.")
-				message_admins(span_boldannounce("Failsafe failed critically while trying to recreate broken MC. Please manually fix the MC or reboot the server. Failsafe exiting now."))
+				message_admins(span_boldannounce("Failsafe failed criticaly while trying to recreate broken MC. Please manually fix the MC or reboot the server. Failsafe exiting now."))
 				message_admins(span_boldannounce("You can try manually calling these two procs:."))
 				message_admins(span_boldannounce("/proc/recover_all_SS_and_recreate_master: Most stuff should still function but expect instability/runtimes/broken stuff."))
 				message_admins(span_boldannounce("/proc/delete_all_SS_and_recreate_master: Most stuff will be broken but basic stuff like movement and chat should still work."))
@@ -139,7 +138,7 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 	if (. == 1) //We were able to create a new master
 		master_iteration = 0
 		SSticker.Recover(); //Recover the ticket system so the Masters runlevel gets set
-		Master.Initialize(10, FALSE, FALSE) //Need to manually start the MC, normally world.new would do this
+		Master.Initialize(10, FALSE, TRUE) //Need to manually start the MC, normally world.new would do this
 		to_chat(GLOB.admins, span_adminnotice("Failsafe recovered MC while in emergency state [defcon_pretty()]"))
 	else
 		log_game("FailSafe: Failsafe in emergency state and was unable to recreate MC while in defcon state [defcon_pretty()].")
@@ -155,7 +154,7 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 	. = Recreate_MC()
 	if (. == 1) //We were able to create a new master
 		SSticker.Recover(); //Recover the ticket system so the Masters runlevel gets set
-		Master.Initialize(10, FALSE, FALSE) //Need to manually start the MC, normally world.new would do this
+		Master.Initialize(10, FALSE, TRUE) //Need to manually start the MC, normally world.new would do this
 		to_chat(GLOB.admins, span_adminnotice("MC successfully recreated after recovering all subsystems!"))
 	else
 		message_admins(span_boldannounce("Failed to create new MC!"))
@@ -169,7 +168,7 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 	. = Recreate_MC()
 	if (. == 1) //We were able to create a new master
 		SSticker.Recover(); //Recover the ticket system so the Masters runlevel gets set
-		Master.Initialize(10, FALSE, FALSE) //Need to manually start the MC, normally world.new would do this
+		Master.Initialize(10, FALSE, TRUE) //Need to manually start the MC, normally world.new would do this
 		to_chat(GLOB.admins, span_adminnotice("MC successfully recreated after deleting and recreating all subsystems!"))
 	else
 		message_admins(span_boldannounce("Failed to create new MC!"))

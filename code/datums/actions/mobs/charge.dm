@@ -25,7 +25,6 @@
 	StartCooldown(360 SECONDS, 360 SECONDS)
 	charge_sequence(owner, target_atom, charge_delay, charge_past)
 	StartCooldown()
-	return TRUE
 
 /datum/action/cooldown/mob_cooldown/charge/proc/charge_sequence(atom/movable/charger, atom/target_atom, delay, past)
 	do_charge(owner, target_atom, charge_delay, charge_past)
@@ -48,10 +47,10 @@
 	charging += charger
 	actively_moving = FALSE
 	SEND_SIGNAL(owner, COMSIG_STARTED_CHARGE)
-	RegisterSignal(charger, COMSIG_MOVABLE_BUMP, PROC_REF(on_bump), TRUE)
-	RegisterSignal(charger, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(on_move), TRUE)
-	RegisterSignal(charger, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved), TRUE)
-	RegisterSignal(charger, COMSIG_LIVING_DEATH, PROC_REF(charge_end))
+	RegisterSignal(charger, COMSIG_MOVABLE_BUMP, PROC_REF(on_bump))
+	RegisterSignal(charger, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(on_move))
+	RegisterSignal(charger, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
+	DestroySurroundings(charger)
 	charger.setDir(dir)
 	do_charge_indicator(charger, target)
 
@@ -64,7 +63,9 @@
 		return
 	RegisterSignal(new_loop, COMSIG_MOVELOOP_PREPROCESS_CHECK, PROC_REF(pre_move))
 	RegisterSignal(new_loop, COMSIG_MOVELOOP_POSTPROCESS, PROC_REF(post_move))
-	RegisterSignal(new_loop, COMSIG_QDELETING, PROC_REF(charge_end))
+	RegisterSignal(new_loop, COMSIG_PARENT_QDELETING, PROC_REF(charge_end))
+	if(ismob(charger))
+		RegisterSignal(charger, COMSIG_MOB_STATCHANGE, PROC_REF(stat_changed))
 
 	// Yes this is disgusting. But we need to queue this stuff, and this code just isn't setup to support that right now. So gotta do it with sleeps
 	sleep(time_to_hit + charge_speed)
@@ -81,19 +82,16 @@
 	SIGNAL_HANDLER
 	actively_moving = FALSE
 
-/datum/action/cooldown/mob_cooldown/charge/proc/charge_end(datum/source)
+/datum/action/cooldown/mob_cooldown/charge/proc/charge_end(datum/move_loop/source)
 	SIGNAL_HANDLER
-	var/atom/movable/charger = source
-	if(istype(source, /datum/move_loop))
-		var/datum/move_loop/move_loop_source = source
-		charger = move_loop_source.moving
-	UnregisterSignal(charger, list(COMSIG_MOVABLE_BUMP, COMSIG_MOVABLE_PRE_MOVE, COMSIG_MOVABLE_MOVED, COMSIG_LIVING_DEATH))
+	var/atom/movable/charger = source.moving
+	UnregisterSignal(charger, list(COMSIG_MOVABLE_BUMP, COMSIG_MOVABLE_PRE_MOVE, COMSIG_MOVABLE_MOVED, COMSIG_MOB_STATCHANGE))
 	SEND_SIGNAL(owner, COMSIG_FINISHED_CHARGE)
 	actively_moving = FALSE
 	charging -= charger
 
-/datum/action/cooldown/mob_cooldown/charge/update_status_on_signal(mob/source, new_stat, old_stat)
-	. = ..()
+/datum/action/cooldown/mob_cooldown/charge/proc/stat_changed(mob/source, new_stat, old_stat)
+	SIGNAL_HANDLER
 	if(new_stat == DEAD)
 		SSmove_manager.stop_looping(source) //This will cause the loop to qdel, triggering an end to our charging
 
@@ -149,11 +147,10 @@
 	SIGNAL_HANDLER
 	if(owner == target)
 		return
-	if(destroy_objects)
-		if(isturf(target))
-			SSexplosions.medturf += target
-		if(isobj(target) && target.density)
-			SSexplosions.med_mov_atom += target
+	if(isturf(target))
+		SSexplosions.medturf += target
+	if(isobj(target) && target.density)
+		SSexplosions.med_mov_atom += target
 
 	INVOKE_ASYNC(src, PROC_REF(DestroySurroundings), source)
 	hit_target(source, target, charge_damage)
@@ -174,15 +171,8 @@
 	cooldown_time = 6 SECONDS
 	charge_delay = 1.5 SECONDS
 	charge_distance = 4
-	melee_cooldown_time = 0
-	/// How long to shake for before charging
 	var/shake_duration = 1 SECONDS
-	/// Intensity of shaking animation
-	var/shake_pixel_shift = 2
-	/// Amount of time to stun self upon impact
-	var/recoil_duration = 0.6 SECONDS
-	/// Amount of time to knock over an impacted target
-	var/knockdown_duration = 0.6 SECONDS
+	var/shake_pixel_shift = 15
 
 /datum/action/cooldown/mob_cooldown/charge/basic_charge/do_charge_indicator(atom/charger, atom/charge_target)
 	charger.Shake(shake_pixel_shift, shake_pixel_shift, shake_duration)
@@ -198,32 +188,18 @@
 		source.visible_message(span_danger("[source] smashes into [target]!"))
 		if(!living_source)
 			return
-		living_source.Stun(recoil_duration, ignore_canstun = TRUE)
+		living_source.Stun(6, ignore_canstun = TRUE)
 		return
 
 	var/mob/living/living_target = target
 	if(ishuman(living_target))
 		var/mob/living/carbon/human/human_target = living_target
 		if(human_target.check_shields(source, 0, "the [source.name]", attack_type = LEAP_ATTACK) && living_source)
-			living_source.Stun(recoil_duration, ignore_canstun = TRUE)
+			living_source.Stun(6, ignore_canstun = TRUE)
 			return
 
 	living_target.visible_message(span_danger("[source] charges on [living_target]!"), span_userdanger("[source] charges into you!"))
-	living_target.Knockdown(knockdown_duration)
-
-
-/datum/status_effect/tired_post_charge
-	id = "tired_post_charge"
-	duration = 1 SECONDS
-	alert_type = null
-
-/datum/status_effect/tired_post_charge/on_apply()
-	. = ..()
-	owner.add_movespeed_modifier(/datum/movespeed_modifier/status_effect/tired_post_charge)
-
-/datum/status_effect/tired_post_charge/on_remove()
-	. = ..()
-	owner.remove_movespeed_modifier(/datum/movespeed_modifier/status_effect/tired_post_charge)
+	living_target.Knockdown(6)
 
 /datum/action/cooldown/mob_cooldown/charge/triple_charge
 	name = "Triple Charge"
@@ -249,7 +225,7 @@
 	var/spawn_blood = FALSE
 
 /datum/action/cooldown/mob_cooldown/charge/hallucination_charge/charge_sequence(atom/movable/charger, atom/target_atom, delay, past)
-	if(!enraged || prob(33))
+	if(!enraged)
 		hallucination_charge(target_atom, 6, 8, 0, 6, TRUE)
 		return
 	for(var/i in 0 to 2)

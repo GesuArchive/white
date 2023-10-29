@@ -2,14 +2,15 @@
 	holder_type = /obj/machinery/door/airlock/shell
 	proper_name = "Circuit Airlock"
 
-/datum/wires/airlock/shell/on_cut(wire, mend, source)
+/datum/wires/airlock/shell/on_cut(wire, mend)
 	// Don't allow them to re-enable autoclose.
 	if(wire == WIRE_TIMING)
 		return
 	return ..()
 
 /obj/machinery/door/airlock/shell
-	name = "circuit airlock"
+	name = "Шлюз"
+	desc = "Оболочка шлюза с схемотехническим интерфейсом, которую нельзя перемещать в собранном виде."
 	autoclose = FALSE
 
 /obj/machinery/door/airlock/shell/Initialize(mapload)
@@ -30,17 +31,12 @@
 /obj/machinery/door/airlock/shell/canAIHack(mob/user)
 	return FALSE
 
-/obj/machinery/door/airlock/shell/allowed(mob/user)
-	if(SEND_SIGNAL(src, COMSIG_AIRLOCK_SHELL_ALLOWED, user) & COMPONENT_OBJ_ALLOW)
-		return TRUE
-	return isAdminGhostAI(user)
-
-/obj/machinery/door/airlock/shell/get_wires()
+/obj/machinery/door/airlock/shell/set_wires()
 	return new /datum/wires/airlock/shell(src)
 
 /obj/item/circuit_component/airlock
-	display_name = "Airlock"
-	desc = "The general interface with an airlock. Includes general statuses of the airlock"
+	display_name = "Шлюз"
+	desc = "Интерфейс шлюза. Обладает стандартными параметрами шлюза."
 
 	/// The shell, if it is an airlock.
 	var/obj/machinery/door/airlock/attached_airlock
@@ -156,16 +152,12 @@
 	. = ..()
 	if(istype(shell, /obj/machinery/door/airlock))
 		attached_airlock = shell
-		RegisterSignals(shell, list(
-			COMSIG_OBJ_ALLOWED,
-			COMSIG_AIRLOCK_SHELL_ALLOWED,
-		), PROC_REF(handle_allowed))
+		RegisterSignal(shell, COMSIG_OBJ_ALLOWED, PROC_REF(handle_allowed))
 
 /obj/item/circuit_component/airlock_access_event/unregister_shell(atom/movable/shell)
 	attached_airlock = null
 	UnregisterSignal(shell, list(
 		COMSIG_OBJ_ALLOWED,
-		COMSIG_AIRLOCK_SHELL_ALLOWED
 	))
 	return ..()
 
@@ -198,5 +190,3 @@
 
 	if(result["should_open"])
 		return COMPONENT_OBJ_ALLOW
-	else
-		return COMPONENT_OBJ_DISALLOW

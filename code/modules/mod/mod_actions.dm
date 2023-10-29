@@ -1,6 +1,5 @@
 /datum/action/item_action/mod
-	background_icon_state = "bg_mod"
-	overlay_icon_state = "bg_mod_border"
+	background_icon_state = "bg_tech_blue"
 	button_icon = 'icons/mob/actions/actions_mod.dmi'
 	check_flags = AB_CHECK_CONSCIOUS
 	/// Whether this action is intended for the AI. Stuff breaks a lot if this is done differently.
@@ -16,32 +15,32 @@
 
 /datum/action/item_action/mod/Grant(mob/user)
 	var/obj/item/mod/control/mod = target
-	if(ai_action && user != mod.ai_assistant)
+	if(ai_action && user != mod.ai)
 		return
-	else if(!ai_action && user == mod.ai_assistant)
+	else if(!ai_action && user == mod.ai)
 		return
 	return ..()
 
 /datum/action/item_action/mod/Remove(mob/user)
 	var/obj/item/mod/control/mod = target
-	if(ai_action && user != mod.ai_assistant)
+	if(ai_action && user != mod.ai)
 		return
-	else if(!ai_action && user == mod.ai_assistant)
+	else if(!ai_action && user == mod.ai)
 		return
 	return ..()
 
 /datum/action/item_action/mod/Trigger(trigger_flags)
-	if(!IsAvailable(feedback = TRUE))
+	if(!IsAvailable())
 		return FALSE
 	var/obj/item/mod/control/mod = target
 	if(mod.malfunctioning && prob(75))
-		mod.balloon_alert(usr, "button malfunctions!")
+		mod.balloon_alert(usr, "Кнопки неисправны!")
 		return FALSE
 	return TRUE
 
 /datum/action/item_action/mod/deploy
-	name = "Deploy MODsuit"
-	desc = "LMB: Deploy/Undeploy part. RMB: Deploy/Undeploy full suit."
+	name = "Развернуть MOD-Скафандр"
+	desc = "ЛКМ: Развернуть/Свернуть части. ПКМ: Развернуть/Свернуть полностью."
 	button_icon_state = "deploy"
 
 /datum/action/item_action/mod/deploy/Trigger(trigger_flags)
@@ -58,8 +57,8 @@
 	ai_action = TRUE
 
 /datum/action/item_action/mod/activate
-	name = "Activate MODsuit"
-	desc = "LMB: Activate/Deactivate suit with prompt. RMB: Activate/Deactivate suit skipping prompt."
+	name = "Активировать MOD-Скаф"
+	desc = "ЛКМ: Активировать/Деактивировать костюм с предупреждением. ПКМ: Активировать/Деактивировать костюм игнорируя предупреждение."
 	button_icon_state = "activate"
 	/// First time clicking this will set it to TRUE, second time will activate it.
 	var/ready = FALSE
@@ -71,6 +70,9 @@
 	if(!(trigger_flags & TRIGGER_SECONDARY_ACTION) && !ready)
 		ready = TRUE
 		button_icon_state = "activate-ready"
+		if(!ai_action)
+			background_icon_state = "bg_tech"
+			overlay_icon_state = "bg_tech_border"
 		build_all_button_icons()
 		addtimer(CALLBACK(src, PROC_REF(reset_ready)), 3 SECONDS)
 		return
@@ -82,14 +84,16 @@
 /datum/action/item_action/mod/activate/proc/reset_ready()
 	ready = FALSE
 	button_icon_state = initial(button_icon_state)
+	if(!ai_action)
+		background_icon_state = initial(background_icon_state)
 	build_all_button_icons()
 
 /datum/action/item_action/mod/activate/ai
 	ai_action = TRUE
 
 /datum/action/item_action/mod/module
-	name = "Toggle Module"
-	desc = "Toggle a MODsuit module."
+	name = "Переключить модули"
+	desc = "Переключить модули MOD-Скафандра."
 	button_icon_state = "module"
 
 /datum/action/item_action/mod/module/Trigger(trigger_flags)
@@ -103,8 +107,8 @@
 	ai_action = TRUE
 
 /datum/action/item_action/mod/panel
-	name = "MODsuit Panel"
-	desc = "Open the MODsuit's panel."
+	name = "Панель MOD-Скафандра"
+	desc = "Открыть панель управления MOD-Скафа."
 	button_icon_state = "panel"
 
 /datum/action/item_action/mod/panel/Trigger(trigger_flags)
@@ -118,54 +122,40 @@
 	ai_action = TRUE
 
 /datum/action/item_action/mod/pinned_module
-	desc = "Activate the module."
+	desc = "Активировать модуль."
 	/// Overrides the icon applications.
 	var/override = FALSE
 	/// Module we are linked to.
 	var/obj/item/mod/module/module
-	/// A reference to the mob we are pinned to.
-	var/mob/pinner
-	/// Timer until we remove our cooldown overlay
-	var/cooldown_timer
+	/// A ref to the mob we are pinned to.
+	var/pinner_ref
 
 /datum/action/item_action/mod/pinned_module/New(Target, obj/item/mod/module/linked_module, mob/user)
-	var/obj/item/mod/control/mod = Target
-	if(user == mod.ai_assistant)
+	if(isAI(user))
 		ai_action = TRUE
 	button_icon = linked_module.icon
 	button_icon_state = linked_module.icon_state
-	. = ..()
+	..()
 	module = linked_module
-	pinner = user
-	module.pinned_to[REF(user)] = src
 	if(linked_module.allow_flags & MODULE_ALLOW_INCAPACITATED)
 		// clears check hands and check conscious
 		check_flags = NONE
-	name = "Activate [capitalize(linked_module.name)]"
-	desc = "Quickly activate [linked_module]."
-	RegisterSignals(linked_module, list(
-		COMSIG_MODULE_ACTIVATED,
-		COMSIG_MODULE_DEACTIVATED,
-		COMSIG_MODULE_USED,
-	), PROC_REF(module_interacted_with))
-	RegisterSignal(linked_module, COMSIG_MODULE_COOLDOWN_STARTED, PROC_REF(cooldown_started))
-	RegisterSignal(user, COMSIG_QDELETING, PROC_REF(pinner_deleted))
+	name = "Активировать [capitalize(linked_module.name)]"
+	desc = "Быстро активировать [linked_module]."
+	RegisterSignals(linked_module, list(COMSIG_MODULE_ACTIVATED, COMSIG_MODULE_DEACTIVATED, COMSIG_MODULE_USED), PROC_REF(module_interacted_with))
 
 /datum/action/item_action/mod/pinned_module/Destroy()
-	deltimer(cooldown_timer)
-	UnregisterSignal(module, list(
-		COMSIG_MODULE_ACTIVATED,
-		COMSIG_MODULE_DEACTIVATED,
-		COMSIG_MODULE_COOLDOWN_STARTED,
-		COMSIG_MODULE_USED,
-	))
-	module.pinned_to -= REF(pinner)
+	UnregisterSignal(module, list(COMSIG_MODULE_ACTIVATED, COMSIG_MODULE_DEACTIVATED, COMSIG_MODULE_USED))
+	module.pinned_to -= pinner_ref
 	module = null
-	pinner = null
 	return ..()
 
 /datum/action/item_action/mod/pinned_module/Grant(mob/user)
-	if(pinner != user)
+	var/user_ref = REF(user)
+	if(!pinner_ref)
+		pinner_ref = user_ref
+		module.pinned_to[pinner_ref] = src
+	else if(pinner_ref != user_ref)
 		return
 	return ..()
 
@@ -174,11 +164,6 @@
 	if(!.)
 		return
 	module.on_select()
-
-/// If the guy whose UI we are pinned to got deleted
-/datum/action/item_action/mod/pinned_module/proc/pinner_deleted()
-	pinner = null
-	qdel(src)
 
 /datum/action/item_action/mod/pinned_module/apply_button_overlay(atom/movable/screen/movable/action_button/current_button, force)
 	current_button.cut_overlays()
@@ -191,19 +176,11 @@
 	else if(module.active)
 		current_button.add_overlay(image(icon = 'icons/hud/radial.dmi', icon_state = "module_active", layer = FLOAT_LAYER-0.1))
 	if(!COOLDOWN_FINISHED(module, cooldown_timer))
-		current_button.add_overlay(image(icon = 'icons/hud/radial.dmi', icon_state = "module_cooldown"))
+		var/image/cooldown_image = image(icon = 'icons/hud/radial.dmi', icon_state = "module_cooldown")
+		current_button.add_overlay(cooldown_image)
+		addtimer(CALLBACK(current_button, TYPE_PROC_REF(/image, cut_overlay), cooldown_image), COOLDOWN_TIMELEFT(module, cooldown_timer))
 	return ..()
 
 /datum/action/item_action/mod/pinned_module/proc/module_interacted_with(datum/source)
-	SIGNAL_HANDLER
 
 	build_all_button_icons(UPDATE_BUTTON_OVERLAY|UPDATE_BUTTON_STATUS)
-
-/datum/action/item_action/mod/pinned_module/proc/cooldown_started(datum/source, cooldown_time)
-	SIGNAL_HANDLER
-
-	deltimer(cooldown_timer)
-	build_all_button_icons(UPDATE_BUTTON_OVERLAY)
-	if (cooldown_time == 0)
-		return
-	cooldown_timer = addtimer(CALLBACK(src, PROC_REF(build_all_button_icons), UPDATE_BUTTON_OVERLAY), cooldown_time + 1, TIMER_STOPPABLE)

@@ -1,31 +1,29 @@
-/**
- * The bus mainframe idles and waits for hubs to relay them signals. They act
- * as junctions for the network.
- *
- * They transfer uncompressed subspace packets to processor units, and then take
- * the processed packet to a server for logging.
- *
- * Can be linked to a telecommunications hub or a broadcaster in the absence
- * of a server, at the cost of some added latency.
- */
+/*
+	The bus mainframe idles and waits for hubs to relay them signals. They act
+	as junctions for the network.
+
+	They transfer uncompressed subspace packets to processor units, and then take
+	the processed packet to a server for logging.
+
+	Link to a subspace hub if it can't send to a server.
+*/
+
 /obj/machinery/telecomms/bus
-	name = "bus mainframe"
+	name = "мэйнфрейм шины"
 	icon_state = "bus"
-	desc = "A mighty piece of hardware used to send massive amounts of data quickly."
+	desc = "Мощное аппаратное обеспечение, используемое для быстрой передачи огромных объемов данных и связывание машин в общую сеть."
 	telecomms_type = /obj/machinery/telecomms/bus
 	density = TRUE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.01
 	netspeed = 40
 	circuit = /obj/item/circuitboard/machine/telecomms/bus
-	/// The frequency this bus will use to override the received signal's frequency,
-	/// if not `NONE`.
-	var/change_frequency = NONE
+	var/change_frequency = 0
 
 /obj/machinery/telecomms/bus/receive_information(datum/signal/subspace/signal, obj/machinery/telecomms/machine_from)
 	if(!istype(signal) || !is_freq_listening(signal))
 		return
 
-	if(change_frequency && !(signal.frequency in banned_frequencies))
+	if(change_frequency && signal.frequency != FREQ_SYNDICATE)
 		signal.frequency = change_frequency
 
 	if(!istype(machine_from, /obj/machinery/telecomms/processor) && machine_from != src) // Signal must be ready (stupid assuming machine), let's send it
@@ -49,7 +47,7 @@
 
 	use_power(idle_power_usage)
 
-// Preset Buses
+//Preset Buses
 
 /obj/machinery/telecomms/bus/preset_one
 	id = "Bus 1"
@@ -77,8 +75,6 @@
 
 /obj/machinery/telecomms/bus/preset_four/Initialize(mapload)
 	. = ..()
-	// We want to include every freely-available frequency on this one, so they
-	// get processed quickly when used on-station.
 	for(var/i = MIN_FREQ, i <= MAX_FREQ, i += 2)
 		freq_listening |= i
 
@@ -86,3 +82,9 @@
 	name = "Bus"
 	autolinkers = list("processor1", "common", "messaging")
 	freq_listening = list()
+
+/obj/machinery/telecomms/bus/preset_exploration
+	id = "Exploration Bus"
+	network = "exploration"
+	freq_listening = list(FREQ_EXPLORATION)
+	autolinkers = list("processorExp", "exploration")

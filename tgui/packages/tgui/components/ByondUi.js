@@ -59,12 +59,8 @@ window.addEventListener('beforeunload', () => {
 const getBoundingBox = (element) => {
   const pixelRatio = window.devicePixelRatio ?? 1;
   const rect = element.getBoundingClientRect();
-  // prettier-ignore
   return {
-    pos: [
-      rect.left * pixelRatio,
-      rect.top * pixelRatio,
-    ],
+    pos: [rect.left * pixelRatio, rect.top * pixelRatio],
     size: [
       (rect.right - rect.left) * pixelRatio,
       (rect.bottom - rect.top) * pixelRatio,

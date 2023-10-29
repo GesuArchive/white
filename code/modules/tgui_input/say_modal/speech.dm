@@ -68,7 +68,6 @@
 		log_speech_indicators("[key_name(client)] FORCED to stop typing, indicators enabled.")
 	else
 		log_speech_indicators("[key_name(client)] FORCED to stop typing, indicators DISABLED.")
-	SEND_SIGNAL(src, COMSIG_HUMAN_FORCESAY)
 
 /**
  * Handles text entry and forced speech.

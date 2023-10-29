@@ -1,0 +1,953 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ai" = (
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"aT" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"bl" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
+/obj/structure/flora/ash/tall_shroom,
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"cx" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central/low_level_centre)
+"cI" = (
+/obj/structure/stone_tile,
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	pixel_x = 16
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"dP" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/hallway/primary/central/low_level_centre)
+"ea" = (
+/obj/structure/stone_tile,
+/obj/structure/stone_tile/block/cracked{
+	dir = 8
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/hallway/primary/central/low_level_centre)
+"fk" = (
+/turf/template_noop,
+/area/template_noop)
+"fl" = (
+/obj/effect/turf_decal/siding/thinplating_new,
+/obj/structure/window/reinforced,
+/turf/open/floor/plating/asteroid/dirty,
+/area/hallway/primary/central/low_level_centre)
+"hf" = (
+/obj/structure/stone_tile,
+/obj/structure/stone_tile/surrounding_tile{
+	pixel_y = -16
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"if" = (
+/mob/living/simple_animal/hostile/retaliate/bat/icewing,
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"io" = (
+/obj/structure/statue{
+	desc = "A lifelike statue of a horrifying monster.";
+	dir = 4;
+	icon = 'icons/mob/lavaland/lavaland_monsters.dmi';
+	icon_state = "goliath";
+	name = "goliath";
+	pixel_y = 6;
+	anchored = 1
+	},
+/obj/structure/stone_tile/slab,
+/turf/template_noop,
+/area/template_noop)
+"jD" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/hallway/primary/central/low_level_centre)
+"kY" = (
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new,
+/turf/open/floor/fakepit,
+/area/hallway/primary/central/low_level_centre)
+"nA" = (
+/obj/structure/statue/bone/rib{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/corner,
+/area/hallway/primary/central/low_level_centre)
+"nS" = (
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 10
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/hallway/primary/central/low_level_centre)
+"of" = (
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 8;
+	pixel_y = -16
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"oj" = (
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 1;
+	pixel_y = 16
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"ou" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/hallway/primary/central/low_level_centre)
+"oO" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"pQ" = (
+/obj/structure/statue{
+	desc = "A lifelike statue of a horrifying monster.";
+	dir = 8;
+	icon = 'icons/mob/lavaland/lavaland_monsters.dmi';
+	icon_state = "goliath";
+	name = "goliath";
+	pixel_y = 6;
+	anchored = 1
+	},
+/obj/structure/stone_tile/slab,
+/turf/template_noop,
+/area/template_noop)
+"ql" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new,
+/obj/structure/window/reinforced,
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"sB" = (
+/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/west,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 10
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/hallway/primary/central/low_level_centre)
+"sV" = (
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/obj/structure/stone_tile/block/cracked,
+/turf/open/lava/smooth/lava_land_surface,
+/area/hallway/primary/central/low_level_centre)
+"up" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 5
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/hallway/primary/central/low_level_centre)
+"va" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 6
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"vc" = (
+/obj/structure/railing{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
+/area/template_noop)
+"xp" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/hallway/primary/central/low_level_centre)
+"Aw" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 9
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/hallway/primary/central/low_level_centre)
+"AB" = (
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"AK" = (
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 4;
+	pixel_x = -16
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"Bl" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 8
+	},
+/obj/structure/flora/rock/pile{
+	pixel_x = -12;
+	pixel_y = 13
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"Bx" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner,
+/obj/structure/flora/ash/cap_shroom,
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"BW" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/structure/flora/rock/pile{
+	pixel_y = 11;
+	pixel_x = 10
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"Cd" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 9
+	},
+/obj/structure/flora/rock/pile{
+	pixel_y = -11;
+	pixel_x = 10
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"Cs" = (
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 6
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"CA" = (
+/obj/structure/statue/bone/rib{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/corner{
+	dir = 4
+	},
+/area/hallway/primary/central/low_level_centre)
+"CW" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
+/area/template_noop)
+"DQ" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/turf/open/floor/fakepit,
+/area/hallway/primary/central/low_level_centre)
+"DX" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/turf/open/floor/fakepit,
+/area/hallway/primary/central/low_level_centre)
+"Eh" = (
+/obj/structure/railing{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
+/area/template_noop)
+"Hm" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 10
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/hallway/primary/central/low_level_centre)
+"HQ" = (
+/obj/structure/statue/bone/rib,
+/turf/open/floor/plasteel/dark/corner{
+	dir = 8
+	},
+/area/hallway/primary/central/low_level_centre)
+"It" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 1
+	},
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/hallway/primary/central/low_level_centre)
+"IP" = (
+/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/east,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 6
+	},
+/turf/open/floor/fakepit,
+/area/hallway/primary/central/low_level_centre)
+"Kd" = (
+/obj/structure/stone_tile/surrounding/cracked{
+	dir = 6
+	},
+/obj/structure/stone_tile/center,
+/turf/open/lava/smooth/lava_land_surface,
+/area/hallway/primary/central/low_level_centre)
+"Kg" = (
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 1
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"Km" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/structure/flora/ash/leaf_shroom,
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"Kp" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/turf/open/floor/fakepit,
+/area/hallway/primary/central/low_level_centre)
+"LW" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"No" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
+/area/template_noop)
+"Nu" = (
+/mob/living/simple_animal/hostile/retaliate/bat/magmawing,
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"Ny" = (
+/turf/open/floor/plasteel/monofloor/dark,
+/area/hallway/primary/central/low_level_centre)
+"PL" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central/low_level_centre)
+"Qc" = (
+/obj/structure/stone_tile/center,
+/obj/structure/stone_tile/surrounding/cracked,
+/turf/open/lava/smooth/lava_land_surface,
+/area/hallway/primary/central/low_level_centre)
+"QD" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"QR" = (
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 4;
+	pixel_y = 16
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"QU" = (
+/obj/machinery/light/floor/directional/north,
+/obj/machinery/light/floor/directional/east,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 5
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/hallway/primary/central/low_level_centre)
+"Rw" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/hallway/primary/central/low_level_centre)
+"RO" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 5
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/hallway/primary/central/low_level_centre)
+"SC" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
+/area/template_noop)
+"Tc" = (
+/obj/structure/flora/rock{
+	pixel_y = -6;
+	pixel_x = 18
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"Tp" = (
+/obj/structure/railing{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
+/area/template_noop)
+"Ua" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 4
+	},
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/hallway/primary/central/low_level_centre)
+"Uf" = (
+/obj/structure/stone_tile/slab/burnt,
+/obj/structure/fluff/tendril{
+	pixel_y = -7
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/hallway/primary/central/low_level_centre)
+"UB" = (
+/obj/structure/stone_tile/slab/cracked,
+/turf/open/lava/smooth/lava_land_surface,
+/area/hallway/primary/central/low_level_centre)
+"Vh" = (
+/obj/machinery/light/floor/directional/north,
+/obj/machinery/light/floor/directional/west,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 9
+	},
+/turf/open/floor/fakepit,
+/area/hallway/primary/central/low_level_centre)
+"VI" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/turf/open/floor/plating/asteroid/dirty,
+/area/hallway/primary/central/low_level_centre)
+"Wt" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner,
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
+"Ww" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/hallway/primary/central/low_level_centre)
+"XW" = (
+/obj/structure/railing{
+	dir = 10
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
+/area/template_noop)
+"YS" = (
+/obj/structure/statue/bone/rib{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/corner{
+	dir = 1
+	},
+/area/hallway/primary/central/low_level_centre)
+
+(1,1,1) = {"
+CW
+fk
+fk
+Eh
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+vc
+fk
+fk
+SC
+"}
+(2,1,1) = {"
+vc
+fk
+fk
+io
+Eh
+No
+vc
+io
+fk
+fk
+io
+Eh
+No
+vc
+io
+fk
+fk
+Eh
+"}
+(3,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+"}
+(4,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+"}
+(5,1,1) = {"
+XW
+fk
+fk
+fk
+fk
+PL
+dP
+YS
+Aw
+Hm
+HQ
+jD
+cx
+fk
+fk
+fk
+fk
+Tp
+"}
+(6,1,1) = {"
+CW
+fk
+fk
+fk
+fk
+dP
+Vh
+Kp
+bl
+Bl
+ou
+sB
+jD
+fk
+fk
+fk
+fk
+SC
+"}
+(7,1,1) = {"
+vc
+fk
+fk
+fk
+fk
+YS
+DX
+Nu
+AK
+ai
+Km
+fl
+HQ
+fk
+fk
+fk
+fk
+Eh
+"}
+(8,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+Cd
+aT
+QR
+It
+ea
+of
+oO
+nS
+fk
+fk
+fk
+fk
+fk
+"}
+(9,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+QD
+AB
+Qc
+Uf
+UB
+Kd
+Tc
+ql
+fk
+fk
+fk
+fk
+fk
+"}
+(10,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+up
+LW
+oj
+Ua
+sV
+hf
+Wt
+va
+fk
+fk
+fk
+fk
+fk
+"}
+(11,1,1) = {"
+XW
+fk
+fk
+fk
+fk
+CA
+VI
+BW
+Kg
+cI
+if
+kY
+nA
+fk
+fk
+fk
+fk
+Tp
+"}
+(12,1,1) = {"
+CW
+fk
+fk
+fk
+fk
+Rw
+QU
+xp
+LW
+Bx
+DQ
+IP
+Ww
+fk
+fk
+fk
+fk
+SC
+"}
+(13,1,1) = {"
+vc
+fk
+fk
+fk
+fk
+Ny
+Rw
+CA
+RO
+Cs
+nA
+Ww
+Ny
+fk
+fk
+fk
+fk
+Eh
+"}
+(14,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+"}
+(15,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+"}
+(16,1,1) = {"
+XW
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+Tp
+"}
+(17,1,1) = {"
+CW
+fk
+fk
+pQ
+fk
+fk
+fk
+pQ
+fk
+fk
+pQ
+fk
+fk
+fk
+pQ
+fk
+fk
+SC
+"}

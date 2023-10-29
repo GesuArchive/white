@@ -21,7 +21,7 @@
 		list(
 			COMSIG_ADMIN_HELP_MADE_INACTIVE,
 			COMSIG_ADMIN_HELP_REPLIED,
-			COMSIG_QDELETING,
+			COMSIG_PARENT_QDELETING,
 		),
 		PROC_REF(delete_self),
 	)
@@ -36,7 +36,7 @@
 		UnregisterSignal(ticket, list(
 			COMSIG_ADMIN_HELP_MADE_INACTIVE,
 			COMSIG_ADMIN_HELP_REPLIED,
-			COMSIG_QDELETING,
+			COMSIG_PARENT_QDELETING,
 		))
 
 		ticket = null
@@ -83,7 +83,7 @@
 	/// The `world.time` when the last color update occurred.
 	var/last_update_time = 0
 
-/atom/movable/screen/admin_popup/Initialize(mapload, datum/hud/hud_owner, ...)
+/atom/movable/screen/admin_popup/Initialize(mapload, ...)
 	. = ..()
 
 	START_PROCESSING(SSobj, src)
@@ -93,7 +93,7 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/atom/movable/screen/admin_popup/process(seconds_per_tick)
+/atom/movable/screen/admin_popup/process(delta_time)
 	update_text()
 
 /atom/movable/screen/admin_popup/proc/update_text()
@@ -104,9 +104,9 @@
 
 	last_color_index = (last_color_index % colors.len) + 1
 
-	var/message = "<span style='color: [colors[last_color_index]]; text-align: center; font-size: 24pt'>"
-	message += "HEY!<br>An admin is trying to talk to you!<br>Check your chat window,<br>and click their name to respond!"
-	message += "</span>"
+	var/message = "<b style='color: [colors[last_color_index]]; text-align: center; font-size: 32px'>"
+	message += "СЛЫШ! Администратор хочет поговорить с тобой СЕЙЧАС!<br>Проверь ЧАТ и нажми на имя администратора для ответа!"
+	message += "</b>"
 
 	maptext = MAPTEXT(message)
 	last_update_time = world.time
@@ -118,7 +118,7 @@
 
 	var/datum/admin_help/current_ticket = target.current_ticket
 	if (!current_ticket)
-		to_chat(admin, span_warning("[key_name(target)] had no active ahelp, aborting."))
+		to_chat(admin, span_warning("[key_name(target)] нет ахелпа, абортинг."))
 		return
 
 	admin.cmd_admin_pm(target, message)

@@ -1,33 +1,33 @@
 /obj/item/assembly/control
-	name = "blast door controller"
-	desc = "A small electronic device able to control a blast door remotely."
+	name = "Контролер взрывостойкого шлюза"
+	desc = "Небольшое устройство для контроля бронированных ставень, настройка производится мультитулом."
 	icon_state = "control"
 	attachable = TRUE
-	/// The ID of the blast door electronics to match to the ID of the blast door being used.
 	var/id = null
-	/// Cooldown of the door's controller. Updates when pressed (activate())
-	var/cooldown = FALSE
+	var/can_change_id = 0
+	var/cooldown = FALSE //Door cooldowns
 	var/sync_doors = TRUE
 
 /obj/item/assembly/control/examine(mob/user)
 	. = ..()
 	if(id)
-		. += span_notice("Its channel ID is '[id]'.")
+		. += "<hr><span class='notice'>Текущий ID канал '[id]'.</span>"
+	else
+		. += "<hr><span class='notice'>Канал не задан.</span>"
 
 /obj/item/assembly/control/multitool_act(mob/living/user)
-	var/change_id = tgui_input_number(user, "Set the door controllers ID", "Door ID", id, 100)
-	if(!change_id || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+	var/change_id = tgui_input_number(user, "Установите номер ID", "Канал", id, 100)
+	if(!change_id || QDELETED(user) || QDELETED(src) || !usr.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 	id = change_id
-	balloon_alert(user, "id changed")
-	to_chat(user, span_notice("You change the ID to [id]."))
+	to_chat(user, span_notice("Меняю ID на [id]."))
 
 /obj/item/assembly/control/activate()
 	var/openclose
 	if(cooldown)
 		return
 	cooldown = TRUE
-	for(var/obj/machinery/door/poddoor/M as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/door/poddoor))
+	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
 		if(M.id == src.id)
 			if(openclose == null || !sync_doors)
 				openclose = M.density
@@ -62,7 +62,7 @@
 	id = "badmin" // Set it to null for MEGAFUN.
 	var/specialfunctions = OPEN
 	/*
-	Bitflag, 1= open (OPEN)
+	Bitflag, 	1= open (OPEN)
 				2= idscan (IDSCAN)
 				4= bolts (BOLTS)
 				8= shock (SHOCK)
@@ -75,7 +75,7 @@
 	cooldown = TRUE
 	var/doors_need_closing = FALSE
 	var/list/obj/machinery/door/airlock/open_or_close = list()
-	for(var/obj/machinery/door/airlock/D as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/door/airlock))
+	for(var/obj/machinery/door/airlock/D in GLOB.airlocks)
 		if(D.id_tag == src.id)
 			if(specialfunctions & OPEN)
 				open_or_close += D
@@ -85,11 +85,8 @@
 				D.aiDisabledIdScanner = !D.aiDisabledIdScanner
 			if(specialfunctions & BOLTS)
 				if(!D.wires.is_cut(WIRE_BOLTS) && D.hasPower())
-					if(D.locked)
-						D.unlock()
-					else
-						D.lock()
-					D.update_appearance()
+					D.locked = !D.locked
+					D.update_icon()
 			if(specialfunctions & SHOCK)
 				if(D.secondsElectrified)
 					D.set_electrified(MACHINE_ELECTRIFIED_PERMANENT, usr)
@@ -99,7 +96,7 @@
 				D.safe = !D.safe
 
 	for(var/D in open_or_close)
-		INVOKE_ASYNC(D,  doors_need_closing ? TYPE_PROC_REF(/obj/machinery/door/airlock, close) : TYPE_PROC_REF(/obj/machinery/door/airlock, open))
+		INVOKE_ASYNC(D, doors_need_closing ? TYPE_PROC_REF(/obj/machinery/door/airlock, close) : TYPE_PROC_REF(/obj/machinery/door/airlock, open))
 
 	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 10)
 
@@ -112,21 +109,19 @@
 	if(cooldown)
 		return
 	cooldown = TRUE
-	for(var/obj/machinery/door/poddoor/M as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/door/poddoor))
+	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
 		if (M.id == src.id)
 			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/door/poddoor, open))
 
-	addtimer(CALLBACK(src, PROC_REF(activate_stage2)), 1 SECONDS)
+	sleep(10)
 
-/obj/item/assembly/control/massdriver/proc/activate_stage2()
-	for(var/obj/machinery/mass_driver/M as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/mass_driver))
+	for(var/obj/machinery/mass_driver/M in GLOB.machines)
 		if(M.id == src.id)
 			M.drive()
 
-	addtimer(CALLBACK(src, PROC_REF(activate_stage3)), 6 SECONDS)
+	sleep(60)
 
-/obj/item/assembly/control/massdriver/proc/activate_stage3()
-	for(var/obj/machinery/door/poddoor/M as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/door/poddoor))
+	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
 		if (M.id == src.id)
 			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/door/poddoor, close))
 
@@ -141,13 +136,15 @@
 	if(cooldown)
 		return
 	cooldown = TRUE
-	for(var/obj/machinery/sparker/M as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/sparker))
+	for(var/obj/machinery/sparker/M in GLOB.machines)
 		if (M.id == src.id)
 			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/sparker, ignite))
 
-	for(var/obj/machinery/igniter/M as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/igniter))
+	for(var/obj/machinery/igniter/M in GLOB.machines)
 		if(M.id == src.id)
-			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/igniter, toggle))
+			M.use_power(50)
+			M.on = !M.on
+			M.icon_state = "igniter[M.on]"
 
 	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 30)
 
@@ -159,7 +156,7 @@
 	if(cooldown)
 		return
 	cooldown = TRUE
-	for(var/obj/machinery/flasher/M as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/flasher))
+	for(var/obj/machinery/flasher/M in GLOB.machines)
 		if(M.id == src.id)
 			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/flasher, flash))
 
@@ -179,3 +176,59 @@
 			C.cremate(usr)
 
 	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 50)
+
+/obj/item/assembly/control/tram
+	name = "кнопка вызова трамвая"
+	desc = "Используется для вызова трамвая. Круто."
+	///for finding the landmark initially - should be the exact same as the landmark's destination id.
+	var/initial_id
+	///ID to link to allow us to link to one specific tram in the world
+	var/specific_lift_id = MAIN_STATION_TRAM
+	///this is our destination's landmark, so we only have to find it the first time.
+	var/datum/weakref/destination_platform
+
+/obj/item/assembly/control/tram/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/assembly/control/tram/LateInitialize()
+	. = ..()
+	//find where the tram needs to go to (our destination). only needs to happen the first time
+	for(var/obj/effect/landmark/tram/our_destination as anything in GLOB.tram_landmarks[specific_lift_id])
+		if(our_destination.platform_code == initial_id)
+			destination_platform = WEAKREF(our_destination)
+			break
+
+/obj/item/assembly/control/tram/Destroy()
+	destination_platform = null
+	return ..()
+
+/obj/item/assembly/control/tram/activate()
+	if(cooldown)
+		return
+	cooldown = TRUE
+	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 2 SECONDS)
+
+	var/datum/lift_master/tram/tram
+	for(var/datum/lift_master/tram/possible_match as anything in GLOB.active_lifts_by_type[TRAM_LIFT_ID])
+		if(possible_match.specific_lift_id == specific_lift_id)
+			tram = possible_match
+			break
+
+	if(!tram || !tram.is_operational) //tram is QDEL or has no power
+		say("Травмвай не отвечает на сигнал. Трамвай всё ещё существует?")
+		return
+	if(tram.travelling) //in use
+		say("Трамвай уже двигается к [tram.idle_platform].")
+		return
+	if(!destination_platform)
+		return
+	var/obj/effect/landmark/tram/current_location = destination_platform.resolve()
+	if(!current_location)
+		return
+	if(tram.idle_platform == current_location) //already here
+		say("Трамвай уже здесь. Забирайтесь на борт и выбирайте маршрут.")
+		return
+
+	say("Трамвай вызван к [current_location.name]. Пожалуйста, подождите пока он не прибудет.")
+	tram.tram_travel(current_location)

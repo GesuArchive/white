@@ -64,10 +64,7 @@ export const pureComponentHooks = {
  * A helper to determine whether the object is renderable by React.
  */
 export const canRender = (value: unknown) => {
-  // prettier-ignore
-  return value !== undefined
-    && value !== null
-    && typeof value !== 'boolean';
+  return value !== undefined && value !== null && typeof value !== 'boolean';
 };
 
 /**

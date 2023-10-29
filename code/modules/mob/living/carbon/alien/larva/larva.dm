@@ -1,6 +1,6 @@
 /mob/living/carbon/alien/larva
-	name = "alien larva"
-	real_name = "alien larva"
+	name = "лярва чужих"
+	real_name = "лярва чужих"
 	icon_state = "larva0"
 	pass_flags = PASSTABLE | PASSMOB
 	mob_size = MOB_SIZE_SMALL
@@ -22,7 +22,7 @@
 	bodyparts = list(
 		/obj/item/bodypart/chest/larva,
 		/obj/item/bodypart/head/larva,
-	)
+		)
 
 	var/amount_grown = 0
 	var/max_grown = 100
@@ -38,14 +38,14 @@
 	return ..()
 
 /mob/living/carbon/alien/larva/create_internal_organs()
-	organs += new /obj/item/organ/internal/alien/plasmavessel/small/tiny
+	internal_organs += new /obj/item/organ/alien/plasmavessel/small/tiny
 	..()
 
 //This needs to be fixed
 // This comment is 12 years old I hope it's fixed by now
 /mob/living/carbon/alien/larva/get_status_tab_items()
 	. = ..()
-	. += "Progress: [amount_grown]/[max_grown]"
+	. += "Прогресс: [amount_grown]/[max_grown]"
 
 /mob/living/carbon/alien/larva/Login()
 	. = ..()
@@ -62,7 +62,6 @@
 /mob/living/carbon/alien/larva/attack_ui(slot_id, params)
 	return
 
-
 // new damage icon system
 // now constructs damage icon for each organ from mask * damage field
 
@@ -73,8 +72,4 @@
 	return
 
 /mob/living/carbon/alien/larva/canBeHandcuffed()
-	return TRUE
-
-/// Don't scramble a larva's body parts, it doesn't have any
-/mob/living/carbon/alien/larva/bioscramble(scramble_source)
 	return TRUE

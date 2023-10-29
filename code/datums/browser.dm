@@ -12,10 +12,12 @@
 	var/body_elements
 	var/head_content = ""
 	var/content = ""
+	var/static/datum/asset/simple/namespaced/common/common_asset = get_asset_datum(/datum/asset/simple/namespaced/common)
+
 
 /datum/browser/New(nuser, nwindow_id, ntitle = 0, nwidth = 0, nheight = 0, atom/nref = null)
 	user = nuser
-	RegisterSignal(user, COMSIG_QDELETING, PROC_REF(user_deleted))
+	RegisterSignal(user, COMSIG_PARENT_QDELETING, PROC_REF(user_deleted))
 	window_id = nwindow_id
 	if (ntitle)
 		title = format_text(ntitle)
@@ -59,7 +61,6 @@
 	content += ncontent
 
 /datum/browser/proc/get_header()
-	var/datum/asset/simple/namespaced/common/common_asset = get_asset_datum(/datum/asset/simple/namespaced/common)
 	var/file
 	head_content += "<link rel='stylesheet' type='text/css' href='[common_asset.get_url_mappings()["common.css"]]'>"
 	for (file in stylesheets)
@@ -71,14 +72,13 @@
 
 	return {"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 		[head_content]
 	</head>
 	<body scroll=auto>
 		<div class='uiWrapper'>
-			[title ? "<div class='uiTitleWrapper'><div class='uiTitle'><tt>[title]</tt></div></div>" : ""]
+			[title ? "<div class='uiTitleWrapper'><div class='uiTitle'>[title]</div></div>" : ""]
 			<div class='uiContent'>
 	"}
 //" This is here because else the rest of the file looks like a string in notepad++.
@@ -97,14 +97,13 @@
 	"}
 
 /datum/browser/proc/open(use_onclose = TRUE)
-	if(isnull(window_id)) //null check because this can potentially nuke goonchat
+	if(isnull(window_id))	//null check because this can potentially nuke goonchat
 		WARNING("Browser [title] tried to open with a null ID")
 		to_chat(user, span_userdanger("The [title] browser you tried to open failed a sanity check! Please report this on github!"))
 		return
 	var/window_size = ""
 	if (width && height)
 		window_size = "size=[width]x[height];"
-	var/datum/asset/simple/namespaced/common/common_asset = get_asset_datum(/datum/asset/simple/namespaced/common)
 	common_asset.send(user)
 	if (stylesheets.len)
 		SSassets.transport.send_assets(user, stylesheets)
@@ -148,7 +147,7 @@
 
 	output += {"</div>"}
 
-	..(User, ckey("[User]-[Message]-[Title]-[world.time]-[rand(1,10000)]"), Title, 350, 150, src, StealFocus, Timeout)
+	..(User, ckey("[User]-[Message]-[Title]-[world.time]-[rand(1,10000)]"), Title, 350, 200, src, StealFocus, Timeout)
 	set_content(output)
 
 /datum/browser/modal/alert/Topic(href,href_list)
@@ -165,7 +164,7 @@
 /**
  * **DEPRECATED: USE tgui_alert(...) INSTEAD**
  *
- * Designed as a drop in replacement for alert(); functions the same. (outside of needing User specified)
+ * Designed as a drop in replacement for tgui_alert(); functions the same. (outside of needing User specified)
  * Arguments:
  * * User - The user to show the alert to.
  * * Message - The textual body of the alert.
@@ -213,7 +212,7 @@
 
 
 /datum/browser/modal/close()
-	.=..()
+	. = ..()
 	opentime = 0
 
 /datum/browser/modal/open(use_onclose)
@@ -249,7 +248,7 @@
 	if (!User)
 		return
 
-	var/output = {"<form><input type="hidden" name="src" value="[REF(src)]"><ul class="sparse">"}
+	var/output =  {"<form><input type="hidden" name="src" value="[REF(src)]"><ul class="sparse">"}
 	if (inputtype == "checkbox" || inputtype == "radio")
 		for (var/i in values)
 			var/div_slider = slidecolor
@@ -393,15 +392,15 @@
 				if (isnull(settings["mainsettings"][setting]["value"]))
 					settings["mainsettings"][setting]["value"] = oldval
 			if ("string")
-				settings["mainsettings"][setting]["value"] = stripped_input(user, "Enter new value for [settings["mainsettings"][setting]["desc"]]", "Enter new value for [settings["mainsettings"][setting]["desc"]]", settings["mainsettings"][setting]["value"])
+				settings["mainsettings"][setting]["value"] = stripped_input(user, "Введите новое значение для [settings["mainsettings"][setting]["desc"]]", "Введите новое значение для [settings["mainsettings"][setting]["desc"]]", settings["mainsettings"][setting]["value"])
 			if ("number")
-				settings["mainsettings"][setting]["value"] = input(user, "Enter new value for [settings["mainsettings"][setting]["desc"]]", "Enter new value for [settings["mainsettings"][setting]["desc"]]") as num
+				settings["mainsettings"][setting]["value"] = input(user, "Введите новое значение для [settings["mainsettings"][setting]["desc"]]", "Введите новое значение для [settings["mainsettings"][setting]["desc"]]") as num
 			if ("color")
-				settings["mainsettings"][setting]["value"] = input(user, "Enter new value for [settings["mainsettings"][setting]["desc"]]", "Enter new value for [settings["mainsettings"][setting]["desc"]]", settings["mainsettings"][setting]["value"]) as color
+				settings["mainsettings"][setting]["value"] = input(user, "Введите новое значение для [settings["mainsettings"][setting]["desc"]]", "Введите новое значение для [settings["mainsettings"][setting]["desc"]]", settings["mainsettings"][setting]["value"]) as color
 			if ("boolean")
-				settings["mainsettings"][setting]["value"] = (settings["mainsettings"][setting]["value"] == "Yes") ? "No" : "Yes"
+				settings["mainsettings"][setting]["value"] = tgui_input_list(user, "[settings["mainsettings"][setting]["desc"]]?", , list("Yes","No"))
 			if ("ckey")
-				settings["mainsettings"][setting]["value"] = input(user, "[settings["mainsettings"][setting]["desc"]]?") in list("none") + GLOB.directory
+				settings["mainsettings"][setting]["value"] = tgui_input_list(user, "[settings["mainsettings"][setting]["desc"]]?", , list("none") + GLOB.directory)
 		if (settings["mainsettings"][setting]["callback"])
 			var/datum/callback/callback = settings["mainsettings"][setting]["callback"]
 			settings = callback.Invoke(settings)
@@ -440,8 +439,8 @@
 // e.g. canisters, timers, etc.
 //
 // windowid should be the specified window name
-// e.g. code is : user << browse(text, "window=fred")
-// then use : onclose(user, "fred")
+// e.g. code is	: user << browse(text, "window=fred")
+// then use 	: onclose(user, "fred")
 //
 // Optionally, specify the "ref" parameter as the controlled atom (usually src)
 // to pass a "close=1" parameter to the atom's Topic() proc for special handling.
@@ -464,16 +463,16 @@
 // otherwise, just reset the client mob's machine var.
 //
 /client/verb/windowclose(atomref as text)
-	set hidden = TRUE // hide this verb from the user's panel
-	set name = ".windowclose" // no autocomplete on cmd line
+	set hidden = TRUE						// hide this verb from the user's panel
+	set name = ".windowclose"			// no autocomplete on cmd line
 
-	if(atomref != "null") // if passed a real atomref
-		var/hsrc = locate(atomref) // find the reffed atom
+	if(atomref!="null")				// if passed a real atomref
+		var/hsrc = locate(atomref)	// find the reffed atom
 		var/href = "close=1"
 		if(hsrc)
 			usr = src.mob
-			src.Topic(href, params2list(href), hsrc) // this will direct to the atom's
-			return // Topic() proc via client.Topic()
+			src.Topic(href, params2list(href), hsrc)	// this will direct to the atom's
+			return										// Topic() proc via client.Topic()
 
 	// no atomref specified (or not found)
 	// so just reset the user mob's machine var

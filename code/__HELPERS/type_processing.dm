@@ -6,12 +6,11 @@
 		var/typename = "[type]"
 		var/static/list/TYPES_SHORTCUTS = list(
 			/obj/effect/decal/cleanable = "CLEANABLE",
-			/obj/item/bodypart = "BODYPART",
 			/obj/item/radio/headset = "HEADSET",
 			/obj/item/clothing/head/helmet/space = "SPESSHELMET",
 			/obj/item/book/manual = "MANUAL",
-			/obj/item/reagent_containers/cup/glass = "DRINK", //longest paths comes first
-			/obj/item/food = "FOOD",
+			/obj/item/reagent_containers/food/drinks = "DRINK", //longest paths comes first
+			/obj/item/reagent_containers/food = "FOOD",
 			/obj/item/reagent_containers = "REAGENT_CONTAINERS",
 			/obj/machinery/atmospherics = "ATMOS_MECH",
 			/obj/machinery/portable_atmospherics = "PORT_ATMOS",
@@ -43,6 +42,11 @@
 		pre_generated_list = make_types_fancy(typesof(/atom))
 	return pre_generated_list
 
+/proc/get_fancy_list_of_projectile_types() // я хз, как тгшники задумывали использование этого говна, но я хочу красивый поиск по путям на своих кнопочках, а это говно вообще хуй пойми чё делает
+	var/static/list/pre_generated_list
+	if (!pre_generated_list) //init
+		pre_generated_list = make_types_fancy(sort_list(typesof(/obj/projectile)))
+	return pre_generated_list
 
 /proc/get_fancy_list_of_datum_types()
 	var/static/list/pre_generated_list

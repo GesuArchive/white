@@ -9,8 +9,8 @@
 	//node2 is output port
 	//node1 is input port
 
-	name = "dual-port air vent"
-	desc = "Has a valve and pump attached to it. There are two ports."
+	name = "Двухпортовая вентиляция"
+	desc = "К нему прикручены вентиль и помпа. Тут два порта."
 
 	hide = TRUE
 
@@ -24,6 +24,8 @@
 	var/output_pressure_max = 0
 	///Set the flag for the pressure bound
 	var/pressure_checks = ATMOS_EXTERNAL_BOUND
+
+	var/obj/machinery/advanced_airlock_controller/aac = null
 
 /obj/machinery/atmospherics/components/binary/dp_vent_pump/update_icon_nopipes()
 	cut_overlays()
@@ -99,7 +101,7 @@
 		parent2.update = TRUE
 
 /obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume
-	name = "large dual-port air vent"
+	name = "Большая двухпортовая вентиляция"
 
 /obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/New()
 	..()

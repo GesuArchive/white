@@ -63,7 +63,7 @@
 	// Close UIs if mindless.
 	if(!client && !HAS_TRAIT(src, TRAIT_PRESERVE_UI_WITHOUT_CLIENT))
 		return UI_CLOSE
-	// Disable UIs if unconscious.
+	// Disable UIs if unconcious.
 	else if(stat)
 		return UI_DISABLED
 	// Update UIs if incapicitated but concious.
@@ -73,8 +73,7 @@
 
 /mob/living/shared_ui_interaction(src_object)
 	. = ..()
-	var/obj/item/object = src_object
-	if(!(mobility_flags & MOBILITY_UI) && !(object.interaction_flags_atom & INTERACT_ATOM_IGNORE_MOBILITY) && . == UI_INTERACTIVE)
+	if(!(mobility_flags & MOBILITY_UI) && . == UI_INTERACTIVE)
 		return UI_UPDATE
 
 /mob/living/silicon/ai/shared_ui_interaction(src_object)
@@ -101,7 +100,7 @@
  *
  * return UI_state The state of the UI.
  */
-/mob/living/proc/shared_living_ui_distance(atom/movable/src_object, viewcheck = TRUE, allow_tk = TRUE)
+/mob/living/proc/shared_living_ui_distance(atom/movable/src_object, viewcheck = TRUE)
 	// If the object is obscured, close it.
 	if(viewcheck && !(src_object in view(src)))
 		return UI_CLOSE
@@ -118,7 +117,7 @@
 	// Otherwise, we got nothing.
 	return UI_CLOSE
 
-/mob/living/carbon/human/shared_living_ui_distance(atom/movable/src_object, viewcheck = TRUE, allow_tk = TRUE)
-	if(allow_tk && dna.check_mutation(/datum/mutation/human/telekinesis) && tkMaxRangeCheck(src, src_object))
+/mob/living/carbon/human/shared_living_ui_distance(atom/movable/src_object, viewcheck = TRUE)
+	if(dna.check_mutation(TK) && tkMaxRangeCheck(src, src_object))
 		return UI_INTERACTIVE
 	return ..()

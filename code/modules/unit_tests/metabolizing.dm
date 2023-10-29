@@ -2,12 +2,11 @@
 	// Pause natural mob life so it can be handled entirely by the test
 	SSmobs.pause()
 
-	var/mob/living/carbon/human/human = allocate(/mob/living/carbon/human/consistent)
-	var/list/blacklisted_reagents = list(
-		/datum/reagent/eigenstate, //Creates clones after a delay which get into other tests
-	)
-	var/list/reagents_to_check = subtypesof(/datum/reagent) - blacklisted_reagents - GLOB.fake_reagent_blacklist
-	for (var/reagent_type in reagents_to_check)
+	var/mob/living/carbon/human/human = allocate(/mob/living/carbon/human)
+
+	for (var/reagent_type in subtypesof(/datum/reagent))
+		if(reagent_type in GLOB.fake_reagent_blacklist)
+			continue
 		test_reagent(human, reagent_type)
 
 /datum/unit_test/metabolization/proc/test_reagent(mob/living/carbon/C, reagent_type)
@@ -22,7 +21,7 @@
 /datum/unit_test/on_mob_end_metabolize/Run()
 	SSmobs.pause()
 
-	var/mob/living/carbon/human/user = allocate(/mob/living/carbon/human/consistent)
+	var/mob/living/carbon/human/user = allocate(/mob/living/carbon/human)
 	var/obj/item/reagent_containers/pill/pill = allocate(/obj/item/reagent_containers/pill)
 	var/datum/reagent/drug/methamphetamine/meth = /datum/reagent/drug/methamphetamine
 
@@ -47,19 +46,19 @@
 /datum/unit_test/addictions/Run()
 	SSmobs.pause()
 
-	var/mob/living/carbon/human/pill_user = allocate(/mob/living/carbon/human/consistent)
-	var/mob/living/carbon/human/syringe_user = allocate(/mob/living/carbon/human/consistent)
-	var/mob/living/carbon/human/pill_syringe_user = allocate(/mob/living/carbon/human/consistent)
+	var/mob/living/carbon/human/pill_user = allocate(/mob/living/carbon/human)
+	var/mob/living/carbon/human/syringe_user = allocate(/mob/living/carbon/human)
+	var/mob/living/carbon/human/pill_syringe_user = allocate(/mob/living/carbon/human)
 
-	var/datum/mind/pill_mind = new /datum/mind(null)
+	var/datum/mind/pill_mind = new /datum/mind("Mothcocks")
 	pill_mind.active = TRUE
 	pill_mind.transfer_to(pill_user)
 
-	var/datum/mind/syringe_mind = new /datum/mind(null)
+	var/datum/mind/syringe_mind = new /datum/mind("Mothcocks")
 	syringe_mind.active = TRUE
 	syringe_mind.transfer_to(syringe_user)
 
-	var/datum/mind/pill_syringe_mind = new /datum/mind(null)
+	var/datum/mind/pill_syringe_mind = new /datum/mind("Mothcocks")
 	pill_syringe_mind.active = TRUE
 	pill_syringe_mind.transfer_to(pill_syringe_user)
 
@@ -80,7 +79,7 @@
 	pill.attack(pill_user, pill_user)
 
 	// Set the metabolism efficiency to 1.0 so it transfers all reagents to the body in one go.
-	var/obj/item/organ/internal/stomach/pill_belly = pill_user.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/stomach/pill_belly = pill_user.get_organ_slot(ORGAN_SLOT_STOMACH)
 	pill_belly.metabolism_efficiency = 1
 
 	pill_user.Life()
@@ -88,6 +87,7 @@
 	TEST_ASSERT(pill_user.mind.addiction_points[addiction_type_to_check], "User did not gain addiction points after metabolizing meth")
 
 	// Then injected metabolism
+	syringe.mode = SYRINGE_INJECT
 	syringe.volume = 5
 	syringe.amount_per_transfer_from_this = 5
 	syringe.reagents.add_reagent(meth.type, 5)
@@ -98,6 +98,7 @@
 	TEST_ASSERT(syringe_user.mind.addiction_points[addiction_type_to_check], "User did not gain addiction points after metabolizing meth")
 
 	// One half syringe
+	syringe.mode = SYRINGE_INJECT
 	syringe.reagents.remove_all()
 	syringe.volume = 5
 	syringe.amount_per_transfer_from_this = 5

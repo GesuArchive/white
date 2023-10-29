@@ -1,9 +1,9 @@
 /// This is an atmospherics pipe which can relay air up/down a deck.
 /obj/machinery/atmospherics/pipe/multiz
-	name = "multi deck pipe adapter"
-	desc = "An adapter which allows pipes to connect to other pipenets on different decks."
+	name = "переходник для многодековых труб"
+	desc = "Адаптер, позволяющий подключать трубы к другим сетям на разных палубах."
 	icon_state = "adapter-3"
-	icon = 'icons/obj/pipes_n_cables/multiz.dmi'
+	icon = 'icons/obj/atmospherics/pipes/multiz.dmi'
 
 	dir = SOUTH
 	initialize_directions = SOUTH
@@ -14,8 +14,6 @@
 
 	construction_type = /obj/item/pipe/directional
 	pipe_state = "multiz"
-
-	has_gas_visuals = FALSE
 
 	///Our central icon
 	var/mutable_appearance/center = null

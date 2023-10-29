@@ -132,9 +132,8 @@
 		target_datum = SSdcs
 
 	if(target_datum)
-		log_admin_circuit("[parent.get_creator()] registered the signal '[registered_signal]' on [target_datum]")
 		// We override because an admin may try registering a signal on the same object/datum again, so this prevents any runtimes from occuring
-		RegisterSignal(target_datum, registered_signal, PROC_REF(handle_signal_received), override = TRUE)
+		RegisterSignals(target_datum, registered_signal, PROC_REF(handle_signal_received), override = TRUE)
 		registered_entities |= WEAKREF(target_datum)
 
 /obj/item/circuit_component/signal_handler/proc/load_new_ports(list/ports_to_load)
@@ -199,8 +198,6 @@
 	var/temp_usr = usr
 	usr = null
 
-	var/list/displayArgs = arguments.Copy()
-	log_admin_circuit("[parent.get_creator()] received a signal from [popleft(displayArgs)] ([registered_signal]) with the parameters \[[displayArgs.Join(", ")]]")
 	SScircuit_component.queue_instant_run()
 	run_ports_on_args(arguments)
 	var/list/output = SScircuit_component.execute_instant_run()
@@ -222,7 +219,6 @@
 		return_values["bitflag"] = NONE
 
 	var/bitflag = input_signal_ports[port]
-	log_admin_circuit("[parent.get_creator()] received bitflag [bitflag] for '[registered_signal]'")
 	return_values["bitflag"] |= bitflag
 
 #undef COMP_SIGNAL_HANDLER_GLOBAL

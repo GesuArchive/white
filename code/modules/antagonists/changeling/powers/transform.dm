@@ -1,20 +1,20 @@
 /datum/action/changeling/transform
-	name = "Transform"
-	desc = "We take on the appearance and voice of one we have absorbed. Costs 5 chemicals."
+	name = "Трансформация"
+	desc = "Мы принимаем вид и голос того, кого мы впитали. Стоит 5 химикатов."
 	button_icon_state = "transform"
 	chemical_cost = 5
-	dna_cost = CHANGELING_POWER_INNATE
+	dna_cost = 0
 	req_dna = 1
-	req_human = TRUE
+	req_human = 1
 
 /obj/item/clothing/glasses/changeling
 	name = "flesh"
 	item_flags = DROPDEL
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/clothing/glasses/changeling/attack_hand(mob/user, list/modifiers)
+/obj/item/clothing/glasses/changeling/attack_hand(mob/user)
 	if(loc == user && user.mind && user.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(user, span_notice("You reabsorb [src] into your body."))
+		to_chat(user, span_notice("Возвращаю <b>[src]</b> обратно в своё тело."))
 		qdel(src)
 		return
 	. = ..()
@@ -24,9 +24,9 @@
 	item_flags = DROPDEL
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/clothing/under/changeling/attack_hand(mob/user, list/modifiers)
+/obj/item/clothing/under/changeling/attack_hand(mob/user)
 	if(loc == user && user.mind && user.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(user, span_notice("You reabsorb [src] into your body."))
+		to_chat(user, span_notice("Возвращаю <b>[src]</b> обратно в своё тело."))
 		qdel(src)
 		return
 	. = ..()
@@ -37,9 +37,9 @@
 	item_flags = DROPDEL
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/clothing/suit/changeling/attack_hand(mob/user, list/modifiers)
+/obj/item/clothing/suit/changeling/attack_hand(mob/user)
 	if(loc == user && user.mind && user.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(user, span_notice("You reabsorb [src] into your body."))
+		to_chat(user, span_notice("Возвращаю <b>[src]</b> обратно в своё тело."))
 		qdel(src)
 		return
 	. = ..()
@@ -50,9 +50,9 @@
 	item_flags = DROPDEL
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/clothing/head/changeling/attack_hand(mob/user, list/modifiers)
+/obj/item/clothing/head/changeling/attack_hand(mob/user)
 	if(loc == user && user.mind && user.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(user, span_notice("You reabsorb [src] into your body."))
+		to_chat(user, span_notice("Возвращаю <b>[src]</b> обратно в своё тело."))
 		qdel(src)
 		return
 	. = ..()
@@ -62,9 +62,9 @@
 	item_flags = DROPDEL
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/clothing/shoes/changeling/attack_hand(mob/user, list/modifiers)
+/obj/item/clothing/shoes/changeling/attack_hand(mob/user)
 	if(loc == user && user.mind && user.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(user, span_notice("You reabsorb [src] into your body."))
+		to_chat(user, span_notice("Возвращаю <b>[src]</b> обратно в своё тело."))
 		qdel(src)
 		return
 	. = ..()
@@ -74,9 +74,9 @@
 	item_flags = DROPDEL
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/clothing/gloves/changeling/attack_hand(mob/user, list/modifiers)
+/obj/item/clothing/gloves/changeling/attack_hand(mob/user)
 	if(loc == user && user.mind && user.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(user, span_notice("You reabsorb [src] into your body."))
+		to_chat(user, span_notice("Возвращаю <b>[src]</b> обратно в своё тело."))
 		qdel(src)
 		return
 	. = ..()
@@ -86,9 +86,9 @@
 	item_flags = DROPDEL
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/clothing/mask/changeling/attack_hand(mob/user, list/modifiers)
+/obj/item/clothing/mask/changeling/attack_hand(mob/user)
 	if(loc == user && user.mind && user.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(user, span_notice("You reabsorb [src] into your body."))
+		to_chat(user, span_notice("Возвращаю <b>[src]</b> обратно в своё тело."))
 		qdel(src)
 		return
 	. = ..()
@@ -96,12 +96,13 @@
 /obj/item/changeling
 	name = "flesh"
 	slot_flags = ALL
+	allowed = list(/obj/item/changeling)
 	item_flags = DROPDEL
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/changeling/attack_hand(mob/user, list/modifiers)
+/obj/item/changeling/attack_hand(mob/user)
 	if(loc == user && user.mind && user.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(user, span_notice("You reabsorb [src] into your body."))
+		to_chat(user, span_notice("Возвращаю <b>[src]</b> обратно в своё тело."))
 		qdel(src)
 		return
 	. = ..()
@@ -130,18 +131,17 @@
 	return cached_flat_icon
 
 /obj/item/changeling/id/get_examine_string(mob/user, thats = FALSE)
-	return "[icon2html(get_cached_flat_icon(), user)] [thats? "That's ":""][get_examine_name(user)]" //displays all overlays in chat
+	return "[icon2html(get_cached_flat_icon(), user)] [get_examine_name(user)]" //displays all overlays in chat
 
 //Change our DNA to that of somebody we've absorbed.
 /datum/action/changeling/transform/sting_action(mob/living/carbon/human/user)
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
-	var/datum/changeling_profile/chosen_prof = changeling.select_dna()
+	var/datum/changelingprofile/chosen_prof = changeling.select_dna()
 
 	if(!chosen_prof)
 		return
 	..()
-	changeling.transform(user, chosen_prof)
-	SEND_SIGNAL(user, COMSIG_CHANGELING_TRANSFORM)
+	changeling_transform(user, chosen_prof)
 	return TRUE
 
 /**
@@ -152,8 +152,8 @@
 	if(!istype(user))
 		return
 
-	var/list/disguises = list("Drop Flesh Disguise" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_drop"))
-	for(var/datum/changeling_profile/current_profile as anything in stored_profiles)
+	var/list/disguises = list("Сбросить маскировку" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_drop"))
+	for(var/datum/changelingprofile/current_profile in stored_profiles)
 		var/datum/icon_snapshot/snap = current_profile.profile_snapshot
 		var/image/disguise_image = image(icon = snap.icon, icon_state = snap.icon_state)
 		disguise_image.overlays = snap.overlays
@@ -163,9 +163,9 @@
 	if(!chosen_name)
 		return
 
-	if(chosen_name == "Drop Flesh Disguise")
-		for(var/slot in slot2type)
-			if(istype(user.vars[slot], slot2type[slot]))
+	if(chosen_name == "Сбросить маскировку")
+		for(var/slot in GLOB.slots)
+			if(istype(user.vars[slot], GLOB.slot2type[slot]))
 				qdel(user.vars[slot])
 		for(var/i in user.all_scars)
 			var/datum/scar/iter_scar = i
@@ -173,7 +173,7 @@
 				qdel(iter_scar)
 		return
 
-	var/datum/changeling_profile/prof = get_dna(chosen_name)
+	var/datum/changelingprofile/prof = get_dna(chosen_name)
 	return prof
 
 /**

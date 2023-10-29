@@ -20,7 +20,7 @@ SUBSYSTEM_DEF(eigenstates)
 		if(!already_linked)
 			continue
 		if(length(eigen_targets[already_linked]) > 1) //Eigenstates are notorious for having cliques!
-			target.visible_message("[target] fizzes, it's already linked to something else!")
+			target.visible_message("[target] искрит: Цель уже к чему-то присоединена!")
 			targets -= target
 			continue
 		target.visible_message("[target] fizzes, collapsing it's unique wavefunction into the others!") //If we're in a eigenlink all on our own and are open to new friends
@@ -30,7 +30,7 @@ SUBSYSTEM_DEF(eigenstates)
 		return FALSE
 	var/atom/visible_atom = targets[1] //The object that'll handle the messages
 	if(length(targets) == 1)
-		visible_atom.visible_message("[targets[1]] fizzes, there's nothing it can link to!")
+		visible_atom.visible_message("[targets[1]] искрит: Не к чему присоединять-то!")
 		return FALSE
 
 	eigen_targets["[id_counter]"] = list() //Add to the master list
@@ -38,17 +38,17 @@ SUBSYSTEM_DEF(eigenstates)
 		eigen_targets["[id_counter]"] += target
 		eigen_id[target] = "[id_counter]"
 		RegisterSignal(target, COMSIG_CLOSET_INSERT, PROC_REF(use_eigenlinked_atom))
-		RegisterSignal(target, COMSIG_QDELETING, PROC_REF(remove_eigen_entry))
+		RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(remove_eigen_entry))
 		RegisterSignal(target, COMSIG_ATOM_TOOL_ACT(TOOL_WELDER), PROC_REF(tool_interact))
-		target.RegisterSignal(target, COMSIG_EIGENSTATE_ACTIVATE, TYPE_PROC_REF(/obj/structure/closet,bust_open))
-		ADD_TRAIT(target, TRAIT_BANNED_FROM_CARGO_SHUTTLE, REF(src))
+		target.RegisterSignal(target, COMSIG_EIGENSTATE_ACTIVATE, /obj/structure/closet/proc/bust_open)
+		ADD_TRAIT(target, TRAIT_BANNED_FROM_CARGO_SHUTTLE, src)
 		var/obj/item = target
 		if(item)
 			item.color = COLOR_PERIWINKLEE //Tint the locker slightly.
 			item.alpha = 200
 			do_sparks(3, FALSE, item)
 
-	visible_atom.visible_message("The items shimmer and fizzle, turning a shade of violet blue.")
+	visible_atom.visible_message("Предметы мерцают и шипят, приобретая фиолетово-синий оттенок.")
 	id_counter++
 	return TRUE
 
@@ -64,18 +64,17 @@ SUBSYSTEM_DEF(eigenstates)
 
 ///removes an object reference from the master list
 /datum/controller/subsystem/eigenstates/proc/remove_eigen_entry(atom/entry)
-	SIGNAL_HANDLER
 	var/id = eigen_id[entry]
 	eigen_targets[id] -= entry
 	eigen_id -= entry
 	entry.color = COLOR_WHITE
 	entry.alpha = 255
 	UnregisterSignal(entry, list(
-		COMSIG_QDELETING,
+		COMSIG_PARENT_QDELETING,
 		COMSIG_CLOSET_INSERT,
 		COMSIG_ATOM_TOOL_ACT(TOOL_WELDER),
 	))
-	REMOVE_TRAIT(entry, TRAIT_BANNED_FROM_CARGO_SHUTTLE, REF(src))
+	REMOVE_TRAIT(entry, TRAIT_BANNED_FROM_CARGO_SHUTTLE, src)
 	entry.UnregisterSignal(entry, COMSIG_EIGENSTATE_ACTIVATE) //This is a signal on the object itself so we have to call it from that
 	///Remove the current entry if we're empty
 	for(var/targets in eigen_targets)
@@ -84,8 +83,6 @@ SUBSYSTEM_DEF(eigenstates)
 
 ///Finds the object within the master list, then sends the thing to the object's location
 /datum/controller/subsystem/eigenstates/proc/use_eigenlinked_atom(atom/object_sent_from, atom/movable/thing_to_send)
-	SIGNAL_HANDLER
-
 	var/id = eigen_id[object_sent_from]
 	if(!id)
 		stack_trace("[object_sent_from] attempted to eigenlink to something that didn't have a valid id!")
@@ -101,11 +98,7 @@ SUBSYSTEM_DEF(eigenstates)
 	if(!eigen_target)
 		stack_trace("No eigen target set for the eigenstate component!")
 		return FALSE
-	if(check_teleport_valid(thing_to_send, eigen_target, TELEPORT_CHANNEL_EIGENSTATE))
-		thing_to_send.forceMove(get_turf(eigen_target))
-	else
-		object_sent_from.balloon_alert(thing_to_send, "nothing happens!")
-		return FALSE
+	thing_to_send.forceMove(get_turf(eigen_target))
 	//Create ONE set of sparks for ALL times in iteration
 	if(spark_time != world.time)
 		do_sparks(5, FALSE, eigen_target)
@@ -117,6 +110,5 @@ SUBSYSTEM_DEF(eigenstates)
 
 ///Prevents tool use on the item
 /datum/controller/subsystem/eigenstates/proc/tool_interact(atom/source, mob/user, obj/item/item)
-	SIGNAL_HANDLER
-	to_chat(user, span_notice("The unstable nature of [source] makes it impossible to use [item] on [source.p_them()]!"))
+	to_chat(user, span_notice("Особые природные свойства [source] не позволяют использовать [item] на [source.p_them()]!"))
 	return COMPONENT_BLOCK_TOOL_ATTACK

@@ -44,7 +44,6 @@ SUBSYSTEM_DEF(stickyban)
 		if (ckey != bannedkey)
 			world.SetConfig("ban", bannedkey, null)
 
-		//get_stickyban_from_ckey returned null, aka something broke. Notify admins about it
 		if (!ban)
 			message_admins("Failed to apply stickyban for [bannedkey]. Check the DB for corrupt stickyban entries.")
 			log_admin_private ("Failed to apply stickyban for [bannedkey]. Check the DB for corrupt stickyban entries.")

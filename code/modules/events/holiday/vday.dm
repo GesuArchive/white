@@ -9,11 +9,9 @@
 	name = "Valentines!"
 	holidayID = VALENTINES
 	typepath = /datum/round_event/valentines
-	weight = -1 //forces it to be called, regardless of weight
+	weight = -1							//forces it to be called, regardless of weight
 	max_occurrences = 1
 	earliest_start = 0 MINUTES
-	category = EVENT_CATEGORY_HOLIDAY
-	description = "Puts people on dates! They must protect each other. Sometimes a vengeful third wheel spawns."
 
 /datum/round_event/valentines/start()
 	..()
@@ -25,8 +23,7 @@
 
 	var/list/valentines = list()
 	for(var/mob/living/M in GLOB.player_list)
-		var/turf/current_turf = get_turf(M.mind.current)
-		if(!M.stat && M.mind && !current_turf.onCentCom())
+		if(!M.stat && M.mind)
 			valentines |= M
 
 
@@ -57,8 +54,8 @@
 /obj/item/valentine
 	name = "valentine"
 	desc = "A Valentine's card! Wonder what it says..."
-	icon = 'icons/obj/toys/playing_cards.dmi'
-	icon_state = "sc_Ace of Hearts_syndicate" // shut up // bye felicia
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "sc_Ace of Hearts_syndicate" // shut up
 	var/message = "A generic message of love or whatever."
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_TINY
@@ -70,11 +67,12 @@
 /obj/item/valentine/attackby(obj/item/W, mob/user, params)
 	..()
 	if(istype(W, /obj/item/pen) || istype(W, /obj/item/toy/crayon))
-		if(!user.can_write(W))
+		if(!user.is_literate())
+			to_chat(user, span_notice("You scribble illegibly on [src]!"))
 			return
-		var/recipient = tgui_input_text(user, "Who is receiving this valentine?", "To:", max_length = MAX_NAME_LEN)
-		var/sender = tgui_input_text(user, "Who is sending this valentine?", "From:", max_length = MAX_NAME_LEN)
-		if(!user.can_perform_action(src))
+		var/recipient = stripped_input(user, "Who is receiving this valentine?", "To:", null , 20)
+		var/sender = stripped_input(user, "Who is sending this valentine?", "From:", null , 20)
+		if(!user.canUseTopic(src, BE_CLOSE))
 			return
 		if(recipient && sender)
 			name = "valentine - To: [recipient] From: [sender]"
@@ -83,10 +81,10 @@
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
 		if( !(ishuman(user) || isobserver(user) || issilicon(user)) )
-			user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[stars(message)]</BODY></HTML>", "window=[name]")
+			user << browse("<HTML><HEAD><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /><TITLE>[name]</TITLE></HEAD><BODY>[stars(message)]</BODY></HTML>", "window=[name]")
 			onclose(user, "[name]")
 		else
-			user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[message]</BODY></HTML>", "window=[name]")
+			user << browse("<HTML><HEAD><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /><TITLE>[name]</TITLE></HEAD><BODY>[message]</BODY></HTML>", "window=[name]")
 			onclose(user, "[name]")
 	else
 		. += span_notice("It is too far away.")
@@ -96,7 +94,7 @@
 
 /obj/item/food/candyheart
 	name = "candy heart"
-	icon = 'icons/obj/holiday/holiday_misc.dmi'
+	icon = 'icons/obj/holiday_misc.dmi'
 	icon_state = "candyheart"
 	desc = "A heart-shaped candy that reads: "
 	food_reagents = list(/datum/reagent/consumable/sugar = 2)
@@ -106,5 +104,3 @@
 	. = ..()
 	desc = pick(strings(VALENTINE_FILE, "candyhearts"))
 	icon_state = pick("candyheart", "candyheart2", "candyheart3", "candyheart4")
-
-#undef VALENTINE_FILE

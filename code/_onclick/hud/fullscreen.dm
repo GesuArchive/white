@@ -26,7 +26,7 @@
 
 	screens -= category
 
-	if(!QDELETED(src) && animated)
+	if(animated)
 		animate(screen, alpha = 0, time = animated)
 		addtimer(CALLBACK(src, PROC_REF(clear_fullscreen_after_animate), screen), animated, TIMER_CLIENT_TIME)
 	else
@@ -99,6 +99,12 @@
 	severity = 0
 	. = ..()
 
+/atom/movable/screen/fullscreen/emergency_meeting
+	icon_state = "emergency_meeting"
+	show_when_dead = TRUE
+	layer = CURSE_LAYER
+	plane = SPLASHSCREEN_PLANE
+
 /atom/movable/screen/fullscreen/brute
 	icon_state = "brutedamageoverlay"
 	layer = UI_DAMAGE_LAYER
@@ -117,9 +123,6 @@
 /atom/movable/screen/fullscreen/crit/vision
 	icon_state = "oxydamageoverlay"
 	layer = BLIND_LAYER
-
-/atom/movable/screen/fullscreen/crit/projectile_parry
-	layer = PARRY_LAYER
 
 /atom/movable/screen/fullscreen/blind
 	icon_state = "blackimageoverlay"
@@ -143,15 +146,21 @@
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "flash"
 
-/atom/movable/screen/fullscreen/flash/black
-	icon = 'icons/hud/screen_gen.dmi'
-	screen_loc = "WEST,SOUTH to EAST,NORTH"
-	icon_state = "black"
-
 /atom/movable/screen/fullscreen/flash/static
 	icon = 'icons/hud/screen_gen.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "noise"
+
+/atom/movable/screen/fullscreen/pain
+	icon = 'icons/hud/screen_gen.dmi'
+	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	icon_state = "pain"
+	show_when_dead = FALSE
+
+/atom/movable/screen/fullscreen/death
+	icon = 'icons/hud/screen_gen.dmi'
+	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	icon_state = "death"
 
 /atom/movable/screen/fullscreen/high
 	icon = 'icons/hud/screen_gen.dmi'
@@ -163,14 +172,6 @@
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "flash"
 	alpha = 80
-
-/atom/movable/screen/fullscreen/bluespace_sparkle
-	icon = 'icons/effects/effects.dmi'
-	screen_loc = "WEST,SOUTH to EAST,NORTH"
-	icon_state = "shieldsparkles"
-	layer = FLASH_LAYER
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	show_when_dead = TRUE
 
 /atom/movable/screen/fullscreen/color_vision/green
 	color = "#00ff00"
@@ -193,7 +194,7 @@
 /atom/movable/screen/fullscreen/lighting_backdrop
 	icon = 'icons/hud/screen_gen.dmi'
 	icon_state = "flash"
-	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	transform = matrix(200, 0, 0, 0, 200, 0)
 	plane = LIGHTING_PLANE
 	layer = LIGHTING_ABOVE_ALL
 	blend_mode = BLEND_OVERLAY
@@ -217,9 +218,8 @@
 	blend_mode = BLEND_ADD
 	show_when_dead = TRUE
 
-/atom/movable/screen/fullscreen/static_vision
-	icon = 'icons/hud/screen_gen.dmi'
-	screen_loc = "WEST,SOUTH to EAST,NORTH"
-	icon_state = "noise"
-	color = "#04a8d1"
-	alpha = 80
+/atom/movable/screen/fullscreen/depression
+	icon_state = "depression"
+	layer = FLASH_LAYER
+	plane = FULLSCREEN_PLANE
+	blend_mode = 3

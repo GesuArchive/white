@@ -3,6 +3,14 @@
 /// A global assoc list of all landmarks that denote a heretic sacrifice location. [string heretic path] = [landmark].
 GLOBAL_LIST_EMPTY(heretic_sacrifice_landmarks)
 
+/**
+ * A map template loaded in when heretics are created.
+ * Hereteic sacrifices are sent here when completed.
+ */
+/datum/map_template/heretic_sacrifice_level
+	name = "Heretic Sacrifice Level"
+	mappath = "_maps/templates/heretic_sacrifice_template.dmm"
+
 /// Lardmarks meant to designate where heretic sacrifices are sent.
 /obj/effect/landmark/heretic
 	name = "default heretic sacrifice landmark"
@@ -34,15 +42,11 @@ GLOBAL_LIST_EMPTY(heretic_sacrifice_landmarks)
 	name = "rust heretic sacrifice landmark"
 	for_heretic_path = PATH_RUST
 
-/obj/effect/landmark/heretic/knock
-	name = "knock heretic sacrifice landmark"
-	for_heretic_path = PATH_KNOCK
-
 // A fluff signpost object that doesn't teleport you somewhere when you touch it.
 /obj/structure/no_effect_signpost
 	name = "signpost"
 	desc = "Won't somebody give me a sign?"
-	icon = 'icons/obj/fluff/general.dmi'
+	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "signpost"
 	anchored = TRUE
 	density = TRUE
@@ -81,7 +85,7 @@ GLOBAL_LIST_EMPTY(heretic_sacrifice_landmarks)
 	dir = WEST
 
 // Rooms for where heretic sacrifices send people.
-/area/centcom/heretic_sacrifice
+/area/heretic_sacrifice
 	name = "Mansus"
 	icon_state = "heretic"
 	has_gravity = STANDARD_GRAVITY
@@ -89,29 +93,24 @@ GLOBAL_LIST_EMPTY(heretic_sacrifice_landmarks)
 	sound_environment = SOUND_ENVIRONMENT_CAVE
 	area_flags = UNIQUE_AREA | NOTELEPORT | HIDDEN_AREA | BLOCK_SUICIDE
 
-/area/centcom/heretic_sacrifice/Initialize(mapload)
+/area/heretic_sacrifice/Initialize(mapload)
 	if(!ambientsounds)
 		ambientsounds = GLOB.ambience_assoc[ambience_index]
 		ambientsounds += 'sound/ambience/ambiatm1.ogg'
 	return ..()
 
-/area/centcom/heretic_sacrifice/ash //also, the default
+/area/heretic_sacrifice/ash //also, the default
 	name = "Mansus Ash Gate"
 
-/area/centcom/heretic_sacrifice/void
+/area/heretic_sacrifice/void
 	name = "Mansus Void Gate"
 	sound_environment = SOUND_ENVIRONMENT_UNDERWATER
 
-/area/centcom/heretic_sacrifice/flesh
+/area/heretic_sacrifice/flesh
 	name = "Mansus Flesh Gate"
 	sound_environment = SOUND_ENVIRONMENT_STONEROOM
 
-/area/centcom/heretic_sacrifice/rust
+/area/heretic_sacrifice/rust
 	name = "Mansus Rust Gate"
 	ambience_index = AMBIENCE_REEBE
 	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
-
-/area/centcom/heretic_sacrifice/knock
-	name = "Mansus Knock Gate"
-	ambience_index = AMBIENCE_DANGER
-	sound_environment = SOUND_ENVIRONMENT_PSYCHOTIC

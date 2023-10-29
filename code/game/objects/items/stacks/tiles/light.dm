@@ -1,11 +1,11 @@
 /obj/item/stack/tile/light
-	name = "light tile"
-	singular_name = "light floor tile"
-	desc = "A floor tile, made out of glass. It produces light."
+	name = "световая плитка"
+	singular_name = "световая напольная плитка"
+	desc = "Плитка для пола сделанная из стекла. Она излучает свет."
 	icon_state = "tile_e"
 	flags_1 = CONDUCT_1
-	attack_verb_continuous = list("bashes", "batters", "bludgeons", "thrashes", "smashes")
-	attack_verb_simple = list("bash", "batter", "bludgeon", "thrash", "smash")
+	attack_verb_continuous = list("лупит", "бьёт", "разбивает", "вмазывает", "атакует")
+	attack_verb_simple = list("лупит", "бьёт", "разбивает", "вмазывает", "атакует")
 	turf_type = /turf/open/floor/light
 	merge_type = /obj/item/stack/tile/light
 	var/state = 0
@@ -20,7 +20,7 @@
 	else
 		return ..()
 
-/obj/item/stack/tile/light/place_tile(turf/open/target_plating, mob/user)
+/obj/item/stack/tile/light/place_tile(turf/open/T)
 	. = ..()
-	var/turf/open/floor/light/floor = .
-	floor?.state = state
+	var/turf/open/floor/light/F = .
+	F?.state = state

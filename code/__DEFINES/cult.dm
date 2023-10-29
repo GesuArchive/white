@@ -21,30 +21,11 @@
 #define BLOOD_BEAM_COST 500
 #define IRON_TO_CONSTRUCT_SHELL_CONVERSION 50
 //screen locations
-#define DEFAULT_BLOODSPELLS "6:-29,4:-2"
-#define DEFAULT_BLOODTIP "14:6,14:27"
-#define DEFAULT_TOOLTIP "6:-29,5:-2"
+#define DEFAULT_BLOODSPELLS "LEFT+3:13,SOUTH:5"
 //misc
 #define SOULS_TO_REVIVE 3
-#define BLOODCULT_EYE "#FF0000"
+#define BLOODCULT_EYE "f00"
 //soulstone & construct themes
-#define THEME_CULT "cult"
 #define THEME_WIZARD "wizard"
+#define THEME_CULT "cult"
 #define THEME_HOLY "holy"
-
-/// Defines for cult item_dispensers.
-#define PREVIEW_IMAGE "preview"
-#define OUTPUT_ITEMS "output"
-
-/// The global Nar'sie that the cult's summoned
-GLOBAL_DATUM(cult_narsie, /obj/narsie)
-
-// Used in determining which cinematic to play when cult ends
-#define CULT_VICTORY_MASS_CONVERSION 2
-#define CULT_FAILURE_NARSIE_KILLED 1
-#define CULT_VICTORY_NUKE 0
-
-// Used to determine the roundend report.
-#define CULT_VICTORY 1
-#define CULT_LOSS 0
-#define CULT_NARSIE_KILLED -1

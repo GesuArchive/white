@@ -1,0 +1,354 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/chair/office,
+/obj/effect/turf_decal/trimline/red/filled/warning,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"b" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/machinery/recharger,
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/ruin/unpowered)
+"c" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/spawner/lootdrop/ruinloot/security,
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"e" = (
+/obj/effect/turf_decal/trimline/red/filled/warning{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"f" = (
+/obj/effect/turf_decal/trimline/red/filled/warning{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"i" = (
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"k" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/ruin/unpowered)
+"l" = (
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"m" = (
+/turf/open/floor/plasteel/dark/corner{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"n" = (
+/turf/open/floor/plasteel/dark/corner{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"o" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
+"q" = (
+/turf/open/floor/plasteel/dark/corner,
+/area/ruin/unpowered)
+"r" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/ruin/unpowered)
+"t" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
+"u" = (
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
+/area/ruin/unpowered)
+"w" = (
+/turf/open/floor/plasteel/dark/corner{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"x" = (
+/obj/structure/chair/office{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/filled/warning{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"y" = (
+/obj/structure/closet/radiation,
+/turf/open/floor/plasteel/dark/corner{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"z" = (
+/obj/machinery/computer{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"A" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/machinery/door/airlock/public/glass,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"B" = (
+/obj/effect/turf_decal/trimline/red/filled/warning,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"C" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin/unpowered)
+"D" = (
+/obj/structure/closet/radiation,
+/turf/open/floor/plasteel/dark/corner{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"E" = (
+/obj/machinery/computer{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/ruin/unpowered)
+"F" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/machinery/door/airlock/public/glass,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"G" = (
+/obj/effect/turf_decal/trimline/red/filled/warning,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"K" = (
+/obj/effect/turf_decal/trimline/red/filled/warning{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"N" = (
+/obj/machinery/computer{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"O" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/ruin/unpowered)
+"P" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"S" = (
+/obj/effect/spawner/random/decoration/glowstick/on,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"T" = (
+/obj/effect/abstract/open_area_marker{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"U" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"V" = (
+/obj/effect/abstract/open_area_marker{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"X" = (
+/obj/effect/turf_decal/trimline/red/filled/corner,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+C
+C
+C
+C
+C
+i
+T
+i
+C
+"}
+(2,1,1) = {"
+C
+b
+N
+E
+C
+y
+i
+q
+C
+"}
+(3,1,1) = {"
+C
+K
+x
+f
+C
+u
+A
+u
+C
+"}
+(4,1,1) = {"
+C
+n
+S
+l
+u
+r
+i
+O
+C
+"}
+(5,1,1) = {"
+U
+i
+X
+e
+u
+P
+i
+l
+C
+"}
+(6,1,1) = {"
+C
+m
+B
+z
+u
+k
+i
+o
+C
+"}
+(7,1,1) = {"
+C
+P
+a
+c
+C
+u
+F
+u
+C
+"}
+(8,1,1) = {"
+C
+k
+G
+t
+C
+D
+i
+w
+C
+"}
+(9,1,1) = {"
+C
+C
+C
+C
+C
+i
+V
+i
+C
+"}

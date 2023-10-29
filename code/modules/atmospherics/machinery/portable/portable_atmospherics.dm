@@ -1,11 +1,11 @@
 #define PORTABLE_ATMOS_IGNORE_ATMOS_LIMIT 0
 
 /obj/machinery/portable_atmospherics
-	name = "portable_atmospherics"
-	icon = 'icons/obj/pipes_n_cables/atmos.dmi'
+	name = "портативная атмосфера"
+	icon = 'icons/obj/atmos.dmi'
 	use_power = NO_POWER_USE
 	max_integrity = 250
-	armor_type = /datum/armor/machinery_portable_atmospherics
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
 	anchored = FALSE
 	layer = ABOVE_OBJ_LAYER
 
@@ -31,11 +31,6 @@
 	var/suppress_reactions = FALSE
 	/// Is there a hypernoblium crystal inserted into this
 	var/nob_crystal_inserted = FALSE
-
-/datum/armor/machinery_portable_atmospherics
-	energy = 100
-	fire = 60
-	acid = 30
 
 /obj/machinery/portable_atmospherics/Initialize(mapload)
 	. = ..()
@@ -159,19 +154,17 @@
 
 /obj/machinery/portable_atmospherics/AltClick(mob/living/user)
 	. = ..()
-	if(!istype(user) || !user.can_perform_action(src, NEED_DEXTERITY) || !can_interact(user))
+	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)) || !can_interact(user))
 		return
-	if(!holding)
-		return
-	to_chat(user, span_notice("You remove [holding] from [src]."))
-	replace_tank(user, TRUE)
+	if(holding)
+		to_chat(user, span_notice("Достаю [holding] из [src]."))
+		replace_tank(user, TRUE)
 
 /obj/machinery/portable_atmospherics/examine(mob/user)
 	. = ..()
-	if(!holding)
-		return
-	. += span_notice("\The [src] contains [holding]. Alt-click [src] to remove it.")+\
-		span_notice("Click [src] with another gas tank to hot swap [holding].")
+	if(holding)
+		. += "<hr><span class='notice'>[capitalize(src.name)] содержит [holding]. ПКМ [src] для быстрого изъятия.</span>"+\
+			span_notice("\nНажми на [src.name] держа бак в руке для горячей замены [holding].")
 
 /**
  * Allow the player to place a tank inside the machine.
@@ -188,11 +181,11 @@
 			user.put_in_hands(holding)
 		else
 			holding.forceMove(get_turf(src))
-		UnregisterSignal(holding, COMSIG_QDELETING)
+		UnregisterSignal(holding, COMSIG_PARENT_QDELETING)
 		holding = null
 	if(new_tank)
 		holding = new_tank
-		RegisterSignal(holding, COMSIG_QDELETING, PROC_REF(unregister_holding))
+		RegisterSignal(holding, COMSIG_PARENT_QDELETING, PROC_REF(unregister_holding))
 
 	SSair.start_processing_machine(src)
 	update_appearance()
@@ -206,7 +199,7 @@
 	var/obj/item/tank/insert_tank = item
 	if(!user.transferItemToLoc(insert_tank, src))
 		return FALSE
-	to_chat(user, span_notice("[holding ? "In one smooth motion you pop [holding] out of [src]'s connector and replace it with [insert_tank]" : "You insert [insert_tank] into [src]"]."))
+	to_chat(user, span_notice("[holding ? "Разом заменяю [holding] в [src] на [insert_tank]" : "Вставляю [insert_tank] в [src]"]."))
 	investigate_log("had its internal [holding] swapped with [insert_tank] by [key_name(user)].", INVESTIGATE_ATMOS)
 	replace_tank(user, FALSE, insert_tank)
 	update_appearance()
@@ -219,23 +212,23 @@
 		disconnect()
 		wrench.play_tool_sound(src)
 		user.visible_message( \
-			"[user] disconnects [src].", \
-			span_notice("You unfasten [src] from the port."), \
-			span_hear("You hear a ratchet."))
+			"[user] отсоединяет [src].", \
+			span_notice("Отсоединяю [src] от порта."), \
+			span_hear("Слышу трещотку."))
 		update_appearance()
 		return TRUE
 	var/obj/machinery/atmospherics/components/unary/portables_connector/possible_port = locate(/obj/machinery/atmospherics/components/unary/portables_connector) in loc
 	if(!possible_port)
-		to_chat(user, span_notice("Nothing happens."))
+		to_chat(user, span_notice("Ничего не происходит."))
 		return FALSE
 	if(!connect(possible_port))
-		to_chat(user, span_notice("[name] failed to connect to the port."))
+		to_chat(user, span_notice("[name] проваливает попытку присоединения к порту."))
 		return FALSE
 	wrench.play_tool_sound(src)
 	user.visible_message( \
-		"[user] connects [src].", \
-		span_notice("You fasten [src] to the port."), \
-		span_hear("You hear a ratchet."))
+		"[user] присоединяет [src].", \
+		span_notice("Присоединяю [src] к порту."), \
+		span_hear("Слышу трещотку."))
 	update_appearance()
 	investigate_log("was connected to [possible_port] by [key_name(user)].", INVESTIGATE_ATMOS)
 	return TRUE
@@ -253,7 +246,7 @@
 /obj/machinery/portable_atmospherics/proc/unregister_holding()
 	SIGNAL_HANDLER
 
-	UnregisterSignal(holding, COMSIG_QDELETING)
+	UnregisterSignal(holding, COMSIG_PARENT_QDELETING)
 	holding = null
 
 #undef PORTABLE_ATMOS_IGNORE_ATMOS_LIMIT

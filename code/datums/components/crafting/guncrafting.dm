@@ -2,99 +2,66 @@
 
 // PARTS //
 
-/obj/item/weaponcrafting/Initialize(mapload)
-	. = ..()
-	create_slapcraft_component()
-
-/obj/item/weaponcrafting/proc/create_slapcraft_component()
-	return
-
 /obj/item/weaponcrafting/receiver
-	name = "modular receiver"
-	desc = "A prototype modular receiver and trigger assembly for a firearm."
-	icon = 'icons/obj/weapons/improvised.dmi'
+	name = "модульный приёмник"
+	desc = "Прототип модульного приёмника, который может послужить как спусковой крючок для огнестрела."
+	icon = 'icons/obj/improvised.dmi'
 	icon_state = "receiver"
 
-/obj/item/weaponcrafting/receiver/create_slapcraft_component()
-	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/pipegun)
-
-	AddComponent(
-		/datum/component/slapcrafting,\
-		slapcraft_recipes = slapcraft_recipe_list,\
-	)
-
 /obj/item/weaponcrafting/stock
-	name = "rifle stock"
-	desc = "A classic rifle stock that doubles as a grip, roughly carved out of wood."
-	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 6)
-	resistance_flags = FLAMMABLE
-	icon = 'icons/obj/weapons/improvised.dmi'
+	name = "приклад"
+	desc = "Классический приклад от винтовки, так же служит как ручка. Грубо выструган из дерева."
+	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT * 6)
+	icon = 'icons/obj/improvised.dmi'
 	icon_state = "riflestock"
-
-/obj/item/weaponcrafting/stock/create_slapcraft_component()
-	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/smoothbore_disabler, /datum/crafting_recipe/laser_musket)
-
-	AddComponent(
-		/datum/component/slapcrafting,\
-		slapcraft_recipes = slapcraft_recipe_list,\
-	)
-
-/obj/item/weaponcrafting/giant_wrench
-	name = "Big Slappy parts kit"
-	desc = "Illegal parts to make a giant like wrench commonly known as a Big Slappy."
-	icon = 'icons/obj/weapons/improvised.dmi'
-	icon_state = "weaponkit_gw"
-
-/obj/item/weaponcrafting/giant_wrench/create_slapcraft_component() // slappycraft
-	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/giant_wrench)
-
-	AddComponent(
-		/datum/component/slapcrafting,\
-		slapcraft_recipes = slapcraft_recipe_list,\
-	)
 
 ///These gun kits are printed from the security protolathe to then be used in making new weapons
 
 // GUN PART KIT //
 
-/obj/item/weaponcrafting/gunkit // These don't get a slapcraft component, it's added to the gun - more intuitive player-facing to slap the kit onto the gun.
-	name = "generic gun parts kit"
-	desc = "It's an empty gun parts container! Why do you have this?"
-	icon = 'icons/obj/weapons/improvised.dmi'
+/obj/item/weaponcrafting/gunkit/
+	name = "стандартный комплект оружейных деталей для винтовки"
+	desc = "Это пустой контейнер для деталей оружия! Зачем тебе это?"
+	icon = 'icons/obj/improvised.dmi'
 	icon_state = "kitsuitcase"
 
 /obj/item/weaponcrafting/gunkit/nuclear
-	name = "advanced energy gun parts kit (lethal/nonlethal)"
-	desc = "A suitcase containing the necessary gun parts to tranform a standard energy gun into an advanced energy gun."
+	name = "компоненты продвинутой энергетической винтовки"
+	desc = "Кейс, содержащий необходимые детали винтовки для преобразования стандартной энергетической винтовки в продвиную энергетическую винтовку."
 
 /obj/item/weaponcrafting/gunkit/tesla
-	name = "tesla cannon parts kit (lethal)"
-	desc = "A suitcase containing the necessary gun parts to construct a tesla cannon around a stabilized flux anomaly. Handle with care."
+	name = "комплект деталей пушки тесла"
+	desc = "Кейс, содержащий необходимые детали для создания пушки тесла вокруг энергетической аномалии. Применять с соблюдением техники безопасности."
 
 /obj/item/weaponcrafting/gunkit/xray
-	name = "x-ray laser gun parts kit (lethal)"
-	desc = "A suitcase containing the necessary gun parts to turn a laser gun into a x-ray laser gun. Do not point most parts directly towards face."
+	name = "комплект деталей рентгеновского лазерного винтовки"
+	desc = "Кейс с необходимыми деталями для преобразования лазерной винтовки в рентгеновскую лазерную винтовку. ВНИМАНИЕ! РАДИОАКТИВНО! Избегать близкого контакта кейса с паховой областью во время работы!"
 
 /obj/item/weaponcrafting/gunkit/ion
-	name = "ion carbine parts kit (nonlethal/highly destructive/very lethal (silicons))"
-	desc = "A suitcase containing the necessary gun parts to transform a standard laser gun into a ion carbine. Perfect against lockers you don't have access to."
+	name = "стандартный комплект оружейных деталей для винтовки"
+	desc = "Кейс с необходимыми деталями для превращения стандартной лазерной винтовки в ионный карабин."
 
 /obj/item/weaponcrafting/gunkit/temperature
-	name = "temperature gun parts kit (less lethal/very lethal (lizardpeople))"
-	desc = "A suitcase containing the necessary gun parts to tranform a standard energy gun into a temperature gun. Fantastic at birthday parties and killing indigenious populations of lizardpeople."
+	name = "комплект деталей для температурного винтовки"
+	desc = "Кейс, содержащий необходимые детали винтовки для преобразования стандартной энергетической винтовки в температурный винтовку. Незаменим при противодействии быстро двигающимся противникам и существам чувствительным к перепадам температур."
 
 /obj/item/weaponcrafting/gunkit/beam_rifle
-	name = "particle acceleration rifle part kit (lethal)"
-	desc = "The coup de grace of guncrafting. This suitcase contains the highly experimental rig for a particle acceleration rifle. Requires an energy gun, a stabilized flux anomaly and a stabilized gravity anomaly."
+	name = "комплект деталей винтовки для ускорения частиц"
+	desc = "Переворот в изготовлении оружия. В этом кейсе находится высокоэкспериментальная установка для винтовки ускорения частиц. Требуется энергетическая пушка, стабилизированная энергетическая аномалия и стабилизированная гравитационная аномалия."
 
 /obj/item/weaponcrafting/gunkit/decloner
-	name = "decloner part kit (lethal)"
-	desc = "An uttery baffling array of gun parts and technology that somehow turns a laser gun into a decloner. Haircut not included."
+	name = "комплект деталей деклонера"
+	desc = "Комплект деталей для преобразования лазерной пушки в деклонер."
 
 /obj/item/weaponcrafting/gunkit/ebow
-	name = "energy crossbow part kit (less lethal)"
-	desc = "Highly illegal weapons refurbishment kit that allows you to turn the standard proto-kinetic accelerator into a near-duplicate energy crossbow. Almost like the real thing!"
+	name = "комплект деталей энергетического арбалета"
+	desc = "Нелегальный набор для модификации оружия. Позволяет модифицировать стандартный протокинетический ускоритель для создания подобия энергетического арбалета. Почти как настоящий!"
 
 /obj/item/weaponcrafting/gunkit/hellgun
-	name = "hellfire laser gun degradation kit (warcrime lethal)"
-	desc = "Take a perfectly functioning laser gun. Butcher the inside of the gun so it runs hot and mean. You now have a hellfire laser. You monster."
+	name = "комплект для создания винтовки \"Адское пламя\""
+	desc = "Возьмите идеально работающую лазерную винтовку . Разделайте внутреннюю часть винтовки, чтобы она пылала. Теперь у вас есть винтовка \"Адское пламя\". Вы чудовище."
+
+/obj/item/weaponcrafting/gunkit/adv_syringegun
+	name = "Комплект деталей продвинутого шприцемета"
+	desc = "Набор поршней, трубочек и прочих деталей для модернизации обычного шприцемета в его продвинутую версию, вмещающую до трех шприцов. Перед каждым выстрелом необходимо подкачивать давление при помощи интегрированного насоса."
+	icon_state = "medcase"

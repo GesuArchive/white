@@ -1,35 +1,36 @@
 /datum/bounty/item/mech/New()
 	..()
-	description = "Upper management has requested one [name] mech be sent as soon as possible. Ship it to receive a large payment."
+	description = "Высшее руководство попросило отправить одного меха [name] как можно скорее. Отправьте его, чтобы получить большую оплату."
 
-/datum/bounty/item/mech/ship(obj/shipped)
-	. = ..()
-	if(!.)
+/datum/bounty/item/mech/ship(obj/O)
+	if(!applies_to(O))
 		return
-	var/obj/vehicle/sealed/mecha/mecha = shipped
-	mecha.wreckage = null // So the mech doesn't explode.
+	if(istype(O, /obj/vehicle/sealed/mecha))
+		var/obj/vehicle/sealed/mecha/M = O
+		M.wreckage = null // So the mech doesn't explode.
+	..()
 
 /datum/bounty/item/mech/ripleymk2
-	name = "APLU MK-II \"Ripley\""
-	reward = CARGO_CRATE_VALUE * 26
-	wanted_types = list(/obj/vehicle/sealed/mecha/ripley/mk2 = TRUE)
+	name = "АПЛУ MK-II \"Рипли\""
+	reward = CARGO_CRATE_VALUE * 150
+	wanted_types = list(/obj/vehicle/sealed/mecha/working/ripley/mk2)
 
 /datum/bounty/item/mech/clarke
-	name = "Clarke"
-	reward = CARGO_CRATE_VALUE * 32
-	wanted_types = list(/obj/vehicle/sealed/mecha/clarke = TRUE)
+	name = "Кларк"
+	reward = CARGO_CRATE_VALUE * 165
+	wanted_types = list(/obj/vehicle/sealed/mecha/working/clarke)
 
 /datum/bounty/item/mech/odysseus
-	name = "Odysseus"
-	reward = CARGO_CRATE_VALUE * 22
-	wanted_types = list(/obj/vehicle/sealed/mecha/odysseus = TRUE)
+	name = "Одиссей"
+	reward = CARGO_CRATE_VALUE * 200
+	wanted_types = list(/obj/vehicle/sealed/mecha/medical/odysseus)
 
 /datum/bounty/item/mech/gygax
-	name = "Gygax"
-	reward = CARGO_CRATE_VALUE * 56
-	wanted_types = list(/obj/vehicle/sealed/mecha/gygax = TRUE)
+	name = "Гигакс"
+	reward = CARGO_CRATE_VALUE * 500
+	wanted_types = list(/obj/vehicle/sealed/mecha/combat/gygax)
 
 /datum/bounty/item/mech/durand
-	name = "Durand"
-	reward = CARGO_CRATE_VALUE * 40
-	wanted_types = list(/obj/vehicle/sealed/mecha/durand = TRUE)
+	name = "Дюранд"
+	reward = CARGO_CRATE_VALUE * 500
+	wanted_types = list(/obj/vehicle/sealed/mecha/combat/durand)

@@ -6,7 +6,7 @@
  * * target - Who the verb is being added to, client or mob typepath
  * * verb - typepath to a verb, or a list of verbs, supports lists of lists
  */
-/proc/add_verb(client/target, verb_or_list_to_add)
+/proc/add_verb(client/target, verb_or_list_to_add, send_to_panel = TRUE)
 	if(!target)
 		CRASH("add_verb called without a target")
 	if(IsAdminAdvancedProcCall())
@@ -44,7 +44,8 @@
 		var/procpath/verb_to_add = thing
 		output_list[++output_list.len] = list(verb_to_add.category, verb_to_add.name)
 
-	target.stat_panel.send_message("add_verb_list", output_list)
+	if(send_to_panel)
+		target.stat_panel.send_message("add_verb_list", output_list)
 
 	SEND_SIGNAL(target, COMSIG_CLIENT_VERB_ADDED, verbs_list)
 
@@ -92,7 +93,6 @@
 	for(var/thing in verbs_list)
 		var/procpath/verb_to_remove = thing
 		output_list[++output_list.len] = list(verb_to_remove.category, verb_to_remove.name)
-
 	target.stat_panel.send_message("remove_verb_list", output_list)
 
 	SEND_SIGNAL(target, COMSIG_CLIENT_VERB_REMOVED, verbs_list)

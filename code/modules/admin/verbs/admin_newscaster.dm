@@ -1,12 +1,12 @@
 /datum/admins/proc/access_news_network() //MARKER
-	set category = "Admin.Events"
+	set category = "Адм.События"
 	set name = "Access Newscaster Network"
 	set desc = "Allows you to view, add and edit news feeds."
 
 	if (!istype(src, /datum/admins))
 		src = usr.client.holder
 	if (!istype(src, /datum/admins))
-		to_chat(usr, "Error: you are not an admin!", confidential = TRUE)
+		to_chat(usr, "Error: you are not an admin!")
 		return
 
 	var/datum/newspanel/new_newspanel = new
@@ -45,13 +45,13 @@
 /datum/newspanel/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "PhysicalNewscaster")
+		ui = new(user, src, "Newscaster")
 		ui.open()
 
 /datum/newspanel/ui_static_data(mob/user)
 	. = ..()
 	if (!is_admin(user))
-		to_chat(usr, "Error: you are not an admin!", confidential = TRUE)
+		to_chat(usr, "Error: you are not an admin!")
 		return
 
 /datum/newspanel/ui_data(mob/user)
@@ -65,7 +65,6 @@
 	data["user"]["job"] = "Official"
 	data["user"]["department"] = "Department of News"
 
-	data["admin_mode"] = TRUE
 	data["security_mode"] = TRUE
 	data["photo_data"] = !isnull(current_image)
 	data["creating_channel"] = creating_channel
@@ -304,7 +303,7 @@
 		return TRUE
 	var/choice = tgui_alert(usr, "Please confirm feed channel creation","Network Channel Handler", list("Confirm","Cancel"))
 	if(choice == "Confirm")
-		GLOB.news_network.create_feed_channel(channel_name, "Centcom Official", channel_desc, locked = channel_locked)
+		GLOB.news_network.create_feed_channel(channel_name, "Centcom Offical", channel_desc, locked = channel_locked)
 		SSblackbox.record_feedback("text", "newscaster_channels", 1, "[channel_name]")
 	creating_channel = FALSE
 
@@ -316,7 +315,7 @@
 		creating_comment = FALSE
 		return TRUE
 	var/datum/feed_comment/new_feed_comment = new /datum/feed_comment
-	new_feed_comment.author = "Centcom Official"
+	new_feed_comment.author = "Centcom Offical"
 	new_feed_comment.body = comment_text
 	new_feed_comment.time_stamp = station_time_timestamp()
 	current_message.comments += new_feed_comment

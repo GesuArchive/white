@@ -4,9 +4,9 @@
  * A gun that lets you fire projectiles to enact circuitry.
  */
 /obj/item/gun/energy/wiremod_gun
-	name = "circuit gun"
+	name = "Оружие"
 	desc = "A gun that fires projectiles able to control circuitry. It can recharge using power from an attached circuit."
-	icon = 'icons/obj/science/circuits.dmi'
+	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_gun"
 	ammo_type = list(/obj/item/ammo_casing/energy/wiremod_gun)
 	cell_type = /obj/item/stock_parts/cell/emproof/wiremod_gun
@@ -15,17 +15,17 @@
 	light_on = FALSE
 	automatic_charge_overlays = FALSE
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
-	gun_flags = NOT_A_REAL_GUN
 
 /obj/item/ammo_casing/energy/wiremod_gun
 	projectile_type = /obj/projectile/energy/wiremod_gun
-	harmful = FALSE
 	select_name = "circuit"
 	fire_sound = 'sound/weapons/blaster.ogg'
 
 /obj/projectile/energy/wiremod_gun
-	name = "scanning beam"
+	name = "Оружие"
+	desc = "Оболочка в виде пистолета способного вести огонь сканирующими лучами. Используется для приема входных данных, от объектов пораженных \"выстрелами\" из оружия. Работает на паразитном питании от подключенной цепи."
 	icon_state = "energy"
+	nodamage = TRUE
 	damage = 0
 	range = 7
 
@@ -39,8 +39,8 @@
 	), SHELL_CAPACITY_MEDIUM)
 
 /obj/item/circuit_component/wiremod_gun
-	display_name = "Gun"
-	desc = "Used to receive entities hit by projectiles from a gun."
+	display_name = "Оружие"
+	desc = "Оболочка в виде пистолета способного вести огонь сканирующими лучами. Используется для приема входных данных, от объектов пораженных \"выстрелами\" из оружия. Работает на паразитном питании от подключенной цепи."
 	/// Called when a projectile hits
 	var/datum/port/output/signal
 	/// The shooter
@@ -68,7 +68,7 @@
 /obj/item/circuit_component/wiremod_gun/proc/handle_shot(atom/source, mob/firer, atom/target, angle)
 	SIGNAL_HANDLER
 
-	playsound(source, get_sfx(SFX_TERMINAL_TYPE), 25, FALSE)
+	playsound(source, get_sfx("terminal_type"), 25, FALSE)
 	shooter.set_output(firer)
 	shot.set_output(target)
 	signal.set_output(COMPONENT_SIGNAL)

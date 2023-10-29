@@ -1,0 +1,753 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aM" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/item/bonesetter{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/bonesetter{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/bonesetter{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/open/floor/light,
+/area/ruin/unpowered)
+"aZ" = (
+/obj/machinery/light/floor/directional/north,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"bz" = (
+/obj/structure/closet/secure_closet/chemical,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/obj/item/storage/backpack/duffelbag/med,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"ca" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin/unpowered)
+"cT" = (
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/delivery/white,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"dJ" = (
+/obj/structure/table/reinforced,
+/obj/item/solnce{
+	pixel_x = 1
+	},
+/turf/open/floor/light,
+/area/ruin/unpowered)
+"dN" = (
+/obj/machinery/chem_heater,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"dS" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"er" = (
+/obj/machinery/smartfridge/organ,
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"eR" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/hemostat{
+	pixel_x = -7;
+	pixel_y = -3
+	},
+/obj/item/hemostat{
+	pixel_y = -3
+	},
+/obj/item/hemostat{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/turf/open/floor/light,
+/area/ruin/unpowered)
+"fY" = (
+/obj/structure/table/glass,
+/obj/machinery/reagentgrinder{
+	pixel_y = 2
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"ga" = (
+/obj/structure/closet/secure_closet/medical3,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"gh" = (
+/obj/structure/table/glass,
+/obj/item/circular_saw{
+	pixel_y = 15
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/item/storage/backpack/duffelbag/med/surgery,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"gi" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/ruin/unpowered)
+"gV" = (
+/obj/machinery/iv_drip,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"hf" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 8
+	},
+/turf/open/floor/material,
+/area/ruin/unpowered)
+"ix" = (
+/obj/structure/table/optable,
+/turf/open/floor/circuit/red,
+/area/ruin/unpowered)
+"kN" = (
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"lu" = (
+/obj/structure/table/glass,
+/obj/item/cautery{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/item/retractor{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"my" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/blood_filter{
+	pixel_y = -4
+	},
+/obj/item/blood_filter{
+	pixel_x = 2
+	},
+/obj/item/blood_filter{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/open/floor/light,
+/area/ruin/unpowered)
+"oi" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = 11
+	},
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"ow" = (
+/obj/structure/table/optable,
+/turf/open/floor/circuit/green,
+/area/ruin/unpowered)
+"oC" = (
+/obj/structure/table/glass,
+/obj/item/surgicaldrill,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"oV" = (
+/obj/structure/table/glass,
+/obj/item/hemostat{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/obj/item/razor{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"qY" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/item/scalpel{
+	pixel_y = 14
+	},
+/obj/item/scalpel{
+	pixel_y = 7
+	},
+/obj/item/scalpel,
+/turf/open/floor/light,
+/area/ruin/unpowered)
+"ry" = (
+/obj/structure/table/glass,
+/obj/item/folder/white{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/folder/white{
+	pixel_x = 3
+	},
+/obj/item/healthanalyzer{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_x = -10
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"td" = (
+/obj/machinery/door/airlock/public,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"tW" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"uA" = (
+/obj/structure/closet/l3closet/virology,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"uV" = (
+/obj/structure/closet/l3closet/virology,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"wu" = (
+/obj/structure/table/glass,
+/obj/item/clothing/gloves/color/latex,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/suit/apron/surgical,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"yL" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"ze" = (
+/obj/machinery/iv_drip,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Ck" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/door/window/brigdoor/eastleft{
+	name = "Medbay Desk"
+	},
+/obj/item/reagent_containers/glass/bottle/oxandrolone{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/glass/bottle/sal_acid{
+	pixel_x = 3
+	},
+/turf/open/floor/light,
+/area/ruin/unpowered)
+"FE" = (
+/obj/machinery/chem_dispenser,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Gu" = (
+/obj/structure/table/glass,
+/obj/item/surgical_drapes,
+/obj/item/scalpel{
+	pixel_y = 12
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"HH" = (
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"HQ" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/scalpel,
+/obj/item/scalpel{
+	pixel_y = 7
+	},
+/obj/item/scalpel{
+	pixel_y = 14
+	},
+/turf/open/floor/light,
+/area/ruin/unpowered)
+"HY" = (
+/obj/structure/table/glass,
+/obj/structure/sign/departments/chemistry{
+	pixel_x = -31
+	},
+/obj/item/storage/box/beakers{
+	pixel_x = -8;
+	pixel_y = 10
+	},
+/obj/item/storage/box/beakers/large_beakers,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Ia" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"If" = (
+/obj/machinery/computer/crew{
+	dir = 8
+	},
+/turf/open/floor/circuit,
+/area/ruin/unpowered)
+"IH" = (
+/obj/machinery/chem_master,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Kq" = (
+/obj/structure/closet/secure_closet/medical3,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"KG" = (
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/poddoor/multi_tile/three_tile_ver{
+	id = "solnce_lab"
+	},
+/obj/machinery/button/door{
+	id = "solnce_lab";
+	pixel_y = -32
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"LO" = (
+/obj/machinery/computer/med_data{
+	dir = 4
+	},
+/obj/item/paper/solnce,
+/turf/open/floor/circuit,
+/area/ruin/unpowered)
+"Mt" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/scalpel{
+	pixel_y = 14
+	},
+/obj/item/scalpel{
+	pixel_y = 7
+	},
+/obj/item/scalpel,
+/turf/open/floor/light,
+/area/ruin/unpowered)
+"Nk" = (
+/obj/machinery/light/floor/directional/south,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"Oh" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 4
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"OL" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"OU" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/door/window/brigdoor/eastleft{
+	dir = 8;
+	name = "Medbay Desk"
+	},
+/obj/item/reagent_containers/glass/bottle/multiver{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/glass/bottle/penacid{
+	pixel_x = 7
+	},
+/turf/open/floor/light,
+/area/ruin/unpowered)
+"Pe" = (
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"PL" = (
+/obj/machinery/limbgrower,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"PX" = (
+/obj/structure/closet/secure_closet/medical1,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"Qm" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner,
+/obj/machinery/smartfridge/chemistry,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"QQ" = (
+/obj/structure/table/glass,
+/obj/item/folder/white{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/folder/white{
+	pixel_x = 2
+	},
+/obj/item/screwdriver{
+	pixel_x = -3;
+	pixel_y = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Rs" = (
+/obj/machinery/computer/operating,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"RR" = (
+/obj/structure/table/glass,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/clothing/glasses/science{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = 6;
+	pixel_y = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"VI" = (
+/turf/open/floor/material,
+/area/ruin/unpowered)
+"XE" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/door/window/brigdoor/eastleft{
+	dir = 8;
+	name = "Medbay Desk"
+	},
+/obj/item/reagent_containers/glass/bottle/epinephrine{
+	pixel_x = -3;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/glass/bottle/synthflesh{
+	pixel_x = 7
+	},
+/turf/open/floor/light,
+/area/ruin/unpowered)
+"Zf" = (
+/obj/structure/closet/crate/freezer/blood,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Zr" = (
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
+/area/ruin/unpowered)
+"Zy" = (
+/obj/machinery/chem_mass_spec,
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+ca
+ca
+ca
+ca
+ca
+ca
+ca
+ca
+ca
+ca
+ca
+ca
+ca
+"}
+(2,1,1) = {"
+ca
+Qm
+fY
+HY
+RR
+eR
+Ck
+Mt
+wu
+oC
+gh
+er
+ca
+"}
+(3,1,1) = {"
+ca
+IH
+Pe
+Pe
+Pe
+Pe
+Pe
+Pe
+Pe
+Pe
+Pe
+oV
+ca
+"}
+(4,1,1) = {"
+ca
+FE
+Pe
+ow
+Pe
+kN
+If
+kN
+Pe
+ix
+Pe
+lu
+ca
+"}
+(5,1,1) = {"
+ca
+dN
+Pe
+Rs
+Pe
+Nk
+dJ
+aZ
+Pe
+HH
+Pe
+Gu
+ca
+"}
+(6,1,1) = {"
+ca
+PL
+Pe
+QQ
+Pe
+kN
+LO
+kN
+Pe
+ry
+Pe
+Zf
+ca
+"}
+(7,1,1) = {"
+ca
+Zy
+Pe
+Pe
+Pe
+Pe
+Pe
+Pe
+Pe
+Pe
+Pe
+Zf
+ca
+"}
+(8,1,1) = {"
+ca
+ze
+Pe
+uV
+ga
+Oh
+Oh
+Oh
+Kq
+uA
+Pe
+gV
+ca
+"}
+(9,1,1) = {"
+ca
+Zr
+td
+Zr
+ca
+cT
+cT
+KG
+ca
+Zr
+td
+Zr
+ca
+"}
+(10,1,1) = {"
+ca
+bz
+Pe
+OL
+Zr
+hf
+hf
+hf
+Zr
+Ia
+Pe
+PX
+ca
+"}
+(11,1,1) = {"
+ca
+dS
+Pe
+tW
+Zr
+VI
+VI
+VI
+Zr
+dS
+Pe
+tW
+ca
+"}
+(12,1,1) = {"
+ca
+my
+OU
+qY
+ca
+yL
+VI
+oi
+ca
+HQ
+XE
+aM
+ca
+"}
+(13,1,1) = {"
+ca
+ca
+ca
+ca
+ca
+ca
+gi
+ca
+ca
+ca
+ca
+ca
+ca
+"}

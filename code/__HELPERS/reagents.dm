@@ -2,7 +2,6 @@
 	//We have to check to see if either is competitive so can ignore it (competitive reagents are supposed to conflict)
 	if((r1.reaction_flags & REACTION_COMPETITIVE) || (r2.reaction_flags & REACTION_COMPETITIVE))
 		return FALSE
-
 	//do the non-list tests first, because they are cheaper
 	if(r1.required_container != r2.required_container)
 		return FALSE
@@ -51,32 +50,32 @@
 		//there is at least one unique catalyst for the short reaction, so there is no conflict
 		return FALSE
 
-	//if we got this far, the longer reaction will be impossible to create if the shorter one is earlier in GLOB.chemical_reactions_list_reactant_index, and will require the reagents to be added in a particular order otherwise
+	//if we got this far, the longer reaction will be impossible to create if the shorter one is earlier in GLOB.chemical_reactions_list, and will require the reagents to be added in a particular order otherwise
 	return TRUE
 
 /proc/get_chemical_reaction(id)
-	if(!GLOB.chemical_reactions_list_reactant_index)
+	if(!GLOB.chemical_reactions_list)
 		return
-	for(var/reagent in GLOB.chemical_reactions_list_reactant_index)
-		for(var/R in GLOB.chemical_reactions_list_reactant_index[reagent])
+	for(var/reagent in GLOB.chemical_reactions_list)
+		for(var/R in GLOB.chemical_reactions_list[reagent])
 			var/datum/reac = R
 			if(reac.type == id)
 				return R
 
 /proc/remove_chemical_reaction(datum/chemical_reaction/R)
-	if(!GLOB.chemical_reactions_list_reactant_index || !R)
+	if(!GLOB.chemical_reactions_list || !R)
 		return
 	for(var/rid in R.required_reagents)
-		GLOB.chemical_reactions_list_reactant_index[rid] -= R
+		GLOB.chemical_reactions_list[rid] -= R
 
 //see build_chemical_reactions_list in holder.dm for explanations
-/proc/add_chemical_reaction(datum/chemical_reaction/add)
-	if(!GLOB.chemical_reactions_list_reactant_index || !add.required_reagents || !add.required_reagents.len)
+/proc/add_chemical_reaction(datum/chemical_reaction/R)
+	if(!GLOB.chemical_reactions_list || !R.required_reagents || !R.required_reagents.len)
 		return
-	var/rand_reagent = pick(add.required_reagents)
-	if(!GLOB.chemical_reactions_list_reactant_index[rand_reagent])
-		GLOB.chemical_reactions_list_reactant_index[rand_reagent] = list()
-	GLOB.chemical_reactions_list_reactant_index[rand_reagent] += add
+	var/primary_reagent = R.required_reagents[1]
+	if(!GLOB.chemical_reactions_list[primary_reagent])
+		GLOB.chemical_reactions_list[primary_reagent] = list()
+	GLOB.chemical_reactions_list[primary_reagent] += R
 
 //Creates foam from the reagent. Metaltype is for metal foam, notification is what to show people in textbox
 /datum/reagents/proc/create_foam(foamtype, foam_volume, result_type = null, notification = null, log = FALSE)
@@ -92,33 +91,6 @@
 	for(var/mob/M in viewers(5, location))
 		to_chat(M, notification)
 
-///Converts the pH into a tgui readable color - i.e. white and black text is readable over it. This is NOT the colourwheel for pHes however.
-/proc/convert_ph_to_readable_color(pH)
-	switch(pH)
-		if(-INFINITY to 1)
-			return "red"
-		if(1 to 2)
-			return "orange"
-		if(2 to 3)
-			return "average"
-		if(3 to 4)
-			return "yellow"
-		if(4 to 5)
-			return "olive"
-		if(5 to 6)
-			return "good"
-		if(6 to 8)
-			return "green"
-		if(8 to 9.5)
-			return "teal"
-		if(9.5 to 11)
-			return "blue"
-		if(11 to 12.5)
-			return "violet"
-		if(12.5 to INFINITY)
-			return "purple"
-
-///Converts pH to universal indicator colours. This is the colorwheel for pHes
 #define CONVERT_PH_TO_COLOR(pH, color) \
 	switch(pH) {\
 		if(14 to INFINITY)\
@@ -153,9 +125,36 @@
 			{ color = "#c6040c" }\
 		}
 
+///Converts the pH into a tgui readable color - i.e. white and black text is readable over it. This is NOT the colourwheel for pHes however.
+/proc/convert_ph_to_readable_color(pH)
+	switch(pH)
+		if(-INFINITY to 1)
+			return "red"
+		if(1 to 2)
+			return "orange"
+		if(2 to 3)
+			return "average"
+		if(3 to 4)
+			return "yellow"
+		if(4 to 5)
+			return "olive"
+		if(5 to 6)
+			return "good"
+		if(6 to 8)
+			return "green"
+		if(8 to 9.5)
+			return "teal"
+		if(9.5 to 11)
+			return "blue"
+		if(11 to 12.5)
+			return "violet"
+		if(12.5 to INFINITY)
+			return "purple"
+
 ///Returns a list of chemical_reaction datums that have the input STRING as a product
 /proc/get_reagent_type_from_product_string(string)
-	var/input_reagent = replacetext(lowertext(string), " ", "") //95% of the time, the reagent id is a lowercase/no spaces version of the name
+	var/input = lowertext(string)//all search is case - insensitive
+	var/input_reagent = replacetext(input, " ", "") //95% of the time, the reagent id is a lowercase/no spaces version of the name
 	if (isnull(input_reagent))
 		return
 
@@ -163,7 +162,7 @@
 	if(shortcuts[input_reagent])
 		input_reagent = shortcuts[input_reagent]
 	else
-		input_reagent = find_reagent(input_reagent)
+		input_reagent = find_reagent(input)
 	return input_reagent
 
 ///Returns reagent datum from typepath
@@ -184,17 +183,32 @@
 /proc/get_random_reagent_id()
 	var/static/list/random_reagents = list()
 	if(!random_reagents.len)
-		for(var/datum/reagent/reagent_path as anything in subtypesof(/datum/reagent))
-			if(initial(reagent_path.chemical_flags) & REAGENT_CAN_BE_SYNTHESIZED)
-				random_reagents += reagent_path
+		for(var/thing in subtypesof(/datum/reagent))
+			var/datum/reagent/R = thing
+			if(initial(R.chemical_flags) & REAGENT_CAN_BE_SYNTHESIZED)
+				random_reagents += R
 	var/picked_reagent = pick(random_reagents)
 	return picked_reagent
 
 ///Returns reagent datum from reagent name string
 /proc/get_chem_id(chem_name)
+	chem_name = lowertext(chem_name)
+
+	//fucks up plumbing filter's interface, so i'm putting this for later
+	//2:56 in the morning please end my fucking misery
+	/*
+	var/id = GLOB.name2reagent[chem_name]
+	if(!isnull(id))
+		return id
+	id = GLOB.enname2reagent[chem_name]
+	if(!isnull(id))
+		return id
+	*/
+
+	//this genuinely hurts to look at
 	for(var/X in GLOB.chemical_reagents_list)
 		var/datum/reagent/R = GLOB.chemical_reagents_list[X]
-		if(ckey(chem_name) == ckey(lowertext(R.name)))
+		if(chem_name == lowertext(R.name) || chem_name == lowertext(R.enname))
 			return X
 
 ///Takes a type in and returns a list of associated recipes
@@ -203,11 +217,3 @@
 		return
 	var/list/matching_reactions = GLOB.chemical_reactions_list_product_index[input_type]
 	return matching_reactions
-
-/proc/reagent_paths_list_to_text(list/reagents, addendum)
-	var/list/temp = list()
-	for(var/datum/reagent/R as anything in reagents)
-		temp |= initial(R.name)
-	if(addendum)
-		temp += addendum
-	return jointext(temp, ", ")

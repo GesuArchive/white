@@ -1,53 +1,47 @@
+/datum/bounty/item/engineering/gas
+	name = "Полная канистра плюоксия"
+	description = "РнД ЦК исследует сверхкомпактные внутренние устройства. Отправьте им бак, полный плуоксиума, и вы получите компенсацию."
+	reward = CARGO_CRATE_VALUE * 15
+	wanted_types = list(/obj/item/tank)
+	var/moles_required = 20 // A full tank is 28 moles, but CentCom ignores that fact.
+	var/gas_type = GAS_PLUOXIUM
+
+/datum/bounty/item/engineering/gas/applies_to(obj/O)
+	if(!..())
+		return FALSE
+	var/obj/item/tank/T = O
+	return T.air_contents.get_moles(gas_type) >= moles_required
+
+/datum/bounty/item/engineering/gas/nitrium_tank
+	name = "Полная канистра Нитрила"
+	description = "Персонал станции 88, не являющиеся людьми, были вызван для тестирования препаратов, улучшающих их эффективность. Отправьте им резервуар, полный нитрила, чтобы они могли начать эксперимент."
+	gas_type = GAS_NITRIUM
+
+/datum/bounty/item/engineering/gas/tritium_tank
+	name = "Полная канистра Трития"
+	description = "Станция 49 надеется начать свою исследовательскую программу. Отправьте им канистру, полную трития."
+	gas_type = GAS_TRITIUM
+
+/datum/bounty/item/engineering/energy_ball
+	name = "Удержанный шар теслы"
+	description = "Станция 24 наводнена ордами разгневанных молей. Она запрашивают шар Теслы."
+	reward = 114000 //requires 14k credits of purchases, not to mention cooperation with engineering/heads of staff to set up inside the cramped shuttle
+	wanted_types = list(/obj/energy_ball)
+
+/datum/bounty/item/engineering/energy_ball/applies_to(obj/O)
+	if(!..())
+		return FALSE
+	var/obj/energy_ball/T = O
+	return !T.miniball
+
 /datum/bounty/item/engineering/emitter
-	name = "Emitter"
-	description = "We think there may be a defect in your station's emitter designs, based on the sheer number of delaminations your sector seems to see. Ship us one of yours."
-	reward = CARGO_CRATE_VALUE * 5
-	wanted_types = list(/obj/machinery/power/emitter = TRUE)
+	name = "Эмиттер"
+	description = "Мы думаем, что в конструкции эмиттера вашей станции может быть дефект, основанный на огромном количестве отслоений, которые, похоже, видит ваш сектор. Отправьте нам один из ваших."
+	reward = CARGO_CRATE_VALUE * 100
+	wanted_types = list(/obj/machinery/power/emitter)
 
 /datum/bounty/item/engineering/hydro_tray
-	name = "Hydroponics Tray"
-	description = "The lab technicians are trying to figure out how to lower the power drain of hydroponics trays, but we fried our last one. Mind building one for us?"
-	reward = CARGO_CRATE_VALUE * 4
-	wanted_types = list(/obj/machinery/hydroponics/constructable = TRUE)
-
-/datum/bounty/item/engineering/cyborg_charger
-	name = "Recharging Station"
-	description = "We don't have enough rechargers to fit all of our MODsuits. Ship us one of yours."
-	reward = CARGO_CRATE_VALUE * 5
-	wanted_types = list(/obj/machinery/recharge_station = TRUE)
-
-/datum/bounty/item/engineering/smes_unit
-	name = "Power Storage Unit"
-	description = "We need to store more power. Get us a SMES unit."
-	reward = CARGO_CRATE_VALUE * 6
-	wanted_types = list(/obj/machinery/power/smes = TRUE)
-
-/datum/bounty/item/engineering/pacman
-	name = "P.A.C.M.A.N. Generator"
-	description = "Our backup generator blew a fuse, we need a new one ASAP."
-	reward = CARGO_CRATE_VALUE * 5
-	wanted_types = list(/obj/machinery/power/port_gen/pacman = TRUE)
-
-/datum/bounty/item/engineering/field_gen
-	name = "Field Generator"
-	description = "One of our protective generator's warranties has expired, we need a new one to replace it."
-	reward = CARGO_CRATE_VALUE * 6
-	wanted_types = list(/obj/machinery/field/generator = TRUE)
-
-/datum/bounty/item/engineering/tesla_coil
-	name = "Tesla Coil"
-	description = "Our electricity bill is too high, get us a tesla coil to offset this."
-	reward = CARGO_CRATE_VALUE * 5
-	wanted_types = list(/obj/machinery/power/energy_accumulator/tesla_coil = TRUE)
-
-/datum/bounty/item/engineering/welding_tank
-	name = "Welding Fuel Tank"
-	description = "We need more welding fuel for the engineering team, send us a tank."
-	reward = CARGO_CRATE_VALUE * 5
-	wanted_types = list(/obj/structure/reagent_dispensers/fueltank = TRUE)
-
-/datum/bounty/item/engineering/reflector
-	name = "Reflector"
-	description = "We want to make our emitters take a longer route, get us a reflector to make this happen."
-	reward = CARGO_CRATE_VALUE * 7
-	wanted_types = list(/obj/structure/reflector = TRUE)
+	name = "Гидропонические лотки"
+	description = "Лаборанты пытаются выяснить, как снизить потребление энергии лотками для гидропоники, но мы поджарили последний. Сделаете один для нас?"
+	reward = CARGO_CRATE_VALUE * 70
+	wanted_types = list(/obj/machinery/hydroponics/constructable)

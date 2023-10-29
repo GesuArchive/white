@@ -3,7 +3,7 @@
  * The file also contain the guicode of the machine
  */
 /obj/machinery/atmospherics/components/unary/hypertorus
-	icon = 'icons/obj/machines/atmospherics/hypertorus.dmi'
+	icon = 'icons/obj/atmospherics/components/hypertorus.dmi'
 	icon_state = "core_off"
 
 	name = "thermomachine"
@@ -47,7 +47,7 @@
 /obj/machinery/atmospherics/components/unary/hypertorus/welder_act(mob/living/user, obj/item/tool)
 	if(!cracked)
 		return FALSE
-	if(user.combat_mode)
+	if(user.a_intent == INTENT_HARM)
 		return FALSE
 	balloon_alert(user, "repairing...")
 	if(tool.use_tool(src, user, 10 SECONDS, volume=30))
@@ -94,8 +94,8 @@
 	return
 
 /obj/machinery/atmospherics/components/unary/hypertorus/fuel_input
-	name = "HFR fuel input port"
-	desc = "Input port for the Hypertorus Fusion Reactor, designed to take in fuels with the optimal fuel mix being a 50/50 split."
+	name = "Термоядерный реактор - Топливный порт"
+	desc = "Входной порт термоядерного реактора, принимает исключительно водород и тритий в газообразной форме."
 	icon_state = "fuel_input_off"
 	icon_state_open = "fuel_input_open"
 	icon_state_off = "fuel_input_off"
@@ -103,8 +103,8 @@
 	circuit = /obj/item/circuitboard/machine/HFR_fuel_input
 
 /obj/machinery/atmospherics/components/unary/hypertorus/waste_output
-	name = "HFR waste output port"
-	desc = "Waste port for the Hypertorus Fusion Reactor, designed to output the hot waste gases coming from the core of the machine."
+	name = "Термоядерный реактор - Порт вывода"
+	desc = "Выпускной порт термоядерного реактора, предназначенный для вывода горячих отработанных газов, сбрасываемых из активной зоны машины."
 	icon_state = "waste_output_off"
 	icon_state_open = "waste_output_open"
 	icon_state_off = "waste_output_off"
@@ -112,8 +112,8 @@
 	circuit = /obj/item/circuitboard/machine/HFR_waste_output
 
 /obj/machinery/atmospherics/components/unary/hypertorus/moderator_input
-	name = "HFR moderator input port"
-	desc = "Moderator port for the Hypertorus Fusion Reactor, designed to move gases inside the machine to cool and control the flow of the reaction."
+	name = "Термоядерный реактор - Порт регулятора"
+	desc = "Порт регулятора термоядерного реактора, предназначенный для охлаждения и управления протекания реакции."
 	icon_state = "moderator_input_off"
 	icon_state_open = "moderator_input_open"
 	icon_state_off = "moderator_input_off"
@@ -126,7 +126,7 @@
 /obj/machinery/hypertorus
 	name = "hypertorus_core"
 	desc = "hypertorus_core"
-	icon = 'icons/obj/machines/atmospherics/hypertorus.dmi'
+	icon = 'icons/obj/atmospherics/components/hypertorus.dmi'
 	icon_state = "core_off"
 	move_resist = INFINITY
 	anchored = TRUE
@@ -165,8 +165,8 @@
 	return ..()
 
 /obj/machinery/hypertorus/interface
-	name = "HFR interface"
-	desc = "Interface for the HFR to control the flow of the reaction."
+	name = "Термоядерный реактор - Интерфейс"
+	desc = "Интерфейс термоядерного реактора для управления протекания реакции."
 	icon_state = "interface_off"
 	circuit = /obj/item/circuitboard/machine/HFR_interface
 	var/obj/machinery/atmospherics/components/unary/hypertorus/core/connected_core
@@ -400,8 +400,8 @@
 				. = TRUE
 
 /obj/machinery/hypertorus/corner
-	name = "HFR corner"
-	desc = "Structural piece of the machine."
+	name = "Термоядерный реактор - Корпус"
+	desc = "Конструктивная часть машины."
 	icon_state = "corner_off"
 	circuit = /obj/item/circuitboard/machine/HFR_corner
 	icon_state_off = "corner_off"
@@ -409,34 +409,34 @@
 	icon_state_active = "corner_active"
 
 /obj/item/paper/guides/jobs/atmos/hypertorus
-	name = "paper- 'Quick guide to safe handling of the HFR'"
-	default_raw_text = "<B>How to safely(TM) operate the Hypertorus</B><BR>\
-	-Build the machine as it�s shown in the main guide.<BR>\
-	-Make a 50/50 gasmix of tritium and hydrogen totalling around 2000 moles.<BR>\
-	-Start the machine, fill up the cooling loop with plasma/hypernoblium and use space or freezers to cool it.<BR>\
-	-Connect the fuel mix into the fuel injector port, allow only 1000 moles into the machine to ease the kickstart of the reaction<BR>\
-	-Set the Heat conductor to 500 when starting the reaction, reset it to 100 when power level is higher than 1<BR>\
-	-In the event of a meltdown, set the heat conductor to max and set the current damper to max. Set the fuel injection to min. \
-	If the heat output doesn�t go negative, try changing the magnetic costrictors untill heat output goes negative. \
-	Make the cooling stronger, put high heat capacity gases inside the moderator (hypernoblium will help dealing with the problem)<BR><BR>\
-	<B>Warnings:</B><BR>\
-	-You cannot dismantle the machine if the power level is over 0<BR>\
-	-You cannot power of the machine if the power level is over 0<BR>\
-	-You cannot dispose of waste gases if power level is over 5<BR>\
-	-You cannot remove gases from the fusion mix if they are not helium and antinoblium<BR>\
-	-Hypernoblium will decrease the power of the mix by a lot<BR>\
-	-Antinoblium will INCREASE the power of the mix by a lot more<BR>\
-	-High heat capacity gases are harder to heat/cool<BR>\
-	-Low heat capacity gases are easier to heat/cool<BR>\
-	-The machine consumes 50 KW per power level, reaching 350 KW at power level 6 so prepare the SM accordingly<BR>\
-	-In case of a power shortage, the fusion reaction will CONTINUE but the cooling will STOP<BR><BR>\
-	The writer of the quick guide will not be held responsible for misuses and meltdown caused by the use of the guide, \
-	use more advanced guides to understando how the various gases will act as moderators."
+	name = "paper- 'Краткое руководство по Термоядерныму Реактору'"
+	info = "<B>Как безопасно управлять Термоядерным реактором</B><BR>\
+	-Соберите машину так, как показано в главном руководстве.<BR>\
+	- Сделайте газовую смесь 50/50 из трития и водорода общим количеством около 2000 молей.<BR>\
+	-Запустите машину, заполните контур охлаждения плазмой / гиперноблием и используйте космос или термомашины для его охлаждения.<BR>\
+	-Подсоедините топливную смесь к отверстию топливного порта, впустите в машину только 1000 молей, чтобы облегчить запуск реакции<BR>\
+	-Установите значение теплопроводности на 500 при запуске реакции, сбросьте его на 100, когда уровень мощности превышает 1<BR>\
+	-В случае расплавления установите теплопровод на максимальное значение и установите демпфер тока на максимальное значение. Установите впрыск топлива на минимальное значение. \
+	Если тепловая мощность не становится отрицательной, попробуйте заменить магнитные ограничители до тех пор, пока тепловая мощность не станет отрицательной. \
+	Сделайте охлаждение сильнее, поместите газы с высокой теплоемкостью внутрь замедлителя (гиперноблий поможет справиться с проблемой)<BR><BR>\
+	<B>Предупреждения:</B><BR>\
+	-Вы не можете демонтировать машину, если уровень мощности превышает 0<BR>\
+	-Вы не можете включить машину, если уровень мощности превышает 0<BR>\
+	-Вы не можете утилизировать отходящие газы, если уровень мощности превышает 5<BR>\
+	-Вы не можете удалить газы из термоядерной смеси, если они не являются гелием и антиноблием<BR>\
+	-Гиперноблий значительно уменьшит мощность микса<BR>\
+	-Антиноблиум увеличит мощность микса намного больше<BR>\
+	-Газы с высокой теплоемкостью труднее нагревать/охлаждать<BR>\
+	-Газы с низкой теплоемкостью легче нагревать/охлаждать<BR>\
+	- Машина потребляет 50 кВт на уровень мощности, достигая 350 кВт на уровне мощности 6, поэтому подготовьте реактор соответствующим образом<BR>\
+	-В случае нехватки энергии термоядерная реакция ПРОДОЛЖИТСЯ, но охлаждение ПРЕКРАТИТСЯ<BR><BR>\
+	Автор краткого руководства не несет ответственности за неправильное использование и разрушение, вызванные использованием руководства, \
+	используйте более продвинутые руководства, чтобы понять, как различные газы будут действовать в качестве модераторов "
 
 /obj/item/hfr_box
 	name = "HFR box"
 	desc = "If you see this, call the police."
-	icon = 'icons/obj/machines/atmospherics/hypertorus.dmi'
+	icon = 'icons/obj/atmospherics/components/hypertorus.dmi'
 	icon_state = "error"
 	///What kind of box are we handling?
 	var/box_type = "impossible"
@@ -444,40 +444,40 @@
 	var/part_path
 
 /obj/item/hfr_box/corner
-	name = "HFR box corner"
-	desc = "Place this as the corner of your 3x3 multiblock fusion reactor"
+	name = "Термоядерный реактор - Корпус"
+	desc = "Устанавливать по углам."
 	icon_state = "box_corner"
 	box_type = "corner"
 	part_path = /obj/machinery/hypertorus/corner
 
 /obj/item/hfr_box/body
 	name = "HFR box body"
-	desc = "Place this on the sides of the core box of your 3x3 multiblock fusion reactor"
+	desc = "Устанавливать сверху, снизу, справа или слева от ядра."
 	box_type = "body"
 	icon_state = "box_body"
 
 /obj/item/hfr_box/body/fuel_input
-	name = "HFR box fuel input"
+	name = "Термоядерный реактор - Топливный порт"
 	icon_state = "box_fuel"
 	part_path = /obj/machinery/atmospherics/components/unary/hypertorus/fuel_input
 
 /obj/item/hfr_box/body/moderator_input
-	name = "HFR box moderator input"
+	name = "Термоядерный реактор - Порт регулятора"
 	icon_state = "box_moderator"
 	part_path = /obj/machinery/atmospherics/components/unary/hypertorus/moderator_input
 
 /obj/item/hfr_box/body/waste_output
-	name = "HFR box waste output"
+	name = "Термоядерный реактор - Порт вывода"
 	icon_state = "box_waste"
 	part_path = /obj/machinery/atmospherics/components/unary/hypertorus/waste_output
 
 /obj/item/hfr_box/body/interface
-	name = "HFR box interface"
+	name = "Термоядерный реактор - Интерфейс"
 	part_path = /obj/machinery/hypertorus/interface
 
 /obj/item/hfr_box/core
-	name = "HFR box core"
-	desc = "Activate this with a multitool to deploy the full machine after setting up the other boxes"
+	name = "Термоядерный реактор - Ядро"
+	desc = "Активируйте при помощи мультитула, чтобы развернуть всю машину после настройки других блоков"
 	icon_state = "box_core"
 	box_type = "core"
 	part_path = /obj/machinery/atmospherics/components/unary/hypertorus/core

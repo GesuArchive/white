@@ -7,15 +7,61 @@
 // multiple stair objects can be chained together; the Z level transition will happen on the final stair object in the chain
 
 /obj/structure/stairs
-	name = "stairs"
+	name = "лестница"
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "stairs"
 	anchored = TRUE
-	move_resist = INFINITY
 
 	var/force_open_above = FALSE // replaces the turf above this stair obj with /turf/open/openspace
 	var/terminator_mode = STAIR_TERMINATOR_AUTOMATIC
 	var/turf/listeningTo
+
+/obj/structure/stairs/welder_act(mob/living/user, obj/item/I)
+
+	var/obj/item/weldingtool/WT = I
+
+	if(!WT.isOn())
+		return FALSE
+
+	if(!anchored)
+		anchored = TRUE
+		to_chat(user, span_notice("Намертво привариваю лестницу."))
+		playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
+		return TRUE
+
+
+	if(obj_integrity == max_integrity)
+		to_chat(user, span_warning("[src] не нуждается в ремонте."))
+		return TRUE
+
+	user.visible_message(span_notice("[user] начинает заваривать пробоины в лестнице."),
+	span_notice("Начинаю заваривать пробоины в лестнице."))
+	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
+
+	if(!do_after(user, 5 SECONDS, src))
+		return TRUE
+
+	if(obj_integrity <= max_integrity * 0.3 || obj_integrity == max_integrity)
+		return TRUE
+
+	if(!WT.use(2))
+		to_chat(user, span_warning("Вам не хватает сварочного топлива для ремонта."))
+		return TRUE
+
+	user.visible_message(span_notice("[user] заварил пробоины в лестнице."),
+	span_notice("Вы заварили пробоины в лестнице."))
+	repair_damage(max_integrity)
+	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
+
+	return TRUE
+/obj/structure/stairs/examine(mob/user)
+	. = ..()
+	if(!anchored)
+		. += "<hr>"
+		. += span_smallnotice("Можно приварить к полу сваркой.")
+
+/obj/structure/stairs/unanchored
+	anchored =  FALSE
 
 /obj/structure/stairs/north
 	dir = NORTH
@@ -29,16 +75,6 @@
 /obj/structure/stairs/west
 	dir = WEST
 
-/obj/structure/stairs/wood
-	icon_state = "stairs_wood"
-
-/obj/structure/stairs/stone
-	icon_state = "stairs_stone"
-
-/obj/structure/stairs/material
-	icon_state = "stairs_material"
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS
-
 /obj/structure/stairs/Initialize(mapload)
 	GLOB.stairs += src
 	if(force_open_above)
@@ -50,9 +86,12 @@
 		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)
 
-	AddElement(/datum/element/connect_loc, loc_connections)
+	AddComponent(/datum/component/connect_loc_behalf, src, loc_connections)
+	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS, null, CALLBACK(src, PROC_REF(can_be_rotated)))
 
 	return ..()
+/obj/structure/stairs/proc/can_be_rotated(mob/user,rotation_type)
+	return !anchored
 
 /obj/structure/stairs/Destroy()
 	listeningTo = null
@@ -66,18 +105,18 @@
 	update_surrounding()
 
 /obj/structure/stairs/proc/update_surrounding()
-	update_appearance()
+	update_icon()
 	for(var/i in GLOB.cardinals)
 		var/turf/T = get_step(get_turf(src), i)
 		var/obj/structure/stairs/S = locate() in T
 		if(S)
-			S.update_appearance()
+			S.update_icon()
 
 /obj/structure/stairs/proc/on_exit(datum/source, atom/movable/leaving, direction)
 	SIGNAL_HANDLER
 
 	if(leaving == src)
-		return //Let's not block ourselves.
+		return // Let's not block ourselves.
 
 	if(!isobserver(leaving) && isTerminator() && direction == dir)
 		leaving.set_currently_z_moving(CURRENTLY_Z_ASCENDING)
@@ -90,21 +129,29 @@
 		return FALSE
 	return ..()
 
+/obj/structure/stairs/update_icon_state()
+	icon_state = "stairs[isTerminator() ? "_t" : null]"
+	return ..()
+
 /obj/structure/stairs/proc/stair_ascend(atom/movable/climber)
 	var/turf/checking = get_step_multiz(get_turf(src), UP)
 	if(!istype(checking))
 		return
-	// I'm only interested in if the pass is unobstructed, not if the mob will actually make it
-	if(!climber.can_z_move(UP, get_turf(src), checking, z_move_flags = ZMOVE_ALLOW_BUCKLED))
+	if(!checking.zPassIn(climber, UP, get_turf(src)))
 		return
 	var/turf/target = get_step_multiz(get_turf(src), (dir|UP))
-	if(istype(target) && !climber.can_z_move(DOWN, target, z_move_flags = ZMOVE_FALL_FLAGS)) //Don't throw them into a tile that will just dump them back down.
+	if(!istype(target))
+		return
+	for(var/obj/O in target.contents)
+		climber.Bump(O)
+		if(!O.CanPass(climber))
+			return
+	if(!climber.can_z_move(DOWN, target, z_move_flags = ZMOVE_FALL_FLAGS)) //Don't throw them into a tile that will just dump them back down.
 		climber.zMove(target = target, z_move_flags = ZMOVE_STAIRS_FLAGS)
 		/// Moves anything that's being dragged by src or anything buckled to it to the stairs turf.
 		climber.pulling?.move_from_pull(climber, loc, climber.glide_size)
 		for(var/mob/living/buckled as anything in climber.buckled_mobs)
 			buckled.pulling?.move_from_pull(buckled, loc, buckled.glide_size)
-
 
 /obj/structure/stairs/vv_edit_var(var_name, var_value)
 	. = ..()
@@ -158,102 +205,3 @@
 		if(S.dir == dir)
 			return FALSE
 	return TRUE
-
-/obj/structure/stairs_frame
-	name = "stairs frame"
-	desc = "Everything you need to call something a staircase, aside from the stuff you actually step on."
-	icon = 'icons/obj/stairs.dmi'
-	icon_state = "stairs_frame"
-	density = FALSE
-	anchored = FALSE
-	/// What type of stack will this drop on deconstruction?
-	var/frame_stack = /obj/item/stack/rods
-	/// How much of frame_stack should this drop on deconstruction?
-	var/frame_stack_amount = 10
-
-/obj/structure/stairs_frame/wood
-	name = "wooden stairs frame"
-	desc = "Everything you need to build a staircase, minus the actual stairs, this one is made of wood."
-	frame_stack = /obj/item/stack/sheet/mineral/wood
-
-/obj/structure/stairs_frame/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/simple_rotation)
-
-/obj/structure/stairs_frame/examine(mob/living/carbon/human/user)
-	. = ..()
-	if(anchored)
-		. += span_notice("The frame is anchored and can be made into proper stairs with 10 sheets of material.")
-	else
-		. += span_notice("The frame will need to be secured with a wrench before it can be completed.")
-
-/obj/structure/stairs_frame/wrench_act(mob/living/user, obj/item/used_tool)
-	user.balloon_alert_to_viewers("securing stairs frame", "securing frame")
-	used_tool.play_tool_sound(src)
-	if(!used_tool.use_tool(src, user, 3 SECONDS))
-		return TRUE
-	if(anchored)
-		anchored = FALSE
-		playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		return TRUE
-	anchored = TRUE
-	playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-	return TRUE
-
-/obj/structure/stairs_frame/wrench_act_secondary(mob/living/user, obj/item/used_tool)
-	to_chat(user, span_notice("You start disassembling [src]..."))
-	used_tool.play_tool_sound(src)
-	if(!used_tool.use_tool(src, user, 3 SECONDS))
-		return TRUE
-	playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-	deconstruct(TRUE)
-	return TRUE
-
-/obj/structure/stairs_frame/deconstruct(disassembled = TRUE)
-	new frame_stack(get_turf(src), frame_stack_amount)
-	qdel(src)
-
-/obj/structure/stairs_frame/attackby(obj/item/attacked_by, mob/user, params)
-	if(!isstack(attacked_by))
-		return ..()
-	if(!anchored)
-		user.balloon_alert(user, "secure frame first")
-		return TRUE
-	var/obj/item/stack/material = attacked_by
-	if(material.stairs_type)
-		if(material.get_amount() < 10)
-			to_chat(user, span_warning("You need ten [material.name] sheets to do this!"))
-			return
-		if(locate(/obj/structure/stairs) in loc)
-			to_chat(user, span_warning("There's already stairs built here!"))
-			return
-		to_chat(user, span_notice("You start adding [material] to [src]..."))
-		if(!do_after(user, 10 SECONDS, target = src) || !material.use(10) || (locate(/obj/structure/table) in loc))
-			return
-		make_new_stairs(material.stairs_type)
-	else if(istype(material, /obj/item/stack/sheet))
-		if(material.get_amount() < 10)
-			to_chat(user, span_warning("You need ten sheets to do this!"))
-			return
-		if(locate(/obj/structure/stairs) in loc)
-			to_chat(user, span_warning("There's already stairs built here!"))
-			return
-		to_chat(user, span_notice("You start adding [material] to [src]..."))
-		if(!do_after(user, 10 SECONDS, target = src) || !material.use(10) || (locate(/obj/structure/table) in loc))
-			return
-		var/list/material_list = list()
-		if(material.material_type)
-			material_list[material.material_type] = SHEET_MATERIAL_AMOUNT * 10
-		make_new_stairs(/obj/structure/stairs/material, material_list)
-	return TRUE
-
-/obj/structure/stairs_frame/proc/make_new_stairs(stairs_type, custom_materials)
-	var/obj/structure/stairs/new_stairs = new stairs_type(loc)
-	new_stairs.setDir(dir)
-	if(custom_materials)
-		new_stairs.set_custom_materials(custom_materials)
-	qdel(src)
-
-#undef STAIR_TERMINATOR_AUTOMATIC
-#undef STAIR_TERMINATOR_NO
-#undef STAIR_TERMINATOR_YES

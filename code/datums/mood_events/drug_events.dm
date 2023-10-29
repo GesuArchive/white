@@ -1,110 +1,92 @@
 /datum/mood_event/high
-	mood_change = 6
-	description = "Woooow duudeeeeee... I'm tripping baaalls..."
-
-/datum/mood_event/stoned
-	mood_change = 6
-	description = "I'm sooooo stooooooooooooned..."
-
-/datum/mood_event/maintenance_high
-	mood_change = 6
-	description = "I'm on top of the world, baby! Tide worldwide!"
-	timeout = 2 MINUTES
-
-/datum/mood_event/maintenance_high/add_effects(param)
-	var/value = rand(-1, 6) // chance for it to suck
-	mood_change = value
-	if(value < 0)
-		description = "No! Don't! My gloves! Auuuuurgh!"
-	else
-		description = initial(description)
-
-/datum/mood_event/hang_over
-	mood_change = -4
-	description = "I have a killer hang over!"
-	timeout = 1 MINUTES
+	mood_change = 8
+	description = "<span class='nicegreen'>Вооооууу... Чувааааак... Меня так вштыыырилооо...</span>\n"
 
 /datum/mood_event/smoked
-	description = "I have had a smoke recently."
-	mood_change = 2
+	description = "<span class='nicegreen'>Мне удалось покурить недавно.</span>\n"
+	mood_change = 4
 	timeout = 6 MINUTES
 
+/datum/mood_event/stoned
+	mood_change = 10
+	description = "<span class='nicegreen'>Чува-а-а-а-ак... я так обкуре-е-е-е-ен...</span>\n"
+
 /datum/mood_event/wrong_brand
-	description = "I hate that brand of cigarettes."
-	mood_change = -2
+	description = "<span class='warning'>Ненавижу эту марку сигарет.</span>\n"
+	mood_change = -1
 	timeout = 6 MINUTES
 
 /datum/mood_event/overdose
-	mood_change = -8
+	mood_change = -16
 	timeout = 5 MINUTES
 
 /datum/mood_event/overdose/add_effects(drug_name)
-	description = "I think I took a bit too much of that [drug_name]!"
+	description = "<span class='warning'>У меня передозировка [drug_name]</span>\n"
 
 /datum/mood_event/withdrawal_light
-	mood_change = -2
+	mood_change = -4
 
 /datum/mood_event/withdrawal_light/add_effects(drug_name)
-	description = "I could use some [drug_name]..."
+	description = "<span class='warning'>Мне не помешало бы немного [drug_name]</span>\n"
 
 /datum/mood_event/withdrawal_medium
-	mood_change = -5
-
-/datum/mood_event/withdrawal_medium/add_effects(drug_name)
-	description = "I really need [drug_name]."
-
-/datum/mood_event/withdrawal_severe
-	mood_change = -8
-
-/datum/mood_event/withdrawal_severe/add_effects(drug_name)
-	description = "Oh god, I need some of that [drug_name]!"
-
-/datum/mood_event/withdrawal_critical
 	mood_change = -10
 
+/datum/mood_event/withdrawal_medium/add_effects(drug_name)
+	description = "<span class='warning'>Мне очень нужно [drug_name]</span>\n"
+
+/datum/mood_event/withdrawal_severe
+	mood_change = -16
+
+/datum/mood_event/withdrawal_severe/add_effects(drug_name)
+	description = "<span class='boldwarning'>О, боже, как же я хочу [drug_name]</span>\n"
+
+/datum/mood_event/withdrawal_critical
+	mood_change = -20
+
 /datum/mood_event/withdrawal_critical/add_effects(drug_name)
-	description = "[drug_name]! [drug_name]! [drug_name]!"
+	var/drug = uppertext(drug_name)
+	description = "<span class='boldwarning'>[drug]! [drug]! [drug]!</span>\n"
 
 /datum/mood_event/happiness_drug
-	description = "Can't feel a thing..."
-	mood_change = 50
-
+	description = "<span class='nicegreen'>Ничего не чувствую, и не хочу, чтобы это прекратилось.</span>\n"
+	mood_change = 500 // coderbus
 /datum/mood_event/happiness_drug_good_od
-	description = "YES! YES!! YES!!!"
-	mood_change = 100
-	timeout = 30 SECONDS
-	special_screen_obj = "mood_happiness_good"
+	description = "<span class='nicegreen'>ДА! ДА!! ДА!!!</span>\n"
+	mood_change = 1000
+	timeout = 0.5 MINUTES
+	special_screen_obj = "mood_happy"
 
 /datum/mood_event/happiness_drug_bad_od
-	description = "NO! NO!! NO!!!"
-	mood_change = -100
-	timeout = 30 SECONDS
-	special_screen_obj = "mood_happiness_bad"
+	description = "<span class='boldwarning'>НЕТ! НЕТ!! НЕТ!!!</span>\n"
+	mood_change = -20000
+	timeout = 0.5 MINUTES
+	special_screen_obj = "mood_joker"
 
 /datum/mood_event/narcotic_medium
-	description = "I feel comfortably numb."
+	description = "<span class='nicegreen'>Это приятное оцепенение...</span>\n"
 	mood_change = 4
 	timeout = 3 MINUTES
 
 /datum/mood_event/narcotic_heavy
-	description = "I feel like I'm wrapped up in cotton!"
+	description = "<span class='nicegreen'>Ощущение, словно меня обернули золотом... </span>\n" // хз чё там должно было быть после "обернули", дописал "золотом".
 	mood_change = 9
 	timeout = 3 MINUTES
 
 /datum/mood_event/stimulant_medium
-	description = "I have so much energy! I feel like I could do anything!"
+	description = "<span class='nicegreen'>У меня столько энергии, что я чувствую, будто могу свернуть горы!</span>\n"
 	mood_change = 4
 	timeout = 3 MINUTES
 
 /datum/mood_event/stimulant_heavy
-	description = "Eh ah AAAAH! HA HA HA HA HAA! Uuuh."
-	mood_change = 6
+	description = "<span class='nicegreen'>Ух Ах АААА!! ХА ХА ХА ХА ХАА! А-ах!</span>\n"
+	mood_change = 12
 	timeout = 3 MINUTES
 
 #define EIGENTRIP_MOOD_RANGE 10
 
 /datum/mood_event/eigentrip
-	description = "I swapped places with an alternate reality version of myself!"
+	description = "<span class='nicegreen'>I swapped places with an alternate reality version of myself!</span>\n"
 	mood_change = 0
 	timeout = 10 MINUTES
 
@@ -112,21 +94,16 @@
 	var/value = rand(-EIGENTRIP_MOOD_RANGE,EIGENTRIP_MOOD_RANGE)
 	mood_change = value
 	if(value < 0)
-		description = "I swapped places with an alternate reality version of myself! I want to go home!"
+		description = "<span class='warning'>I swapped places with an alternate reality version of myself! I want to go home!</span>\n"
 	else
-		description = "I swapped places with an alternate reality version of myself! Though, this place is much better than my old life."
+		description = "<span class='nicegreen'>I swapped places with an alternate reality version of myself! Though, this place is much better than my old life.</span>\n"
 
 #undef EIGENTRIP_MOOD_RANGE
 
 /datum/mood_event/nicotine_withdrawal_moderate
-	description = "Haven't had a smoke in a while. Feeling a little on edge... "
-	mood_change = -5
+	description = "<span class='warning'>Haven't had a smoke in a while. Feeling a little on edge... </span>\n"
+	mood_change = -10
 
 /datum/mood_event/nicotine_withdrawal_severe
-	description = "Head pounding. Cold sweating. Feeling anxious. Need a smoke to calm down!"
-	mood_change = -8
-
-/datum/mood_event/hauntium_spirits
-	description = "I feel my soul degrading!"
-	mood_change = -8
-	timeout = 8 MINUTES
+	description = "<span class='boldwarning'>Head pounding. Cold sweating. Feeling anxious. Need a smoke to calm down!</span>\n"
+	mood_change = -16

@@ -54,7 +54,8 @@
 
 	name = "[victim]'s fiendish curse"
 
-	victim.add_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_IMMOBILIZED), "[type]")
+	ADD_TRAIT(victim, TRAIT_HANDS_BLOCKED, "[type]")
+	ADD_TRAIT(victim, TRAIT_IMMOBILIZED, "[type]")
 
 	add_puzzgrid_component(puzzgrid)
 
@@ -79,7 +80,7 @@
 		span_notice("You are unshackled from your fiendish prison!"),
 	)
 
-	victim.remove_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_IMMOBILIZED), "[type]")
+	remove_fucks()
 
 	victim = null
 
@@ -88,10 +89,10 @@
 /obj/structure/puzzgrid_effect/proc/loss_gib()
 	victim.forceMove(loc)
 	victim.visible_message(
-		span_bolddanger("You were unable to free [victim] from their fiendish prison, leaving them as nothing more than a smattering of mush!"),
-		span_bolddanger("Your compatriates were unable to free you from your fiendish prison, leaving you as nothing more than a smattering of mush!"),
+		span_danger("You were unable to free [victim] from their fiendish prison, leaving them as nothing more than a smattering of mush!"),
+		span_danger("Your compatriates were unable to free you from your fiendish prison, leaving you as nothing more than a smattering of mush!"),
 	)
-	victim.gib(DROP_ALL_REMAINS)
+	victim.gib()
 	victim = null
 
 	qdel(src)
@@ -101,8 +102,8 @@
 	if (isnull(puzzgrid))
 		victim.forceMove(loc)
 		victim.Paralyze(5 SECONDS)
-		victim.visible_message(span_bolddanger("Despite completely failing the puzzle, through unbelievable luck, [victim] manages to break out anyway!"))
-		victim.remove_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_IMMOBILIZED), "[type]")
+		victim.visible_message(span_danger("Despite completely failing the puzzle, through unbelievable luck, [victim] manages to break out anyway!"))
+		remove_fucks()
 		qdel(src)
 		victim = null
 		return
@@ -111,3 +112,7 @@
 
 	// Defer until after the fail proc finishes, since that will qdel the component.
 	addtimer(CALLBACK(src, PROC_REF(add_puzzgrid_component), puzzgrid), 0)
+
+/obj/structure/puzzgrid_effect/proc/remove_fucks()
+	REMOVE_TRAIT(victim, TRAIT_HANDS_BLOCKED, "[type]")
+	REMOVE_TRAIT(victim, TRAIT_IMMOBILIZED, "[type]")

@@ -1,12 +1,12 @@
 //does burn damage and EMPs, slightly fragile
 /datum/blobstrain/reagent/electromagnetic_web
-	name = "Electromagnetic Web"
+	name = "Электромагнитная паутина"
 	color = "#83ECEC"
 	complementary_color = "#EC8383"
-	description = "will do high burn damage and EMP targets."
-	effectdesc = "will also take massively increased damage and release an EMP when killed."
-	analyzerdescdamage = "Does low burn damage and EMPs targets."
-	analyzerdesceffect = "Is fragile to all types of damage, but takes massive damage from brute. In addition, releases a small EMP when killed."
+	description = "нанесет большой урон от ожога и цели ЭМИ."
+	effectdesc = "также будет получать значительно увеличенный урон и выпускать ЭМИ при убийстве."
+	analyzerdescdamage = "Наносит низкий урон от горения и ЭМИ целям."
+	analyzerdesceffect = "Хрупок ко всем типам повреждений, но получает огромный урон от грубых атак. Кроме того, при убийстве выпускает небольшой ЭМИ."
 	reagent = /datum/reagent/blob/electromagnetic_web
 
 /datum/blobstrain/reagent/electromagnetic_web/damage_reaction(obj/structure/blob/B, damage, damage_type, damage_flag)
@@ -19,8 +19,9 @@
 		empulse(B.loc, 1, 3) //less than screen range, so you can stand out of range to avoid it
 
 /datum/reagent/blob/electromagnetic_web
-	name = "Electromagnetic Web"
-	taste_description = "pop rocks"
+	name = "Электромагнитная паутина"
+	enname = "Electromagnetic Web"
+	taste_description = "поп-рок"
 	color = "#83ECEC"
 
 /datum/reagent/blob/electromagnetic_web/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/overmind)

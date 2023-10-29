@@ -1,10 +1,10 @@
 /datum/storage/extract_inventory
 	max_total_storage = WEIGHT_CLASS_TINY * 3
 	max_slots = 3
-	insert_preposition = "in"
+	insert_preposition = "в"
 	attack_hand_interact = FALSE
 	quickdraw = FALSE
-	locked = STORAGE_FULLY_LOCKED
+	locked = TRUE
 	rustle_sound = FALSE
 	silent = TRUE
 
@@ -25,6 +25,7 @@
 	if(!parentSlimeExtract)
 		return
 
+	//message_admins(parentSlimeExtract.contents.len)
 	if(parentSlimeExtract.contents.len >= max_slots)
 		QDEL_LIST(parentSlimeExtract.contents)
 		createExtracts(user)

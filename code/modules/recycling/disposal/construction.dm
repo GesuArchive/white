@@ -4,7 +4,7 @@
 /obj/structure/disposalconstruct
 	name = "disposal pipe segment"
 	desc = "A huge pipe segment used for constructing disposal systems."
-	icon = 'icons/obj/pipes_n_cables/disposal.dmi'
+	icon = 'icons/obj/atmospherics/pipes/disposal.dmi'
 	icon_state = "conpipe"
 	anchored = FALSE
 	density = FALSE
@@ -33,36 +33,36 @@
 
 	pipename = initial(pipe_type.name)
 
-	AddComponent(/datum/component/simple_rotation, AfterRotation = CALLBACK(src, PROC_REF(AfterRotation)))
-	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
-
 	if(flip)
 		var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
-		rotcomp.Rotate(usr, ROTATION_FLIP) // this only gets used by pipes created by RPDs or pipe dispensers
+		rotcomp.BaseRot(null,ROTATION_FLIP)
 
-	update_appearance(UPDATE_ICON)
+	update_icon()
+
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
 
 /obj/structure/disposalconstruct/Move()
 	var/old_dir = dir
 	..()
 	setDir(old_dir) //pipes changing direction when moved is just annoying and buggy
 
-/obj/structure/disposalconstruct/update_icon_state()
-	if(ispath(pipe_type, /obj/machinery/disposal/bin))
-		// Disposal bins receive special icon treating
-		icon_state = "[anchored ? "con" : null]disposal"
-		return ..()
-
-	icon_state = "[is_pipe() ? "con" : null][initial(pipe_type.icon_state)]"
-	return ..()
-
-// Extra layer handling
+// update iconstate and dpdir due to dir and type
 /obj/structure/disposalconstruct/update_icon()
 	. = ..()
-	if(!is_pipe())
-		return
+	icon_state = initial(pipe_type.icon_state)
+	if(is_pipe())
+		icon_state = "con[icon_state]"
+		if(anchored)
+			layer = initial(pipe_type.layer)
+		else
+			layer = initial(layer)
 
-	layer = anchored ? initial(pipe_type.layer) : initial(layer)
+	else if(ispath(pipe_type, /obj/machinery/disposal/bin))
+		// Disposal bins receive special icon treating
+		if(anchored)
+			icon_state = "disposal"
+		else
+			icon_state = "condisposal"
 
 /obj/structure/disposalconstruct/proc/get_disposal_dir()
 	if(!is_pipe())
@@ -83,20 +83,27 @@
 		if(initialize_dirs & DISP_DIR_RIGHT)
 			dpdir |= turn(dir, -90)
 		if(initialize_dirs & DISP_DIR_FLIP)
-			dpdir |= REVERSE_DIR(dir)
+			dpdir |= turn(dir, 180)
 	return dpdir
 
-/obj/structure/disposalconstruct/proc/AfterRotation(mob/user, degrees)
-	if(degrees == ROTATION_FLIP)
+/obj/structure/disposalconstruct/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_FLIP | ROTATION_VERBS ,null,CALLBACK(src, PROC_REF(can_be_rotated)), CALLBACK(src, PROC_REF(after_rot)))
+
+/obj/structure/disposalconstruct/proc/after_rot(mob/user,rotation_type)
+	if(rotation_type == ROTATION_FLIP)
 		var/obj/structure/disposalpipe/temp = pipe_type
 		if(initial(temp.flip_type))
-			if(ISDIAGONALDIR(dir)) // Fix RPD-induced diagonal turning
+			if(ISDIAGONALDIR(dir))	// Fix RPD-induced diagonal turning
 				setDir(turn(dir, 45))
 			pipe_type = initial(temp.flip_type)
-	update_appearance()
+	update_icon()
 
-/obj/structure/disposalconstruct/AltClick(mob/user)
-	return ..() // This hotkey is BLACKLISTED since it's used by /datum/component/simple_rotation
+/obj/structure/disposalconstruct/proc/can_be_rotated(mob/user,rotation_type)
+	if(anchored)
+		to_chat(user, span_warning("You must unfasten the pipe before rotating it!"))
+		return FALSE
+	return TRUE
 
 // construction/deconstruction
 // wrench: (un)anchor
@@ -110,7 +117,7 @@
 		var/ispipe = is_pipe() // Indicates if we should change the level of this pipe
 
 		var/turf/T = get_turf(src)
-		if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && isfloorturf(T))
+		if(T.intact && isfloorturf(T))
 			var/obj/item/crowbar/held_crowbar = user.is_holding_item_of_type(/obj/item/crowbar)
 			if(!held_crowbar || !T.crowbar_act(user, held_crowbar))
 				to_chat(user, span_warning("You can only attach the [pipename] if the floor plating is removed!"))
@@ -133,7 +140,7 @@
 						to_chat(user, span_warning("There is already a disposal pipe at that location!"))
 						return TRUE
 
-		else // Disposal or outlet
+		else	// Disposal or outlet
 			var/found_trunk = locate(/obj/structure/disposalpipe/trunk) in T
 
 			if(!found_trunk)
@@ -143,18 +150,13 @@
 		set_anchored(TRUE)
 		to_chat(user, span_notice("You attach the [pipename] to the underfloor."))
 	I.play_tool_sound(src, 100)
-	update_appearance()
+	update_icon()
 	return TRUE
 
 /obj/structure/disposalconstruct/welder_act(mob/living/user, obj/item/I)
 	..()
 	if(anchored)
-		var/turf/T = get_turf(src)
-		if(!is_pipe() && ((locate(/obj/machinery/disposal) in T) || ((locate(/obj/structure/disposaloutlet) in T))))
-			to_chat(user, span_warning("A disposals machine already exists here!"))
-			return TRUE
-
-		if(!I.tool_start_check(user, amount=1))
+		if(!I.tool_start_check(user, amount=0))
 			return TRUE
 
 		to_chat(user, span_notice("You start welding the [pipename] in place..."))
@@ -183,3 +185,16 @@
 			return FALSE
 
 	return TRUE
+
+
+//because i couldn't be arsed
+/obj/structure/disposalconstruct/mechcomp
+	name = "mechcomp Disposals trapdoor"
+	pipename = "mechcomp Disposals trapdoor"
+	pipe_type = /obj/machinery/disposal/mechcomp
+	icon = 'white/RedFoxIV/icons/obj/mechcomp.dmi'
+	icon_state = "comp_disp"
+
+//a stub proc which is required since this disposal construct is supposed to be vended from a mechcomp vendor, and vending machines expect only items inside.
+//Surely this will not backfire. Ever.
+/obj/structure/disposalconstruct/mechcomp/proc/dropped()

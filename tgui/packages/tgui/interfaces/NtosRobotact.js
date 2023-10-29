@@ -3,8 +3,10 @@ import { AnimatedNumber, Box, Button, Flex, LabeledList, ProgressBar, Section, S
 import { NtosWindow } from '../layouts';
 
 export const NtosRobotact = (props, context) => {
+  const { act, data } = useBackend(context);
+  const { PC_device_theme } = data;
   return (
-    <NtosWindow width={800} height={600}>
+    <NtosWindow width={800} height={600} theme={PC_device_theme}>
       <NtosWindow.Content>
         <NtosRobotactContent />
       </NtosWindow.Content>
@@ -33,7 +35,6 @@ export const NtosRobotactContent = (props, context) => {
     printerTonerMax,
     thrustersInstalled,
     thrustersStatus,
-    selfDestructAble,
   } = data;
   const borgName = data.name || [];
   const borgType = data.designation || [];
@@ -185,15 +186,6 @@ export const NtosRobotactContent = (props, context) => {
                         <Button
                           content={thrustersStatus}
                           onClick={() => act('toggleThrusters')}
-                        />
-                      </LabeledList.Item>
-                    )}
-                    {!!selfDestructAble && (
-                      <LabeledList.Item label="Self Destruct">
-                        <Button.Confirm
-                          content="ACTIVATE"
-                          color="red"
-                          onClick={() => act('selfDestruct')}
                         />
                       </LabeledList.Item>
                     )}

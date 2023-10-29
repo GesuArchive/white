@@ -25,7 +25,7 @@
 
 // Generates a holodeck-tracked card deck
 /obj/effect/holodeck_effect/cards
-	icon = 'icons/obj/toys/playing_cards.dmi'
+	icon = 'icons/obj/playing_cards.dmi'
 	icon_state = "deck_syndicate_full"
 
 /obj/effect/holodeck_effect/cards/activate(obj/machinery/computer/holodeck/holodeck)
@@ -39,7 +39,7 @@
 		var/datum/effect_system/spark_spread/s = new
 		s.set_up(3, 1, T)
 		s.start()
-		T.temperature = 5000 //Why? not quite sure to be honest with you
+		T.initial_temperature = 5000 //Why? not quite sure to be honest with you
 		T.hotspot_expose(50000,50000,1)
 
 /obj/effect/holodeck_effect/random_book
@@ -53,7 +53,7 @@
 	return to_spawn
 
 /obj/effect/holodeck_effect/mobspawner
-	var/mobtype = /mob/living/basic/carp/holographic
+	var/mobtype = /mob/living/simple_animal/hostile/carp/holocarp
 	var/mob/our_mob = null
 
 /obj/effect/holodeck_effect/mobspawner/activate(obj/machinery/computer/holodeck/HC)
@@ -61,12 +61,11 @@
 		mobtype = pick(mobtype)
 	our_mob = new mobtype(loc)
 	our_mob.flags_1 |= HOLOGRAM_1
-	ADD_TRAIT(our_mob, TRAIT_PERMANENTLY_MORTAL, INNATE_TRAIT)
 
 	// these vars are not really standardized but all would theoretically create stuff on death
 	for(var/v in list("butcher_results","corpse","weapon1","weapon2","blood_volume") & our_mob.vars)
 		our_mob.vars[v] = null
-	RegisterSignal(our_mob, COMSIG_QDELETING, PROC_REF(handle_mob_delete))
+	RegisterSignal(our_mob, COMSIG_PARENT_QDELETING, PROC_REF(handle_mob_delete))
 	return our_mob
 
 /obj/effect/holodeck_effect/mobspawner/deactivate(obj/machinery/computer/holodeck/HC)
@@ -82,38 +81,24 @@
 
 /obj/effect/holodeck_effect/mobspawner/pet/Initialize(mapload)
 	. = ..()
-	mobtype = list(
-		/mob/living/basic/butterfly,
-		/mob/living/basic/chick/permanent,
-		/mob/living/basic/pet/fox/docile,
-		/mob/living/basic/rabbit,
-	)
-	mobtype += pick(
-		/mob/living/basic/pet/dog/corgi,
-		/mob/living/basic/pet/dog/corgi/puppy,
-		/mob/living/basic/pet/dog/pug,
-	)
-	mobtype += pick(
-		/mob/living/simple_animal/pet/cat,
-		/mob/living/simple_animal/pet/cat/kitten,
-	)
+	mobtype = list(/mob/living/simple_animal/butterfly, /mob/living/simple_animal/chick/holo, /mob/living/simple_animal/pet/fox)
+	mobtype += pick(/mob/living/simple_animal/pet/dog/corgi, /mob/living/simple_animal/pet/dog/corgi/puppy,
+		/mob/living/simple_animal/pet/dog/pug)
+	mobtype += pick(/mob/living/simple_animal/pet/cat, /mob/living/simple_animal/pet/cat/kitten)
 
 /obj/effect/holodeck_effect/mobspawner/bee
-	mobtype = /mob/living/basic/bee/toxin
+	mobtype = /mob/living/simple_animal/hostile/poison/bees/toxin
 
 /obj/effect/holodeck_effect/mobspawner/monkey
-	mobtype = /mob/living/carbon/human/species/monkey/holodeck
+	mobtype = /mob/living/simple_animal/holodeck_monkey
 
 /obj/effect/holodeck_effect/mobspawner/penguin
-	mobtype = /mob/living/basic/pet/penguin/emperor/neuter
+	mobtype = /mob/living/simple_animal/pet/penguin/emperor
 
 /obj/effect/holodeck_effect/mobspawner/penguin/Initialize(mapload)
 	if(prob(1))
-		mobtype = /mob/living/basic/pet/penguin/emperor/shamebrero/neuter
+		mobtype = /mob/living/simple_animal/pet/penguin/emperor/shamebrero
 	return ..()
 
 /obj/effect/holodeck_effect/mobspawner/penguin_baby
-	mobtype = /mob/living/basic/pet/penguin/baby/permanent
-
-/obj/effect/holodeck_effect/mobspawner/crab/jon
-	mobtype = /mob/living/basic/crab/jon
+	mobtype = /mob/living/simple_animal/pet/penguin/baby

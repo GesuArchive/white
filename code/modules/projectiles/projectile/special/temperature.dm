@@ -1,15 +1,14 @@
 /obj/projectile/temp
-	name = "freeze beam"
+	name = "охлаждающий луч"
 	icon_state = "ice_2"
 	damage = 0
 	damage_type = BURN
-	armor_flag = ENERGY
+	nodamage = FALSE
+	flag = ENERGY
+	aim_mod = 1.25
 	var/temperature = -50 // reduce the body temperature by 50 points
 
-/obj/projectile/temp/is_hostile_projectile()
-	return temperature != 0 // our damage is done by cooling or heating (casting to boolean here)
-
-/obj/projectile/temp/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/temp/on_hit(atom/target, blocked = 0)
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/hit_mob = target
@@ -25,12 +24,11 @@
 		L.adjust_bodytemperature((1 - blocked) * temperature)
 
 /obj/projectile/temp/hot
-	name = "heat beam"
-	icon_state = "lava"
+	name = "поджигающий луч"
 	temperature = 100 // Raise the body temp by 100 points
 
 /obj/projectile/temp/cryo
-	name = "cryo beam"
+	name = "замораживающий луч"
 	range = 3
 	temperature = -240 // Single slow shot reduces temp greatly
 

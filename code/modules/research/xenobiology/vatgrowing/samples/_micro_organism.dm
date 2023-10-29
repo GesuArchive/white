@@ -7,7 +7,7 @@
 
 ///Returns a short description of the cell line
 /datum/micro_organism/proc/get_details(show_details)
-	return span_notice("[desc]")
+	return span_notice("\n[desc]")
 
 ///A "mob" cell. Can grow into a mob in a growing vat.
 /datum/micro_organism/cell_line
@@ -81,7 +81,6 @@
 	playsound(vat, 'sound/effects/splat.ogg', 50, TRUE)
 	if(rand(1, 100) < risk) //Fail roll!
 		fuck_up_growing(vat)
-
 		return FALSE
 	succeed_growing(vat)
 	return TRUE
@@ -96,7 +95,7 @@
 
 /datum/micro_organism/cell_line/proc/succeed_growing(obj/machinery/plumbing/growing_vat/vat)
 	var/datum/effect_system/fluid_spread/smoke/smoke = new
-	smoke.set_up(0, holder = vat, location = vat.loc)
+	smoke.set_up(0, holder = src, location = vat.loc)
 	smoke.start()
 	for(var/created_thing in resulting_atoms)
 		for(var/x in 1 to resulting_atoms[created_thing])
@@ -109,7 +108,7 @@
 
 ///Overriden to show more info like needs, supplementary and supressive reagents and also growth.
 /datum/micro_organism/cell_line/get_details(show_details)
-	. += "[span_notice("[desc] - growth progress: [growth]%")]\n"
+	. += "<hr><span class='notice'>[desc] - growth progress: [growth]%</span>\n"
 	if(show_details)
 		. += return_reagent_text("It requires:", required_reagents)
 		. += return_reagent_text("It likes:", supplementary_reagents)
@@ -123,4 +122,4 @@
 	for(var/i in reagentlist)
 		var/datum/reagent/reagent = i
 		all_reagents_text += " - [initial(reagent.name)]\n"
-	return span_notice("[prefix_text]\n[all_reagents_text]")
+	return "<hr><span class='notice'>[prefix_text]\n[all_reagents_text]</span>"

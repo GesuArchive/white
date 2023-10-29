@@ -1,103 +1,100 @@
-/**
- * # Fluff structure
- *
- * Fluff structures serve no purpose and exist only for enriching the environment. By default, they can be deconstructed with a wrench.
- */
+//Fluff structures serve no purpose and exist only for enriching the environment. They can be destroyed with a wrench.
+
 /obj/structure/fluff
-	name = "fluff structure"
-	desc = "Fluffier than a sheep. This shouldn't exist."
-	icon = 'icons/obj/fluff/general.dmi'
+	name = "структура пуха"
+	desc = "Пушистее овцы. Этого не должно быть."
+	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "minibar"
 	anchored = TRUE
 	density = FALSE
 	opacity = FALSE
-	///If true, the structure can be deconstructed into a metal sheet with a wrench.
 	var/deconstructible = TRUE
 
 /obj/structure/fluff/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_WRENCH && deconstructible)
-		user.visible_message(span_notice("[user] starts disassembling [src]..."), span_notice("You start disassembling [src]..."))
+		user.visible_message(span_notice("[user] начинает разбирать [src]...") , span_notice("Начинаю разбирать [src]..."))
 		I.play_tool_sound(src)
 		if(I.use_tool(src, user, 50))
-			user.visible_message(span_notice("[user] disassembles [src]!"), span_notice("You break down [src] into scrap metal."))
+			user.visible_message(span_notice("[user] разобрал [src]!") , span_notice("Разломал [src] на куски металла."))
 			playsound(user, 'sound/items/deconstruct.ogg', 50, TRUE)
 			new/obj/item/stack/sheet/iron(drop_location())
 			qdel(src)
 		return
 	..()
-/**
- * Empty terrariums are created when a preserved terrarium in a lavaland seed vault is activated.
- */
-/obj/structure/fluff/empty_terrarium
-	name = "empty terrarium"
-	desc = "An ancient machine that seems to be used for storing plant matter. Its hatch is ajar."
-	icon = 'icons/obj/mining_zones/spawners.dmi'
+
+/obj/structure/fluff/empty_terrarium //Empty terrariums are created when a preserved terrarium in a lavaland seed vault is activated.
+	name = "пустой террариум"
+	desc = "Древняя машина, которая, кажется, использовалась для хранения растительных материалов. Люк открыт."
+	icon = 'icons/obj/lavaland/spawners.dmi'
 	icon_state = "terrarium_open"
 	density = TRUE
-/**
- * Empty sleepers are created by a good few ghost roles in lavaland.
- */
-/obj/structure/fluff/empty_sleeper
-	name = "empty sleeper"
-	desc = "An open sleeper. It looks as though it would be awaiting another patient, were it not broken."
+
+/obj/structure/fluff/empty_sleeper //Empty sleepers are created by a good few ghost roles in lavaland.
+	name = "пустой слипер"
+	desc = "Открытый слипер. Похоже, он был готов принять пациента, если бы не сломался."
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper-open"
 
 /obj/structure/fluff/empty_sleeper/nanotrasen
-	name = "broken hypersleep chamber"
-	desc = "A Nanotrasen hypersleep chamber - this one appears broken. \
-		There are exposed bolts for easy disassembly using a wrench."
+	name = "сломанная камера гиперсна"
+	desc = "Камера гиперсна NanoTrasen - похоже она сломана. \
+		Это болты с неполной резьбой, легко демонтируются гаечным ключом."
 	icon_state = "sleeper-o"
 
 /obj/structure/fluff/empty_sleeper/syndicate
 	icon_state = "sleeper_s-open"
-/**
- * Empty cryostasis sleepers are created when a malfunctioning cryostasis sleeper in a lavaland shelter is activated.
- */
-/obj/structure/fluff/empty_cryostasis_sleeper
-	name = "empty cryostasis sleeper"
-	desc = "Although comfortable, this sleeper won't function as anything but a bed ever again."
-	icon = 'icons/obj/mining_zones/spawners.dmi'
+
+/obj/structure/fluff/empty_cryostasis_sleeper //Empty cryostasis sleepers are created when a malfunctioning cryostasis sleeper in a lavaland shelter is activated
+	name = "пустой слипер"
+	desc = "К сожалению, этот слипер больше не выполняет своих функций и в лучшем случае может быть использован как кровать."
+	icon = 'icons/obj/lavaland/spawners.dmi'
 	icon_state = "cryostasis_sleeper_open"
 
-/**
- * Ash drake status spawn on either side of the necropolis gate in lavaland.
- */
-/obj/structure/fluff/drake_statue
-	name = "drake statue"
-	desc = "A towering basalt sculpture of a proud and regal drake. Its eyes are six glowing gemstones."
+/obj/structure/fluff/broken_flooring
+	name = "сломанная черепица"
+	desc = "Часть сломанного настила."
+	icon = 'icons/obj/brokentiling.dmi'
+	icon_state = "corner"
+
+/obj/structure/fluff/drake_statue //Ash drake status spawn on either side of the necropolis gate in lavaland.
+	name = "статуя дракона"
+	desc = "Возвышающаяся базальтовая скульптура гордого и царственного дракона. Его глаза как шесть сияющих самоцветов."
 	icon = 'icons/effects/64x64.dmi'
 	icon_state = "drake_statue"
 	pixel_x = -16
-	maptext_height = 64
-	maptext_width = 64
 	density = TRUE
 	deconstructible = FALSE
 	layer = EDGED_TURF_LAYER
 	plane = GAME_PLANE_UPPER
-/**
- * A variety of statue in disrepair; parts are broken off and a gemstone is missing
- */
-/obj/structure/fluff/drake_statue/falling
-	desc = "A towering basalt sculpture of a drake. Cracks run down its surface and parts of it have fallen off."
+
+/obj/structure/fluff/drake_statue/falling //A variety of statue in disrepair; parts are broken off and a gemstone is missing
+	desc = "Возвышающаяся базальтовая скульптура дракона. На поверхности трещины, а некоторые куски отвалились."
 	icon_state = "drake_statue_falling"
 
+/obj/structure/fluff/tendril
+	name = "статуя тендрила"
+	desc = "Искусная имитация загадочного обелиска лаваленда."
+	icon = 'icons/mob/nest.dmi'
+	icon_state = "tendril"
+	density = TRUE
+	deconstructible = FALSE
+	layer = EDGED_TURF_LAYER
+	plane = GAME_PLANE_UPPER
 
 /obj/structure/fluff/bus
-	name = "bus"
-	desc = "GO TO SCHOOL. READ A BOOK."
-	icon = 'icons/obj/fluff/bus.dmi'
-	icon_state = null
+	name = "автобус"
+	desc = "ИДИ В ШКОЛУ. ПОЧИТАЙ КНИГУ."
+	icon = 'icons/obj/bus.dmi'
 	density = TRUE
 	anchored = TRUE
 	deconstructible = FALSE
 
 /obj/structure/fluff/bus/dense
-	name = "bus"
+	name = "автобус"
 	icon_state = "backwall"
 
 /obj/structure/fluff/bus/passable
-	name = "bus"
+	name = "автобус"
 	icon_state = "frontwalltop"
 	density = FALSE
 	layer = ABOVE_ALL_MOB_LAYER //except for the stairs tile, which should be set to OBJ_LAYER aka 3.
@@ -105,8 +102,8 @@
 
 
 /obj/structure/fluff/bus/passable/seat
-	name = "seat"
-	desc = "Buckle up! ...What do you mean, there's no seatbelts?!"
+	name = "сиденье"
+	desc = "Пристегнитесь! ...Что значит тут нет ремней безопасности?!"
 	icon_state = "backseat"
 	pixel_y = 17
 	layer = OBJ_LAYER
@@ -114,18 +111,18 @@
 
 
 /obj/structure/fluff/bus/passable/seat/driver
-	name = "driver's seat"
-	desc = "Space Jesus is my copilot."
+	name = "кресло водителя"
+	desc = "Космический Иисус мой второй пилот."
 	icon_state = "driverseat"
 
-/obj/structure/fluff/bus/passable/seat/driver/attack_hand(mob/user, list/modifiers)
+/obj/structure/fluff/bus/passable/seat/driver/attack_hand(mob/user)
 	playsound(src, 'sound/items/carhorn.ogg', 50, TRUE)
 	. = ..()
 
 /obj/structure/fluff/paper
-	name = "dense lining of papers"
-	desc = "A lining of paper scattered across the bottom of a wall."
-	icon = 'icons/obj/fluff/general.dmi'
+	name = "плотная подкладка из бумаги"
+	desc = "Подкладка из бумаги, разбросанная у подножия стены."
+	icon = 'icons/obj/fluff.dmi'
 	icon_state = "paper"
 	deconstructible = FALSE
 
@@ -133,81 +130,86 @@
 	icon_state = "papercorner"
 
 /obj/structure/fluff/paper/stack
-	name = "dense stack of papers"
-	desc = "A stack of various papers, childish scribbles scattered across each page."
+	name = "плотная стопка бумаг"
+	desc = "Стопка разных бумаг, детские каракули накаляканы на каждой странице."
 	icon_state = "paperstack"
 
 
 /obj/structure/fluff/divine
-	name = "Miracle"
-	icon = 'icons/obj/service/hand_of_god_structures.dmi'
-	icon_state = "error"
+	name = "Чудо"
+	icon = 'icons/obj/hand_of_god_structures.dmi'
 	anchored = TRUE
 	density = TRUE
 
 /obj/structure/fluff/divine/nexus
-	name = "nexus"
-	desc = "It anchors a deity to this world. It radiates an unusual aura. It looks well protected from explosive shock."
+	name = "Нексус"
+	desc = "Он создает связь с божеством в этом мире. Он излучает необычную ауру. Выглядит взрывостойким."
 	icon_state = "nexus"
 
 /obj/structure/fluff/divine/conduit
-	name = "conduit"
-	desc = "It allows a deity to extend their reach.  Their powers are just as potent near a conduit as a nexus."
+	name = "канал"
+	desc = "Позволяет божеству расширить свою зону влияния. Их силы так же сильны рядом с каналом, как и нексус."
 	icon_state = "conduit"
 
 /obj/structure/fluff/divine/convertaltar
-	name = "conversion altar"
-	desc = "An altar dedicated to a deity."
+	name = "алтарь обращения"
+	desc = "Алтарь, посвященный божеству."
 	icon_state = "convertaltar"
 	density = FALSE
 	can_buckle = 1
 
 /obj/structure/fluff/divine/powerpylon
-	name = "power pylon"
-	desc = "A pylon which increases the deity's rate it can influence the world."
+	name = "пилон силы"
+	desc = "Пилон который увеличивает интенсивность с которой божество может влиять на мир."
 	icon_state = "powerpylon"
 	can_buckle = 1
 
 /obj/structure/fluff/divine/defensepylon
-	name = "defense pylon"
-	desc = "A pylon which is blessed to withstand many blows, and fire strong bolts at nonbelievers. A god can toggle it."
+	name = "защитный пилон"
+	desc = "Пилон, благословлен, чтобы выдержать много ударов и стрелять снарядами в неверующих. Бог может переключать его."
 	icon_state = "defensepylon"
 
 /obj/structure/fluff/divine/shrine
-	name = "shrine"
-	desc = "A shrine dedicated to a deity."
+	name = "святыня"
+	desc = "Святыня, посвященная божеству."
 	icon_state = "shrine"
 
 /obj/structure/fluff/fokoff_sign
-	name = "crude sign"
-	desc = "A crudely-made sign with the words 'fok of' written in some sort of red paint."
-	icon = 'icons/obj/fluff/general.dmi'
+	name = "грубый символ"
+	desc = "Грубо нарисованный символ с надписью \"от бись\", написанной чем-то вроде красной краски."
+	icon = 'icons/obj/fluff.dmi'
 	icon_state = "fokof"
 
+/obj/structure/fluff/sale_sign
+	name = "crude sign"
+	desc = "A crudely-made sign with the words 'sale :)' written in some sort of red paint."
+	icon = 'icons/obj/fluff.dmi'
+	icon_state = "salesign"
+
 /obj/structure/fluff/big_chain
-	name = "giant chain"
-	desc = "A towering link of chains leading up to the ceiling."
+	name = "огромная цепь"
+	desc = "Возвышающееся звено цепей, ведущих к потолку."
 	icon = 'icons/effects/32x96.dmi'
 	icon_state = "chain"
+	layer = ABOVE_OBJ_LAYER
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 	anchored = TRUE
 	density = TRUE
 	deconstructible = FALSE
-	layer = ABOVE_ALL_MOB_LAYER
-	plane = ABOVE_GAME_PLANE
 
 /obj/structure/fluff/beach_towel
-	name = "beach towel"
-	desc = "A towel decorated in various beach-themed designs."
-	icon = 'icons/obj/railings.dmi'
+	name = "пляжное полотенце"
+	desc = "Полотенце в пляжном стиле."
+	icon = 'icons/obj/fluff.dmi'
 	icon_state = "railing"
 	density = FALSE
 	anchored = TRUE
 	deconstructible = FALSE
 
 /obj/structure/fluff/beach_umbrella
-	name = "beach umbrella"
-	desc = "A fancy umbrella designed to keep the sun off beach-goers."
-	icon = 'icons/obj/fluff/general.dmi'
+	name = "пляжный зонтик"
+	desc = "Модный зонтик, предназначен для защиты от солнца."
+	icon = 'icons/obj/fluff.dmi'
 	icon_state = "brella"
 	density = FALSE
 	anchored = TRUE
@@ -229,9 +231,8 @@
 	icon_state = "syndi_brella"
 
 /obj/structure/fluff/clockwork
-	name = "Clockwork Fluff"
-	icon = 'icons/obj/fluff/general.dmi'
-	icon_state = "error"
+	name = "Клокворк Пушистик"
+	icon = 'icons/obj/clockwork_objects.dmi'
 	deconstructible = FALSE
 
 /obj/structure/fluff/clockwork/alloy_shards
@@ -266,42 +267,47 @@
 	desc = "A pile of scrap metal. It seems damaged beyond repair."
 	icon_state = "clockgolem_dead"
 
-/obj/structure/fluff/tram_rail
-	name = "tram rail"
-	desc = "Great for trams, not so great for skating."
-	icon = 'icons/obj/tram/tram_rails.dmi'
-	icon_state = "rail"
-	layer = TRAM_RAIL_LAYER
-	plane = FLOOR_PLANE
-	resistance_flags =  INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+/obj/structure/fluff/hedge
+	name = "живая изгородь"
+	desc = "Огромная."
+	icon = 'icons/obj/smooth_structures/hedge.dmi'
+	icon_state = "hedge-0"
+	base_icon_state = "hedge"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_HEDGE_FLUFF)
+	canSmoothWith = list(SMOOTH_GROUP_HEDGE_FLUFF)
+	density = TRUE
+	anchored = TRUE
 	deconstructible = FALSE
+	max_integrity = 80
+
+/obj/structure/fluff/hedge/attacked_by(obj/item/I, mob/living/user)
+	if(opacity && HAS_TRAIT(user, TRAIT_BONSAI) && I.get_sharpness())
+		to_chat(user,span_notice("Начинаю стричь <b>[src.name]</b>."))
+		if(do_after(user, 3 SECONDS,target=src))
+			to_chat(user,span_notice("Стригу <b>[src.name]</b>."))
+			opacity = FALSE
+	else
+		return ..()
+
+/obj/structure/fluff/hedge/opaque //useful for mazes and such
+	opacity = TRUE
+
+/obj/structure/fluff/tram_rail
+	name = "трамвайные рельсы"
+	desc = "Отлично подходят для трамваев."
+	icon = 'icons/obj/tram_railing.dmi'
+	icon_state = "rail"
+	layer = MID_TURF_LAYER
+	plane = FLOOR_PLANE
+	deconstructible = TRUE
 
 /obj/structure/fluff/tram_rail/floor
-	name = "tram rail protective cover"
 	icon_state = "rail_floor"
 
 /obj/structure/fluff/tram_rail/end
 	icon_state = "railend"
 
-/obj/structure/fluff/tram_rail/electric
-	desc = "Great for trams, not so great for skating. This one is a power rail."
-
 /obj/structure/fluff/tram_rail/anchor
-	name = "tram rail anchor"
+	name = "удерживающие рельсы"
 	icon_state = "anchor"
-
-/obj/structure/fluff/tram_rail/electric/anchor
-	name = "tram rail anchor"
-	icon_state = "anchor"
-
-/obj/structure/fluff/tram_rail/electric/attack_hand(mob/living/user, list/modifiers)
-	if(user.electrocute_act(75, src))
-		do_sparks(5, TRUE, src)
-
-/obj/structure/fluff/broken_canister_frame
-	name = "broken canister frame"
-	desc = "A torn apart canister. It looks like some metal can be salvaged with a wrench."
-	icon_state = "broken_canister"
-	anchored = FALSE
-	density = TRUE
-	deconstructible = TRUE

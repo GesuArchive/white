@@ -39,11 +39,8 @@
 	if(!params)
 		params = list()
 
-	var/list/resolved_params = recursive_list_resolve(params)
+	params.Insert(1, spawn_at.value)
 
-	resolved_params.Insert(1, spawn_at.value)
-
-	log_admin_circuit("[parent.get_creator()] spawned in [typepath] with parameters \[[resolved_params.Join(", ")]].")
-	var/atom/spawned = new typepath(arglist(resolved_params))
+	var/atom/spawned = new typepath(arglist(params))
 	spawned.datum_flags |= DF_VAR_EDITED
 	spawned_atom.set_output(spawned)

@@ -23,9 +23,10 @@
 /mob/living/changeNext_move(num)
 	var/mod = next_move_modifier
 	var/adj = next_move_adjust
-	for(var/datum/status_effect/effect as anything in status_effects)
-		mod *= effect.nextmove_modifier()
-		adj += effect.nextmove_adjust()
+	for(var/i in status_effects)
+		var/datum/status_effect/S = i
+		mod *= S.nextmove_modifier()
+		adj += S.nextmove_adjust()
 	next_move = world.time + ((num + adj)*mod)
 
 /**
@@ -37,10 +38,9 @@
  *
  * Note that this proc can be overridden, and is in the case of screen objects.
  */
-/atom/Click(location, control, params)
+/atom/Click(location,control,params)
 	if(flags_1 & INITIALIZED_1)
 		SEND_SIGNAL(src, COMSIG_CLICK, location, control, params, usr)
-
 		usr.ClickOn(src, params)
 
 /atom/DblClick(location,control,params)
@@ -69,14 +69,15 @@
 		return
 	next_click = world.time + 1
 
-	if(check_click_intercept(params,A) || HAS_TRAIT(src, TRAIT_NO_TRANSFORM))
+	if(check_click_intercept(params,A))
 		return
 
+	if(notransform)
+		return
+
+	if(SEND_SIGNAL(src, COMSIG_MOB_CLICKON, A, params) & COMSIG_MOB_CANCEL_CLICKON)
+		return
 	var/list/modifiers = params2list(params)
-
-	if(SEND_SIGNAL(src, COMSIG_MOB_CLICKON, A, modifiers) & COMSIG_MOB_CANCEL_CLICKON)
-		return
-
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		if(LAZYACCESS(modifiers, MIDDLE_CLICK))
 			ShiftMiddleClickOn(A)
@@ -87,10 +88,7 @@
 		ShiftClickOn(A)
 		return
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
-		if(LAZYACCESS(modifiers, CTRL_CLICK))
-			CtrlMiddleClickOn(A)
-		else
-			MiddleClickOn(A, params)
+		MiddleClickOn(A, params)
 		return
 	if(LAZYACCESS(modifiers, ALT_CLICK)) // alt and alt-gr (rightalt)
 		if(LAZYACCESS(modifiers, RIGHT_CLICK))
@@ -99,8 +97,17 @@
 			AltClickOn(A)
 		return
 	if(LAZYACCESS(modifiers, CTRL_CLICK))
-		CtrlClickOn(A)
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			ctrl_click_on_secondary(A)
+		else
+			CtrlClickOn(A)
 		return
+
+	process_ClickOn(A, params)
+
+/mob/proc/process_ClickOn(atom/A, params)
+
+	var/list/modifiers = params2list(params)
 
 	if(incapacitated(IGNORE_RESTRAINTS|IGNORE_STASIS))
 		return
@@ -119,8 +126,8 @@
 		return
 
 	if(throw_mode)
-		if(throw_item(A))
-			changeNext_move(CLICK_CD_THROW)
+		changeNext_move(CLICK_CD_THROW)
+		throw_item(A)
 		return
 
 	var/obj/item/W = get_active_held_item()
@@ -128,11 +135,11 @@
 	if(W == A)
 		if(LAZYACCESS(modifiers, RIGHT_CLICK))
 			W.attack_self_secondary(src, modifiers)
-			update_held_items()
+			update_inv_hands()
 			return
 		else
 			W.attack_self(src, modifiers)
-			update_held_items()
+			update_inv_hands()
 			return
 
 	//These are always reachable.
@@ -243,6 +250,9 @@
 /mob/living/DirectAccess(atom/target)
 	return ..() + get_all_contents()
 
+/mob/living/carbon/DirectAccess(atom/target)
+	return ..() + internal_organs
+
 /atom/proc/AllowClick()
 	return FALSE
 
@@ -260,7 +270,7 @@
 		if(2 to INFINITY)
 			var/obj/dummy = new(get_turf(here))
 			dummy.pass_flags |= PASSTABLE
-			dummy.SetInvisibility(INVISIBILITY_ABSTRACT)
+			dummy.invisibility = INVISIBILITY_ABSTRACT
 			for(var/i in 1 to reach) //Limit it to that many tries
 				var/turf/T = get_step(dummy, get_dir(dummy, there))
 				if(dummy.CanReach(there))
@@ -277,10 +287,7 @@
 
 
 /**
- * UnarmedAttack: The higest level of mob click chain discounting click itself.
- *
- * This handles, just "clicking on something" without an item. It translates
- * into [atom/proc/attack_hand], [atom/proc/attack_animal] etc.
+ * Translates into [atom/proc/attack_hand], etc.
  *
  * Note: proximity_flag here is used to distinguish between normal usage (flag=1),
  * and usage when clicking on things telekinetically (flag=0).  This proc will
@@ -292,7 +299,6 @@
  * modifiers is a lazy list of click modifiers this attack had,
  * used for figuring out different properties of the click, mostly right vs left and such.
  */
-
 /mob/proc/UnarmedAttack(atom/A, proximity_flag, list/modifiers)
 	if(ismob(A))
 		changeNext_move(CLICK_CD_MELEE)
@@ -341,11 +347,10 @@
 	return
 
 /atom/proc/ShiftClick(mob/user)
-	var/flags = SEND_SIGNAL(user, COMSIG_CLICK_SHIFT, src)
-	if(flags & COMSIG_MOB_CANCEL_CLICKON)
-		return
+	var/flags = SEND_SIGNAL(src, COMSIG_CLICK_SHIFT, user)
 	if(user.client && (user.client.eye == user || user.client.eye == user.loc || flags & COMPONENT_ALLOW_EXAMINATE))
 		user.examinate(src)
+	return
 
 /**
  * Ctrl click
@@ -361,8 +366,6 @@
 	var/mob/living/ML = user
 	if(istype(ML))
 		ML.pulled(src)
-	if(!can_interact(user))
-		return FALSE
 
 /mob/living/CtrlClick(mob/user)
 	if(!isliving(user) || !user.CanReach(src) || user.incapacitated())
@@ -380,30 +383,19 @@
 
 
 /mob/living/carbon/human/CtrlClick(mob/user)
-	if(!iscarbon(user) || !user.CanReach(src) || user.incapacitated())
+
+	if(!ishuman(user) || !user.CanReach(src) || user.incapacitated())
 		return ..()
 
 	if(world.time < user.next_move)
 		return FALSE
 
-	if (ishuman(user))
-		var/mob/living/carbon/human/human_user = user
-		if(human_user.dna.species.grab(human_user, src, human_user.mind.martial_art))
-			human_user.changeNext_move(CLICK_CD_MELEE)
-			return TRUE
-	else if(isalien(user))
-		var/mob/living/carbon/alien/adult/alien_boy = user
-		if(alien_boy.grab(src))
-			alien_boy.changeNext_move(CLICK_CD_MELEE)
-			return TRUE
-	return ..()
+	var/mob/living/carbon/human/human_user = user
+	if(human_user.dna.species.grab(human_user, src, human_user.mind.martial_art))
+		human_user.changeNext_move(CLICK_CD_MELEE)
+		return TRUE
 
-/mob/proc/CtrlMiddleClickOn(atom/A)
-	if(check_rights_for(client, R_ADMIN))
-		client.toggle_tag_datum(A)
-	else
-		A.CtrlClick(src)
-	return
+	return ..()
 
 /**
  * Alt click
@@ -416,13 +408,8 @@
 	A.AltClick(src)
 
 /atom/proc/AltClick(mob/user)
-	if(!user.can_interact_with(src))
-		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_CLICK_ALT, user) & COMPONENT_CANCEL_CLICK_ALT)
 		return
-	var/turf/T = get_turf(src)
-	if(T && (isturf(loc) || isturf(src)) && user.TurfAdjacent(T) && !HAS_TRAIT(user, TRAIT_MOVE_VENTCRAWLING))
-		user.set_listed_turf(T)
 
 ///The base proc of when something is right clicked on when alt is held - generally use alt_click_secondary instead
 /atom/proc/alt_click_on_secondary(atom/A)
@@ -433,19 +420,19 @@
 
 ///The base proc of when something is right clicked on when alt is held
 /atom/proc/alt_click_secondary(mob/user)
-	if(!user.can_interact_with(src))
-		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_CLICK_ALT_SECONDARY, user) & COMPONENT_CANCEL_CLICK_ALT_SECONDARY)
 		return
-	if(isobserver(user) && user.client && check_rights_for(user.client, R_DEBUG))
-		user.client.toggle_tag_datum(src)
-		return
+	var/turf/T = get_turf(src)
+	if(T && (isturf(loc) || isturf(src)) && user.TurfAdjacent(T))
+		user.listed_turf = T
+		user.client.stat_panel.send_message("create_listedturf", T.name)
 
 /// Use this instead of [/mob/proc/AltClickOn] where you only want turf content listing without additional atom alt-click interaction
 /atom/proc/AltClickNoInteract(mob/user, atom/A)
 	var/turf/T = get_turf(A)
 	if(T && user.TurfAdjacent(T))
-		user.set_listed_turf(T)
+		user.listed_turf = T
+		user.client.stat_panel.send_message("create_listedturf", T.name)
 
 /mob/proc/TurfAdjacent(turf/T)
 	return T.Adjacent(src)
@@ -463,8 +450,6 @@
 	return
 
 /atom/proc/CtrlShiftClick(mob/user)
-	if(!can_interact(user))
-		return FALSE
 	SEND_SIGNAL(src, COMSIG_CLICK_CTRL_SHIFT, user)
 	return
 
@@ -474,19 +459,19 @@
 */
 
 /// Simple helper to face what you clicked on, in case it should be needed in more than one place
-/mob/proc/face_atom(atom/atom_to_face)
-	if( buckled || stat != CONSCIOUS || !atom_to_face || !x || !y || !atom_to_face.x || !atom_to_face.y )
+/mob/proc/face_atom(atom/A)
+	if( buckled || stat != CONSCIOUS || !A || !x || !y || !A.x || !A.y )
 		return
-	var/dx = atom_to_face.x - x
-	var/dy = atom_to_face.y - y
+	var/dx = A.x - x
+	var/dy = A.y - y
 	if(!dx && !dy) // Wall items are graphically shifted but on the floor
-		if(atom_to_face.pixel_y > 16)
+		if(A.pixel_y > 16)
 			setDir(NORTH)
-		else if(atom_to_face.pixel_y < -16)
+		else if(A.pixel_y < -16)
 			setDir(SOUTH)
-		else if(atom_to_face.pixel_x > 16)
+		else if(A.pixel_x > 16)
 			setDir(EAST)
-		else if(atom_to_face.pixel_x < -16)
+		else if(A.pixel_x < -16)
 			setDir(WEST)
 		return
 
@@ -519,7 +504,7 @@
 #define MAX_SAFE_BYOND_ICON_SCALE_TILES (MAX_SAFE_BYOND_ICON_SCALE_PX / world.icon_size)
 #define MAX_SAFE_BYOND_ICON_SCALE_PX (33 * 32) //Not using world.icon_size on purpose.
 
-/atom/movable/screen/click_catcher/proc/UpdateGreed(view_size_x = 15, view_size_y = 15)
+/atom/movable/screen/click_catcher/proc/UpdateGreed(view_size_x = 15, view_size_y = 15, special_hud = FALSE)
 	var/icon/newicon = icon('icons/hud/screen_gen.dmi', "catcher")
 	var/ox = min(MAX_SAFE_BYOND_ICON_SCALE_TILES, view_size_x)
 	var/oy = min(MAX_SAFE_BYOND_ICON_SCALE_TILES, view_size_y)
@@ -529,12 +514,18 @@
 	var/sy = min(MAX_SAFE_BYOND_ICON_SCALE_PX, py)
 	newicon.Scale(sx, sy)
 	icon = newicon
-	screen_loc = "CENTER-[(ox-1)*0.5],CENTER-[(oy-1)*0.5]"
+	if(special_hud)
+		if(special_hud == 2)
+			screen_loc = "bottom:LEFT,CENTER"
+		else
+			screen_loc = "hud:LEFT,CENTER"
+	else
+		screen_loc = "CENTER-[(ox-1)*0.5],CENTER-[(oy-1)*0.5]"
 	var/matrix/M = new
 	M.Scale(px/sx, py/sy)
 	transform = M
 
-/atom/movable/screen/click_catcher/Initialize(mapload, datum/hud/hud_owner)
+/atom/movable/screen/click_catcher/Initialize(mapload)
 	. = ..()
 	RegisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE, PROC_REF(offset_increased))
 	offset_increased(SSmapping, 0, SSmapping.max_plane_offset)
@@ -558,9 +549,18 @@
 
 /// MouseWheelOn
 /mob/proc/MouseWheelOn(atom/A, delta_x, delta_y, params)
+	if(SEND_SIGNAL(client, COMSIG_MOUSE_SCROLL_ON, A, delta_x, delta_y, params))
+		return
 	SEND_SIGNAL(src, COMSIG_MOUSE_SCROLL_ON, A, delta_x, delta_y, params)
 
-/mob/dead/observer/MouseWheelOn(atom/A, delta_x, delta_y, params)
+
+
+
+/// MouseEnteredOn
+/mob/proc/MouseEnteredOn(atom/A, location, control, params)
+	SEND_SIGNAL(src, COMSIG_MOUSE_ENTERED_ON, A, location, control, params)
+/*
+/mob/dead/observer/MouseWheelOn(atom/A, delta_x, delta_y, params) //этим говном никто не пользуется
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		var/view = 0
@@ -569,7 +569,7 @@
 		else
 			view = 1
 		add_view_range(view)
-
+*/
 /mob/proc/check_click_intercept(params,A)
 	//Client level intercept
 	if(client?.click_intercept)
@@ -583,5 +583,5 @@
 
 	return FALSE
 
-#undef MAX_SAFE_BYOND_ICON_SCALE_TILES
-#undef MAX_SAFE_BYOND_ICON_SCALE_PX
+/mob/proc/ctrl_click_on_secondary(atom/A, params)
+	return look_into_distance(A, params)

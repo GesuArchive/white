@@ -5,12 +5,12 @@
 	anchored = FALSE
 	density = TRUE
 	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN
-	icon = 'icons/obj/pipes_n_cables/atmos.dmi'
+	icon = 'icons/obj/atmos.dmi'
 	icon_state = "electrolyzer-off"
-	name = "space electrolyzer"
-	desc = "Thanks to the fast and dynamic response of our electrolyzers, on-site hydrogen production is guaranteed. Warranty void if used by clowns"
+	name = "электролизер"
+	desc = "Благодаря быстрому и динамическому реагированию наших электролизеров производство водорода на месте гарантировано. Гарантия недействительна при использовании клоунами."
 	max_integrity = 250
-	armor_type = /datum/armor/machinery_electrolyzer
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
 	circuit = /obj/item/circuitboard/machine/electrolyzer
 	/// We don't use area power, we always use the cell
 	use_power = NO_POWER_USE
@@ -24,10 +24,6 @@
 	var/working_power = 1
 	///Decrease the amount of power usage, changed by upgrading the capacitor tier
 	var/efficiency = 0.5
-
-/datum/armor/machinery_electrolyzer
-	fire = 80
-	acid = 10
 
 /obj/machinery/electrolyzer/get_cell()
 	return cell
@@ -144,10 +140,10 @@
 	. = ..()
 	var/power = 0
 	var/cap = 0
-	for(var/datum/stock_part/servo/servo in component_parts)
-		power += servo.tier
-	for(var/datum/stock_part/capacitor/capacitor in component_parts)
-		cap += capacitor.tier
+	for(var/obj/item/stock_parts/manipulator/servo in component_parts)
+		power += servo.rating
+	for(var/obj/item/stock_parts/capacitor/capacitor in component_parts)
+		cap += capacitor.rating
 
 	working_power = power //used in the amount of moles processed
 

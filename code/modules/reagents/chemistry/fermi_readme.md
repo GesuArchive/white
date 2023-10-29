@@ -129,7 +129,6 @@ Reaction_flags can be used to set these defines:
 #define REACTION_CLEAR_INVERSE  //Convert into inverse on reaction completion when purity is low enough in the datum/reagents holder instead of on consumption
 #define REACTION_CLEAR_RETAIN	//Clear converted chems retain their purities/inverted purities. Requires 1 or both of the above. This is so that it can split again after splitting from a reaction (i.e. if your impure_chem or inverse_chem has it's own impure_chem/inverse_chem and you want it to split again on consumption). 
 #define REACTION_INSTANT        //Used to create instant reactions
-
 /datum/chemical_reaction
 	var/reaction_flags	
 ```
@@ -185,7 +184,6 @@ The flags you can set for `var/chemical_flags` are:
 #define REAGENT_INVISIBLE			(1<<2)	//Doesn't appear on handheld health analyzers.
 #define REAGENT_SNEAKYNAME          (1<<3)  //When inverted, the inverted chem uses the name of the original chem
 #define REAGENT_SPLITRETAINVOL      (1<<4)  //Retains initial volume of chem when splitting for purity effects 
-
 /datum/reagent
 	var/chemical_flags 
 ```

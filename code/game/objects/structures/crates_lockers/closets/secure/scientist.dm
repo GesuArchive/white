@@ -1,21 +1,24 @@
 /obj/structure/closet/secure_closet/research_director
-	name = "research director's locker"
+	name = "шкафчик директора по исследованиям"
 	req_access = list(ACCESS_RD)
 	icon_state = "rd"
+	anchored = TRUE
 
 /obj/structure/closet/secure_closet/research_director/PopulateContents()
 	..()
-
+	new /obj/item/storage/bag/garment/research_director(src)
+	new /obj/item/key/forklift/science(src)
 	new /obj/item/clothing/suit/bio_suit/scientist(src)
 	new /obj/item/clothing/head/bio_hood/scientist(src)
-	new /obj/item/storage/bag/garment/research_director(src)
+	new /obj/item/clothing/suit/toggle/labcoat(src)
+	new /obj/item/gun/energy/e_gun/mini(src)
 	new /obj/item/computer_disk/command/rd(src)
 	new /obj/item/radio/headset/heads/rd(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/storage/lockbox/medal/sci(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/door_remote/research_director(src)
-	new /obj/item/circuitboard/machine/techfab/department/science(src)
+	new /obj/item/circuitboard/machine/mechfab/sci(src)
 	new /obj/item/storage/photo_album/rd(src)
 	new /obj/item/storage/box/skillchips/science(src)
 
@@ -27,7 +30,7 @@
 	new /obj/item/laser_pointer(src)
 
 /obj/structure/closet/secure_closet/cytology
-	name = "cytology equipment locker"
+	name = "шкафчик для цитологического оборудования"
 	icon_state = "science"
 	req_access = list(ACCESS_RESEARCH)
 
@@ -35,7 +38,7 @@
 	. = ..()
 	new /obj/item/pushbroom(src)
 	new /obj/item/plunger(src)
-	new /obj/item/storage/bag/xeno(src)
+	new /obj/item/storage/bag/bio(src)
 	new /obj/item/storage/box/petridish(src)
 	new /obj/item/stack/ducts/fifty(src)
 	for(var/i in 1 to 2)

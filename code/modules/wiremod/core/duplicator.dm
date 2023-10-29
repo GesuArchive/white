@@ -21,10 +21,7 @@ GLOBAL_LIST_INIT(circuit_dupe_whitelisted_types, list(
 		var/variable_name = variable["name"]
 		var/datum/circuit_variable/variable_datum = new /datum/circuit_variable(variable_name, variable["datatype"])
 		circuit_variables[variable_name] = variable_datum
-		if(variable["is_assoc_list"])
-			assoc_list_variables[variable_name] = variable_datum
-			variable_datum.set_value(list())
-		else if(variable["is_list"])
+		if(variable["is_list"])
 			list_variables[variable_name] = variable_datum
 			variable_datum.set_value(list())
 		else
@@ -194,10 +191,10 @@ GLOBAL_LIST_INIT(circuit_dupe_whitelisted_types, list(
 		var/datum/circuit_variable/variable = circuit_variables[variable_identifier]
 		new_data["name"] = variable.name
 		new_data["datatype"] = variable.datatype
-		if(variable_identifier in assoc_list_variables)
-			new_data["is_assoc_list"] = TRUE
-		else if(variable_identifier in list_variables)
+		if(variable_identifier in list_variables)
 			new_data["is_list"] = TRUE
+		else
+			new_data["is_list"] = FALSE
 		variables += list(new_data)
 	general_data["variables"] = variables
 
@@ -222,20 +219,20 @@ GLOBAL_LIST_INIT(circuit_dupe_whitelisted_types, list(
 
 /client/proc/load_circuit()
 	set name = "Load Circuit"
-	set category = "Admin.Fun"
+	set category = "Адм.Веселье"
 
 	if(!check_rights(R_VAREDIT))
 		return
 
 	var/list/errors = list()
 
-	var/option = alert(usr, "Load by file or direct input?", "Load by file or string", "File", "Direct Input")
+	var/option = tgui_alert(usr, "Load by file or direct input?", "Load by file or string", list("File", "Direct Input"))
 	var/txt
 	switch(option)
 		if("File")
 			txt = file2text(input(usr, "Input File") as file|null)
 		if("Direct Input")
-			txt = input(usr, "Input JSON", "Input JSON") as text|null
+			txt = tgui_input_text(usr, "Input JSON", "Input JSON")
 
 	if(!txt)
 		return

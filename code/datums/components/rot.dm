@@ -21,8 +21,6 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 
-
-
 /datum/component/rot/Initialize(delay, scaling, severity)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -37,7 +35,7 @@
 	strength = severity
 
 	RegisterSignals(parent, list(COMSIG_ATOM_HULK_ATTACK, COMSIG_ATOM_ATTACK_ANIMAL, COMSIG_ATOM_ATTACK_HAND), PROC_REF(rot_react_touch))
-	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, PROC_REF(rot_hit_react))
+	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(rot_hit_react))
 	if(ismovable(parent))
 		AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
 		RegisterSignal(parent, COMSIG_MOVABLE_BUMP, PROC_REF(rot_react))
@@ -114,7 +112,7 @@
 
 /datum/component/rot/proc/rot_react_touch(datum/source, mob/living/react_to)
 	SIGNAL_HANDLER
-	rot_react(source, react_to, pick(GLOB.arm_zones))
+	rot_react(source, react_to, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
 
 /// Triggered when something enters the component's parent.
 /datum/component/rot/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
@@ -148,7 +146,7 @@
 
 	//We're running just under the "worst disease", since we don't want these to be too strong
 	var/datum/disease/advance/random/rand_disease = new(rand(4 * strength * time_scaling), rand(strength * 5 * time_scaling))
-	rand_disease.name = "Unknown"
+	rand_disease.name = "Неизвестно"
 	react_to.ContactContractDisease(rand_disease, target_zone)
 
 #undef REAGENT_BLOCKER

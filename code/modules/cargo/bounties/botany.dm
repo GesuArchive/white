@@ -1,227 +1,240 @@
 /datum/bounty/item/botany
-	reward = CARGO_CRATE_VALUE * 10
+	reward = CARGO_CRATE_VALUE * 50
 	var/datum/bounty/item/botany/multiplier = 0 //adds bonus reward money; increased for higher tier or rare mutations
 	var/datum/bounty/item/botany/bonus_desc //for adding extra flavor text to bounty descriptions
-	var/datum/bounty/item/botany/foodtype = "meal" //same here
+	var/datum/bounty/item/botany/foodtype = "еду" //same here
+	var/datum/bounty/item/botany/format_exception = FALSE //Set to true if the bounty uses a custom format from the one below
 
 /datum/bounty/item/botany/New()
 	..()
-	description = "Central Command's head chef is looking to prepare a fine [foodtype] with [name]. [bonus_desc]"
-	reward += multiplier * (CARGO_CRATE_VALUE * 2)
-	required_count = rand(5, 10)
+	if(format_exception == FALSE)
+		description = "Шеф-повар ЦК хочет приготовить [foodtype] из [name]. [bonus_desc]»"
+		reward += multiplier * (CARGO_CRATE_VALUE)
+		required_count = rand(5, 10)
 
 /datum/bounty/item/botany/ambrosia_vulgaris
-	name = "Ambrosia Vulgaris Leaves"
-	wanted_types = list(/obj/item/food/grown/ambrosia/vulgaris = TRUE)
-	foodtype = "stew"
+	name = "листьев Амброзии Вулгарис"
+	wanted_types = list(/obj/item/food/grown/ambrosia/vulgaris)
+	multiplier = 4
+	foodtype = "вкусное рагу"
 
 /datum/bounty/item/botany/ambrosia_gaia
-	name = "Ambrosia Gaia Leaves"
-	wanted_types = list(/obj/item/food/grown/ambrosia/gaia = TRUE)
-	multiplier = 4
-	foodtype = "stew"
+	name = "листьев Амброзии Гайи"
+	wanted_types = list(/obj/item/food/grown/ambrosia/gaia)
+	multiplier = 8
+	foodtype = "вкусное рагу"
 
 /datum/bounty/item/botany/apple_golden
-	name = "Golden Apples"
-	wanted_types = list(/obj/item/food/grown/apple/gold = TRUE)
+	name = "золотых яблок"
+	wanted_types = list(/obj/item/food/grown/apple/gold)
 	multiplier = 4
-	foodtype = "dessert"
+	foodtype = "вкусный десерт"
 
 /datum/bounty/item/botany/banana
-	name = "Bananas"
-	wanted_types = list(
-		/obj/item/food/grown/banana = TRUE,
-		/obj/item/food/grown/banana/bluespace = FALSE,
-	)
-	foodtype = "banana split"
+	name = "бананов"
+	wanted_types = list(/obj/item/food/grown/banana)
+	exclude_types = list(/obj/item/food/grown/banana/bluespace)
+	multiplier = 2
+	foodtype = "вкусный банановый сплит"
 
 /datum/bounty/item/botany/banana_bluespace
-	name = "Bluespace Bananas"
-	wanted_types = list(/obj/item/food/grown/banana/bluespace = TRUE)
-	multiplier = 2
-	foodtype = "banana split"
+	name = "блюспейс бананов"
+	wanted_types = list(/obj/item/food/grown/banana/bluespace)
+	multiplier = 10
+	foodtype = "вкусный банановый сплит."
 
 /datum/bounty/item/botany/beans_koi
-	name = "Koi Beans"
-	wanted_types = list(/obj/item/food/grown/koibeans = TRUE)
+	name = "бобов кои"
+	wanted_types = list(/obj/item/food/grown/koibeans)
 	multiplier = 2
 
 /datum/bounty/item/botany/berries_death
-	name = "Death Berries"
-	wanted_types = list(/obj/item/food/grown/berries/death = TRUE)
-	multiplier = 2
-	bonus_desc = "He insists that \"he knows what he's doing\"."
-	foodtype = "sorbet"
+	name = "ягод смерти"
+	wanted_types = list(/obj/item/food/grown/berries/death)
+	multiplier = 4
+	bonus_desc = "Он утверждает \"что он знает что он делает\"."
+	foodtype = "вкусный сорбет"
 
 /datum/bounty/item/botany/berries_glow
-	name = "Glow-Berries"
-	wanted_types = list(/obj/item/food/grown/berries/glow = TRUE)
+	name = "свето-ягод"
+	wanted_types = list(/obj/item/food/grown/berries/glow)
 	multiplier = 2
-	foodtype = "sorbet"
+	foodtype = "вкусный сорбет"
 
 /datum/bounty/item/botany/cannabis
-	name = "Cannabis Leaves"
-	wanted_types = list(
-		/obj/item/food/grown/cannabis = TRUE,
-		/obj/item/food/grown/cannabis/white = FALSE,
-		/obj/item/food/grown/cannabis/death = FALSE,
-		/obj/item/food/grown/cannabis/ultimate = FALSE,
-	)
+	name = "листьев каннабиса"
+	wanted_types = list(/obj/item/food/grown/cannabis)
+	exclude_types = list(/obj/item/food/grown/cannabis/white, /obj/item/food/grown/cannabis/death, /obj/item/food/grown/cannabis/ultimate)
 	multiplier = 4 //hush money
-	bonus_desc = "Do not mention this shipment to security."
-	foodtype = "batch of \"muffins\""
+	bonus_desc = "Не говорите СБ про эту доставку."
+	foodtype = "вкусную партию \"маффинов\""
 
 /datum/bounty/item/botany/cannabis_white
-	name = "Lifeweed Leaves"
-	wanted_types = list(/obj/item/food/grown/cannabis/white = TRUE)
+	name = "листьев растения жизни"
+	wanted_types = list(/obj/item/food/grown/cannabis/white)
 	multiplier = 6
-	bonus_desc = "Do not mention this shipment to security."
-	foodtype = "\"meal\""
+	bonus_desc = "Не говорите СБ про эту доставку."
+	foodtype = "вкусную \"еду\""
 
 /datum/bounty/item/botany/cannabis_death
-	name = "Deathweed Leaves"
-	wanted_types = list(/obj/item/food/grown/cannabis/death = TRUE)
+	name = "листьев растения смерти"
+	wanted_types = list(/obj/item/food/grown/cannabis/death)
 	multiplier = 6
-	bonus_desc = "Do not mention this shipment to security."
-	foodtype = "\"meal\""
+	bonus_desc = "Не говорите СБ про эту доставку."
+	foodtype = "вкусную \"еду\""
 
 /datum/bounty/item/botany/cannabis_ultimate
-	name = "Omega Weed Leaves"
-	wanted_types = list(/obj/item/food/grown/cannabis/ultimate = TRUE)
+	name = "листьев омега растения"
+	wanted_types = list(/obj/item/food/grown/cannabis/ultimate)
 	multiplier = 6
-	bonus_desc = "Under no circumstances mention this shipment to security."
-	foodtype = "batch of \"brownies\""
+	bonus_desc = "Ни при каких обстоятельствах не упоминайте эту отправку СБ."
+	foodtype = "вкусную партию \"кексов\""
 
 /datum/bounty/item/botany/wheat
-	name = "Wheat Grains"
-	wanted_types = list(/obj/item/food/grown/wheat = TRUE)
+	name = "зерна пшеницы"
+	wanted_types = list(/obj/item/food/grown/wheat)
+	multiplier = 2
 
 /datum/bounty/item/botany/rice
-	name = "Rice Grains"
-	wanted_types = list(/obj/item/food/grown/rice = TRUE)
+	name = "зерна риса"
+	wanted_types = list(/obj/item/food/grown/rice)
+	multiplier = 2
 
 /datum/bounty/item/botany/chili
-	name = "Chili Peppers"
-	wanted_types = list(/obj/item/food/grown/chili = TRUE)
+	name = "перца чили"
+	wanted_types = list(/obj/item/food/grown/chili)
+	multiplier = 2
 
 /datum/bounty/item/botany/ice_chili
-	name = "Chilly Peppers"
-	wanted_types = list(/obj/item/food/grown/icepepper = TRUE)
-	multiplier = 2
+	name = "морозного перца чили"
+	wanted_types = list(/obj/item/food/grown/icepepper)
+	multiplier = 4
 
 /datum/bounty/item/botany/ghost_chili
-	name = "Ghost Chili Peppers"
-	wanted_types = list(/obj/item/food/grown/ghost_chili = TRUE)
-	multiplier = 2
+	name = "призрачного перца чили"
+	wanted_types = list(/obj/item/food/grown/ghost_chili)
+	multiplier = 4
 
 /datum/bounty/item/botany/citrus_lime
-	name = "Limes"
-	wanted_types = list(/obj/item/food/grown/citrus/lime = TRUE)
-	foodtype = "sorbet"
+	name = "лайма"
+	wanted_types = list(/obj/item/food/grown/citrus/lime)
+	foodtype = "вкусный сорбет"
+	multiplier = 2
 
 /datum/bounty/item/botany/citrus_lemon
-	name = "Lemons"
-	wanted_types = list(/obj/item/food/grown/citrus/lemon = TRUE)
-	foodtype = "sorbet"
+	name = "лимона"
+	wanted_types = list(/obj/item/food/grown/citrus/lemon)
+	foodtype = "вкусный сорбет"
+	multiplier = 2
 
 /datum/bounty/item/botany/citrus_oranges
-	name = "Oranges"
-	wanted_types = list(/obj/item/food/grown/citrus/orange = TRUE)
-	bonus_desc = "Do not ship lemons or limes." //I vanted orahnge!
-	foodtype = "sorbet"
+	name = "апельсина"
+	wanted_types = list(/obj/item/food/grown/citrus/orange)
+	bonus_desc = "Не отправлять лимоны и лаймы." //I vanted orahnge!
+	foodtype = "вкусный сорбет"
+	multiplier = 2
 
 /datum/bounty/item/botany/eggplant
-	name = "Eggplants"
-	wanted_types = list(/obj/item/food/grown/eggplant = TRUE)
-	bonus_desc = "Not to be confused with egg-plants."
+	name = "баклажана"
+	wanted_types = list(/obj/item/food/grown/eggplant)
+	bonus_desc = "Не путать с egg-plants."
+	multiplier = 2
 
 /datum/bounty/item/botany/eggplant_eggy
-	name = "Egg-plants"
-	wanted_types = list(/obj/item/food/grown/shell/eggy = TRUE)
-	bonus_desc = "Not to be confused with eggplants."
+	name = "растения-яйцо"
+	wanted_types = list(/obj/item/food/grown/shell/eggy)
+	bonus_desc = "Не путать с eggplants."
 	multiplier = 2
 
 /datum/bounty/item/botany/kudzu
-	name = "Kudzu Pods"
-	wanted_types = list(/obj/item/food/grown/kudzupod = TRUE)
-	bonus_desc = "Store in a dry, dark place."
+	name = "стручков кудзу"
+	wanted_types = list(/obj/item/food/grown/kudzupod)
+	bonus_desc = "Хранить в сухом темном месте.."
 	multiplier = 4
 
 /datum/bounty/item/botany/watermelon
-	name = "Watermelons"
-	wanted_types = list(/obj/item/food/grown/watermelon = TRUE)
-	foodtype = "dessert"
+	name = "арбуза"
+	wanted_types = list(/obj/item/food/grown/watermelon)
+	foodtype = "вкусный десерт"
+	multiplier = 2
 
 /datum/bounty/item/botany/watermelon_holy
-	name = "Holy Melons"
-	wanted_types = list(/obj/item/food/grown/holymelon = TRUE)
-	multiplier = 2
-	foodtype = "dessert"
+	name = "святого арбуза"
+	wanted_types = list(/obj/item/food/grown/holymelon)
+	multiplier = 8
+	foodtype = "вкусный десерт"
 
 /datum/bounty/item/botany/glowshroom
-	name = "Glowshrooms"
-	wanted_types = list(
-		/obj/item/food/grown/mushroom/glowshroom = TRUE,
-		/obj/item/food/grown/mushroom/glowshroom/glowcap = FALSE,
-		/obj/item/food/grown/mushroom/glowshroom/shadowshroom = FALSE,
-	)
-	foodtype = "omelet"
+	name = "светящегося гриба"
+	wanted_types = list(/obj/item/food/grown/mushroom/glowshroom)
+	exclude_types = list(/obj/item/food/grown/mushroom/glowshroom/glowcap, /obj/item/food/grown/mushroom/glowshroom/shadowshroom)
+	foodtype = "вкусный омлет"
+	multiplier = 4
 
 /datum/bounty/item/botany/glowshroom_cap
-	name = "Glowcaps"
-	wanted_types = list(/obj/item/food/grown/mushroom/glowshroom/glowcap = TRUE)
+	name = "светящейся шапки" // надо что-то оригинальней
+	wanted_types = list(/obj/item/food/grown/mushroom/glowshroom/glowcap)
 	multiplier = 2
-	foodtype = "omelet"
+	foodtype = "вкусный омлет"
 
 /datum/bounty/item/botany/glowshroom_shadow
-	name = "Shadowshrooms"
-	wanted_types = list(/obj/item/food/grown/mushroom/glowshroom/shadowshroom = TRUE)
+	name = "теневого гриба"
+	wanted_types = list(/obj/item/food/grown/mushroom/glowshroom/shadowshroom)
 	multiplier = 2
-	foodtype = "omelet"
+	foodtype = "вкусный омлет"
 
 /datum/bounty/item/botany/nettles_death
-	name = "Death Nettles"
-	wanted_types = list(/obj/item/food/grown/nettle/death = TRUE)
-	multiplier = 2
-	bonus_desc = "Wear protection when handling them."
-	foodtype = "cheese"
+	name = "крапивы смерти"
+	wanted_types = list(/obj/item/food/grown/nettle/death)
+	multiplier = 4
+	bonus_desc = "Носите защиту при обращении с ними."
+	foodtype = "вкусный сыр"
 
 /datum/bounty/item/botany/pineapples
-	name = "Pineapples"
-	wanted_types = list(/obj/item/food/grown/pineapple = TRUE)
-	bonus_desc = "Not for human consumption."
+	name = "ананаса"
+	wanted_types = list(/obj/item/food/grown/pineapple)
+	bonus_desc = "Не для потребления человеком."
 	foodtype = "ashtray"
+	multiplier = 2
 
 /datum/bounty/item/botany/tomato
-	name = "Tomatoes"
-	wanted_types = list(
-		/obj/item/food/grown/tomato = TRUE,
-		/obj/item/food/grown/tomato/blue = FALSE,
-	)
+	name = "помидора"
+	wanted_types = list(/obj/item/food/grown/tomato)
+	exclude_types = list(/obj/item/food/grown/tomato/blue)
+	multiplier = 2
 
 /datum/bounty/item/botany/tomato_bluespace
-	name = "Bluespace Tomatoes"
-	wanted_types = list(/obj/item/food/grown/tomato/blue/bluespace = TRUE)
+	name = "блюспейс помидора"
+	wanted_types = list(/obj/item/food/grown/tomato/blue/bluespace)
 	multiplier = 4
 
 /datum/bounty/item/botany/oatz
-	name = "Oats"
-	wanted_types = list(/obj/item/food/grown/oat = TRUE)
+	name = "овса"
+	wanted_types = list(/obj/item/food/grown/oat)
 	multiplier = 2
-	foodtype = "batch of oatmeal"
+	foodtype = "партия овса"
 	bonus_desc = "Squats and oats. We're all out of oats."
 
-/datum/bounty/item/botany/bonfire
-	name = "Lit Bonfire"
-	description = "Our space heaters are malfunctioning and the cargo crew of Central Command is starting to feel cold. Grow some logs and ship a lit bonfire to warm them up."
-	wanted_types = list(/obj/structure/bonfire = TRUE)
+/datum/bounty/item/botany/forgetmenot
+	name = "Forget-Me-Nots"
+	description = "Commander Zot has his eyes on Quartermaster Maya. Send a shipment of forget-me-nots - her favorite flower - and he'll happily reward you."
+	reward = CARGO_CRATE_VALUE * 100
+	required_count = 3
+	wanted_types = list(/obj/item/food/grown/poppy/geranium/forgetmenot)
+	format_exception = TRUE
 
-/datum/bounty/item/botany/bonfire/applies_to(obj/O)
-	if(!..())
-		return FALSE
-	var/obj/structure/bonfire/B = O
-	return !!B.burning
+/datum/bounty/item/botany/geranium
+	name = "Geraniums"
+	description = "Commander Zot has the hots for Commander Zena. Send a shipment of geraniums - her favorite flower - and he'll happily reward you."
+	reward = CARGO_CRATE_VALUE * 60
+	required_count = 3
+	wanted_types = list(/obj/item/food/grown/poppy/geranium)
+	format_exception = TRUE
 
-/datum/bounty/item/botany/cucumber
-	name = "Cucumbers"
-	wanted_types = list(/obj/item/food/grown/cucumber = TRUE)
+/datum/bounty/item/botany/rainbowflowercrown
+	name = "Rainbow Flower Crowns"
+	description = "Central Command is concerned about their intern suicide rate. A shipment of rainbow flower crowns should do nicely to improve morale."
+	reward = CARGO_CRATE_VALUE * 100
+	required_count = 3
+	wanted_types = list(/obj/item/clothing/head/rainbowbunchcrown)
+	format_exception = TRUE

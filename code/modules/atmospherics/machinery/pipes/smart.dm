@@ -1,11 +1,11 @@
 GLOBAL_LIST_INIT(atmos_components, typecacheof(list(/obj/machinery/atmospherics)))
 //Smart pipes... or are they?
 /obj/machinery/atmospherics/pipe/smart
-	icon = 'icons/obj/pipes_n_cables/simple.dmi'
+	icon = 'icons/obj/atmospherics/pipes/simple.dmi'
 	icon_state = "pipe11-3"
 
-	name = "pipe"
-	desc = "A one meter section of regular pipe."
+	name = "труба"
+	desc = "Однометровый отрезок обычной трубы."
 
 	device_type = QUATERNARY
 	construction_type = /obj/item/pipe/quaternary
@@ -14,7 +14,7 @@ GLOBAL_LIST_INIT(atmos_components, typecacheof(list(/obj/machinery/atmospherics)
 	var/connections = NONE
 
 /obj/machinery/atmospherics/pipe/smart/update_pipe_icon()
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi'
+	icon = 'icons/obj/atmospherics/pipes/pipes_bitmask.dmi'
 
 	//find all directions this pipe is connected with other nodes
 	connections = NONE
@@ -67,13 +67,13 @@ GLOBAL_LIST_INIT(atmos_components, typecacheof(list(/obj/machinery/atmospherics)
 
 //mapping helpers
 /obj/machinery/atmospherics/pipe/smart/simple
-	icon = 'icons/obj/pipes_n_cables/simple.dmi'
+	icon = 'icons/obj/atmospherics/pipes/simple.dmi'
 	icon_state = "pipe11-3"
 
 /obj/machinery/atmospherics/pipe/smart/manifold
-	icon = 'icons/obj/pipes_n_cables/manifold.dmi'
+	icon = 'icons/obj/atmospherics/pipes/manifold.dmi'
 	icon_state = "manifold-3"
 
 /obj/machinery/atmospherics/pipe/smart/manifold4w
-	icon = 'icons/obj/pipes_n_cables/manifold.dmi'
+	icon = 'icons/obj/atmospherics/pipes/manifold.dmi'
 	icon_state = "manifold4w-3"

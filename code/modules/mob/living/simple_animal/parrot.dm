@@ -1,12 +1,12 @@
 /* Parrots!
  * Contains
- * Defines
- * Inventory (headset stuff)
- * Attack responces
- * AI
- * Procs / Verbs (usable by players)
- * Sub-types
- * Hear & say (the things we do for gimmicks)
+ * 		Defines
+ *		Inventory (headset stuff)
+ *		Attack responces
+ *		AI
+ *		Procs / Verbs (usable by players)
+ *		Sub-types
+ *		Hear & say (the things we do for gimmicks)
  */
 
 /*
@@ -15,21 +15,21 @@
 
 //Only a maximum of one action and one intent should be active at any given time.
 //Actions
-#define PARROT_PERCH (1<<0) //Sitting/sleeping, not moving
-#define PARROT_SWOOP (1<<1) //Moving towards or away from a target
-#define PARROT_WANDER (1<<2) //Moving without a specific target in mind
+#define PARROT_PERCH	(1<<0)	//Sitting/sleeping, not moving
+#define PARROT_SWOOP	(1<<1)	//Moving towards or away from a target
+#define PARROT_WANDER	(1<<2)	//Moving without a specific target in mind
 
 //Intents
-#define PARROT_STEAL (1<<3) //Flying towards a target to steal it/from it
-#define PARROT_ATTACK (1<<4) //Flying towards a target to attack it
-#define PARROT_RETURN (1<<5) //Flying towards its perch
-#define PARROT_FLEE (1<<6) //Flying away from its attacker
+#define PARROT_STEAL	(1<<3)	//Flying towards a target to steal it/from it
+#define PARROT_ATTACK	(1<<4)	//Flying towards a target to attack it
+#define PARROT_RETURN	(1<<5)	//Flying towards its perch
+#define PARROT_FLEE		(1<<6)	//Flying away from its attacker
 
 
 /mob/living/simple_animal/parrot
-	name = "parrot"
-	desc = "The parrot squawks, \"They're a Parrot! BAWWK!\"" //'
-	icon = 'icons/mob/simple/animal.dmi'
+	name = "попугай"
+	desc = "The parrot squawks, \"It's a Parrot! BAWWK!\"" //'
+	icon = 'icons/mob/animal.dmi'
 	icon_state = "parrot_fly"
 	icon_living = "parrot_fly"
 	icon_dead = "parrot_dead"
@@ -39,10 +39,10 @@
 	maxHealth = 80
 	pass_flags = PASSTABLE | PASSMOB
 
-	speak = list("Hi!","Hello!","Cracker?","BAWWWWK george mellons griffing me!")
-	speak_emote = list("squawks","says","yells")
-	emote_hear = list("squawks.","bawks!")
-	emote_see = list("flutters their wings.")
+	speak = list("Привет!","Здарова!","Крекер?","Кудах! Джордж Меллонс гриферит меня!")
+	speak_emote = list("кудахчет","говорит","вскрикивает")
+	emote_hear = list("кудахчет.","вопит!")
+	emote_see = list("flutters its wings.")
 
 	speak_chance = 1 //1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
 	turns_per_move = 5
@@ -50,19 +50,19 @@
 	melee_damage_upper = 10
 	melee_damage_lower = 5
 
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "gently moves aside"
-	response_disarm_simple = "gently move aside"
-	response_harm_continuous = "swats"
-	response_harm_simple = "swat"
+	response_help_continuous = "поглаживает"
+	response_help_simple = "гладит"
+	response_disarm_continuous = "отталкивает чуть дальше"
+	response_disarm_simple = "осторожно отталкивает"
+	response_harm_continuous = "забивает"
+	response_harm_simple = "бьёт"
 	stop_automated_movement = 1
-	combat_mode = TRUE //parrots now start "aggressive" since only player parrots will nuzzle.
-	attack_verb_continuous = "chomps"
-	attack_verb_simple = "chomp"
+	a_intent = INTENT_HARM //parrots now start "aggressive" since only player parrots will nuzzle.
+	attack_verb_continuous = "грызёт"
+	attack_verb_simple = "кусает"
 	attack_vis_effect = ATTACK_EFFECT_BITE
-	friendly_verb_continuous = "grooms"
-	friendly_verb_simple = "groom"
+	friendly_verb_continuous = "ворсится"
+	friendly_verb_simple = "ворсится"
 	mob_size = MOB_SIZE_SMALL
 	gold_core_spawnable = FRIENDLY_SPAWN
 
@@ -74,7 +74,7 @@
 
 	var/parrot_speed = 5 //"Delay in world ticks between movement." according to byond. Yeah, that's BS but it does directly affect movement. Higher number = slower.
 	var/parrot_lastmove = null //Updates/Stores position of the parrot while it's moving
-	var/parrot_stuck = 0 //If parrot_lastmove hasn't changed, this will increment until it reaches parrot_stuck_threshold
+	var/parrot_stuck = 0	//If parrot_lastmove hasn't changed, this will increment until it reaches parrot_stuck_threshold
 	var/parrot_stuck_threshold = 10 //if this == parrot_stuck, it'll force the parrot back to wandering
 
 	var/list/speech_buffer = list()
@@ -83,9 +83,6 @@
 
 	//Headset for Poly to yell at engineers :)
 	var/obj/item/radio/headset/ears = null
-
-	//Wheter the Parrot should come with a headset
-	var/spawn_headset = TRUE
 
 	//The thing the parrot is currently interested in. This gets used for items the parrot wants to pick up, mobs it wants to steal from,
 	//mobs it wants to attack or mobs that have attacked it
@@ -113,6 +110,15 @@
 
 /mob/living/simple_animal/parrot/Initialize(mapload)
 	. = ..()
+	if(!ears)
+		var/headset = pick(/obj/item/radio/headset/headset_sec, \
+						/obj/item/radio/headset/headset_eng, \
+						/obj/item/radio/headset/headset_med, \
+						/obj/item/radio/headset/headset_sci, \
+						/obj/item/radio/headset/headset_cargo, \
+						/obj/item/radio/headset/headset_exploration)
+		ears = new headset(src)
+
 	parrot_sleep_dur = parrot_sleep_max //In case someone decides to change the max without changing the duration var
 
 	add_verb(src, list(/mob/living/simple_animal/parrot/proc/steal_from_ground, \
@@ -124,37 +130,12 @@
 
 	AddElement(/datum/element/strippable, GLOB.strippable_parrot_items)
 	AddElement(/datum/element/simple_flying)
-	if(!spawn_headset)
-		return
-	if(!ears)
-		var/headset = pick(/obj/item/radio/headset/headset_sec, \
-						/obj/item/radio/headset/headset_eng, \
-						/obj/item/radio/headset/headset_med, \
-						/obj/item/radio/headset/headset_sci, \
-						/obj/item/radio/headset/headset_cargo)
-		ears = new headset(src)
-
-/mob/living/simple_animal/parrot/Destroy()
-	QDEL_NULL(ears)
-	return ..()
 
 /mob/living/simple_animal/parrot/examine(mob/user)
 	. = ..()
-	if(stat != DEAD)
-		return
-
-	if(HAS_MIND_TRAIT(user, TRAIT_NAIVE))
-		. += pick(
-			"It seems tired and shagged out after a long squawk.",
-			"It seems to be pining for the fjords.",
-			"It's resting. It's a beautiful bird. Lovely plumage.",
-		)
-	else
-		. += pick(
-			"This parrot is no more.",
-			"This is a late parrot.",
-			"This is an ex-parrot.",
-		)
+	. += "<hr>"
+	if(stat)
+		. += pick("This parrot is no more.", "This is a late parrot.", "This is an ex-parrot.")
 
 /mob/living/simple_animal/parrot/death(gibbed)
 	if(held_item)
@@ -173,15 +154,17 @@
 
 /mob/living/simple_animal/parrot/get_status_tab_items()
 	. = ..()
+	. += ""
 	. += "Held Item: [held_item]"
+	. += "Mode: [a_intent]"
 
-/mob/living/simple_animal/parrot/Hear(message, atom/movable/speaker, message_langs, raw_message, radio_freq, list/spans, list/message_mods = list(), message_range)
+/mob/living/simple_animal/parrot/Hear(message, atom/movable/speaker, message_langs, raw_message, radio_freq, list/spans, list/message_mods = list())
 	. = ..()
 	if(speaker != src && prob(50)) //Dont imitate ourselves
 		if(!radio_freq || prob(10))
 			if(speech_buffer.len >= 500)
 				speech_buffer -= pick(speech_buffer)
-			speech_buffer |= html_decode(raw_message)
+			speech_buffer |= raw_message
 	if(speaker == src && !client) //If a parrot squawks in the woods and no one is around to hear it, does it make a sound? This code says yes!
 		return message
 
@@ -265,6 +248,8 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 				channel_to_add = RADIO_TOKEN_MEDICAL
 			if (RADIO_CHANNEL_SUPPLY)
 				channel_to_add = RADIO_TOKEN_SUPPLY
+			if(RADIO_CHANNEL_EXPLORATION)
+				channel_to_add = RADIO_TOKEN_EXPLORATION
 			if (RADIO_CHANNEL_SERVICE)
 				channel_to_add = RADIO_TOKEN_SERVICE
 
@@ -300,37 +285,37 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
  * Attack responces
  */
 //Humans, monkeys, aliens
-/mob/living/simple_animal/parrot/attack_hand(mob/living/carbon/user, list/modifiers)
+/mob/living/simple_animal/parrot/attack_hand(mob/living/carbon/M)
 	..()
 	if(client)
 		return
-	if(!stat && user.combat_mode)
+	if(!stat && M.a_intent == INTENT_HARM)
 
 		icon_state = icon_living //It is going to be flying regardless of whether it flees or attacks
 
 		if(parrot_state == PARROT_PERCH)
 			parrot_sleep_dur = parrot_sleep_max //Reset it's sleep timer if it was perched
 
-		set_parrot_interest(user)
+		parrot_interest = M
 		parrot_state = PARROT_SWOOP //The parrot just got hit, it WILL move, now to pick a direction..
 
 		if(health > 30) //Let's get in there and squawk it up!
 			parrot_state |= PARROT_ATTACK
 		else
-			parrot_state |= PARROT_FLEE //Otherwise, fly like a bat out of hell!
+			parrot_state |= PARROT_FLEE		//Otherwise, fly like a bat out of hell!
 			drop_held_item(0)
-	if(stat != DEAD && !user.combat_mode)
+	if(stat != DEAD && M.a_intent == INTENT_HELP)
 		handle_automated_speech(1) //assured speak/emote
 	return
 
-/mob/living/simple_animal/parrot/attack_paw(mob/living/carbon/human/user, list/modifiers)
-	return attack_hand(user, modifiers)
+/mob/living/simple_animal/parrot/attack_paw(mob/living/carbon/human/M)
+	return attack_hand(M)
 
-/mob/living/simple_animal/parrot/attack_alien(mob/living/carbon/alien/user, list/modifiers)
-	return attack_hand(user, modifiers)
+/mob/living/simple_animal/parrot/attack_alien(mob/living/carbon/alien/M)
+	return attack_hand(M)
 
 //Simple animals
-/mob/living/simple_animal/parrot/attack_animal(mob/living/simple_animal/user, list/modifiers)
+/mob/living/simple_animal/parrot/attack_animal(mob/living/simple_animal/M)
 	. = ..() //goodbye immortal parrots
 
 	if(client)
@@ -339,8 +324,8 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	if(parrot_state == PARROT_PERCH)
 		parrot_sleep_dur = parrot_sleep_max //Reset it's sleep timer if it was perched
 
-	if(user.melee_damage_upper > 0 && !stat)
-		set_parrot_interest(user)
+	if(M.melee_damage_upper > 0 && !stat)
+		parrot_interest = M
 		parrot_state = PARROT_SWOOP | PARROT_ATTACK //Attack other animals regardless
 		icon_state = icon_living
 
@@ -351,7 +336,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 			if(parrot_state == PARROT_PERCH)
 				parrot_sleep_dur = parrot_sleep_max //Reset it's sleep timer if it was perched
 
-			set_parrot_interest(user)
+			parrot_interest = user
 			parrot_state = PARROT_SWOOP
 			if(health > 30) //Let's get in there and squawk it up!
 				parrot_state |= PARROT_ATTACK
@@ -365,7 +350,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 			adjustBruteLoss(-10)
 		speak_chance *= 1.27 // 20 crackers to go from 1% to 100%
 		speech_shuffle_rate += 10
-		to_chat(user, span_notice("[src] eagerly devours the cracker."))
+		to_chat(user, span_notice("[capitalize(src.name)] eagerly devours the cracker."))
 	..()
 	return
 
@@ -376,7 +361,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		if(parrot_state == PARROT_PERCH)
 			parrot_sleep_dur = parrot_sleep_max //Reset it's sleep timer if it was perched
 
-		set_parrot_interest(null)
+		parrot_interest = null
 		parrot_state = PARROT_WANDER | PARROT_FLEE //Been shot and survived! RUN LIKE HELL!
 		//parrot_been_shot += 5
 		icon_state = icon_living
@@ -386,10 +371,11 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	if(!stat) //Birds can fly, fun fact. No I don't care that space doesn't have air. Space parrots bitch
 		return TRUE
 	return ..()
+
 /*
  * AI - Not really intelligent, but I'm calling it AI anyway.
  */
-/mob/living/simple_animal/parrot/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/parrot/Life(delta_time = SSMOBS_DT, times_fired)
 	..()
 
 	//Sprite update for when a parrot gets pulled
@@ -436,8 +422,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 				icon_state = icon_living
 				return
 
-		parrot_sleep_dur--
-		if(parrot_sleep_dur) //Zzz
+		if(--parrot_sleep_dur) //Zzz
 			return
 
 		else
@@ -471,9 +456,9 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 				speak = newspeak
 
 			//Search for item to steal
-			set_parrot_interest(search_for_item())
+			parrot_interest = search_for_item()
 			if(parrot_interest)
-				manual_emote("looks in [parrot_interest]'s direction and takes flight.")
+				manual_emote("looks in [parrot_interest] direction and takes flight.")
 				parrot_state = PARROT_SWOOP | PARROT_STEAL
 				icon_state = icon_living
 			return
@@ -482,7 +467,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	else if(parrot_state == PARROT_WANDER)
 		//Stop movement, we'll set it later
 		SSmove_manager.stop_looping(src)
-		set_parrot_interest(null)
+		parrot_interest = null
 
 		//Wander around aimlessly. This will help keep the loops from searches down
 		//and possibly move the mob into a new are in view of something they can use
@@ -493,12 +478,12 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		if(!held_item && !parrot_perch) //If we've got nothing to do.. look for something to do.
 			var/atom/movable/AM = search_for_perch_and_item() //This handles checking through lists so we know it's either a perch or stealable item
 			if(AM)
-				if(isitem(AM) || isliving(AM)) //If stealable item
-					set_parrot_interest(AM)
+				if(istype(AM, /obj/item) || isliving(AM))	//If stealable item
+					parrot_interest = AM
 					manual_emote("turns and flies towards [parrot_interest].")
 					parrot_state = PARROT_SWOOP | PARROT_STEAL
 					return
-				else //Else it's a perch
+				else	//Else it's a perch
 					parrot_perch = AM
 					parrot_state = PARROT_SWOOP | PARROT_RETURN
 					return
@@ -537,9 +522,9 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 				if(!parrot_perch || parrot_interest.loc != parrot_perch.loc)
 					held_item = parrot_interest
 					parrot_interest.forceMove(src)
-					visible_message(span_notice("[src] grabs [held_item]!"), span_notice("You grab [held_item]!"), span_hear("You hear the sounds of wings flapping furiously."))
+					visible_message(span_notice("[capitalize(src.name)] grabs [held_item]!") , span_notice("You grab [held_item]!") , span_hear("You hear the sounds of wings flapping furiously."))
 
-			set_parrot_interest(null)
+			parrot_interest = null
 			parrot_state = PARROT_SWOOP | PARROT_RETURN
 			return
 
@@ -587,21 +572,21 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 
 		//If we're attacking a nothing, an object, a turf or a ghost for some stupid reason, switch to wander
 		if(!parrot_interest || !isliving(parrot_interest))
-			set_parrot_interest(null)
+			parrot_interest = null
 			parrot_state = PARROT_WANDER
 			return
 
 		var/mob/living/L = parrot_interest
 		if(melee_damage_upper == 0)
 			melee_damage_upper = parrot_damage_upper
-			set_combat_mode(TRUE)
+			a_intent = INTENT_HARM
 
 		//If the mob is close enough to interact with
 		if(Adjacent(parrot_interest))
 
 			//If the mob we've been chasing/attacking dies or falls into crit, check for loot!
 			if(L.stat)
-				set_parrot_interest(null)
+				parrot_interest = null
 				if(!held_item)
 					held_item = steal_from_ground()
 					if(!held_item)
@@ -625,7 +610,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 //-----STATE MISHAP
 	else //This should not happen. If it does lets reset everything and try again
 		SSmove_manager.stop_looping(src)
-		set_parrot_interest(null)
+		parrot_interest = null
 		parrot_perch = null
 		drop_held_item()
 		parrot_state = PARROT_WANDER
@@ -634,17 +619,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 /*
  * Procs
  */
-
-/mob/living/simple_animal/parrot/proc/set_parrot_interest(atom/movable/shiny)
-	if(parrot_interest)
-		UnregisterSignal(parrot_interest, COMSIG_QDELETING)
-	parrot_interest = shiny
-	if(parrot_interest)
-		RegisterSignal(parrot_interest, COMSIG_QDELETING, PROC_REF(shiny_deleted))
-
-/mob/living/simple_animal/parrot/proc/shiny_deleted(datum/source)
-	SIGNAL_HANDLER
-	set_parrot_interest(null)
 
 /mob/living/simple_animal/parrot/proc/isStuck()
 	//Check to see if the parrot is stuck due to things like windows or doors or windowdoors
@@ -667,7 +641,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		//Skip items we already stole or are wearing or are too big
 		if(parrot_perch && AM.loc == parrot_perch.loc || AM.loc == src)
 			continue
-		if(isitem(AM))
+		if(istype(AM, /obj/item))
 			var/obj/item/I = AM
 			if(I.w_class < WEIGHT_CLASS_SMALL)
 				item = I
@@ -678,7 +652,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 					item = I
 					break
 		if(item)
-			if(!length(get_path_to(src, item))) // WHY DO WE DISREGARD THE PATH AHHHHHH
+			if(!get_path_to(src, item))
 				item = null
 				continue
 			return item
@@ -701,7 +675,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		if(parrot_perch && AM.loc == parrot_perch.loc || AM.loc == src)
 			continue
 
-		if(isitem(AM))
+		if(istype(AM, /obj/item))
 			var/obj/item/I = AM
 			if(I.w_class <= WEIGHT_CLASS_SMALL)
 				return I
@@ -739,7 +713,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 
 			held_item = I
 			I.forceMove(src)
-			visible_message(span_notice("[src] grabs [held_item]!"), span_notice("You grab [held_item]!"), span_hear("You hear the sounds of wings flapping furiously."))
+			visible_message(span_notice("[capitalize(src.name)] grabs [held_item]!") , span_notice("You grab [held_item]!") , span_hear("You hear the sounds of wings flapping furiously."))
 			return held_item
 
 	to_chat(src, span_warning("There is nothing of interest to take!"))
@@ -768,7 +742,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		if(stolen_item)
 			C.transferItemToLoc(stolen_item, src, TRUE)
 			held_item = stolen_item
-			visible_message(span_notice("[src] grabs [held_item] out of [C]'s hand!"), span_notice("You snag [held_item] out of [C]'s hand!"), span_hear("You hear the sounds of wings flapping furiously."))
+			visible_message(span_notice("[capitalize(src.name)] grabs [held_item] out of [C] hand!") , span_notice("You snag [held_item] out of [C] hand!") , span_hear("You hear the sounds of wings flapping furiously."))
 			return held_item
 
 	to_chat(src, span_warning("There is nothing of interest to take!"))
@@ -811,7 +785,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 
 
 	if(!drop_gently)
-		if(isgrenade(held_item))
+		if(istype(held_item, /obj/item/grenade))
 			var/obj/item/grenade/G = held_item
 			G.forceMove(drop_location())
 			G.detonate()
@@ -871,7 +845,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		icon_state = icon_living
 		parrot_state = PARROT_WANDER
 		if(buckled)
-			to_chat(src, span_notice("You are no longer sitting on [buckled]'s shoulder."))
+			to_chat(src, span_notice("You are no longer sitting on [buckled] shoulder."))
 			buckled.unbuckle_mob(src, TRUE)
 		buckled = null
 		pixel_x = initial(pixel_x)
@@ -888,7 +862,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		pixel_x = pick(-8,8) //pick left or right shoulder
 		icon_state = icon_sit
 		parrot_state = PARROT_PERCH
-		to_chat(src, span_notice("You sit on [H]'s shoulder."))
+		to_chat(src, span_notice("You sit on [H] shoulder."))
 
 
 /mob/living/simple_animal/parrot/proc/toggle_mode()
@@ -899,45 +873,31 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	if(stat || !client)
 		return
 
-	if(combat_mode)
+	if(a_intent != INTENT_HELP)
 		melee_damage_upper = 0
-		set_combat_mode(FALSE)
+		a_intent = INTENT_HELP
 	else
 		melee_damage_upper = parrot_damage_upper
-		set_combat_mode(TRUE)
-	to_chat(src, span_notice("You will now [combat_mode ? "Harm" : "Help"] others."))
+		a_intent = INTENT_HARM
+	to_chat(src, span_notice("You will now [a_intent] others."))
 	return
 
-/mob/living/simple_animal/parrot/natural
-	spawn_headset = FALSE
 /*
  * Sub-types
  */
 /mob/living/simple_animal/parrot/poly
-	name = "Poly"
-	desc = "Poly the Parrot. An expert on quantum cracker theory."
-	speak = list("Poly wanna cracker!", ":e Check the crystal, you chucklefucks!",":e Wire the solars, you lazy bums!",":e WHO TOOK THE DAMN MODSUITS?",":e OH GOD ITS ABOUT TO DELAMINATE CALL THE SHUTTLE")
+	name = "Поли"
+	desc = "Попугайчик по имени Поли. An expert on quantum cracker theory."
+	speak = list("Poly wanna cracker!", ":e Check the crystal, you chucklefucks!",":e Wire the solars, you lazy bums!",":e WHO TOOK THE DAMN HARDSUITS?",":e OH GOD ITS ABOUT TO DELAMINATE CALL THE SHUTTLE")
 	gold_core_spawnable = NO_SPAWN
 	speak_chance = 3
-
 	var/memory_saved = FALSE
 	var/rounds_survived = 0
 	var/longest_survival = 0
 	var/longest_deathstreak = 0
 
-
 /mob/living/simple_animal/parrot/poly/Initialize(mapload)
 	ears = new /obj/item/radio/headset/headset_eng(src)
-	if(SStts.tts_enabled)
-		voice = pick(SStts.available_speakers)
-		if(SStts.pitch_enabled)
-			if(findtext(voice, "Woman"))
-				pitch = 12 // up-pitch by one octave
-			else
-				pitch = 24 // up-pitch by 2 octaves
-		else
-			voice_filter = "rubberband=pitch=1.5" // Use the filter to pitch up if we can't naturally pitch up.
-
 	available_channels = list(":e")
 	Read_Memory()
 	if(rounds_survived == longest_survival)
@@ -957,18 +917,13 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 
 	. = ..()
 
-	// Ensure 1 Poly exists
-	REGISTER_REQUIRED_MAP_ITEM(1, 1)
-
-/mob/living/simple_animal/parrot/poly/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/parrot/poly/Life(delta_time = SSMOBS_DT, times_fired)
 	if(!stat && SSticker.current_state == GAME_STATE_FINISHED && !memory_saved)
 		Write_Memory(FALSE)
 		memory_saved = TRUE
 	..()
 
 /mob/living/simple_animal/parrot/poly/death(gibbed)
-	if(HAS_TRAIT(src, TRAIT_DONT_WRITE_MEMORY))
-		return ..() // Don't read memory either.
 	if(!memory_saved)
 		Write_Memory(TRUE)
 	if(rounds_survived == longest_survival || rounds_survived == longest_deathstreak || prob(0.666))
@@ -977,21 +932,21 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 			mind.transfer_to(G)
 		else
 			G.key = key
-	return ..()
+	..(gibbed)
 
 /mob/living/simple_animal/parrot/poly/proc/Read_Memory()
 	if(fexists("data/npc_saves/Poly.sav")) //legacy compatability to convert old format to new
 		var/savefile/S = new /savefile("data/npc_saves/Poly.sav")
-		S["phrases"] >> speech_buffer
-		S["roundssurvived"] >> rounds_survived
-		S["longestsurvival"] >> longest_survival
+		S["phrases"] 			>> speech_buffer
+		S["roundssurvived"]		>> rounds_survived
+		S["longestsurvival"]	>> longest_survival
 		S["longestdeathstreak"] >> longest_deathstreak
 		fdel("data/npc_saves/Poly.sav")
 	else
 		var/json_file = file("data/npc_saves/Poly.json")
 		if(!fexists(json_file))
 			return
-		var/list/json = json_decode(file2text(json_file))
+		var/list/json = r_json_decode(file2text(json_file))
 		speech_buffer = json["phrases"]
 		rounds_survived = json["roundssurvived"]
 		longest_survival = json["longestsurvival"]
@@ -999,10 +954,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	if(!islist(speech_buffer))
 		speech_buffer = list()
 
-/mob/living/simple_animal/parrot/poly/Write_Memory(dead, gibbed)
-	. = ..()
-	if(!.)
-		return
+/mob/living/simple_animal/parrot/poly/proc/Write_Memory(dead)
 	var/json_file = file("data/npc_saves/Poly.json")
 	var/list/file_data = list()
 	if(islist(speech_buffer))
@@ -1015,7 +967,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 		else
 			file_data["longestdeathstreak"] = longest_deathstreak
 	else
-		file_data["roundssurvived"] = max(rounds_survived, 0) + 1
+		file_data["roundssurvived"] = rounds_survived + 1
 		if(rounds_survived + 1 > longest_survival)
 			file_data["longestsurvival"] = rounds_survived + 1
 		else
@@ -1025,12 +977,11 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	WRITE_FILE(json_file, json_encode(file_data))
 
 /mob/living/simple_animal/parrot/poly/ghost
-	name = "The Ghost of Poly"
+	name = "Призрак Поли"
 	desc = "Doomed to squawk the Earth."
 	color = "#FFFFFF77"
 	speak_chance = 20
 	status_flags = GODMODE
-	sentience_type = SENTIENCE_BOSS //This is so players can't mindswap into ghost poly to become a literal god
 	incorporeal_move = INCORPOREAL_MOVE_BASIC
 	butcher_results = list(/obj/item/ectoplasm = 1)
 
@@ -1046,9 +997,9 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 /mob/living/simple_animal/parrot/poly/ghost/handle_automated_movement()
 	if(isliving(parrot_interest))
 		if(!ishuman(parrot_interest))
-			set_parrot_interest(null)
+			parrot_interest = null
 		else if(parrot_state == (PARROT_SWOOP | PARROT_ATTACK) && Adjacent(parrot_interest))
-			SSmove_manager.move_to(src, parrot_interest, 0, parrot_speed)
+			SSmove_manager.move_to(src, parrot_interest, 1, parrot_speed)
 			Possess(parrot_interest)
 	..()
 
@@ -1059,13 +1010,5 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	P.parrot = src
 	forceMove(H)
 	H.ForceContractDisease(P, FALSE)
-	set_parrot_interest(null)
-	H.visible_message(span_danger("[src] dive bombs into [H]'s chest and vanishes!"), span_userdanger("[src] dive bombs into your chest, vanishing! This can't be good!"))
-
-#undef PARROT_PERCH
-#undef PARROT_SWOOP
-#undef PARROT_WANDER
-#undef PARROT_STEAL
-#undef PARROT_ATTACK
-#undef PARROT_RETURN
-#undef PARROT_FLEE
+	parrot_interest = null
+	H.visible_message(span_danger("[capitalize(src.name)] dive bombs into [H] chest and vanishes!") , span_userdanger("[capitalize(src.name)] dive bombs into your chest, vanishing! This can't be good!"))

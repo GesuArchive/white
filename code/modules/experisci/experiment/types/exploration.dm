@@ -52,7 +52,7 @@
 	/// If not null the required_condition will be picked from this list
 	var/list/possible_random_site_types
 
-/datum/experiment/exploration_scan/random/New(datum/techweb/techweb)
+/datum/experiment/exploration_scan/random/New()
 	. = ..()
 	if(length(possible_random_site_types))
 		required_site_type = pick(possible_random_site_types)
@@ -67,7 +67,7 @@
 		name_parts += "site"
 	if(required_condition)
 		var/datum/scan_condition/condition = required_condition
-		name_parts += "affected by \the [initial(condition.name)]"
+		name_parts += "affected by [initial(condition.name)]"
 	name = capitalize(name_parts.Join(""))
 	description = name
 

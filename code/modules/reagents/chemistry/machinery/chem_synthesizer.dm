@@ -1,9 +1,8 @@
 /obj/machinery/chem_dispenser/chem_synthesizer //formerly SCP-294 made by mrty, but now only for testing purposes
 	name = "\improper debug chemical synthesizer"
 	desc = "If you see this, yell at adminbus."
-	icon = 'icons/obj/medical/chemical.dmi'
+	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
-	base_icon_state = "dispenser"
 	amount = 10
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	flags_1 = NODECONSTRUCT_1
@@ -45,8 +44,8 @@
 		if("makecup")
 			if(beaker)
 				return
-			beaker = new /obj/item/reagent_containers/cup/beaker/bluespace(src)
-			visible_message(span_notice("[src] dispenses a bluespace beaker."))
+			beaker = new /obj/item/reagent_containers/glass/beaker/bluespace(src)
+			visible_message(span_notice("[capitalize(src.name)] dispenses a bluespace beaker."))
 		if("amount")
 			var/input = text2num(params["amount"])
 			if(input)
@@ -55,10 +54,11 @@
 			var/input = text2num(params["amount"])
 			if(input)
 				purity = input
-	update_appearance()
+	update_icon()
 
 /obj/machinery/chem_dispenser/chem_synthesizer/Destroy()
-	QDEL_NULL(beaker)
+	if(beaker)
+		QDEL_NULL(beaker)
 	return ..()
 
 /obj/machinery/chem_dispenser/chem_synthesizer/ui_data(mob/user)

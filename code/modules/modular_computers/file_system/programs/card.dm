@@ -1,10 +1,10 @@
 /datum/computer_file/program/card_mod
 	filename = "plexagonidwriter"
-	filedesc = "Plexagon Access Management"
+	filedesc = "Менеджер доступа" //Нормального значения слова Plexagon я так и не нашел.
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "id"
-	extended_desc = "Program for programming employee ID cards to access parts of the station."
-	transfer_access = list(ACCESS_COMMAND)
+	extended_desc = "Программный пакет для установки прав и доступа для ID карт."
+	transfer_access = list(ACCESS_HEADS)
 	requires_ntnet = 0
 	size = 8
 	tgui_id = "NtosCard"
@@ -35,10 +35,10 @@
  * compared to the access on the supplied ID card.
  * Arguments:
  * * user - Program's user.
- * * auth_card - The ID card to attempt to authenticate under.
+ * * id_card - The ID card to attempt to authenticate under.
  */
-/datum/computer_file/program/card_mod/proc/authenticate(mob/user, obj/item/card/id/auth_card)
-	if(!auth_card)
+/datum/computer_file/program/card_mod/proc/authenticate(mob/user, obj/item/card/id/id_card)
+	if(!id_card)
 		return
 
 	region_access.Cut()
@@ -46,10 +46,10 @@
 	job_templates.Cut()
 
 	// If the program isn't locked to a specific department or is_centcom and we have ACCESS_CHANGE_IDS in our auth card, we're not minor.
-	if((!target_dept || is_centcom) && (ACCESS_CHANGE_IDS in auth_card.access))
+	if((!target_dept || is_centcom) && (ACCESS_CHANGE_IDS in id_card.access))
 		minor = FALSE
-		authenticated_card = "[auth_card.name]"
-		authenticated_user = auth_card.registered_name ? auth_card.registered_name : "Unknown"
+		authenticated_card = "[id_card.name]"
+		authenticated_user = id_card.registered_name ? id_card.registered_name : "Неизвестный"
 		job_templates = is_centcom ? SSid_access.centcom_job_templates.Copy() : SSid_access.station_job_templates.Copy()
 		valid_access = is_centcom ? SSid_access.get_region_access_list(list(REGION_CENTCOM)) : SSid_access.get_region_access_list(list(REGION_ALL_STATION))
 		update_static_data(user)
@@ -60,44 +60,43 @@
 	for(var/access_as_text in managers)
 		var/list/info = managers[access_as_text]
 		var/access = access_as_text
-		if((access in auth_card.access) && ((target_dept in info["regions"]) || !target_dept))
+		if((access in id_card.access) && ((target_dept in info["regions"]) || !target_dept))
 			region_access |= info["regions"]
 			job_templates |= info["templates"]
 
 	if(length(region_access))
 		minor = TRUE
 		valid_access |= SSid_access.get_region_access_list(region_access)
-		authenticated_card = "[auth_card.name] \[LIMITED ACCESS\]"
+		authenticated_card = "[id_card.name] \[LIMITED ACCESS\]"
 		update_static_data(user)
 		return TRUE
 
 	return FALSE
 
-/datum/computer_file/program/card_mod/on_start(mob/living/user)
+/datum/computer_file/program/card_mod/ui_act(action, params)
 	. = ..()
-	if(!.)
-		return FALSE
-	computer.crew_manifest_update = TRUE
+	if(.)
+		return
 
-/datum/computer_file/program/card_mod/kill_program(mob/user)
-	computer.crew_manifest_update = FALSE
-	var/obj/item/card/id/inserted_auth_card = computer.computer_id_slot
-	if(inserted_auth_card)
-		GLOB.manifest.modify(inserted_auth_card.registered_name, inserted_auth_card.assignment, inserted_auth_card.get_trim_assignment())
+	var/obj/item/computer_hardware/card_slot/card_slot
+	var/obj/item/computer_hardware/card_slot/card_slot2
+	if(computer)
+		card_slot = computer.all_components[MC_CARD]
+		card_slot2 = computer.all_components[MC_CARD2]
+		if(!card_slot || !card_slot2)
+			return
 
-	return ..()
-
-/datum/computer_file/program/card_mod/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
 	var/mob/user = usr
-	var/obj/item/card/id/inserted_auth_card = computer.computer_id_slot
+	var/obj/item/card/id/user_id_card = card_slot.stored_card
+	var/obj/item/card/id/target_id_card = card_slot2.stored_card
 
 	switch(action)
 		// Log in.
 		if("PRG_authenticate")
-			if(!computer || !inserted_auth_card)
+			if(!computer || !user_id_card)
 				playsound(computer, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
 				return TRUE
-			if(authenticate(user, inserted_auth_card))
+			if(authenticate(user, user_id_card))
 				playsound(computer, 'sound/machines/terminal_on.ogg', 50, FALSE)
 				return TRUE
 		// Log out.
@@ -112,133 +111,147 @@
 				return TRUE
 			if(!authenticated_card)
 				return TRUE
-			var/contents = {"<h4>Access Report</h4>
-						<u>Prepared By:</u> [authenticated_user]<br>
-						<u>For:</u> [inserted_auth_card.registered_name ? inserted_auth_card.registered_name : "Unregistered"]<br>
+			var/contents = {"<h4>Отчёт о доступе</h4>
+						<u>Подготовлен:</u> [user_id_card?.registered_name ? user_id_card.registered_name : "Неизвестный"]<br>
+						<u>Для:</u> [target_id_card.registered_name ? target_id_card.registered_name : "Unregistered"]<br>
 						<hr>
-						<u>Assignment:</u> [inserted_auth_card.assignment]<br>
-						<u>Access:</u><br>
+						<u>Должность:</u> [target_id_card.assignment]<br>
+						<u>Доступ:</u><br>
 						"}
 
 			var/list/known_access_rights = SSid_access.get_region_access_list(list(REGION_ALL_STATION))
-			for(var/A in inserted_auth_card.access)
+			for(var/A in target_id_card.access)
 				if(A in known_access_rights)
-					contents += " [SSid_access.get_access_desc(A)]"
+					contents += "  [SSid_access.get_access_desc(A)]"
 
-			if(!computer.print_text(contents, "access report - [inserted_auth_card.registered_name ? inserted_auth_card.registered_name : "Unregistered"]"))
-				to_chat(usr, span_notice("Printer is out of paper."))
+			if(!computer.print_text(contents,"access report"))
+				to_chat(usr, span_notice("Аппаратная ошибка: принтеру не удалось распечатать файл. Возможно, закончилась бумага."))
 				return TRUE
 			else
 				playsound(computer, 'sound/machines/terminal_on.ogg', 50, FALSE)
-				computer.visible_message(span_notice("\The [computer] prints out a paper."))
+				computer.visible_message(span_notice("[computer] печатает бумагу."))
 			return TRUE
-		if("PRG_eject_id")
-			if(inserted_auth_card)
-				return computer.RemoveID(usr)
+		// Eject the ID used to log on to the ID app.
+		if("PRG_ejectauthid")
+			if(!computer || !card_slot)
+				return TRUE
+			if(user_id_card)
+				return card_slot.try_eject(user)
 			else
 				var/obj/item/I = user.get_active_held_item()
 				if(isidcard(I))
-					return computer.InsertID(I, user)
+					return card_slot.try_insert(I, user)
+		// Eject the ID being modified.
+		if("PRG_ejectmodid")
+			if(!computer || !card_slot2)
+				return TRUE
+			if(target_id_card)
+				GLOB.data_core.manifest_modify(target_id_card.registered_name, target_id_card.assignment, target_id_card.get_trim_assignment())
+				return card_slot2.try_eject(user)
+			else
+				var/obj/item/I = user.get_active_held_item()
+				if(isidcard(I))
+					return card_slot2.try_insert(I, user)
 			return TRUE
 		// Used to fire someone. Wipes all access from their card and modifies their assignment.
 		if("PRG_terminate")
 			if(!computer || !authenticated_card)
 				return TRUE
 			if(minor)
-				if(!(inserted_auth_card.trim?.type in job_templates))
-					to_chat(usr, span_notice("Software error: You do not have the necessary permissions to demote this card."))
+				if(!(target_id_card.trim?.type in job_templates))
+					to_chat(usr, span_notice("Ошибка доступа: У вас нет необходимых прав для изменения данных на ID карте."))
 					return TRUE
 
 			// Set the new assignment then remove the trim.
-			inserted_auth_card.assignment = is_centcom ? "Fired" : "Demoted"
-			SSid_access.remove_trim_from_card(inserted_auth_card)
+			target_id_card.assignment = is_centcom ? "Fired" : "Demoted"
+			SSid_access.remove_trim_from_card(target_id_card)
 
 			playsound(computer, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
 			return TRUE
 		// Change ID card assigned name.
 		if("PRG_edit")
-			if(!computer || !authenticated_card || !inserted_auth_card)
+			if(!computer || !authenticated_card || !target_id_card)
 				return TRUE
 
-			var/old_name = inserted_auth_card.registered_name
+			var/old_name = target_id_card.registered_name
 
 			// Sanitize the name first. We're not using the full sanitize_name proc as ID cards can have a wider variety of things on them that
 			// would not pass as a formal character name, but would still be valid on an ID card created by a player.
 			var/new_name = sanitize(params["name"])
 
 			if(!new_name)
-				inserted_auth_card.registered_name = null
+				target_id_card.registered_name = null
 				playsound(computer, SFX_TERMINAL_TYPE, 50, FALSE)
-				inserted_auth_card.update_label()
+				target_id_card.update_label()
 				// We had a name before and now we have no name, so this will unassign the card and we update the icon.
 				if(old_name)
-					inserted_auth_card.update_icon()
+					target_id_card.update_icon()
 				return TRUE
 
 			// However, we are going to reject bad names overall including names with invalid characters in them, while allowing numbers.
 			new_name = reject_bad_name(new_name, allow_numbers = TRUE)
 
 			if(!new_name)
-				to_chat(usr, span_notice("Software error: The ID card rejected the new name as it contains prohibited characters."))
+				to_chat(usr, span_notice("Аппаратная ошибка: ID-карта отказывается принимать новое имя, так как оно содержит запрещённые символы."))
 				return TRUE
 
-			inserted_auth_card.registered_name = new_name
+			target_id_card.registered_name = new_name
 			playsound(computer, SFX_TERMINAL_TYPE, 50, FALSE)
-			inserted_auth_card.update_label()
+			target_id_card.update_label()
 			// Card wasn't assigned before and now it is, so update the icon accordingly.
 			if(!old_name)
-				inserted_auth_card.update_icon()
+				target_id_card.update_icon()
 			return TRUE
 		// Change age
 		if("PRG_age")
-			if(!computer || !authenticated_card || !inserted_auth_card)
+			if(!computer || !authenticated_card || !target_id_card)
 				return TRUE
 
 			var/new_age = params["id_age"]
 			if(!isnum(new_age))
-				stack_trace("[key_name(usr)] ([usr]) attempted to set invalid age \[[new_age]\] to [inserted_auth_card]")
+				stack_trace("[key_name(usr)] ([usr]) attempted to set invalid age \[[new_age]\] to [target_id_card]")
 				return TRUE
 
-			inserted_auth_card.registered_age = new_age
+			target_id_card.registered_age = new_age
 			playsound(computer, SFX_TERMINAL_TYPE, 50, FALSE)
 			return TRUE
 		// Change assignment
 		if("PRG_assign")
-			if(!computer || !authenticated_card || !inserted_auth_card)
+			if(!computer || !authenticated_card || !target_id_card)
 				return TRUE
-			var/new_asignment = trim(sanitize(params["assignment"]), MAX_NAME_LEN)
-			inserted_auth_card.assignment = new_asignment
+			var/new_asignment = sanitize(params["assignment"])
+			target_id_card.assignment = new_asignment
 			playsound(computer, SFX_TERMINAL_TYPE, 50, FALSE)
-			inserted_auth_card.update_label()
+			target_id_card.update_label()
 			return TRUE
 		// Add/remove access.
 		if("PRG_access")
-			if(!computer || !authenticated_card || !inserted_auth_card)
+			if(!computer || !authenticated_card || !target_id_card)
 				return TRUE
 			playsound(computer, SFX_TERMINAL_TYPE, 50, FALSE)
 			var/access_type = params["access_target"]
 			var/try_wildcard = params["access_wildcard"]
 			if(!(access_type in valid_access))
-				stack_trace("[key_name(usr)] ([usr]) attempted to add invalid access \[[access_type]\] to [inserted_auth_card]")
+				stack_trace("[key_name(usr)] ([usr]) попытался предоставить неправильный доступ \[[access_type]\] для [target_id_card]")
 				return TRUE
 
-			if(access_type in inserted_auth_card.access)
-				inserted_auth_card.remove_access(list(access_type))
-				LOG_ID_ACCESS_CHANGE(user, inserted_auth_card, "removed [SSid_access.get_access_desc(access_type)]")
+			if(access_type in target_id_card.access)
+				target_id_card.remove_access(list(access_type))
+				LOG_ID_ACCESS_CHANGE(user, target_id_card, "Удаляем [SSid_access.get_access_desc(access_type)]")
 				return TRUE
 
-			if(!inserted_auth_card.add_access(list(access_type), try_wildcard))
-				to_chat(usr, span_notice("ID error: ID card rejected your attempted access modification."))
-				LOG_ID_ACCESS_CHANGE(user, inserted_auth_card, "failed to add [SSid_access.get_access_desc(access_type)][try_wildcard ? " with wildcard [try_wildcard]" : ""]")
+			if(!target_id_card.add_access(list(access_type), try_wildcard))
+				to_chat(usr, span_notice("Ошибка ID: ID карта блокирует изменение доступа."))
+				LOG_ID_ACCESS_CHANGE(user, target_id_card, "failed to add [SSid_access.get_access_desc(access_type)][try_wildcard ? " with wildcard [try_wildcard]" : ""]")
 				return TRUE
 
 			if(access_type in ACCESS_ALERT_ADMINS)
-				message_admins("[ADMIN_LOOKUPFLW(user)] just added [SSid_access.get_access_desc(access_type)] to an ID card [ADMIN_VV(inserted_auth_card)] [(inserted_auth_card.registered_name) ? "belonging to [inserted_auth_card.registered_name]." : "with no registered name."]")
-			LOG_ID_ACCESS_CHANGE(user, inserted_auth_card, "added [SSid_access.get_access_desc(access_type)]")
+				message_admins("[ADMIN_LOOKUPFLW(user)] предоставил [SSid_access.get_access_desc(access_type)] для ID карты [ADMIN_VV(target_id_card)] [(target_id_card.registered_name) ? "принадлежащей [target_id_card.registered_name]." : "без имени."]")
+			LOG_ID_ACCESS_CHANGE(user, target_id_card, "добавлен [SSid_access.get_access_desc(access_type)]")
 			return TRUE
 		// Apply template to ID card.
 		if("PRG_template")
-			if(!computer || !authenticated_card || !inserted_auth_card)
+			if(!computer || !authenticated_card || !target_id_card)
 				return TRUE
 
 			playsound(computer, SFX_TERMINAL_TYPE, 50, FALSE)
@@ -252,10 +265,10 @@
 				if(trim.assignment != template_name)
 					continue
 
-				SSid_access.add_trim_access_to_card(inserted_auth_card, trim_path)
+				SSid_access.add_trim_access_to_card(target_id_card, trim_path)
 				return TRUE
 
-			stack_trace("[key_name(usr)] ([usr]) attempted to apply invalid template \[[template_name]\] to [inserted_auth_card]")
+			stack_trace("[key_name(usr)] ([usr]) попытался применить недопустимый шаблон \[[template_name]\] для [target_id_card]")
 
 			return TRUE
 
@@ -287,23 +300,41 @@
 	return data
 
 /datum/computer_file/program/card_mod/ui_data(mob/user)
-	var/list/data = list()
+	var/list/data = get_header_data()
 
-	var/obj/item/card/id/inserted_id = computer.computer_id_slot
-	data["authIDName"] = inserted_id ? inserted_id.name : "-----"
+	data["station_name"] = station_name()
+
+	var/obj/item/computer_hardware/card_slot/card_slot
+	var/obj/item/computer_hardware/card_slot/card_slot2
+
+	if(computer)
+		card_slot = computer.all_components[MC_CARD]
+		card_slot2 = computer.all_components[MC_CARD2]
+		data["have_auth_card"] = !!(card_slot)
+		data["have_id_slot"] = !!(card_slot2)
+	else
+		data["have_id_slot"] = FALSE
+
+	if(!card_slot2)
+		return data //We're just gonna error out on the js side at this point anyway
+
+	var/obj/item/card/id/auth_card = card_slot.stored_card
+	data["authIDName"] = auth_card ? auth_card.name : "-----"
+
 	data["authenticatedUser"] = authenticated_card
 
-	data["has_id"] = !!inserted_id
-	data["id_name"] = inserted_id ? inserted_id.name : "-----"
-	if(inserted_id)
-		data["id_rank"] = inserted_id.assignment ? inserted_id.assignment : "Unassigned"
-		data["id_owner"] = inserted_id.registered_name ? inserted_id.registered_name : "-----"
-		data["access_on_card"] = inserted_id.access
-		data["wildcardSlots"] = inserted_id.wildcard_slots
-		data["id_age"] = inserted_id.registered_age
+	var/obj/item/card/id/id_card = card_slot2.stored_card
+	data["has_id"] = !!id_card
+	data["id_name"] = id_card ? id_card.name : "-----"
+	if(id_card)
+		data["id_rank"] = id_card.assignment ? id_card.assignment : "Отсутствует"
+		data["id_owner"] = id_card.registered_name ? id_card.registered_name : "-----"
+		data["access_on_card"] = id_card.access
+		data["wildcardSlots"] = id_card.wildcard_slots
+		data["id_age"] = id_card.registered_age
 
-		if(inserted_id.trim)
-			var/datum/id_trim/card_trim = inserted_id.trim
+		if(id_card.trim)
+			var/datum/id_trim/card_trim = id_card.trim
 			data["hasTrim"] = TRUE
 			data["trimAssignment"] = card_trim.assignment ? card_trim.assignment : ""
 			data["trimAccess"] = card_trim.access ? card_trim.access : list()

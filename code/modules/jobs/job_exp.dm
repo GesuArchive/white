@@ -1,7 +1,6 @@
 GLOBAL_LIST_EMPTY(exp_to_update)
 GLOBAL_PROTECT(exp_to_update)
 
-#define IS_XP_LOCKED(job) (exp_requirements && ((exp_required_type_department && CONFIG_GET(flag/use_exp_restrictions_heads)) || (exp_required_type && CONFIG_GET(flag/use_exp_restrictions_other))))
 // Procs
 /datum/job/proc/required_playtime_remaining(client/C)
 	if(!C)
@@ -10,7 +9,9 @@ GLOBAL_PROTECT(exp_to_update)
 		return 0
 	if(!SSdbcore.Connect())
 		return 0
-	if(!IS_XP_LOCKED(src))
+	if(!exp_requirements || !exp_type)
+		return 0
+	if(!job_is_xp_locked(src.title))
 		return 0
 	if(CONFIG_GET(flag/use_exp_restrictions_admin_bypass) && check_rights_for(C,R_ADMIN))
 		return 0
@@ -23,32 +24,37 @@ GLOBAL_PROTECT(exp_to_update)
 		return 0
 	else
 		return (job_requirement - my_exp)
-#undef IS_XP_LOCKED
-
 
 /datum/job/proc/get_exp_req_amount()
-	if(exp_required_type_department)
+	if(title in (GLOB.command_positions | list(JOB_AI)))
 		var/uerhh = CONFIG_GET(number/use_exp_restrictions_heads_hours)
 		if(uerhh)
 			return uerhh * 60
 	return exp_requirements
 
-
 /datum/job/proc/get_exp_req_type()
-	if(exp_required_type_department && CONFIG_GET(flag/use_exp_restrictions_heads_department))
-		return exp_required_type_department
-	return exp_required_type
+	if(title in (GLOB.command_positions | list(JOB_AI)))
+		if(CONFIG_GET(flag/use_exp_restrictions_heads_department) && exp_type_department)
+			return exp_type_department
+	return exp_type
 
+/proc/job_is_xp_locked(jobtitle)
+	if(!CONFIG_GET(flag/use_exp_restrictions_heads) && (jobtitle in (GLOB.command_positions | list(JOB_AI))))
+		return FALSE
+	if(!CONFIG_GET(flag/use_exp_restrictions_other) && !(jobtitle in (GLOB.command_positions | list(JOB_AI))))
+		return FALSE
+	return TRUE
 
 /client/proc/calc_exp_type(exptype)
-	var/list/job_list = SSjob.experience_jobs_map[exptype]
-	if(!job_list)
+	var/list/explist = prefs.exp.Copy()
+	var/amount = 0
+	var/list/typelist = GLOB.exp_jobsmap[exptype]
+	if(!typelist)
 		return -1
-	var/list/exp_map = prefs.exp.Copy()
-	. = 0
-	for(var/datum/job/job as anything in job_list)
-		. += exp_map[job.title]
-
+	for(var/job in typelist["titles"])
+		if(job in explist)
+			amount += explist[job]
+	return amount
 
 /client/proc/get_exp_living(pure_numeric = FALSE)
 	if(!prefs.exp || !prefs.exp[EXP_TYPE_LIVING])
@@ -58,19 +64,19 @@ GLOBAL_PROTECT(exp_to_update)
 
 /proc/get_exp_format(expnum)
 	if(expnum > 60)
-		return num2text(round(expnum / 60)) + "h"
+		return num2text(round(expnum / 60)) + "ч"
 	else if(expnum > 0)
-		return num2text(expnum) + "m"
+		return num2text(expnum) + "м"
 	else
-		return "0h"
+		return "0ч"
 
-/datum/controller/subsystem/blackbox/proc/update_exp(mins)
+/datum/controller/subsystem/blackbox/proc/update_exp(mins, ann = FALSE)
 	if(!SSdbcore.Connect())
 		return -1
 	for(var/client/L in GLOB.clients)
 		if(L.is_afk())
 			continue
-		L.update_exp_list(mins)
+		L.update_exp_list(mins,ann)
 
 /datum/controller/subsystem/blackbox/proc/update_exp_db()
 	set waitfor = FALSE
@@ -129,47 +135,59 @@ GLOBAL_PROTECT(exp_to_update)
 		return -1
 	qdel(flag_update)
 
-/**
- * Tallies up the exp for the playtime tracking and adds it to the global update list.
- *
- * For a client mob of [/mob/dead/observer], it adds EXP_TYPE_GHOST.
- *
- * For a client mob of [/mob/living], it grabs the exp list from a mob proc call.
- * Being dead but still in your body will tally time towards your /mob/living roles instead of ghost roles.
- * If /mob/living returns an empty list, uses "Unknown" instead.
- *
- * For anything else, it doesn't update anything.
- *
- * Arguments:
- * * minutes - The number of minutes to add to the playtime tally.
- */
-/client/proc/update_exp_list(minutes)
+
+/client/proc/update_exp_list(minutes, announce_changes = FALSE)
 	if(!CONFIG_GET(flag/use_exp_tracking))
 		return -1
 	if(!SSdbcore.Connect())
 		return -1
 	if (!isnum(minutes))
 		return -1
-
 	var/list/play_records = list()
 
-	if(isobserver(mob))
-		play_records[EXP_TYPE_GHOST] = minutes
-	else if(isliving(mob))
-		var/mob/living/living_mob = mob
-		var/list/mob_exp_list = living_mob.get_exp_list(minutes)
-		if(!length(mob_exp_list))
-			play_records["Unknown"] = minutes
+	if(isliving(mob))
+		if(mob.stat != DEAD)
+			var/rolefound = FALSE
+			play_records[EXP_TYPE_LIVING] += minutes
+
+			if(announce_changes)
+				to_chat(src,span_notice("You got: [minutes] Living EXP!"))
+			if(mob.mind.assigned_role)
+				for(var/job in SSjob.name_occupations)
+					if(mob.mind.assigned_role == job)
+						rolefound = TRUE
+						play_records[job] += minutes
+						if(announce_changes)
+							to_chat(src,span_notice("You got: [minutes] [job] EXP!"))
+				if(!rolefound)
+					for(var/role in GLOB.exp_specialmap[EXP_TYPE_SPECIAL])
+						if(mob.mind.assigned_role == role)
+							rolefound = TRUE
+							play_records[role] += minutes
+							if(announce_changes)
+								to_chat(mob,span_notice("You got: [minutes] [role] EXP!"))
+				if(mob.mind.special_role && !(mob.mind.datum_flags & DF_VAR_EDITED))
+					var/trackedrole = mob.mind.special_role
+					play_records[trackedrole] += minutes
+					if(announce_changes)
+						to_chat(src,span_notice("You got: [minutes] [trackedrole] EXP!"))
+			if(!rolefound)
+				play_records["Unknown"] += minutes
 		else
-			play_records |= mob_exp_list
-
-		play_records[EXP_TYPE_LIVING] = minutes
-	// Lobby surfing? /mob/dead/new_player? Not worth any exp!
-	else
+			if(holder && !holder.deadmined)
+				play_records[EXP_TYPE_ADMIN] += minutes
+				if(announce_changes)
+					to_chat(src,span_notice("You got: [minutes] Admin EXP!"))
+			else
+				play_records[EXP_TYPE_GHOST] += minutes
+				if(announce_changes)
+					to_chat(src,span_notice("You got: [minutes] Ghost EXP!"))
+	else if(isobserver(mob))
+		play_records[EXP_TYPE_GHOST] += minutes
+		if(announce_changes)
+			to_chat(src,span_notice("You got: [minutes] Ghost EXP!"))
+	else if(minutes)	//Let "refresh" checks go through
 		return
-
-	if(holder && !holder.deadmined && holder.check_for_rights(R_BAN))
-		play_records[EXP_TYPE_ADMIN] = minutes
 
 	for(var/jtype in play_records)
 		var/jvalue = play_records[jtype]
@@ -183,7 +201,7 @@ GLOBAL_PROTECT(exp_to_update)
 			"ckey" = ckey,
 			"minutes" = jvalue)))
 		prefs.exp[jtype] += jvalue
-	addtimer(CALLBACK(SSblackbox, TYPE_PROC_REF(/datum/controller/subsystem/blackbox, update_exp_db)),20,TIMER_OVERRIDE|TIMER_UNIQUE)
+	addtimer(CALLBACK(SSblackbox,/datum/controller/subsystem/blackbox/proc/update_exp_db),20,TIMER_OVERRIDE|TIMER_UNIQUE)
 
 
 //ALWAYS call this at beginning to any proc touching player flags, or your database admin will probably be mad
@@ -203,6 +221,6 @@ GLOBAL_PROTECT(exp_to_update)
 	if(flags_read.NextRow())
 		prefs.db_flags = text2num(flags_read.item[1])
 	else if(isnull(prefs.db_flags))
-		prefs.db_flags = 0 //This PROBABLY won't happen, but better safe than sorry.
+		prefs.db_flags = 0	//This PROBABLY won't happen, but better safe than sorry.
 	qdel(flags_read)
 	return TRUE

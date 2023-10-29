@@ -1,0 +1,12 @@
+{
+	"version": 1,
+	"map_name": "Meta",
+	"map_path": "stations",
+	"map_file": "meta.dmm",
+	"shuttles": {
+		"cargo": "cargo_box",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_meta",
+		"emergency": "emergency_meta"
+	}
+}

@@ -4,9 +4,9 @@
 ///////////////////////////Veil Render//////////////////////
 
 /obj/item/veilrender
-	name = "veil render"
-	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast city."
-	icon = 'icons/obj/weapons/khopesh.dmi'
+	name = "проявитель вуали"
+	desc = "Зловещий изогнутый клинок неизвестного происхождения, извлеченный из руин огромного города."
+	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "bone_blade"
 	inhand_icon_state = "bone_blade"
 	worn_icon_state = "bone_blade"
@@ -17,30 +17,30 @@
 	force = 15
 	throwforce = 10
 	w_class = WEIGHT_CLASS_NORMAL
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	var/charges = 1
 	var/spawn_type = /obj/tear_in_reality
 	var/spawn_amt = 1
-	var/activate_descriptor = "reality"
-	var/rend_desc = "You should run now."
+	var/activate_descriptor = "реальности"
+	var/rend_desc = "Нужно бежать, СРОЧНО!"
 	var/spawn_fast = FALSE //if TRUE, ignores checking for mobs on loc before spawning
 
 /obj/item/veilrender/attack_self(mob/user)
 	if(charges > 0)
 		new /obj/effect/rend(get_turf(user), spawn_type, spawn_amt, rend_desc, spawn_fast)
 		charges--
-		user.visible_message(span_boldannounce("[src] hums with power as [user] deals a blow to [activate_descriptor] itself!"))
+		user.visible_message(span_boldannounce("[src] гудит силой, когда [user] наносит удар по [activate_descriptor]!"))
 	else
-		to_chat(user, span_danger("The unearthly energies that powered the blade are now dormant."))
+		to_chat(user, span_danger("Неизвестная энергия, питавшая клинок, теперь неактивна."))
 
 /obj/effect/rend
-	name = "tear in the fabric of reality"
-	desc = "You should run now."
+	name = "разрыв в ткани реальности"
+	desc = "Нужно бежать, СРОЧНО!"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "rift"
 	density = TRUE
 	anchored = TRUE
-	var/spawn_path = /mob/living/basic/cow //defaulty cows to prevent unintentional narsies
+	var/spawn_path = /mob/living/simple_animal/cow //defaulty cows to prevent unintentional narsies
 	var/spawn_amt_left = 20
 	var/spawn_fast = FALSE
 
@@ -63,7 +63,7 @@
 
 /obj/effect/rend/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/nullrod))
-		user.visible_message(span_danger("[user] seals \the [src] with \the [I]."))
+		user.visible_message(span_danger("[user] запечатывает [src] с помощью [I]."))
 		qdel(src)
 		return
 	else
@@ -76,39 +76,39 @@
 	return
 
 /obj/item/veilrender/vealrender
-	name = "veal render"
-	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast farm."
-	spawn_type = /mob/living/basic/cow
+	name = "проявитель голода"
+	desc = "Зловещий изогнутый клинок неизвестного происхождения, найденный на развалинах огромной фермы."
+	spawn_type = /mob/living/simple_animal/cow
 	spawn_amt = 20
-	activate_descriptor = "hunger"
-	rend_desc = "Reverberates with the sound of ten thousand moos."
+	activate_descriptor = "голоду"
+	rend_desc = "Эхом отдается звук десяти тысяч Мууу-у-у-у!"
 
 /obj/item/veilrender/honkrender
-	name = "honk render"
-	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast circus."
-	spawn_type = /mob/living/basic/clown
+	name = "проявитель комедии"
+	desc = "Зловещий изогнутый клинок неизвестного происхождения, найденный на развалинах огромного цирка."
+	spawn_type = /mob/living/simple_animal/hostile/clown
 	spawn_amt = 10
-	activate_descriptor = "depression"
-	rend_desc = "Gently wafting with the sounds of endless laughter."
+	activate_descriptor = "депрессии"
+	rend_desc = "До вас долетают отзвуки бесконечного смеха."
 	icon_state = "banana_blade"
 	inhand_icon_state = "banana_blade"
 	worn_icon_state = "render"
 
 /obj/item/veilrender/honkrender/honkhulkrender
-	name = "superior honk render"
-	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast circus. This one gleams with a special light."
-	spawn_type = /mob/living/basic/clown/clownhulk
+	name = "проявитель трагедии"
+	desc = "Зловещий изогнутый клинок неизвестного происхождения, найденный на развалинах огромного цирка. Этот мерцает по особенному."
+	spawn_type = /mob/living/simple_animal/hostile/clown/clownhulk
 	spawn_amt = 5
-	activate_descriptor = "depression"
-	rend_desc = "Gently wafting with the sounds of mirthful grunting."
+	activate_descriptor = "депрессии"
+	rend_desc = "Вы слышите звуки веселого хонканья."
 
 #define TEAR_IN_REALITY_CONSUME_RANGE 3
 #define TEAR_IN_REALITY_SINGULARITY_SIZE STAGE_FOUR
 
 /// Tear in reality, spawned by the veil render
 /obj/tear_in_reality
-	name = "tear in the fabric of reality"
-	desc = "This isn't right."
+	name = "разрыв в ткани реальности"
+	desc = "Так быть не должно..."
 	icon = 'icons/effects/224x224.dmi'
 	icon_state = "reality"
 	pixel_x = -96
@@ -139,10 +139,11 @@
 		return
 	. = COMPONENT_CANCEL_ATTACK_CHAIN
 	var/mob/living/carbon/jedi = user
-	if(jedi.mob_mood.sanity < 15)
+	var/datum/component/mood/insaneinthemembrane = jedi.GetComponent(/datum/component/mood)
+	if(insaneinthemembrane.sanity < 15)
 		return //they've already seen it and are about to die, or are just too insane to care
-	to_chat(jedi, span_userdanger("OH GOD! NONE OF IT IS REAL! NONE OF IT IS REEEEEEEEEEEEEEEEEEEEEEEEAL!"))
-	jedi.mob_mood.sanity = 0
+	to_chat(jedi, span_userdanger("БОЖЕ! ЭТО НЕ ПРАВДА! ЭТО ВСЁ НЕ ПРААААААААВДАААААААА!"))
+	insaneinthemembrane.sanity = 0
 	for(var/lore in typesof(/datum/brain_trauma/severe))
 		jedi.gain_trauma(lore)
 	addtimer(CALLBACK(src, PROC_REF(deranged), jedi), 10 SECONDS)
@@ -150,9 +151,8 @@
 /obj/tear_in_reality/proc/deranged(mob/living/carbon/C)
 	if(!C || C.stat == DEAD)
 		return
-	C.vomit(VOMIT_CATEGORY_BLOOD, lost_nutrition = 0, distance = 3)
+	C.vomit(0, TRUE, TRUE, 3, TRUE)
 	C.spew_organ(3, 2)
-	C.investigate_log("has died from using telekinesis on a tear in reality.", INVESTIGATE_DEATHS)
 	C.death()
 
 #undef TEAR_IN_REALITY_CONSUME_RANGE
@@ -161,9 +161,9 @@
 /////////////////////////////////////////Scrying///////////////////
 
 /obj/item/scrying
-	name = "scrying orb"
-	desc = "An incandescent orb of otherworldly energy, merely holding it gives you vision and hearing beyond mortal means, and staring into it lets you see the entire universe."
-	icon = 'icons/obj/weapons/guns/projectiles.dmi'
+	name = "сфера провидца"
+	desc = "Раскаленный шар потусторонней энергии, просто держа его в руках, ваше зрение и слух с легкостью преступает рамки ограничивающие смертных, а пристальный взгляд в него позволяет вам увидеть всю вселенную."
+	icon = 'icons/obj/guns/projectiles.dmi'
 	icon_state ="bluespace"
 	throw_speed = 3
 	throw_range = 7
@@ -186,9 +186,10 @@
 	var/mob/holder = get(loc, /mob)
 	if(current_owner && current_owner != holder)
 
-		to_chat(current_owner, span_notice("Your otherworldly vision fades..."))
+		to_chat(current_owner, span_notice("Я больше не вижу мёртвых..."))
 
-		current_owner.remove_traits(list(TRAIT_SIXTHSENSE, TRAIT_XRAY_VISION), SCRYING_ORB)
+		REMOVE_TRAIT(current_owner, TRAIT_SIXTHSENSE, SCRYING_ORB)
+		REMOVE_TRAIT(current_owner, TRAIT_XRAY_VISION, SCRYING_ORB)
 		current_owner.update_sight()
 
 		current_owner = null
@@ -196,81 +197,72 @@
 	if(!current_owner && holder)
 		current_owner = holder
 
-		to_chat(current_owner, span_notice("You can see...everything!"))
+		to_chat(current_owner, span_notice("Я вижу... вижу всё!"))
 
-		current_owner.add_traits(list(TRAIT_SIXTHSENSE, TRAIT_XRAY_VISION), SCRYING_ORB)
+		ADD_TRAIT(current_owner, TRAIT_SIXTHSENSE, SCRYING_ORB)
+		ADD_TRAIT(current_owner, TRAIT_XRAY_VISION, SCRYING_ORB)
 		current_owner.update_sight()
 
 /obj/item/scrying/attack_self(mob/user)
-	visible_message(span_danger("[user] stares into [src], their eyes glazing over."))
+	visible_message(span_danger("[user] смотрит в [src], и его глаза застилает тьма."))
 	user.ghostize(1)
 
 /////////////////////////////////////////Necromantic Stone///////////////////
 
 /obj/item/necromantic_stone
-	name = "necromantic stone"
-	desc = "A shard capable of resurrecting humans as skeleton thralls."
-	icon = 'icons/obj/mining_zones/artefacts.dmi'
+	name = "камень некроманта"
+	desc = "Камень, способный воскрешать мёртвых в качестве ваших рабов-скелетов."
+	icon = 'icons/obj/wizard.dmi'
 	icon_state = "necrostone"
 	inhand_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	var/list/spooky_scaries = list()
-	///Allow for unlimited thralls to be produced.
-	var/unlimited = FALSE
-	///Which species the resurected humanoid will be.
-	var/applied_species = /datum/species/skeleton
-	///The outfit the resurected humanoid will wear.
-	var/applied_outfit = /datum/outfit/roman
-	///Maximum number of thralls that can be created.
-	var/max_thralls = 3
+	var/unlimited = 0
 
 /obj/item/necromantic_stone/unlimited
 	unlimited = 1
 
-/obj/item/necromantic_stone/attack(mob/living/carbon/human/target, mob/living/carbon/human/user)
-	if(!istype(target))
+/obj/item/necromantic_stone/attack(mob/living/carbon/human/M, mob/living/carbon/human/user)
+	if(!istype(M))
 		return ..()
 
-	if(!istype(user) || !user.can_perform_action(target))
+	if(!istype(user) || !user.canUseTopic(M, BE_CLOSE))
 		return
 
-	if(target.stat != DEAD)
-		to_chat(user, span_warning("This artifact can only affect the dead!"))
+	if(M.stat != DEAD)
+		to_chat(user, span_warning("Этот артефакт бессилен на живых!"))
 		return
 
 	for(var/mob/dead/observer/ghost in GLOB.dead_mob_list) //excludes new players
-		if(ghost.mind && ghost.mind.current == target && ghost.client)  //the dead mobs list can contain clientless mobs
+		if(ghost.mind && ghost.mind.current == M && ghost.client)  //the dead mobs list can contain clientless mobs
 			ghost.reenter_corpse()
 			break
 
-	if(!target.mind || !target.client)
-		to_chat(user, span_warning("There is no soul connected to this body..."))
+	if(!M.mind || !M.client)
+		to_chat(user, span_warning("Я не чувствую души..."))
 		return
 
 	check_spooky()//clean out/refresh the list
-	if(spooky_scaries.len >= max_thralls && !unlimited)
-		to_chat(user, span_warning("This artifact can only affect [convert_integer_to_words(max_thralls)] thralls at a time!"))
+	if(spooky_scaries.len >= 3 && !unlimited)
+		to_chat(user, span_warning("Этот артефакт может контролировать не более трёх рабов одновременно!"))
 		return
-	if(applied_species)
-		target.set_species(applied_species, icon_update=0)
-	target.revive(ADMIN_HEAL_ALL)
-	spooky_scaries |= target
-	to_chat(target, span_userdanger("You have been revived by <B>[user.real_name]</B>!"))
-	to_chat(target, span_userdanger("[user.p_Theyre()] your master now, assist [user.p_them()] even if it costs you your new life!"))
+
+	M.set_species(/datum/species/skeleton, icon_update=0)
+	M.revive(full_heal = TRUE, admin_revive = TRUE)
+	spooky_scaries |= M
+	to_chat(M, "[span_userdanger("Вы были воскрешены ")]<B>[user.real_name]!</B>")
+	to_chat(M, span_userdanger("[user.p_theyre(TRUE)] теперь твой хозяин, помогите [user.p_them()] даже если это будет стоить вашего оставшегося подобия жизни!"))
 	var/datum/antagonist/wizard/antag_datum = user.mind.has_antag_datum(/datum/antagonist/wizard)
 	if(antag_datum)
 		if(!antag_datum.wiz_team)
 			antag_datum.create_wiz_team()
-		target.mind.add_antag_datum(/datum/antagonist/wizard_minion, antag_datum.wiz_team)
+		M.mind.add_antag_datum(/datum/antagonist/wizard_minion, antag_datum.wiz_team)
 
-	equip_revived_servant(target)
+	equip_roman_skeleton(M)
 
-/obj/item/necromantic_stone/examine(mob/user)
-	. = ..()
-	if(!unlimited)
-		. += span_notice("[spooky_scaries.len]/[max_thralls] active thralls.")
+	desc = "Камень, способный воскрешать мёртвых в качестве ваших рабов-скелетов[unlimited ? "." : ", [spooky_scaries.len]/3 активных рабов."]"
 
 /obj/item/necromantic_stone/proc/check_spooky()
 	if(unlimited) //no point, the list isn't used.
@@ -287,40 +279,31 @@
 			continue
 	list_clear_nulls(spooky_scaries)
 
-/obj/item/necromantic_stone/proc/equip_revived_servant(mob/living/carbon/human/human)
-	if(!applied_outfit)
-		return
-	for(var/obj/item/worn_item in human)
-		human.dropItemToGround(worn_item)
-
-	human.equipOutfit(applied_outfit)
-
 //Funny gimmick, skeletons always seem to wear roman/ancient armour
-/datum/outfit/roman
-	name = "Roman"
-	head = /obj/item/clothing/head/helmet/roman
-	uniform = /obj/item/clothing/under/costume/roman
-	shoes = /obj/item/clothing/shoes/roman
-	back = /obj/item/spear
-	r_hand = /obj/item/claymore
-	l_hand = /obj/item/shield/roman
+/obj/item/necromantic_stone/proc/equip_roman_skeleton(mob/living/carbon/human/H)
+	for(var/obj/item/I in H)
+		H.dropItemToGround(I)
 
-/datum/outfit/roman/pre_equip(mob/living/carbon/human/H, visualsOnly)
-	. = ..()
-	head = pick(/obj/item/clothing/head/helmet/roman, /obj/item/clothing/head/helmet/roman/legionnaire)
+	var/hat = pick(/obj/item/clothing/head/helmet/roman, /obj/item/clothing/head/helmet/roman/legionnaire)
+	H.equip_to_slot_or_del(new hat(H), ITEM_SLOT_HEAD)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/costume/roman(H), ITEM_SLOT_ICLOTHING)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/roman(H), ITEM_SLOT_FEET)
+	H.put_in_hands(new /obj/item/shield/riot/roman(H), TRUE)
+	H.put_in_hands(new /obj/item/claymore(H), TRUE)
+	H.equip_to_slot_or_del(new /obj/item/spear(H), ITEM_SLOT_BACK)
 
 //Provides a decent heal, need to pump every 6 seconds
-/obj/item/organ/internal/heart/cursed/wizard
-	pump_delay = 6 SECONDS
+/obj/item/organ/heart/cursed/wizard
+	pump_delay = 60
 	heal_brute = 25
 	heal_burn = 25
 	heal_oxy = 25
 
 ///Warp whistle, spawns a tornado that teleports you
 /obj/item/warp_whistle
-	name = "warp whistle"
-	desc = "Calls a cloud to come pick you up and drop you at a random location on the station."
-	icon = 'icons/obj/art/musician.dmi'
+	name = "варп-свисток"
+	desc = "Вызывает смерч, способный забрать вас и высадить в случайном месте на станции."
+	icon = 'icons/obj/wizard.dmi'
 	icon_state = "whistle"
 
 	/// Person using the warp whistle
@@ -328,7 +311,7 @@
 
 /obj/item/warp_whistle/attack_self(mob/user)
 	if(whistler)
-		to_chat(user, span_warning("[src] is on cooldown."))
+		to_chat(user, span_warning("[src] еще не готов к повторному использованию!"))
 		return
 
 	whistler = user
@@ -339,9 +322,9 @@
 
 ///Teleporting tornado, spawned by warp whistle, teleports the user if they manage to pick them up.
 /obj/effect/temp_visual/teleporting_tornado
-	name = "tornado"
-	desc = "This thing sucks!"
-	icon = 'icons/effects/magic.dmi'
+	name = "торнадо"
+	desc = "Эта штука ужасна!"
+	icon = 'icons/obj/wizard.dmi'
 	icon_state = "tornado"
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
@@ -390,126 +373,3 @@
 		whistle.whistler = null
 		whistle = null
 	return ..()
-
-/////////////////////////////////////////Scepter of Vendormancy///////////////////
-#define RUNIC_SCEPTER_MAX_CHARGES 3
-#define RUNIC_SCEPTER_MAX_RANGE 7
-
-/obj/item/runic_vendor_scepter
-	name = "scepter of runic vendormancy"
-	desc = "This scepter allows you to conjure, force push and detonate Runic Vendors. It can hold up to 3 charges that can be recovered with a simple magical channeling. A modern spin on the old Geomancy spells."
-	icon_state = "vendor_staff"
-	inhand_icon_state = "vendor_staff"
-	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
-	icon = 'icons/obj/weapons/guns/magic.dmi'
-	slot_flags = ITEM_SLOT_BACK
-	w_class = WEIGHT_CLASS_NORMAL
-	force = 10
-	damtype = BRUTE
-	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	attack_verb_continuous = list("smacks", "clubs", "wacks")
-	attack_verb_simple = list("smack", "club", "wacks")
-
-	/// Range cap on where you can summon vendors.
-	var/max_summon_range = RUNIC_SCEPTER_MAX_RANGE
-	/// Channeling time to summon a vendor.
-	var/summoning_time = 1 SECONDS
-	/// Checks if the scepter is channeling a vendor already.
-	var/scepter_is_busy_summoning = FALSE
-	/// Checks if the scepter is busy channeling recharges
-	var/scepter_is_busy_recharging = FALSE
-	///Number of summoning charges left.
-	var/summon_vendor_charges = RUNIC_SCEPTER_MAX_CHARGES
-
-/obj/item/runic_vendor_scepter/Initialize(mapload)
-	. = ..()
-
-	RegisterSignal(src, COMSIG_ITEM_MAGICALLY_CHARGED, PROC_REF(on_magic_charge))
-	var/static/list/loc_connections = list(
-		COMSIG_ITEM_MAGICALLY_CHARGED = PROC_REF(on_magic_charge),
-	)
-
-/obj/item/runic_vendor_scepter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	if(scepter_is_busy_recharging)
-		user.balloon_alert(user, "busy!")
-		return
-	if(!check_allowed_items(target, not_inside = TRUE))
-		return
-	. |= AFTERATTACK_PROCESSED_ITEM
-	var/turf/afterattack_turf = get_turf(target)
-	if(istype(target, /obj/machinery/vending/runic_vendor))
-		var/obj/machinery/vending/runic_vendor/runic_explosion_target = target
-		runic_explosion_target.runic_explosion()
-		return
-	var/obj/machinery/vending/runic_vendor/vendor_on_turf = locate() in afterattack_turf
-	if(vendor_on_turf)
-		vendor_on_turf.runic_explosion()
-		return
-	if(!summon_vendor_charges)
-		user.balloon_alert(user, "no charges!")
-		return
-	if(get_dist(afterattack_turf,src) > max_summon_range)
-		user.balloon_alert(user, "too far!")
-		return
-	if(get_turf(src) == afterattack_turf)
-		user.balloon_alert(user, "too close!")
-		return
-	if(scepter_is_busy_summoning)
-		user.balloon_alert(user, "already summoning!")
-		return
-	if(afterattack_turf.is_blocked_turf(TRUE))
-		user.balloon_alert(user, "blocked!")
-		return
-	if(summoning_time)
-		scepter_is_busy_summoning = TRUE
-		user.balloon_alert(user, "summoning...")
-		if(!do_after(user, summoning_time, target = target))
-			scepter_is_busy_summoning = FALSE
-			return
-		scepter_is_busy_summoning = FALSE
-	if(summon_vendor_charges)
-		playsound(src,'sound/weapons/resonator_fire.ogg',50,TRUE)
-		user.visible_message(span_warning("[user] summons a runic vendor!"))
-		new /obj/machinery/vending/runic_vendor(afterattack_turf)
-		summon_vendor_charges--
-		user.changeNext_move(CLICK_CD_MELEE)
-		return
-	return ..()
-
-/obj/item/runic_vendor_scepter/attack_self(mob/user, modifiers)
-	. = ..()
-	user.balloon_alert(user, "recharging...")
-	scepter_is_busy_recharging = TRUE
-	if(!do_after(user, 5 SECONDS))
-		scepter_is_busy_recharging = FALSE
-		return
-	user.balloon_alert(user, "fully charged")
-	scepter_is_busy_recharging = FALSE
-	summon_vendor_charges = RUNIC_SCEPTER_MAX_CHARGES
-
-/obj/item/runic_vendor_scepter/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
-	var/turf/afterattack_secondary_turf = get_turf(target)
-	var/obj/machinery/vending/runic_vendor/vendor_on_turf = locate() in afterattack_secondary_turf
-	if(istype(target, /obj/machinery/vending/runic_vendor))
-		var/obj/machinery/vending/runic_vendor/vendor_being_throw = target
-		vendor_being_throw.throw_at(get_edge_target_turf(target, get_cardinal_dir(src, target)), 4, 20, user)
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-	if(vendor_on_turf)
-		vendor_on_turf.throw_at(get_edge_target_turf(target, get_cardinal_dir(src, target)), 4, 20, user)
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
-/obj/item/runic_vendor_scepter/proc/on_magic_charge(datum/source, datum/action/cooldown/spell/charge/spell, mob/living/caster)
-	SIGNAL_HANDLER
-
-	if(!ismovable(loc))
-		return
-
-	. = COMPONENT_ITEM_CHARGED
-
-	summon_vendor_charges = RUNIC_SCEPTER_MAX_CHARGES
-	return .
-
-#undef RUNIC_SCEPTER_MAX_CHARGES
-#undef RUNIC_SCEPTER_MAX_RANGE

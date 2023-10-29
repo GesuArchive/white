@@ -2,19 +2,19 @@
 
 //Oh god what the fuck I am not good at computer
 /obj/item/book/manual
-	icon = 'icons/obj/service/library.dmi'
+	icon = 'icons/obj/library.dmi'
 	due_date = 0 // Game time in 1/10th seconds
 	unique = TRUE   // FALSE - Normal book, TRUE - Should not be treated as normal book, unable to be copied, unable to be modified
 
 /obj/item/book/manual/hydroponics_pod_people
 	name = "The Human Harvest: From Seed to Market"
 	icon_state ="bookHydroponicsPodPeople"
-	starting_author = "Farmer John" // Whoever wrote the paper or book, can be changed by pen or PC. It is not automatically assigned.
-	starting_title = "The Human Harvest: From Seed to Market"
+	author = "Farmer John" // Whoever wrote the paper or book, can be changed by pen or PC. It is not automatically assigned.
+	title = "The Human Harvest: From Seed to Market"
 	//book contents below
-	starting_content = {"<html>
+	dat = {"<html>
 				<head>
-				<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+				<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -48,11 +48,11 @@
 /obj/item/book/manual/ripley_build_and_repair
 	name = "APLU \"Ripley\" Construction and Operation Manual"
 	icon_state ="book"
-	starting_author = "Weyland-Yutani Corp"
-	starting_title = "APLU \"Ripley\" Construction and Operation Manual"
-	starting_content = {"<html>
+	author = "Weyland-Yutani Corp"
+	title = "APLU \"Ripley\" Construction and Operation Manual"
+	dat = {"<html>
 				<head>
-				<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+				<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -114,11 +114,11 @@
 /obj/item/book/manual/chef_recipes
 	name = "Chef Recipes"
 	icon_state = "cooked_book"
-	starting_author = "Lord Frenrir Cageth"
-	starting_title = "Chef Recipes"
-	starting_content = {"<html>
+	author = "Lord Frenrir Cageth"
+	title = "Chef Recipes"
+	dat = {"<html>
 				<head>
-				<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+				<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -136,7 +136,7 @@
 				<h2>Basic ingredients preparation:</h2>
 
 				<b>Dough:</b> 10u water + 15u flour for simple dough.<br>
-				6u egg yolk + 12 egg white + 15u flour + 5u sugar for cake batter.<br>
+				15u egg yolk + 15u flour + 5u sugar for cake batter.<br>
 				Doughs can be transformed by using a knife and rolling pin.<br>
 				All doughs can be microwaved.<br>
 				<b>Bowl:</b> Add water to it for soup preparation.<br>
@@ -196,11 +196,11 @@
 /obj/item/book/manual/nuclear
 	name = "Fission Mailed: Nuclear Sabotage 101"
 	icon_state ="bookNuclear"
-	starting_author = "Syndicate"
-	starting_title = "Fission Mailed: Nuclear Sabotage 101"
-	starting_content = {"<html>
+	author = "Syndicate"
+	title = "Fission Mailed: Nuclear Sabotage 101"
+	dat = {"<html>
 			<head>
-			<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
 			</head>
 			<body>
 			Nuclear Explosives 101:<br>
@@ -215,7 +215,7 @@
 			<li>Insert the nuclear authorisation disk into slot.</li>
 			<li>Type numeric authorisation code into the keypad. This should have been provided. Note: If you make a mistake press R to reset the device.
 			<li>Press the E button to log onto the device.</li>
-			You now have activated the device. To deactivate the buttons at anytime for example when you've already prepped the bomb for detonation remove the auth disk OR press the R on the keypad.<br>
+			You now have activated the device. To deactivate the buttons at anytime for example when you've already prepped the bomb for detonation	remove the auth disk OR press the R on the keypad.<br>
 			Now the bomb CAN ONLY be detonated using the timer. Manual detonation is not an option.<br>
 			Note: Nanotrasen is a pain in the neck.<br>
 			Toggle off the SAFETY.<br>
@@ -241,18 +241,18 @@
 	window_size = "970x710"
 
 /obj/item/book/manual/wiki/attack_self()
-	if(!book_data.content)
+	if(!dat)
 		initialize_wikibook()
 	return ..()
 
 /obj/item/book/manual/wiki/proc/initialize_wikibook()
 	var/wikiurl = CONFIG_GET(string/wikiurl)
 	if(wikiurl)
-		var/wikiinfo = {"
+		dat = {"
 
 			<html>
 			<head>
-			<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
 			<style>
 				iframe {
 					display: none;
@@ -266,194 +266,193 @@
 					myframe.style.display = "inline";
 			}
 			</script>
-			<p id='loading'>You start skimming through the manual...</p>
+			<p id='loading'>Начинаю изучать книгу...</p>
 			<iframe width='100%' height='97%' onload="pageloaded(this)" src="[wikiurl]/[page_link]?printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
 			</body>
 
 			</html>
 
 			"}
-		book_data.set_content(wikiinfo, trusted = TRUE)
 
 /obj/item/book/manual/wiki/chemistry
 	name = "Chemistry Textbook"
 	icon_state ="chemistrybook"
-	starting_author = "Nanotrasen"
-	starting_title = "Chemistry Textbook"
+	author = "Nanotrasen"
+	title = "Chemistry Textbook"
 	page_link = "Guide_to_chemistry"
 
 /obj/item/book/manual/wiki/engineering_construction
 	name = "Station Repairs and Construction"
 	icon_state ="bookEngineering"
-	starting_author = "Engineering Encyclopedia"
-	starting_title = "Station Repairs and Construction"
+	author = "Engineering Encyclopedia"
+	title = "Station Repairs and Construction"
 	page_link = "Guide_to_construction"
 
 /obj/item/book/manual/wiki/engineering_guide
 	name = "Engineering Textbook"
 	icon_state ="bookEngineering2"
-	starting_author = "Engineering Encyclopedia"
-	starting_title = "Engineering Textbook"
+	author = "Engineering Encyclopedia"
+	title = "Engineering Textbook"
 	page_link = "Guide_to_engineering"
+
+/obj/item/book/manual/wiki/engineering_singulo_tesla
+	name = "Singularity and Tesla for Dummies"
+	icon_state ="bookEngineeringSingularitySafety"
+	author = "Engineering Encyclopedia"
+	title = "Singularity and Tesla for Dummies"
+	page_link = "Singularity_and_Tesla_engines"
 
 /obj/item/book/manual/wiki/security_space_law
 	name = "Space Law"
 	desc = "A set of Nanotrasen guidelines for keeping law and order on their space stations."
 	icon_state = "bookSpaceLaw"
-	starting_author = "Nanotrasen"
-	starting_title = "Space Law"
+	author = "Nanotrasen"
+	title = "Space Law"
 	page_link = "Space_Law"
 
 /obj/item/book/manual/wiki/security_space_law/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] pretends to read \the [src] intently... then promptly dies of laughter!"))
+	user.visible_message(span_suicide("[user] pretends to read <b>[src.name]</b> intently... then promptly dies of laughter!"))
 	return OXYLOSS
 
 /obj/item/book/manual/wiki/infections
 	name = "Infections - Making your own pandemic!"
 	icon_state = "bookInfections"
-	starting_author = "Infections Encyclopedia"
-	starting_title = "Infections - Making your own pandemic!"
+	author = "Infections Encyclopedia"
+	title = "Infections - Making your own pandemic!"
 	page_link = "Infections"
 
 /obj/item/book/manual/wiki/telescience
 	name = "Teleportation Science - Bluespace for dummies!"
 	icon_state = "book7"
-	starting_author = "University of Bluespace"
-	starting_title = "Teleportation Science - Bluespace for dummies!"
+	author = "University of Bluespace"
+	title = "Teleportation Science - Bluespace for dummies!"
 	page_link = "Guide_to_telescience"
 
 /obj/item/book/manual/wiki/engineering_hacking
 	name = "Hacking"
 	icon_state ="bookHacking"
-	starting_author = "Engineering Encyclopedia"
-	starting_title = "Hacking"
+	author = "Engineering Encyclopedia"
+	title = "Hacking"
 	page_link = "Hacking"
 
 /obj/item/book/manual/wiki/detective
 	name = "The Film Noir: Proper Procedures for Investigations"
 	icon_state ="bookDetective"
-	starting_author = "Nanotrasen"
-	starting_title = "The Film Noir: Proper Procedures for Investigations"
-	page_link = "Detective"
+	author = "Nanotrasen"
+	title = "The Film Noir: Proper Procedures for Investigations"
+	page_link = JOB_DETECTIVE
 
 /obj/item/book/manual/wiki/barman_recipes
 	name = "Barman Recipes: Mixing Drinks and Changing Lives"
 	icon_state = "barbook"
-	starting_author = "Sir John Rose"
-	starting_title = "Barman Recipes: Mixing Drinks and Changing Lives"
-	page_link = "Guide_to_drinks"
+	author = "Sir John Rose"
+	title = "Barman Recipes: Mixing Drinks and Changing Lives"
+	page_link = "Guide_to_food_and_drinks"
 
 /obj/item/book/manual/wiki/robotics_cyborgs
 	name = "Robotics for Dummies"
 	icon_state = "borgbook"
-	starting_author = "XISC"
-	starting_title = "Robotics for Dummies"
+	author = "XISC"
+	title = "Robotics for Dummies"
 	page_link = "Guide_to_robotics"
 
 /obj/item/book/manual/wiki/research_and_development
 	name = "Research and Development 101"
 	icon_state = "rdbook"
-	starting_author = "Dr. L. Ight"
-	starting_title = "Research and Development 101"
+	author = "Dr. L. Ight"
+	title = "Research and Development 101"
 	page_link = "Guide_to_Research_and_Development"
 
 /obj/item/book/manual/wiki/experimentor
 	name = "Mentoring your Experiments"
 	icon_state = "rdbook"
-	starting_author = "Dr. H.P. Kritz"
-	starting_title = "Mentoring your Experiments"
+	author = "Dr. H.P. Kritz"
+	title = "Mentoring your Experiments"
 	page_link = "Experimentor"
 
 /obj/item/book/manual/wiki/cooking_to_serve_man
 	name = "To Serve Man"
 	desc = "It's a cookbook!"
 	icon_state ="cooked_book"
-	starting_author = "the Kanamitan Empire"
-	starting_title = "To Serve Man"
-	page_link = "Guide_to_food"
+	author = "the Kanamitan Empire"
+	title = "To Serve Man"
+	page_link = "Guide_to_food_and_drinks"
 
 /obj/item/book/manual/wiki/tcomms
 	name = "Subspace Telecommunications And You"
 	icon_state = "book3"
-	starting_author = "Engineering Encyclopedia"
-	starting_title = "Subspace Telecommunications And You"
+	author = "Engineering Encyclopedia"
+	title = "Subspace Telecommunications And You"
 	page_link = "Guide_to_Telecommunications"
 
 /obj/item/book/manual/wiki/atmospherics
 	name = "Lexica Atmosia"
 	icon_state = "book5"
-	starting_author = "the City-state of Atmosia"
-	starting_title = "Lexica Atmosia"
+	author = "the City-state of Atmosia"
+	title = "Lexica Atmosia"
 	page_link = "Guide_to_Atmospherics"
 
 /obj/item/book/manual/wiki/medicine
 	name = "Medical Space Compendium, Volume 638"
 	icon_state = "book8"
-	starting_author = "Medical Journal"
-	starting_title = "Medical Space Compendium, Volume 638"
+	author = "Medical Journal"
+	title = "Medical Space Compendium, Volume 638"
 	page_link = "Guide_to_medicine"
 
 /obj/item/book/manual/wiki/surgery
 	name = "Brain Surgery for Dummies"
 	icon_state = "book4"
-	starting_author = "Dr. F. Fran"
-	starting_title = "Brain Surgery for Dummies"
+	author = "Dr. F. Fran"
+	title = "Brain Surgery for Dummies"
 	page_link = "Surgery"
 
 /obj/item/book/manual/wiki/grenades
 	name = "DIY Chemical Grenades"
 	icon_state = "book2"
-	starting_author = "W. Powell"
-	starting_title = "DIY Chemical Grenades"
+	author = "W. Powell"
+	title = "DIY Chemical Grenades"
 	page_link = "Grenade"
 
 /obj/item/book/manual/wiki/ordnance
-	name = "Ordnance for Dummies or: How I Learned to Stop Worrying and Love the Maxcap"
+	name = "Toxins or: How I Learned to Stop Worrying and Love the Maxcap"
 	icon_state = "book6"
-	starting_author = "Cuban Pete"
-	starting_title = "Ordnance for Dummies or: How I Learned to Stop Worrying and Love the Maxcap"
+	author = "Cuban Pete"
+	title = "Toxins or: How I Learned to Stop Worrying and Love the Maxcap"
 	page_link = "Guide_to_toxins"
 
-/obj/item/book/manual/wiki/ordnance/suicide_act(mob/living/user)
+/obj/item/book/manual/wiki/ordnance/suicide_act(mob/user)
 	var/mob/living/carbon/human/H = user
 	user.visible_message(span_suicide("[user] starts dancing to the Rhumba Beat! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(loc, 'sound/effects/spray.ogg', 10, TRUE, -3)
 	if (!QDELETED(H))
 		H.emote("spin")
-		sleep(2 SECONDS)
+		sleep(20)
 		for(var/obj/item/W in H)
 			H.dropItemToGround(W)
 			if(prob(50))
 				step(W, pick(GLOB.alldirs))
 		ADD_TRAIT(H, TRAIT_DISFIGURED, TRAIT_GENERIC)
-		for(var/obj/item/bodypart/part as anything in H.bodyparts)
-			part.adjustBleedStacks(5)
+		for(var/i in H.bodyparts)
+			var/obj/item/bodypart/BP = i
+			BP.generic_bleedstacks += 5
 		H.gib_animation()
-		sleep(0.3 SECONDS)
+		sleep(3)
 		H.adjustBruteLoss(1000) //to make the body super-bloody
-		// if we use gib() then the body gets deleted
 		H.spawn_gibs()
-		H.spill_organs(DROP_ALL_REMAINS)
-		H.spread_bodyparts(DROP_BRAIN)
-	return BRUTELOSS
+		H.spill_organs()
+		H.spread_bodyparts()
+	return (BRUTELOSS)
 
 /obj/item/book/manual/wiki/plumbing
 	name = "Chemical Factories Without Narcotics"
 	icon_state ="plumbingbook"
-	starting_author = "Nanotrasen"
-	starting_title = "Chemical Factories Without Narcotics"
+	author = "Nanotrasen"
+	title = "Chemical Factories Without Narcotics"
 	page_link = "Guide_to_plumbing"
 
 /obj/item/book/manual/wiki/cytology
 	name = "Unethically Grown Organics"
 	icon_state ="cytologybook"
-	starting_author = "Kryson"
-	starting_title = "Unethically Grown Organics"
+	author = "Kryson"
+	title = "Unethically Grown Organics"
 	page_link = "Guide_to_cytology"
-
-/obj/item/book/manual/wiki/tgc
-	name = "Tactical Game Cards - Player's Handbook"
-	icon_state = "tgcbook"
-	starting_author = "Nanotrasen Edu-tainment Division"
-	starting_title = "Tactical Game Cards - Player's Handbook"
-	page_link = "Tactical_Game_Cards"

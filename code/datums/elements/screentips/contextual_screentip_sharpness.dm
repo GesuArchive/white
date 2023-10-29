@@ -2,7 +2,7 @@
 /// A "Type B" interaction.
 /// This stacks with other contextual screentip elements, though you may want to register the signal/flag manually at that point for performance.
 /datum/element/contextual_screentip_sharpness
-	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH_ON_HOST_DESTROY // Detach for turfs
+	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH_ON_HOST_DESTROY
 	argument_hash_start_idx = 2
 
 	/// If set, the text to show for LMB
@@ -54,4 +54,3 @@
 		context[SCREENTIP_CONTEXT_RMB] = rmb_text
 
 	return CONTEXTUAL_SCREENTIP_SET
-

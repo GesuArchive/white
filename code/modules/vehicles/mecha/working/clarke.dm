@@ -1,16 +1,16 @@
 ///Lavaproof, fireproof, fast mech with low armor and higher energy consumption, cannot strafe and has an internal ore box.
-/obj/vehicle/sealed/mecha/clarke
-	desc = "Combining man and machine for a better, stronger engineer. Can even resist lava!"
-	name = "\improper Clarke"
+/obj/vehicle/sealed/mecha/working/clarke
+	desc = "Экзокостюм разработанный в равной степени для горнодобывающей и инженерной отрасли. Оснащен интегрированным танком для руды и лавастойкими траками."
+	name = "Кларк"
 	icon_state = "clarke"
-	base_icon_state = "clarke"
 	max_temperature = 65000
 	max_integrity = 200
 	movedelay = 1.25
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	lights_power = 7
-	step_energy_drain = 12 //slightly higher energy drain since you movin those wheels FAST
-	armor_type = /datum/armor/mecha_clarke
+	force = 15
+	step_energy_drain = 15 //slightly higher energy drain since you movin those wheels FAST
+	armor = list(MELEE = 40, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 60, BIO = 0, FIRE = 100, ACID = 100)
 	equip_by_category = list(
 		MECHA_L_ARM = null,
 		MECHA_R_ARM = null,
@@ -19,41 +19,47 @@
 		MECHA_ARMOR = list(),
 	)
 	max_equip_by_category = list(
-		MECHA_L_ARM = 1,
-		MECHA_R_ARM = 1,
-		MECHA_UTILITY = 5,
+		MECHA_UTILITY = 3,
 		MECHA_POWER = 1,
 		MECHA_ARMOR = 1,
 	)
 	wreckage = /obj/structure/mecha_wreckage/clarke
-	mech_type = EXOSUIT_MODULE_CLARKE
 	enter_delay = 40
-	mecha_flags = IS_ENCLOSED | HAS_LIGHTS | MMI_COMPATIBLE | OMNIDIRECTIONAL_ATTACKS
-	accesses = list(ACCESS_MECH_ENGINE, ACCESS_MECH_SCIENCE, ACCESS_MECH_MINING)
-	allow_diagonal_movement = FALSE
-	pivot_step = TRUE
+	mecha_flags = ADDING_ACCESS_POSSIBLE | IS_ENCLOSED | HAS_LIGHTS
+	internals_req_access = list(ACCESS_MECH_ENGINE, ACCESS_MECH_SCIENCE, ACCESS_MECH_MINING)
 
-/datum/armor/mecha_clarke
-	melee = 20
-	bullet = 10
-	laser = 20
-	energy = 10
-	bomb = 60
-	fire = 100
-	acid = 100
-
-/obj/vehicle/sealed/mecha/clarke/Initialize(mapload)
+/obj/vehicle/sealed/mecha/working/clarke/Initialize(mapload)
 	. = ..()
-	ore_box = new(src)
+	box = new(src)
 
-/obj/vehicle/sealed/mecha/clarke/atom_destruction()
-	if(ore_box)
-		INVOKE_ASYNC(ore_box, TYPE_PROC_REF(/obj/structure/ore_box, dump_box_contents))
+/obj/vehicle/sealed/mecha/working/clarke/Destroy()
+	INVOKE_ASYNC(box, /obj/structure/ore_box/proc/dump_box_contents)
 	return ..()
 
-/obj/vehicle/sealed/mecha/clarke/generate_actions()
+/obj/vehicle/sealed/mecha/working/clarke/generate_actions()
 	. = ..()
 	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_search_ruins)
+
+/obj/vehicle/sealed/mecha/working/clarke/moved_inside(mob/living/carbon/human/H)
+	. = ..()
+	if(. && !HAS_TRAIT(H, TRAIT_DIAGNOSTIC_HUD))
+		var/datum/atom_hud/hud = GLOB.huds[DATA_HUD_DIAGNOSTIC_ADVANCED]
+		hud.show_to(H)
+		ADD_TRAIT(H, TRAIT_DIAGNOSTIC_HUD, VEHICLE_TRAIT)
+
+/obj/vehicle/sealed/mecha/working/clarke/remove_occupant(mob/living/carbon/H)
+	if(isliving(H) && HAS_TRAIT_FROM(H, TRAIT_DIAGNOSTIC_HUD, VEHICLE_TRAIT))
+		var/datum/atom_hud/hud = GLOB.huds[DATA_HUD_DIAGNOSTIC_ADVANCED]
+		hud.hide_from(H)
+		REMOVE_TRAIT(H, TRAIT_DIAGNOSTIC_HUD, VEHICLE_TRAIT)
+	return ..()
+
+/obj/vehicle/sealed/mecha/working/clarke/mmi_moved_inside(obj/item/mmi/M, mob/user)
+	. = ..()
+	if(.)
+		var/datum/atom_hud/hud = GLOB.huds[DATA_HUD_DIAGNOSTIC_ADVANCED]
+		var/mob/living/brain/B = M.brainmob
+		hud.show_to(B)
 
 //Ore Box Controls
 
@@ -61,53 +67,34 @@
 /obj/item/mecha_parts/mecha_equipment/orebox_manager
 	name = "ore storage module"
 	desc = "An automated ore box management device."
-	icon_state = "mecha_bin"
+	icon = 'icons/obj/mining.dmi'
+	icon_state = "bin"
 	equipment_slot = MECHA_UTILITY
+	selectable = FALSE
 	detachable = FALSE
+	salvageable = FALSE
+	/// Var to avoid istype checking every time the topic button is pressed. This will only work inside Clarke mechs.
+	var/obj/vehicle/sealed/mecha/working/clarke/hostmech
 
-/obj/item/mecha_parts/mecha_equipment/orebox_manager/attach(obj/vehicle/sealed/mecha/mecha, attach_right = FALSE)
+/obj/item/mecha_parts/mecha_equipment/orebox_manager/attach(obj/vehicle/sealed/mecha/M, attach_right = FALSE)
 	. = ..()
-	ADD_TRAIT(chassis, TRAIT_OREBOX_FUNCTIONAL, TRAIT_MECH_EQUIPMENT(type))
+	if(istype(M, /obj/vehicle/sealed/mecha/working/clarke))
+		hostmech = M
 
-/obj/item/mecha_parts/mecha_equipment/orebox_manager/detach(atom/moveto)
-	REMOVE_TRAIT(chassis, TRAIT_OREBOX_FUNCTIONAL, TRAIT_MECH_EQUIPMENT(type))
+/obj/item/mecha_parts/mecha_equipment/orebox_manager/detach()
+	hostmech = null //just in case
 	return ..()
-
-/obj/item/mecha_parts/mecha_equipment/orebox_manager/get_snowflake_data()
-	var/list/contents = chassis.ore_box?.contents
-	var/list/contents_grouped = list()
-	for(var/obj/item/stack/ore/item as anything in contents)
-		if(isnull(contents_grouped[item.icon_state]))
-			var/ore_data = list()
-			ore_data["name"] = item.name
-			ore_data["icon"] = item.icon_state
-			ore_data["amount"] = item.amount
-			contents_grouped[item.icon_state] = ore_data
-		else
-			contents_grouped[item.icon_state]["amount"] += item.amount
-	var/list/data = list(
-		"snowflake_id" = MECHA_SNOWFLAKE_ID_OREBOX_MANAGER,
-		"contents" = contents_grouped,
-		)
-	return data
 
 /obj/item/mecha_parts/mecha_equipment/orebox_manager/ui_act(action, list/params)
 	. = ..()
-	if(.)
-		return TRUE
-	if(action == "dump")
-		var/obj/structure/ore_box/cached_ore_box = chassis.ore_box
-		if(isnull(cached_ore_box))
-			return FALSE
-		cached_ore_box.dump_box_contents()
-		playsound(chassis, 'sound/weapons/tap.ogg', 50, TRUE)
-		log_message("Dumped [cached_ore_box].", LOG_MECHA)
-		return TRUE
+	if(action == "toggle")
+		hostmech.box?.dump_box_contents()
+		equip_ready = TRUE
 
-#define SEARCH_COOLDOWN (1 MINUTES)
+#define SEARCH_COOLDOWN 1 MINUTES
 
 /datum/action/vehicle/sealed/mecha/mech_search_ruins
-	name = "Search for Ruins"
+	name = "Поиск руин"
 	button_icon_state = "mech_search_ruins"
 	COOLDOWN_DECLARE(search_cooldown)
 
@@ -115,7 +102,7 @@
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
 	if(!COOLDOWN_FINISHED(src, search_cooldown))
-		chassis.balloon_alert(owner, "on cooldown!")
+		chassis.balloon_alert(owner, "на перезарядке!")
 		return
 	if(!isliving(owner))
 		return
@@ -132,12 +119,12 @@
 		if(!pinpointed_ruin || get_dist(ruin_landmark, chassis) < get_dist(pinpointed_ruin, chassis))
 			pinpointed_ruin = ruin_landmark
 	if(!pinpointed_ruin)
-		chassis.balloon_alert(living_owner, "no ruins!")
+		chassis.balloon_alert(living_owner, "нет руин!")
 		return
 	var/datum/status_effect/agent_pinpointer/ruin_pinpointer = living_owner.apply_status_effect(/datum/status_effect/agent_pinpointer/ruin)
 	ruin_pinpointer.RegisterSignal(living_owner, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/status_effect/agent_pinpointer/ruin, cancel_self))
 	ruin_pinpointer.scan_target = pinpointed_ruin
-	chassis.balloon_alert(living_owner, "pinpointing nearest ruin")
+	chassis.balloon_alert(living_owner, "найдено")
 
 /datum/status_effect/agent_pinpointer/ruin
 	duration = SEARCH_COOLDOWN * 0.5
@@ -156,7 +143,7 @@
 	qdel(src)
 
 /atom/movable/screen/alert/status_effect/agent_pinpointer/ruin
-	name = "Ruin Target"
-	desc = "Searching for valuables..."
+	name = "Цель"
+	desc = "Поиск ценностей..."
 
 #undef SEARCH_COOLDOWN

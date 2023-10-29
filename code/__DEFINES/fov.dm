@@ -1,3 +1,4 @@
+
 /// Field of vision defines.
 #define FOV_90_DEGREES 90
 #define FOV_180_DEGREES 180
@@ -8,7 +9,10 @@
 #define BASE_FOV_MASK_Y_DIMENSION 15
 
 /// Range at which FOV effects treat nearsightness as blind and play
-#define NEARSIGHTNESS_FOV_BLINDNESS 2
+#define NEARSIGHTNESS_FOV_BLINDNESS 3
+
+/// Range in tiles that a mob can see in the dark (used to determine if a mob has night_vision)
+#define NIGHTVISION_FOV_RANGE 8
 
 //Fullscreen overlay resolution in tiles for the clients view.
 /// The fullscreen overlay in tiles for x axis

@@ -13,7 +13,7 @@
 
 	invocation = "CLANG!"
 	invocation_type = INVOCATION_SHOUT
-	spell_requirements = SPELL_REQUIRES_WIZARD_GARB|SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_STATION
+	spell_requirements = SPELL_REQUIRES_WIZARD_GARB|SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_OFF_CENTCOM
 
 	/// The extra distance we travel per additional spell level.
 	var/distance_per_spell_rank = 3
@@ -138,8 +138,9 @@
 	our_wizard = WEAKREF(wizard)
 
 	wizard.forceMove(src)
+	wizard.notransform = TRUE
 	wizard.status_flags |= GODMODE
-	wizard.add_traits(list(TRAIT_MAGICALLY_PHASED, TRAIT_NO_TRANSFORM), REF(src))
+	ADD_TRAIT(wizard, TRAIT_MAGICALLY_PHASED, REF(src))
 
 /**
  * Eject our current wizard, removing them from the rod
@@ -151,8 +152,9 @@
 		return
 
 	wizard.status_flags &= ~GODMODE
-	wizard.remove_traits(list(TRAIT_MAGICALLY_PHASED, TRAIT_NO_TRANSFORM), REF(src))
+	wizard.notransform = FALSE
 	wizard.forceMove(get_turf(src))
 	our_wizard = null
+	REMOVE_TRAIT(wizard, TRAIT_MAGICALLY_PHASED, REF(src))
 
 #undef BASE_WIZ_ROD_RANGE

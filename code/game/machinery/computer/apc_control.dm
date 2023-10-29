@@ -1,11 +1,11 @@
 /obj/machinery/computer/apc_control
-	name = "power flow control console"
-	desc = "Used to remotely control the flow of power to different parts of the station."
+	name = "консоль управления энергопотреблением"
+	desc = "Используется для дистанционного управления подачи электроэнергии в различные части станции."
 	icon_screen = "solar"
 	icon_keyboard = "power_key"
 	req_access = list(ACCESS_CE)
 	circuit = /obj/item/circuitboard/computer/apc_control
-	light_color = LIGHT_COLOR_DIM_YELLOW
+	light_color = LIGHT_COLOR_YELLOW
 	var/obj/machinery/power/apc/active_apc //The APC we're using right now
 	var/should_log = TRUE
 	var/restoring = FALSE
@@ -27,15 +27,12 @@
 		return
 	..()
 
-/obj/machinery/computer/apc_control/emag_act(mob/user, obj/item/card/emag/emag_card)
+/obj/machinery/computer/apc_control/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
-		return FALSE
+		return
 	obj_flags |= EMAGGED
-	if (user)
-		user.log_message("emagged [src].", LOG_ATTACK, color="red")
-		balloon_alert(user, "access controller shorted")
+	usr.log_message("emagged [src].", LOG_ATTACK, color="red")
 	playsound(src, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-	return TRUE
 
 /obj/machinery/computer/apc_control/proc/log_activity(log_text)
 	if(!should_log)
@@ -72,7 +69,7 @@
 	active_apc = null
 
 /obj/machinery/computer/apc_control/proc/check_apc(obj/machinery/power/apc/APC)
-	return APC.z == z && !APC.malfhack && !APC.aidisabled && !(APC.obj_flags & EMAGGED) && !APC.machine_stat && !istype(APC.area, /area/station/ai_monitored)
+	return APC.z == z && !APC.malfhack && !APC.aidisabled && !(APC.obj_flags & EMAGGED) && !APC.machine_stat && !istype(APC.area, /area/ai_monitored)
 
 /obj/machinery/computer/apc_control/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
@@ -94,21 +91,22 @@
 	for(var/entry in logs)
 		data["logs"] += list(list("entry" = entry))
 
-	for(var/obj/machinery/power/apc/apc as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/power/apc))
+	for(var/apc in GLOB.apcs_list)
 		if(check_apc(apc))
-			var/has_cell = (apc.cell) ? TRUE : FALSE
+			var/obj/machinery/power/apc/A = apc
+			var/has_cell = (A.cell) ? TRUE : FALSE
 			data["apcs"] += list(list(
-					"name" = apc.area.name,
-					"operating" = apc.operating,
-					"charge" = (has_cell) ? apc.cell.percent() : "NOCELL",
-					"load" = display_power(apc.lastused_total),
-					"charging" = apc.charging,
-					"chargeMode" = apc.chargemode,
-					"eqp" = apc.equipment,
-					"lgt" = apc.lighting,
-					"env" = apc.environ,
-					"responds" = apc.aidisabled || apc.panel_open,
-					"ref" = REF(apc)
+					"name" = A.area.name,
+					"operating" = A.operating,
+					"charge" = (has_cell) ? A.cell.percent() : "NOCELL",
+					"load" = display_power(A.lastused_total),
+					"charging" = A.charging,
+					"chargeMode" = A.chargemode,
+					"eqp" = A.equipment,
+					"lgt" = A.lighting,
+					"env" = A.environ,
+					"responds" = A.aidisabled || A.panel_open,
+					"ref" = REF(A)
 				)
 			)
 	return data
@@ -157,7 +155,7 @@
 		if("access-apc")
 			var/ref = params["ref"]
 			playsound(src, SFX_TERMINAL_TYPE, 50, FALSE)
-			var/obj/machinery/power/apc/APC = locate(ref) in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/power/apc)
+			var/obj/machinery/power/apc/APC = locate(ref) in GLOB.apcs_list
 			connect_apc(APC, usr)
 		if("check-logs")
 			log_activity("Checked Logs")
@@ -167,7 +165,7 @@
 			var/ref = params["ref"]
 			var/type = params["type"]
 			var/value = params["value"]
-			var/obj/machinery/power/apc/target = locate(ref) in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/power/apc)
+			var/obj/machinery/power/apc/target = locate(ref) in GLOB.apcs_list
 			if(!target)
 				return
 
@@ -196,7 +194,7 @@
 			usr.log_message("set APC [target.area.name] [type] to [setTo]]", LOG_GAME)
 		if("breaker")
 			var/ref = params["ref"]
-			var/obj/machinery/power/apc/target = locate(ref) in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/power/apc)
+			var/obj/machinery/power/apc/target = locate(ref) in GLOB.apcs_list
 			target.toggle_breaker(usr)
 			var/setTo = target.operating ? "On" : "Off"
 			log_activity("Turned APC [target.area.name]'s breaker [setTo]")

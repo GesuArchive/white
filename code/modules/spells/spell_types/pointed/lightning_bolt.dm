@@ -1,8 +1,7 @@
 /datum/action/cooldown/spell/pointed/projectile/lightningbolt
-	name = "Lightning Bolt"
-	desc = "Fire a lightning bolt at your foes! It will jump between targets, but can't knock them down."
-	button_icon_state = "lightning"
-	active_overlay_icon_state = "bg_spell_border_active_yellow"
+	name = "Удар молнии"
+	desc = "Стреляйте молнией в своих врагов! Она будет прыгать между целями, но не сможет сбить их с ног."
+	button_icon_state = "lightning0"
 
 	sound = 'sound/magic/lightningbolt.ogg'
 	school = SCHOOL_EVOCATION
@@ -13,8 +12,8 @@
 	invocation_type = INVOCATION_SHOUT
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 
-	active_msg = "You energize your hands with arcane lightning!"
-	deactive_msg = "You let the energy flow out of your hands back into yourself..."
+	active_msg = "Заряжаю свои руки энергией с помощью силы молнии!"
+	deactive_msg = "Успокаиваю магическую силу в моих руках..."
 	projectile_type = /obj/projectile/magic/aoe/lightning
 
 	/// The range the bolt itself (different to the range of the projectile)

@@ -13,7 +13,6 @@
 		BB_CURSED_THROW_ATTEMPT_COUNT
 	)
 	planning_subtrees = list(/datum/ai_planning_subtree/cursed)
-	idle_behavior = /datum/idle_behavior/idle_ghost_item
 
 /datum/ai_controller/cursed/TryPossessPawn(atom/new_pawn)
 	if(!isitem(new_pawn))
@@ -25,6 +24,14 @@
 /datum/ai_controller/cursed/UnpossessPawn()
 	UnregisterSignal(pawn, list(COMSIG_MOVABLE_IMPACT, COMSIG_ITEM_EQUIPPED))
 	return ..() //Run parent at end
+
+/datum/ai_controller/cursed/PerformIdleBehavior(delta_time)
+	var/obj/item/item_pawn = pawn
+	if(ismob(item_pawn.loc)) //Being held. dont teleport
+		return
+	if(DT_PROB(CURSED_ITEM_TELEPORT_CHANCE, delta_time))
+		playsound(item_pawn.loc, 'sound/items/haunted/ghostitemattack.ogg', 100, TRUE)
+		do_teleport(pawn, get_turf(pawn), 4, channel = TELEPORT_CHANNEL_MAGIC)
 
 ///signal called by the pawn hitting something after a throw
 /datum/ai_controller/cursed/proc/on_throw_hit(datum/source, atom/hit_atom, datum/thrownthing/throwingdatum)
@@ -50,10 +57,10 @@
 /datum/ai_controller/cursed/proc/try_equipping_to_target_slot(mob/living/carbon/curse_victim, slot_already_in)
 	var/obj/item/item_pawn = pawn
 	var/attempted_slot = blackboard[BB_TARGET_SLOT]
-	if(slot_already_in && (attempted_slot & slot_already_in)) //thanks for making it easy
+	if(slot_already_in && attempted_slot == slot_already_in) //thanks for making it easy
 		what_a_horrible_night_to_have_a_curse()
 		return
-	if(attempted_slot & ITEM_SLOT_HANDS) //hands needs some different checks
+	if(attempted_slot == ITEM_SLOT_HANDS) //hands needs some different checks
 		curse_victim.drop_all_held_items()
 		if(curse_victim.put_in_hands(item_pawn, del_on_fail = FALSE))
 			to_chat(curse_victim, span_danger("[item_pawn] leaps into your hands!"))

@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(icon_smooth)
 	name = "Icon Smoothing"
 	init_order = INIT_ORDER_ICON_SMOOTHING
 	wait = 1
-	priority = FIRE_PRIORITY_SMOOTHING
+	priority = FIRE_PRIOTITY_SMOOTHING
 	flags = SS_TICKER
 
 	///Blueprints assemble an image of what pipes/manifolds/wires look like on initialization, and thus should be taken after everything's been smoothed
@@ -11,13 +11,6 @@ SUBSYSTEM_DEF(icon_smooth)
 	var/list/deferred = list()
 
 /datum/controller/subsystem/icon_smooth/fire()
-	// We do not want to smooth icons of atoms whose neighbors are not initialized yet,
-	// this causes runtimes.
-	// Icon smoothing SS runs after atoms, so this only happens for something like shuttles.
-	// This kind of map loading shouldn't take too long, so the delay is not a problem.
-	if (SSatoms.initializing_something())
-		return
-
 	var/list/smooth_queue_cache = smooth_queue
 	while(length(smooth_queue_cache))
 		var/atom/smoothing_atom = smooth_queue_cache[length(smooth_queue_cache)]
@@ -61,7 +54,6 @@ SUBSYSTEM_DEF(icon_smooth)
 
 	return SS_INIT_SUCCESS
 
-
 /datum/controller/subsystem/icon_smooth/proc/add_to_queue(atom/thing)
 	if(thing.smoothing_flags & SMOOTH_QUEUED)
 		return
@@ -74,5 +66,5 @@ SUBSYSTEM_DEF(icon_smooth)
 	thing.smoothing_flags &= ~SMOOTH_QUEUED
 	smooth_queue -= thing
 	if(blueprint_queue)
-		blueprint_queue -= thing
+		LAZYREMOVE(blueprint_queue, thing)
 	deferred -= thing

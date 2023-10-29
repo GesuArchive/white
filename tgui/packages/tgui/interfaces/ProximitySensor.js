@@ -6,19 +6,19 @@ export const ProximitySensor = (props, context) => {
   const { act, data } = useBackend(context);
   const { minutes, seconds, timing, scanning, sensitivity } = data;
   return (
-    <Window width={250} height={185}>
+    <Window width={250} height={175}>
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Status">
+            <LabeledList.Item label="Состояние">
               <Button
                 icon={scanning ? 'lock' : 'unlock'}
-                content={scanning ? 'Armed' : 'Not Armed'}
+                content={scanning ? 'Готов' : 'Не готов'}
                 selected={scanning}
                 onClick={() => act('scanning')}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Detection Range">
+            <LabeledList.Item label="Радиус">
               <Button
                 icon="backward"
                 disabled={scanning}
@@ -34,11 +34,11 @@ export const ProximitySensor = (props, context) => {
           </LabeledList>
         </Section>
         <Section
-          title="Auto Arm"
+          title="Авто-готовность"
           buttons={
             <Button
               icon={'clock-o'}
-              content={timing ? 'Stop' : 'Start'}
+              content={timing ? 'Стоп' : 'Старт'}
               selected={timing}
               disabled={scanning}
               onClick={() => act('time')}

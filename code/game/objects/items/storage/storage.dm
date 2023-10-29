@@ -1,83 +1,38 @@
 /obj/item/storage
 	name = "storage"
-	icon = 'icons/obj/storage/storage.dmi'
+	icon = 'icons/obj/storage.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 	var/rummage_if_nodrop = TRUE
 	/// Should we preload the contents of this type?
 	/// BE CAREFUL, THERE'S SOME REALLY NASTY SHIT IN THIS TYPEPATH
 	/// SANTA IS EVIL
 	var/preload = FALSE
-	/// What storage type to use for this item
-	var/datum/storage/storage_type = /datum/storage
 
-/obj/item/storage/apply_fantasy_bonuses(bonus)
-	. = ..()
-	if(isnull(atom_storage)) // some abstract types of storage (yes i know) don't get a datum
-		return
-
-	atom_storage.max_slots = modify_fantasy_variable("max_slots", atom_storage.max_slots, round(bonus/2))
-	atom_storage.max_total_storage = modify_fantasy_variable("max_total_storage", atom_storage.max_total_storage, round(bonus/2))
-	LAZYSET(fantasy_modifications, "max_specific_storage", atom_storage.max_specific_storage)
-	if(bonus >= 15)
-		atom_storage.max_specific_storage = max(WEIGHT_CLASS_HUGE, atom_storage.max_specific_storage)
-	else if(bonus >= 10)
-		atom_storage.max_specific_storage = max(WEIGHT_CLASS_BULKY, atom_storage.max_specific_storage)
-	else if(bonus <= -10)
-		atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
-	else if(bonus <= -15)
-		atom_storage.max_specific_storage = WEIGHT_CLASS_TINY
-
-/obj/item/storage/remove_fantasy_bonuses(bonus)
-	if(isnull(atom_storage)) // some abstract types of storage (yes i know) don't get a datum
-		return ..()
-
-	atom_storage.max_slots = reset_fantasy_variable("max_slots", atom_storage.max_slots)
-	atom_storage.max_total_storage = reset_fantasy_variable("max_total_storage", atom_storage.max_total_storage)
-	var/previous_max_storage = LAZYACCESS(fantasy_modifications, "max_specific_storage")
-	LAZYREMOVE(fantasy_modifications, "max_specific_storage")
-	if(previous_max_storage)
-		atom_storage.max_specific_storage = previous_max_storage
-	return ..()
+/obj/item/storage/get_dumping_location(obj/item/storage/source,mob/user)
+	return src
 
 /obj/item/storage/Initialize(mapload)
 	. = ..()
 
-	create_storage(storage_type = storage_type)
+	create_storage()
 
 	PopulateContents()
 
 	for (var/obj/item/item in src)
 		item.item_flags |= IN_STORAGE
 
-/obj/item/storage/create_storage(
-	max_slots,
-	max_specific_storage,
-	max_total_storage,
-	numerical_stacking,
-	allow_quick_gather,
-	allow_quick_empty,
-	collection_mode,
-	attack_hand_interact,
-	list/canhold,
-	list/canthold,
-	storage_type,
-	)
-	if(!storage_type) // If no type was passed in, default to what we already have
-		storage_type = src.storage_type
-	return ..()
-
-
 /obj/item/storage/AllowDrop()
 	return FALSE
 
 /obj/item/storage/contents_explosion(severity, target)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			SSexplosions.high_mov_atom += contents
-		if(EXPLODE_HEAVY)
-			SSexplosions.med_mov_atom += contents
-		if(EXPLODE_LIGHT)
-			SSexplosions.low_mov_atom += contents
+	for(var/thing in contents)
+		switch(severity)
+			if(EXPLODE_DEVASTATE)
+				SSexplosions.high_mov_atom += thing
+			if(EXPLODE_HEAVY)
+				SSexplosions.med_mov_atom += thing
+			if(EXPLODE_LIGHT)
+				SSexplosions.low_mov_atom += thing
 
 /obj/item/storage/canStrip(mob/who)
 	. = ..()
@@ -110,3 +65,15 @@
 /// Don't do anything stupid, please
 /obj/item/storage/proc/get_types_to_preload()
 	return
+
+/obj/item/storage/on_object_saved(depth = 0)
+	if(depth >= 10)
+		return ""
+	var/dat = ""
+	for(var/obj/item in contents)
+		var/metadata = generate_tgm_metadata(item)
+		dat += "[dat ? ",\n" : ""][item.type][metadata]"
+		//Save the contents of things inside the things inside us, EG saving the contents of bags inside lockers
+		var/custom_data = item.on_object_saved(depth++)
+		dat += "[custom_data ? ",\n[custom_data]" : ""]"
+	return dat

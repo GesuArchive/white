@@ -18,5 +18,4 @@
 	name = "Create Construct Shell"
 	background_icon_state = "bg_demon"
 	overlay_icon_state = "bg_demon_border"
-
 	cooldown_time = 3 MINUTES

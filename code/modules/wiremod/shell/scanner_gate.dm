@@ -1,6 +1,6 @@
 /obj/structure/scanner_gate_shell
-	name = "circuit scanner gate"
-	desc = "A gate able to perform mid-depth scans on any organisms who pass under it."
+	name = "Сканирующая арка"
+	desc = "Оболочка арки сканера, которая выполняет сканирование людей, проходящих через нее."
 	icon = 'icons/obj/machines/scangate.dmi'
 	icon_state = "scangate_black"
 	var/locked = FALSE
@@ -22,7 +22,7 @@
 		return
 	set_anchored(!anchored)
 	tool.play_tool_sound(src)
-	balloon_alert(user, anchored ? "secured" : "unsecured")
+	balloon_alert(user, "You [anchored?"secure":"unsecure"] [src].")
 	return TRUE
 
 /obj/structure/scanner_gate_shell/proc/on_entered(datum/source, atom/movable/AM)

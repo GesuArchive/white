@@ -1,23 +1,22 @@
 GLOBAL_LIST_INIT(rod_recipes, list ( \
-	new/datum/stack_recipe("grille", /obj/structure/grille, 2, time = 1 SECONDS, one_per_turf = TRUE, on_solid_ground = FALSE, check_density = FALSE, category = CAT_STRUCTURE), \
-	new/datum/stack_recipe("table frame", /obj/structure/table_frame, 2, time = 1 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_FURNITURE), \
-	new/datum/stack_recipe("scooter frame", /obj/item/scooter_frame, 10, time = 2.5 SECONDS, one_per_turf = FALSE, category = CAT_ENTERTAINMENT), \
-	new/datum/stack_recipe("linen bin", /obj/structure/bedsheetbin/empty, 2, time = 0.5 SECONDS, one_per_turf = FALSE, category = CAT_CONTAINERS), \
-	new/datum/stack_recipe("railing", /obj/structure/railing, 2, time = 1 SECONDS, check_direction = TRUE, category = CAT_STRUCTURE), \
-	new/datum/stack_recipe("railing corner", /obj/structure/railing/corner, 1, time = 1 SECONDS, check_direction = TRUE, category = CAT_STRUCTURE), \
-	new/datum/stack_recipe("railing end", /obj/structure/railing/corner/end, 1, time = 1 SECONDS, check_direction = TRUE, category = CAT_STRUCTURE), \
-	new/datum/stack_recipe("railing end (flipped)", /obj/structure/railing/corner/end/flip, 1, time = 1 SECONDS, check_direction = TRUE, category = CAT_STRUCTURE), \
-	new/datum/stack_recipe("tank holder", /obj/structure/tank_holder, 2, time = 0.5 SECONDS, one_per_turf = TRUE, on_solid_ground = FALSE, check_density = FALSE, category = CAT_FURNITURE), \
-	new/datum/stack_recipe("ladder", /obj/structure/ladder/crafted, 15, time = 15 SECONDS, one_per_turf = TRUE, on_solid_ground = FALSE, check_density = FALSE, category = CAT_STRUCTURE), \
-	new/datum/stack_recipe("catwalk floor tile", /obj/item/stack/tile/catwalk_tile, 1, 4, 20, category = CAT_TILES), \
-	new/datum/stack_recipe("stairs frame", /obj/structure/stairs_frame, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE), \
-	new/datum/stack_recipe("white cane", /obj/item/cane/white, 3, time = 1 SECONDS, one_per_turf = FALSE, category = CAT_TOOLS), \
+	new/datum/stack_recipe("решётка", /obj/structure/grille, 2, time = 10, one_per_turf = TRUE, on_floor = FALSE, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("рама стола", /obj/structure/table_frame, 2, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("рама самоката", /obj/item/scooter_frame, 10, time = 25, one_per_turf = FALSE, category = CAT_MISC), \
+	new/datum/stack_recipe("корзина для белья", /obj/structure/bedsheetbin/empty, 2, time = 5, one_per_turf = FALSE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("перила", /obj/structure/railing, 3, time = 18, window_checks = TRUE, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("держатель баков", /obj/structure/tank_holder, 2, time = 5, one_per_turf = TRUE, on_floor = FALSE, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("лестница", /obj/structure/ladder/crafted, 15, time = 150, one_per_turf = TRUE, on_floor = FALSE, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("помостовый пол", /obj/item/stack/tile/catwalk_tile, 1, 4, 20, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("спейспод: левый нос", /obj/item/pod_parts/pod_frame/fore_port, 15, time = 30, one_per_turf = 0, category = CAT_MISC), \
+	new/datum/stack_recipe("спейспод: правый нос", /obj/item/pod_parts/pod_frame/fore_starboard, 15, time = 30, one_per_turf = 0, category = CAT_MISC), \
+	new/datum/stack_recipe("спейспод: левая корма", /obj/item/pod_parts/pod_frame/aft_port, 15, time = 30, one_per_turf = 0, category = CAT_MISC), \
+	new/datum/stack_recipe("спейспод: правая корма", /obj/item/pod_parts/pod_frame/aft_starboard, 15, time = 30, one_per_turf = 0, category = CAT_MISC), \
 	))
 
 /obj/item/stack/rods
-	name = "iron rod"
-	desc = "Some rods. Can be used for building or something."
-	singular_name = "iron rod"
+	name = "железные стержни"
+	desc = "Могут быть использованы для строительства или укрепления чего-то."
+	singular_name = "железный стержень"
 	icon_state = "rods"
 	inhand_icon_state = "rods"
 	flags_1 = CONDUCT_1
@@ -26,45 +25,26 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	throwforce = 10
 	throw_speed = 3
 	throw_range = 7
-	demolition_mod = 1.25
-	mats_per_unit = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/iron=1000)
 	max_amount = 50
-	attack_verb_continuous = list("hits", "bludgeons", "whacks")
-	attack_verb_simple = list("hit", "bludgeon", "whack")
+	attack_verb_continuous = list("бьёт", "протыкает", "шлёпает")
+	attack_verb_simple = list("бьёт", "протыкает", "шлёпает")
 	hitsound = 'sound/weapons/gun/general/grenade_launch.ogg'
-	embedding = list(embed_chance = 50)
+	embedding = list()
 	novariants = TRUE
 	matter_amount = 2
-	cost = HALF_SHEET_MATERIAL_AMOUNT
-	source = /datum/robot_energy_storage/material/iron
+	cost = 250
+	source = /datum/robot_energy_storage/iron
 	merge_type = /obj/item/stack/rods
+	drop_sound = 'white/valtos/sounds/rods_drop.ogg'
 
 /obj/item/stack/rods/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins to stuff \the [src] down [user.p_their()] throat! It looks like [user.p_theyre()] trying to commit suicide!"))//it looks like theyre ur mum
+	user.visible_message(span_suicide("[user] начинает набивать <b>[src.name]</b> в свою глотку! Похоже, [user.p_theyre()] пытается совершить самоубийство!"))//it looks like theyre ur mum
 	return BRUTELOSS
 
 /obj/item/stack/rods/Initialize(mapload, new_amount, merge = TRUE, list/mat_override=null, mat_amt=1)
 	. = ..()
-	update_appearance()
-	AddElement(/datum/element/openspace_item_click_handler)
-	var/static/list/tool_behaviors = list(
-		TOOL_WELDER = list(
-			SCREENTIP_CONTEXT_LMB = "Craft iron sheets",
-			SCREENTIP_CONTEXT_RMB = "Craft floor tiles",
-		),
-	)
-	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
-
-	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/spear, /datum/crafting_recipe/stunprod, /datum/crafting_recipe/teleprod) // snatcher prod isn't here as a spoopy secret
-
-	AddComponent(
-		/datum/component/slapcrafting,\
-		slapcraft_recipes = slapcraft_recipe_list,\
-	)
-
-/obj/item/stack/rods/handle_openspace_click(turf/target, mob/user, proximity_flag, click_parameters)
-	if(proximity_flag)
-		target.attackby(src, user, click_parameters)
+	update_icon()
 
 /obj/item/stack/rods/get_main_recipes()
 	. = ..()
@@ -78,41 +58,40 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	else
 		icon_state = "rods"
 
-/obj/item/stack/rods/welder_act(mob/living/user, obj/item/tool)
-	if(get_amount() < 2)
-		balloon_alert(user, "not enough rods!")
-		return
-	if(tool.use_tool(src, user, delay = 0, volume = 40))
-		var/obj/item/stack/sheet/iron/new_item = new(user.loc)
-		user.visible_message(
-			span_notice("[user.name] shaped [src] into iron sheets with [tool]."),
-			blind_message = span_hear("You hear welding."),
-			vision_distance = COMBAT_MESSAGE_RANGE,
-			ignored_mobs = user
-		)
-		use(2)
-		user.put_in_inactive_hand(new_item)
-		return TOOL_ACT_TOOLTYPE_SUCCESS
+/obj/item/stack/rods/attackby(obj/item/W, mob/user, params)
 
-/obj/item/stack/rods/welder_act_secondary(mob/living/user, obj/item/tool)
-	if(tool.use_tool(src, user, delay = 0, volume = 40))
-		var/obj/item/stack/tile/iron/two/new_item = new(user.loc)
-		user.visible_message(
-			span_notice("[user.name] shaped [src] into floor tiles with [tool]."),
-			blind_message = span_hear("You hear welding."),
-			vision_distance = COMBAT_MESSAGE_RANGE,
-			ignored_mobs = user
-		)
-		use(1)
-		user.put_in_inactive_hand(new_item)
-		return TOOL_ACT_TOOLTYPE_SUCCESS
+	if(istype(W, /obj/item/gun/ballistic/automatic/pistol/nail_gun))	// 	Боеприпасы для гвоздомета
+		playsound(user, 'white/Feline/sounds/nail_drop.ogg', 100, TRUE)
+		if(amount > 1)
+			amount = amount - 1
+			update_icon()
+		else
+			qdel(src)
+		new /obj/item/ammo_casing/nail(user.drop_location())
+		new /obj/item/ammo_casing/nail(user.drop_location())
 
-/obj/item/stack/rods/cyborg/Initialize(mapload)
+	if(W.tool_behaviour == TOOL_WELDER)
+		if(get_amount() < 2)
+			to_chat(user, span_warning("Мне потребуется как минимум два стержня для этого!"))
+			return
+
+		if(W.use_tool(src, user, 0, volume=40))
+			var/obj/item/stack/sheet/iron/new_item = new(usr.loc)
+			user.visible_message(span_notice("<b>[user.name]</b> плавит [src] в железный лист используя [W].") , \
+				span_notice("Плавлю [src] в железный лист используя [W].") , \
+				span_hear("Слышу сварку."))
+			var/obj/item/stack/rods/R = src
+			src = null
+			var/replace = (user.get_inactive_held_item()==R)
+			R.use(2)
+			if (!R && replace)
+				user.put_in_hands(new_item)
+	else
+		return ..()
+
+/obj/item/stack/rods/cyborg/ComponentInitialize()
+	. = ..()
 	AddElement(/datum/element/update_icon_blocker)
-	return ..()
-
-/obj/item/stack/rods/two
-	amount = 2
 
 /obj/item/stack/rods/ten
 	amount = 10
@@ -124,15 +103,15 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	amount = 50
 
 /obj/item/stack/rods/lava
-	name = "heat resistant rod"
-	desc = "Treated, specialized iron rods. When exposed to the vaccum of space their coating breaks off, but they can hold up against the extreme heat of active lava."
-	singular_name = "heat resistant rod"
+	name = "жаропрочные стержни"
+	desc = "Обработанные, специализированные железные стержни. При воздействии космического вакуума их покрытие разрушается, но они могут противостоять сильной жаре активной лавы."
+	singular_name = "жаропрочный стержень"
 	icon_state = "rods"
 	inhand_icon_state = "rods"
 	color = "#5286b9ff"
 	flags_1 = CONDUCT_1
 	w_class = WEIGHT_CLASS_NORMAL
-	mats_per_unit = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plasma=SMALL_MATERIAL_AMOUNT*5, /datum/material/titanium=SHEET_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/iron=1000, /datum/material/plasma=500, /datum/material/titanium=2000)
 	max_amount = 30
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 	merge_type = /obj/item/stack/rods/lava

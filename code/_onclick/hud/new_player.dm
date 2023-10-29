@@ -1,66 +1,140 @@
-#define SHUTTER_MOVEMENT_DURATION 0.4 SECONDS
-#define SHUTTER_WAIT_DURATION 0.2 SECONDS
-
 /datum/hud/new_player
-	///Whether the menu is currently on the client's screen or not
-	var/menu_hud_status = TRUE
 
 /datum/hud/new_player/New(mob/owner)
 	..()
-
-	if(!owner || !owner.client)
-		return
-
-	if(owner.client.interviewee)
-		return
-
 	var/list/buttons = subtypesof(/atom/movable/screen/lobby)
 	for(var/button_type in buttons)
-		var/atom/movable/screen/lobby/lobbyscreen = new button_type(our_hud = src)
+		var/atom/movable/screen/lobby/lobbyscreen = new button_type()
 		lobbyscreen.SlowInit()
+		lobbyscreen.hud = src
 		static_inventory += lobbyscreen
-		if(!lobbyscreen.always_shown)
-			lobbyscreen.RegisterSignal(src, COMSIG_HUD_LOBBY_COLLAPSED, TYPE_PROC_REF(/atom/movable/screen/lobby, collapse_button))
-			lobbyscreen.RegisterSignal(src, COMSIG_HUD_LOBBY_EXPANDED, TYPE_PROC_REF(/atom/movable/screen/lobby, expand_button))
 		if(istype(lobbyscreen, /atom/movable/screen/lobby/button))
 			var/atom/movable/screen/lobby/button/lobby_button = lobbyscreen
 			lobby_button.owner = REF(owner)
 
 /atom/movable/screen/lobby
 	plane = SPLASHSCREEN_PLANE
-	layer = LOBBY_MENU_LAYER
+	layer = LOBBY_BUTTON_LAYER
 	screen_loc = "TOP,CENTER"
-	///Whether this HUD element can be hidden from the client's "screen" (moved off-screen) or not
-	var/always_shown = FALSE
 
-///Set the HUD in New, as lobby screens are made before Atoms are Initialized.
-/atom/movable/screen/lobby/New(loc, datum/hud/our_hud, ...)
-	if(our_hud)
-		hud = our_hud
-	return ..()
-
-///Run sleeping actions after initialize
+/// Run sleeping actions after initialize
 /atom/movable/screen/lobby/proc/SlowInit()
 	return
 
-///Animates moving the button off-screen
-/atom/movable/screen/lobby/proc/collapse_button()
-	SIGNAL_HANDLER
-	//wait for the shutter to come down
-	animate(src, transform = transform, time = SHUTTER_MOVEMENT_DURATION + SHUTTER_WAIT_DURATION)
-	//then pull the buttons up with the shutter
-	animate(transform = transform.Translate(x = 0, y = 146), time = SHUTTER_MOVEMENT_DURATION, easing = CUBIC_EASING|EASE_IN)
+/atom/movable/screen/lobby/round_info
+	screen_loc = "BOTTOM+2,LEFT:16"
+	maptext_height = 256
+	maptext_width = 256
 
-///Animates moving the button back into place
-/atom/movable/screen/lobby/proc/expand_button()
-	SIGNAL_HANDLER
-	//the buttons are off-screen, so we sync them up to come down with the shutter
-	animate(src, transform = matrix(), time = SHUTTER_MOVEMENT_DURATION, easing = CUBIC_EASING|EASE_OUT)
+/atom/movable/screen/lobby/round_info/Initialize(mapload)
+	. = ..()
+	RegisterSignal(SStitle, COMSIG_TITLE_UPDATE_INFO, PROC_REF(update_info))
 
-/atom/movable/screen/lobby/background
-	icon = 'icons/hud/lobby/background.dmi'
-	icon_state = "background"
-	screen_loc = "TOP,CENTER:-61"
+/atom/movable/screen/lobby/round_info/proc/update_info()
+	SIGNAL_HANDLER
+
+	var/generated_maptext = MAPTEXT_REALLYBIG_COLOR("Место действия: <b>[SSmapping.config?.map_name || "Загрузка..."]</b></br>", "#cd8c42")
+	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Номер события: <b>[GLOB.round_id ? GLOB.round_id : "NULL"]</b></br>", "#e0921e")
+	if(!SSticker.HasRoundStarted())
+		var/time_remaining = SSticker.GetTimeLeft()
+		if(time_remaining > 0)
+			time_remaining = "[round(time_remaining/10)]с"
+		else if(time_remaining == -10)
+			time_remaining = "ОТЛОЖЕНО"
+		else
+			time_remaining = "СЕЙЧАС"
+		generated_maptext += MAPTEXT_REALLYBIG_COLOR("До начала: <b>[time_remaining]</b></br>", "#cf9625")
+		generated_maptext += MAPTEXT_REALLYBIG_COLOR("Готовы: <b>[SSticker.totalPlayersReady]/[LAZYLEN(GLOB.clients)]</b></br></br>", "#d6b10a")
+	else
+		generated_maptext += MAPTEXT_REALLYBIG_COLOR("В действии: <b>[LAZYLEN(GLOB.joined_player_list)] человек</b></br></br>", "#c2b23c")
+	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Режим: <b>[SSticker.hide_mode ? "СЕКРЕТ" : "[capitalize(GLOB.master_mode)]"]</b>", "#ff4444")
+	maptext = generated_maptext
+
+/atom/movable/screen/lobby/neobg
+	screen_loc = "BOTTOM,LEFT"
+	icon = 'icons/effects/bg.dmi'
+	icon_state = "back"
+	layer = LOBBY_BACKGROUND_LAYER
+	var/atom/movable/screen/eye_icon_bg
+	var/atom/movable/screen/pupil_icon_bg
+	var/atom/movable/screen/front_icon_bg
+	var/atom/movable/screen/flicker_bg
+
+/atom/movable/screen/lobby/neobg/New(loc, ...)
+	. = ..()
+	eye_icon_bg = new()
+	eye_icon_bg.plane = SPLASHSCREEN_PLANE
+	eye_icon_bg.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	eye_icon_bg.icon = icon
+	eye_icon_bg.icon_state = "eye"
+
+	pupil_icon_bg = new()
+	pupil_icon_bg.plane = SPLASHSCREEN_PLANE
+	pupil_icon_bg.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	pupil_icon_bg.icon = icon
+	pupil_icon_bg.icon_state = "pupil"
+
+	front_icon_bg = new()
+	front_icon_bg.plane = SPLASHSCREEN_PLANE
+	front_icon_bg.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	front_icon_bg.icon = icon
+	front_icon_bg.icon_state = "front"
+
+	flicker_bg = new()
+	flicker_bg.blend_mode = BLEND_ADD
+	flicker_bg.plane = SPLASHSCREEN_PLANE
+	flicker_bg.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	flicker_bg.icon = icon
+	flicker_bg.icon_state = null
+
+	vis_contents += eye_icon_bg
+	vis_contents += pupil_icon_bg
+	vis_contents += front_icon_bg
+	vis_contents += flicker_bg
+
+/atom/movable/screen/lobby/neobg/Initialize(mapload)
+	. = ..()
+	RegisterSignal(SStitle, COMSIG_TITLE_UPDATE_BACKGROUND, PROC_REF(flex_with_background))
+
+/atom/movable/screen/lobby/neobg/proc/flex_with_background(datum/source, autorotate = TRUE)
+	SIGNAL_HANDLER
+
+	flicker_bg.icon = icon
+	flicker_bg.alpha = 255
+
+	if(!autorotate)
+		flicker_bg.icon = SStitle.icon
+		return
+
+	flick("fuck", flicker_bg)
+
+	spawn(13)
+		if(!flicker_bg)
+			return
+		flicker_bg.alpha = 0
+		flicker_bg.icon = SStitle.icon
+		animate(flicker_bg, alpha = 255, time = 10, easing = EASE_IN)
+		animate(alpha = 200, time = 100)
+		animate(alpha = 0, time = 50)
+
+/atom/movable/screen/lobby/neobg/Destroy()
+	. = ..()
+	QDEL_NULL(eye_icon_bg)
+	QDEL_NULL(pupil_icon_bg)
+	QDEL_NULL(front_icon_bg)
+	QDEL_NULL(flicker_bg)
+
+/atom/movable/screen/lobby/neobg/MouseMove(location, control, params)
+
+	if(!isnewplayer(usr))
+		return
+
+	var/list/PL = params2list(params)
+	var/icon_x = text2num(PL["icon-x"])
+	var/icon_y = text2num(PL["icon-y"])
+
+	animate(eye_icon_bg, 1, FALSE, SINE_EASING, ANIMATION_PARALLEL, pixel_x = (icon_x * 0.03) - 9, pixel_y = (icon_y * 0.03) - 7)
+	animate(pupil_icon_bg, 1, FALSE, SINE_EASING, ANIMATION_PARALLEL, pixel_x = (icon_x * 0.06) - 18, pixel_y = (icon_y * 0.06) - 14)
 
 /atom/movable/screen/lobby/button
 	///Is the button currently enabled?
@@ -70,11 +144,12 @@
 	/// The ref of the mob that owns this button. Only the owner can click on it.
 	var/owner
 
+/atom/movable/screen/lobby/button/New(loc, ...)
+	. = ..()
+	add_filter("lobby", 1, drop_shadow_filter(0, 0, 12, 5, "#303030"))
+
 /atom/movable/screen/lobby/button/Click(location, control, params)
 	if(owner != REF(usr))
-		return
-
-	if(!usr.client || usr.client.interviewee)
 		return
 
 	. = ..()
@@ -89,18 +164,12 @@
 	if(owner != REF(usr))
 		return
 
-	if(!usr.client || usr.client.interviewee)
-		return
-
 	. = ..()
 	highlighted = TRUE
 	update_appearance(UPDATE_ICON)
 
 /atom/movable/screen/lobby/button/MouseExited()
 	if(owner != REF(usr))
-		return
-
-	if(!usr.client || usr.client.interviewee)
 		return
 
 	. = ..()
@@ -117,7 +186,6 @@
 		return
 	icon_state = base_icon_state
 
-///Updates the button's status: TRUE to enable interaction with the button, FALSE to disable
 /atom/movable/screen/lobby/button/proc/set_button_status(status)
 	if(status == enabled)
 		return FALSE
@@ -127,9 +195,8 @@
 
 ///Prefs menu
 /atom/movable/screen/lobby/button/character_setup
-	name = "View Character Setup"
-	screen_loc = "TOP:-70,CENTER:-54"
-	icon = 'icons/hud/lobby/character_setup.dmi'
+	screen_loc = "LEFT+9,SOUTH:26"
+	icon = 'icons/hud/lobbyv3/character_setup.dmi'
 	icon_state = "character_setup"
 	base_icon_state = "character_setup"
 
@@ -138,22 +205,17 @@
 	if(!.)
 		return
 
-	var/datum/preferences/preferences = hud.mymob.canon_client.prefs
-	preferences.current_window = PREFERENCE_TAB_CHARACTER_PREFERENCES
-	preferences.update_static_data(usr)
-	preferences.ui_interact(usr)
+	hud.mymob.client.prefs.ShowChoices(hud.mymob)
 
 ///Button that appears before the game has started
 /atom/movable/screen/lobby/button/ready
-	name = "Toggle Readiness"
-	screen_loc = "TOP:-8,CENTER:-65"
-	icon = 'icons/hud/lobby/ready.dmi'
+	screen_loc = "LEFT+2,SOUTH:26"
+	icon = 'icons/hud/lobbyv3/ready.dmi'
 	icon_state = "not_ready"
 	base_icon_state = "not_ready"
-	///Whether we are readied up for the round or not
 	var/ready = FALSE
 
-/atom/movable/screen/lobby/button/ready/Initialize(mapload, datum/hud/hud_owner)
+/atom/movable/screen/lobby/button/ready/Initialize(mapload)
 	. = ..()
 	switch(SSticker.current_state)
 		if(GAME_STATE_PREGAME, GAME_STATE_STARTUP)
@@ -181,6 +243,12 @@
 	if(!.)
 		return
 	var/mob/dead/new_player/new_player = hud.mymob
+
+	if(!new_player.client.prefs.iconsent)
+		new_player.client << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;can_resize=0")
+		to_chat(new_player.client, span_notice("Необходимо дать согласие, перед тем как вступить в игру."))
+		return FALSE
+
 	ready = !ready
 	if(ready)
 		new_player.ready = PLAYER_READY_TO_PLAY
@@ -188,19 +256,18 @@
 	else
 		new_player.ready = PLAYER_NOT_READY
 		base_icon_state = "not_ready"
+	SStitle.update_lobby()
 	update_appearance(UPDATE_ICON)
-	SEND_SIGNAL(hud, COMSIG_HUD_PLAYER_READY_TOGGLE)
 
 ///Shown when the game has started
 /atom/movable/screen/lobby/button/join
-	name = "Join Game"
-	screen_loc = "TOP:-13,CENTER:-58"
-	icon = 'icons/hud/lobby/join.dmi'
+	screen_loc = "LEFT+1,SOUTH:24"
+	icon = 'icons/hud/lobbyv3/join.dmi'
 	icon_state = "" //Default to not visible
 	base_icon_state = "join_game"
 	enabled = FALSE
 
-/atom/movable/screen/lobby/button/join/Initialize(mapload, datum/hud/hud_owner)
+/atom/movable/screen/lobby/button/join/Initialize(mapload)
 	. = ..()
 	switch(SSticker.current_state)
 		if(GAME_STATE_PREGAME, GAME_STATE_STARTUP)
@@ -215,19 +282,18 @@
 	. = ..()
 	if(!.)
 		return
-
 	if(!SSticker?.IsRoundInProgress())
-		to_chat(hud.mymob, span_boldwarning("The round is either not ready, or has already finished..."))
+		to_chat(hud.mymob, span_boldwarning("Раунд ещё не начался или уже завершился..."))
 		return
 
 	//Determines Relevent Population Cap
 	var/relevant_cap
-	var/hard_popcap = CONFIG_GET(number/hard_popcap)
-	var/extreme_popcap = CONFIG_GET(number/extreme_popcap)
-	if(hard_popcap && extreme_popcap)
-		relevant_cap = min(hard_popcap, extreme_popcap)
+	var/hpc = CONFIG_GET(number/hard_popcap)
+	var/epc = CONFIG_GET(number/extreme_popcap)
+	if(hpc && epc)
+		relevant_cap = min(hpc, epc)
 	else
-		relevant_cap = max(hard_popcap, extreme_popcap)
+		relevant_cap = max(hpc, epc)
 
 	var/mob/dead/new_player/new_player = hud.mymob
 
@@ -236,20 +302,23 @@
 
 		var/queue_position = SSticker.queued_players.Find(new_player)
 		if(queue_position == 1)
-			to_chat(new_player, span_notice("You are next in line to join the game. You will be notified when a slot opens up."))
+			to_chat(new_player, span_notice("Ты следующий по списку желающих войти в раунд. Тебя оповестят о подходящей возможности."))
 		else if(queue_position)
-			to_chat(new_player, span_notice("There are [queue_position-1] players in front of you in the queue to join the game."))
+			to_chat(new_player, span_notice("Перед тобой [queue_position-1] игроков в очереди ожидания захода в раунд."))
 		else
 			SSticker.queued_players += new_player
-			to_chat(new_player, span_notice("You have been added to the queue to join the game. Your position in queue is [SSticker.queued_players.len]."))
+			to_chat(new_player, span_notice("Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len]."))
 		return
-
-	if(!LAZYACCESS(params2list(params), CTRL_CLICK))
-		GLOB.latejoin_menu.ui_interact(new_player)
+	if(SSrust_mode.active)
+		new_player.AttemptLateSpawn(JOB_RUST_ENJOYER)
+		return
+	if(SSviolence.active)
+		new_player.violence_choices()
+		return
+	else if(!GLOB.is_tournament_rules)
+		new_player.LateChoices()
 	else
-		to_chat(new_player, span_warning("Opening emergency fallback late join menu! If THIS doesn't show, ahelp immediately!"))
-		GLOB.latejoin_menu.fallback_ui(new_player)
-
+		new_player.make_me_an_observer(TRUE)
 
 /atom/movable/screen/lobby/button/join/proc/show_join_button()
 	SIGNAL_HANDLER
@@ -264,14 +333,13 @@
 	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP, PROC_REF(show_join_button))
 
 /atom/movable/screen/lobby/button/observe
-	name = "Observe"
-	screen_loc = "TOP:-40,CENTER:-54"
-	icon = 'icons/hud/lobby/observe.dmi'
+	screen_loc = "LEFT+5:24,SOUTH:24"
+	icon = 'icons/hud/lobbyv3/observe.dmi'
 	icon_state = "observe_disabled"
 	base_icon_state = "observe"
 	enabled = FALSE
 
-/atom/movable/screen/lobby/button/observe/Initialize(mapload, datum/hud/hud_owner)
+/atom/movable/screen/lobby/button/observe/Initialize(mapload)
 	. = ..()
 	if(SSticker.current_state > GAME_STATE_STARTUP)
 		set_button_status(TRUE)
@@ -289,61 +357,60 @@
 	SIGNAL_HANDLER
 	flick("[base_icon_state]_enabled", src)
 	set_button_status(TRUE)
-	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME)
+	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME, PROC_REF(enable_observing))
 
-//Subtype the bottom buttons away so the collapse/expand shutter goes behind them
-/atom/movable/screen/lobby/button/bottom
-	layer = LOBBY_BOTTOM_BUTTON_LAYER
+/*
+
+/atom/movable/screen/lobby/button/settings
 	icon = 'icons/hud/lobby/bottom_buttons.dmi'
-
-/atom/movable/screen/lobby/button/bottom/settings
-	name = "View Game Preferences"
 	icon_state = "settings"
 	base_icon_state = "settings"
-	screen_loc = "TOP:-122,CENTER:+29"
+	screen_loc = "TOP:-122,CENTER:+58"
 
-/atom/movable/screen/lobby/button/bottom/settings/Click(location, control, params)
+*/
+
+/atom/movable/screen/lobby/button/settings/Click(location, control, params)
 	. = ..()
 	if(!.)
 		return
 
-	var/datum/preferences/preferences = hud.mymob.canon_client.prefs
-	preferences.current_window = PREFERENCE_TAB_GAME_PREFERENCES
-	preferences.update_static_data(usr)
-	preferences.ui_interact(usr)
+	hud.mymob.client.prefs.ShowChoices(hud.mymob)
 
-/atom/movable/screen/lobby/button/bottom/changelog_button
-	name = "View Changelog"
+/atom/movable/screen/lobby/button/site_button
+	icon = 'icons/hud/lobbyv3/bottom_buttons.dmi'
 	icon_state = "changelog"
 	base_icon_state = "changelog"
-	screen_loc ="TOP:-122,CENTER:+57"
+	screen_loc = "LEFT+11:8,SOUTH:26"
 
-/atom/movable/screen/lobby/button/bottom/changelog_button/Click(location, control, params)
-	. = ..()
-	usr.client?.changelog()
 
-/atom/movable/screen/lobby/button/bottom/crew_manifest
-	name = "View Crew Manifest"
+/atom/movable/screen/lobby/button/crew_manifest
+	icon = 'icons/hud/lobbyv3/bottom_buttons.dmi'
 	icon_state = "crew_manifest"
 	base_icon_state = "crew_manifest"
-	screen_loc = "TOP:-122,CENTER:+2"
+	screen_loc = "LEFT+13:16,SOUTH:26"
 
-/atom/movable/screen/lobby/button/bottom/crew_manifest/Click(location, control, params)
+/atom/movable/screen/lobby/button/crew_manifest/Click(location, control, params)
 	. = ..()
 	if(!.)
 		return
 	var/mob/dead/new_player/new_player = hud.mymob
 	new_player.ViewManifest()
 
-/atom/movable/screen/lobby/button/bottom/poll
-	name = "View Available Polls"
+/atom/movable/screen/lobby/button/site_button/Click(location, control, params)
+	. = ..()
+	var/lets_fucking_go = tgui_alert(usr,"Перейдём в интересное место? (это откроет страницу в браузере)", "Любопытство", list("Да", "Нет"))
+	if(lets_fucking_go == "Да")
+		usr << link("https://station13.ru")
+
+/atom/movable/screen/lobby/button/poll
+	icon = 'icons/hud/lobbyv3/bottom_buttons.dmi'
 	icon_state = "poll"
 	base_icon_state = "poll"
-	screen_loc = "TOP:-122,CENTER:-26"
-	///Whether the button should have a New Poll notification overlay
+	screen_loc = "LEFT+16,SOUTH:26"
+
 	var/new_poll = FALSE
 
-/atom/movable/screen/lobby/button/bottom/poll/SlowInit(mapload)
+/atom/movable/screen/lobby/button/poll/SlowInit(mapload)
 	. = ..()
 	if(!usr)
 		return
@@ -387,142 +454,14 @@
 		set_button_status(FALSE)
 		return
 
-/atom/movable/screen/lobby/button/bottom/poll/update_overlays()
+/atom/movable/screen/lobby/button/poll/update_overlays()
 	. = ..()
 	if(new_poll)
 		. += mutable_appearance('icons/hud/lobby/poll_overlay.dmi', "new_poll")
 
-/atom/movable/screen/lobby/button/bottom/poll/Click(location, control, params)
+/atom/movable/screen/lobby/button/poll/Click(location, control, params)
 	. = ..()
 	if(!.)
 		return
 	var/mob/dead/new_player/new_player = hud.mymob
 	new_player.handle_player_polling()
-
-/atom/movable/screen/lobby/button/collapse
-	name = "Collapse Lobby Menu"
-	icon = 'icons/hud/lobby/collapse_expand.dmi'
-	icon_state = "collapse"
-	base_icon_state = "collapse"
-	layer = LOBBY_BELOW_MENU_LAYER
-	screen_loc = "TOP:-82,CENTER:-54"
-	always_shown = TRUE
-
-	var/blip_enabled = TRUE
-
-/atom/movable/screen/lobby/button/collapse/Initialize(mapload, datum/hud/hud_owner)
-	. = ..()
-	switch(SSticker.current_state)
-		if(GAME_STATE_PREGAME, GAME_STATE_STARTUP)
-			RegisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP, PROC_REF(disable_blip))
-			RegisterSignal(hud, COMSIG_HUD_PLAYER_READY_TOGGLE, PROC_REF(on_player_ready_toggle))
-		if(GAME_STATE_SETTING_UP)
-			blip_enabled = FALSE
-			RegisterSignal(SSticker, COMSIG_TICKER_ERROR_SETTING_UP, PROC_REF(enable_blip))
-		else
-			blip_enabled = FALSE
-
-	add_overlay(get_blip_overlay())
-	update_icon(UPDATE_OVERLAYS)
-
-/atom/movable/screen/lobby/button/collapse/update_overlays()
-	. = ..()
-	. += get_blip_overlay()
-
-/atom/movable/screen/lobby/button/collapse/Click(location, control, params)
-	. = ..()
-	if(!.)
-		return
-
-	if(!istype(hud, /datum/hud/new_player))
-		return
-	var/datum/hud/new_player/our_hud = hud
-	base_icon_state = our_hud.menu_hud_status ? "expand" : "collapse"
-	name = "[our_hud.menu_hud_status ? "Expand" : "Collapse"] Lobby Menu"
-	set_button_status(FALSE)
-
-	//get the shutter object used by our hud
-	var/atom/movable/screen/lobby/shutter/menu_shutter = locate(/atom/movable/screen/lobby/shutter) in hud.static_inventory
-
-	//animate the shutter
-	menu_shutter.setup_shutter_animation()
-	//animate bottom buttons' movement
-	if(our_hud.menu_hud_status)
-		collapse_menu()
-	else
-		expand_menu()
-	our_hud.menu_hud_status = !our_hud.menu_hud_status
-
-	//re-enable clicking the button when the shutter animation finishes
-	//we use sleep here so it can work during game setup, as addtimer would not work until the game would finish setting up
-	sleep(2 * SHUTTER_MOVEMENT_DURATION + SHUTTER_WAIT_DURATION)
-	set_button_status(TRUE)
-
-///Proc to update the ready blip state upon new player's ready status change
-/atom/movable/screen/lobby/button/collapse/proc/on_player_ready_toggle()
-	SIGNAL_HANDLER
-	update_appearance(UPDATE_ICON)
-
-///Returns a ready blip overlay depending on the player's ready state
-/atom/movable/screen/lobby/button/collapse/proc/get_blip_overlay()
-	var/blip_icon_state = "ready_blip"
-	if(blip_enabled && hud)
-		var/mob/dead/new_player/new_player = hud.mymob
-		blip_icon_state += "_[new_player.ready ? "" : "not_"]ready"
-	else
-		blip_icon_state += "_disabled"
-	var/mutable_appearance/ready_blip = mutable_appearance(icon, blip_icon_state)
-	return ready_blip
-
-///Disables the ready blip; makes us listen for the setup error to re-enable the blip
-/atom/movable/screen/lobby/button/collapse/proc/disable_blip()
-	SIGNAL_HANDLER
-	blip_enabled = FALSE
-	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP)
-	RegisterSignal(SSticker, COMSIG_TICKER_ERROR_SETTING_UP, PROC_REF(enable_blip))
-	update_appearance(UPDATE_ICON)
-
-///Enables the ready blip; makes us listen for the setup completion and game start to disable the blip
-/atom/movable/screen/lobby/button/collapse/proc/enable_blip()
-	SIGNAL_HANDLER
-	blip_enabled = TRUE
-	UnregisterSignal(SSticker, COMSIG_TICKER_ERROR_SETTING_UP)
-	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP, PROC_REF(disable_blip))
-	update_appearance(UPDATE_ICON)
-
-///Moves the button to the top of the screen, leaving only the screen part in view
-///Sends a signal on the hud for the menu hud elements to listen to
-/atom/movable/screen/lobby/button/collapse/proc/collapse_menu()
-	SEND_SIGNAL(hud, COMSIG_HUD_LOBBY_COLLAPSED)
-	//wait for the shutter to come down
-	animate(src, transform = transform, time = SHUTTER_MOVEMENT_DURATION + SHUTTER_WAIT_DURATION)
-	//then pull the button up with the shutter and leave it on the edge of the screen
-	animate(transform = transform.Translate(x = 0, y = 134), time = SHUTTER_MOVEMENT_DURATION, easing = CUBIC_EASING|EASE_IN)
-
-///Extends the button back to its usual spot
-///Sends a signal on the hud for the menu hud elements to listen to
-/atom/movable/screen/lobby/button/collapse/proc/expand_menu()
-	SEND_SIGNAL(hud, COMSIG_HUD_LOBBY_EXPANDED)
-	animate(src, transform = matrix(), time = SHUTTER_MOVEMENT_DURATION, easing = CUBIC_EASING|EASE_OUT)
-
-/atom/movable/screen/lobby/shutter
-	icon = 'icons/hud/lobby/shutter.dmi'
-	icon_state = "shutter"
-	base_icon_state = "shutter"
-	screen_loc = "TOP:+143,CENTER:-73" //"home" position is off-screen
-	layer = LOBBY_SHUTTER_LAYER
-	always_shown = TRUE
-
-///Sets up the shutter pulling down and up. It's the same animation for both collapsing and expanding the menu.
-/atom/movable/screen/lobby/shutter/proc/setup_shutter_animation()
-	//bring down the shutter
-	animate(src, transform = transform.Translate(x = 0, y = -143), time = SHUTTER_MOVEMENT_DURATION, easing = CUBIC_EASING|EASE_OUT)
-
-	//wait a little bit before bringing the shutter up
-	animate(transform = transform, time = SHUTTER_WAIT_DURATION)
-
-	//pull the shutter back off-screen
-	animate(transform = matrix(), time = SHUTTER_MOVEMENT_DURATION, easing = CUBIC_EASING|EASE_IN)
-
-#undef SHUTTER_MOVEMENT_DURATION
-#undef SHUTTER_WAIT_DURATION

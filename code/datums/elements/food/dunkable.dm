@@ -3,7 +3,7 @@
 /datum/element/dunkable
 	element_flags = ELEMENT_BESPOKE
 	argument_hash_start_idx = 2
-	var/dunk_amount // the amount of reagents that will be transferred from the container to the item on each click
+	var/dunk_amount // the amount of reagents that will be transfered from the container to the item on each click
 
 /datum/element/dunkable/Attach(datum/target, amount_per_dunk)
 	. = ..()
@@ -23,16 +23,14 @@
 		return
 	var/obj/item/reagent_containers/container = target // the container we're trying to dunk into
 	if(istype(container) && container.reagent_flags & DUNKABLE) // container should be a valid target for dunking
-		. = COMPONENT_AFTERATTACK_PROCESSED_ITEM
 		if(!container.is_drainable())
-			to_chat(user, span_warning("[container] is unable to be dunked in!"))
-			return COMPONENT_AFTERATTACK_PROCESSED_ITEM
+			to_chat(user, span_warning("[container] имеет закрытое горлышко!"))
+			return
 		var/obj/item/I = source // the item that has the dunkable element
-		if(container.reagents.trans_to(I, dunk_amount, transferred_by = user)) //if reagents were transferred, show the message
-			to_chat(user, span_notice("You dunk \the [I] into \the [container]."))
-			return COMPONENT_AFTERATTACK_PROCESSED_ITEM
+		if(container.reagents.trans_to(I, dunk_amount, transfered_by = user))	//if reagents were transfered, show the message
+			to_chat(user, span_notice("Обмакиваю [I] в [container]."))
+			return
 		if(!container.reagents.total_volume)
-			to_chat(user, span_warning("[container] is empty!"))
+			to_chat(user, span_warning("[container] пуст!"))
 		else
-			to_chat(user, span_warning("[I] is full!"))
-		return COMPONENT_AFTERATTACK_PROCESSED_ITEM
+			to_chat(user, span_warning("[I] полон!"))

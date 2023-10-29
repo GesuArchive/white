@@ -4,11 +4,15 @@
 /datum/hud/revenant/New(mob/owner)
 	..()
 
-	pull_icon = new /atom/movable/screen/pull(null, src)
-	pull_icon.icon = ui_style
-	pull_icon.update_appearance()
-	pull_icon.screen_loc = ui_living_pull
+	pull_icon = new /atom/movable/screen/pull()
+	pull_icon.icon = retro_hud ? ui_style : pull_icon.icon
+	pull_icon.update_icon()
+	pull_icon.screen_loc = retro_hud ? UI_LIVING_PULL_RETRO : UI_LIVING_PULL
+	pull_icon.hud = src
 	static_inventory += pull_icon
 
-	healths = new /atom/movable/screen/healths/revenant(null, src)
+	healths = new /atom/movable/screen/healths/revenant()
+	healths.screen_loc = retro_hud ? UI_HEALTH_RETRO : UI_HEALTH
+	healths.hud = src
 	infodisplay += healths
+

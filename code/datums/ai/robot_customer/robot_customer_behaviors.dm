@@ -1,9 +1,9 @@
 /datum/ai_behavior/find_seat
 	action_cooldown = 8 SECONDS
 
-/datum/ai_behavior/find_seat/perform(seconds_per_tick, datum/ai_controller/controller)
+/datum/ai_behavior/find_seat/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
-	var/mob/living/basic/robot_customer/customer_pawn = controller.pawn
+	var/mob/living/simple_animal/robot_customer/customer_pawn = controller.pawn
 	var/datum/customer_data/customer_data = controller.blackboard[BB_CUSTOMER_CUSTOMERINFO]
 	var/datum/venue/attending_venue = controller.blackboard[BB_CUSTOMER_ATTENDING_VENUE]
 
@@ -26,15 +26,15 @@
 
 	if(found_seat)
 		customer_pawn.say(pick(customer_data.found_seat_lines))
-		controller.set_blackboard_key(BB_CUSTOMER_MY_SEAT, found_seat)
+		controller.blackboard[BB_CUSTOMER_MY_SEAT] = found_seat
 		attending_venue.linked_seats[found_seat] = customer_pawn
 		finish_action(controller, TRUE)
 		return
 
-	// SPT_PROB 1.5 is about a 60% chance that the tourist will have vocalised at least once every minute.
-	if(!controller.blackboard[BB_CUSTOMER_SAID_CANT_FIND_SEAT_LINE] || SPT_PROB(1.5, seconds_per_tick))
+	// DT_PROB 1.5 is about a 60% chance that the tourist will have vocalised at least once every minute.
+	if(!controller.blackboard[BB_CUSTOMER_SAID_CANT_FIND_SEAT_LINE] || DT_PROB(1.5, delta_time))
 		customer_pawn.say(pick(customer_data.cant_find_seat_lines))
-		controller.set_blackboard_key(BB_CUSTOMER_SAID_CANT_FIND_SEAT_LINE, TRUE)
+		controller.blackboard[BB_CUSTOMER_SAID_CANT_FIND_SEAT_LINE] = TRUE
 
 	finish_action(controller, FALSE)
 
@@ -42,19 +42,19 @@
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT
 	required_distance = 0
 
-/datum/ai_behavior/order_food/perform(seconds_per_tick, datum/ai_controller/controller)
+/datum/ai_behavior/order_food/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
-	var/mob/living/basic/robot_customer/customer_pawn = controller.pawn
+	var/mob/living/simple_animal/robot_customer/customer_pawn = controller.pawn
 	var/datum/customer_data/customer_data = controller.blackboard[BB_CUSTOMER_CUSTOMERINFO]
-	var/obj/structure/holosign/robot_seat/seat_marker = controller.blackboard[BB_CUSTOMER_MY_SEAT]
-	if(get_turf(seat_marker) == get_turf(customer_pawn))
+
+	if(get_turf(controller.blackboard[BB_CUSTOMER_MY_SEAT]) == get_turf(customer_pawn))
 		var/obj/structure/chair/my_seat = locate(/obj/structure/chair) in get_turf(customer_pawn)
 		if(my_seat)
 			controller.pawn.setDir(my_seat.dir) //Sit in your seat
 
 	var/datum/venue/attending_venue = controller.blackboard[BB_CUSTOMER_ATTENDING_VENUE]
 
-	controller.set_blackboard_key(BB_CUSTOMER_CURRENT_ORDER, attending_venue.order_food(customer_pawn, customer_data))
+	controller.blackboard[BB_CUSTOMER_CURRENT_ORDER] = attending_venue.order_food(customer_pawn, customer_data)
 
 	finish_action(controller, TRUE)
 
@@ -62,25 +62,24 @@
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT | AI_BEHAVIOR_MOVE_AND_PERFORM
 	required_distance = 0
 
-/datum/ai_behavior/wait_for_food/perform(seconds_per_tick, datum/ai_controller/controller)
+/datum/ai_behavior/wait_for_food/perform(delta_time, datum/ai_controller/controller)
 	. = ..()
 	if(controller.blackboard[BB_CUSTOMER_EATING])
 		finish_action(controller, TRUE)
 		return
 
-	controller.add_blackboard_key(BB_CUSTOMER_PATIENCE, seconds_per_tick * -1 SECONDS) // Convert seconds_per_tick to a SECONDS equivalent.
+	controller.blackboard[BB_CUSTOMER_PATIENCE] -= delta_time * 10 // Convert delta_time to a SECONDS equivalent.
 	if(controller.blackboard[BB_CUSTOMER_PATIENCE] < 0 || controller.blackboard[BB_CUSTOMER_LEAVING]) // Check if we're leaving because sometthing mightve forced us to
 		finish_action(controller, FALSE)
 		return
 
-	// SPT_PROB 1.5 is about a 40% chance that the tourist will have vocalised at least once every minute.
-	if(SPT_PROB(0.85, seconds_per_tick))
-		var/mob/living/basic/robot_customer/customer_pawn = controller.pawn
+	// DT_PROB 1.5 is about a 40% chance that the tourist will have vocalised at least once every minute.
+	if(DT_PROB(0.85, delta_time))
+		var/mob/living/simple_animal/robot_customer/customer_pawn = controller.pawn
 		var/datum/customer_data/customer_data = controller.blackboard[BB_CUSTOMER_CUSTOMERINFO]
 		customer_pawn.say(pick(customer_data.wait_for_food_lines))
 
-	var/obj/structure/holosign/robot_seat/seat_marker = controller.blackboard[BB_CUSTOMER_MY_SEAT]
-	if(get_turf(seat_marker) == get_turf(controller.pawn))
+	if(get_turf(controller.blackboard[BB_CUSTOMER_MY_SEAT]) == get_turf(controller.pawn))
 		var/obj/structure/chair/my_seat = locate(/obj/structure/chair) in get_turf(controller.pawn)
 		if(my_seat)
 			controller.pawn.setDir(my_seat.dir) //Sit in your seat
@@ -98,14 +97,12 @@
 
 /datum/ai_behavior/wait_for_food/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
-	var/mob/living/basic/robot_customer/customer_pawn = controller.pawn
+	var/mob/living/simple_animal/robot_customer/customer_pawn = controller.pawn
 	var/datum/customer_data/customer_data = controller.blackboard[BB_CUSTOMER_CUSTOMERINFO]
 	var/mob/living/greytider = controller.blackboard[BB_CUSTOMER_CURRENT_TARGET]
-	//usually if we stop waiting, it's because we're done with the venue. but here we're either beating some dude up
-	//or are being qdeleted and don't want runtime errors, so don't switch to leaving
-	if(greytider || QDELETED(src))
+	if(greytider) //usually if we stop waiting, it's because we're done with the venue. but in this case we're beating some dude up so don't switch to leaving
 		return
-	controller.set_blackboard_key(BB_CUSTOMER_LEAVING, TRUE)
+	controller.blackboard[BB_CUSTOMER_LEAVING] = TRUE
 	customer_pawn.update_icon() //They might have a special leaving accesoiry (french flag)
 	if(succeeded)
 		customer_pawn.say(pick(customer_data.leave_happy_lines))
@@ -113,14 +110,15 @@
 		customer_pawn.say(pick(customer_data.leave_mad_lines))
 
 /datum/ai_behavior/leave_venue
-	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT | AI_BEHAVIOR_REQUIRE_REACH
+	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT
+	required_distance = 1
 
 /datum/ai_behavior/leave_venue/setup(datum/ai_controller/controller, venue_key)
 	. = ..()
 	var/datum/venue/attending_venue = controller.blackboard[venue_key]
-	set_movement_target(controller, attending_venue.restaurant_portal)
+	controller.current_movement_target = attending_venue.restaurant_portal
 
-/datum/ai_behavior/leave_venue/perform(seconds_per_tick, datum/ai_controller/controller, venue_key)
+/datum/ai_behavior/leave_venue/perform(delta_time, datum/ai_controller/controller, venue_key)
 	. = ..()
 	qdel(controller.pawn) //save the world, my final message, goodbye.
 	finish_action(controller, TRUE)

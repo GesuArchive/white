@@ -1,8 +1,7 @@
 /datum/action/cooldown/spell/jaunt/ethereal_jaunt/ash
-	name = "Ashen Passage"
-	desc = "A short range spell that allows you to pass unimpeded through walls."
-	background_icon_state = "bg_heretic"
-	overlay_icon_state = "bg_heretic_border"
+	name = "Пепельная тропа"
+	desc = "На короткий промежуток времени этот навык позволяет проходить вам сквозь стены и другие препятствия."
+	background_icon_state = "bg_ecult"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "ash_shift"
 	sound = null
@@ -31,7 +30,7 @@
 
 /obj/effect/temp_visual/dir_setting/ash_shift
 	name = "ash_shift"
-	icon = 'icons/mob/simple/mob.dmi'
+	icon = 'icons/mob/mob.dmi'
 	icon_state = "ash_shift2"
 	duration = 1.3 SECONDS
 

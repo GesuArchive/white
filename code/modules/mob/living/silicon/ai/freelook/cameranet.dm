@@ -2,6 +2,10 @@
 //
 // The datum containing all the chunks.
 
+#define CHUNK_SIZE 16 // Only chunk sizes that are to the power of 2. E.g: 2, 4, 8, 16, etc..
+/// Takes a position, transforms it into a chunk bounded position. Indexes at 1 so it'll land on actual turfs always
+#define GET_CHUNK_COORD(v) (max((FLOOR(v, CHUNK_SIZE)), 1))
+
 GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 
 /datum/cameranet
@@ -9,7 +13,7 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 	var/name = "Camera Net"
 
 	/// The cameras on the map, no matter if they work or not. Updated in obj/machinery/camera.dm by New() and Del().
-	var/list/obj/machinery/camera/cameras = list()
+	var/list/cameras = list()
 	/// The chunks of the map, mapping the areas that the cameras can see.
 	var/list/chunks = list()
 	var/ready = 0
@@ -67,7 +71,7 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 
 	for(var/mob/camera/ai_eye/eye as anything in moved_eyes)
 		var/list/visibleChunks = list()
-		//Get the eye's turf in case it's located in an object like a mecha
+		///Get the eye's turf in case it's located in an object like a mecha
 		var/turf/eye_turf = get_turf(eye)
 		if(eye.loc)
 			var/static_range = eye.static_visibility_range
@@ -110,14 +114,10 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 	if(c.can_use())
 		majorChunkChange(c, 1)
 
-/**
- * Used for Cyborg/mecha cameras. Since portable cameras can be in ANY chunk.
- * update_delay_buffer is passed all the way to hasChanged() from their camera updates on movement
- * to change the time between static updates.
-*/
-/datum/cameranet/proc/updatePortableCamera(obj/machinery/camera/updating_camera, update_delay_buffer)
-	if(updating_camera.can_use())
-		majorChunkChange(updating_camera, 1, update_delay_buffer)
+/// Used for Cyborg cameras. Since portable cameras can be in ANY chunk.
+/datum/cameranet/proc/updatePortableCamera(obj/machinery/camera/c)
+	if(c.can_use())
+		majorChunkChange(c, 1)
 
 /**
  * Never access this proc directly!!!!
@@ -125,12 +125,10 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
  * It will also add the atom to the cameras list if you set the choice to 1.
  * Setting the choice to 0 will remove the camera from the chunks.
  * If you want to update the chunks around an object, without adding/removing a camera, use choice 2.
- * update_delay_buffer is passed all the way to hasChanged() from portable camera updates on movement
- * to change the time between static updates.
  */
-/datum/cameranet/proc/majorChunkChange(atom/c, choice, update_delay_buffer)
-	if(QDELETED(c) && choice == 1)
-		CRASH("Tried to add a qdeleting camera to the net")
+/datum/cameranet/proc/majorChunkChange(atom/c, choice)
+	if(!c)
+		return
 
 	var/turf/T = get_turf(c)
 	if(T)
@@ -148,7 +146,7 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 					else if(choice == 1)
 						// You can't have the same camera in the list twice.
 						chunk.cameras["[T.z]"] |= c
-					chunk.hasChanged(update_delay_buffer = update_delay_buffer)
+					chunk.hasChanged()
 
 /// A faster, turf only version of [/datum/cameranet/proc/majorChunkChange]
 /// For use in sensitive code, be careful with it
@@ -165,9 +163,8 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 /// Will check if a mob is on a viewable turf. Returns 1 if it is, otherwise returns 0.
 /datum/cameranet/proc/checkCameraVis(mob/living/target)
 	var/turf/position = get_turf(target)
-	if(!position)
-		return
 	return checkTurfVis(position)
+
 
 /datum/cameranet/proc/checkTurfVis(turf/position)
 	var/datum/camerachunk/chunk = getCameraChunk(position.x, position.y, position.z)
@@ -177,16 +174,6 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 		if(chunk.visibleTurfs[position])
 			return TRUE
 	return FALSE
-
-/datum/cameranet/proc/getTurfVis(turf/position)
-	RETURN_TYPE(/datum/camerachunk)
-	var/datum/camerachunk/chunk = getCameraChunk(position.x, position.y, position.z)
-	if(!chunk)
-		return FALSE
-	if(chunk.changed)
-		chunk.hasChanged(1) // Update now, no matter if it's visible or not.
-	if(chunk.visibleTurfs[position])
-		return chunk
 
 /obj/effect/overlay/camera_static
 	name = "static"

@@ -7,12 +7,24 @@
 #Do NOT tick the maps during compile -- the game uses this list to decide which map to load. Ticking the maps will result in them ALL being loaded at once.
 #DO tick the associated code file for the away mission you are enabling. Otherwise, the map will be trying to reference objects which do not exist, which will cause runtime errors!
 
-#_maps/RandomZLevels/blackmarketpackers.dmm
-#_maps/RandomZLevels/TheBeach.dmm
-#_maps/RandomZLevels/centcomAway.dmm
-#_maps/RandomZLevels/moonoutpost19.dmm
-#_maps/RandomZLevels/undergroundoutpost45.dmm
-#_maps/RandomZLevels/caves.dmm
-#_maps/RandomZLevels/snowdin.dmm
-#_maps/RandomZLevels/research.dmm
-#_maps/RandomZLevels/SnowCabin.dmm
+#_maps/away/academy.dmm
+#_maps/away/blackmesa.dmm
+#_maps/away/bombass.dmm
+#_maps/away/caves.dmm
+#_maps/away/challenge.dmm
+#_maps/away/factorio.dmm
+#_maps/away/moonoutpost19.dmm
+#_maps/away/mothership_astrum.dmm
+#_maps/away/prisonv2.dmm
+#_maps/away/rainy.dmm
+#_maps/away/research.dmm
+#_maps/away/rospilovo.dmm
+#_maps/away/scpcomplex.dmm
+#_maps/away/snowcabin.dmm
+#_maps/away/snowdin.dmm
+#_maps/away/spacebattle.dmm
+#_maps/away/thebeach.dmm
+#_maps/away/totally_not_a_vietnam.dmm
+#_maps/away/undergroundoutpost45.dmm
+#_maps/away/wildwest.dmm
+#_maps/away/zombieprison.dmm

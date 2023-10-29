@@ -13,47 +13,44 @@ Format:
 	votable (is this map votable)
 endmap
 
-# Production-level maps.
-
-map birdshot
-	#default
-	maxplayers 66
+map box
+	default
 	votable
 endmap
 
-map deltastation
-	minplayers 50
+map dawn
+	maxplayers 25
 	votable
 endmap
 
-map icebox
+map kilo
+	maxplayers 40
+	votable
+endmap
+
+map meta
 	minplayers 25
 	votable
 endmap
 
-map metastation
-	minplayers 25
-	#voteweight 0.5
-	votable
-endmap
-
-map northstar
+map delta
 	minplayers 50
 	votable
 endmap
 
-map tramstation
-	minplayers 35
+map blueshift
+	minplayers 99
 	votable
 endmap
 
-# Debug-only maps.
-
-map gateway_test
+map tram
+	minplayers 60
 endmap
 
-map multiz_debug
+map construction
+	votable
 endmap
 
-map runtimestation
+map null
+	minplayers 3
 endmap

@@ -5,15 +5,14 @@
  */
 
 import { toFixed } from 'common/math';
-import { useLocalState } from 'tgui/backend';
 import { useDispatch, useSelector } from 'common/redux';
 import { Box, Button, ColorBox, Divider, Dropdown, Flex, Input, LabeledList, NumberInput, Section, Stack, Tabs, TextArea } from 'tgui/components';
 import { ChatPageSettings } from '../chat';
 import { rebuildChat, saveChatToDisk } from '../chat/actions';
 import { THEMES } from '../themes';
-import { changeSettingsTab, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
-import { SETTINGS_TABS, FONTS, MAX_HIGHLIGHT_SETTINGS } from './constants';
-import { selectActiveTab, selectSettings, selectHighlightSettings, selectHighlightSettingById } from './selectors';
+import { changeSettingsTab, updateSettings } from './actions';
+import { SETTINGS_TABS } from './constants';
+import { selectActiveTab, selectSettings } from './selectors';
 
 export const SettingsPanel = (props, context) => {
   const activeTab = useSelector(context, selectActiveTab);
@@ -43,23 +42,19 @@ export const SettingsPanel = (props, context) => {
       <Stack.Item grow={1} basis={0}>
         {activeTab === 'general' && <SettingsGeneral />}
         {activeTab === 'chatPage' && <ChatPageSettings />}
-        {activeTab === 'textHighlight' && <TextHighlightSettings />}
       </Stack.Item>
     </Stack>
   );
 };
 
 export const SettingsGeneral = (props, context) => {
-  const { theme, fontFamily, fontSize, lineHeight } = useSelector(
-    context,
-    selectSettings
-  );
+  const { theme, fontSize, lineHeight, highlightText, highlightColor } =
+    useSelector(context, selectSettings);
   const dispatch = useDispatch(context);
-  const [freeFont, setFreeFont] = useLocalState(context, 'freeFont', false);
   return (
     <Section>
       <LabeledList>
-        <LabeledList.Item label="Theme">
+        <LabeledList.Item label="Тема">
           <Dropdown
             selected={theme}
             options={THEMES}
@@ -72,48 +67,7 @@ export const SettingsGeneral = (props, context) => {
             }
           />
         </LabeledList.Item>
-        <LabeledList.Item label="Font style">
-          <Stack inline align="baseline">
-            <Stack.Item>
-              {(!freeFont && (
-                <Dropdown
-                  selected={fontFamily}
-                  options={FONTS}
-                  onSelected={(value) =>
-                    dispatch(
-                      updateSettings({
-                        fontFamily: value,
-                      })
-                    )
-                  }
-                />
-              )) || (
-                <Input
-                  value={fontFamily}
-                  onChange={(e, value) =>
-                    dispatch(
-                      updateSettings({
-                        fontFamily: value,
-                      })
-                    )
-                  }
-                />
-              )}
-            </Stack.Item>
-            <Stack.Item>
-              <Button
-                content="Custom font"
-                icon={freeFont ? 'lock-open' : 'lock'}
-                color={freeFont ? 'good' : 'bad'}
-                ml={1}
-                onClick={() => {
-                  setFreeFont(!freeFont);
-                }}
-              />
-            </Stack.Item>
-          </Stack>
-        </LabeledList.Item>
-        <LabeledList.Item label="Font size">
+        <LabeledList.Item label="Шрифт">
           <NumberInput
             width="4em"
             step={1}
@@ -132,7 +86,7 @@ export const SettingsGeneral = (props, context) => {
             }
           />
         </LabeledList.Item>
-        <LabeledList.Item label="Line height">
+        <LabeledList.Item label="Высота линий">
           <NumberInput
             width="4em"
             step={0.01}
@@ -152,160 +106,51 @@ export const SettingsGeneral = (props, context) => {
         </LabeledList.Item>
       </LabeledList>
       <Divider />
-      <Button icon="save" onClick={() => dispatch(saveChatToDisk())}>
-        Save chat log
-      </Button>
-    </Section>
-  );
-};
-
-const TextHighlightSettings = (props, context) => {
-  const highlightSettings = useSelector(context, selectHighlightSettings);
-  const dispatch = useDispatch(context);
-  return (
-    <Section fill scrollable height="200px">
-      <Section p={0}>
-        <Flex direction="column">
-          {highlightSettings.map((id, i) => (
-            <TextHighlightSetting
-              key={i}
-              id={id}
-              mb={i + 1 === highlightSettings.length ? 0 : '10px'}
+      <Box>
+        <Flex mb={1} color="label" align="baseline">
+          <Flex.Item grow={1}>Подсветка слов (через запятую):</Flex.Item>
+          <Flex.Item shrink={0}>
+            <ColorBox mr={1} color={highlightColor} />
+            <Input
+              width="5em"
+              monospace
+              placeholder="#ffffff"
+              value={highlightColor}
+              onInput={(e, value) =>
+                dispatch(
+                  updateSettings({
+                    highlightColor: value,
+                  })
+                )
+              }
             />
-          ))}
-          {highlightSettings.length < MAX_HIGHLIGHT_SETTINGS && (
-            <Flex.Item>
-              <Button
-                color="transparent"
-                icon="plus"
-                content="Add Highlight Setting"
-                onClick={() => {
-                  dispatch(addHighlightSetting());
-                }}
-              />
-            </Flex.Item>
-          )}
+          </Flex.Item>
         </Flex>
-      </Section>
+        <TextArea
+          height="3em"
+          value={highlightText}
+          onChange={(e, value) =>
+            dispatch(
+              updateSettings({
+                highlightText: value,
+              })
+            )
+          }
+        />
+      </Box>
       <Divider />
       <Box>
         <Button icon="check" onClick={() => dispatch(rebuildChat())}>
-          Apply now
+          Применить
         </Button>
         <Box inline fontSize="0.9em" ml={1} color="label">
-          Can freeze the chat for a while.
+          Чат может замереть на некоторое время.
         </Box>
       </Box>
+      <Divider />
+      <Button icon="save" onClick={() => dispatch(saveChatToDisk())}>
+        Сохранить лог
+      </Button>
     </Section>
-  );
-};
-
-const TextHighlightSetting = (props, context) => {
-  const { id, ...rest } = props;
-  const highlightSettingById = useSelector(context, selectHighlightSettingById);
-  const dispatch = useDispatch(context);
-  const {
-    highlightColor,
-    highlightText,
-    highlightWholeMessage,
-    matchWord,
-    matchCase,
-  } = highlightSettingById[id];
-  return (
-    <Flex.Item {...rest}>
-      <Flex mb={1} color="label" align="baseline">
-        <Flex.Item grow>
-          <Button
-            content="Delete"
-            color="transparent"
-            icon="times"
-            onClick={() =>
-              dispatch(
-                removeHighlightSetting({
-                  id: id,
-                })
-              )
-            }
-          />
-        </Flex.Item>
-        <Flex.Item>
-          <Button.Checkbox
-            checked={highlightWholeMessage}
-            content="Whole Message"
-            tooltip="If this option is selected, the entire message will be highlighted in yellow."
-            mr="5px"
-            onClick={() =>
-              dispatch(
-                updateHighlightSetting({
-                  id: id,
-                  highlightWholeMessage: !highlightWholeMessage,
-                })
-              )
-            }
-          />
-        </Flex.Item>
-        <Flex.Item>
-          <Button.Checkbox
-            content="Exact"
-            checked={matchWord}
-            tooltipPosition="bottom-start"
-            tooltip="If this option is selected, only exact matches (no extra letters before or after) will trigger. Not compatible with punctuation. Overriden if regex is used."
-            onClick={() =>
-              dispatch(
-                updateHighlightSetting({
-                  id: id,
-                  matchWord: !matchWord,
-                })
-              )
-            }
-          />
-        </Flex.Item>
-        <Flex.Item>
-          <Button.Checkbox
-            content="Case"
-            tooltip="If this option is selected, the highlight will be case-sensitive."
-            checked={matchCase}
-            onClick={() =>
-              dispatch(
-                updateHighlightSetting({
-                  id: id,
-                  matchCase: !matchCase,
-                })
-              )
-            }
-          />
-        </Flex.Item>
-        <Flex.Item shrink={0}>
-          <ColorBox mr={1} color={highlightColor} />
-          <Input
-            width="5em"
-            monospace
-            placeholder="#ffffff"
-            value={highlightColor}
-            onInput={(e, value) =>
-              dispatch(
-                updateHighlightSetting({
-                  id: id,
-                  highlightColor: value,
-                })
-              )
-            }
-          />
-        </Flex.Item>
-      </Flex>
-      <TextArea
-        height="3em"
-        value={highlightText}
-        placeholder="Put words to highlight here. Separate terms with commas, i.e. (term1, term2, term3)"
-        onChange={(e, value) =>
-          dispatch(
-            updateHighlightSetting({
-              id: id,
-              highlightText: value,
-            })
-          )
-        }
-      />
-    </Flex.Item>
   );
 };

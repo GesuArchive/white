@@ -3,7 +3,7 @@
 	icon = 'icons/effects/landmarks_static.dmi'
 	icon_state = "x2"
 	anchored = TRUE
-	layer = OBJ_LAYER
+	layer = TURF_LAYER
 	plane = GAME_PLANE
 	invisibility = INVISIBILITY_ABSTRACT
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -35,11 +35,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	var/used = FALSE
 
 /obj/effect/landmark/start/proc/after_round_start()
-	// We'd like to keep these around for unit tests, so we can check that they exist.
-#ifndef UNIT_TESTS
 	if(delete_after_roundstart)
 		qdel(src)
-#endif
 
 /obj/effect/landmark/start/Initialize(mapload)
 	. = ..()
@@ -61,153 +58,193 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = JOB_ASSISTANT
 	icon_state = JOB_ASSISTANT //icon_state is case sensitive. why are all of these capitalized? because fuck you that's why
 
+/obj/effect/landmark/start/intern
+	name = JOB_INTERN
+	icon_state = JOB_INTERN
+
+/obj/effect/landmark/start/combatant
+	name = "Combantant"
+	icon_state = JOB_ASSISTANT
+	jobspawn_override = TRUE
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/combatant/red
+	name = JOB_COMBATANT_RED
+	color = "#ff0000"
+
+/obj/effect/landmark/start/combatant/blue
+	name = JOB_COMBATANT_BLUE
+	color = "#0000ff"
+
 /obj/effect/landmark/start/assistant/override
 	jobspawn_override = TRUE
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/prisoner
-	name = "Prisoner"
-	icon_state = "Prisoner"
+	name = JOB_PRISONER
+	icon_state = JOB_PRISONER
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/freelancer
+	name = JOB_FREELANCER
+	icon_state = JOB_FREELANCER
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/bomj
+	name = JOB_BOMJ
+	icon_state = JOB_PRISONER
 
 /obj/effect/landmark/start/janitor
-	name = "Janitor"
-	icon_state = "Janitor"
+	name = JOB_JANITOR
+	icon_state = JOB_JANITOR
 
 /obj/effect/landmark/start/cargo_technician
-	name = "Cargo Technician"
-	icon_state = "Cargo Technician"
-
-/obj/effect/landmark/start/bitrunner
-	name = "Bitrunner"
-	icon_state = "Bitrunner"
+	name = JOB_CARGO_TECHNICIAN
+	icon_state = JOB_CARGO_TECHNICIAN
 
 /obj/effect/landmark/start/bartender
-	name = "Bartender"
-	icon_state = "Bartender"
+	name = JOB_BARTENDER
+	icon_state = JOB_BARTENDER
 
 /obj/effect/landmark/start/clown
-	name = "Clown"
-	icon_state = "Clown"
+	name = JOB_CLOWN
+	icon_state = JOB_CLOWN
 
 /obj/effect/landmark/start/mime
-	name = "Mime"
-	icon_state = "Mime"
+	name = JOB_MIME
+	icon_state = JOB_MIME
 
 /obj/effect/landmark/start/quartermaster
-	name = "Quartermaster"
-	icon_state = "Quartermaster"
+	name = JOB_QUARTERMASTER
+	icon_state = JOB_QUARTERMASTER
 
 /obj/effect/landmark/start/atmospheric_technician
-	name = "Atmospheric Technician"
-	icon_state = "Atmospheric Technician"
+	name = JOB_ATMOSPHERIC_TECHNICIAN
+	icon_state = JOB_ATMOSPHERIC_TECHNICIAN
 
 /obj/effect/landmark/start/cook
-	name = "Cook"
-	icon_state = "Cook"
+	name = JOB_COOK
+	icon_state = JOB_COOK
 
 /obj/effect/landmark/start/shaft_miner
-	name = "Shaft Miner"
-	icon_state = "Shaft Miner"
+	name = JOB_SHAFT_MINER
+	icon_state = JOB_SHAFT_MINER
+
+/obj/effect/landmark/start/hunter
+	name = JOB_HUNTER
+	icon_state = JOB_SHAFT_MINER
+
+/obj/effect/landmark/start/exploration
+	name = JOB_RANGER
+	icon_state = JOB_RANGER
 
 /obj/effect/landmark/start/security_officer
-	name = "Security Officer"
-	icon_state = "Security Officer"
+	name = JOB_SECURITY_OFFICER
+	icon_state = JOB_SECURITY_OFFICER
 
 /obj/effect/landmark/start/botanist
-	name = "Botanist"
-	icon_state = "Botanist"
+	name = JOB_BOTANIST
+	icon_state = JOB_BOTANIST
 
 /obj/effect/landmark/start/head_of_security
-	name = "Head of Security"
-	icon_state = "Head of Security"
+	name = JOB_HEAD_OF_SECURITY
+	icon_state = JOB_HEAD_OF_SECURITY
 
 /obj/effect/landmark/start/captain
-	name = "Captain"
-	icon_state = "Captain"
+	name = JOB_CAPTAIN
+	icon_state = JOB_CAPTAIN
 
 /obj/effect/landmark/start/detective
-	name = "Detective"
-	icon_state = "Detective"
+	name = JOB_DETECTIVE
+	icon_state = JOB_DETECTIVE
 
 /obj/effect/landmark/start/warden
-	name = "Warden"
-	icon_state = "Warden"
+	name = JOB_WARDEN
+	icon_state = JOB_WARDEN
 
 /obj/effect/landmark/start/chief_engineer
-	name = "Chief Engineer"
-	icon_state = "Chief Engineer"
+	name = JOB_CHIEF_ENGINEER
+	icon_state = JOB_CHIEF_ENGINEER
 
 /obj/effect/landmark/start/head_of_personnel
-	name = "Head of Personnel"
-	icon_state = "Head of Personnel"
+	name = JOB_HEAD_OF_PERSONNEL
+	icon_state = JOB_HEAD_OF_PERSONNEL
 
 /obj/effect/landmark/start/librarian
-	name = "Curator"
-	icon_state = "Curator"
+	name = JOB_CURATOR
+	icon_state = JOB_CURATOR
 
 /obj/effect/landmark/start/lawyer
-	name = "Lawyer"
-	icon_state = "Lawyer"
+	name = JOB_LAWYER
+	icon_state = JOB_LAWYER
 
 /obj/effect/landmark/start/station_engineer
-	name = "Station Engineer"
-	icon_state = "Station Engineer"
+	name = JOB_STATION_ENGINEER
+	icon_state = JOB_STATION_ENGINEER
+
+/obj/effect/landmark/start/mechanic
+	name = JOB_MECHANIC
+	icon_state = JOB_STATION_ENGINEER
 
 /obj/effect/landmark/start/medical_doctor
-	name = "Medical Doctor"
-	icon_state = "Medical Doctor"
+	name = JOB_MEDICAL_DOCTOR
+	icon_state = JOB_MEDICAL_DOCTOR
 
-/obj/effect/landmark/start/coroner
-	name = "Coroner"
-	icon_state = "Coroner"
+/obj/effect/landmark/start/field_medic
+	name = JOB_FIELD_MEDIC
+	icon_state = JOB_FIELD_MEDIC
+
+/obj/effect/landmark/start/specialist
+	name = JOB_SPECIALIST
+	icon_state = JOB_SPECIALIST
 
 /obj/effect/landmark/start/paramedic
-	name = "Paramedic"
-	icon_state = "Paramedic"
+	name = JOB_PARAMEDIC
+	icon_state = JOB_PARAMEDIC
 
 /obj/effect/landmark/start/scientist
-	name = "Scientist"
-	icon_state = "Scientist"
+	name = JOB_SCIENTIST
+	icon_state = JOB_SCIENTIST
 
 /obj/effect/landmark/start/chemist
-	name = "Chemist"
-	icon_state = "Chemist"
+	name = JOB_CHEMIST
+	icon_state = JOB_CHEMIST
 
 /obj/effect/landmark/start/roboticist
-	name = "Roboticist"
-	icon_state = "Roboticist"
+	name = JOB_ROBOTICIST
+	icon_state = JOB_ROBOTICIST
 
 /obj/effect/landmark/start/research_director
 	name = JOB_RESEARCH_DIRECTOR
 	icon_state = JOB_RESEARCH_DIRECTOR
 
 /obj/effect/landmark/start/geneticist
-	name = "Geneticist"
-	icon_state = "Geneticist"
+	name = JOB_GENETICIST
+	icon_state = JOB_GENETICIST
 
 /obj/effect/landmark/start/chief_medical_officer
-	name = "Chief Medical Officer"
-	icon_state = "Chief Medical Officer"
+	name = JOB_CHIEF_MEDICAL_OFFICER
+	icon_state = JOB_CHIEF_MEDICAL_OFFICER
 
 /obj/effect/landmark/start/virologist
-	name = "Virologist"
-	icon_state = "Virologist"
+	name = JOB_VIROLOGIST
+	icon_state = JOB_VIROLOGIST
 
 /obj/effect/landmark/start/psychologist
-	name = "Psychologist"
-	icon_state = "Psychologist"
+	name = JOB_PSYCHOLOGIST
+	icon_state = JOB_PSYCHOLOGIST
 
 /obj/effect/landmark/start/chaplain
-	name = "Chaplain"
-	icon_state = "Chaplain"
+	name = JOB_CHAPLAIN
+	icon_state = JOB_CHAPLAIN
 
 /obj/effect/landmark/start/cyborg
-	name = "Cyborg"
-	icon_state = "Cyborg"
+	name = JOB_CYBORG
+	icon_state = JOB_CYBORG
 
 /obj/effect/landmark/start/ai
-	name = "AI"
-	icon_state = "AI"
+	name = JOB_AI
+	icon_state = JOB_AI
 	delete_after_roundstart = FALSE
 	var/primary_ai = TRUE
 	var/latejoin_active = TRUE
@@ -227,33 +264,27 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/depsec
 	name = "department_sec"
-	icon_state = "Security Officer"
-	/// What department this spawner is for
-	var/department
+	icon_state = JOB_SECURITY_OFFICER
 
-/obj/effect/landmark/start/depsec/Initialize(mapload)
-	. = ..()
-	LAZYADDASSOCLIST(GLOB.department_security_spawns, department, src)
+/obj/effect/landmark/start/depsec/New()
+	..()
+	GLOB.department_security_spawns += src
 
 /obj/effect/landmark/start/depsec/Destroy()
-	LAZYREMOVEASSOC(GLOB.department_security_spawns, department, src)
+	GLOB.department_security_spawns -= src
 	return ..()
 
 /obj/effect/landmark/start/depsec/supply
 	name = "supply_sec"
-	department = SEC_DEPT_SUPPLY
 
 /obj/effect/landmark/start/depsec/medical
 	name = "medical_sec"
-	department = SEC_DEPT_MEDICAL
 
 /obj/effect/landmark/start/depsec/engineering
 	name = "engineering_sec"
-	department = SEC_DEPT_ENGINEERING
 
 /obj/effect/landmark/start/depsec/science
 	name = "science_sec"
-	department = SEC_DEPT_SCIENCE
 
 //Antagonist spawns
 
@@ -317,14 +348,14 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	name = "Observer-Start"
 	icon_state = "observer_start"
 
-//generic maintenance locations
-/obj/effect/landmark/generic_maintenance_landmark
-	name = "generic_maintenance_spawn"
+//xenos, morphs and nightmares spawn here
+/obj/effect/landmark/xeno_spawn
+	name = "xeno_spawn"
 	icon_state = "xeno_spawn"
 
-/obj/effect/landmark/generic_maintenance_landmark/Initialize(mapload)
+/obj/effect/landmark/xeno_spawn/Initialize(mapload)
 	..()
-	GLOB.generic_maintenance_landmarks += loc
+	GLOB.xeno_spawn += loc
 	return INITIALIZE_HINT_QDEL
 
 //objects with the stationloving component (nuke disk) respawn here.
@@ -367,14 +398,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	GLOB.emergencyresponseteamspawn += loc
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/landmark/ert_shuttle_spawn
-	name = "ertshuttlespawn"
-	icon_state = "ert_spawn"
-
-/obj/effect/landmark/ert_shuttle_brief_spawn
-	name = "ertshuttlebriefspawn"
-	icon_state = "ert_brief_spawn"
-
 //ninja energy nets teleport victims here
 /obj/effect/landmark/holding_facility
 	name = "Holding Facility"
@@ -400,7 +423,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 
 /obj/effect/landmark/thunderdome/one/Initialize(mapload)
 	..()
-	GLOB.tdome1 += loc
+	GLOB.tdome1	+= loc
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/thunderdome/two
@@ -421,20 +444,36 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	GLOB.tdomeadmin += loc
 	return INITIALIZE_HINT_QDEL
 
-/**
- * Generic event spawn points
- *
- * These are placed in locales where there are likely to be players, and places which are identifiable at a glance -
- * Such as public hallways, department rooms, head of staff offices, and non-generic maintenance locations
- *
- * Used in events to cause effects in locations where it is likely to effect players
- */
+//Servant spawn locations
+/obj/effect/landmark/servant_of_ratvar
+	name = "servant of ratvar spawn"
+	icon_state = "clockwork_orange"
+	layer = MOB_LAYER
+
+/obj/effect/landmark/servant_of_ratvar/Initialize(mapload)
+	..()
+	GLOB.servant_spawns += loc
+	return INITIALIZE_HINT_QDEL
+
+//City of Cogs entrances
+/obj/effect/landmark/city_of_cogs
+	name = "city of cogs entrance"
+	icon_state = "city_of_cogs"
+
+/obj/effect/landmark/city_of_cogs/Initialize(mapload)
+	..()
+	GLOB.city_of_cogs_spawns += loc
+	return INITIALIZE_HINT_QDEL
+
+//generic event spawns
 /obj/effect/landmark/event_spawn
 	name = "generic event spawn"
 	icon_state = "generic_event"
+	layer = OBJ_LAYER
 
-/obj/effect/landmark/event_spawn/Initialize(mapload)
-	. = ..()
+
+/obj/effect/landmark/event_spawn/New()
+	..()
 	GLOB.generic_event_spawns += src
 
 /obj/effect/landmark/event_spawn/Destroy()
@@ -444,9 +483,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 /obj/effect/landmark/ruin
 	var/datum/map_template/ruin/ruin_template
 
-/obj/effect/landmark/ruin/Initialize(mapload, my_ruin_template)
-	. = ..()
+/obj/effect/landmark/ruin/New(loc, my_ruin_template)
 	name = "ruin_[GLOB.ruin_landmarks.len + 1]"
+	..(loc)
 	ruin_template = my_ruin_template
 	GLOB.ruin_landmarks |= src
 
@@ -461,6 +500,31 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	icon_state = "portal_exit"
 	var/id
 
+// yohei shit beacon
+/obj/effect/landmark/yohei_beacon
+	name = "yohei beacon"
+	icon_state = "generic_event"
+
+/obj/effect/landmark/yohei_beacon/New()
+	..()
+	GLOB.yohei_beacons += src
+
+/obj/effect/landmark/yohei_beacon/Destroy()
+	GLOB.yohei_beacons -= src
+	return ..()
+
+/obj/effect/landmark/bomb_plant_location
+	name = "bomb plant marker"
+	icon_state = "x"
+
+/obj/effect/landmark/bomb_plant_location/New()
+	..()
+	SSviolence.bomb_locations += src
+
+/obj/effect/landmark/bomb_plant_location/Destroy()
+	SSviolence.bomb_locations -= src
+	return ..()
+
 /// Marks the bottom left of the testing zone.
 /// In landmarks.dm and not unit_test.dm so it is always active in the mapping tools.
 /obj/effect/landmark/unit_test_bottom_left
@@ -471,100 +535,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 /obj/effect/landmark/unit_test_top_right
 	name = "unit test zone top right"
 
-/obj/effect/landmark/start/hangover
-	name = "hangover spawn"
-	icon_state = "hangover_spawn"
-
-	/// A list of everything this hangover spawn created as part of the hangover station trait
-	var/list/hangover_debris = list()
-
-	/// A list of everything this hangover spawn created as part of the birthday station trait
-	var/list/party_debris = list()
-
-/obj/effect/landmark/start/hangover/Initialize(mapload)
-	. = ..()
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/effect/landmark/start/hangover/Destroy()
-	hangover_debris = null
-	party_debris = null
-	return ..()
-
-/obj/effect/landmark/start/hangover/LateInitialize()
-	. = ..()
-	if(HAS_TRAIT(SSstation, STATION_TRAIT_BIRTHDAY))
-		party_debris += new /obj/effect/decal/cleanable/confetti(get_turf(src)) //a birthday celebration can also be a hangover
-		var/list/bonus_confetti = GLOB.alldirs
-		for(var/confettis in bonus_confetti)
-			var/party_turf_to_spawn_on = get_step(src, confettis)
-			if(!isopenturf(party_turf_to_spawn_on))
-				continue
-			var/dense_object = FALSE
-			for(var/atom/content in party_turf_to_spawn_on)
-				if(content.density)
-					dense_object = TRUE
-					break
-			if(dense_object)
-				continue
-			if(prob(50))
-				party_debris += new /obj/effect/decal/cleanable/confetti(party_turf_to_spawn_on)
-			if(prob(10))
-				party_debris += new /obj/item/toy/balloon(party_turf_to_spawn_on)
-	if(!HAS_TRAIT(SSstation, STATION_TRAIT_HANGOVER))
-		return
-	if(prob(60))
-		hangover_debris += new /obj/effect/decal/cleanable/vomit(get_turf(src))
-	if(prob(70))
-		var/bottle_count = rand(1, 3)
-		for(var/index in 1 to bottle_count)
-			var/turf/turf_to_spawn_on = get_step(src, pick(GLOB.alldirs))
-			if(!isopenturf(turf_to_spawn_on))
-				continue
-			var/dense_object = FALSE
-			for(var/atom/content in turf_to_spawn_on.contents)
-				if(content.density)
-					dense_object = TRUE
-					break
-			if(dense_object)
-				continue
-			hangover_debris += new /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty(turf_to_spawn_on)
-
-///Spawns the mob with some drugginess/drunkeness, and some disgust.
-/obj/effect/landmark/start/hangover/proc/make_hungover(mob/hangover_mob)
-	if(!iscarbon(hangover_mob))
-		return
-	var/mob/living/carbon/spawned_carbon = hangover_mob
-	spawned_carbon.set_resting(TRUE, silent = TRUE)
-	if(prob(50))
-		spawned_carbon.adjust_drugginess(rand(30 SECONDS, 40 SECONDS))
-	else
-		spawned_carbon.adjust_drunk_effect(rand(15, 25))
-	spawned_carbon.adjust_disgust(rand(5, 55)) //How hungover are you?
-	if(spawned_carbon.head)
-		return
-
-/obj/effect/landmark/start/hangover/JoinPlayerHere(mob/joining_mob, buckle)
-	. = ..()
-	make_hungover(joining_mob)
-
-/obj/effect/landmark/start/hangover/closet
-	name = "hangover spawn closet"
-	icon_state = "hangover_spawn_closet"
-
-/obj/effect/landmark/start/hangover/closet/JoinPlayerHere(mob/joining_mob, buckle)
-	for(var/obj/structure/closet/closet in get_turf(src))
-		if(closet.opened)
-			continue
-		joining_mob.forceMove(closet)
-		make_hungover(joining_mob)
-		return
-
-	return ..() //Call parent as fallback
-
 //Landmark that creates destinations for the navigate verb to path to
 /obj/effect/landmark/navigate_destination
-	name = "navigate verb destination"
+	name = "навигация"
 	icon_state = "navigate"
+	layer = OBJ_LAYER
 	var/location
 
 /obj/effect/landmark/navigate_destination/Initialize(mapload)
@@ -583,129 +558,129 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 
 //Command
 /obj/effect/landmark/navigate_destination/bridge
-	location = "Bridge"
+	location = "Мостик"
 
 /obj/effect/landmark/navigate_destination/hop
-	location = "Head of Personnel's Office"
+	location = "Офис Кадровика"
 
 /obj/effect/landmark/navigate_destination/vault
-	location = "Vault"
+	location = "Хранилище"
 
 /obj/effect/landmark/navigate_destination/teleporter
-	location = "Teleporter"
+	location = "Телепортер"
 
 /obj/effect/landmark/navigate_destination/gateway
-	location = "Gateway"
+	location = "Врата"
 
 /obj/effect/landmark/navigate_destination/eva
-	location = "EVA Storage"
+	location = "Хранилище ЕВА"
 
 /obj/effect/landmark/navigate_destination/aiupload
-	location = "AI Upload"
+	location = "Аплоад ИИ"
 
 /obj/effect/landmark/navigate_destination/minisat_access_ai
-	location = "AI MiniSat Access"
+	location = "Спутник ИИ"
 
 /obj/effect/landmark/navigate_destination/minisat_access_tcomms
-	location = "Telecomms MiniSat Access"
+	location = "Телекомы спутника ИИ"
 
 /obj/effect/landmark/navigate_destination/minisat_access_tcomms_ai
-	location = "AI and Telecomms MiniSat Access"
+	location = "Вход в телекомы спутника ИИ"
 
 /obj/effect/landmark/navigate_destination/tcomms
-	location = "Telecommunications"
+	location = "Телекомы"
 
 //Departments
 /obj/effect/landmark/navigate_destination/sec
-	location = "Security"
+	location = "Охрана"
 
 /obj/effect/landmark/navigate_destination/det
-	location = "Detective's Office"
+	location = "Офис детектива"
 
 /obj/effect/landmark/navigate_destination/research
-	location = "Research"
+	location = "Наука"
 
 /obj/effect/landmark/navigate_destination/engineering
-	location = "Engineering"
+	location = "Инженерный"
 
 /obj/effect/landmark/navigate_destination/techstorage
-	location = "Technical Storage"
+	location = "Склад"
 
 /obj/effect/landmark/navigate_destination/atmos
-	location = "Atmospherics"
+	location = "Атмосферный"
 
 /obj/effect/landmark/navigate_destination/med
-	location = "Medical"
+	location = "Медбей"
 
 /obj/effect/landmark/navigate_destination/chemfactory
-	location = "Chemistry Factory"
+	location = "Химический завод"
 
 /obj/effect/landmark/navigate_destination/cargo
-	location = "Cargo"
+	location = "Снабжение"
 
 //Common areas
 /obj/effect/landmark/navigate_destination/bar
-	location = "Bar"
+	location = "Бар"
 
 /obj/effect/landmark/navigate_destination/dorms
-	location = "Dormitories"
+	location = "Дормы"
 
 /obj/effect/landmark/navigate_destination/court
-	location = "Courtroom"
+	location = "Суд"
 
 /obj/effect/landmark/navigate_destination/tools
-	location = "Tool Storage"
+	location = "Хранилище инструментов"
 
 /obj/effect/landmark/navigate_destination/library
-	location = "Library"
+	location = "Библиотека"
 
 /obj/effect/landmark/navigate_destination/chapel
-	location = "Chapel"
+	location = "Церковь"
 
 /obj/effect/landmark/navigate_destination/minisat_access_chapel_library
-	location = "Chapel and Library MiniSat Access"
+	location = "Церковь и библиотека"
 
 //Service
 /obj/effect/landmark/navigate_destination/kitchen
-	location = "Kitchen"
+	location = "Кухня"
 
 /obj/effect/landmark/navigate_destination/hydro
-	location = "Hydroponics"
+	location = "Гидропоника"
 
 /obj/effect/landmark/navigate_destination/janitor
-	location = "Janitor's Closet"
+	location = "Клозет уборщика"
 
 /obj/effect/landmark/navigate_destination/lawyer
-	location = "Lawyer's Office"
+	location = "Офис адвоката"
 
 //Shuttle docks
 /obj/effect/landmark/navigate_destination/dockarrival
-	location = "Arrival Shuttle Dock"
+	location = "Прибытие"
 
 /obj/effect/landmark/navigate_destination/dockesc
-	location = "Escape Shuttle Dock"
+	location = "Эвакуационный док"
 
 /obj/effect/landmark/navigate_destination/dockescpod
-	location = "Escape Pod Dock"
+	location = "Спасательная капсула"
 
 /obj/effect/landmark/navigate_destination/dockescpod1
-	location = "Escape Pod 1 Dock"
+	location = "Спасательная капсула 1"
 
 /obj/effect/landmark/navigate_destination/dockescpod2
-	location = "Escape Pod 2 Dock"
+	location = "Спасательная капсула 2"
 
 /obj/effect/landmark/navigate_destination/dockescpod3
-	location = "Escape Pod 3 Dock"
+	location = "Спасательная капсула 3"
 
 /obj/effect/landmark/navigate_destination/dockescpod4
-	location = "Escape Pod 4 Dock"
+	location = "Спасательная капсула 4"
 
 /obj/effect/landmark/navigate_destination/dockaux
-	location = "Auxiliary Dock"
+	location = "Док"
 
 //Maint
 /obj/effect/landmark/navigate_destination/incinerator
-	location = "Incinerator"
+	location = "Сжигатель"
 
 /obj/effect/landmark/navigate_destination/disposals
-	location = "Disposals"
+	location = "Мусорка"

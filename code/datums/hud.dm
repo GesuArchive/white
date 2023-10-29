@@ -18,6 +18,7 @@ GLOBAL_LIST_INIT(huds, list(
 	DATA_HUD_SENTIENT_DISEASE = new/datum/atom_hud/sentient_disease(),
 	DATA_HUD_AI_DETECT = new/datum/atom_hud/ai_detector(),
 	DATA_HUD_FAN = new/datum/atom_hud/data/human/fan_hud(),
+	DATA_HUD_PSIH = new/datum/atom_hud/data/human/psih_hud(),
 ))
 
 /datum/atom_hud
@@ -139,7 +140,7 @@ GLOBAL_LIST_INIT(huds, list(
 	if(!hud_users_all_z_levels[new_viewer])
 		hud_users_all_z_levels[new_viewer] = 1
 
-		RegisterSignal(new_viewer, COMSIG_QDELETING, PROC_REF(unregister_atom), override = TRUE) //both hud users and hud atoms use these signals
+		RegisterSignal(new_viewer, COMSIG_PARENT_QDELETING, PROC_REF(unregister_atom), override = TRUE) //both hud users and hud atoms use these signals
 		RegisterSignal(new_viewer, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_atom_or_user_z_level_changed), override = TRUE)
 
 		var/turf/their_turf = get_turf(new_viewer)
@@ -171,7 +172,7 @@ GLOBAL_LIST_INIT(huds, list(
 
 		if(!hud_atoms_all_z_levels[former_viewer])//make sure we arent unregistering changes on a mob thats also a hud atom for this hud
 			UnregisterSignal(former_viewer, COMSIG_MOVABLE_Z_CHANGED)
-			UnregisterSignal(former_viewer, COMSIG_QDELETING)
+			UnregisterSignal(former_viewer, COMSIG_PARENT_QDELETING)
 
 		hud_users_all_z_levels -= former_viewer
 
@@ -195,7 +196,7 @@ GLOBAL_LIST_INIT(huds, list(
 
 	// No matter where or who you are, you matter to me :)
 	RegisterSignal(new_hud_atom, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_atom_or_user_z_level_changed), override = TRUE)
-	RegisterSignal(new_hud_atom, COMSIG_QDELETING, PROC_REF(unregister_atom), override = TRUE) //both hud atoms and hud users use these signals
+	RegisterSignal(new_hud_atom, COMSIG_PARENT_QDELETING, PROC_REF(unregister_atom), override = TRUE) //both hud atoms and hud users use these signals
 	hud_atoms_all_z_levels[new_hud_atom] = TRUE
 
 	var/turf/atom_turf = get_turf(new_hud_atom)
@@ -217,7 +218,7 @@ GLOBAL_LIST_INIT(huds, list(
 	//make sure we arent unregistering a hud atom thats also a hud user mob
 	if(!hud_users_all_z_levels[hud_atom_to_remove])
 		UnregisterSignal(hud_atom_to_remove, COMSIG_MOVABLE_Z_CHANGED)
-		UnregisterSignal(hud_atom_to_remove, COMSIG_QDELETING)
+		UnregisterSignal(hud_atom_to_remove, COMSIG_PARENT_QDELETING)
 
 	for(var/mob/mob_to_remove as anything in hud_users_all_z_levels)
 		remove_atom_from_single_hud(mob_to_remove, hud_atom_to_remove)
@@ -278,6 +279,7 @@ GLOBAL_LIST_INIT(huds, list(
 ///because of how signals work we need the same proc to handle both use cases because being a hud atom and being a hud user arent mutually exclusive
 /datum/atom_hud/proc/on_atom_or_user_z_level_changed(atom/movable/moved_atom, turf/old_turf, turf/new_turf)
 	SIGNAL_HANDLER
+
 	if(old_turf)
 		if(hud_users_all_z_levels[moved_atom])
 			hud_users[old_turf.z] -= moved_atom
@@ -352,7 +354,7 @@ GLOBAL_LIST_INIT(huds, list(
 	if(!client_mob || !client_mob.client || !atom_to_remove?.active_hud_list)
 		return
 	for(var/hud_image in hud_icons)
-		client_mob.client.images -= atom_to_remove.active_hud_list[hud_image]
+		client_mob.client.images -= atom_to_remove.active_hud_list?[hud_image]
 
 /// remove every hud image for this hud pulled from atoms_to_remove from client_mob's client.images list
 /// optimization of [/datum/atom_hud/proc/remove_atom_from_single_hud] for hot cases, we assert that no nulls will be passed in via the list
@@ -361,7 +363,7 @@ GLOBAL_LIST_INIT(huds, list(
 		return
 	for(var/hud_image in hud_icons)
 		for(var/atom/atom_to_remove as anything in atoms_to_remove)
-			client_mob.client.images -= atom_to_remove.active_hud_list?[hud_image]
+			client_mob.client.images -= atom_to_remove.active_hud_list[hud_image]
 
 /// remove every hud image for this hud on atom_to_remove from client_mobs's client.images list
 /// optimization of [/datum/atom_hud/proc/remove_atom_from_single_hud] for hot cases, we assert that no nulls will be passed in via the list
@@ -434,6 +436,8 @@ GLOBAL_LIST_INIT(huds, list(
 
 /mob/proc/add_click_catcher()
 	client.screen += client.void
+	client.screen += client.void_right
+	client.screen += client.void_bottom
 
 /mob/dead/new_player/add_click_catcher()
 	return

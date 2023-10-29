@@ -21,21 +21,14 @@
 	job_rank = ROLE_HERETIC
 	antag_hud_name = "heretic"
 	hijack_speed = 0.5
-	suicide_cry = "THE MANSUS SMILES UPON ME!!"
-	preview_outfit = /datum/outfit/heretic
-	can_assign_self_objectives = TRUE
-	default_custom_objective = "Turn a department into a testament for your dark knowledge."
-	hardcore_random_bonus = TRUE
 	/// Whether we give this antagonist objectives on gain.
 	var/give_objectives = TRUE
 	/// Whether we've ascended! (Completed one of the final rituals)
 	var/ascended = FALSE
 	/// The path our heretic has chosen. Mostly used for flavor.
 	var/heretic_path = PATH_START
-	/// A sum of how many knowledge points this heretic CURRENTLY has. Used to research.
+	/// A list of how many knowledge points this heretic CURRENTLY has. Used to research.
 	var/knowledge_points = 1
-	/// How many side path points the heretic has. He gains one of these per main path that splits into two sidepaths. These can be used in place of knowledge points for side paths only.
-	var/side_path_points = 0
 	/// The time between gaining influence passively. The heretic gain +1 knowledge points every this duration of time.
 	var/passive_gain_timer = 20 MINUTES
 	/// Assoc list of [typepath] = [knowledge instance]. A list of all knowledge this heretic's reserached.
@@ -44,40 +37,16 @@
 	var/living_heart_organ_slot = ORGAN_SLOT_HEART
 	/// A list of TOTAL how many sacrifices completed. (Includes high value sacrifices)
 	var/total_sacrifices = 0
-	/// A list of TOTAL how many high value sacrifices completed. (Heads of staff)
+	/// A list of TOTAL how many high value sacrifices completed.
 	var/high_value_sacrifices = 0
-	/// Lazy assoc list of [refs to humans] to [image previews of the human]. Humans that we have as sacrifice targets.
+	/// Lazy assoc list of [weakrefs to humans] to [image previews of the human]. Humans that we have as sacrifice targets.
 	var/list/mob/living/carbon/human/sac_targets
-	/// List of all sacrifice target's names, used for end of round report
-	var/list/all_sac_targets = list()
 	/// Whether we're drawing a rune or not
 	var/drawing_rune = FALSE
 	/// A static typecache of all tools we can scribe with.
 	var/static/list/scribing_tools = typecacheof(list(/obj/item/pen, /obj/item/toy/crayon))
 	/// A blacklist of turfs we cannot scribe on.
 	var/static/list/blacklisted_rune_turfs = typecacheof(list(/turf/open/space, /turf/open/openspace, /turf/open/lava, /turf/open/chasm))
-	/// Static list of what each path converts to in the UI (colors are TGUI colors)
-	var/static/list/path_to_ui_color = list(
-		PATH_START = "grey",
-		PATH_SIDE = "green",
-		PATH_RUST = "brown",
-		PATH_FLESH = "red",
-		PATH_ASH = "white",
-		PATH_VOID = "blue",
-		PATH_BLADE = "label", // my favorite color is label
-		PATH_COSMIC = "purple",
-		PATH_KNOCK = "yellow",
-	)
-	var/static/list/path_to_rune_color = list(
-		PATH_START = COLOR_LIME,
-		PATH_RUST = COLOR_CARGO_BROWN,
-		PATH_FLESH = COLOR_SOFT_RED,
-		PATH_ASH = COLOR_VIVID_RED,
-		PATH_VOID = COLOR_CYAN,
-		PATH_BLADE = COLOR_SILVER,
-		PATH_COSMIC = COLOR_PURPLE,
-		PATH_KNOCK = COLOR_YELLOW,
-	)
 
 /datum/antagonist/heretic/Destroy()
 	LAZYNULL(sac_targets)
@@ -86,14 +55,18 @@
 /datum/antagonist/heretic/ui_data(mob/user)
 	var/list/data = list()
 
-	data["charges"] = knowledge_points
-	data["side_charges"] = side_path_points
-	data["total_sacrifices"] = total_sacrifices
-	data["ascended"] = ascended
+	var/static/list/path_to_color = list(
+		PATH_START = "grey",
+		PATH_SIDE = "green",
+		PATH_RUST = "brown",
+		PATH_FLESH = "red",
+		PATH_ASH = "white",
+		PATH_VOID = "blue",
+		PATH_BLADE = "label", // my favorite color is label
+	)
 
-	// This should be cached in some way, but the fact that final knowledge
-	// has to update its disabled state based on whether all objectives are complete,
-	// makes this very difficult. I'll figure it out one day maybe
+	data["charges"] = knowledge_points
+
 	for(var/datum/heretic_knowledge/knowledge as anything in get_researchable_knowledge())
 		var/list/knowledge_data = list()
 		knowledge_data["path"] = knowledge
@@ -101,27 +74,16 @@
 		knowledge_data["desc"] = initial(knowledge.desc)
 		knowledge_data["gainFlavor"] = initial(knowledge.gain_text)
 		knowledge_data["cost"] = initial(knowledge.cost)
-		if(initial(knowledge.route) == PATH_SIDE)
-			knowledge_data["disabled"] = (initial(knowledge.cost) > knowledge_points + side_path_points)
-		else
-			knowledge_data["disabled"] = (initial(knowledge.cost) > knowledge_points)
+		knowledge_data["disabled"] = (initial(knowledge.cost) > knowledge_points)
 
 		// Final knowledge can't be learned until all objectives are complete.
-		if(ispath(knowledge, /datum/heretic_knowledge/ultimate))
+		if(ispath(knowledge, /datum/heretic_knowledge/final))
 			knowledge_data["disabled"] = !can_ascend()
 
 		knowledge_data["hereticPath"] = initial(knowledge.route)
-		knowledge_data["color"] = path_to_ui_color[initial(knowledge.route)] || "grey"
+		knowledge_data["color"] = path_to_color[initial(knowledge.route)] || "grey"
 
 		data["learnableKnowledge"] += list(knowledge_data)
-
-	return data
-
-/datum/antagonist/heretic/ui_static_data(mob/user)
-	var/list/data = list()
-
-	data["objectives"] = get_objectives()
-	data["can_change_objective"] = can_assign_self_objectives
 
 	for(var/path in researched_knowledge)
 		var/list/knowledge_data = list()
@@ -131,9 +93,18 @@
 		knowledge_data["gainFlavor"] = found_knowledge.gain_text
 		knowledge_data["cost"] = found_knowledge.cost
 		knowledge_data["hereticPath"] = found_knowledge.route
-		knowledge_data["color"] = path_to_ui_color[found_knowledge.route] || "grey"
+		knowledge_data["color"] = path_to_color[found_knowledge.route] || "grey"
 
 		data["learnedKnowledge"] += list(knowledge_data)
+
+	return data
+
+/datum/antagonist/heretic/ui_static_data(mob/user)
+	var/list/data = list()
+
+	data["total_sacrifices"] = total_sacrifices
+	data["ascended"] = ascended
+	data["objectives"] = get_objectives()
 
 	return data
 
@@ -148,62 +119,25 @@
 			if(!ispath(researched_path))
 				CRASH("Heretic attempted to learn non-heretic_knowledge path! (Got: [researched_path])")
 
-			// If side path and has path points, buy!
-			var/coupon = FALSE
-			if((initial(researched_path.route) == PATH_SIDE) && side_path_points)
-				coupon = TRUE
-			// else try normal purchase
-			else if(initial(researched_path.cost) > knowledge_points)
+			if(initial(researched_path.cost) > knowledge_points)
+				return
+			if(!gain_knowledge(researched_path))
 				return
 
-			if(!gain_knowledge(researched_path))
-				return TRUE
-
-			log_heretic_knowledge("[key_name(owner)] gained knowledge: [initial(researched_path.name)][coupon ? "(via free side-path point)" : ""]")
-			if(coupon)
-				side_path_points -= initial(researched_path.cost)
-			else
-				knowledge_points -= initial(researched_path.cost)
+			log_heretic_knowledge("[key_name(owner)] gained knowledge: [initial(researched_path.name)]")
+			knowledge_points -= initial(researched_path.cost)
 			return TRUE
-
-/datum/antagonist/heretic/submit_player_objective(retain_existing = FALSE, retain_escape = TRUE, force = FALSE)
-	if (isnull(owner) || isnull(owner.current))
-		return
-	var/confirmed = tgui_alert(
-		owner.current,
-		message = "Are you sure? You will no longer be able to Ascend.",
-		title = "Reject the call?",
-		buttons = list("Yes", "No"),
-	) == "Yes"
-	if (!confirmed)
-		return
-	return ..()
 
 /datum/antagonist/heretic/ui_status(mob/user, datum/ui_state/state)
 	if(user.stat == DEAD)
 		return UI_CLOSE
 	return ..()
 
-/datum/antagonist/heretic/get_preview_icon()
-	var/icon/icon = render_preview_outfit(preview_outfit)
-
-	// MOTHBLOCKS TOOD: Copied and pasted from cult, make this its own proc
-
-	// The sickly blade is 64x64, but getFlatIcon crunches to 32x32.
-	// So I'm just going to add it in post, screw it.
-
-	// Center the dude, because item icon states start from the center.
-	// This makes the image 64x64.
-	icon.Crop(-15, -15, 48, 48)
-
-	var/obj/item/melee/sickly_blade/blade = new
-	icon.Blend(icon(blade.lefthand_file, blade.inhand_icon_state), ICON_OVERLAY)
-	qdel(blade)
-
-	// Move the guy back to the bottom left, 32x32.
-	icon.Crop(17, 17, 48, 48)
-
-	return finish_preview_icon(icon)
+/datum/antagonist/heretic/greet()
+	. = ..()
+	var/policy = get_policy(ROLE_HERETIC)
+	if(policy)
+		to_chat(owner, policy)
 
 /datum/antagonist/heretic/farewell()
 	if(!silent)
@@ -224,9 +158,10 @@
 	return ..()
 
 /datum/antagonist/heretic/on_removal()
+
 	for(var/knowledge_index in researched_knowledge)
 		var/datum/heretic_knowledge/knowledge = researched_knowledge[knowledge_index]
-		knowledge.on_lose(owner.current, src)
+		knowledge.on_lose(owner.current)
 
 	GLOB.reality_smash_track.remove_tracked_mind(owner)
 	QDEL_LIST_ASSOC_VAL(researched_knowledge)
@@ -236,33 +171,22 @@
 	var/mob/living/our_mob = mob_override || owner.current
 	handle_clown_mutation(our_mob, "Ancient knowledge described to you has allowed you to overcome your clownish nature, allowing you to wield weapons without harming yourself.")
 	our_mob.faction |= FACTION_HERETIC
-
 	RegisterSignals(our_mob, list(COMSIG_MOB_BEFORE_SPELL_CAST, COMSIG_MOB_SPELL_ACTIVATED), PROC_REF(on_spell_cast))
 	RegisterSignal(our_mob, COMSIG_MOB_ITEM_AFTERATTACK, PROC_REF(on_item_afterattack))
 	RegisterSignal(our_mob, COMSIG_MOB_LOGIN, PROC_REF(fix_influence_network))
-	RegisterSignal(our_mob, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(after_fully_healed))
-	RegisterSignal(our_mob, COMSIG_LIVING_CULT_SACRIFICED, PROC_REF(on_cult_sacrificed))
 
 /datum/antagonist/heretic/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/our_mob = mob_override || owner.current
 	handle_clown_mutation(our_mob, removing = FALSE)
 	our_mob.faction -= FACTION_HERETIC
-
-	UnregisterSignal(our_mob, list(
-		COMSIG_MOB_BEFORE_SPELL_CAST,
-		COMSIG_MOB_SPELL_ACTIVATED,
-		COMSIG_MOB_ITEM_AFTERATTACK,
-		COMSIG_MOB_LOGIN,
-		COMSIG_LIVING_POST_FULLY_HEAL,
-		COMSIG_LIVING_CULT_SACRIFICED
-	))
+	UnregisterSignal(our_mob, list(COMSIG_MOB_BEFORE_SPELL_CAST, COMSIG_MOB_SPELL_ACTIVATED, COMSIG_MOB_ITEM_AFTERATTACK, COMSIG_MOB_LOGIN))
 
 /datum/antagonist/heretic/on_body_transfer(mob/living/old_body, mob/living/new_body)
 	. = ..()
 	for(var/knowledge_index in researched_knowledge)
 		var/datum/heretic_knowledge/knowledge = researched_knowledge[knowledge_index]
-		knowledge.on_lose(old_body, src)
-		knowledge.on_gain(new_body, src)
+		knowledge.on_lose(old_body)
+		knowledge.on_gain(new_body)
 
 /*
  * Signal proc for [COMSIG_MOB_BEFORE_SPELL_CAST] and [COMSIG_MOB_SPELL_ACTIVATED].
@@ -320,14 +244,14 @@
  * * drawing_time - how long the do_after takes to make the rune
  * * additional checks - optional callbacks to be ran while drawing the rune
  */
-/datum/antagonist/heretic/proc/try_draw_rune(mob/living/user, turf/target_turf, drawing_time = 20 SECONDS, additional_checks)
+/datum/antagonist/heretic/proc/try_draw_rune(mob/living/user, turf/target_turf, drawing_time = 30 SECONDS, additional_checks)
 	for(var/turf/nearby_turf as anything in RANGE_TURFS(1, target_turf))
 		if(!isopenturf(nearby_turf) || is_type_in_typecache(nearby_turf, blacklisted_rune_turfs))
 			target_turf.balloon_alert(user, "invalid placement for rune!")
 			return
 
 	if(locate(/obj/effect/heretic_rune) in range(3, target_turf))
-		target_turf.balloon_alert(user, "too close to another rune!")
+		target_turf.balloon_alert(user, "to close to another rune!")
 		return
 
 	if(drawing_rune)
@@ -345,27 +269,17 @@
  * * drawing_time - how long the do_after takes to make the rune
  * * additional checks - optional callbacks to be ran while drawing the rune
  */
-/datum/antagonist/heretic/proc/draw_rune(mob/living/user, turf/target_turf, drawing_time = 20 SECONDS, additional_checks)
+/datum/antagonist/heretic/proc/draw_rune(mob/living/user, turf/target_turf, drawing_time = 30 SECONDS, additional_checks)
 	drawing_rune = TRUE
 
-	var/rune_colour = path_to_rune_color[heretic_path]
 	target_turf.balloon_alert(user, "drawing rune...")
-	var/obj/effect/temp_visual/drawing_heretic_rune/drawing_effect
-	if (drawing_time < (10 SECONDS))
-		drawing_effect = new /obj/effect/temp_visual/drawing_heretic_rune/fast(target_turf, rune_colour)
-	else
-		drawing_effect = new(target_turf, rune_colour)
-
 	if(!do_after(user, drawing_time, target_turf, extra_checks = additional_checks))
 		target_turf.balloon_alert(user, "interrupted!")
-		new /obj/effect/temp_visual/drawing_heretic_rune/fail(target_turf, rune_colour)
-		qdel(drawing_effect)
 		drawing_rune = FALSE
 		return
 
-	qdel(drawing_effect)
 	target_turf.balloon_alert(user, "rune created")
-	new /obj/effect/heretic_rune/big(target_turf, rune_colour)
+	new /obj/effect/heretic_rune/big(target_turf)
 	drawing_rune = FALSE
 
 /**
@@ -390,24 +304,6 @@
 
 	GLOB.reality_smash_track.rework_network()
 
-/// Signal proc for [COMSIG_LIVING_POST_FULLY_HEAL],
-/// Gives the heretic aliving heart on aheal or organ refresh
-/datum/antagonist/heretic/proc/after_fully_healed(mob/living/source, heal_flags)
-	SIGNAL_HANDLER
-
-	if(heal_flags & (HEAL_REFRESH_ORGANS|HEAL_ADMIN))
-		var/datum/heretic_knowledge/living_heart/heart_knowledge = get_knowledge(/datum/heretic_knowledge/living_heart)
-		heart_knowledge.on_research(source, src)
-
-/// Signal proc for [COMSIG_LIVING_CULT_SACRIFICED] to reward cultists for sacrificing a heretic
-/datum/antagonist/heretic/proc/on_cult_sacrificed(mob/living/source, list/invokers)
-	SIGNAL_HANDLER
-
-	new /obj/item/cult_bastard(source.loc)
-	for(var/mob/living/cultist as anything in invokers)
-		to_chat(cultist, span_cultlarge("\"A follower of the forgotten gods! You must be rewarded for such a valuable sacrifice.\""))
-	return SILENCE_SACRIFICE_MESSAGE
-
 /**
  * Create our objectives for our heretic.
  */
@@ -416,19 +312,16 @@
 	research_objective.owner = owner
 	objectives += research_objective
 
-	var/num_heads = 0
-	for(var/mob/player in GLOB.alive_player_list)
-		if(player.mind.assigned_role.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND)
-			num_heads++
+	var/list/num_heads = SSjob.get_all_heads()
 
 	var/datum/objective/minor_sacrifice/sac_objective = new()
 	sac_objective.owner = owner
-	if(num_heads < 2) // They won't get major sacrifice, so bump up minor sacrifice a bit
+	if(num_heads.len < 2) // They won't get major sacrifice, so bump up minor sacrifice a bit
 		sac_objective.target_amount += 2
 		sac_objective.update_explanation_text()
 	objectives += sac_objective
 
-	if(num_heads >= 2)
+	if(num_heads.len >= 2)
 		var/datum/objective/major_sacrifice/other_sac_objective = new()
 		other_sac_objective.owner = owner
 		objectives += other_sac_objective
@@ -443,8 +336,7 @@
 	target_image.overlays = target.overlays
 
 	LAZYSET(sac_targets, target, target_image)
-	RegisterSignal(target, COMSIG_QDELETING, PROC_REF(on_target_deleted))
-	all_sac_targets += target.real_name
+	RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(on_target_deleted))
 
 /**
  * Removes [target] from the heretic's sacrifice list.
@@ -455,11 +347,11 @@
 		return FALSE
 
 	LAZYREMOVE(sac_targets, target)
-	UnregisterSignal(target, COMSIG_QDELETING)
+	UnregisterSignal(target, COMSIG_PARENT_QDELETING)
 	return TRUE
 
 /**
- * Signal proc for [COMSIG_QDELETING] registered on sac targets
+ * Signal proc for [COMSIG_PARENT_QDELETING] registered on sac targets
  * if sacrifice targets are deleted (gibbed, dusted, whatever), free their slot and reference
  */
 /datum/antagonist/heretic/proc/on_target_deleted(mob/living/carbon/human/source)
@@ -484,13 +376,15 @@
 
 	parts += printplayer(owner)
 	parts += "<b>Sacrifices Made:</b> [total_sacrifices]"
-	parts += "The heretic's sacrifice targets were: [english_list(all_sac_targets, nothing_text = "No one")]."
+
 	if(length(objectives))
 		var/count = 1
 		for(var/datum/objective/objective as anything in objectives)
-			if(!objective.check_completion())
+			if(objective.check_completion())
+				parts += "<b>Objective #[count]</b>: [objective.explanation_text] [span_greentext("Success!")]"
+			else
+				parts += "<b>Objective #[count]</b>: [objective.explanation_text] [span_redtext("Fail.")]"
 				succeeded = FALSE
-			parts += "<b>Objective #[count]</b>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			count++
 
 	if(ascended)
@@ -525,9 +419,8 @@
 			.["Remove Heart Target"] = CALLBACK(src, PROC_REF(remove_target))
 
 	.["Adjust Knowledge Points"] = CALLBACK(src, PROC_REF(admin_change_points))
-	.["Give Focus"] = CALLBACK(src, PROC_REF(admin_give_focus))
 
-/**
+/*
  * Admin proc for giving a heretic a Living Heart easily.
  */
 /datum/antagonist/heretic/proc/give_living_heart(mob/admin)
@@ -540,9 +433,9 @@
 		to_chat(admin, span_warning("The heretic doesn't have a living heart knowledge for some reason. What?"))
 		return
 
-	heart_knowledge.on_research(owner.current, src)
+	heart_knowledge.on_research(owner.current)
 
-/**
+/*
  * Admin proc for adding a marked mob to a heretic's sac list.
  */
 /datum/antagonist/heretic/proc/add_marked_as_target(mob/admin)
@@ -557,11 +450,11 @@
 
 	if(tgui_alert(admin, "Let them know their targets have been updated?", "Whispers of the Mansus", list("Yes", "No")) == "Yes")
 		to_chat(owner.current, span_danger("The Mansus has modified your targets. Go find them!"))
-		to_chat(owner.current, span_danger("[new_target.real_name], the [new_target.mind?.assigned_role?.title || "human"]."))
+		to_chat(owner.current, span_danger("[new_target.real_name], the [new_target.mind?.assigned_role || "human"]."))
 
 	add_sacrifice_target(new_target)
 
-/**
+/*
  * Admin proc for removing a mob from a heretic's sac list.
  */
 /datum/antagonist/heretic/proc/remove_target(mob/admin)
@@ -587,7 +480,7 @@
 	if(tgui_alert(admin, "Let them know their targets have been updated?", "Whispers of the Mansus", list("Yes", "No")) == "Yes")
 		to_chat(owner.current, span_danger("The Mansus has modified your targets."))
 
-/**
+/*
  * Admin proc for easily adding / removing knowledge points.
  */
 /datum/antagonist/heretic/proc/admin_change_points(mob/admin)
@@ -601,24 +494,12 @@
 
 	knowledge_points += change_num
 
-/**
- * Admin proc for giving a heretic a focus.
- */
-/datum/antagonist/heretic/proc/admin_give_focus(mob/admin)
-	if(!admin.client?.holder)
-		to_chat(admin, span_warning("You shouldn't be using this!"))
-		return
-
-	var/mob/living/pawn = owner.current
-	pawn.equip_to_slot_if_possible(new /obj/item/clothing/neck/heretic_focus(get_turf(pawn)), ITEM_SLOT_NECK, TRUE, TRUE)
-	to_chat(pawn, span_hypnophrase("The Mansus has manifested you a focus."))
-
 /datum/antagonist/heretic/antag_panel_data()
 	var/list/string_of_knowledge = list()
 
 	for(var/knowledge_index in researched_knowledge)
 		var/datum/heretic_knowledge/knowledge = researched_knowledge[knowledge_index]
-		if(istype(knowledge, /datum/heretic_knowledge/ultimate))
+		if(istype(knowledge, /datum/heretic_knowledge/final))
 			string_of_knowledge += span_bold(knowledge.name)
 		else
 			string_of_knowledge += knowledge.name
@@ -632,13 +513,13 @@
 	. += "<i><b>Current Targets:</b></i><br>"
 	if(LAZYLEN(sac_targets))
 		for(var/mob/living/carbon/human/target as anything in sac_targets)
-			. += " - <b>[target.real_name]</b>, the [target.mind?.assigned_role?.title || "human"].<br>"
+			. += " - <b>[target.real_name]</b>, the [target.mind?.assigned_role || "human"].<br>"
 
 	else
 		. += "<i>None!</i><br>"
 	. += "<br>"
 
-/**
+/*
  * Learns the passed [typepath] of knowledge, creating a knowledge datum
  * and adding it to our researched knowledge list.
  *
@@ -652,11 +533,10 @@
 		return FALSE
 	var/datum/heretic_knowledge/initialized_knowledge = new knowledge_type()
 	researched_knowledge[knowledge_type] = initialized_knowledge
-	initialized_knowledge.on_research(owner.current, src)
-	update_static_data(owner.current)
+	initialized_knowledge.on_research(owner.current)
 	return TRUE
 
-/**
+/*
  * Get a list of all knowledge TYPEPATHS that we can currently research.
  */
 /datum/antagonist/heretic/proc/get_researchable_knowledge()
@@ -670,13 +550,13 @@
 	researchable_knowledge -= banned_knowledge
 	return researchable_knowledge
 
-/**
+/*
  * Check if the wanted type-path is in the list of research knowledge.
  */
 /datum/antagonist/heretic/proc/get_knowledge(wanted)
 	return researched_knowledge[wanted]
 
-/**
+/*
  * Get a list of all rituals this heretic can invoke on a rune.
  * Iterates over all of our knowledge and, if we can invoke it, adds it to our list.
  *
@@ -693,20 +573,18 @@
 
 	return sortTim(rituals, GLOBAL_PROC_REF(cmp_heretic_knowledge), associative = TRUE)
 
-/**
+/*
  * Checks to see if our heretic can ccurrently ascend.
  *
  * Returns FALSE if not all of our objectives are complete, or TRUE otherwise.
  */
 /datum/antagonist/heretic/proc/can_ascend()
-	if(!can_assign_self_objectives)
-		return FALSE // We spurned the offer of the Mansus :(
 	for(var/datum/objective/must_be_done as anything in objectives)
 		if(!must_be_done.check_completion())
 			return FALSE
 	return TRUE
 
-/**
+/*
  * Helper to determine if a Heretic
  * - Has a Living Heart
  * - Has a an organ in the correct slot that isn't a living heart
@@ -729,10 +607,11 @@
 /// Heretic's minor sacrifice objective. "Minor sacrifices" includes anyone.
 /datum/objective/minor_sacrifice
 	name = "minor sacrifice"
+	reward = 25
 
 /datum/objective/minor_sacrifice/New(text)
 	. = ..()
-	target_amount = rand(3, 4)
+	target_amount = rand(2, 3)
 	update_explanation_text()
 
 /datum/objective/minor_sacrifice/update_explanation_text()
@@ -750,6 +629,7 @@
 	name = "major sacrifice"
 	target_amount = 1
 	explanation_text = "Sacrifice 1 head of staff."
+	reward = 50
 
 /datum/objective/major_sacrifice/check_completion()
 	var/datum/antagonist/heretic/heretic_datum = owner?.has_antag_datum(/datum/antagonist/heretic)
@@ -762,6 +642,7 @@
 	name = "research"
 	/// The length of a main path. Calculated once in New().
 	var/static/main_path_length = 0
+	reward = 10
 
 /datum/objective/heretic_research/New(text)
 	. = ..()
@@ -780,8 +661,8 @@
 	target_amount = main_path_length
 	// Add in the base research we spawn with, otherwise it'd be too easy.
 	target_amount += length(GLOB.heretic_start_knowledge)
-	// And add in some buffer, to require some sidepathing, especially since heretics get some free side paths.
-	target_amount += rand(5, 7)
+	// And add in some buffer, to require some sidepathing.
+	target_amount += rand(2, 4)
 	update_explanation_text()
 
 /datum/objective/heretic_research/update_explanation_text()
@@ -800,6 +681,7 @@
 	explanation_text = "Summon 2 monsters from the Mansus into this realm."
 	/// The total number of summons the objective owner has done
 	var/num_summoned = 0
+	reward = 30
 
 /datum/objective/heretic_summon/check_completion()
 	return completed || (num_summoned >= target_amount)
@@ -808,6 +690,9 @@
 	name = "Heretic (Preview only)"
 
 	suit = /obj/item/clothing/suit/hooded/cultrobes/eldritch
-	head = /obj/item/clothing/head/hooded/cult_hoodie/eldritch
 	r_hand = /obj/item/melee/touch_attack/mansus_fist
 
+/datum/outfit/heretic/post_equip(mob/living/carbon/human/equipper, visualsOnly)
+	var/obj/item/clothing/suit/hooded/hooded = locate() in equipper
+	hooded.MakeHood() // This is usually created on Initialize, but we run before atoms
+	hooded.ToggleHood()

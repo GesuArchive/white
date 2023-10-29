@@ -12,8 +12,6 @@
 	..()
 
 /datum/wires/rnd/interactable(mob/user)
-	if(!..())
-		return FALSE
 	var/obj/machinery/rnd/R = holder
 	if(R.panel_open)
 		return TRUE
@@ -21,8 +19,8 @@
 /datum/wires/rnd/get_status()
 	var/obj/machinery/rnd/R = holder
 	var/list/status = list()
-	status += "The red light is [R.disabled ? "off" : "on"]."
-	status += "The blue light is [R.hacked ? "off" : "on"]."
+	status += "Красный индикатор [R.disabled ? "не горит" : "горит"]."
+	status += "Синий индикатор [R.hacked ? "не горит" : "горит"]."
 	return status
 
 /datum/wires/rnd/on_pulse(wire)
@@ -33,7 +31,7 @@
 			R.hacked = !R.hacked
 		if(WIRE_DISABLE)
 			R.disabled = !R.disabled
-/datum/wires/rnd/on_cut(wire, mend, source)
+/datum/wires/rnd/on_cut(wire, mend)
 	var/obj/machinery/rnd/R = holder
 	switch(wire)
 		if(WIRE_HACK)

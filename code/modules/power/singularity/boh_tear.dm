@@ -5,14 +5,13 @@
 #define BOH_TEAR_GRAV_PULL 25
 
 /obj/boh_tear
-	name = "tear in the fabric of reality"
-	desc = "Your own comprehension of reality starts bending as you stare this."
+	name = "разрыв в ткани реальности"
+	desc = "Моё собственное понимание реальности начинает изгибаться, когда я на это смотрю."
 	anchored = TRUE
 	appearance_flags = LONG_GLIDE
 	density = TRUE
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "boh_tear"
-	plane = MASSIVE_OBJ_PLANE
 	plane = ABOVE_LIGHTING_PLANE
 	light_range = 6
 	move_resist = INFINITY
@@ -38,10 +37,10 @@
 	if(!isliving(user))
 		return
 	var/mob/living/jedi = user
-	to_chat(jedi, span_userdanger("You don't feel like you are real anymore."))
+	to_chat(jedi, span_userdanger("Больше не чувствую себя настоящим."))
 	jedi.dust_animation()
 	jedi.spawn_dust()
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, attack_hand), jedi), 0.5 SECONDS)
+	addtimer(CALLBACK(src, /atom/proc/attack_hand, jedi), 0.5 SECONDS)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 #undef BOH_TEAR_CONSUME_RANGE

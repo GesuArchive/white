@@ -31,7 +31,7 @@ export const RoundGauge = (props) => {
 
   const scaledValue = scale(value, minValue, maxValue);
   const clampedValue = clamp01(scaledValue);
-  const scaledRanges = ranges ? {} : { 'primary': [0, 1] };
+  let scaledRanges = ranges ? {} : { 'primary': [0, 1] };
   if (ranges) {
     Object.keys(ranges).forEach((x) => {
       const range = ranges[x];
@@ -59,9 +59,8 @@ export const RoundGauge = (props) => {
     return false;
   };
 
-  // prettier-ignore
-  const alertColor = shouldShowAlert()
-    && keyOfMatchingRange(clampedValue, scaledRanges);
+  const alertColor =
+    shouldShowAlert() && keyOfMatchingRange(clampedValue, scaledRanges);
 
   return (
     <Box inline>

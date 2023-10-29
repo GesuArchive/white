@@ -1,6 +1,6 @@
 /obj/item/stack/arcadeticket
-	name = "arcade tickets"
-	desc = "Wow! With enough of these, you could buy a bike! ...Pssh, yeah right."
+	name = "аркадные билеты"
+	desc = "Вот Это Да! С достаточным количеством билетов вы можете купить себе велосипед!"
 	singular_name = "arcade ticket"
 	icon_state = "arcade-ticket"
 	inhand_icon_state = "tickets"
@@ -10,7 +10,7 @@
 
 /obj/item/stack/arcadeticket/Initialize(mapload, new_amount, merge = TRUE, list/mat_override=null, mat_amt=1)
 	. = ..()
-	update_appearance()
+	update_icon()
 
 /obj/item/stack/arcadeticket/update_icon_state()
 	. = ..()

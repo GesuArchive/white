@@ -4,10 +4,11 @@ All the important duct code:
 /code/datums/ductnet.dm
 */
 /obj/machinery/duct
-	name = "fluid duct"
-	icon = 'icons/obj/pipes_n_cables/hydrochem/fluid_ducts.dmi'
+	name = "труба"
+	icon = 'icons/obj/plumbing/fluid_ducts.dmi'
 	icon_state = "nduct"
 	layer = PLUMBING_PIPE_VISIBILE_LAYER
+
 	use_power = NO_POWER_USE
 
 	///bitfield with the directions we're connected in
@@ -86,7 +87,7 @@ All the important duct code:
 
 ///connect to a duct
 /obj/machinery/duct/proc/connect_duct(obj/machinery/duct/other, direction)
-	var/opposite_dir = REVERSE_DIR(direction)
+	var/opposite_dir = turn(direction, 180)
 	if(!active || !other.active)
 		return
 
@@ -128,9 +129,9 @@ All the important duct code:
 
 ///connect to a plumbing object
 /obj/machinery/duct/proc/connect_plumber(datum/component/plumbing/plumbing, direction)
-	var/opposite_dir = REVERSE_DIR(direction)
+	var/opposite_dir = turn(direction, 180)
 
-	if(!(duct_layer & plumbing.ducting_layer))
+	if(!plumbing || !(duct_layer & plumbing.ducting_layer))
 		return FALSE
 
 	if(!plumbing.active)
@@ -182,7 +183,7 @@ All the important duct code:
 	if(!(other in neighbours))
 		neighbours[other] = direction
 	if(!(src in other.neighbours))
-		other.neighbours[src] = REVERSE_DIR(direction)
+		other.neighbours[src] = turn(direction, 180)
 
 ///remove all our neighbours, and remove us from our neighbours aswell
 /obj/machinery/duct/proc/lose_neighbours()
@@ -212,7 +213,7 @@ All the important duct code:
 	for(var/direction in GLOB.cardinals)
 		if(direction & connects)
 			for(var/obj/machinery/duct/other in get_step(src, direction))
-				if((REVERSE_DIR(direction) & other.connects) && other.active)
+				if((turn(direction, 180) & other.connects) && other.active)
 					adjacents += other
 	return adjacents
 
@@ -268,8 +269,8 @@ All the important duct code:
 	if(anchored || can_anchor())
 		set_anchored(!anchored)
 		user.visible_message( \
-		"[user] [anchored ? null : "un"]fastens \the [src].", \
-		span_notice("You [anchored ? null : "un"]fasten \the [src]."), \
+		"[user] [anchored ? null : "un"]fastens <b>[src]</b>.", \
+		span_notice("You [anchored ? null : "un"]fasten <b>[src]</b>."), \
 		span_hear("You hear ratcheting."))
 	return TRUE
 
@@ -282,7 +283,7 @@ All the important duct code:
 			return FALSE
 	for(var/obj/machinery/machine in destination)
 		for(var/datum/component/plumbing/plumber as anything in machine.GetComponents(/datum/component/plumbing))
-			if(plumber.ducting_layer & duct_layer)
+			if(plumber && (plumber.ducting_layer & duct_layer))
 				return FALSE
 	return TRUE
 
@@ -320,12 +321,12 @@ All the important duct code:
 	to_chat(user, span_notice("You connect the two plumbing ducts."))
 
 /obj/item/stack/ducts
-	name = "stack of duct"
-	desc = "A stack of fluid ducts."
+	name = "набор труб"
+	desc = "Используются для передачи жидкости на расстояние."
 	singular_name = "duct"
-	icon = 'icons/obj/pipes_n_cables/hydrochem/fluid_ducts.dmi'
+	icon = 'icons/obj/plumbing/fluid_ducts.dmi'
 	icon_state = "ducts"
-	mats_per_unit = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*5)
+	mats_per_unit = list(/datum/material/iron=500)
 	w_class = WEIGHT_CLASS_TINY
 	novariants = FALSE
 	max_amount = 50

@@ -8,25 +8,14 @@
 
 /obj/machinery/power
 	name = null
-	icon = 'icons/obj/machines/engine/other.dmi'
+	icon = 'icons/obj/power.dmi'
 	anchored = TRUE
-	obj_flags = CAN_BE_HIT
+	obj_flags = CAN_BE_HIT | ON_BLUEPRINTS
+	var/datum/powernet/powernet = null
 	use_power = NO_POWER_USE
 	idle_power_usage = 0
 	active_power_usage = 0
-
-	///The powernet our machine is connected to.
-	var/datum/powernet/powernet
-	///Cable layer to which the machine is connected.
-	var/cable_layer = CABLE_LAYER_2
-	///Can the cable_layer be tweked with a multi tool
-	var/can_change_cable_layer = FALSE
-
-/obj/machinery/power/Initialize(mapload)
-	. = ..()
-	if(isturf(loc))
-		var/turf/turf_loc = loc
-		turf_loc.add_blueprints_preround(src)
+	var/machinery_layer = MACHINERY_LAYER_1 //cable layer to which the machine is connected
 
 /obj/machinery/power/Destroy()
 	disconnect_from_network()
@@ -45,34 +34,6 @@
 //override this if the machine needs special functionality for making wire nodes appear, ie emitters, generators, etc.
 /obj/machinery/power/proc/should_have_node()
 	return FALSE
-
-/obj/machinery/power/examine(mob/user)
-	. = ..()
-	if(can_change_cable_layer)
-		if(!QDELETED(powernet))
-			. += span_notice("It's operating on the [lowertext(GLOB.cable_layer_to_name["[cable_layer]"])].")
-		else
-			. += span_warning("It's disconnected from the [lowertext(GLOB.cable_layer_to_name["[cable_layer]"])].")
-		. += span_notice("It's power line can be changed with a [EXAMINE_HINT("multitool")].")
-
-///does the required checks to see if this machinery layer can be changed
-/obj/machinery/power/proc/cable_layer_change_checks(mob/living/user, obj/item/tool)
-	return can_change_cable_layer
-
-/obj/machinery/power/multitool_act(mob/living/user, obj/item/tool)
-	if(!can_change_cable_layer || !cable_layer_change_checks(user, tool))
-		return
-
-	var/choice = tgui_input_list(user, "Select Power Line For Operation", "Select Cable Layer", GLOB.cable_name_to_layer)
-	if(isnull(choice))
-		return
-
-	cable_layer = GLOB.cable_name_to_layer[choice]
-	balloon_alert(user, "now operating on the [choice]")
-	return TOOL_ACT_TOOLTYPE_SUCCESS
-
-/obj/machinery/power/multitool_act_secondary(mob/living/user, obj/item/tool)
-	return multitool_act(user, tool)
 
 /obj/machinery/power/proc/add_avail(amount)
 	if(powernet)
@@ -118,13 +79,13 @@
 
 // returns true if the area has power on given channel (or doesn't require power).
 // defaults to power_channel
-/obj/machinery/proc/powered(chan = power_channel, ignore_use_power = FALSE)
+/obj/machinery/proc/powered(chan = power_channel)
 	if(!loc)
 		return FALSE
-	if(!use_power && !ignore_use_power)
+	if(!use_power)
 		return TRUE
 
-	var/area/A = get_area(src) // make sure it's in an area
+	var/area/A = get_area(src)		// make sure it's in an area
 	if(!A)
 		return FALSE // if not, then not powered
 
@@ -132,9 +93,13 @@
 
 // increment the power usage stats for an area
 /obj/machinery/proc/use_power(amount, chan = power_channel)
-	amount = max(amount * machine_power_rectifier, 0) // make sure we don't use negative power
 	var/area/A = get_area(src) // make sure it's in an area
 	A?.use_power(amount, chan)
+	if(GLOB.power_logger_active)
+		if(GLOB.power_logger_list[src.name])
+			GLOB.power_logger_list[src.name] += amount
+		else
+			GLOB.power_logger_list[src.name] = amount
 
 /**
  * An alternative to 'use_power', this proc directly costs the APC in direct charge, as opposed to being calculated periodically.
@@ -174,7 +139,7 @@
 	if(!home.requires_power)
 		return amount //Shuttles get free power, don't ask why
 
-	var/obj/machinery/power/apc/local_apc = home.apc
+	var/obj/machinery/power/apc/local_apc = home?.apc
 	if(!local_apc)
 		return FALSE
 	var/surplus = local_apc.surplus()
@@ -206,20 +171,17 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	if(machine_stat & BROKEN)
-		update_appearance()
 		return
-	var/initial_stat = machine_stat
 	if(powered(power_channel))
-		set_machine_stat(machine_stat & ~NOPOWER)
-		if(initial_stat & NOPOWER)
+		if(machine_stat & NOPOWER)
 			SEND_SIGNAL(src, COMSIG_MACHINERY_POWER_RESTORED)
 			. = TRUE
+		set_machine_stat(machine_stat & ~NOPOWER)
 	else
-		set_machine_stat(machine_stat | NOPOWER)
-		if(!(initial_stat & NOPOWER))
+		if(!(machine_stat & NOPOWER))
 			SEND_SIGNAL(src, COMSIG_MACHINERY_POWER_LOST)
 			. = TRUE
-
+		set_machine_stat(machine_stat | NOPOWER)
 	if(appearance_power_state != (machine_stat & NOPOWER))
 		update_appearance()
 
@@ -234,7 +196,7 @@
 	if(!T || !istype(T))
 		return FALSE
 
-	var/obj/structure/cable/C = T.get_cable_node(cable_layer) //check if we have a node cable on the machine turf, the first found is picked
+	var/obj/structure/cable/C = T.get_cable_node(machinery_layer) //check if we have a node cable on the machine turf, the first found is picked
 	if(!C || !C.powernet)
 		var/obj/machinery/power/terminal/term = locate(/obj/machinery/power/terminal) in T
 		if(!term || !term.powernet)
@@ -259,7 +221,7 @@
 	if(istype(W, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/coil = W
 		var/turf/T = user.loc
-		if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE || !isfloorturf(T))
+		if(T.intact || !isfloorturf(T))
 			return
 		if(get_dist(src, user) > 1)
 			return
@@ -311,7 +273,12 @@
 
 /proc/update_cable_icons_on_turf(turf/T)
 	for(var/obj/structure/cable/C in T.contents)
-		C.update_appearance()
+		C.update_icon()
+
+/obj/machinery/power/lateShuttleMove(turf/oldT, list/movement_force, move_dir)
+	. = ..()
+	disconnect_from_network()
+	connect_to_network()
 
 ///////////////////////////////////////////
 // GLOBAL PROCS for powernets handling
@@ -355,7 +322,7 @@
 		return
 
 	//We assume net1 is larger. If net2 is in fact larger we are just going to make them switch places to reduce on code.
-	if(net1.cables.len < net2.cables.len) //net2 is larger than net1. Let's switch them around
+	if(net1.cables.len < net2.cables.len)	//net2 is larger than net1. Let's switch them around
 		var/temp = net1
 		net1 = net2
 		net2 = temp
@@ -446,9 +413,9 @@
 
 	if (isarea(power_source))
 		var/area/source_area = power_source
-		source_area.use_power(drained_energy WATTS)
+		source_area.use_power(drained_energy/GLOB.CELLRATE)
 	else if (istype(power_source, /datum/powernet))
-		var/drained_power = drained_energy WATTS //convert from "joules" to "watts"
+		var/drained_power = drained_energy/GLOB.CELLRATE //convert from "joules" to "watts"
 		PN.delayedload += (min(drained_power, max(PN.newavail - PN.delayedload, 0)))
 	else if (istype(power_source, /obj/item/stock_parts/cell))
 		cell.use(drained_energy)
@@ -459,11 +426,11 @@
 ///////////////////////////////////////////////
 
 // return a cable able connect to machinery on layer if there's one on the turf, null if there isn't one
-/turf/proc/get_cable_node(cable_layer = CABLE_LAYER_ALL)
+/turf/proc/get_cable_node(machinery_layer = MACHINERY_LAYER_1)
 	if(!can_have_cabling())
 		return null
 	for(var/obj/structure/cable/C in src)
-		if(C.cable_layer & cable_layer)
-			C.update_appearance() // I hate this. it's here because update_icon_state SCANS nearby turfs for objects to connect to. Wastes cpu time
+		if(C.machinery_layer & machinery_layer)
+			C.update_icon()
 			return C
 	return null

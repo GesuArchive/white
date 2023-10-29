@@ -1,16 +1,31 @@
-## Communication key for receiving data through world/Topic(), you don't want to give this out.
-## Must be set to something other than 'default_pwd' and at least 7 characters long to be valid.
+## Communication key for receiving data through world/Topic(), you don't want to give this out
 #COMMS_KEY default_pwd
 
 ## World address and port for server receiving cross server messages
 ## Use '+' to denote spaces in ServerName
 ## Repeat this entry to add more servers
-#CROSS_SERVER ServerName byond:\\address:port
+#CROSS_SERVER Theta byond://station13.ru:2077
 
 ## Name that the server calls itself in communications
-#CROSS_COMMS_NAME
+#CROSS_COMMS_NAME White Dream
 
-## Network-name used for cross-server broadcasts made from communication consoles.
-## Servers that do not match this network-name will have their messages discarded.
-## Leaving this commented will allow all messages through, regardless of network.
-#CROSS_COMMS_NETWORK default_network
+## Hub address for tracking stats
+## example: Hubmakerckey.Hubname
+#MEDAL_HUB_ADDRESS
+
+## Password for the hub page
+#MEDAL_HUB_PASSWORD
+
+#WEBHOOK_ADDRESS
+
+#WEBHOOK_ADDRESS_INVST
+
+#WEBHOOK_KEY
+
+#COMMS_KEY
+
+#CROSS_KEY
+
+SPP 0
+
+SPECIAL_STRING GAYFURRYPRIDE]

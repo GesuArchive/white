@@ -9,7 +9,7 @@ import { AreaCharge, powerRank } from './PowerMonitor';
 export const ApcControl = (props, context) => {
   const { data } = useBackend(context);
   return (
-    <Window title="APC Controller" width={550} height={500}>
+    <Window title="Контроллер энергии" width={550} height={500}>
       <Window.Content>
         {data.authenticated === 1 && <ApcLoggedIn />}
         {data.authenticated === 0 && <ApcLoggedOut />}
@@ -21,7 +21,7 @@ export const ApcControl = (props, context) => {
 const ApcLoggedOut = (props, context) => {
   const { act, data } = useBackend(context);
   const { emagged } = data;
-  const text = emagged === 1 ? 'Open' : 'Log In';
+  const text = emagged === 1 ? 'Открыть' : 'Войти';
   return (
     <Section>
       <Button
@@ -48,7 +48,7 @@ const ApcLoggedIn = (props, context) => {
             setTabIndex(1);
             act('check-apcs');
           }}>
-          APC Control Panel
+          Управление питанием
         </Tabs.Tab>
         <Tabs.Tab
           selected={tabIndex === 2}
@@ -56,13 +56,13 @@ const ApcLoggedIn = (props, context) => {
             setTabIndex(2);
             act('check-logs');
           }}>
-          Log View Panel
+          Панель журналов
         </Tabs.Tab>
       </Tabs>
       {restoring === 1 && (
         <Dimmer fontSize="32px">
           <Icon name="cog" spin />
-          {' Resetting...'}
+          {' Сброс...'}
         </Dimmer>
       )}
       {tabIndex === 1 && (
@@ -102,21 +102,21 @@ const ControlPanel = (props, context) => {
     <Stack justify="space-between">
       <Stack.Item>
         <Box inline mr={2} color="label">
-          Sort by:
+          Сортировка:
         </Box>
         <Button.Checkbox
           checked={sortByField === 'name'}
-          content="Name"
+          content="Имя"
           onClick={() => setSortByField(sortByField !== 'name' && 'name')}
         />
         <Button.Checkbox
           checked={sortByField === 'charge'}
-          content="Charge"
+          content="Заряд"
           onClick={() => setSortByField(sortByField !== 'charge' && 'charge')}
         />
         <Button.Checkbox
           checked={sortByField === 'draw'}
-          content="Draw"
+          content="Потребление"
           onClick={() => setSortByField(sortByField !== 'draw' && 'draw')}
         />
       </Stack.Item>
@@ -126,11 +126,11 @@ const ControlPanel = (props, context) => {
           <>
             <Button
               color={logging === 1 ? 'bad' : 'good'}
-              content={logging === 1 ? 'Stop Logging' : 'Restore Logging'}
+              content={logging === 1 ? 'Остановить запись' : 'Продолжить запись'}
               onClick={() => act('toggle-logs')}
             />
             <Button
-              content="Reset Console"
+              content="Сбросить консоль"
               onClick={() => act('restore-console')}
             />
           </>
@@ -138,7 +138,7 @@ const ControlPanel = (props, context) => {
         <Button
           icon="sign-out-alt"
           color="bad"
-          content="Log Out"
+          content="Выйти"
           onClick={() => act('log-out')}
         />
       </Stack.Item>
@@ -169,20 +169,20 @@ const ApcControlScene = (props, context) => {
     <Box height={30}>
       <Table>
         <Table.Row header>
-          <Table.Cell>On/Off</Table.Cell>
-          <Table.Cell>Area</Table.Cell>
-          <Table.Cell collapsing>Charge</Table.Cell>
+          <Table.Cell>Вкл/Выкл</Table.Cell>
+          <Table.Cell>Зона</Table.Cell>
+          <Table.Cell collapsing>Заряд</Table.Cell>
           <Table.Cell collapsing textAlign="right">
-            Draw
+            Потребление
           </Table.Cell>
-          <Table.Cell collapsing title="Equipment">
-            Eqp
+          <Table.Cell collapsing title="Оборудование">
+            Обр
           </Table.Cell>
-          <Table.Cell collapsing title="Lighting">
-            Lgt
+          <Table.Cell collapsing title="Освещение">
+            Свт
           </Table.Cell>
-          <Table.Cell collapsing title="Environment">
-            Env
+          <Table.Cell collapsing title="Окружение">
+            Окр
           </Table.Cell>
         </Table.Row>
         {apcs.map((apc, i) => (

@@ -1,47 +1,39 @@
-/obj/item/circuitboard/computer
-	name = "Generic"
-	name_extension = "(Computer Board)"
-
 //Command
 
 /obj/item/circuitboard/computer/aiupload
-	name = "AI Upload"
+	name = "Консоль загрузки законов ИИ"
+	desc = "Используется для обновления законов искусственного интеллекта станции."
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
 	build_path = /obj/machinery/computer/upload/ai
 
 /obj/item/circuitboard/computer/borgupload
-	name = "Cyborg Upload"
+	name = "Консоль загрузки законов Киборгов"
+	desc = "Используется для обновления законов Киборгов станции."
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
 	build_path = /obj/machinery/computer/upload/borg
 
 /obj/item/circuitboard/computer/bsa_control
-	name = "Bluespace Artillery Controls"
+	name = "Компьютер блюспейс артиллерии"
+	desc = "Цельсь, готовьсь, ПЛИ!"
 	build_path = /obj/machinery/computer/bsa_control
-
-/obj/item/circuitboard/computer/accounting
-	name = "Account Lookup Console"
-	greyscale_colors = CIRCUIT_COLOR_COMMAND
-	build_path = /obj/machinery/computer/accounting
-
-/obj/item/circuitboard/computer/bankmachine
-	name = "Bank Machine Console"
-	greyscale_colors = CIRCUIT_COLOR_COMMAND
-	build_path = /obj/machinery/computer/bank_machine
 
 //Engineering
 
 /obj/item/circuitboard/computer/apc_control
-	name = "\improper Power Flow Control Console"
+	name = "консоль управления энергопотреблением"
+	desc = "Используется для дистанционного управления подачи электроэнергии в различные части станции."
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/apc_control
 
 /obj/item/circuitboard/computer/atmos_alert
-	name = "Atmospheric Alert"
+	name = "Консоль тревог АТМОС"
+	desc = "Используется для контроля воздушной сигнализации станции."
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/atmos_alert
 
 /obj/item/circuitboard/computer/atmos_control
-	name = "Atmospheric Control"
+	name = "консоль мониторинга АТМОСа"
+	desc = "Используется для мониторинга атмосферных датчиков станции."
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/atmos_control
 
@@ -65,8 +57,8 @@
 	name = "Incinerator Chamber Monitor"
 	build_path = /obj/machinery/computer/atmos_control/nocontrol/incinerator
 
-/obj/item/circuitboard/computer/atmos_control/ordnancemix
-	name = "Ordnance Chamber Control"
+/obj/item/circuitboard/computer/atmos_control/toxinsmix
+	name = "Toxins Mixing Air Control (Консоль)"
 	build_path = /obj/machinery/computer/atmos_control/ordnancemix
 
 /obj/item/circuitboard/computer/atmos_control/oxygen_tank
@@ -158,146 +150,160 @@
 	build_path = /obj/machinery/computer/atmos_control/antinoblium_tank
 
 /obj/item/circuitboard/computer/auxiliary_base
-	name = "Auxiliary Base Management Console"
+	name = "Auxiliary Base Management Console (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/auxiliary_base
 
 /obj/item/circuitboard/computer/base_construction
-	name = "Generic Base Construction Console"
+	name = "circuit board (Generic Base Construction Console)"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/camera_advanced/base_construction
 
 /obj/item/circuitboard/computer/base_construction/aux
-	name = "Aux Mining Base Construction Console"
+	name = "circuit board (Aux Mining Base Construction Console)"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/camera_advanced/base_construction/aux
 
 /obj/item/circuitboard/computer/base_construction/centcom
-	name = "Centcom Base Construction Console"
+	name = "circuit board (Centcom Base Construction Console)"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/camera_advanced/base_construction/centcom
 
 /obj/item/circuitboard/computer/comm_monitor
-	name = "Telecommunications Monitor"
+	name = "консоль мониторинга телекоммуникаций"
+	desc = "Отслеживает параметры телекоммуникационной сети, с которой она синхронизирована."
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/telecomms/monitor
 
 /obj/item/circuitboard/computer/comm_server
-	name = "Telecommunications Server Monitor"
+	name = "консоль контроля телекоммуникационных серверов"
+	desc = "Содержит полный доступ ко всем данным и записям телекоммуникационной сети, которую контролирует эта консоль."
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/telecomms/server
 
 /obj/item/circuitboard/computer/communications
-	name = "Communications"
+	name = "консоль связи"
+	desc = "Консоль, используемая для высокоприоритетных объявлений и чрезвычайных ситуаций."
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/communications
 
-/obj/item/circuitboard/computer/communications/syndicate
-	name = "Syndicate Communications"
-	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
-	build_path = /obj/machinery/computer/communications/syndicate
-
-
 /obj/item/circuitboard/computer/message_monitor
-	name = "Message Monitor"
+	name = "консоль монитора сообщений"
+	desc = "Используется для отслеживания сообщений КПК экипажа, а также для запроса консольных сообщений."
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/message_monitor
 
 /obj/item/circuitboard/computer/powermonitor
-	name = "Power Monitor"  //name fixed 250810
+	name = "Консоль контроля энергии"
+	desc = "Эта консоль показывает состояние энергии на станции."  //name fixed 250810
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/monitor
 
+/obj/item/circuitboard/computer/powermonitor/secret
+	name = "Outdated Power Monitor (Консоль)" //Variant used on ruins to prevent them from showing up on PDA's.
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/computer/monitor/secret
+
 /obj/item/circuitboard/computer/sat_control
-	name = "Satellite Network Control"
+	name = "Satellite Network Control (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/sat_control
 
 /obj/item/circuitboard/computer/solar_control
-	name = "Solar Control"  //name fixed 250810
+	name = "Консоль управления солнечными панелями"
+	desc = "Управления азимутом поворота в автоматическом режиме." //name fixed 250810
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/power/solar_control
 
 /obj/item/circuitboard/computer/stationalert
-	name = "Station Alerts"
+	name = "Station Alerts (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/station_alert
 
 /obj/item/circuitboard/computer/turbine_computer
-	name = "Turbine Computer"
+	name = "Консоль управления газовой турбиной"
+	desc = "Компьютер для дистанционного управления газовой турбиной."
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/turbine_computer
 
+/*	Дубликат
+/obj/item/circuitboard/computer/turbine_control
+	name = "Turbine control (Консоль)"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/computer/turbine_computer
+*/
 //Generic
 
 /obj/item/circuitboard/computer/arcade/amputation
-	name = "Mediborg's Amputation Adventure"
+	name = "Mediborg's Amputation Adventure (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/arcade/amputation
 
 /obj/item/circuitboard/computer/arcade/battle
-	name = "Arcade Battle"
+	name = "аркадный автомат"
+	desc = "Не поддерживает Пинбол."
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/arcade/battle
 
 /obj/item/circuitboard/computer/arcade/orion_trail
-	name = "Orion Trail"
+	name = "Пояс Ориона"
+	desc = "Узнайте, как наши предки попали на Орион, и получайте удовольствие в процессе!"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/arcade/orion_trail
 
 /obj/item/circuitboard/computer/holodeck// Not going to let people get this, but it's just here for future
-	name = "Holodeck Control"
+	name = "Holodeck Control (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/holodeck
 
 /obj/item/circuitboard/computer/libraryconsole
-	name = "Library Visitor Console"
+	name = "консоль для посетителей библиотеки"
+	desc = "Выписанные книги ДОЛЖНЫ быть возвращены вовремя."
 	build_path = /obj/machinery/computer/libraryconsole
 
-/obj/item/circuitboard/computer/libraryconsole/bookconsole
-	name =  "Book Inventory Management Console"
-	build_path = /obj/machinery/computer/libraryconsole/bookmanagement
-
-/obj/item/circuitboard/computer/libraryconsole/screwdriver_act(mob/living/user, obj/item/tool)
-	if(build_path == /obj/machinery/computer/libraryconsole/bookmanagement)
-		name = "Library Visitor Console"
-		build_path = /obj/machinery/computer/libraryconsole
-		to_chat(user, span_notice("Defaulting access protocols."))
+/obj/item/circuitboard/computer/libraryconsole/attackby(obj/item/I, mob/user, params)
+	if(I.tool_behaviour == TOOL_SCREWDRIVER)
+		if(build_path == /obj/machinery/computer/bookmanagement)
+			name = "Library Visitor Console (Консоль)"
+			build_path = /obj/machinery/computer/libraryconsole
+			to_chat(user, span_notice("Defaulting access protocols."))
+		else
+			name = "Book Inventory Management Console (Консоль)"
+			build_path = /obj/machinery/computer/bookmanagement
+			to_chat(user, span_notice("Access protocols successfully updated."))
 	else
-		name = "Book Inventory Management Console"
-		build_path = /obj/machinery/computer/libraryconsole/bookmanagement
-		to_chat(user, span_notice("Access protocols successfully updated."))
-	return TRUE
+		return ..()
 
 /obj/item/circuitboard/computer/monastery_shuttle
-	name = "Monastery Shuttle"
+	name = "Monastery Shuttle (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
-	build_path = /obj/machinery/computer/shuttle/monastery_shuttle
+	build_path = /obj/machinery/computer/shuttle_flight/monastery_shuttle
 
 /obj/item/circuitboard/computer/olddoor
-	name = "DoorMex"
+	name = "DoorMex (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/pod/old
 
 /obj/item/circuitboard/computer/pod
-	name = "Massdriver control"
+	name = "Massdriver control (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/pod
 
 /obj/item/circuitboard/computer/slot_machine
-	name = "Slot Machine"
+	name = "Однорукий бандит"
+	desc = "Для самых смелых."
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/slot_machine
 
 /obj/item/circuitboard/computer/swfdoor
-	name = "Magix"
+	name = "Magix (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/pod/old/swf
 
 /obj/item/circuitboard/computer/syndicate_shuttle
-	name = "Syndicate Shuttle"
+	name = "Syndicate Shuttle (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
-	build_path = /obj/machinery/computer/shuttle/syndicate
+	build_path = /obj/machinery/computer/shuttle_flight/syndicate
 	var/challenge = FALSE
 	var/moved = FALSE
 
@@ -310,41 +316,42 @@
 	return ..()
 
 /obj/item/circuitboard/computer/syndicatedoor
-	name = "ProComp Executive"
+	name = "ProComp Executive (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/pod/old/syndicate
 
 /obj/item/circuitboard/computer/white_ship
-	name = "White Ship"
+	name = "White Ship (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
-	build_path = /obj/machinery/computer/shuttle/white_ship
+	build_path = /obj/machinery/computer/shuttle_flight/white_ship
 
 /obj/item/circuitboard/computer/white_ship/bridge
-	name = "White Ship Bridge"
+	name = "White Ship Bridge (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
-	build_path = /obj/machinery/computer/shuttle/white_ship/bridge
+	build_path = /obj/machinery/computer/shuttle_flight/white_ship/bridge
+
+/obj/item/circuitboard/computer/white_ship/pod
+	name = "Salvage Pod (Консоль)"
+	build_path = /obj/machinery/computer/shuttle_flight/white_ship/pod
+
+/obj/item/circuitboard/computer/white_ship/pod/recall
+	name = "Salvage Pod Recall (Консоль)"
+	build_path = /obj/machinery/computer/shuttle_flight/white_ship/pod/recall
+
+/obj/item/circuitboard/computer/objective
+	name = "консоль заданий"
+	desc = "Консоль, которая загружает список свежих заданий от Центрального Командования."
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/computer/objective
 
 /obj/item/circuitboard/computer/bountypad
-	name = "Bounty Pad"
+	name = "Гражданский терминал заказов"
+	desc = "Консоль, которая предоставляет персоналу возможность выполнять небольшие поручения, достаточно лишь вставить свою ID-карту."
 	build_path = /obj/machinery/computer/piratepad_control/civilian
 
 /obj/item/circuitboard/computer/tram_controls
-	name = "Tram Controls"
+	name = "Управление трамваем"
 	build_path = /obj/machinery/computer/tram_controls
-	var/split_mode = FALSE
-
-/obj/item/circuitboard/computer/tram_controls/split
-	split_mode = TRUE
-
-/obj/item/circuitboard/computer/tram_controls/examine(mob/user)
-	. = ..()
-	. += span_info("The board is configured for [split_mode ? "split window" : "normal window"].")
-	. += span_notice("The board mode can be changed with a [EXAMINE_HINT("multitool")].")
-
-/obj/item/circuitboard/computer/tram_controls/multitool_act(mob/living/user)
-	split_mode = !split_mode
-	to_chat(user, span_notice("[src] positioning set to [split_mode ? "split window" : "normal window"]."))
-	return TRUE
 
 /obj/item/circuitboard/computer/terminal
 	name = "Terminal"
@@ -353,139 +360,172 @@
 //Medical
 
 /obj/item/circuitboard/computer/crew
-	name = "Crew Monitoring Console"
+	name = "плата консоли Мониторинга за экипажем"
+	desc = "Используется для контроля активных датчиков здоровья, встроенных в большую часть формы экипажа."
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/computer/crew
 
 /obj/item/circuitboard/computer/med_data
-	name = "Medical Records Console"
+	name = "плата консоли Медицинских записей"
+	desc = "Используется для просмотра больничных карт и биометрических данных членов экипажа."
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
-	build_path = /obj/machinery/computer/records/medical
+	build_path = /obj/machinery/computer/med_data
 
 /obj/item/circuitboard/computer/operating
-	name = "Operating Computer"
+	name = "плата Операционного компьютера"
+	desc = "Контролирует жизненно важные функции пациента и отображает этапы операции. Может быть загружен хирургическими дисками для выполнения экспериментальных процедур. Автоматически синхронизируется со стазис-кроватями в пределах прямой видимости для улучшения хирургических технологий."
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/computer/operating
 
 /obj/item/circuitboard/computer/pandemic
-	name = "PanD.E.M.I.C. 2200"
+	name = "плата П.А.Н.Д.Е.М.И.К.А 2200"
+	desc = "Используется при работе с вирусами."
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/computer/pandemic
 
 //Science
 
 /obj/item/circuitboard/computer/aifixer
-	name = "AI Integrity Restorer"
+	name = "Консоль восстановления целостности ИИ"
+	desc = "Используется с интелкартами, для восстановления поврежденных ИИ до рабочего состояния."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/aifixer
 
 /obj/item/circuitboard/computer/launchpad_console
-	name = "Launchpad Control Console"
+	name = "Консоль управления локального телепада"
+	desc = "Используется для калибровки и управления блюспейс телепадом. Не требует фактических координат, работает на смещении координат относительно консоли. Дальность работы зависит от деталей."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/launchpad
 
 /obj/item/circuitboard/computer/mech_bay_power_console
-	name = "Mech Bay Power Control Console"
+	name = "консоль зарядки мехдока"
+	desc = "Отображает состояние мехов, подключенных к зарядной станции."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/mech_bay_power_console
 
 /obj/item/circuitboard/computer/mecha_control
-	name = "Exosuit Control Console"
+	name = "Консоль управления экзоскостюмами"
+	desc = "Используется для удаленного отслеживания местоположения или блокировки экзокостюмов с подключенными маячками слежения."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/mecha
 
+/obj/item/circuitboard/computer/nanite_chamber_control
+	name = "консоль управления нанитной камерой"
+	desc = "Управляет нанитной камерой. Может имплантировать наниты, задавать текущее программное облако и анализировать существующие нанитные программы."
+	greyscale_colors = CIRCUIT_COLOR_SCIENCE
+	build_path = /obj/machinery/computer/nanite_chamber_control
+
+/obj/item/circuitboard/computer/nanite_cloud_controller
+	name = "облачный контролер нанитов"
+	desc = "Хранит в себе резервные копии облаков нанитных программ. Уничтожение может вызвать массовый отказ нанитов у активных пользователей."
+	greyscale_colors = CIRCUIT_COLOR_SCIENCE
+	build_path = /obj/machinery/computer/nanite_cloud_controller
+
 /obj/item/circuitboard/computer/rdconsole
-	name = "R&D Console"
+	name = "консоль РнД"
+	desc = "Консоль, используемая для взаимодействия с инструментами РнД."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/rdconsole
 
 /obj/item/circuitboard/computer/rdservercontrol
-	name = "R&D Server Control"
+	name = "Серверный контроллер РнД"
+	desc = "Используется для доступа к серверам производственно-исследовательских баз данных."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/rdservercontrol
 
 /obj/item/circuitboard/computer/research
-	name = "Research Monitor"
+	name = "Консоль исследовательской камеры"
+	desc = "Используется для доступа к различным камерам в РнД."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/security/research
 
 /obj/item/circuitboard/computer/robotics
-	name = "Robotics Control"
+	name = "Консоль контроля киборгов"
+	desc = "Используется для дистанционного блокирования или подрыва киборгов и ботов."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/robotics
 
 /obj/item/circuitboard/computer/teleporter
-	name = "Teleporter"
+	name = "Консоль управления телепортом"
+	desc = "Используется для управления связанными телепортационной аркой и станцией."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/teleporter
 
 /obj/item/circuitboard/computer/xenobiology
-	name = "Xenobiology Console"
+	name = "Консоль манипуляции слаймов"
+	desc = "Компьютер, используемый для наблюдения и перемещения слаймов."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/camera_advanced/xenobio
 
 /obj/item/circuitboard/computer/scan_consolenew
-	name = "DNA Console"
+	name = "плата консоли Сканера ДНК"
+	desc = "Отображает визуальную информацию о генетической структуре подопытного, позволяет вносить изменения и синтезировать мутаторы. Для разблокировки полного функционала требует подключения к манипулятору ДНК. Поддерживает синхронизацию с компактным сканером ДНК."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/scan_consolenew
 
 /obj/item/circuitboard/computer/mechpad
-	name = "Mecha Orbital Pad Console"
+	name = "Mecha Orbital Pad Console (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/mechpad
 
 //Security
 
 /obj/item/circuitboard/computer/labor_shuttle
-	name = "Labor Shuttle"
+	name = "Labor Shuttle (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
-	build_path = /obj/machinery/computer/shuttle/labor
+	build_path = /obj/machinery/computer/shuttle_flight/labor
 
 /obj/item/circuitboard/computer/labor_shuttle/one_way
-	name = "Prisoner Shuttle Console"
+	name = "Prisoner Shuttle Console (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
-	build_path = /obj/machinery/computer/shuttle/labor/one_way
+	build_path = /obj/machinery/computer/shuttle_flight/labor/one_way
 
 /obj/item/circuitboard/computer/gulag_teleporter_console
-	name = "Labor Camp teleporter console"
+	name = "Labor Camp teleporter console (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
 	build_path = /obj/machinery/computer/prisoner/gulag_teleporter_computer
 
 /obj/item/circuitboard/computer/prisoner
-	name = "Prisoner Management Console"
+	name = "консоль мониторинга заключенных"
+	desc = "Используется для управления отслеживающими имплантатами, имплантированным преступникам."
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
 	build_path = /obj/machinery/computer/prisoner/management
 
 /obj/item/circuitboard/computer/secure_data
-	name = "Security Records Console"
+	name = "Консоль записей СБ"
+	desc = "Используется для просмотра и редактирования записей о правонарушениях и личных дел персонала."
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
-	build_path = /obj/machinery/computer/records/security
+	build_path = /obj/machinery/computer/secure_data
 
 /obj/item/circuitboard/computer/warrant
-	name = "Security Warrant Viewer"
+	name = "Security Warrant Viewer (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
 	build_path = /obj/machinery/computer/warrant
 
 /obj/item/circuitboard/computer/security
-	name = "Security Cameras"
+	name = "консоль камер видеонаблюдения"
+	desc = "Используется для доступа к различным камерам на станции."
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
 	build_path = /obj/machinery/computer/security
 
 /obj/item/circuitboard/computer/advanced_camera
-	name = "Advanced Camera Console"
+	name = "Продвинутая консоль управления камер"
+	desc = "Используется для доступа к различным камерам на станции. Продвинутая версия обладает более удобным интерфейсом."
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
 	build_path = /obj/machinery/computer/camera_advanced/syndie
 
 //Service
-/obj/item/circuitboard/computer/order_console
-	name = "Produce Orders Console"
-	greyscale_colors = CIRCUIT_COLOR_SERVICE
-	build_path = /obj/machinery/computer/order_console/cook
+
+/obj/item/circuitboard/computer/chef_order
+	name = "Produce Orders Console (Computer Board)"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/computer/chef_order
 
 //Supply
 
 /obj/item/circuitboard/computer/cargo
-	name = "Supply Console"
+	name = "консоль снабжения"
+	desc = "Используется для заказа расходных материалов, утверждения заявок и управления шаттлом."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/cargo
 	var/contraband = FALSE
@@ -498,14 +538,11 @@
 	else
 		to_chat(user, span_alert("The spectrum chip is unresponsive."))
 
-/obj/item/circuitboard/computer/cargo/emag_act(mob/user, obj/item/card/emag/emag_card)
-	if (obj_flags & EMAGGED)
-		return FALSE
-
-	contraband = TRUE
-	obj_flags |= EMAGGED
-	to_chat(user, span_notice("You adjust [src]'s routing and receiver spectrum, unlocking special supplies and contraband."))
-	return TRUE
+/obj/item/circuitboard/computer/cargo/emag_act(mob/living/user)
+	if(!(obj_flags & EMAGGED))
+		contraband = TRUE
+		obj_flags |= EMAGGED
+		to_chat(user, span_notice("You adjust [src] routing and receiver spectrum, unlocking special supplies and contraband."))
 
 /obj/item/circuitboard/computer/cargo/configure_machine(obj/machinery/computer/cargo/machine)
 	if(!istype(machine))
@@ -518,104 +555,174 @@
 		machine.obj_flags &= ~EMAGGED
 
 /obj/item/circuitboard/computer/cargo/express
-	name = "Express Supply Console"
+	name = "экспресс консоль снабжения"
+	desc = "Благодаря новой орбитальной пушке Нано Трейзен все входящие посылки доставляются практически мгновенно. Стандартная зона сброса - отдел карго. Допустима смена зоны сброса посредством маяка производимого в консоли. Возможна модификация консоли посредством установки диска с ПО блюспейс телепортатора."
 	build_path = /obj/machinery/computer/cargo/express
 
-/obj/item/circuitboard/computer/cargo/express/emag_act(mob/user, obj/item/card/emag/emag_card)
-	if (obj_flags & EMAGGED)
-		return FALSE
-
-	contraband = TRUE
-	obj_flags |= EMAGGED
-	to_chat(user, span_notice("You change the routing protocols, allowing the Drop Pod to land anywhere on the station."))
-	return TRUE
+/obj/item/circuitboard/computer/cargo/express/emag_act(mob/living/user)
+	if(!(obj_flags & EMAGGED))
+		contraband = TRUE
+		obj_flags |= EMAGGED
+		to_chat(user, span_notice("Изменяю протоколы маршрутизации, позволяя десантной капсуле приземляться в любом месте станции."))
 
 /obj/item/circuitboard/computer/cargo/express/multitool_act(mob/living/user)
 	if (!(obj_flags & EMAGGED))
 		contraband = !contraband
-		to_chat(user, span_notice("Receiver spectrum set to [contraband ? "Broad" : "Standard"]."))
-		return TRUE
+		to_chat(user, span_notice("Диапазон товаров установлен на [contraband ? "Расширенный" : "Стандартный"]."))
 	else
-		to_chat(user, span_notice("You reset the destination-routing protocols and receiver spectrum to factory defaults."))
+		to_chat(user, span_notice("Сбрасываю протоколы маршрутизации назначения и спектр приемника до заводских настроек по умолчанию."))
 		contraband = FALSE
 		obj_flags &= ~EMAGGED
-		return TRUE
 
 /obj/item/circuitboard/computer/cargo/request
-	name = "Supply Request Console"
+	name = "консоль запросов снабжения"
+	desc = "Используется для запроса припасов."
 	build_path = /obj/machinery/computer/cargo/request
 
-/obj/item/circuitboard/computer/order_console/mining
-	name = "Mining Vending Console"
-	greyscale_colors = CIRCUIT_COLOR_SUPPLY
-	build_path = /obj/machinery/computer/order_console/mining
-
-/obj/item/circuitboard/computer/order_console/mining/golem
-	name = "Golem Ship Equipment Vendor Console"
-	build_path = /obj/machinery/computer/order_console/mining/golem
-
-/obj/item/circuitboard/computer/order_console/bitrunning
-	name = "Bitrunning Vendor Console"
-	build_path = /obj/machinery/computer/order_console/bitrunning
-
 /obj/item/circuitboard/computer/ferry
-	name = "Transport Ferry"
+	name = "Transport Ferry (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
-	build_path = /obj/machinery/computer/shuttle/ferry
+	build_path = /obj/machinery/computer/shuttle_flight/ferry
 
 /obj/item/circuitboard/computer/ferry/request
-	name = "Transport Ferry Console"
+	name = "Transport Ferry Console (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
-	build_path = /obj/machinery/computer/shuttle/ferry/request
+	build_path = /obj/machinery/computer/shuttle_flight/ferry/request
 
 /obj/item/circuitboard/computer/mining
-	name = "Outpost Status Display"
+	name = "консоль камер шахты"
+	desc = "Используется для доступа к различным камерам на шахтерском аванпосте."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/security/mining
 
 /obj/item/circuitboard/computer/mining_shuttle
-	name = "Mining Shuttle"
+	name = "Mining Shuttle (Консоль)"
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
-	build_path = /obj/machinery/computer/shuttle/mining
+	build_path = /obj/machinery/computer/shuttle_flight/mining
 
 /obj/item/circuitboard/computer/mining_shuttle/common
-	name = "Lavaland Shuttle"
-	build_path = /obj/machinery/computer/shuttle/mining/common
-
-/obj/item/circuitboard/computer/emergency_pod
-	name = "Emergency Pod Controls"
-	greyscale_colors = CIRCUIT_COLOR_GENERIC
-	build_path = /obj/machinery/computer/shuttle/pod
+	name = "Lavaland Shuttle (Консоль)"
+	build_path = /obj/machinery/computer/shuttle_flight/mining/common
 
 /obj/item/circuitboard/computer/exoscanner_console
-	name = "Scanner Array Control Console"
+	name = "Консоль управления массивом сканеров"
+	desc = "Используется для сканирования и отправки разведывательных дронов."
 	build_path = /obj/machinery/computer/exoscanner_control
 
 /obj/item/circuitboard/computer/exodrone_console
-	name = "Exploration Drone Control Console"
+	name = "Консоль управления исследовательским дроном"
+	desc = "Управляйте исследовательскими дронами с межзвездных расстояний. Задержка в комплект не входит."
 	build_path = /obj/machinery/computer/exodrone_control_console
 
+/obj/item/circuitboard/computer/exploration_shuttle
+	name = "управление шаттлом рейнджеров"
+	desc = "Для сам знаешь чего."
+	build_path = /obj/machinery/computer/shuttle_flight/exploration
+
+/obj/item/circuitboard/computer/shuttle/flight_control
+	name = "консоль управления шаттлом"
+	desc = "Терминал управления шаттлом из комплекта Сделай сам - шаттлостроение."
+	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	build_path = /obj/machinery/computer/shuttle_flight/custom_shuttle
+
 /obj/item/circuitboard/computer/service_orders
-	name = "Service Order"
+	name = "консоль бюджетных сервисных заказов"
+	desc = "Используется для заказов бесплатных посылок с ЦК. Посылку можно открыть только на территории отдела."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/department_orders/service
 
 /obj/item/circuitboard/computer/engineering_orders
-	name = "Engineering Order"
+	name = "консоль бюджетных инженерных заказов"
+	desc = "Используется для заказов бесплатных посылок с ЦК. Посылку можно открыть только на территории отдела."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/department_orders/engineering
 
 /obj/item/circuitboard/computer/science_orders
-	name = "Science Order"
+	name = "консоль бюджетных научных заказов"
+	desc = "Используется для заказов бесплатных посылок с ЦК. Посылку можно открыть только на территории отдела."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/department_orders/science
 
 /obj/item/circuitboard/computer/security_orders
-	name = "Security Order"
+	name = "консоль бюджетных заказов охраны"
+	desc = "Используется для заказов бесплатных посылок с ЦК. Посылку можно открыть только на территории отдела."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/department_orders/security
 
 /obj/item/circuitboard/computer/medical_orders
-	name = "Medical Order"
+	name = "консоль бюджетных медицинских заказов"
+	desc = "Используется для заказов бесплатных посылок с ЦК. Посылку можно открыть только на территории отдела."
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/department_orders/medical
+
+/obj/item/circuitboard/computer/bounty
+	name = "Консоль заказов с ЦК"
+	desc = "Используется для проверки и выполнений заказов ЦК."
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/computer/bounty
+
+/obj/item/circuitboard/computer/shuttle/weapons
+	name = "Консоль управления вооружением шаттла"
+	desc = "Консоль позволяющая управлять вооружением шаттла."
+	icon_state = "security"
+	build_path = /obj/machinery/computer/weapons
+
+/obj/item/circuitboard/computer/shuttle
+	icon_state = "science"
+	var/hacked = FALSE
+
+/obj/item/circuitboard/computer/shuttle/attackby(obj/item/I, mob/user, params)
+	if(I.tool_behaviour == TOOL_MULTITOOL)
+		hacked = !hacked
+		if(hacked)
+			to_chat(user, "<span class='notice'>You disable the circuitboard's ID scanning protocols.</span>")
+		else
+			to_chat(user, "<span class='notice'>You reset the circuitboard's ID scanning protocols.</span>")
+		return
+	. = ..()
+
+/obj/item/circuitboard/computer/shuttle/white_ship
+	name = "white ship control (Computer Board)"
+	icon_state = "generic"
+	build_path = /obj/machinery/computer/shuttle_flight/white_ship
+
+/obj/item/circuitboard/computer/shuttle/white_ship/pod
+	name = "salvage pod control (Computer Board)"
+	build_path = /obj/machinery/computer/shuttle_flight/white_ship/pod
+
+/obj/item/circuitboard/computer/shuttle/white_ship/pod/recall
+	name = "salvage pod recall control (Computer Board)"
+	build_path = /obj/machinery/computer/shuttle_flight/white_ship/pod/recall
+
+/obj/item/circuitboard/computer/shuttle/flight_control
+	name = "shuttle flight control (Computer Board)"
+	icon_state = "generic"
+	build_path = /obj/machinery/computer/shuttle_flight/custom_shuttle
+
+/obj/item/circuitboard/computer/shuttle/labor_shuttle
+	name = "labor shuttle console (Computer Board)"
+	icon_state = "security"
+	build_path = /obj/machinery/computer/shuttle_flight/labor
+
+/obj/item/circuitboard/computer/shuttle/labor_shuttle/one_way
+	name = "prisoner shuttle console (Computer Board)"
+	build_path = /obj/machinery/computer/shuttle_flight/labor/one_way
+
+/obj/item/circuitboard/computer/ferry
+	name = "transport ferry control (Computer Board)"
+	icon_state = "supply"
+	build_path = /obj/machinery/computer/shuttle_flight/ferry
+
+/obj/item/circuitboard/computer/ferry/request
+	name = "transport ferry console (Computer Board)"
+	build_path = /obj/machinery/computer/shuttle_flight/ferry/request
+
+/obj/item/circuitboard/computer/shuttle/mining_shuttle
+	name = "mining shuttle console (Computer Board)"
+	icon_state = "supply"
+	build_path = /obj/machinery/computer/shuttle_flight/mining
+
+/obj/item/circuitboard/computer/shuttle/monastery_shuttle
+	name = "monastery shuttle console (Computer Board)"
+	icon_state = "generic"
+	build_path = /obj/machinery/computer/shuttle_flight/monastery_shuttle

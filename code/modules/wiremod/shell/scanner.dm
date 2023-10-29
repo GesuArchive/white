@@ -4,13 +4,14 @@
  * A handheld device that lets you flash it over people.
  */
 /obj/item/wiremod_scanner
-	name = "scanner"
-	icon = 'icons/obj/science/circuits.dmi'
+	name = "Сканер"
+	desc = "Оболочка портативного сканера, который может сканировать объекты для получения входных данных."
+	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_small"
 	inhand_icon_state = "electronic"
 	worn_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	light_system = MOVABLE_LIGHT_DIRECTIONAL
 	light_on = FALSE
 
@@ -21,8 +22,8 @@
 	), SHELL_CAPACITY_SMALL)
 
 /obj/item/circuit_component/wiremod_scanner
-	display_name = "Scanner"
-	desc = "Used to receive scanned entities from the scanner."
+	display_name = "Сканер"
+	desc = "Оболочка портативного сканера, который может сканировать объекты для получения входных данных."
 
 	/// Called when afterattack is called on the shell.
 	var/datum/port/output/signal
@@ -54,9 +55,8 @@
 	if(!proximity_flag)
 		return
 	source.balloon_alert(user, "scanned object")
-	playsound(source, get_sfx(SFX_TERMINAL_TYPE), 25, FALSE)
+	playsound(source, get_sfx("terminal_type"), 25, FALSE)
 	attacker.set_output(user)
 	attacking.set_output(target)
 	signal.set_output(COMPONENT_SIGNAL)
-	return COMPONENT_AFTERATTACK_PROCESSED_ITEM
 

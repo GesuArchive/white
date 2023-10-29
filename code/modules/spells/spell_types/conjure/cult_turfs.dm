@@ -2,8 +2,6 @@
 	name = "Summon Cult Floor"
 	desc = "This spell constructs a cult floor."
 	background_icon_state = "bg_cult"
-	overlay_icon_state = "bg_cult_border"
-
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "floorconstruct"
 
@@ -19,8 +17,6 @@
 	name = "Summon Cult Wall"
 	desc = "This spell constructs a cult wall."
 	background_icon_state = "bg_cult"
-	overlay_icon_state = "bg_cult_border"
-
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "lesserconstruct"
 

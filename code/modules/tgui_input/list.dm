@@ -10,7 +10,7 @@
  * * default - If an option is already preselected on the UI. Current values, etc.
  * * timeout - The timeout of the input box, after which the menu will close and qdel itself. Set to zero for no timeout.
  */
-/proc/tgui_input_list(mob/user, message, title = "Select", list/items, default, timeout = 0, ui_state = GLOB.always_state)
+/proc/tgui_input_list(mob/user, message, title = "Выбрать", list/items, default, timeout = 0)
 	if (!user)
 		user = usr
 	if(!length(items))
@@ -21,10 +21,7 @@
 			user = client.mob
 		else
 			return
-	/// Client does NOT have tgui_input on: Returns regular input
-	if(!user.client.prefs.read_preference(/datum/preference/toggle/tgui_input))
-		return input(user, message, title, default) as null|anything in items
-	var/datum/tgui_list_input/input = new(user, message, title, items, default, timeout, ui_state)
+	var/datum/tgui_list_input/input = new(user, message, title, items, default, timeout)
 	input.ui_interact(user)
 	input.wait()
 	if (input)
@@ -56,16 +53,13 @@
 	var/timeout
 	/// Boolean field describing if the tgui_list_input was closed by the user.
 	var/closed
-	/// The TGUI UI state that will be returned in ui_state(). Default: always_state
-	var/datum/ui_state/state
 
-/datum/tgui_list_input/New(mob/user, message, title, list/items, default, timeout, ui_state)
+/datum/tgui_list_input/New(mob/user, message, title, list/items, default, timeout)
 	src.title = title
 	src.message = message
 	src.items = list()
 	src.items_map = list()
 	src.default = default
-	src.state = ui_state
 	var/list/repeat_items = list()
 	// Gets rid of illegal characters
 	var/static/regex/whitelistedWords = regex(@{"([^\u0020-\u8000]+)"})
@@ -84,7 +78,6 @@
 
 /datum/tgui_list_input/Destroy(force, ...)
 	SStgui.close_uis(src)
-	state = null
 	QDEL_NULL(items)
 	return ..()
 
@@ -107,15 +100,13 @@
 	closed = TRUE
 
 /datum/tgui_list_input/ui_state(mob/user)
-	return state
+	return GLOB.always_state
 
 /datum/tgui_list_input/ui_static_data(mob/user)
 	var/list/data = list()
 	data["init_value"] = default || items[1]
 	data["items"] = items
-	data["large_buttons"] = user.client.prefs.read_preference(/datum/preference/toggle/tgui_input_large)
 	data["message"] = message
-	data["swapped_buttons"] = user.client.prefs.read_preference(/datum/preference/toggle/tgui_input_swapped)
 	data["title"] = title
 	return data
 

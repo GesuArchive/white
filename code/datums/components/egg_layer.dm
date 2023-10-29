@@ -41,16 +41,15 @@
 
 /datum/component/egg_layer/RegisterWithParent()
 	. = ..()
-	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, PROC_REF(feed_food))
+	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(feed_food))
 
 /datum/component/egg_layer/UnregisterFromParent()
 	. = ..()
-	UnregisterSignal(parent, COMSIG_ATOM_ATTACKBY)
+	UnregisterSignal(parent, COMSIG_PARENT_ATTACKBY)
 
 /datum/component/egg_layer/Destroy(force, silent)
 	. = ..()
 	STOP_PROCESSING(SSobj, src)
-	egg_laid_callback = null
 
 /datum/component/egg_layer/proc/feed_food(datum/source, obj/item/food, mob/living/attacker, params)
 	SIGNAL_HANDLER
@@ -61,25 +60,26 @@
 	if(isliving(at_least_atom))
 		var/mob/living/potentially_dead_horse = at_least_atom
 		if(potentially_dead_horse.stat == DEAD)
-			to_chat(attacker, span_warning("[parent] is dead!"))
+			to_chat(attacker, span_warning("[at_least_atom] мертв[at_least_atom.ru_a()]!"))
 			return COMPONENT_CANCEL_ATTACK_CHAIN
 	if(eggs_left > max_eggs_held)
-		to_chat(attacker, span_warning("[parent] doesn't seem hungry!"))
+		to_chat(attacker, span_warning("[at_least_atom] не голод[at_least_atom.ru_en()]!"))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
-	attacker.visible_message(span_notice("[attacker] hand-feeds [food] to [parent]."), span_notice("You hand-feed [food] to [parent]."))
+	attacker.visible_message(span_notice("[attacker] кормит [skloname(at_least_atom.name, VINITELNI, at_least_atom.gender)] [skloname(food.name, TVORITELNI, food.gender)]."), \
+											span_notice("Кормлю [skloname(at_least_atom.name, VINITELNI, at_least_atom.gender)] [skloname(food.name, TVORITELNI, food.gender)]."))
 	at_least_atom.visible_message(pick(feed_messages))
 	qdel(food)
 	eggs_left += min(eggs_left + eggs_added_from_eating, max_eggs_held)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
-/datum/component/egg_layer/process(seconds_per_tick = SSOBJ_DT)
+/datum/component/egg_layer/process(delta_time = SSOBJ_DT)
 
 	var/atom/at_least_atom = parent
 	if(isliving(at_least_atom))
 		var/mob/living/potentially_dead_horse = at_least_atom
 		if(potentially_dead_horse.stat != CONSCIOUS)
 			return
-	if(!eggs_left || !SPT_PROB(1.5, seconds_per_tick))
+	if(!eggs_left || !DT_PROB(1.5, delta_time))
 		return
 
 	at_least_atom.visible_message(span_alertalien("[at_least_atom] [pick(lay_messages)]"))

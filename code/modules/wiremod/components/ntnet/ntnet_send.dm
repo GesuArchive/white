@@ -5,8 +5,8 @@
  */
 
 /obj/item/circuit_component/ntnet_send
-	display_name = "NTNet Transmitter"
-	desc = "Sends a data package through NTNet. If Encryption Key is set then transmitted data will be only picked up by receivers with the same Encryption Key."
+	display_name = "Передатчик NTNet"
+	desc = "Отправляет пакет данных через NTNet при срабатывании. Если целевой HID не указан, данные будут отправлены во все каналы сети. Если установлен ключ шифрования, то передаваемые данные будут приниматься только получателями с тем же ключом шифрования."
 	category = "NTNet"
 
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL
@@ -19,6 +19,10 @@
 
 	/// Encryption key
 	var/datum/port/input/enc_key
+
+/obj/item/circuit_component/ntnet_send/Initialize(mapload)
+	. = ..()
+	init_network_id(__NETWORK_CIRCUITS)
 
 /obj/item/circuit_component/ntnet_send/populate_options()
 	list_options = add_option_port("List Type", GLOB.wiremod_basic_types)
@@ -33,6 +37,4 @@
 		data_package.set_datatype(PORT_TYPE_LIST(new_datatype))
 
 /obj/item/circuit_component/ntnet_send/input_received(datum/port/input/port)
-	if(!find_functional_ntnet_relay())
-		return
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CIRCUIT_NTNET_DATA_SENT, list("data" = data_package.value, "enc_key" = enc_key.value, "port" = WEAKREF(data_package)))
+	ntnet_send(list("data" = data_package.value, "enc_key" = enc_key.value, "port" = WEAKREF(data_package)))

@@ -4,7 +4,7 @@
 /obj/machinery/deployable_turret
 	name = "machine gun turret"
 	desc = "While the trigger is held down, this gun will redistribute recoil to allow its user to easily shift targets."
-	icon = 'icons/obj/weapons/turrets.dmi'
+	icon = 'icons/obj/turrets.dmi'
 	icon_state = "machinegun"
 	can_buckle = TRUE
 	anchored = FALSE
@@ -37,13 +37,6 @@
 	var/obj/spawned_on_undeploy
 	/// How long it takes for a wrench user to undeploy the object
 	var/undeploy_time = 3 SECONDS
-	/// If TRUE, the turret will not become unanchored when not mounted
-	var/always_anchored = FALSE
-
-/obj/machinery/deployable_turret/Initialize(mapload)
-	. = ..()
-	if(always_anchored)
-		set_anchored(TRUE)
 
 /obj/machinery/deployable_turret/Destroy()
 	target = null
@@ -78,8 +71,7 @@
 		buckled_mob.pixel_y = buckled_mob.base_pixel_y
 		if(buckled_mob.client)
 			buckled_mob.client.view_size.resetToDefault()
-	if(!always_anchored)
-		set_anchored(FALSE)
+	set_anchored(FALSE)
 	. = ..()
 	STOP_PROCESSING(SSfastprocess, src)
 
@@ -88,8 +80,8 @@
 		return
 	M.forceMove(get_turf(src))
 	. = ..()
-	if(!.)
-		return
+
+/obj/machinery/deployable_turret/post_buckle_mob(mob/living/M)
 	for(var/V in M.held_items)
 		var/obj/item/I = V
 		if(istype(I))
@@ -122,7 +114,7 @@
 	var/client/controlling_client = controller.client
 	if(controlling_client)
 		var/modifiers = params2list(controlling_client.mouseParams)
-		var/atom/target_atom = controlling_client.mouse_object_ref?.resolve()
+		var/atom/target_atom = controlling_client.mouseObject
 		var/turf/target_turf = get_turf(target_atom)
 		if(istype(target_turf)) //They're hovering over something in the map.
 			direction_track(controller, target_turf)
@@ -157,7 +149,6 @@
 		if(SOUTH)
 			layer = ABOVE_MOB_LAYER
 			SET_PLANE_IMPLICIT(src, GAME_PLANE_UPPER)
-			plane = GAME_PLANE_UPPER
 			user.pixel_x = 0
 			user.pixel_y = 14
 		if(SOUTHWEST)
@@ -193,7 +184,7 @@
 /obj/machinery/deployable_turret/proc/volley(mob/user)
 	target_turf = get_turf(target)
 	for(var/i in 1 to number_of_shots)
-		addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/machinery/deployable_turret/, fire_helper), user), i*rate_of_fire)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/machinery/deployable_turret, fire_helper), user), i*rate_of_fire)
 
 /obj/machinery/deployable_turret/proc/fire_helper(mob/user)
 	if(user.incapacitated() || !(user in buckled_mobs))
@@ -202,11 +193,9 @@
 	var/turf/targets_from = get_turf(src)
 	if(QDELETED(target))
 		target = target_turf
-	var/obj/projectile/projectile_to_fire = new projectile_type(targets_from)
+	var/obj/projectile/projectile_to_fire = new projectile_type
 	playsound(src, firesound, 75, TRUE)
 	projectile_to_fire.preparePixelProjectile(target, targets_from)
-	projectile_to_fire.firer = user
-	projectile_to_fire.fired_from = src
 	projectile_to_fire.fire()
 
 /obj/machinery/deployable_turret/ultimate  // Admin-only proof of concept for autoclicker automatics
@@ -225,7 +214,7 @@
 	desc = "A heavy calibre machine gun commonly used by Nanotrasen forces, famed for it's ability to give people on the recieving end more holes than normal."
 	icon_state = "hmg"
 	max_integrity = 250
-	projectile_type = /obj/projectile/bullet/manned_turret/hmg
+	//projectile_type = /obj/projectile/bullet/manned_turret/hmg
 	anchored = TRUE
 	number_of_shots = 3
 	cooldown_duration = 2 SECONDS
@@ -237,7 +226,7 @@
 
 /obj/item/gun_control
 	name = "turret controls"
-	icon = 'icons/obj/weapons/hand.dmi'
+	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "offhand"
 	w_class = WEIGHT_CLASS_HUGE
 	item_flags = ABSTRACT | NOBLUDGEON | DROPDEL
@@ -258,19 +247,16 @@
 /obj/item/gun_control/CanItemAutoclick()
 	return TRUE
 
-/obj/item/gun_control/attack_atom(obj/O, mob/living/user, params)
+/obj/item/gun_control/attack_obj(obj/O, mob/living/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
 	O.attacked_by(src, user)
 
 /obj/item/gun_control/attack(mob/living/M, mob/living/user)
-	M.lastattacker = user.real_name
-	M.lastattackerckey = user.ckey
 	M.attacked_by(src, user)
 	add_fingerprint(user)
 
 /obj/item/gun_control/afterattack(atom/targeted_atom, mob/user, flag, params)
 	. = ..()
-	. |= AFTERATTACK_PROCESSED_ITEM
 	var/modifiers = params2list(params)
 	var/obj/machinery/deployable_turret/E = user.buckled
 	E.calculated_projectile_vars = calculate_projectile_angle_and_pixel_offsets(user, targeted_atom, modifiers)

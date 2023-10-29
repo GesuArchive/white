@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/asteroid/curseblob
 	name = "curse mass"
 	desc = "A mass of purple... smoke?"
-	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
+	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	icon_state = "curseblob"
 	icon_living = "curseblob"
 	icon_aggro = "curseblob"
@@ -14,8 +14,8 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	melee_damage_type = BURN
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
+	attack_verb_continuous = "разрывает"
+	attack_verb_simple = "разрывает"
 	attack_sound = 'sound/effects/curseattack.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	throw_message = "passes through the smokey body of"
@@ -52,7 +52,7 @@
 	RegisterSignal(move_target, COMSIG_MOB_STATCHANGE, PROC_REF(stat_change))
 	RegisterSignal(move_target, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(target_z_change))
 	RegisterSignal(src, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(our_z_change))
-	RegisterSignal(our_loop, COMSIG_QDELETING, PROC_REF(handle_loop_end))
+	RegisterSignal(our_loop, COMSIG_PARENT_QDELETING, PROC_REF(handle_loop_end))
 
 /mob/living/simple_animal/hostile/asteroid/curseblob/proc/stat_change(datum/source, new_stat)
 	SIGNAL_HANDLER
@@ -101,7 +101,7 @@
 	. = ..()
 	if(mover == set_target)
 		return FALSE
-	if(isprojectile(mover))
+	if(istype(mover, /obj/projectile))
 		var/obj/projectile/P = mover
 		if(P.firer == set_target)
 			return FALSE

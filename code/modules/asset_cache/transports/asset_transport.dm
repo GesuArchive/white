@@ -121,7 +121,7 @@
 
 	if (unreceived.len)
 		if (unreceived.len >= ASSET_CACHE_TELL_CLIENT_AMOUNT)
-			to_chat(client, "<span class='infoplain'>Sending Resources...</span>")
+			to_chat(client, "<span class='infoplain'>Отправляем ресурсы...</span>")
 
 		for (var/asset_name in unreceived)
 			var/new_asset_name = asset_name
@@ -137,7 +137,7 @@
 
 			client.sent_assets[new_asset_name] = ACI.hash
 
-		addtimer(CALLBACK(client, TYPE_PROC_REF(/client, asset_cache_update_json)), 1 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE)
+		addtimer(CALLBACK(client, /client/proc/asset_cache_update_json), 1 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE)
 		return TRUE
 	return FALSE
 
@@ -158,5 +158,3 @@
 /// Returns TRUE or FALSE
 /datum/asset_transport/proc/validate_config(log = TRUE)
 	return TRUE
-
-#undef ASSET_CACHE_TELL_CLIENT_AMOUNT

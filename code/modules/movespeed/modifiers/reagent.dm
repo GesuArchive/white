@@ -10,6 +10,9 @@
 /datum/movespeed_modifier/reagent/pepperspray
 	multiplicative_slowdown = 0.25
 
+/datum/movespeed_modifier/reagent/badstims
+	multiplicative_slowdown = -0.45
+
 /datum/movespeed_modifier/reagent/monkey_energy
 	multiplicative_slowdown = -0.35
 
@@ -30,9 +33,6 @@
 
 /datum/movespeed_modifier/reagent/halon
 	multiplicative_slowdown = 1.8
-
-/datum/movespeed_modifier/reagent/hypernoblium
-	multiplicative_slowdown = 0.5
 
 /datum/movespeed_modifier/reagent/lenturi
 	multiplicative_slowdown = 1.5

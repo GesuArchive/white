@@ -9,7 +9,6 @@
 	spell_max_level = 1
 
 	item_type = /obj/item/spellpacket/lightningbolt
-	requires_hands = TRUE
 
 /datum/action/cooldown/spell/conjure_item/spellpacket/cast(mob/living/carbon/cast_on)
 	. = ..()
@@ -18,7 +17,7 @@
 /obj/item/spellpacket/lightningbolt
 	name = "\improper Lightning bolt Spell Packet"
 	desc = "Some birdseed wrapped in cloth that crackles with electricity."
-	icon = 'icons/obj/toys/toy.dmi'
+	icon = 'icons/obj/toy.dmi'
 	icon_state = "snappop"
 	w_class = WEIGHT_CLASS_TINY
 
@@ -30,10 +29,10 @@
 	if(isliving(hit_atom))
 		var/mob/living/hit_living = hit_atom
 		if(!hit_living.can_block_magic())
-			hit_living.electrocute_act(80, src, flags = SHOCK_ILLUSION | SHOCK_NOGLOVES)
+			hit_living.electrocute_act(80, src, flags = SHOCK_ILLUSION)
 	qdel(src)
 
-/obj/item/spellpacket/lightningbolt/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = INFINITY, gentle, quickstart = TRUE)
+/obj/item/spellpacket/lightningbolt/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = INFINITY, quickstart = TRUE)
 	. = ..()
 	if(ishuman(thrower))
 		var/mob/living/carbon/human/human_thrower = thrower

@@ -8,8 +8,8 @@
  * General logic unit with AND OR capabilities
  */
 /obj/item/circuit_component/compare/logic
-	display_name = "Logic"
-	desc = "A component with 'and' and 'or' capabilities."
+	display_name = "Логика"
+	desc = "Компонент использующий логические \"и\" и \"или\"."
 	category = "Math"
 
 	var/datum/port/input/option/logic_options

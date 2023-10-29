@@ -1,0 +1,195 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"b" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/shuttle/escape)
+"c" = (
+/obj/machinery/computer/secure_data,
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"d" = (
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"e" = (
+/obj/effect/spawner/structure/window/reinforced/partyhard,
+/turf/open/floor/partyhard/steel{
+	icon_state = "st-6"
+	},
+/area/shuttle/escape)
+"f" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"g" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"h" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"i" = (
+/obj/machinery/computer/emergency_shuttle,
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"j" = (
+/obj/machinery/computer/communications,
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"k" = (
+/obj/machinery/computer/crew,
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"l" = (
+/obj/machinery/computer/med_data{
+	dir = 4
+	},
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"m" = (
+/obj/machinery/computer/security{
+	dir = 8
+	},
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"n" = (
+/obj/machinery/door/airlock/command/glass{
+	name = "Cockpit";
+	req_access_txt = "19"
+	},
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"o" = (
+/obj/machinery/door/airlock/shuttle{
+	name = "Emergency Shuttle Airlock"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/partyhard/stone/tiled,
+/area/shuttle/escape)
+"p" = (
+/obj/docking_port/mobile/emergency{
+	name = "Party emergency shuttle"
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/shuttle/escape)
+
+(1,1,1) = {"
+a
+a
+b
+e
+b
+p
+e
+b
+b
+e
+b
+b
+"}
+(2,1,1) = {"
+a
+b
+b
+l
+b
+f
+f
+f
+f
+f
+f
+b
+"}
+(3,1,1) = {"
+b
+b
+k
+h
+b
+f
+f
+f
+f
+f
+f
+b
+"}
+(4,1,1) = {"
+e
+i
+g
+d
+n
+d
+d
+d
+d
+d
+d
+o
+"}
+(5,1,1) = {"
+e
+j
+g
+d
+n
+d
+d
+d
+d
+d
+d
+o
+"}
+(6,1,1) = {"
+b
+b
+c
+f
+b
+h
+h
+h
+h
+h
+h
+b
+"}
+(7,1,1) = {"
+a
+b
+b
+m
+b
+h
+h
+h
+h
+h
+h
+b
+"}
+(8,1,1) = {"
+a
+a
+b
+e
+b
+b
+e
+b
+b
+e
+b
+b
+"}

@@ -5,11 +5,10 @@
  */
 
 /obj/item/stack/wrapping_paper
-	name = "wrapping paper"
-	desc = "Wrap packages with this festive paper to make gifts."
+	name = "оберточная бумага"
+	desc = "Оберните пакеты этой праздничной бумагой, чтобы сделать подарки."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "wrap_paper"
-	inhand_icon_state = "wrap_paper"
 	greyscale_config = /datum/greyscale_config/wrap_paper
 	item_flags = NOBLUDGEON
 	amount = 25
@@ -36,10 +35,15 @@
 		//Set layers to these colors, base then ribbon
 		set_greyscale(colors = list(generated_base_color, generated_ribbon_color))
 
-/obj/item/stack/wrapping_paper/AltClick(mob/user, modifiers)
+/obj/item/stack/wrapping_paper/small
+	desc = "Оберните пакеты этой праздничной бумагой, чтобы сделать подарки. Этот рулон выглядит немного скудно."
+	amount = 10
+	merge_type = /obj/item/stack/wrapping_paper/small
+
+/obj/item/stack/wrapping_paper/attack_hand_secondary(mob/user, modifiers)
 	var/new_base = input(user, "", "Select a base color", color) as color
 	var/new_ribbon = input(user, "", "Select a ribbon color", color) as color
-	if(!user.can_perform_action(src))
+	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	set_greyscale(colors = list(new_base, new_ribbon))
 	return TRUE
@@ -55,7 +59,7 @@
 		new /obj/item/c_tube(T)
 
 /obj/item/stack/wrapping_paper/small
-	desc = "Wrap packages with this festive paper to make gifts. This roll looks a bit skimpy."
+	desc = "Оберните пакеты этой праздничной бумагой, чтобы сделать подарки. Этот рулон выглядит немного скудно."
 	amount = 10
 	merge_type = /obj/item/stack/wrapping_paper/small
 
@@ -64,9 +68,9 @@
  */
 
 /obj/item/stack/package_wrap
-	name = "package wrapper"
-	singular_name = "wrapping sheet"
-	desc = "You can use this to wrap items in."
+	name = "упаковщик"
+	singular_name = "упаковочный лист"
+	desc = "Можно использовать это, чтобы обернуть что-то в неё."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "deliveryPaper"
 	item_flags = NOBLUDGEON
@@ -77,7 +81,7 @@
 	merge_type = /obj/item/stack/package_wrap
 
 /obj/item/stack/package_wrap/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] begins wrapping [user.p_them()]self in \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] begins wrapping [user.p_them()]self in <b>[src]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
 	if(use(3))
 		var/obj/item/delivery/big/parcel = new(get_turf(user.loc))
 		parcel.base_icon_state = "deliverypackage5"
@@ -86,7 +90,7 @@
 		parcel.add_fingerprint(user)
 		return OXYLOSS
 	else
-		balloon_alert(user, "not enough paper!")
+		to_chat(user, span_warning("Не хватает обёрточной бумаги для суицида! Лох!"))
 		return SHAME
 
 /obj/item/proc/can_be_package_wrapped() //can the item be wrapped with package wrapper into a delivery package
@@ -111,10 +115,9 @@
 		return
 
 	if(isitem(target))
-		. |= AFTERATTACK_PROCESSED_ITEM
 		var/obj/item/item = target
 		if(!item.can_be_package_wrapped())
-			balloon_alert(user, "can't be wrapped!")
+			balloon_alert(user, "[capitalize(target)] не хочет оборачиваться!")
 			return
 		if(user.is_holding(item))
 			if(!user.dropItemToGround(item))
@@ -129,7 +132,7 @@
 				user.put_in_hands(parcel)
 			item.forceMove(parcel)
 			var/size = round(item.w_class)
-			parcel.name = "[weight_class_to_text(size)] parcel"
+			parcel.name = "[weight_class_to_text(size)] размера упаковка"
 			parcel.w_class = size
 			size = min(size, 5)
 			parcel.base_icon_state = "deliverypackage[size]"
@@ -138,10 +141,10 @@
 	else if(istype(target, /obj/structure/closet))
 		var/obj/structure/closet/closet = target
 		if(closet.opened)
-			balloon_alert(user, "can't wrap while open!")
+			balloon_alert(user, span_warning("Не могу обернуть [target] в открытом состоянии!"))
 			return
 		if(!closet.delivery_icon) //no delivery icon means unwrappable closet (e.g. body bags)
-			balloon_alert(user, "can't wrap!")
+			balloon_alert(user, span_warning("Невозможно!"))
 			return
 		if(use(3))
 			var/obj/item/delivery/big/parcel = new(get_turf(closet.loc))
@@ -152,13 +155,13 @@
 			parcel.add_fingerprint(user)
 			closet.add_fingerprint(user)
 		else
-			balloon_alert(user, "not enough paper!")
+			balloon_alert(user, span_warning("Нужно больше бумаги!"))
 			return
 
 	else if(istype(target,  /obj/machinery/portable_atmospherics))
 		var/obj/machinery/portable_atmospherics/portable_atmospherics = target
 		if(portable_atmospherics.anchored)
-			balloon_alert(user, "can't wrap while anchored!")
+			balloon_alert(user, span_warning("Не могу обернуть [target], пока он прикручен!"))
 			return
 		if(use(3))
 			var/obj/item/delivery/big/parcel = new(get_turf(portable_atmospherics.loc))
@@ -169,14 +172,14 @@
 			parcel.add_fingerprint(user)
 			portable_atmospherics.add_fingerprint(user)
 		else
-			balloon_alert(user, "not enough paper!")
+			balloon_alert(user, span_warning("Нужно больше бумаги!"))
 			return
 
 	else
-		balloon_alert(user, "can't wrap!")
+		balloon_alert(user, span_warning("Объект не подходит для сортировки!"))
 		return
 
-	user.visible_message(span_notice("[user] wraps [target]."))
+	user.visible_message(span_notice("[user] оборачивает [target]."))
 	user.log_message("has used [name] on [key_name(target)]", LOG_ATTACK, color="blue")
 
 /obj/item/stack/package_wrap/use(used, transfer = FALSE, check = TRUE)
@@ -186,17 +189,16 @@
 		new /obj/item/c_tube(T)
 
 /obj/item/stack/package_wrap/small
-	desc = "You can use this to wrap items in. This roll looks a bit skimpy."
+	desc = "Можно использовать это, чтобы обернуть предметы. Этот рулон выглядит немного скудно."
 	w_class = WEIGHT_CLASS_SMALL
 	amount = 5
 	merge_type = /obj/item/stack/package_wrap/small
 
 /obj/item/c_tube
-	name = "cardboard tube"
-	desc = "A tube... of cardboard."
+	name = "картонная труба"
+	desc = "Труба... картонная. Дебил?"
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "c_tube"
-	inhand_icon_state = "c_tube"
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 3

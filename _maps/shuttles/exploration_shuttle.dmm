@@ -1,0 +1,628 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ao" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/exploration)
+"bd" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/door/airlock/shuttle{
+	id_tag = "ex_cab";
+	req_access_txt = "49"
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"bt" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/effect/turf_decal/bot,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"dk" = (
+/obj/effect/landmark/exploration_weapon_spawner/left{
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/exploration)
+"dq" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/closet/crate/science,
+/obj/effect/turf_decal/bot,
+/obj/item/circuitboard/computer/exploration_shuttle,
+/obj/item/wrench,
+/obj/item/radio/headset/headset_exploration,
+/obj/item/radio/headset/headset_exploration,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/internals/tactical,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"gf" = (
+/turf/template_noop,
+/area/template_noop)
+"hl" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/binary/pump/on,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/exploration)
+"jP" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"kX" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north{
+	cell_type = /obj/item/stock_parts/cell/high/plus;
+	locked = 0
+	},
+/obj/machinery/power/port_gen/pacman{
+	anchored = 1;
+	sheets = 40
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"ln" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/airalarm{
+	locked = 0;
+	pixel_y = 23;
+	req_access = null
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/portables_connector/visible,
+/obj/machinery/portable_atmospherics/canister,
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"lT" = (
+/obj/structure/cable,
+/obj/machinery/button/door{
+	id = "ex_cab";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_y = -25;
+	req_access_txt = "49";
+	specialfunctions = 4
+	},
+/obj/machinery/light/small,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"mN" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
+/obj/machinery/atmospherics/components/tank/air{
+	dir = 1;
+	piping_layer = 4
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"ny" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/exploration)
+"oo" = (
+/obj/structure/table,
+/obj/machinery/recharger{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/obj/machinery/button/door{
+	id = "ex_cargo3";
+	name = "Фронтовые бронежалюзи";
+	pixel_x = 5;
+	pixel_y = 6;
+	req_access_txt = "49"
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"or" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"oB" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 8
+	},
+/obj/item/storage/secure/safe/rangers{
+	pixel_y = -29
+	},
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/exploration)
+"pp" = (
+/obj/effect/spawner/structure/window/shuttle,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "ex_cargo3"
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"pZ" = (
+/obj/machinery/computer/shuttle_flight/exploration,
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/exploration)
+"qd" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/camera/autoname,
+/obj/structure/cable,
+/obj/machinery/power/smes{
+	charge = 5e+006
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"qA" = (
+/obj/docking_port/mobile{
+	dir = 4;
+	id = "exploration";
+	name = "Шаттл Рейнджеров";
+	port_direction = 8
+	},
+/obj/structure/cable,
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/shuttle{
+	req_access_txt = "49"
+	},
+/obj/machinery/atmospherics/components/binary/pump/on/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/binary/pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"rZ" = (
+/obj/machinery/airalarm{
+	dir = 1;
+	locked = 0;
+	pixel_y = -22;
+	req_access = null
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"uO" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/exploration)
+"vV" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/button/door{
+	id = "ex_cab";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_y = -32;
+	req_access_txt = "49";
+	specialfunctions = 4
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"wY" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"yb" = (
+/obj/machinery/computer/weapons,
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/exploration)
+"zH" = (
+/obj/structure/table,
+/obj/item/navigation_map,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"Az" = (
+/obj/machinery/computer/objective,
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/exploration)
+"BP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/exploration)
+"Ct" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"DL" = (
+/obj/machinery/shuttle/engine/plasma{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"DZ" = (
+/obj/structure/window/reinforced,
+/obj/structure/table,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/gps/mining/exploration{
+	gpstag = "Шаттл рейнджеров";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/obj/item/dice/d6,
+/turf/open/floor/mineral/titanium/purple,
+/area/shuttle/exploration)
+"Eg" = (
+/obj/effect/landmark/exploration_weapon_spawner/right{
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/exploration)
+"Eo" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/crate/engineering,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/multitool,
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"FY" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor/shutters{
+	dir = 8;
+	id = "ex_cargo1";
+	name = "Cargo Shutters"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/button/door{
+	id = "ex_cargo1";
+	name = "Cargo Shutters Control";
+	pixel_y = 32;
+	req_access_txt = "49"
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"Gc" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/exploration)
+"Go" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/telecomms/allinone/exploration,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"Hk" = (
+/obj/structure/window/reinforced/survival_pod{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/shuttle/engine_heater{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"IA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor/shutters{
+	dir = 4;
+	id = "ex_cargo2";
+	name = "Cargo Shutters"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/button/door{
+	id = "ex_cargo2";
+	name = "Cargo Shutters Control";
+	pixel_y = 32;
+	req_access_txt = "49"
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"IS" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/exploration)
+"Jz" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/exploration)
+"KP" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/button/door{
+	id = "ex_cab";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_y = 24;
+	req_access_txt = "49";
+	specialfunctions = 4
+	},
+/obj/machinery/atmospherics/components/unary/plasma_refiner,
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"Mu" = (
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/exploration)
+"PI" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"PM" = (
+/obj/structure/window/reinforced,
+/obj/structure/table,
+/obj/machinery/cell_charger{
+	pixel_x = 2;
+	pixel_y = -3
+	},
+/turf/open/floor/mineral/titanium/purple,
+/area/shuttle/exploration)
+"Qa" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/obj/machinery/telecomms/relay/preset/exploration,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"Qo" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/shutters{
+	dir = 4;
+	id = "ex_cargo2";
+	name = "Cargo Shutters"
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"Rd" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/exploration)
+"RA" = (
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/exploration)
+"Tg" = (
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/exploration)
+"Tp" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/door/airlock/shuttle{
+	id_tag = "ex_cab";
+	req_access_txt = "49"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/exploration)
+"Xj" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/door/poddoor/shutters{
+	dir = 8;
+	id = "ex_cargo1";
+	name = "Cargo Shutters"
+	},
+/turf/open/floor/plating,
+/area/shuttle/exploration)
+"YA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/exploration)
+
+(1,1,1) = {"
+gf
+pp
+pp
+Tg
+dk
+qA
+Tg
+Tg
+FY
+Xj
+ao
+ny
+gf
+"}
+(2,1,1) = {"
+pp
+pp
+oo
+rZ
+Tg
+lT
+Tg
+ln
+hl
+IS
+Go
+ao
+ny
+"}
+(3,1,1) = {"
+pp
+Az
+Ct
+vV
+Tg
+bd
+Tg
+KP
+BP
+IS
+Qa
+Hk
+DL
+"}
+(4,1,1) = {"
+pp
+pZ
+Ct
+PI
+PI
+jP
+Tp
+bt
+Rd
+Gc
+mN
+Hk
+DL
+"}
+(5,1,1) = {"
+pp
+yb
+Ct
+or
+DZ
+oB
+Tg
+qd
+YA
+Jz
+dq
+Hk
+DL
+"}
+(6,1,1) = {"
+pp
+pp
+zH
+wY
+PM
+Mu
+Tg
+kX
+uO
+RA
+Eo
+ao
+ny
+"}
+(7,1,1) = {"
+gf
+pp
+pp
+Tg
+Eg
+Tg
+Tg
+Tg
+IA
+Qo
+ao
+ny
+gf
+"}

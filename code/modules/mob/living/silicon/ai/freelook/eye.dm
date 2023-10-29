@@ -6,7 +6,7 @@
 	name = "Inactive AI Eye"
 
 	icon_state = "ai_camera"
-	icon = 'icons/mob/silicon/cameramob.dmi'
+	icon = 'icons/mob/cameramob.dmi'
 	invisibility = INVISIBILITY_MAXIMUM
 	hud_possible = list(ANTAG_HUD, AI_DETECT_HUD = HUD_LIST_LIST)
 	var/list/visibleCameraChunks = list()
@@ -16,7 +16,6 @@
 	var/static_visibility_range = 16
 	var/ai_detector_visible = TRUE
 	var/ai_detector_color = COLOR_RED
-	interaction_range = INFINITY
 
 /mob/camera/ai_eye/Initialize(mapload)
 	. = ..()
@@ -93,38 +92,39 @@
 // It will also stream the chunk that the new loc is in.
 
 /mob/camera/ai_eye/proc/setLoc(destination, force_update = FALSE)
-	if(!ai)
-		return
-	if(!isturf(ai.loc))
-		return
-	destination = get_turf(destination)
-	if(!force_update && (destination == get_turf(src)))
-		return //we are already here!
-	if (destination)
-		abstract_move(destination)
-	else
-		moveToNullspace()
-	if(use_static)
-		ai.camera_visibility(src)
-	if(ai.client && !ai.multicam_on)
-		ai.client.set_eye(src)
-	update_ai_detect_hud()
-	update_parallax_contents()
-	//Holopad
-	if(istype(ai.current, /obj/machinery/holopad))
-		var/obj/machinery/holopad/H = ai.current
-		if(!H.move_hologram(ai, destination))
-			H.clear_holo(ai)
-
-	if(ai.camera_light_on)
-		ai.light_cameras()
-	if(ai.master_multicam)
-		ai.master_multicam.refresh_view()
+	if(ai)
+		if(!isturf(ai.loc))
+			return
+		destination = get_turf(destination)
+		if(!force_update && (destination == get_turf(src)) )
+			return //we are already here!
+		if (destination)
+			abstract_move(destination)
+		else
+			moveToNullspace()
+		if(use_static)
+			ai.camera_visibility(src)
+		if(ai.client && !ai.multicam_on)
+			ai.client.set_eye(src)
+		update_ai_detect_hud()
+		update_parallax_contents()
+		//Holopad
+		if(istype(ai.current, /obj/machinery/holopad))
+			var/obj/machinery/holopad/H = ai.current
+			H.move_hologram(ai, destination)
+		if(ai.camera_light_on)
+			ai.light_cameras()
+		if(ai.master_multicam)
+			ai.master_multicam.refresh_view()
 
 /mob/camera/ai_eye/zMove(dir, turf/target, z_move_flags = NONE, recursions_left = 1, list/falling_movs)
 	. = ..()
 	if(.)
 		setLoc(loc, force_update = TRUE)
+
+/mob/camera/ai_eye/can_z_move(direction, turf/start, turf/destination, z_move_flags = NONE, mob/living/rider)
+	z_move_flags |= ZMOVE_IGNORE_OBSTACLES  //cameras do not respect these FLOORS you speak so much of
+	return ..()
 
 /mob/camera/ai_eye/Move()
 	return
@@ -150,14 +150,12 @@
 	return ..()
 
 /atom/proc/move_camera_by_click()
-	if(!isAI(usr))
-		return
-	var/mob/living/silicon/ai/AI = usr
-	if(AI.eyeobj && (AI.multicam_on || (AI.client.eye == AI.eyeobj)) && (AI.eyeobj.z == z))
-		if(AI.ai_tracking_tool.tracking)
-			AI.ai_tracking_tool.set_tracking(FALSE)
-		if (isturf(loc) || isturf(src))
-			AI.eyeobj.setLoc(src)
+	if(isAI(usr))
+		var/mob/living/silicon/ai/AI = usr
+		if(AI.eyeobj && (AI.multicam_on || (AI.client.eye == AI.eyeobj)) && (AI.eyeobj.z == z))
+			AI.cameraFollow = null
+			if (isturf(loc) || isturf(src))
+				AI.eyeobj.setLoc(src)
 
 // This will move the AIEye. It will also cause lights near the eye to light up, if toggled.
 // This is handled in the proc below this one.
@@ -181,8 +179,8 @@
 	else
 		user.sprint = initial
 
-	if(user.ai_tracking_tool.tracking)
-		user.ai_tracking_tool.set_tracking(FALSE)
+	if(!user.tracking)
+		user.cameraFollow = null
 
 // Return to the Core.
 /mob/living/silicon/ai/proc/view_core()
@@ -191,8 +189,7 @@
 		H.clear_holo(src)
 	else
 		current = null
-	if(ai_tracking_tool && ai_tracking_tool.tracking)
-		ai_tracking_tool.set_tracking(FALSE)
+	cameraFollow = null
 	unset_machine()
 
 	if(isturf(loc) && (QDELETED(eyeobj) || !eyeobj.loc))
@@ -210,7 +207,7 @@
 	all_eyes += eyeobj
 	eyeobj.ai = src
 	eyeobj.setLoc(loc)
-	eyeobj.name = "[name] (AI Eye)"
+	eyeobj.name = "[name] (око ИИ)"
 	eyeobj.real_name = eyeobj.name
 	set_eyeobj_visible(TRUE)
 
@@ -218,10 +215,7 @@
 	if(!eyeobj)
 		return
 	eyeobj.mouse_opacity = state ? MOUSE_OPACITY_ICON : initial(eyeobj.mouse_opacity)
-	if(state)
-		eyeobj.SetInvisibility(INVISIBILITY_OBSERVER, id=type)
-	else
-		eyeobj.RemoveInvisibility(type)
+	eyeobj.invisibility = state ? INVISIBILITY_OBSERVER : initial(eyeobj.invisibility)
 
 /mob/living/silicon/ai/verb/toggle_acceleration()
 	set category = "AI Commands"
@@ -232,9 +226,9 @@
 	acceleration = !acceleration
 	to_chat(usr, "Camera acceleration has been toggled [acceleration ? "on" : "off"].")
 
-/mob/camera/ai_eye/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), message_range)
+/mob/camera/ai_eye/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	. = ..()
-	if(relay_speech && speaker && ai && !radio_freq && speaker != ai && GLOB.cameranet.checkCameraVis(speaker))
+	if(relay_speech && speaker && ai && !radio_freq && speaker != ai && near_camera(speaker))
 		ai.relay_speech(message, speaker, message_language, raw_message, radio_freq, spans, message_mods)
 
 /obj/effect/overlay/ai_detect_hud

@@ -1,127 +1,92 @@
 /obj/machinery/button
 	name = "button"
 	desc = "A remote control switch."
-	icon = 'icons/obj/machines/wallmounts.dmi'
-	base_icon_state = "button"
-	icon_state = "button"
-	///Icon suffix for the skin of the front pannel that is added to base_icon_state
-	var/skin = ""
-	///Whether it is possible to change the panel skin
-	var/can_alter_skin = TRUE
+	icon = 'white/valtos/icons/power.dmi'
+	icon_state = "doorctrl"
+	var/skin = "doorctrl"
 	power_channel = AREA_USAGE_ENVIRON
 	var/obj/item/assembly/device
 	var/obj/item/electronics/airlock/board
 	var/device_type = null
 	var/id = null
 	var/initialized_button = 0
-	var/silicon_access_disabled = FALSE
-	light_power = 0.5 // Minimums, we want the button to glow if it has a mask, not light an area
-	light_range = 1.5
-	light_color = LIGHT_COLOR_VIVID_GREEN
-	armor_type = /datum/armor/machinery_button
+	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 100, RAD = 100, FIRE = 90, ACID = 70)
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.02
 	resistance_flags = LAVA_PROOF | FIRE_PROOF
 
 /obj/machinery/button/indestructible
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
-/datum/armor/machinery_button
-	melee = 50
-	bullet = 50
-	laser = 50
-	energy = 50
-	bomb = 10
-	fire = 90
-	acid = 70
-
 /obj/machinery/button/Initialize(mapload, ndir = 0, built = 0)
 	. = ..()
 	if(built)
 		setDir(ndir)
+		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
+		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
 		set_panel_open(TRUE)
-		update_appearance()
+		update_icon()
 
 	if(!built && !device && device_type)
 		device = new device_type(src)
 
 	src.check_access(null)
 
-	if(length(req_access) || length(req_one_access))
+	if(req_access.len || req_one_access.len)
 		board = new(src)
-		if(length(req_access))
+		if(req_access.len)
 			board.accesses = req_access
 		else
 			board.one_access = 1
 			board.accesses = req_one_access
 
 	setup_device()
-	find_and_hang_on_wall()
-
-/obj/machinery/button/Destroy()
-	QDEL_NULL(device)
-	QDEL_NULL(board)
-	return ..()
 
 /obj/machinery/button/update_icon_state()
-	icon_state = "[base_icon_state][skin]"
-	if(panel_open)
-		icon_state += "-open"
-	else if(machine_stat & (NOPOWER|BROKEN))
-		icon_state += "-nopower"
-	return ..()
-
-/obj/machinery/button/update_appearance()
 	. = ..()
-
-	if(panel_open || (machine_stat & (NOPOWER|BROKEN)))
-		set_light(0)
+	if(panel_open)
+		icon_state = "button-open"
+	else if(machine_stat & (NOPOWER|BROKEN))
+		icon_state = "[skin]-p"
 	else
-		set_light(initial(light_range), light_power, light_color)
+		icon_state = skin
 
 /obj/machinery/button/update_overlays()
 	. = ..()
+	if(!panel_open)
+		return
+	if(device)
+		. += "button-device"
+	if(board)
+		. += "button-board"
 
-	if(panel_open && board)
-		. += "[base_icon_state]-overlay-board"
-	if(panel_open && device)
-		if(istype(device, /obj/item/assembly/signaler))
-			. += "[base_icon_state]-overlay-signaler"
+/obj/machinery/button/attackby(obj/item/W, mob/user, params)
+	if(W.tool_behaviour == TOOL_SCREWDRIVER)
+		if(panel_open || allowed(user))
+			default_deconstruction_screwdriver(user, "button-open", "[skin]",W)
+			update_icon()
 		else
-			. += "[base_icon_state]-overlay-device"
+			to_chat(user, span_alert("Maintenance Access Denied."))
+			flick("[skin]-denied", src)
+		return
 
-	if(!(machine_stat & (NOPOWER|BROKEN)) && !panel_open)
-		. += emissive_appearance(icon, "[base_icon_state]-light-mask", src, alpha = src.alpha)
-
-/obj/machinery/button/screwdriver_act(mob/living/user, obj/item/tool)
-	if(panel_open || allowed(user))
-		default_deconstruction_screwdriver(user, "[base_icon_state][skin]-open", "[base_icon_state][skin]", tool)
-		update_appearance()
-	else
-		balloon_alert(user, "access denied")
-		flick_overlay_view("[base_icon_state]-overlay-error", 1 SECONDS)
-
-	return TRUE
-
-/obj/machinery/button/attackby(obj/item/W, mob/living/user, params)
 	if(panel_open)
-		if(!device && isassembly(W))
+		if(!device && istype(W, /obj/item/assembly))
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, span_warning("\The [W] is stuck to you!"))
+				to_chat(user, span_warning("[W] прилип ко мне!"))
 				return
 			device = W
-			to_chat(user, span_notice("You add [W] to the button."))
+			to_chat(user, span_notice("Прикручиваю [W] к кнопке."))
 
 		if(!board && istype(W, /obj/item/electronics/airlock))
 			if(!user.transferItemToLoc(W, src))
-				to_chat(user, span_warning("\The [W] is stuck to you!"))
+				to_chat(user, span_warning("[W] прилип ко мне!"))
 				return
 			board = W
 			if(board.one_access)
 				req_one_access = board.accesses
 			else
 				req_access = board.accesses
-			balloon_alert(user, "electronics added")
-			to_chat(user, span_notice("You add [W] to the button."))
+			to_chat(user, span_notice("Прикручиваю [W] к кнопке."))
 
 		if(!device && !board && W.tool_behaviour == TOOL_WRENCH)
 			to_chat(user, span_notice("You start unsecuring the button frame..."))
@@ -132,46 +97,35 @@
 				playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 				qdel(src)
 
-		update_appearance()
+		update_icon()
 		return
 
-	if(!user.combat_mode && !(W.item_flags & NOBLUDGEON))
+	if(user.a_intent != INTENT_HARM && !(W.item_flags & NOBLUDGEON))
 		return attack_hand(user)
 	else
 		return ..()
 
-/obj/machinery/button/emag_act(mob/user, obj/item/card/emag/emag_card)
+/obj/machinery/button/emag_act(mob/user)
 	. = ..()
 	if(obj_flags & EMAGGED)
 		return
 	req_access = list()
 	req_one_access = list()
-	playsound(src, SFX_SPARKS, 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(src, "zap", 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	obj_flags |= EMAGGED
 
 	// The device inside can be emagged by swiping the button
 	// returning TRUE will prevent feedback (so we can do our own)
-	if(!device?.emag_act(user, emag_card))
-		balloon_alert(user, "access overridden")
-	return TRUE
+	if(device?.emag_act(user))
+		return
+	balloon_alert(user, "доступ получен")
 
 /obj/machinery/button/attack_ai(mob/user)
-	if(!silicon_access_disabled && !panel_open)
+	if(!panel_open)
 		return attack_hand(user)
 
 /obj/machinery/button/attack_robot(mob/user)
 	return attack_ai(user)
-
-/obj/machinery/button/examine(mob/user)
-	. = ..()
-	if(!panel_open)
-		return
-	if(device)
-		. += span_notice("There is \a [device] inside, which could be removed with an <b>empty hand</b>.")
-	if(board)
-		. += span_notice("There is \a [board] inside, which could be removed with an <b>empty hand</b>.")
-	if(!board && !device)
-		. += span_notice("There is nothing currently installed in \the [src].")
 
 /obj/machinery/button/proc/setup_device()
 	if(id && istype(device, /obj/item/assembly/control))
@@ -179,12 +133,12 @@
 		A.id = id
 	initialized_button = 1
 
-/obj/machinery/button/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
+/obj/machinery/button/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(id)
-		id = "[port.shuttle_id]_[id]"
+		id = "[port.id]_[id]"
 		setup_device()
 
-/obj/machinery/button/attack_hand(mob/user, list/modifiers)
+/obj/machinery/button/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -194,26 +148,22 @@
 	if(panel_open)
 		if(device || board)
 			if(device)
-				user.put_in_hands(device)
+				device.forceMove(drop_location())
 				device = null
 			if(board)
-				user.put_in_hands(board)
+				board.forceMove(drop_location())
 				req_access = list()
 				req_one_access = list()
 				board = null
-			update_appearance(UPDATE_ICON)
-			balloon_alert(user, "electronics removed")
+			update_icon()
 			to_chat(user, span_notice("You remove electronics from the button frame."))
 
-		else if(can_alter_skin)
-			if(skin == "")
-				skin = "-warning"
-				to_chat(user, span_notice("You change the button frame's front panel to warning lines."))
+		else
+			if(skin == "doorctrl")
+				skin = "launcher"
 			else
-				skin = ""
-				to_chat(user, span_notice("You change the button frame's front panel to default."))
-			update_appearance(UPDATE_ICON)
-			balloon_alert(user, "swapped style")
+				skin = "doorctrl"
+			to_chat(user, span_notice("You change the button frame's front panel."))
 		return
 
 	if((machine_stat & (NOPOWER|BROKEN)))
@@ -222,40 +172,44 @@
 	if(device && device.next_activate > world.time)
 		return
 
+	playsound(get_turf(src), 'white/valtos/sounds/switch_click.wav', 50, TRUE)
+
 	if(!allowed(user))
-		balloon_alert(user, "access denied")
-		flick_overlay_view("[base_icon_state]-overlay-error", 1 SECONDS)
+		to_chat(user, span_alert("Доступ запрещён."))
+		flick("[skin]-denied", src)
 		return
 
 	use_power(5)
-	flick_overlay_view("[base_icon_state]-overlay-success", 1 SECONDS)
+	icon_state = "[skin]1"
 
 	if(device)
-		device.pulsed(user)
+		device.pulsed(pulser = user)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_BUTTON_PRESSED,src)
 
-/**
- * Called when the mounted button's wall is knocked down.
- */
-/obj/machinery/button/proc/knock_down()
-	if(device)
-		device.forceMove(get_turf(src))
-		device = null
-	if(board)
-		board.forceMove(get_turf(src))
-		req_access = list()
-		req_one_access = list()
-		board = null
-	qdel(src)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 15)
 
 /obj/machinery/button/door
 	name = "door button"
-	desc = "A door remote control switch."
+	desc = "Кнопка, которая контроллирует шлюзы и не только."
 	var/normaldoorcontrol = FALSE
 	var/specialfunctions = OPEN // Bitflag, see assembly file
 	var/sync_doors = TRUE
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
+/obj/machinery/button/door/directional/north
+	dir = SOUTH
+	pixel_y = 24
+
+/obj/machinery/button/door/directional/south
+	dir = NORTH
+	pixel_y = -24
+
+/obj/machinery/button/door/directional/east
+	dir = WEST
+	pixel_x = 24
+
+/obj/machinery/button/door/directional/west
+	dir = EAST
+	pixel_x = -24
 
 /obj/machinery/button/door/indestructible
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -273,17 +227,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 	..()
 
 /obj/machinery/button/door/incinerator_vent_ordmix
-	name = "combustion chamber vent control"
+	name = "управление системой вентиляции камеры сгорания"
 	id = INCINERATOR_ORDMIX_VENT
-	req_access = list(ACCESS_ORDNANCE)
+	req_access = list(ACCESS_TOXINS)
 
 /obj/machinery/button/door/incinerator_vent_atmos_main
-	name = "turbine vent control"
+	name = "управление системой вентиляции турбины"
 	id = INCINERATOR_ATMOS_MAINVENT
 	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_MAINT_TUNNELS)
 
 /obj/machinery/button/door/incinerator_vent_atmos_aux
-	name = "combustion chamber vent control"
+	name = "управление системой вентиляции камеры сгорания"
 	id = INCINERATOR_ATMOS_AUXVENT
 	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_MAINT_TUNNELS)
 
@@ -298,20 +252,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 	req_one_access = list(ACCESS_ATMOSPHERICS)
 
 /obj/machinery/button/door/incinerator_vent_syndicatelava_main
-	name = "turbine vent control"
+	name = "управление системой вентиляции турбины"
 	id = INCINERATOR_SYNDICATELAVA_MAINVENT
 	req_access = list(ACCESS_SYNDICATE)
 
 /obj/machinery/button/door/incinerator_vent_syndicatelava_aux
-	name = "combustion chamber vent control"
+	name = "управление системой вентиляции камеры сгорания"
 	id = INCINERATOR_SYNDICATELAVA_AUXVENT
 	req_access = list(ACCESS_SYNDICATE)
 
 /obj/machinery/button/massdriver
 	name = "mass driver button"
 	desc = "A remote control switch for a mass driver."
-	icon_state= "button-warning"
-	skin = "-warning"
+	icon_state = "launcher"
+	skin = "launcher"
 	device_type = /obj/item/assembly/control/massdriver
 
 /obj/machinery/button/massdriver/indestructible
@@ -320,8 +274,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 /obj/machinery/button/ignition
 	name = "ignition switch"
 	desc = "A remote control switch for a mounted igniter."
-	icon_state= "button-warning"
-	skin = "-warning"
+	icon_state = "launcher"
+	skin = "launcher"
 	device_type = /obj/item/assembly/control/igniter
 
 /obj/machinery/button/ignition/indestructible
@@ -343,31 +297,25 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 /obj/machinery/button/flasher
 	name = "flasher button"
 	desc = "A remote control switch for a mounted flasher."
-	icon_state= "button-warning"
-	skin = "-warning"
+	icon_state = "launcher"
+	skin = "launcher"
 	device_type = /obj/item/assembly/control/flasher
-
-/obj/machinery/button/flasher/indestructible
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/machinery/button/curtain
 	name = "curtain button"
 	desc = "A remote control switch for a mechanical curtain."
-	icon_state= "button-warning"
-	skin = "-warning"
+	icon_state = "launcher"
+	skin = "launcher"
 	device_type = /obj/item/assembly/control/curtain
-	var/sync_doors = TRUE
 
-/obj/machinery/button/curtain/setup_device()
-	var/obj/item/assembly/control/curtain = device
-	curtain.sync_doors = sync_doors
-	return ..()
+/obj/machinery/button/flasher/indestructible
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/machinery/button/crematorium
-	name = "crematorium igniter"
-	desc = "Burn baby burn!"
-	icon_state= "button-warning"
-	skin = "-warning"
+	name = "переключатель крематория"
+	desc = "Гори детка гори!"
+	icon_state = "launcher"
+	skin = "launcher"
 	device_type = /obj/item/assembly/control/crematorium
 	req_access = list()
 	id = 1
@@ -376,9 +324,27 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/item/wallframe/button
-	name = "button frame"
-	desc = "Used for building buttons."
+	name = "рама для кнопки"
+	desc = "Используется для сборки кнопок."
 	icon_state = "button"
 	result_path = /obj/machinery/button
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
-	pixel_shift = 24
+	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
+
+/obj/machinery/button/tram
+	name = "вызов трамвая"
+	desc = "Кнопка для вызова трамвая. Пока ничего подозрительного."
+	icon_state = "launcher"
+	skin = "launcher"
+	device_type = /obj/item/assembly/control/tram
+	req_access = list()
+	id = 1
+
+/obj/machinery/button/tram/setup_device()
+	var/obj/item/assembly/control/tram/tram_device = device
+	tram_device.initial_id = id
+	. = ..()
+
+/obj/machinery/button/elevator/examine(mob/user)
+	. = ..()
+	. += "<hr><span class='notice'>Здесь есть закорючки на кнопке...</span>"
+	. += span_notice("\nЭТО ВЫЗЫВАЕТ ТРАМВАЙ! ЭТО НЕ УПРАВЛЯЕТ ИМ! Управляйте трамваем изнутри, если хотите!")

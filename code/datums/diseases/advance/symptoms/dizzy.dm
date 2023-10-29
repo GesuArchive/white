@@ -1,16 +1,24 @@
-/**Dizziness
- * Increases stealth
- * Lowers resistance
- * Decreases stage speed considerably
- * Slightly reduces transmissibility
- * Intense Level
- * Bonus: Shakes the affected mob's screen for short periods.
- */
+/*
+//////////////////////////////////////
+
+Dizziness
+
+	Hidden.
+	Lowers resistance considerably.
+	Decreases stage speed.
+	Reduced transmittability
+	Intense Level.
+
+Bonus
+	Shakes the affected mob's screen for short periods.
+
+//////////////////////////////////////
+*/
 
 /datum/symptom/dizzy // Not the egg
-	name = "Dizziness"
-	desc = "The virus causes inflammation of the vestibular system, leading to bouts of dizziness."
-	illness = "Motion Sickness"
+
+	name = "Головокружение"
+	desc = "Вирус вызывает воспаление вестибулярной системы, приводящее к приступам головокружения."
 	resistance = -2
 	stage_speed = -3
 	transmittable = -1
@@ -20,30 +28,29 @@
 	symptom_delay_min = 15
 	symptom_delay_max = 30
 	threshold_descs = list(
-		"Transmission 6" = "Also causes druggy vision.",
-		"Stealth 4" = "The symptom remains hidden until active.",
+		"Передача 6" = "Также вызывает наркотическое зрение.",
+		"Скрытность 4" = "Симптом остается скрытым до тех пор, пока не станет активным.",
 	)
 
 /datum/symptom/dizzy/Start(datum/disease/advance/A)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
-	if(A.totalStealth() >= 4)
+	if(A.properties["stealth"] >= 4)
 		suppress_warning = TRUE
-	if(A.totalTransmittable() >= 6) //druggy
+	if(A.properties["transmittable"] >= 6) //druggy
 		power = 2
 
 /datum/symptom/dizzy/Activate(datum/disease/advance/A)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
 	var/mob/living/M = A.affected_mob
 	switch(A.stage)
 		if(1, 2, 3, 4)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, span_warning("[pick("You feel dizzy.", "Your head spins.")]"))
+				to_chat(M, span_warning("[pick("У меня кружится голова.", "Перед глазами всё вращается.")]"))
 		else
-			to_chat(M, span_userdanger("A wave of dizziness washes over you!"))
-			M.adjust_dizzy_up_to(1 MINUTES, 140 SECONDS)
+			to_chat(M, span_userdanger("Я лечу!"))
+			if(M.dizziness <= 70)
+				M.dizziness += 30
 			if(power >= 2)
-				M.set_drugginess(80 SECONDS)
+				M.set_drugginess(40)

@@ -75,10 +75,10 @@
 		// Multiz is shitcode welcome home
 		var/turf/current_turf = (direction & (UP|DOWN)) ? \
 			(direction & UP) ? \
-				(z_traits[Z_LEVEL_UP]) ? \
+				(z_traits["16"]) ? \
 					(get_step(locate(x, y, z + 1), NONE)) : \
 				(null) : \
-				(z_traits[Z_LEVEL_DOWN]) ? \
+				(z_traits["32"]) ? \
 					(get_step(locate(x, y, z - 1), NONE)) : \
 				(null) : \
 			(get_step(src, direction))

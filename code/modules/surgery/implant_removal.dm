@@ -1,88 +1,63 @@
 /datum/surgery/implant_removal
-	name = "Implant Removal"
-	target_mobtypes = list(/mob/living)
+	name = "Извлечение Микроимпланта"
+	steps = list(/datum/surgery_step/incise, /datum/surgery_step/clamp_bleeders, /datum/surgery_step/retract_skin, /datum/surgery_step/extract_implant, /datum/surgery_step/close)
+	target_mobtypes = list(/mob/living/carbon/human)
 	possible_locs = list(BODY_ZONE_CHEST)
-	steps = list(
-		/datum/surgery_step/incise,
-		/datum/surgery_step/clamp_bleeders,
-		/datum/surgery_step/retract_skin,
-		/datum/surgery_step/extract_implant,
-		/datum/surgery_step/close,
-	)
+
 
 //extract implant
 /datum/surgery_step/extract_implant
-	name = "extract implant (hemostat)"
-	implements = list(
-		TOOL_HEMOSTAT = 100,
-		TOOL_CROWBAR = 65,
-		/obj/item/kitchen/fork = 35)
+	name = "извлеките микроимплант"
+	implements = list(TOOL_HEMOSTAT = 100, TOOL_CROWBAR = 65, /obj/item/kitchen/fork = 35)
 	time = 64
-	success_sound = 'sound/surgery/hemostat1.ogg'
-	var/obj/item/implant/implant
+	var/obj/item/implant/I = null
 
-/datum/surgery_step/extract_implant/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	for(var/obj/item/object in target.implants)
-		implant = object
+/datum/surgery_step/extract_implant/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	for(var/obj/item/O in target.implants)
+		I = O
 		break
-	if(implant)
-		display_results(
-			user,
-			target,
-			span_notice("You begin to extract [implant] from [target]'s [target_zone]..."),
-			span_notice("[user] begins to extract [implant] from [target]'s [target_zone]."),
-			span_notice("[user] begins to extract something from [target]'s [target_zone]."),
-		)
-		display_pain(target, "You feel a serious pain in your [target_zone]!")
+	if(I)
+		display_results(user, target, span_notice("Начинаю извлекать [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает извлекать [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает извлекать что-то из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
+		display_pain(target, "Чувствую сильную боль в [ru_gde_zone(target_zone)]!")
 	else
-		display_results(
-			user,
-			target,
-			span_notice("You look for an implant in [target]'s [target_zone]..."),
-			span_notice("[user] looks for an implant in [target]'s [target_zone]."),
-			span_notice("[user] looks for something in [target]'s [target_zone]."),
-		)
+		display_results(user, target, span_notice("Начинаю искать микроимпланты в [ru_gde_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает искать микроимпланты в [ru_gde_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает искать что-то в [ru_gde_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
 
-/datum/surgery_step/extract_implant/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	if(implant)
-		display_results(
-			user,
-			target,
-			span_notice("You successfully remove [implant] from [target]'s [target_zone]."),
-			span_notice("[user] successfully removes [implant] from [target]'s [target_zone]!"),
-			span_notice("[user] successfully removes something from [target]'s [target_zone]!"),
-		)
-		display_pain(target, "You can feel your [implant.name] pulled out of you!")
-		implant.removed(target)
+/datum/surgery_step/extract_implant/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
+	if(I)
+		display_results(user, target, span_notice("Извлекаю [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] успешно извлек [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!") ,
+			span_notice("[user] успешно извлек что-то из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!") ,
+			playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
+		display_pain(target, "Ауч! Кажется из меня что-то вытащили!")
+		I.removed(target)
 
 		var/obj/item/implantcase/case
-		for(var/obj/item/implantcase/implant_case in user.held_items)
-			case = implant_case
+		for(var/obj/item/implantcase/ic in user.held_items)
+			case = ic
 			break
 		if(!case)
 			case = locate(/obj/item/implantcase) in get_turf(target)
 		if(case && !case.imp)
-			case.imp = implant
-			implant.forceMove(case)
-			case.update_appearance()
-			display_results(
-				user,
-				target,
-				span_notice("You place [implant] into [case]."),
-				span_notice("[user] places [implant] into [case]!"),
-				span_notice("[user] places it into [case]!"),
-			)
+			case.imp = I
+			I.forceMove(case)
+			case.update_icon()
+			display_results(user, target, span_notice("Помещаю [I] в [case].") ,
+				span_notice("[user] помещает [I] в [case]!") ,
+				span_notice("[user] помещает что-то в [case]!"))
 		else
-			qdel(implant)
+			qdel(I)
 
 	else
-		to_chat(user, span_warning("You can't find anything in [target]'s [target_zone]!"))
+		to_chat(user, span_warning("Я ничего не нашел в [target_zone] [skloname(target.name, RODITELNI, target.gender)]!"))
 	return ..()
 
 /datum/surgery/implant_removal/mechanic
-	name = "Implant Removal"
-	requires_bodypart_type = BODYTYPE_ROBOTIC
-	target_mobtypes = list(/mob/living/carbon/human) // Simpler mobs don't have bodypart types
+	name = "Извлечение Микроимпланта (кибер)"
+	requires_bodypart_type = BODYPART_ROBOTIC
 	steps = list(
 		/datum/surgery_step/mechanic_open,
 		/datum/surgery_step/open_hatch,

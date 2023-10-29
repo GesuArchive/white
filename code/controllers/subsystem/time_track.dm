@@ -71,10 +71,7 @@ SUBSYSTEM_DEF(time_track)
 			"air_hotspot_count",
 			"air_network_count",
 			"air_delta_count",
-			"air_superconductive_count",
-			"all_queries",
-			"queries_active",
-			"queries_standby"
+			"air_superconductive_count"
 		) + sendmaps_headers
 	)
 	return SS_INIT_SUCCESS
@@ -105,13 +102,13 @@ SUBSYSTEM_DEF(time_track)
 	try
 		send_maps_data = json_decode(sendmaps_json)
 	catch
-		text2file(sendmaps_json,"bad_sendmaps.json")
 		can_fire = FALSE
 		return
 	var/send_maps_sort = send_maps_data.Copy() //Doing it like this guarentees us a properly sorted list
 
 	for(var/list/packet in send_maps_data)
 		send_maps_sort[packet["name"]] = packet
+
 
 	var/list/send_maps_values = list()
 	for(var/entry_name in sendmaps_names_map)
@@ -141,16 +138,8 @@ SUBSYSTEM_DEF(time_track)
 			SSair.cost_superconductivity,
 			SSair.cost_pipenets,
 			SSair.cost_rebuilds,
-			length(SSair.active_turfs),
-			length(SSair.excited_groups),
 			length(SSair.hotspots),
 			length(SSair.networks),
 			length(SSair.high_pressure_delta),
-			length(SSair.active_super_conductivity),
-			SSdbcore.all_queries_num,
-			SSdbcore.queries_active_num,
-			SSdbcore.queries_standby_num
 		) + send_maps_values
 	)
-
-	SSdbcore.reset_tracking()

@@ -1,5 +1,1 @@
-<!-- Most valid html will work in here, but you have to use URL links for images. -->
-
-<h1>Welcome to Space Station 13!</h1>
-
-<i>This server is running a /tg/station 13 Git build.</i>
+<div id=motd-main> <center> <p id=motd-p>Добавь в закладки: <b id=motd-b>byond://s1.station13.ru:2019</b></p><p id=motd-p><a id=motd-a href="https://discord.gg/9uJ7dmM">Discord</a> | <a id=motd-a href="https://hub.station13.ru/rounds/">Stats</a> | <a id=motd-a href="https://github.com/frosty-dev">GitHub</a> | <a id=motd-a href="https://wiki.station13.ru/index.php?title=Main_Page">Wiki</a> | <a id=motd-a href="https://vk.com/ss13ru">VK</a></p></center></div>

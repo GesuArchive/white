@@ -452,7 +452,7 @@ SUBSYSTEM_DEF(air)
 			border += item
 
 			net.air.volume += item.volume
-			item.replace_pipenet(item.parent, net)
+			item.parent = net
 
 			if(item.air_temporary)
 				net.air.merge(item.air_temporary)
@@ -554,10 +554,10 @@ SUBSYSTEM_DEF(air)
 	// Taking advantage of current cycle being set to negative before this run to do A->B B->A prevention
 	for(var/turf/open/potential_diff as anything in difference_check)
 		// I can't use 0 here, so we're gonna do this instead. If it ever breaks I'll eat my shoe
-		potential_diff.current_cycle = -INFINITE
+		potential_diff.current_cycle = -INFINITY
 		for(var/turf/open/enemy_tile as anything in potential_diff.atmos_adjacent_turfs)
 			// If it's already been processed, then it's already talked to us
-			if(enemy_tile.current_cycle == -INFINITE)
+			if(enemy_tile.current_cycle == -INFINITY)
 				continue
 			// .air instead of .return_air() because we can guarentee that the proc won't do anything
 			if(potential_diff.air.compare(enemy_tile.air))

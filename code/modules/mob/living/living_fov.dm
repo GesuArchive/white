@@ -45,7 +45,7 @@
 		. = TRUE
 
 	// Handling nearsightnedness
-	if(. && is_nearsighted_currently())
+	if(. && is_nearsighted())
 		if((rel_x >= NEARSIGHTNESS_FOV_BLINDNESS || rel_x <= -NEARSIGHTNESS_FOV_BLINDNESS) || (rel_y >= NEARSIGHTNESS_FOV_BLINDNESS || rel_y <= -NEARSIGHTNESS_FOV_BLINDNESS))
 			return FALSE
 
@@ -91,12 +91,12 @@
 //did you know you can subtype /image and /mutable_appearance? // Stop telling them that they might actually do it
 /image/fov_image
 	icon = 'icons/effects/fov/fov_effects.dmi'
-	layer = EFFECTS_LAYER + FOV_EFFECT_LAYER
+	layer = FOV_EFFECTS_LAYER
 	appearance_flags = RESET_COLOR | RESET_TRANSFORM
-	plane = FULLSCREEN_PLANE
+	plane = SOUND_EFFECT_VISUAL_PLANE
 
 /// Plays a visual effect representing a sound cue for people with vision obstructed by FOV or blindness
-/proc/play_fov_effect(atom/center, range, icon_state, dir = SOUTH, ignore_self = FALSE, angle = 0, time = 1.5 SECONDS, list/override_list)
+/proc/play_fov_effect(atom/center, range, icon_state, dir = SOUTH, ignore_self = FALSE, angle = 0, list/override_list)
 	var/turf/anchor_point = get_turf(center)
 	var/image/fov_image/fov_image
 	var/list/clients_shown
@@ -112,6 +112,7 @@
 		if(!fov_image) //Make the image once we found one recipient to receive it
 			fov_image = new()
 			fov_image.loc = anchor_point
+			SET_PLANE(fov_image, SOUND_EFFECT_VISUAL_PLANE, anchor_point)
 			fov_image.icon_state = icon_state
 			fov_image.dir = dir
 			if(angle)
@@ -125,7 +126,7 @@
 		//when added as an image mutable_appearances act identically. we just make it an MA becuase theyre faster to change appearance
 
 	if(clients_shown)
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_image_from_clients), fov_image, clients_shown), time)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_images_from_clients), fov_image, clients_shown), 30)
 
 /atom/movable/screen/fov_blocker
 	icon = 'icons/effects/fov/field_of_view.dmi'

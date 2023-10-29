@@ -1,11 +1,11 @@
 // Proc taken from yogstation, credit to nichlas0010 for the original
 /client/proc/fix_air(turf/open/T in world)
 	set name = "Fix Air"
-	set category = "Admin.Game"
+	set category = "Адм.Игра"
 	set desc = "Fixes air in specified radius."
 
 	if(!holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		to_chat(src, "Only administrators may use this command.")
 		return
 	if(check_rights(R_ADMIN,1))
 		var/range=input("Enter range:","Num",2) as num

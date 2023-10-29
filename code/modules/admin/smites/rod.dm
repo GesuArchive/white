@@ -14,4 +14,4 @@
 	var/startside = pick(GLOB.cardinals)
 	var/turf/start_turf = spaceDebrisStartLoc(startside, target_turf.z)
 	var/turf/end_turf = spaceDebrisFinishLoc(startside, target_turf.z)
-	new /obj/effect/immovablerod(start_turf, end_turf, target, force_looping)
+	new /obj/effect/immovablerod(start_turf, end_turf, target)

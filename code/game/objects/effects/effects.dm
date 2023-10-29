@@ -7,20 +7,6 @@
 	move_resist = INFINITY
 	obj_flags = NONE
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
-	uses_integrity = FALSE
-
-/obj/effect/attackby(obj/item/weapon, mob/user, params)
-	if(SEND_SIGNAL(weapon, COMSIG_ITEM_ATTACK_EFFECT, src, user, params) & COMPONENT_NO_AFTERATTACK)
-		return TRUE
-
-	// I'm not sure why these are snowflaked to early return but they are
-	if(istype(weapon, /obj/item/mop) || istype(weapon, /obj/item/soap))
-		return
-
-	return ..()
-
-/obj/effect/attack_generic(mob/user, damage_amount, damage_type, damage_flag, sound_effect, armor_penetration)
-	return
 
 /obj/effect/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	return
@@ -41,7 +27,7 @@
 	return
 
 /obj/effect/ex_act(severity, target)
-	return FALSE
+	return
 
 /obj/effect/singularity_act()
 	qdel(src)
@@ -55,7 +41,7 @@
 /obj/effect/abstract/singularity_act()
 	return
 
-/obj/effect/abstract/has_gravity(turf/gravity_turf)
+/obj/effect/abstract/has_gravity(turf/T)
 	return FALSE
 
 /obj/effect/dummy/singularity_pull()

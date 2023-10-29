@@ -5,7 +5,7 @@
 
 // Fuel types and travel time per unit of distance on that fuel.
 #define FUEL_BASIC "basic"
-#define BASIC_FUEL_TIME_COST 250
+#define BASIC_FUEL_TIME_COST 300
 
 #define FUEL_ADVANCED "advanced"
 #define ADVANCED_FUEL_TIME_COST 200
@@ -20,8 +20,8 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 
 /// Exploration drone
 /obj/item/exodrone
-	name = "exploration drone"
-	desc = "A long range, semi-autonomous exploration drone."
+	name = "исследовательский дрон"
+	desc = "Полуавтономный разведочный дрон большой дальности действия."
 	icon = 'icons/obj/exploration.dmi'
 	icon_state = "drone"
 	w_class = WEIGHT_CLASS_BULKY
@@ -80,22 +80,18 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 
 /// Description for drone listing, describes location and current status
 /obj/item/exodrone/proc/ui_description()
-	switch(drone_status)
-		if(EXODRONE_TRAVEL)
-			return travel_target ? "Traveling to [travel_target.display_name()]." : "Traveling back to station."
-		if(EXODRONE_EXPLORATION, EXODRONE_ADVENTURE, EXODRONE_BUSY)
-			return "Exploring [location?.display_name() || "ERROR"]." // better safe than sorry.
-		if(EXODRONE_IDLE)
-			return "Idle."
-
-// Searches for blacklisted items hidden inside containers
-/obj/item/exodrone/proc/check_blacklist()
-	for(var/obj/item/contained_item in contents)
-		if(contained_item.contents)
-			for(var/subcontained_object in contained_item.get_all_contents())
-				if(is_type_in_typecache(subcontained_object, GLOB.blacklisted_cargo_types))
-					return FALSE
-	return TRUE
+	if(location)
+		switch(drone_status)
+			if(EXODRONE_TRAVEL)
+				return "Traveling back to station."
+			else
+				return "Exploring [location.display_name()]"
+	else
+		switch(drone_status)
+			if(EXODRONE_TRAVEL)
+				return "Traveling to exploration site."
+			else
+				return "Idle."
 
 /// Starts travel for site, does not validate if it's possible
 /obj/item/exodrone/proc/launch_for(datum/exploration_site/target_site)
@@ -114,7 +110,7 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 		distance_to_travel = max(abs(target_site.distance - location.distance),1)
 	travel_target = target_site
 	travel_time = travel_cost_coeff*distance_to_travel
-	travel_timer_id = addtimer(CALLBACK(src, PROC_REF(finish_travel)),travel_time,TIMER_STOPPABLE)
+	travel_timer_id = addtimer(CALLBACK(src,PROC_REF(finish_travel)),travel_time,TIMER_STOPPABLE)
 
 /// Travel cleanup
 /obj/item/exodrone/proc/finish_travel()
@@ -169,7 +165,7 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 
 /// Tries to add loot to drone cargo while respecting space left
 /obj/item/exodrone/proc/try_transfer(obj/loot, delete_on_failure=TRUE)
-	if(space_left())
+	if(space_left() > 1)
 		loot.forceMove(src)
 		drone_log("Acquired [loot.name].")
 	else
@@ -180,7 +176,6 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 /// Crashes the drone somewhere random if there's no launchpad to be found.
 /obj/item/exodrone/proc/drop_somewhere_on_station()
 	var/turf/random_spot = get_safe_random_station_turf()
-
 	var/obj/structure/closet/supplypod/pod = podspawn(list(
 		"target" = random_spot,
 	))
@@ -223,12 +218,11 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 /obj/item/exodrone/proc/updateKeywords(text)
 	_regex_context = src
 	var/static/regex/keywordRegex = regex(@"\$\$(\S*)","g")
-	. = keywordRegex.Replace(text, /obj/item/exodrone/proc/replace_keyword)
+	. = keywordRegex.Replace(text,/obj/item/exodrone/proc/replace_keyword)
 	_regex_context = null
 
 /// This is called with src = regex datum, so don't try to access any instance variables directly here.
 /obj/item/exodrone/proc/replace_keyword(match,g1)
-	REGEX_REPLACE_HANDLER
 	switch(g1)
 		if("SITE_NAME")
 			return _regex_context.location.display_name()
@@ -334,17 +328,17 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 	drone_log("Sustained [amount] damage.")
 
 /obj/item/exodrone/proc/drone_log(message)
-	if(length(drone_log) > EXODRONE_LOG_SIZE)
-		drone_log = list()
 	drone_log.Insert(1,message)
+	if(length(drone_log) > EXODRONE_LOG_SIZE)
+		drone_log.Cut(EXODRONE_LOG_SIZE)
 
 /obj/item/exodrone/proc/has_tool(tool_type)
 	return tools.Find(tool_type)
 
 /// Exploration drone launcher
 /obj/machinery/exodrone_launcher
-	name = "exploration drone launcher"
-	desc = "A launch pad designed to send exploration drones into the great beyond."
+	name = "пусковая установка дрона"
+	desc = "Запускает дрона на исследовательскую миссию."
 	icon = 'icons/obj/exploration.dmi'
 	icon_state = "launcher"
 	/// Loaded fuel pellet.
@@ -354,41 +348,31 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 	. = ..()
 	GLOB.exodrone_launchers += src
 
-/obj/machinery/exodrone_launcher/examine(user)
-	. = ..()
-	if(fuel_canister)
-		. += span_notice("You can remove the [fuel_canister] with a <b>prying tool</b>.")
-
-/obj/machinery/exodrone_launcher/attackby(obj/item/weapon, mob/living/user, params)
-	if(istype(weapon, /obj/item/fuel_pellet))
+/obj/machinery/exodrone_launcher/attackby(obj/item/I, mob/living/user, params)
+	if(istype(I, /obj/item/fuel_pellet))
 		if(fuel_canister)
-			to_chat(user, span_warning("There's already fuel loaded inside [src]!"))
+			to_chat(user, span_warning("There's already a fuel tank inside [src]!"))
 			return TRUE
-		if(!user.transferItemToLoc(weapon, src))
+		if(!user.transferItemToLoc(I, src))
 			return
-		fuel_canister = weapon
+		fuel_canister = I
 		update_icon()
 		return TRUE
-
-	if(istype(weapon, /obj/item/exodrone) && user.transferItemToLoc(weapon, drop_location()))
+	else if(istype(I,/obj/item/exodrone) && user.transferItemToLoc(I, drop_location()))
 		return TRUE
+	else
+		return ..()
 
-	return ..()
-
-/obj/machinery/exodrone_launcher/crowbar_act(mob/living/user, obj/item/crowbar)
-	if(!fuel_canister)
-		return
-
-	to_chat(user, span_notice("You remove [fuel_canister] from [src]."))
-	fuel_canister.forceMove(drop_location())
-	fuel_canister = null
-	update_icon()
-	return TRUE
+/obj/machinery/exodrone_launcher/crowbar_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(fuel_canister)
+		to_chat(user, span_notice("You remove the fuel tank from [src]."))
+		fuel_canister.forceMove(drop_location())
+		fuel_canister = null
 
 /obj/machinery/exodrone_launcher/Destroy()
+	. = ..()
 	GLOB.exodrone_launchers -= src
-	QDEL_NULL(fuel_canister)
-	return ..()
 
 /obj/machinery/exodrone_launcher/update_overlays()
 	. = ..()
@@ -401,9 +385,6 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 			if(FUEL_EXOTIC)
 				. += "launchpad_fuel_exotic"
 
-/*
- * Gets the fuel travel coefficient for what type of fuel is within the launcher.
- */
 /obj/machinery/exodrone_launcher/proc/get_fuel_coefficent()
 	if(!fuel_canister)
 		return
@@ -415,26 +396,16 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 		if(FUEL_EXOTIC)
 			return EXOTIC_FUEL_TIME_COST
 
-/*
- * Use up some of the fuel within the launcher to power the drone.
- *
- * drone - the drone that's being fuelled by our launcher.
- */
 /obj/machinery/exodrone_launcher/proc/fuel_up(obj/item/exodrone/drone)
 	drone.travel_cost_coeff = get_fuel_coefficent()
 	fuel_canister.use()
-	update_icon()
 
-/*
- * Plays an effect on the pad, with a sound effect to boot.
- */
 /obj/machinery/exodrone_launcher/proc/launch_effect()
 	playsound(src,'sound/effects/podwoosh.ogg',50, FALSE)
-	do_smoke(1, holder = src, location = get_turf(src))
+	do_smoke(1,get_turf(src))
 
-/obj/machinery/exodrone_launcher/Exited(atom/movable/gone, direction)
-	. = ..()
-	if(gone == fuel_canister)
+/obj/machinery/exodrone_launcher/handle_atom_del(atom/A)
+	if(A == fuel_canister)
 		fuel_canister = null
 		update_icon()
 
@@ -450,29 +421,35 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 			return travel_cost_coeff
 
 /obj/item/fuel_pellet
-	name = "standard fuel pellet"
-	desc = "A compressed fuel pellet for long-distance drone flight."
+	name = "топливная ячейка"
+	desc = "Сжатое топливо для дальних перелетов. Не подвеграть перегреву."
 	icon = 'icons/obj/exploration.dmi'
 	icon_state = "fuel_basic"
-	/// The type of fuel this pellet has within.
 	var/fuel_type = FUEL_BASIC
-	/// The amount of uses left in this fuel pellet.
 	var/uses = 5
+	var/explosion_power = 7
 
-/obj/item/fuel_pellet/use(used)
+/obj/item/fuel_pellet/fire_act(exposed_temperature, exposed_volume)
+	if(exposed_temperature > 2000)
+		dyn_explosion(get_turf(src), explosion_power * (uses/initial(uses)) )
+		qdel(src)
+		return
+	return ..()
+
+/obj/item/fuel_pellet/use()
 	uses--
-	if(uses <= 0)
+	if(uses < 0)
 		qdel(src)
 
 /obj/item/fuel_pellet/advanced
-	name = "advanced fuel pellet"
 	fuel_type = FUEL_ADVANCED
 	icon_state = "fuel_advanced"
+	explosion_power = 20
 
 /obj/item/fuel_pellet/exotic
-	name = "exotic fuel pellet"
 	fuel_type = FUEL_EXOTIC
 	icon_state = "fuel_exotic"
+	explosion_power = 50
 
 #undef EXODRONE_LOG_SIZE
 #undef EXODRONE_CARGO_SLOTS

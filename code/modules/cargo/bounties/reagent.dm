@@ -6,26 +6,25 @@
 /datum/bounty/reagent/can_claim()
 	return ..() && shipped_volume >= required_volume
 
-/datum/bounty/reagent/applies_to(obj/shipped)
-	if(!is_reagent_container(shipped))
+/datum/bounty/reagent/applies_to(obj/O)
+	if(!istype(O, /obj/item/reagent_containers))
 		return FALSE
-	if(!shipped.reagents || !shipped.reagents.has_reagent(wanted_reagent.type))
+	if(!O.reagents || !O.reagents.has_reagent(wanted_reagent.type))
 		return FALSE
-	if(shipped.flags_1 & HOLOGRAM_1)
+	if(O.flags_1 & HOLOGRAM_1)
 		return FALSE
 	return shipped_volume < required_volume
 
-/datum/bounty/reagent/ship(obj/shipped)
-	if(!applies_to(shipped))
-		return FALSE
-	shipped_volume += shipped.reagents.get_reagent_amount(wanted_reagent.type)
+/datum/bounty/reagent/ship(obj/O)
+	if(!applies_to(O))
+		return
+	shipped_volume += O.reagents.get_reagent_amount(wanted_reagent.type)
 	if(shipped_volume > required_volume)
 		shipped_volume = required_volume
-	return TRUE
 
 /datum/bounty/reagent/simple_drink
-	name = "Simple Drink"
-	reward = CARGO_CRATE_VALUE * 3
+	name = "Простые напитки"
+	reward = CARGO_CRATE_VALUE * 6
 
 /datum/bounty/reagent/simple_drink/New()
 	// Don't worry about making this comprehensive. It doesn't matter if some drinks are skipped.
@@ -76,11 +75,11 @@
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "CentCom is thirsty! Send a shipment of [name] to CentCom to quench the company's thirst."
-	reward += rand(0, 2) * 500
+	description = "ЦК хочет пить! Отправьте партию [name] на ЦК, чтобы утолить жажду компании."
+	reward += rand(0, 2) * CARGO_CRATE_VALUE * 10
 
 /datum/bounty/reagent/complex_drink
-	name = "Complex Drink"
+	name = "Комплексный напиток"
 	reward = CARGO_CRATE_VALUE * 8
 
 /datum/bounty/reagent/complex_drink/New()
@@ -109,11 +108,11 @@
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "CentCom is offering a reward for talented mixologists. Ship a container of [name] to claim the prize."
-	reward += rand(0, 4) * 500
+	description = "ЦК предлагает вознаграждение для талантливых миксологов. Отправьте контейнер с [name], чтобы получить приз."
+	reward += rand(0, 4) * CARGO_CRATE_VALUE * 10
 
 /datum/bounty/reagent/chemical_simple
-	name = "Simple Chemical"
+	name = "Обычный химикат"
 	reward = CARGO_CRATE_VALUE * 8
 	required_volume = 30
 
@@ -147,11 +146,11 @@
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "CentCom is in desperate need of the chemical [name]. Ship a container of it to be rewarded."
-	reward += rand(0, 4) * 500 //4000 to 6000 credits
+	description = "ЦК остро нуждается в химическом веществе [name]. Отправьте контейнер с ним, чтобы получить вознаграждение."
+	reward += rand(0, 4) * CARGO_CRATE_VALUE * 10 //4000 to 6000 credits
 
 /datum/bounty/reagent/chemical_complex
-	name = "Rare Chemical"
+	name = "Редкий химикат"
 	reward = CARGO_CRATE_VALUE * 12
 	required_volume = 20
 
@@ -167,6 +166,7 @@
 		/datum/reagent/consumable/frostoil,\
 		/datum/reagent/toxin/slimejelly,\
 		/datum/reagent/teslium/energized_jelly,\
+		/datum/reagent/toxin/skewium,\
 		/datum/reagent/toxin/mimesbane,\
 		/datum/reagent/medicine/strange_reagent,\
 		/datum/reagent/nitroglycerin,\
@@ -178,8 +178,8 @@
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "CentCom is paying premium for the chemical [name]. Ship a container of it to be rewarded."
-	reward += rand(0, 5) * 750 //6000 to 9750 credits
+	description = "ЦК платит премию за химическое вещество [name]. Отправьте контейнер с ним, чтобы получить вознаграждение."
+	reward += rand(0, 5) * CARGO_CRATE_VALUE * 10 //6000 to 9750 credits
 
 /datum/bounty/pill
 	/// quantity of the pills needed, this value acts as minimum, gets randomized on new()
@@ -194,23 +194,22 @@
 /datum/bounty/pill/can_claim()
 	return ..() && shipped_ammount >= required_ammount
 
-/datum/bounty/pill/applies_to(obj/shipped)
-	if(!istype(shipped, /obj/item/reagent_containers/pill))
+/datum/bounty/pill/applies_to(obj/O)
+	if(!istype(O, /obj/item/reagent_containers/pill))
 		return FALSE
-	if(shipped?.reagents.get_reagent_amount(wanted_reagent.type) >= wanted_vol)
+	if(O?.reagents.get_reagent_amount(wanted_reagent.type) >= wanted_vol)
 		return TRUE
 	return FALSE
 
-/datum/bounty/pill/ship(obj/shipped)
-	if(!applies_to(shipped))
-		return FALSE
+/datum/bounty/pill/ship(obj/O)
+	if(!applies_to(O))
+		return
 	shipped_ammount += 1
 	if(shipped_ammount > required_ammount)
 		shipped_ammount = required_ammount
-	return TRUE
 
 /datum/bounty/pill/simple_pill
-	name = "Simple Pill"
+	name = "Простая таблетка"
 	reward = CARGO_CRATE_VALUE * 20
 
 /datum/bounty/pill/simple_pill/New()
@@ -234,8 +233,8 @@
 
 	var/datum/reagent/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
-	name = "[wanted_reagent.name] pills"
+	name = "[wanted_reagent.name] таблеток"
 	required_ammount += rand(1,60)
 	wanted_vol += rand(1,20)
-	description = "CentCom requires [required_ammount] of [name] containing at least [wanted_vol] each. Ship a container of it to be rewarded."
-	reward += rand(1, 5) * (CARGO_CRATE_VALUE * 6)
+	description = "Для ЦК требуется [required_ammount] из [name], содержащие не менее [wanted_vol] единиц каждого. Отправьте контейнер с ним, чтобы получить вознаграждение."
+	reward += rand(1, 5) * (CARGO_CRATE_VALUE * 60)

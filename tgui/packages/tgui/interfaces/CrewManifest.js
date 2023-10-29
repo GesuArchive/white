@@ -4,12 +4,11 @@ import { Icon, Section, Table, Tooltip } from '../components';
 import { Window } from '../layouts';
 
 const commandJobs = [
-  'Head of Personnel',
-  'Head of Security',
-  'Chief Engineer',
-  'Research Director',
-  'Chief Medical Officer',
-  'Quartermaster',
+  'Глава Персонала',
+  'Начальник Охраны',
+  'Старший Инженер',
+  'Научный Руководитель',
+  'Главный Врач',
 ];
 
 export const CrewManifest = (props, context) => {
@@ -18,7 +17,7 @@ export const CrewManifest = (props, context) => {
   } = useBackend(context);
 
   return (
-    <Window title="Crew Manifest" width={350} height={500}>
+    <Window title="Список Персонала" width={400} height={600}>
       <Window.Content scrollable>
         {Object.entries(manifest).map(([dept, crew]) => (
           <Section
@@ -26,18 +25,12 @@ export const CrewManifest = (props, context) => {
             key={dept}
             title={
               dept +
-              (dept !== 'Misc'
-                ? ` (${positions[dept].open} positions open)`
-                : '')
+              (dept !== 'Misc' ? ` (${positions[dept]} позиций открыто)` : '')
             }>
             <Table>
               {Object.entries(crew).map(([crewIndex, crewMember]) => (
                 <Table.Row key={crewIndex}>
-                  <Table.Cell
-                    className={'CrewManifest__Cell'}
-                    maxWidth="135px"
-                    overflow="hidden"
-                    width="50%">
+                  <Table.Cell className={'CrewManifest__Cell'}>
                     {crewMember.name}
                   </Table.Cell>
                   <Table.Cell
@@ -45,15 +38,8 @@ export const CrewManifest = (props, context) => {
                       'CrewManifest__Cell',
                       'CrewManifest__Icons',
                     ])}
-                    collapsing
-                    minWidth="40px"
-                    width="40px">
-                    {positions[dept].exceptions.includes(crewMember.rank) && (
-                      <Tooltip content="No position limit" position="bottom">
-                        <Icon className="CrewManifest__Icon" name="infinity" />
-                      </Tooltip>
-                    )}
-                    {crewMember.rank === 'Captain' && (
+                    collapsing>
+                    {crewMember.rank === 'Капитан' && (
                       <Tooltip content="Captain" position="bottom">
                         <Icon
                           className={classes([
@@ -65,7 +51,7 @@ export const CrewManifest = (props, context) => {
                       </Tooltip>
                     )}
                     {commandJobs.includes(crewMember.rank) && (
-                      <Tooltip content="Member of command" position="bottom">
+                      <Tooltip content="Член командования" position="bottom">
                         <Icon
                           className={classes([
                             'CrewManifest__Icon',
@@ -82,10 +68,7 @@ export const CrewManifest = (props, context) => {
                       'CrewManifest__Cell',
                       'CrewManifest__Cell--Rank',
                     ])}
-                    collapsing
-                    maxWidth="135px"
-                    overflow="hidden"
-                    width="50%">
+                    collapsing>
                     {crewMember.rank}
                   </Table.Cell>
                 </Table.Row>

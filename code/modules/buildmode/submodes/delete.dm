@@ -1,24 +1,26 @@
 /datum/buildmode_mode/delete
 	key = "delete"
 
-/datum/buildmode_mode/delete/show_help(client/builder)
-	to_chat(builder, span_purple(examine_block(
-		"[span_bold("Delete an object")] -> Left Mouse Button on obj/turf/mob\n\
-		[span_bold("Delete all objects of a type")] -> Right Mouse Button on obj/turf/mob"))
-	)
+/datum/buildmode_mode/delete/show_help(client/c)
+	to_chat(c, "<span class='notice'>***********************************************************\n\
+		Left Mouse Button on anything to delete it. If you break it, you buy it.\n\
+		Right Mouse Button on anything to delete everything of the type. Probably don\'t do this unless you know what you are doing.\n\
+		***********************************************************</span>")
 
 /datum/buildmode_mode/delete/handle_click(client/c, params, object)
-	var/list/modifiers = params2list(params)
+	var/list/pa = params2list(params)
+	var/left_click = pa.Find("left")
+	var/right_click = pa.Find("right")
 
-	if(LAZYACCESS(modifiers, LEFT_CLICK))
+	if(left_click)
 		if(isturf(object))
 			var/turf/T = object
 			T.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 		else if(isatom(object))
 			qdel(object)
 
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		if(check_rights(R_DEBUG|R_SERVER)) //Prevents buildmoded non-admins from breaking everything.
+	if(right_click)
+		if(check_rights(R_DEBUG|R_SERVER))	//Prevents buildmoded non-admins from breaking everything.
 			if(isturf(object))
 				return
 			var/atom/deleting = object

@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section } from '../components';
+import { Button, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export const StackingConsole = (props, context) => {
@@ -9,7 +9,7 @@ export const StackingConsole = (props, context) => {
     <Window width={320} height={340}>
       <Window.Content scrollable>
         {!machine ? (
-          <NoticeBox>No connected stacking machine</NoticeBox>
+          <NoticeBox>Не обнаружен пресс.</NoticeBox>
         ) : (
           <StackingConsoleContent />
         )}
@@ -20,58 +20,19 @@ export const StackingConsole = (props, context) => {
 
 export const StackingConsoleContent = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    input_direction,
-    output_direction,
-    stacking_amount,
-    contents = [],
-  } = data;
+  const { stacking_amount, contents = [] } = data;
   return (
     <>
       <Section>
         <LabeledList>
-          <LabeledList.Item label="Stacking Amount">
-            {stacking_amount || 'Unknown'}
-          </LabeledList.Item>
-          <LabeledList.Item
-            label="Input"
-            buttons={
-              <Button
-                icon="rotate"
-                content="Rotate"
-                onClick={() =>
-                  act('rotate', {
-                    input: 1,
-                  })
-                }
-              />
-            }>
-            <Box style={{ 'text-transform': 'capitalize' }}>
-              {input_direction}
-            </Box>
-          </LabeledList.Item>
-          <LabeledList.Item
-            label="Output"
-            buttons={
-              <Button
-                icon="rotate"
-                content="Rotate"
-                onClick={() =>
-                  act('rotate', {
-                    input: 0,
-                  })
-                }
-              />
-            }>
-            <Box style={{ 'text-transform': 'capitalize' }}>
-              {output_direction}
-            </Box>
+          <LabeledList.Item label="Стопки">
+            {stacking_amount || 'Неизвестно'}
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section title="Stored Materials">
+      <Section title="Материалы">
         {!contents.length ? (
-          <NoticeBox>No stored materials</NoticeBox>
+          <NoticeBox>Внутри ничего нет.</NoticeBox>
         ) : (
           <LabeledList>
             {contents.map((sheet) => (
@@ -81,7 +42,7 @@ export const StackingConsoleContent = (props, context) => {
                 buttons={
                   <Button
                     icon="eject"
-                    content="Release"
+                    content="Изъять"
                     onClick={() =>
                       act('release', {
                         type: sheet.type,
@@ -89,7 +50,7 @@ export const StackingConsoleContent = (props, context) => {
                     }
                   />
                 }>
-                {sheet.amount || 'Unknown'}
+                {sheet.amount || 'Неизвестно'}
               </LabeledList.Item>
             ))}
           </LabeledList>

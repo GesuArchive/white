@@ -31,6 +31,5 @@
 	if(!operation)
 		return
 
-	log_admin_circuit("[parent.get_creator()] performed SDQL query [operation].")
 	var/result = HandleUserlessSDQL(parent.get_creator(), operation)
 	results.set_output(result)

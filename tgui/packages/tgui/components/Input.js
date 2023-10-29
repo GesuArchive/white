@@ -4,17 +4,13 @@
  * @license MIT
  */
 
-import { KEY_ENTER, KEY_ESCAPE } from 'common/keycodes';
 import { classes } from 'common/react';
 import { Component, createRef } from 'inferno';
 import { Box } from './Box';
+import { KEY_ESCAPE, KEY_ENTER } from 'common/keycodes';
 
-// prettier-ignore
-export const toInputValue = value => (
-  typeof value !== 'number' && typeof value !== 'string'
-    ? ''
-    : String(value)
-);
+export const toInputValue = (value) =>
+  typeof value !== 'number' && typeof value !== 'string' ? '' : String(value);
 
 export class Input extends Component {
   constructor() {
@@ -70,15 +66,9 @@ export class Input extends Component {
         return;
       }
       if (e.keyCode === KEY_ESCAPE) {
-        if (this.props.onEscape) {
-          this.props.onEscape(e);
-          return;
-        }
-
         this.setEditing(false);
         e.target.value = toInputValue(this.props.value);
         e.target.blur();
-        return;
       }
     };
   }
@@ -89,15 +79,8 @@ export class Input extends Component {
     if (input) {
       input.value = toInputValue(nextValue);
     }
-
-    if (this.props.autoFocus || this.props.autoSelect) {
-      setTimeout(() => {
-        input.focus();
-
-        if (this.props.autoSelect) {
-          input.select();
-        }
-      }, 1);
+    if (this.props.autoFocus) {
+      setTimeout(() => input.focus(), 1);
     }
   }
 

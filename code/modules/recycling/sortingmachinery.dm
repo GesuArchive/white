@@ -1,6 +1,5 @@
 /obj/item/delivery
-	icon = 'icons/obj/storage/wrapping.dmi'
-	inhand_icon_state = "deliverypackage"
+	icon = 'icons/obj/storage.dmi'
 	var/giftwrapped = 0
 	var/sort_tag = 0
 	var/obj/item/paper/note
@@ -13,9 +12,9 @@
 /**
  * Initial check if manually unwrapping
  */
-/obj/item/delivery/proc/attempt_pre_unwrap_contents(mob/user, time = 1.5 SECONDS)
+/obj/item/delivery/proc/attempt_pre_unwrap_contents(mob/user)
 	to_chat(user, span_notice("You start to unwrap the package..."))
-	return do_after(user, time, target = user)
+	return do_after(user, 15, target = user)
 
 /**
  * Signals for unwrapping.
@@ -29,14 +28,11 @@
 /**
  * Effects after completing unwrapping
  */
-/obj/item/delivery/proc/post_unwrap_contents(mob/user, rip_open = TRUE)
+/obj/item/delivery/proc/post_unwrap_contents(mob/user)
 	var/turf/turf_loc = get_turf(user || src)
-	if(rip_open)
-		playsound(loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
-		new /obj/effect/decal/cleanable/wrapping(turf_loc)
-	else
-		playsound(loc, 'sound/items/box_cut.ogg', 50, TRUE)
-		new /obj/item/stack/package_wrap(turf_loc, 1)
+	playsound(loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
+	new /obj/effect/decal/cleanable/wrapping(turf_loc)
+
 	for(var/atom/movable/movable_content as anything in contents)
 		movable_content.forceMove(turf_loc)
 
@@ -83,7 +79,7 @@
 	if(do_after(user, 50, target = object))
 		if(!user || user.stat != CONSCIOUS || user.loc != object || object.loc != src)
 			return
-		to_chat(user, span_notice("You successfully removed [object]'s wrapping!"))
+		to_chat(user, span_notice("You successfully removed [object]'s wrapping !"))
 		object.forceMove(loc)
 		unwrap_contents()
 		post_unwrap_contents(user)
@@ -118,7 +114,7 @@
 		if(!user.can_write(item))
 			return
 		var/str = tgui_input_text(user, "Label text?", "Set label", max_length = MAX_NAME_LEN)
-		if(!user.can_perform_action(src))
+		if(!user.canUseTopic(src, BE_CLOSE))
 			return
 		if(!str || !length(str))
 			to_chat(user, span_warning("Invalid text!"))
@@ -131,7 +127,7 @@
 		if(wrapping_paper.use(3))
 			user.visible_message(span_notice("[user] wraps the package in festive paper!"))
 			giftwrapped = TRUE
-			greyscale_config = text2path("/datum/greyscale_config/gift[icon_state]")
+			greyscale_config = text2path("/datum/greyscale_config/[icon_state]")
 			set_greyscale(colors = wrapping_paper.greyscale_colors)
 			update_appearance()
 		else
@@ -148,10 +144,8 @@
 		note = item
 		update_appearance()
 
-	else if(istype(item, /obj/item/universal_scanner))
-		var/obj/item/universal_scanner/sales_tagger = item
-		if(sales_tagger.scanning_mode != SCAN_SALES_TAG)
-			return
+	else if(istype(item, /obj/item/sales_tagger))
+		var/obj/item/sales_tagger/sales_tagger = item
 		if(sticker)
 			to_chat(user, span_warning("This package already has a barcode attached!"))
 			return
@@ -190,17 +184,6 @@
 				continue
 			wrapped_item.AddComponent(/datum/component/pricetag, sticker.payments_acc, sticker.cut_multiplier)
 		update_appearance()
-
-	else if(istype(item, /obj/item/boxcutter))
-		var/obj/item/boxcutter/boxcutter_item = item
-		if(HAS_TRAIT(boxcutter_item, TRAIT_TRANSFORM_ACTIVE))
-			if(!attempt_pre_unwrap_contents(user, time = 0.5 SECONDS))
-				return
-			unwrap_contents()
-			balloon_alert(user, "cutting open package...")
-			post_unwrap_contents(user, rip_open = FALSE)
-		else
-			balloon_alert(user, "prime the boxcutter!")
 
 	else
 		return ..()
@@ -256,26 +239,26 @@
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /obj/item/dest_tagger
-	name = "destination tagger"
+	name = "этикетировщик назначения"
 	desc = "Used to set the destination of properly wrapped packages."
 	icon = 'icons/obj/device.dmi'
-	icon_state = "cargo tagger"
+	icon_state = "cargotagger"
 	worn_icon_state = "cargotagger"
 	var/currTag = 0 //Destinations are stored in code\globalvars\lists\flavor_misc.dm
 	var/locked_destination = FALSE //if true, users can't open the destination tag window to prevent changing the tagger's current destination
-	w_class = WEIGHT_CLASS_TINY
+	w_class =  WEIGHT_CLASS_TINY
 	inhand_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 
 /obj/item/dest_tagger/borg
-	name = "cyborg destination tagger"
+	name = "кибернетический этикетировщик назначения"
 	desc = "Used to fool the disposal mail network into thinking that you're a harmless parcel. Does actually work as a regular destination tagger as well."
 
 /obj/item/dest_tagger/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] begins tagging [user.p_their()] final destination! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] begins tagging [user.ru_ego()] final destination! It looks like [user.p_theyre()] trying to commit suicide!"))
 	if (islizard(user))
 		to_chat(user, span_notice("*HELL*"))//lizard nerf
 	else
@@ -323,14 +306,14 @@
 	return TRUE
 
 /obj/item/sales_tagger
-	name = "sales tagger"
-	desc = "A scanner that lets you tag wrapped items for sale, splitting the profit between you and cargo."
+	name = "Этикетировщик цен"
+	desc = "A scanner that lets you tag wrapped items for sale, splitting the profit between you and cargo. Ctrl-Click to clear the registered account."
 	icon = 'icons/obj/device.dmi'
-	icon_state = "sales tagger"
+	icon_state = "salestagger"
 	worn_icon_state = "salestagger"
 	inhand_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_BELT
 	///The account which is receiving the split profits.
@@ -353,7 +336,7 @@
 
 /obj/item/sales_tagger/attackby(obj/item/item, mob/living/user, params)
 	. = ..()
-	if(isidcard(item))
+	if(istype(item, /obj/item/card/id))
 		var/obj/item/card/id/potential_acc = item
 		if(potential_acc.registered_account)
 			if(payments_acc == potential_acc.registered_account)
@@ -408,3 +391,13 @@
 		cut_multiplier = initial(cut_multiplier)
 	cut_multiplier = clamp(round(potential_cut/100, cut_min), cut_min, cut_max)
 	to_chat(user, span_notice("[round(cut_multiplier*100)]% profit will be received if a package with a barcode is sold."))
+
+/obj/item/barcode
+	name = "barcode tag"
+	desc = "A tiny tag, associated with a crewmember's account. Attach to a wrapped item to give that account a portion of the wrapped item's profit."
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "barcode"
+	w_class = WEIGHT_CLASS_TINY
+	///All values inheirited from the sales tagger it came from.
+	var/datum/bank_account/payments_acc = null
+	var/cut_multiplier = 0.5

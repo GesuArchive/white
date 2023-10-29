@@ -4,8 +4,7 @@
 	desc = "Boosts your sight range considerably, allowing you to see enemies from much further away."
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "eye"
-	background_icon_state = "bg_heretic"
-	overlay_icon_state = "bg_heretic_border"
+	background_icon_state = "bg_ecult"
 	/// How far we expand the range to.
 	var/boost_to = 5
 	/// A cooldown for the last time we toggled it, to prevent spam.

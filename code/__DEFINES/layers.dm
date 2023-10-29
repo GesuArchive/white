@@ -12,12 +12,21 @@
 #define PLANE_SPACE -25
 #define PLANE_SPACE_PARALLAX -20
 
-#define GRAVITY_PULSE_PLANE -13
-#define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
+//SINGULARITY EFFECT
+#define SINGULARITY_EFFECT_PLANE_0 -19
+#define SINGULARITY_EFFECT_PLANE_1 -18
+#define SINGULARITY_EFFECT_PLANE_2 -17
+#define SINGULARITY_EFFECT_PLANE_3 -16
+#define SINGULO_RENDER_TARGET_0 "*SINGULOEFFECT_RENDER_TARGET_0"
+#define SINGULO_RENDER_TARGET_1 "*SINGULOEFFECT_RENDER_TARGET_1"
+#define SINGULO_RENDER_TARGET_2 "*SINGULOEFFECT_RENDER_TARGET_2"
+#define SINGULO_RENDER_TARGET_3 "*SINGULOEFFECT_RENDER_TARGET_3"
 
-#define RENDER_PLANE_TRANSPARENT -12 //Transparent plane that shows openspace underneath the floor
+//ANOMALIES EFFECT
+#define ANOMALY_PLANE -15
+#define ANOMALY_RENDER_TARGET "*ANOM_RENDER_TARGET"
 
-#define TRANSPARENT_FLOOR_PLANE -11
+#define RENDER_PLANE_TRANSPARENT -11 //Transparent plane that shows openspace underneath the floor
 
 #define FLOOR_PLANE -10
 
@@ -28,7 +37,6 @@
 #define WALL_PLANE_UPPER -5
 #define GAME_PLANE_UPPER_FOV_HIDDEN -4
 
-///Slightly above the game plane but does not catch mouse clicks. Useful for certain visuals that should be clicked through, like seethrough trees
 #define SEETHROUGH_PLANE -3
 #define ABOVE_GAME_PLANE -2
 
@@ -59,12 +67,11 @@
 #define EMISSIVE_SPACE_LAYER 3
 #define EMISSIVE_WALL_LAYER 4
 
-#define RENDER_PLANE_LIGHTING 15
+/// Masks the emissive plane
+#define EMISSIVE_MASK_PLANE 15
+#define EMISSIVE_MASK_RENDER_TARGET "*EMISSIVE_MASK_PLANE"
 
-/// Masks the lighting plane with turfs, so we never light up the void
-/// Failing that, masks emissives and the overlay lighting plane
-#define LIGHT_MASK_PLANE 16
-#define LIGHT_MASK_RENDER_TARGET "*LIGHT_MASK_PLANE"
+#define RENDER_PLANE_LIGHTING 16
 
 ///Things that should render ignoring lighting
 #define ABOVE_LIGHTING_PLANE 17
@@ -82,6 +89,9 @@
 
 #define FULLSCREEN_PLANE 23
 
+///Visuals that represent sounds happening, and can be seen while blind.
+#define SOUND_EFFECT_VISUAL_PLANE 25
+
 ///--------------- FULLSCREEN RUNECHAT BUBBLES ------------
 
 ///Popup Chat Messages
@@ -91,6 +101,10 @@
 
 //-------------------- HUD ---------------------
 //HUD layer defines
+#define HUD_BACKGROUND_LAYER 1
+#define HUD_BUTTON_BG_LAYER 2
+#define HUD_BUTTON_HIGH_BG_LAYER 3
+#define HUD_ABOVE_BG_LAYER 4
 #define HUD_PLANE 40
 #define ABOVE_HUD_PLANE 41
 
@@ -118,23 +132,21 @@
 /// The range unique planes can be in
 #define PLANE_RANGE (HIGHEST_EVER_PLANE - LOWEST_EVER_PLANE)
 
+#define SINGULARITY_LAYER 1
+#define ABOVE_SINGULARITY_LAYER 2
+
 // PLANE_SPACE layer(s)
 #define SPACE_LAYER 1.8
 
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define. Most floors (FLOOR_PLANE) and walls (WALL_PLANE) use this.
 
-//FLOOR_PLANE layers
-#define TURF_PLATING_DECAL_LAYER 2.001
-#define TURF_DECAL_LAYER 2.009 //Makes turf decals appear in DM how they will look inworld.
+// FLOOR_PLANE layers
 #define CULT_OVERLAY_LAYER 2.01
 #define MID_TURF_LAYER 2.02
 #define HIGH_TURF_LAYER 2.03
-#define LATTICE_LAYER 2.04
-#define DISPOSAL_PIPE_LAYER 2.042
-#define WIRE_LAYER 2.044
-#define GLASS_FLOOR_LAYER 2.046
-#define TRAM_RAIL_LAYER 2.047
-#define ABOVE_OPEN_TURF_LAYER 2.049
+#define TURF_PLATING_DECAL_LAYER 2.031
+#define TURF_DECAL_LAYER 2.039 //Makes turf decals appear in DM how they will look inworld.
+#define ABOVE_OPEN_TURF_LAYER 2.04
 
 //WALL_PLANE layers
 #define CLOSED_TURF_LAYER 2.05
@@ -142,9 +154,14 @@
 // GAME_PLANE layers
 #define BULLET_HOLE_LAYER 2.06
 #define ABOVE_NORMAL_TURF_LAYER 2.08
+#define LATTICE_LAYER 2.2
+#define DISPOSAL_PIPE_LAYER 2.3
 #define GAS_PIPE_HIDDEN_LAYER 2.35 //layer = initial(layer) + piping_layer / 1000 in atmospherics/update_icon() to determine order of pipe overlap
+#define WIRE_LAYER 2.4
 #define WIRE_BRIDGE_LAYER 2.44
 #define WIRE_TERMINAL_LAYER 2.45
+#define TRAM_RAIL_LAYER 2.465
+#define TRAM_FLOOR_LAYER 2.466
 #define GAS_SCRUBBER_LAYER 2.46
 #define GAS_PIPE_VISIBLE_LAYER 2.47 //layer = initial(layer) + piping_layer / 1000 in atmospherics/update_icon() to determine order of pipe overlap
 #define GAS_FILTER_LAYER 2.48
@@ -157,20 +174,14 @@
 #define LOW_SIGIL_LAYER 2.52
 #define SIGIL_LAYER 2.53
 #define HIGH_PIPE_LAYER 2.54
-// Anything above this layer is not "on" a turf for the purposes of washing
+// Anything aboe this layer is not "on" a turf for the purposes of washing
 // I hate this life of ours
 #define FLOOR_CLEAN_LAYER 2.55
-#define TRAM_STRUCTURE_LAYER 2.57
-#define TRAM_FLOOR_LAYER 2.58
-#define TRAM_WALL_LAYER 2.59
 
 #define BELOW_OPEN_DOOR_LAYER 2.6
-///Anything below this layer is to be considered completely (visually) under water by the immerse layer.
-#define WATER_LEVEL_LAYER 2.61
 #define BLASTDOOR_LAYER 2.65
 #define OPEN_DOOR_LAYER 2.7
-#define DOOR_ACCESS_HELPER_LAYER 2.71 //keep this above OPEN_DOOR_LAYER, special layer used for /obj/effect/mapping_helpers/airlock/access
-#define DOOR_HELPER_LAYER 2.72 //keep this above DOOR_ACCESS_HELPER_LAYER and OPEN_DOOR_LAYER since the others tend to have tiny sprites that tend to be covered up.
+#define DOOR_HELPER_LAYER 2.71 //keep this above OPEN_DOOR_LAYER
 #define PROJECTILE_HIT_THRESHHOLD_LAYER 2.75 //projectiles won't hit objects at or below this layer if possible
 #define TABLE_LAYER 2.8
 #define GATEWAY_UNDERLAY_LAYER 2.85
@@ -181,8 +192,8 @@
 #define CLOSED_FIREDOOR_LAYER 3.11
 #define ABOVE_OBJ_LAYER 3.2
 #define CLOSED_BLASTDOOR_LAYER 3.3 // ABOVE WINDOWS AND DOORS
-#define SHUTTER_LAYER 3.3 // HERE BE DRAGONS
-#define ABOVE_WINDOW_LAYER 3.3
+#define SHUTTER_LAYER 3.31 // HERE BE DRAGONS
+#define ABOVE_WINDOW_LAYER 3.32
 #define SIGN_LAYER 3.4
 #define CORGI_ASS_PIN_LAYER 3.41
 #define NOT_HIGH_OBJ_LAYER 3.5
@@ -203,7 +214,6 @@
 // GAME_PLANE_UPPER layers
 #define ABOVE_MOB_LAYER 4.1
 #define WALL_OBJ_LAYER 4.25
-#define TRAM_SIGNAL_LAYER 4.26
 // WALL_PLANE_UPPER layers
 #define EDGED_TURF_LAYER 4.3
 #define ON_EDGED_TURF_LAYER 4.35
@@ -222,12 +232,9 @@
 #define GASFIRE_LAYER 5.05
 #define RIPPLE_LAYER 5.1
 
-/**
- * The layer of the visual overlay used in the submerge element.
- * The vis overlay inherits the planes of the movables it's attached to (that also have KEEP_TOGETHER added)
- * We just have to make sure the visual overlay is rendered above all the other overlays of those movables.
- */
-#define WATER_VISUAL_OVERLAY_LAYER 1000
+#define OPENSPACE_LAYER 600 //Openspace layer over all
+
+#define RAD_TEXT_PLANE 90
 
 //---------- LIGHTING -------------
 
@@ -244,7 +251,6 @@
 /// Stuff that needs to draw above everything else on this plane
 #define LIGHTING_ABOVE_ALL 20
 
-
 //---------- EMISSIVES -------------
 //Layering order of these is not particularly meaningful.
 //Important part is the seperation of the planes for control via plane_master
@@ -260,14 +266,12 @@
 #define BLIND_LAYER 4
 #define CRIT_LAYER 5
 #define CURSE_LAYER 6
-#define ECHO_LAYER 7
-#define PARRY_LAYER 8
 
-#define FOV_EFFECT_LAYER 100
+///--------------- SOUND EFFECT VISUALS ------------
 
-///--------------- FULLSCREEN RUNECHAT BUBBLES ------------
 /// Bubble for typing indicators
-#define TYPING_LAYER 500
+#define TYPING_LAYER 1
+#define FOV_EFFECTS_LAYER 2 //Blindness effects are not layer 4, they lie to you
 
 #define RADIAL_BACKGROUND_LAYER 0
 ///1000 is an unimportant number, it's just to normalize copied layers
@@ -275,26 +279,11 @@
 
 #define ADMIN_POPUP_LAYER 1
 
-///Layer for screentips
-#define SCREENTIP_LAYER 4
-
-/// Layer for tutorial instructions
-#define TUTORIAL_INSTRUCTIONS_LAYER 5
-
-/// Layer for light overlays
-#define LIGHT_DEBUG_LAYER 6
+///Layer for tooltips
+#define TOOLTIP_LAYER 4
 
 #define LOBBY_BACKGROUND_LAYER 3
 #define LOBBY_BUTTON_LAYER 4
-
-///Layer for lobby menu collapse button
-#define LOBBY_BELOW_MENU_LAYER 2
-///Layer for lobby menu background image and main buttons (Join/Ready, Observe, Charater Prefs)
-#define LOBBY_MENU_LAYER 3
-///Layer for lobby menu shutter, which covers up the menu to collapse/expand it
-#define LOBBY_SHUTTER_LAYER 4
-///Layer for lobby menu buttons that are hanging away from and lower than the main panel
-#define LOBBY_BOTTOM_BUTTON_LAYER 5
 
 ///cinematics are "below" the splash screen
 #define CINEMATIC_LAYER -1
@@ -308,17 +297,16 @@
 //Describes how different plane masters behave when they are being culled for performance reasons
 /// This plane master will not go away if its layer is culled. useful for preserving effects
 #define PLANE_CRITICAL_DISPLAY (1<<0)
-/// This plane master will temporarially remove relays to all other planes
-/// Allows us to retain the effects of a plane while cutting off the changes it makes
-#define PLANE_CRITICAL_NO_RELAY (1<<1)
-/// We assume this plane master has a render target starting with *, it'll be removed, forcing it to render in place
-#define PLANE_CRITICAL_CUT_RENDER (1<<2)
+/// This plane master will temporarially remove relays to non critical planes if it's layer is culled (and it's critical)
+/// This is VERY hacky, but needed to ensure that some instances of BLEND_MULITPLY work as expected (fuck you god damn parallax)
+/// It also implies that the critical plane has a *'d render target, making it mask itself
+#define PLANE_CRITICAL_NO_EMPTY_RELAY (1<<1)
 
-#define PLANE_CRITICAL_FUCKO_PARALLAX (PLANE_CRITICAL_DISPLAY|PLANE_CRITICAL_NO_RELAY|PLANE_CRITICAL_CUT_RENDER)
+#define PLANE_CRITICAL_FUCKO_PARALLAX (PLANE_CRITICAL_DISPLAY|PLANE_CRITICAL_NO_EMPTY_RELAY)
 
 /// A value of /datum/preference/numeric/multiz_performance that disables the option
 #define MULTIZ_PERFORMANCE_DISABLE -1
-/// We expect at most 3 layers of multiz
+/// We expect at most 11 layers of multiz
 /// Increment this define if you make a huge map. We unit test for it too just to make it easy for you
 /// If you modify this, you'll need to modify the tsx file too
-#define MAX_EXPECTED_Z_DEPTH 3
+#define MAX_EXPECTED_Z_DEPTH 11

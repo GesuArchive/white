@@ -3,7 +3,7 @@
 	name = "mawed crucible"
 	desc = "A deep basin made of cast iron, immortalized by steel-like teeth holding it in place. \
 		Staring at the vile extract within fills your mind with terrible ideas."
-	icon = 'icons/obj/antags/eldritch.dmi'
+	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "crucible"
 	base_icon_state = "crucible"
 	break_sound = 'sound/hallucinations/wail.ogg'
@@ -55,7 +55,7 @@
 
 /obj/structure/destructible/eldritch_crucible/examine_status(mob/user)
 	if(IS_HERETIC_OR_MONSTER(user) || isobserver(user))
-		return span_notice("It's at <b>[round(atom_integrity * 100 / max_integrity)]%</b> stability.")
+		return span_notice("It's at <b>[round(obj_integrity * 100 / max_integrity)]%</b> stability.")
 	return ..()
 
 /obj/structure/destructible/eldritch_crucible/attacked_by(obj/item/weapon, mob/living/user)
@@ -72,19 +72,15 @@
 		balloon_alert(user, "[anchored ? "":"un"]anchored")
 		return TRUE
 
-	if(isbodypart(weapon))
+	if(istype(weapon, /obj/item/bodypart))
 
 		var/obj/item/bodypart/consumed = weapon
-		if(!IS_ORGANIC_LIMB(consumed))
-			balloon_alert(user, "not organic!")
-			return
-
 		consume_fuel(user, consumed)
 		return TRUE
 
-	if(isorgan(weapon))
+	if(istype(weapon, /obj/item/organ))
 		var/obj/item/organ/consumed = weapon
-		if(!IS_ORGANIC_ORGAN(consumed))
+		if(consumed.status != ORGAN_ORGANIC || (consumed.organ_flags & ORGAN_SYNTHETIC))
 			balloon_alert(user, "not organic!")
 			return
 		if(consumed.organ_flags & ORGAN_VITAL) // Basically, don't eat organs like brains
@@ -212,8 +208,7 @@
 /obj/item/eldritch_potion
 	name = "brew of day and night"
 	desc = "You should never see this"
-	icon = 'icons/obj/antags/eldritch.dmi'
-	w_class = WEIGHT_CLASS_SMALL
+	icon = 'icons/obj/eldritch.dmi'
 	/// When a heretic examines a mawed crucible, shows a list of possible potions by name + includes this tip to explain what it does.
 	var/crucible_tip = "Doesn't do anything."
 	/// Typepath to the status effect this applies

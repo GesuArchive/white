@@ -4,7 +4,6 @@
 	desc = "Summons a rune"
 	background_icon_state = "bg_demon"
 	overlay_icon_state = "bg_demon_border"
-
 	var/obj/effect/rune/rune_type
 	var/cooldown = 0
 	var/base_cooldown = 1800
@@ -41,25 +40,25 @@
 	if(turf_check(T))
 		var/chosen_keyword
 		if(initial(rune_type.req_keyword))
-			chosen_keyword = tgui_input_text(owner, "Enter a keyword for the new rune.", "Words of Power", max_length = MAX_NAME_LEN)
+			chosen_keyword = stripped_input(owner, "Enter a keyword for the new rune.", "Words of Power")
 			if(!chosen_keyword)
 				return
 	//the outer ring is always the same across all runes
 		var/obj/effect/temp_visual/cult/rune_spawn/R1 = new(T, scribe_time, rune_color)
 	//the rest are not always the same, so we need types for em
 		var/obj/effect/temp_visual/cult/rune_spawn/R2
-		if(ispath(rune_word_type, /obj/effect/temp_visual/cult/rune_spawn))
+		if(rune_word_type)
 			R2 = new rune_word_type(T, scribe_time, rune_color)
 		var/obj/effect/temp_visual/cult/rune_spawn/R3
-		if(ispath(rune_innerring_type, /obj/effect/temp_visual/cult/rune_spawn))
+		if(rune_innerring_type)
 			R3 = new rune_innerring_type(T, scribe_time, rune_color)
 		var/obj/effect/temp_visual/cult/rune_spawn/R4
-		if(ispath(rune_center_type, /obj/effect/temp_visual/cult/rune_spawn))
+		if(rune_center_type)
 			R4 = new rune_center_type(T, scribe_time, rune_color)
 
 		cooldown = base_cooldown + world.time
 		owner.update_mob_action_buttons()
-		addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, update_mob_action_buttons)), base_cooldown + 1)
+		addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, update_mob_action_buttons)), base_cooldown)
 		var/list/health
 		if(damage_interrupt && isliving(owner))
 			var/mob/living/L = owner
@@ -69,7 +68,8 @@
 			scribe_mod *= 0.5
 		playsound(T, 'sound/magic/enter_blood.ogg', 100, FALSE)
 		if(do_after(owner, scribe_mod, target = owner, extra_checks = CALLBACK(owner, TYPE_PROC_REF(/mob, break_do_after_checks), health, action_interrupt)))
-			new rune_type(owner.loc, chosen_keyword)
+			var/obj/effect/rune/new_rune = new rune_type(owner.loc)
+			new_rune.keyword = chosen_keyword
 		else
 			qdel(R1)
 			if(R2)

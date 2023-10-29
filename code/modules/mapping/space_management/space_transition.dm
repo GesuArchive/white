@@ -99,7 +99,7 @@
 	// If they don't, we'll make them wrap all the way around to the other side of the grid
 	for(var/direction in GLOB.cardinals)
 		var/dir = "[direction]"
-		var/inverse = "[REVERSE_DIR(direction)]"
+		var/inverse = "[turn(direction, 180)]"
 		for(var/datum/space_level/level as anything in transition_levels)
 			// If we have something in this dir that isn't just us, continue on
 			if(level.neigbours[dir] && level.neigbours[dir] != level)
@@ -123,9 +123,6 @@
 	var/list/x_pos_transition = list(1, 1, TRANSITIONEDGE + 2, inner_max_x - 1) //values of x for the transition from respective blocks on the side of zlevel, 1 is being translated into turfs respective x value later in the code
 	var/list/y_pos_transition = list(TRANSITIONEDGE + 2, inner_max_y - 1, 1, 1) //values of y for the transition from respective blocks on the side of zlevel, 1 is being translated into turfs respective y value later in the code
 
-	// Cache the range passed to the mirage border element, to reduce world var access in the thousands
-	var/range_cached = world.view
-
 	for(var/datum/space_level/level as anything in cached_z_list)
 		if(!level.neigbours.len)
 			continue
@@ -140,7 +137,7 @@
 			var/datum/space_level/neighbor = level.neigbours["[dirside]"]
 			var/zdestination = neighbor.z_value
 
-			for(var/turf/open/space/S in turfblock)
+			for(var/turf/open/S in turfblock)
 				S.destination_x = x_target || S.x
 				S.destination_y = y_target || S.y
 				S.destination_z = zdestination
@@ -159,6 +156,6 @@
 					continue
 
 				var/turf/place = locate(S.destination_x, S.destination_y, zdestination)
-				S.AddElement(/datum/element/mirage_border, place, mirage_dir, range_cached)
+				S.AddComponent(/datum/component/mirage_border, place, mirage_dir)
 
 #undef CHORDS_TO_1D

@@ -18,7 +18,7 @@
 /datum/atom_hud/data
 
 /datum/atom_hud/data/human/medical
-	hud_icons = list(STATUS_HUD, HEALTH_HUD)
+	hud_icons = list(STATUS_HUD, HEALTH_HUD, NANITE_HUD)
 
 /datum/atom_hud/data/human/medical/basic
 
@@ -47,18 +47,21 @@
 	hud_icons = list(ID_HUD)
 
 /datum/atom_hud/data/human/security/advanced
-	hud_icons = list(ID_HUD, IMPTRACK_HUD, IMPLOYAL_HUD, IMPCHEM_HUD, WANTED_HUD)
+	hud_icons = list(ID_HUD, IMPTRACK_HUD, IMPLOYAL_HUD, IMPCHEM_HUD, WANTED_HUD, NANITE_HUD)
 
 /datum/atom_hud/data/human/fan_hud
 	hud_icons = list(FAN_HUD)
 
+/datum/atom_hud/data/human/psih_hud
+	hud_icons = list(PSIH_HUD)
+
 /datum/atom_hud/data/diagnostic
 
 /datum/atom_hud/data/diagnostic/basic
-	hud_icons = list(DIAG_HUD, DIAG_STAT_HUD, DIAG_BATT_HUD, DIAG_MECH_HUD, DIAG_BOT_HUD, DIAG_TRACK_HUD, DIAG_CAMERA_HUD, DIAG_AIRLOCK_HUD, DIAG_LAUNCHPAD_HUD)
+	hud_icons = list(DIAG_HUD, DIAG_STAT_HUD, DIAG_BATT_HUD, DIAG_MECH_HUD, DIAG_BOT_HUD, DIAG_CIRCUIT_HUD, DIAG_TRACK_HUD, DIAG_AIRLOCK_HUD, DIAG_NANITE_FULL_HUD, DIAG_LAUNCHPAD_HUD)
 
 /datum/atom_hud/data/diagnostic/advanced
-	hud_icons = list(DIAG_HUD, DIAG_STAT_HUD, DIAG_BATT_HUD, DIAG_MECH_HUD, DIAG_BOT_HUD, DIAG_TRACK_HUD, DIAG_CAMERA_HUD, DIAG_AIRLOCK_HUD, DIAG_LAUNCHPAD_HUD, DIAG_PATH_HUD)
+	hud_icons = list(DIAG_HUD, DIAG_STAT_HUD, DIAG_BATT_HUD, DIAG_MECH_HUD, DIAG_BOT_HUD, DIAG_CIRCUIT_HUD, DIAG_TRACK_HUD, DIAG_AIRLOCK_HUD, DIAG_NANITE_FULL_HUD, DIAG_LAUNCHPAD_HUD, DIAG_PATH_HUD)
 
 /datum/atom_hud/data/bot_path
 	// This hud exists so the bot can see itself, that's all
@@ -168,10 +171,7 @@ Medical HUD! Basic mode needs suit sensors on.
 
 //called when a living mob changes health
 /mob/living/proc/med_hud_set_health()
-	var/image/holder = hud_list?[HEALTH_HUD]
-	if (isnull(holder))
-		return
-
+	var/image/holder = hud_list[HEALTH_HUD]
 	holder.icon_state = "hud[RoundHealth(src)]"
 	var/icon/I = icon(icon, icon_state, dir)
 	holder.pixel_y = I.Height() - world.icon_size
@@ -182,10 +182,7 @@ Medical HUD! Basic mode needs suit sensors on.
 
 //called when a carbon changes stat, virus or XENO_HOST
 /mob/living/proc/med_hud_set_status()
-	var/image/holder = hud_list?[STATUS_HUD]
-	if (isnull(holder))
-		return
-
+	var/image/holder = hud_list[STATUS_HUD]
 	var/icon/I = icon(icon, icon_state, dir)
 	holder.pixel_y = I.Height() - world.icon_size
 	if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
@@ -194,14 +191,17 @@ Medical HUD! Basic mode needs suit sensors on.
 		holder.icon_state = "hudhealthy"
 
 /mob/living/carbon/med_hud_set_status()
-	var/image/holder = hud_list?[STATUS_HUD]
-	if (isnull(holder))
-		return
-
+	var/image/holder = hud_list[STATUS_HUD]
 	var/icon/I = icon(icon, icon_state, dir)
 	var/virus_threat = check_virus()
 	holder.pixel_y = I.Height() - world.icon_size
-	if(HAS_TRAIT(src, TRAIT_XENO_HOST))
+
+	var/obj/item/organ/zombie_infection/infection
+	infection = get_organ_slot(ORGAN_SLOT_ZOMBIE)
+	if(infection)
+		holder.icon_state = "hudzed"
+
+	else if(HAS_TRAIT(src, TRAIT_XENO_HOST))
 		holder.icon_state = "hudxeno"
 	else if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
 		if((key || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES))
@@ -210,8 +210,6 @@ Medical HUD! Basic mode needs suit sensors on.
 			holder.icon_state = "huddead"
 	else
 		switch(virus_threat)
-			if(DISEASE_SEVERITY_UNCURABLE)
-				holder.icon_state = "hudill6"
 			if(DISEASE_SEVERITY_BIOHAZARD)
 				holder.icon_state = "hudill5"
 			if(DISEASE_SEVERITY_DANGEROUS)
@@ -231,6 +229,74 @@ Medical HUD! Basic mode needs suit sensors on.
 
 
 /***********************************************
+ХУДы Психолога - Определяют церебралы
+************************************************/
+
+//  Проверка церебралов
+/mob/living/carbon/proc/check_cerebrals()
+	var/psychosis
+	var/psychosis_max
+	var/obj/item/organ/brain/B = get_organ_slot(ORGAN_SLOT_BRAIN)
+
+	if(mind?.has_antag_datum(/datum/antagonist/brainwashed) || mind?.has_antag_datum(/datum/antagonist/abductee))
+		psychosis = 15
+		return psychosis
+
+	if(!B)
+		return 1
+
+	for(var/i in B.traumas)
+		var/datum/brain_trauma/trauma = i
+
+		if(istype(trauma, /datum/brain_trauma/special/obsessed))
+			psychosis = 14
+			return psychosis
+		else if(istype(trauma, /datum/brain_trauma/severe/pacifism))
+			psychosis = 13
+			return psychosis
+		else
+			switch(trauma.resilience)
+				if(TRAUMA_RESILIENCE_BASIC)
+					psychosis = 1
+				if(TRAUMA_RESILIENCE_WOUND)
+					psychosis = 2
+				if(TRAUMA_RESILIENCE_SURGERY)
+					psychosis = 2
+				if(TRAUMA_RESILIENCE_LOBOTOMY)
+					psychosis = 3
+				if(TRAUMA_RESILIENCE_ABSOLUTE)
+					psychosis = 4
+		if(psychosis >= psychosis_max)
+			psychosis_max = psychosis
+	return psychosis_max
+
+/mob/living/carbon/proc/psih_hud_set_status()
+	var/image/holder = hud_list[PSIH_HUD]
+	var/icon/I = icon(icon, icon_state, dir)
+	var/cerebral_threat = check_cerebrals()
+	holder.pixel_y = I.Height() - world.icon_size
+	holder.icon = 'white/Feline/icons/psih.dmi'
+	holder.icon_state = "hud_psih_no"
+	if(cerebral_threat)
+		switch(cerebral_threat)
+			if(1)
+				holder.icon_state = "hud_psih_1"
+			if(2)
+				holder.icon_state = "hud_psih_2"
+			if(3)
+				holder.icon_state = "hud_psih_3"
+			if(4)
+				holder.icon_state = "hud_psih_4"
+			if(13)
+				holder.icon_state = "peace"
+			if(14)
+				holder.icon_state = "yandere"
+			if(15)
+				holder.icon_state = "brainwashed"
+			if(null)
+				holder.icon_state = "hud_psih_no"
+
+/***********************************************
 FAN HUDs! For identifying other fans on-sight.
 ************************************************/
 
@@ -238,28 +304,21 @@ FAN HUDs! For identifying other fans on-sight.
 
 /mob/living/carbon/human/proc/fan_hud_set_fandom()
 	var/image/holder = hud_list[FAN_HUD]
-	var/icon/hud_icon = icon(icon, icon_state, dir)
-	holder.pixel_y = hud_icon.Height() - world.icon_size
+	var/icon/I = icon(icon, icon_state, dir)
+	holder.pixel_y = I.Height() - world.icon_size
 	holder.icon_state = "hudfan_no"
-
-	var/obj/item/clothing/under/undershirt = w_uniform
-	if(!istype(undershirt))
+	var/obj/item/clothing/under/U = get_item_by_slot(ITEM_SLOT_ICLOTHING)
+	if(!U)
 		set_hud_image_inactive(FAN_HUD)
 		return
 
-	for(var/accessory in undershirt.attached_accessories)
-		if(istype(accessory, /obj/item/clothing/accessory/mime_fan_pin))
-			holder.icon_state = "mime_fan_pin"
-			break
+	if(istype(U.attached_accessory, /obj/item/clothing/accessory/fan_mime_pin))
+		holder.icon_state = "fan_mime_pin"
 
-		if(istype(accessory, /obj/item/clothing/accessory/clown_enjoyer_pin))
-			holder.icon_state = "clown_enjoyer_pin"
-			break
-
+	else if(istype(U.attached_accessory, /obj/item/clothing/accessory/fan_clown_pin))
+		holder.icon_state = "fan_clown_pin"
 	set_hud_image_active(FAN_HUD)
 	return
-
-
 
 /***********************************************
 Security HUDs! Basic mode shows only the job.
@@ -272,7 +331,8 @@ Security HUDs! Basic mode shows only the job.
 	var/icon/I = icon(icon, icon_state, dir)
 	holder.pixel_y = I.Height() - world.icon_size
 	var/sechud_icon_state = wear_id?.get_sechud_job_icon_state()
-	if(!sechud_icon_state || HAS_TRAIT(src, TRAIT_UNKNOWN))
+
+	if(!sechud_icon_state)
 		sechud_icon_state = "hudno_id"
 	holder.icon_state = sechud_icon_state
 	sec_hud_set_security_status()
@@ -308,55 +368,42 @@ Security HUDs! Basic mode shows only the job.
 
 /mob/living/carbon/human/proc/sec_hud_set_security_status()
 	var/image/holder = hud_list[WANTED_HUD]
-	var/icon/sec_icon = icon(icon, icon_state, dir)
-	holder.pixel_y = sec_icon.Height() - world.icon_size
-	var/perp_name = get_face_name(get_id_name(""))
+	var/icon/I = icon(icon, icon_state, dir)
+	holder.pixel_y = I.Height() - world.icon_size
+	var/perpname = get_face_name(get_id_name(""))
+	if(perpname && GLOB.data_core)
+		var/datum/data/record/R = find_record("name", perpname, GLOB.data_core.security)
+		if(R)
+			var/has_criminal_entry = TRUE
+			switch(R.fields["criminal"])
+				if("*Arrest*")
+					holder.icon_state = "hudwanted"
+				if("Incarcerated")
+					holder.icon_state = "hudincarcerated"
+				if("Paroled")
+					holder.icon_state = "hudparolled"
+				if("Discharged")
+					holder.icon_state = "huddischarged"
+				else
+					has_criminal_entry = FALSE
+			if(has_criminal_entry)
+				set_hud_image_active(WANTED_HUD)
+				return
 
-	if(!perp_name || !GLOB.manifest)
-		holder.icon_state = null
-		set_hud_image_inactive(WANTED_HUD)
-		return
-
-	var/datum/record/crew/target = find_record(perp_name)
-	if(!target || target.wanted_status == WANTED_NONE)
-		holder.icon_state = null
-		set_hud_image_inactive(WANTED_HUD)
-		return
-
-	switch(target.wanted_status)
-		if(WANTED_ARREST)
-			holder.icon_state = "hudwanted"
-		if(WANTED_PRISONER)
-			holder.icon_state = "hudincarcerated"
-		if(WANTED_SUSPECT)
-			holder.icon_state = "hudsuspected"
-		if(WANTED_PAROLE)
-			holder.icon_state = "hudparolled"
-		if(WANTED_DISCHARGED)
-			holder.icon_state = "huddischarged"
-
-	set_hud_image_active(WANTED_HUD)
-
-//Utility functions
-
-/**
- * Updates the visual security huds on all mobs in GLOB.human_list that match the name passed to it.
- */
-/proc/update_matching_security_huds(perp_name)
-	for (var/mob/living/carbon/human/h as anything in GLOB.human_list)
-		if (h.get_face_name(h.get_id_name("")) == perp_name)
-			h.sec_hud_set_security_status()
-
-/**
- * Updates the visual security huds on all mobs in GLOB.human_list
- */
-/proc/update_all_security_huds()
-	for(var/mob/living/carbon/human/h as anything in GLOB.human_list)
-		h.sec_hud_set_security_status()
+	holder.icon_state = null
+	set_hud_image_inactive(WANTED_HUD)
 
 /***********************************************
 Diagnostic HUDs!
 ************************************************/
+
+/mob/living/proc/hud_set_nanite_indicator()
+	var/image/holder = hud_list[NANITE_HUD]
+	var/icon/I = icon(icon, icon_state, dir)
+	holder.pixel_y = I.Height() - world.icon_size
+	holder.icon_state = null
+	if(HAS_TRAIT(src, TRAIT_NANITE_MONITORING))
+		holder.icon_state = "nanite_ping"
 
 //For Diag health and cell bars!
 /proc/RoundDiagBar(value)
@@ -443,7 +490,7 @@ Diagnostic HUDs!
 	var/image/holder = hud_list[DIAG_MECH_HUD]
 	var/icon/I = icon(icon, icon_state, dir)
 	holder.pixel_y = I.Height() - world.icon_size
-	holder.icon_state = "huddiag[RoundDiagBar(atom_integrity/max_integrity)]"
+	holder.icon_state = "huddiag[RoundDiagBar(obj_integrity/max_integrity)]"
 
 
 /obj/vehicle/sealed/mecha/proc/diag_hud_set_mechcell()
@@ -456,6 +503,7 @@ Diagnostic HUDs!
 	else
 		holder.icon_state = "hudnobatt"
 
+
 /obj/vehicle/sealed/mecha/proc/diag_hud_set_mechstat()
 	var/image/holder = hud_list[DIAG_STAT_HUD]
 	var/icon/I = icon(icon, icon_state, dir)
@@ -463,7 +511,6 @@ Diagnostic HUDs!
 	if(internal_damage)
 		holder.icon_state = "hudwarn"
 		set_hud_image_active(DIAG_STAT_HUD)
-		return
 	holder.icon_state = null
 	set_hud_image_inactive(DIAG_STAT_HUD)
 
@@ -481,16 +528,6 @@ Diagnostic HUDs!
 			new_icon_state = "hudtracking"
 	holder.icon_state = new_icon_state
 
-///Shows inbuilt camera on the mech; if the camera's view range was affected by an EMP, shows a red blip while it's affected
-/obj/vehicle/sealed/mecha/proc/diag_hud_set_camera()
-	var/image/holder = hud_list[DIAG_CAMERA_HUD]
-	var/icon/I = icon(icon, icon_state, dir)
-	holder.pixel_y = I.Height() - world.icon_size
-	if(chassis_camera?.is_emp_scrambled)
-		holder.icon_state = "hudcamera_empd"
-		return
-	holder.icon_state = "hudcamera"
-
 /*~~~~~~~~~
 	Bots!
 ~~~~~~~~~~*/
@@ -504,7 +541,7 @@ Diagnostic HUDs!
 	var/image/holder = hud_list[DIAG_STAT_HUD]
 	var/icon/I = icon(icon, icon_state, dir)
 	holder.pixel_y = I.Height() - world.icon_size
-	if(bot_mode_flags & BOT_MODE_ON)
+	if(on)
 		holder.icon_state = "hudstat"
 	else if(stat) //Generally EMP causes this
 		holder.icon_state = "hudoffline"
@@ -547,10 +584,11 @@ Diagnostic HUDs!
 	Airlocks!
 ~~~~~~~~~~~~~*/
 /obj/machinery/door/airlock/proc/diag_hud_set_electrified()
+	var/image/holder = hud_list[DIAG_AIRLOCK_HUD]
 	if(secondsElectrified == MACHINE_NOT_ELECTRIFIED)
+		holder.icon_state = "" // this thing looks horribly wrong in my mind but FUCK it's works. TODO: valera please check out where you nasral in https://github.com/frosty-dev/white/commit/27e36d9d5b9ec5d0b68c933ca5377055846cbd9f that it gone broken af
 		set_hud_image_inactive(DIAG_AIRLOCK_HUD)
 		return
 
-	var/image/holder = hud_list[DIAG_AIRLOCK_HUD]
 	holder.icon_state = "electrified"
 	set_hud_image_active(DIAG_AIRLOCK_HUD)

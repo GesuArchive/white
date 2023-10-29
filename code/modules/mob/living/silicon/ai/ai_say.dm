@@ -1,7 +1,18 @@
-/mob/living/silicon/ai/say(message, bubble_type,list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null, message_range = 7, datum/saymode/saymode = null)
+/mob/living/silicon/ai/say(message, bubble_type,list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
 	if(parent && istype(parent) && parent.stat != DEAD) //If there is a defined "parent" AI, it is actually an AI, and it is alive, anything the AI tries to say is said by the parent instead.
-		return parent.say(arglist(args))
-	return ..()
+		parent.say(message, language)
+		return
+	..(message)
+
+/mob/living/silicon/robot/shell/compose_track_href(atom/movable/speaker, namepart)
+	var/mob/M = speaker.GetSource()
+	if(M)
+		return "<a href='?src=[REF(src)];track=[html_encode(namepart)]'>"
+	return ""
+
+/mob/living/silicon/robot/shell/compose_job(atom/movable/speaker, message_langs, raw_message, radio_freq)
+	//Also includes the </a> for AI hrefs, for convenience.
+	return "[radio_freq ? " (" + speaker.GetJob() + ")" : ""]" + "[speaker.GetSource() ? "</a>" : ""]"
 
 /mob/living/silicon/ai/compose_track_href(atom/movable/speaker, namepart)
 	var/mob/M = speaker.GetSource()
@@ -13,20 +24,14 @@
 	//Also includes the </a> for AI hrefs, for convenience.
 	return "[radio_freq ? " (" + speaker.GetJob() + ")" : ""]" + "[speaker.GetSource() ? "</a>" : ""]"
 
-/mob/living/silicon/ai/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE)
-	// AIs cannot speak if silent AI is on.
-	// Unless forced is set, as that's probably stating laws or something.
-	if(!forced && CONFIG_GET(flag/silent_ai))
-		to_chat(src, span_danger("The ability for AIs to speak is currently disabled via server config."))
-		return FALSE
-
-	return ..()
+/mob/living/silicon/ai/IsVocal()
+	return !CONFIG_GET(flag/silent_ai)
 
 /mob/living/silicon/ai/radio(message, list/message_mods = list(), list/spans, language)
 	if(incapacitated())
 		return FALSE
 	if(!radio_enabled) //AI cannot speak if radio is disabled (via intellicard) or depowered.
-		to_chat(src, span_danger("Your radio transmitter is offline!"))
+		to_chat(src, span_danger("Радио-трансмиттер отключён!"))
 		return FALSE
 	..()
 
@@ -37,19 +42,19 @@
 	if (!message)
 		return
 
-	var/obj/machinery/holopad/active_pad = current
-	if(istype(active_pad) && active_pad.masters[src])//If there is a hologram and its master is the user.
-		var/obj/effect/overlay/holo_pad_hologram/ai_holo = active_pad.masters[src]
-		var/turf/padturf = get_turf(active_pad)
+	var/obj/machinery/holopad/T = current
+	if(istype(T) && T.masters[src])//If there is a hologram and its master is the user.
+		var/turf/padturf = get_turf(T)
 		var/padloc
 		if(padturf)
 			padloc = AREACOORD(padturf)
 		else
 			padloc = "(UNKNOWN)"
 		src.log_talk(message, LOG_SAY, tag="HOLOPAD in [padloc]")
-		ai_holo.say(message, language = language)
+		send_speech(message, 7, T, MODE_ROBOT, message_language = language)
+		to_chat(src, "<i><span class='game say'>Голопад передаёт, <span class='name'>[real_name]</span> <span class='message robot'>\"[message]\"</span></span></i>")
 	else
-		to_chat(src, span_alert("No holopad connected."))
+		to_chat(src, span_alert("Нет подключенных голопадов."))
 
 
 // Make sure that the code compiles with AI_VOX undefined
@@ -65,14 +70,14 @@
 		return
 
 	var/dat = {"
-	<font class='bad'>WARNING:</font> Misuse of the announcement system will get you job banned.<BR><BR>
-	Here is a list of words you can type into the 'Announcement' button to create sentences to vocally announce to everyone on the same level at you.<BR>
-	<UL><LI>You can also click on the word to PREVIEW it.</LI>
-	<LI>You can only say 30 words for every announcement.</LI>
-	<LI>Do not use punctuation as you would normally, if you want a pause you can use the full stop and comma characters by separating them with spaces, like so: 'Alpha . Test , Bravo'.</LI>
-	<LI>Numbers are in word format, e.g. eight, sixty, etc </LI>
-	<LI>Sound effects begin with an 's' before the actual word, e.g. scensor</LI>
-	<LI>Use Ctrl+F to see if a word exists in the list.</LI></UL><HR>
+	<font class='bad'>ВНИМАНИЕ:</font> Неправильное использование системы оповещения может привести к тому, что вы получите по ебалу.<BR><BR>
+	Тут можно найти список слов что можно ввести в кнопке 'Announcement', которые затем вербально произнесутся всем на том же уровне где находитесь и вы.<BR>
+	<UL><LI>Вы также можете нажать на слово, чтобы его ПРОСЛУШАТЬ.</LI>
+	<LI>Вы можете произнести только 30 слов за каждое объявление.</LI>
+	<LI>Не используйте знаки препинания, как если бы вы делали это обычно. Если вы хотите сделать паузу, то вы можете использовать точки и запятые разделив их пробелами, например: 'Alpha . Test , Bravo'.</LI>
+	<LI>Цифры вводятся в буквенном виде, например: eight, sixty и т.д. </LI>
+	<LI>Звуковые эффекты начинаются с 's' перед самим словом, например: scensor</LI>
+	<LI>Для поиска слов в списке воспользуйтесь Ctrl+F.</LI></UL><HR>
 	"}
 
 	var/index = 0
@@ -90,10 +95,10 @@
 /mob/living/silicon/ai/proc/announcement()
 	var/static/announcing_vox = 0 // Stores the time of the last announcement
 	if(announcing_vox > world.time)
-		to_chat(src, span_notice("Please wait [DisplayTimeText(announcing_vox - world.time)]."))
+		to_chat(src, span_notice("Пожалуйста подождите [DisplayTimeText(announcing_vox - world.time)]."))
 		return
 
-	var/message = tgui_input_text(src, "WARNING: Misuse of this verb can result in you being job banned. More help is available in 'Announcement Help'", "Announcement", src.last_announcement)
+	var/message = tgui_input_text(src, "Помощь по вводу можно найти в кнопке 'Announcement Help'", "Звуковое оповещение", src.last_announcement)
 
 	if(!message || announcing_vox > world.time)
 		return
@@ -104,7 +109,7 @@
 		return
 
 	if(control_disabled)
-		to_chat(src, span_warning("Wireless interface disabled, unable to interact with announcement PA."))
+		to_chat(src, span_warning("Беспроводной интерфейс отключён, взаимодействие с системой оповещения невозможно."))
 		return
 
 	var/list/words = splittext(trim(message), " ")
@@ -122,27 +127,20 @@
 			incorrect_words += word
 
 	if(incorrect_words.len)
-		to_chat(src, span_notice("These words are not available on the announcement system: [english_list(incorrect_words)]."))
+		to_chat(src, span_notice("Этих слов нет в системе оповещения: [english_list(incorrect_words)]."))
 		return
 
 	announcing_vox = world.time + VOX_DELAY
 
-	log_message("made a vocal announcement with the following message: [message].", LOG_GAME)
+	log_game("[key_name(src)] made a vocal announcement with the following message: [message].")
 	log_talk(message, LOG_SAY, tag="VOX Announcement")
-
-	var/list/players = list()
-	var/turf/ai_turf = get_turf(src)
-	for(var/mob/player_mob as anything in GLOB.player_list)
-		var/turf/player_turf = get_turf(player_mob)
-		if(is_valid_z_level(ai_turf, player_turf))
-			players += player_mob
-	minor_announce(capitalize(message), "[name] announces:", players = players, should_play_sound = FALSE)
+	say(";[message]", forced = "VOX Announcement")
 
 	for(var/word in words)
-		play_vox_word(word, ai_turf, null)
+		play_vox_word(word, src.z, null)
 
 
-/proc/play_vox_word(word, ai_turf, mob/only_listener)
+/proc/play_vox_word(word, z_level, mob/only_listener)
 
 	word = lowertext(word)
 
@@ -155,15 +153,11 @@
 	// If there is no single listener, broadcast to everyone in the same z level
 		if(!only_listener)
 			// Play voice for all mobs in the z level
-			for(var/mob/player_mob as anything in GLOB.player_list)
-				if(!player_mob.can_hear() || !(safe_read_pref(player_mob.client, /datum/preference/toggle/sound_announcements)))
-					continue
-
-				var/turf/player_turf = get_turf(player_mob)
-				if(!is_valid_z_level(ai_turf, player_turf))
-					continue
-
-				SEND_SOUND(player_mob, voice)
+			for(var/mob/M in GLOB.player_list)
+				if(M.can_hear() && (M.client.prefs.toggles & SOUND_ANNOUNCEMENTS))
+					var/turf/T = get_turf(M)
+					if(T.z == z_level)
+						SEND_SOUND(M, voice)
 		else
 			SEND_SOUND(only_listener, voice)
 		return TRUE

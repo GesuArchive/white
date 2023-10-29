@@ -1,0 +1,32 @@
+{
+	"version": 1,
+	"map_name": "Blueshift",
+	"map_path": "stations",
+	"map_file": "blueshift.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"shuttles": {
+		"cargo": "cargo_box",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_meta",
+		"emergency": "emergency_meta"
+	},
+	"traits": [
+		{
+			"Up": 1,
+			"Baseturf": "/turf/open/space",
+			"Linkage": "Cross"
+		},
+		{
+			"Down": -1,
+			"Up": 1,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Down": -1,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		}
+	]
+}

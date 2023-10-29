@@ -1,21 +1,19 @@
 /datum/language/beachbum
-	name = "Beachtongue"
-	desc = "An ancient language from the distant Beach Planet. People magically learn to speak it under the influence of space drugs."
+	name = "Пляжный говор"
+	desc = "Древний язык с далекой планеты Бич. Люди волшебным образом учатся говорить на нем под воздействием космических наркотиков."
 	key = "u"
 	space_chance = 85
 	default_priority = 90
-	syllables = list(
-		"cowabunga", "rad", "radical", "dudes", "bogus", "weeed", "every",
-		"dee", "dah", "woah", "surf", "blazed", "high", "heinous", "day",
-		"brah", "bro", "blown", "catch", "body", "beach", "oooo", "twenty",
-		"shiz", "phiz", "wizz", "pop", "chill", "awesome", "dude", "it",
-		"wax", "stoked", "yes", "ding", "way", "no", "wicked", "aaaa",
-		"cool", "hoo", "wah", "wee", "man", "maaaaaan", "mate", "wick",
-		"oh", "ocean", "up", "out", "rip", "slide", "big", "stomp",
-		"weed", "pot", "smoke", "four-twenty", "shove", "wacky", "hah",
-		"sick", "slash", "spit", "stoked", "shallow", "gun", "party",
-		"heavy", "stellar", "excellent", "triumphant", "babe", "four",
-		"tail", "trim", "tube", "wobble", "roll", "gnarly", "epic",
-	)
+	syllables = list("цовабунга", "рад", "радицал", "дудес", "богус", "вееед", "еверы",
+					"дее", "дах", "воах", "сурф", "блазед", "хигх", "хеиноус", "даы",
+					"брах", "бро", "бловн", "цатч", "боды", "беач", "оооо", "твенты",
+					"шиз", "пхиз", "визз", "поп", "чилл", "авесоме", "дуде", "ит",
+					"ваx", "стокед", "ыес", "динг", "ваы", "но", "вицкед", "аааа",
+					"цоол", "хоо", "вах", "вее", "ман", "маааааан", "мате", "вицк",
+					"ох", "оцеан", "уп", "оут", "рип", "слиде", "биг", "стомп",
+					"веед", "пот", "смоке", "фоур-твенты", "шове", "вацкы", "хах",
+					"сицк", "слаш", "спит", "стокед", "шаллов", "гун", "парты",
+					"хеавы", "стеллар", "еxцеллент", "триумпхант", "бабе", "фоур",
+					"таил", "трим", "тубе", "воббле", "ролл", "гнарлы", "епиц")
 
 	icon_state = "beach"

@@ -1,62 +1,86 @@
-## /tg/station codebase
+![Aleph](https://github.com/frosty-dev/white/assets/10297716/bbe4608c-d65d-46ef-9d02-99a60f375db3)
 
-[![Build Status](https://github.com/tgstation/tgstation/workflows/CI%20Suite/badge.svg)](https://github.com/tgstation/tgstation/actions?query=workflow%3A%22CI+Suite%22)
-[![Percentage of issues still open](https://isitmaintained.com/badge/open/tgstation/tgstation.svg)](https://isitmaintained.com/project/tgstation/tgstation "Percentage of issues still open")
-[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/tgstation/tgstation.svg)](https://isitmaintained.com/project/tgstation/tgstation "Average time to resolve an issue")
-![Coverage](https://img.shields.io/badge/coverage---4%25-red.svg)
+### Это основной репозиторий Aleph (old White Dream) по игре [Space Station 13](https://station13.ru/). 
 
-[![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
+## Быстрый старт
+1. Требования
+	* Для сборки проекта необходим [BYOND](https://www.byond.com/download/).
+2. Сборка и запуск
+	* Отклонировать/скачать данный репозиторий и запустить `BUILD.cmd`.
+	* Скопировать содержимое из папки `config` в рабочую папку `cfg`.
+	* Для поднятия локального сервера, запустите `server.cmd` из директории `bin`.
 
-| Website                   | Link                                           |
-|---------------------------|------------------------------------------------|
-| Website                   | [https://www.tgstation13.org](https://www.tgstation13.org)          |
-| Code                      | [https://github.com/tgstation/tgstation](https://github.com/tgstation/tgstation)    |
-| Wiki                      | [https://tgstation13.org/wiki/Main_Page](https://tgstation13.org/wiki/Main_Page)   |
-| Codedocs                  | [https://codedocs.tgstation13.org/](https://codedocs.tgstation13.org/)       |
-| /tg/station Discord       | [https://tgstation13.org/phpBB/viewforum.php?f=60](https://tgstation13.org/phpBB/viewforum.php?f=60) |
-| Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)               |
+* Пользователям Ubuntu/Debian:
+	```bash
+	git clone https://github.com/frosty-dev/white && cd white
 
-This is the codebase for the /tg/station flavoured fork of SpaceStation 13.
+	# Сборка библиотеки rust-g и auxmos
+	sudo dpkg --add-architecture i386
+	sudo apt update || true
+	sudo apt install -o libssl1.1:i386
+	bash tools/ci/install_rust_g.sh
 
-Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its dangerous undertones. Have fun, and survive!
+	# Установка BYOND и запуск сервера
+	bash tools/ci/install_byond.sh
+	source $HOME/BYOND/byond/bin/byondsetup
+	tools/build/build
+	bash tools/ci/run_server.sh
+	```
 
-## DOWNLOADING
-[Downloading](.github/guides/DOWNLOADING.md)
+## Среда разработки
+[<img src="https://i.imgur.com/FMf8JBF.png" alt="Старт" width="150" align="left">](https://hackmd.io/@fdev/SJDYI8iR8)
+**Работаешь с кодом впервые?**<br>Попробуй этот гайд, он обязательно тебя научит чему-нибудь, если будет в настроении!
 
-[Running a server](.github/guides/RUNNING_A_SERVER.md)
+## Наше сообщество
+[<img src="https://i.imgur.com/NhGX9XW.png" alt="Funclub" width="150" align="left">](https://funclub.pro)
+**Крупнейшее игровое сообщество по вселенной SCP:SL.**<br>А также других игр, включая **Space Station 13**.
 
-[Maps and Away Missions](.github/guides/MAPS_AND_AWAY_MISSIONS.md)
+[<img src="https://i.imgur.com/o40zWyV.png" alt="Station13.Ru" width="150" align="left">](https://station13.ru)
+**Это один маленький шаг для билда, но гигантский скачок для всего сообщества.**<br>Основной сайт пост-анимуса.
 
-## :exclamation: How to compile :exclamation:
+[<img src="https://i.imgur.com/7iYrb2J.png" alt="Wiki" width="150" align="left">](https://wiki.station13.ru)
+**Ваш путеводитель по вселенной Space Station 13.**<br>Практически всегда актуальна.
+<!--
+[<img src="https://i.imgur.com/dUdgAL5.png" alt="Forum" width="150" align="left">](https://forum.station13.ru)
+**Наш форум. Скопление живых трупов и заблудших душ.**<br> Лучшее место для свободных дискуссий на любые темы.
+-->
+[<img src="https://i.imgur.com/lOHdByt.png" alt="Discord" width="150" align="left">](https://discord.station13.ru/)
+**Наш Discord-сервер.**<br>Общение космонавтов. Основная конференция посвящённая White Dream SS13.
 
-On **2021-01-04** we have changed the way to compile the codebase.
+[<img src="https://i.imgur.com/eQF6BOl.png" alt="CR34T1V3" width="150" align="left">](https://discord.gg/fRsn7RxdQp)
+**Альтернативный кодербас для русскоговорящих господ.**<br>Ничего личного, только копипаста. Место, где можно обсудить код и не только.
 
-**The quick way**. Find `bin/server.cmd` in this folder and double click it to automatically build and host the server on port 1337.
+## Полезное
+[<img src="https://i.imgur.com/ZOxkRtD.png" alt="Upstream" width="150" align="left">](https://github.com/tgstation/tgstation)
+**Наш Upstream. Ничего особенного.**<br>Основная часть обновлений берётся отсюда.
 
-**The long way**. Find `bin/build.cmd` in this folder, and double click it to initiate the build. It consists of multiple steps and might take around 1-5 minutes to compile. If it closes, it means it has finished its job. You can then [setup the server](.github/guides/RUNNING_A_SERVER.md) normally by opening `tgstation.dmb` in DreamDaemon.
+[<img src="https://i.imgur.com/RwAIgu6.png" alt="Баги" width="150" align="left">](https://hackmd.io/IiFh5OR4S-q9JNzos8gWaw)
+**Баги и что с ними делать.**<br>Гарантированное решение, когда фича перерастает в проблему.
 
-**Building tgstation in DreamMaker directly is now deprecated and might produce errors**, such as `'tgui.bundle.js': cannot find file`.
+[<img src="https://i.imgur.com/estrNVg.png" alt="Локализация" width="150" align="left">](https://hackmd.io/8mn18B1yTY6ki0Xy-JifCw)
+**То, зачем мы здесь.**<br>Быстрое входное обучение для тех, кто желает привнести русский дух в игру.
 
-**[How to compile in VSCode and other build options](tools/build/README.md).**
+[<img src="https://i.imgur.com/ZKyWpgK.png" alt="Иконки" width="150" align="left">](https://hackmd.io/vdsXbe-hSgyLtAzddg8yyQ)
+**Как работать с этим форматом во внешних редакторах?**<br>В этом руководстве описан краткий гайд по работе с иконками бьёнда.
 
-## Contributors
-[Guides for Contributors](.github/CONTRIBUTING.md)
+[<img src="https://i.imgur.com/uCDQuc4.png" alt="Редактор карт" width="150" align="left">](https://github.com/SpaiR/StrongDMM/releases)
+**Наш основной инструмент для работы с картами.**<br>Экономит кучу времени, заменяя встроенный редактор практически полностью.
 
-[/tg/station HACKMD account](https://hackmd.io/@tgstation) - Design documentation here
 
-[Interested in some starting lore?](https://github.com/tgstation/common_core)
+## Лицензия
 
-## LICENSE
+Весь код после [коммита 333c566b88108de218d882840e61928a9b759d8f на 2014/31/12 в 4:38 PM PST](https://github.com/frosty-dev/white-dream-main/commit/333c566b88108de218d882840e61928a9b759d8f) лицензирован под [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
 
-All code after [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) is licensed under [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
+Весь код до [коммита 333c566b88108de218d882840e61928a9b759d8f на 2014/31/12 в 4:38 PM PST](https://github.com/frosty-dev/white-dream-main/commit/333c566b88108de218d882840e61928a9b759d8f) лицензирован под [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
+(Включая папку tools, но только если их readme не сообщает обратное)
 
-All code before [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) is licensed under [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
-(Including tools unless their readme specifies otherwise.)
+Смотрите LICENSE и GPLv3.txt за подробностями.
 
-See LICENSE and GPLv3.txt for more details.
+TGS DMAPI API лицензирован как подпроект под MIT лицензией.
 
-The TGS DMAPI is licensed as a subproject under the MIT license.
+Посмотрите в самый низ [code/__DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) и [code/modules/tgs/LICENSE](./code/modules/tgs/LICENSE) для MIT лицензии.
 
-See the footer of [code/__DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) and [code/modules/tgs/LICENSE](./code/modules/tgs/LICENSE) for the MIT license.
+Все ассеты включая иконки и звуки лицензированы под [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/), если это не обозначено где-то ещё.
 
-All assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
+Опубликованный русскоязычный текст в коде находится под лицензией [Creative Commons 4.0 BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/), если это не обозначено где-то ещё. Это подразумевает под собой то, что использование нашего перевода где-либо ещё требует наличие данной авторской лицензии (включая всех авторов, которые когда-либо вносили правки) и отметки о том, что было изменено.
+

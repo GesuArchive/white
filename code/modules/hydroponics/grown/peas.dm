@@ -1,7 +1,7 @@
 // Finally, peas. Base plant.
 /obj/item/seeds/peas
-	name = "pack of pea pods"
-	desc = "These seeds grows into vitamin rich peas!"
+	name = "Пачка семян стручкового гороха"
+	desc = "Из этих семян вырастает богатый витаминами горох!"
 	icon_state = "seed-peas"
 	species = "peas"
 	plantname = "Pea Vines"
@@ -10,7 +10,7 @@
 	potency = 25
 	instability = 15
 	growthstages = 3
-	growing_icon = 'icons/obj/service/hydroponics/growing_vegetables.dmi'
+	growing_icon = 'icons/obj/hydroponics/growing_vegetables.dmi'
 	icon_grow = "peas-grow"
 	icon_dead = "peas-dead"
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
@@ -19,9 +19,10 @@
 
 /obj/item/food/grown/peas
 	seed = /obj/item/seeds/peas
-	name = "peapod"
-	desc = "Finally... peas."
+	name = "Горох"
+	desc = "Что-то меня пучит..."
 	icon_state = "peas"
+	bite_consumption_mod = 1
 	foodtypes = VEGETABLES
 	tastes = list ("peas" = 1, "chalky saltiness" = 1)
 	wine_power = 50
@@ -29,8 +30,8 @@
 
 // Laughin' Peas
 /obj/item/seeds/peas/laugh
-	name = "pack of laughin' peas"
-	desc = "These seeds give off a very soft purple glow.. they should grow into Laughin' Peas."
+	name = "Пачка семян смехороха"
+	desc = "Эти семена издают мягкое фиолетовое свечение и пахнут ржомбой... скоро они вырастут в смехорох."
 	icon_state = "seed-laughpeas"
 	species = "laughpeas"
 	plantname = "Laughin' Peas"
@@ -50,19 +51,20 @@
 
 /obj/item/food/grown/laugh
 	seed = /obj/item/seeds/peas/laugh
-	name = "pod of laughin' peas"
-	desc = "Ridens Cicer, guaranteed to improve your mood dramatically upon consumption!"
+	name = "Стручок смехороха"
+	desc = "Вот это смешинка! Эта штука умеет поднять настроение!"
 	icon_state = "laughpeas"
+	bite_consumption_mod = 2
 	foodtypes = VEGETABLES
-	juice_typepath = /datum/reagent/consumable/laughsyrup
+	juice_results = list (/datum/reagent/consumable/laughsyrup = 0)
 	tastes = list ("a prancing rabbit" = 1) //Vib Ribbon sends her regards.. wherever she is.
 	wine_power = 90
 	wine_flavor = "a vector-graphic rabbit dancing on your tongue"
 
 // World Peas - Peace at last, peace at last...
 /obj/item/seeds/peas/laugh/peace
-	name = "pack of world peas"
-	desc = "These rather large seeds give off a soothing blue glow..."
+	name = "Пачка семян мирного гороха"
+	desc = "Эти крупные семена испускают успокаивающее голубое свечение..."
 	icon_state = "seed-worldpeas"
 	species = "worldpeas"
 	plantname = "World Peas"
@@ -79,14 +81,13 @@
 	reagents_add = list (/datum/reagent/pax = 0.1, /datum/reagent/drug/happiness = 0.1, /datum/reagent/consumable/nutriment = 0.15)
 	rarity = 50 // This absolutely will make even the most hardened Syndicate Operators relax.
 	graft_gene = /datum/plant_gene/trait/glow/blue
-	mutatelist = null
 
 /obj/item/food/grown/peace
 	seed = /obj/item/seeds/peas/laugh/peace
-	name = "cluster of world peas"
-	desc = "A plant discovered through extensive genetic engineering, and iterative graft work. It's rumored to bring peace to any who consume it. In the wider AgSci community, it's attained the nickname of 'Pax Mundi'." //at last... world peas. I'm not sorry.
+	name = "Гроздь мирных горошин"
+	desc = "Растение, выведенное благодаря продвинутой генной инженерии. Поговаривают, что он приносит мир любому, кто его употребляет. Учёные называют его 'Мир Во Всем Мире'." //напоследок... мировой горох.
 	icon_state = "worldpeas"
-	bite_consumption_mod = 2
+	bite_consumption_mod = 4
 	foodtypes = VEGETABLES
 	tastes = list ("numbing tranquility" = 2, "warmth" = 1)
 	wine_power = 100

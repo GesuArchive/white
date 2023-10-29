@@ -33,24 +33,22 @@
 	var/list/target_procs = (procs[target] ||= list())
 	var/list/lookup = (target._listen_lookup ||= list())
 
-	var/exists = target_procs[signal_type]
+	if(!override && target_procs[signal_type])
+		var/override_message = "[signal_type] overridden. Use override = TRUE to suppress this warning.\nTarget: [target] ([target.type]) Proc: [proctype]"
+		log_signal(override_message)
+		stack_trace(override_message)
+
 	target_procs[signal_type] = proctype
-
-	if(exists)
-		if(!override)
-			var/override_message = "[signal_type] overridden. Use override = TRUE to suppress this warning.\nTarget: [target] ([target.type]) Proc: [proctype]"
-			log_signal(override_message)
-			stack_trace(override_message)
-		return
-
 	var/list/looked_up = lookup[signal_type]
 
 	if(isnull(looked_up)) // Nothing has registered here yet
 		lookup[signal_type] = src
-	else if(!islist(looked_up)) // One other thing registered here
-		lookup[signal_type] = list(looked_up, src)
+	else if(looked_up == src) // We already registered here
+		return
+	else if(!length(looked_up)) // One other thing registered here
+		lookup[signal_type] = list((looked_up) = TRUE, (src) = TRUE)
 	else // Many other things have registered here
-		looked_up += src
+		looked_up[src] = TRUE
 
 /// Registers multiple signals to the same proc.
 /datum/proc/RegisterSignals(datum/target, list/signal_types, proctype, override = FALSE)
@@ -69,7 +67,7 @@
  * * sig_typeor_types Signal string key or list of signal keys to stop listening to specifically
  */
 /datum/proc/UnregisterSignal(datum/target, sig_type_or_types)
-	var/list/lookup = target._listen_lookup
+	var/list/lookup = target?._listen_lookup
 	if(!_signal_procs || !_signal_procs[target] || !lookup)
 		return
 	if(!islist(sig_type_or_types))

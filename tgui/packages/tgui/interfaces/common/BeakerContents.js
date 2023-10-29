@@ -4,14 +4,14 @@ export const BeakerContents = (props) => {
   const { beakerLoaded, beakerContents } = props;
   return (
     <Box>
-      {(!beakerLoaded && <Box color="label">No beaker loaded.</Box>) ||
+      {(!beakerLoaded && <Box color="label">Нет пробирки.</Box>) ||
         (beakerContents.length === 0 && (
-          <Box color="label">Beaker is empty.</Box>
+          <Box color="label">Пробирка пуста.</Box>
         ))}
       {beakerContents.map((chemical) => (
         <Box key={chemical.name} color="label">
           <AnimatedNumber initial={0} value={chemical.volume} />
-          {' units of ' + chemical.name}
+          {' единиц ' + chemical.name}
         </Box>
       ))}
     </Box>

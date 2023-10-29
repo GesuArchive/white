@@ -66,7 +66,7 @@
 		COMSIG_MOCK_SIGNAL = PROC_REF(on_receive_mock_signal),
 	)
 
-	AddElement(/datum/element/connect_loc, connections)
+	AddComponent(/datum/component/connect_loc_behalf, src, connections)
 
 /obj/item/watches_mock_calls/proc/on_receive_mock_signal(datum/source)
 	SIGNAL_HANDLER

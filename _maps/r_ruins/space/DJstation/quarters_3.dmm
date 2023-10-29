@@ -1,0 +1,264 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"c" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/machinery/duct,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/space/djstation)
+"d" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/djstation)
+"f" = (
+/obj/machinery/duct,
+/turf/open/floor/wood/tile,
+/area/ruin/space/djstation)
+"h" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/djstation)
+"i" = (
+/turf/closed/wall,
+/area/ruin/space/djstation)
+"p" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Rest Room"
+	},
+/turf/template_noop,
+/area/template_noop)
+"s" = (
+/obj/machinery/shower{
+	dir = 4
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ruin/space/djstation)
+"t" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/wood/tile,
+/area/ruin/space/djstation)
+"u" = (
+/obj/machinery/duct,
+/obj/machinery/door/airlock/silver{
+	name = "Bedroom"
+	},
+/turf/open/floor/wood/tile,
+/area/ruin/space/djstation)
+"v" = (
+/obj/structure/window/plasma,
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_y = 4
+	},
+/turf/open/floor/carpet/purple,
+/area/ruin/space/djstation)
+"x" = (
+/obj/structure/table/reinforced,
+/obj/machinery/duct,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/space/djstation)
+"z" = (
+/obj/structure/bed,
+/obj/item/bedsheet/rainbow,
+/turf/open/floor/carpet/purple,
+/area/ruin/space/djstation)
+"A" = (
+/turf/open/floor/wood/tile,
+/area/ruin/space/djstation)
+"B" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Rest Room"
+	},
+/obj/modular_map_connector,
+/turf/template_noop,
+/area/template_noop)
+"C" = (
+/obj/machinery/duct,
+/obj/machinery/light/directional/south,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/space/djstation)
+"D" = (
+/turf/open/floor/carpet/purple,
+/area/ruin/space/djstation)
+"H" = (
+/obj/machinery/duct,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/space/djstation)
+"J" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/ruin/space/djstation)
+"L" = (
+/obj/structure/bed,
+/obj/item/bedsheet/purple,
+/turf/open/floor/carpet/purple,
+/area/ruin/space/djstation)
+"N" = (
+/obj/structure/window/plasma,
+/obj/structure/table/wood,
+/turf/open/floor/carpet/purple,
+/area/ruin/space/djstation)
+"T" = (
+/obj/structure/dresser,
+/obj/machinery/duct,
+/turf/open/floor/wood/tile,
+/area/ruin/space/djstation)
+"U" = (
+/obj/machinery/door/airlock/silver{
+	name = "Bathroom"
+	},
+/obj/machinery/duct,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/space/djstation)
+"V" = (
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/djstation)
+"W" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
+"X" = (
+/obj/structure/mirror/directional/north,
+/obj/structure/sink{
+	pixel_y = 17
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ruin/space/djstation)
+"Z" = (
+/obj/machinery/duct,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/djstation)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+p
+B
+J
+a
+i
+W
+"}
+(2,1,1) = {"
+a
+a
+W
+i
+Z
+Z
+Z
+V
+h
+i
+a
+"}
+(3,1,1) = {"
+a
+a
+W
+i
+Z
+V
+d
+V
+h
+i
+W
+"}
+(4,1,1) = {"
+a
+J
+J
+i
+u
+i
+i
+i
+i
+i
+a
+"}
+(5,1,1) = {"
+a
+J
+L
+v
+f
+A
+i
+s
+c
+i
+a
+"}
+(6,1,1) = {"
+a
+J
+D
+D
+f
+t
+i
+X
+C
+i
+a
+"}
+(7,1,1) = {"
+a
+J
+z
+N
+T
+f
+U
+H
+x
+i
+a
+"}
+(8,1,1) = {"
+a
+J
+J
+i
+i
+i
+i
+i
+i
+i
+a
+"}
+(9,1,1) = {"
+a
+a
+a
+a
+W
+a
+a
+a
+W
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+W
+W
+W
+W
+W
+W
+W
+a
+"}

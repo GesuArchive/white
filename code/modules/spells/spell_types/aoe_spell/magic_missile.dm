@@ -1,6 +1,6 @@
 /datum/action/cooldown/spell/aoe/magic_missile
-	name = "Magic Missile"
-	desc = "This spell fires several, slow moving, magic projectiles at nearby targets."
+	name = "Магические снаряды"
+	desc = "Заклинание выпускает несколько медленно движущихся магических снарядов по рядом стоящим целям."
 	button_icon_state = "magicm"
 	sound = 'sound/magic/magic_missile.ogg'
 
@@ -32,20 +32,17 @@
 /datum/action/cooldown/spell/aoe/magic_missile/proc/fire_projectile(atom/victim, mob/caster)
 	var/obj/projectile/to_fire = new projectile_type()
 	to_fire.preparePixelProjectile(victim, caster)
-	SEND_SIGNAL(caster, COMSIG_MOB_SPELL_PROJECTILE, src, victim, to_fire)
 	to_fire.fire()
 
 /datum/action/cooldown/spell/aoe/magic_missile/lesser
-	name = "Lesser Magic Missile"
-	desc = "This spell fires several, slow moving, magic projectiles at nearby targets."
+	name = "Ослабленные магические снаряды"
+	desc = "Заклинание выпускает несколько медленно движущихся магических снарядов по рядом стоящим целям."
 	background_icon_state = "bg_demon"
 	overlay_icon_state = "bg_demon_border"
-
 
 	cooldown_time = 40 SECONDS
 	invocation_type = INVOCATION_NONE
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 
 	max_targets = 6
-	shuffle_targets_list = TRUE
 	projectile_type = /obj/projectile/magic/aoe/magic_missile/lesser

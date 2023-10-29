@@ -1,7 +1,7 @@
 /datum/computer_file/program/records
 	filename = "ntrecords"
-	filedesc = "Records"
-	extended_desc = "Allows the user to view several basic records from the crew."
+	filedesc = "Записи"
+	extended_desc = "Позволяет пользователю просмотреть записи экипажа."
 	category = PROGRAM_CATEGORY_MISC
 	program_icon = "clipboard"
 	program_icon_state = "crew"
@@ -14,18 +14,19 @@
 	var/mode
 
 /datum/computer_file/program/records/medical
-	filedesc = "Medical Records"
+	filedesc = "Медицинские записи"
 	filename = "medrecords"
 	program_icon = "book-medical"
-	extended_desc = "Allows the user to view several basic medical records from the crew."
+	category = PROGRAM_CATEGORY_MED
+	extended_desc = "Позволяет пользователю просмотреть медицинские записи экипажа. Будем честны - вы не знали, что их нужно вести."
 	transfer_access = list(ACCESS_MEDICAL, ACCESS_FLAG_COMMAND)
 	available_on_ntnet = TRUE
 	mode = "medical"
 
 /datum/computer_file/program/records/security
-	filedesc = "Security Records"
+	filedesc = "Записи СБ"
 	filename = "secrecords"
-	extended_desc = "Allows the user to view several basic security records from the crew."
+	extended_desc = "Позволяет пользователю просмотреть записи СБ."
 	transfer_access = list(ACCESS_SECURITY, ACCESS_FLAG_COMMAND)
 	available_on_ntnet = TRUE
 	mode = "security"
@@ -35,37 +36,41 @@
 
 	switch(mode)
 		if("security")
-			for(var/datum/record/crew/person in GLOB.manifest.general)
+			for(var/datum/data/record/person in GLOB.data_core.general)
+				var/datum/data/record/security_person = find_record("id", person.fields["id"], GLOB.data_core.security)
 				var/list/current_record = list()
 
-				current_record["age"] = person.age
-				current_record["fingerprint"] = person.fingerprint
-				current_record["gender"] = person.gender
-				current_record["name"] = person.name
-				current_record["rank"] = person.rank
-				current_record["species"] = person.species
-				current_record["wanted"] = person.wanted_status
-				current_record["voice"] = person.voice
+				if(security_person)
+					current_record["wanted"] = security_person.fields["criminal"]
+
+				current_record["id"] = person.fields["id"]
+				current_record["name"] = person.fields["name"]
+				current_record["rank"] = person.fields["rank"]
+				current_record["gender"] = person.fields["gender"]
+				current_record["age"] = person.fields["age"]
+				current_record["species"] = person.fields["species"]
+				current_record["fingerprint"] = person.fields["fingerprint"]
 
 				all_records += list(current_record)
 		if("medical")
-			for(var/datum/record/crew/person in GLOB.manifest.general)
+			for(var/datum/data/record/person in GLOB.data_core.medical)
 				var/list/current_record = list()
 
-				current_record["bloodtype"] = person.blood_type
-				current_record["ma_dis"] = person.major_disabilities_desc
-				current_record["mi_dis"] = person.minor_disabilities_desc
-				current_record["physical_status"] = person.physical_status
-				current_record["mental_status"] = person.mental_status
-				current_record["name"] = person.name
-				current_record["notes"] = person.medical_notes
+				current_record["name"] = person.fields["name"]
+				current_record["bloodtype"] = person.fields["blood_type"]
+				current_record["mi_dis"] = person.fields["mi_dis"]
+				current_record["ma_dis"] = person.fields["ma_dis"]
+				current_record["notes"] = person.fields["notes"]
+				current_record["cnotes"] = person.fields["notes_d"]
 
 				all_records += list(current_record)
 
 	return all_records
 
-/datum/computer_file/program/records/ui_static_data(mob/user)
-	var/list/data = list()
+
+
+/datum/computer_file/program/records/ui_data(mob/user)
+	var/list/data = get_header_data()
 	data["records"] = GetRecordsReadable()
 	data["mode"] = mode
 	return data

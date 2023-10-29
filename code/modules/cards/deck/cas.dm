@@ -30,6 +30,9 @@ GLOBAL_LIST_INIT(card_decks, list(
 	. = ..()
 	var/list/cards_against_space = GLOB.card_decks[deckstyle]
 	var/list/possible_cards = cards_against_space.Copy()
+	var/list/random_cards = list()
 
 	for(var/i in 1 to decksize)
-		initial_cards += pick_n_take(possible_cards)
+		random_cards += pick_n_take(possible_cards)
+	for(var/card in random_cards)
+		cards += new /obj/item/toy/singlecard(src, card, src)

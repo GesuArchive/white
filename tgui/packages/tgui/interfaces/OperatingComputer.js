@@ -4,19 +4,19 @@ import { Window } from '../layouts';
 
 const damageTypes = [
   {
-    label: 'Brute',
+    label: 'Физический',
     type: 'bruteLoss',
   },
   {
-    label: 'Burn',
+    label: 'Ожоги',
     type: 'fireLoss',
   },
   {
-    label: 'Toxin',
+    label: 'Токсины',
     type: 'toxLoss',
   },
   {
-    label: 'Respiratory',
+    label: 'Кислород',
     type: 'oxyLoss',
   },
 ];
@@ -24,19 +24,18 @@ const damageTypes = [
 export const OperatingComputer = (props, context) => {
   const { act } = useBackend(context);
   const [tab, setTab] = useSharedState(context, 'tab', 1);
-
   return (
     <Window width={350} height={470}>
       <Window.Content scrollable>
         <Tabs>
           <Tabs.Tab selected={tab === 1} onClick={() => setTab(1)}>
-            Patient State
+            Пациент
           </Tabs.Tab>
           <Tabs.Tab selected={tab === 2} onClick={() => setTab(2)}>
-            Surgery Procedures
+            Процедуры
           </Tabs.Tab>
           <Tabs.Tab onClick={() => act('open_experiments')}>
-            Experiments
+            Эксперименты
           </Tabs.Tab>
         </Tabs>
         {tab === 1 && <PatientStateView />}
@@ -54,16 +53,16 @@ const PatientStateView = (props, context) => {
   }
   return (
     <>
-      <Section title="Patient State">
-        {Object.keys(patient).length ? (
+      <Section title="Статус пациента">
+        {(!!patient?.statstate && (
           <LabeledList>
-            <LabeledList.Item label="State" color={patient.statstate}>
+            <LabeledList.Item label="Состояние" color={patient.statstate}>
               {patient.stat}
             </LabeledList.Item>
-            <LabeledList.Item label="Blood Type">
-              {patient.blood_type || 'Unable to determine blood type'}
+            <LabeledList.Item label="Тип крови">
+              {patient.blood_type}
             </LabeledList.Item>
-            <LabeledList.Item label="Health">
+            <LabeledList.Item label="Здоровье">
               <ProgressBar
                 value={patient.health}
                 minValue={patient.minHealth}
@@ -82,34 +81,29 @@ const PatientStateView = (props, context) => {
               </LabeledList.Item>
             ))}
           </LabeledList>
-        ) : (
-          'No Patient Detected'
-        )}
+        )) ||
+          'Не обнаружено пациента'}
       </Section>
-      {procedures.length === 0 && <Section>No Active Procedures</Section>}
+      {procedures.length === 0 && <Section>Нет активных операций</Section>}
       {procedures.map((procedure) => (
         <Section key={procedure.name} title={procedure.name}>
           <LabeledList>
-            <LabeledList.Item label="Next Step">
+            <LabeledList.Item label="Следующий шаг">
               {procedure.next_step}
               {procedure.chems_needed && (
                 <>
-                  <br />
-                  <br />
-                  <b>Required Chemicals:</b>
+                  <b>Требуются химикаты:</b>
                   <br />
                   {procedure.chems_needed}
                 </>
               )}
             </LabeledList.Item>
-            {procedure.alternative_step && (
-              <LabeledList.Item label="Alternative Step">
+            {!!data.alternative_step && (
+              <LabeledList.Item label="Альт">
                 {procedure.alternative_step}
                 {procedure.alt_chems_needed && (
                   <>
-                    <br />
-                    <br />
-                    <b>Required Chemicals:</b>
+                    <b>Требуются химикаты:</b>
                     <br />
                     {procedure.alt_chems_needed}
                   </>
@@ -127,10 +121,10 @@ const SurgeryProceduresView = (props, context) => {
   const { act, data } = useBackend(context);
   const { surgeries = [] } = data;
   return (
-    <Section title="Advanced Surgery Procedures">
+    <Section title="Продвинутые хирургические процедуры">
       <Button
         icon="download"
-        content="Sync Research Database"
+        content="Синхронизировать"
         onClick={() => act('sync')}
       />
       {surgeries.map((surgery) => (

@@ -1,160 +1,157 @@
 /obj/item/ammo_box/a357
-	name = "speed loader (.357)"
-	desc = "Designed to quickly reload revolvers."
+	name = "скорозарядник .357 калибра"
+	desc = "Предназначен для быстрой перезарядки крупнокалиберных револьверов. Содержит в себе обычные патроны .357 калибра."
 	icon_state = "357"
 	ammo_type = /obj/item/ammo_casing/a357
 	max_ammo = 7
-	caliber = CALIBER_357
 	multiple_sprites = AMMO_BOX_PER_BULLET
 	item_flags = NO_MAT_REDEMPTION
-	ammo_band_icon = "+357_ammo_band"
-	ammo_band_color = null
 
 /obj/item/ammo_box/a357/match
-	name = "speed loader (.357 Match)"
-	desc = "Designed to quickly reload revolvers. These rounds are manufactured within extremely tight tolerances, making them easy to show off trickshots with."
+	name = "скорозарядник .357 калибра: Самонаводящиеся"
+	desc = "Предназначен для быстрой перезарядки крупнокалиберных револьверов. Высококачественный патрон, пуля из которого с высокой вероятностью рикошетит и доводится на противника."
 	ammo_type = /obj/item/ammo_casing/a357/match
-	ammo_band_color = "#77828a"
-
-/obj/item/ammo_box/a357/phasic
-	name = "speed loader (.357 Phasic)"
-	desc = "Designed to quickly reload revolvers. Holds phasic ammo, also known as 'Ghost Lead', allowing it to pass through non-organic material."
-	ammo_type = /obj/item/ammo_casing/a357/phasic
-	ammo_band_color = "#693a6a"
-
-/obj/item/ammo_box/a357/heartseeker
-	name = "speed loader (.357 Heartseeker)"
-	desc = "Designed to quickly reload revolvers. Holds heartseeker ammo, which veers into targets with exceptional precision using \
-		an unknown method. It apparently predicts movement using neural pulses in the brain, but that's less marketable. \
-		As seen in the hit NTFlik horror-space western film, Forget-Me-Not! Brought to you by Roseus Galactic!"
-	ammo_type = /obj/item/ammo_casing/a357/heartseeker
-	ammo_band_color = "#a91e1e"
 
 /obj/item/ammo_box/c38
-	name = "speed loader (.38)"
-	desc = "Designed to quickly reload revolvers."
+	name = "скорозарядник .38 калибра"
+	desc = "Предназначен для быстрой перезарядки старомодных револьверов. Содержит в себе обычные патроны .38 калибра."
 	icon_state = "38"
 	ammo_type = /obj/item/ammo_casing/c38
 	max_ammo = 6
-	caliber = CALIBER_38
 	multiple_sprites = AMMO_BOX_PER_BULLET
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*10)
-	ammo_band_icon = "+38_ammo_band"
-	ammo_band_color = null
+	custom_materials = list(/datum/material/iron = 20000)
 
 /obj/item/ammo_box/c38/trac
-	name = "speed loader (.38 TRAC)"
-	desc = "Designed to quickly reload revolvers. TRAC bullets embed a tracking implant within the target's body. The implant's signal is incompatible with teleporters."
+	name = "скорозарядник .38 калибра: Следящий"
+	desc = "Предназначен для быстрой перезарядки старомодных револьверов. Содержит в себе следящий микроимплант. Сильно слабее стандартных пуль."
 	ammo_type = /obj/item/ammo_casing/c38/trac
-	ammo_band_color = "#7b6383"
 
 /obj/item/ammo_box/c38/match
-	name = "speed loader (.38 Match)"
-	desc = "Designed to quickly reload revolvers. These rounds are manufactured within extremely tight tolerances, making them easy to show off trickshots with."
+	name = "скорозарядник .38 калибра: Самонаводящиеся"
+	desc = "Предназначен для быстрой перезарядки старомодных револьверов. Высококачественный патрон, пуля из которого с высокой вероятностью рикошетит и доводится на противника."
 	ammo_type = /obj/item/ammo_casing/c38/match
-	ammo_band_color = "#77828a"
 
 /obj/item/ammo_box/c38/match/bouncy
-	name = "speed loader (.38 Rubber)"
-	desc = "Designed to quickly reload revolvers. These rounds are incredibly bouncy and MOSTLY nonlethal, making them great to show off trickshots with."
+	name = "скорозарядник .38 калибра: Травматический"
+	desc = "Предназначен для быстрой перезарядки старомодных револьверов. Высококачественный НЕ ЛЕТАЛЬНЫЙ патрон, пуля из которого с высокой вероятностью рикошетит и доводится на противника."
 	ammo_type = /obj/item/ammo_casing/c38/match/bouncy
-	ammo_band_color = "#556696"
 
 /obj/item/ammo_box/c38/dumdum
-	name = "speed loader (.38 DumDum)"
-	desc = "Designed to quickly reload revolvers. These rounds expand on impact, allowing them to shred the target and cause massive bleeding. Very weak against armor and distant targets."
+	name = "скорозарядник .38 калибра: Экспансивный"
+	desc = "Предназначен для быстрой перезарядки старомодных револьверов. Наносит повышенный урон, однако заметно хуже пробивает броню."
 	ammo_type = /obj/item/ammo_casing/c38/dumdum
-	ammo_band_color = "#969578"
 
 /obj/item/ammo_box/c38/hotshot
-	name = "speed loader (.38 Hot Shot)"
-	desc = "Designed to quickly reload revolvers. Hot Shot bullets contain an incendiary payload."
+	name = "скорозарядник .38 калибра: Зажигательный"
+	desc = "Предназначен для быстрой перезарядки старомодных револьверов. При удачном попадании поджигает цель. Немного слабее стандартных пуль."
 	ammo_type = /obj/item/ammo_casing/c38/hotshot
-	ammo_band_color = "#805a57"
 
 /obj/item/ammo_box/c38/iceblox
-	name = "speed loader (.38 Iceblox)"
-	desc = "Designed to quickly reload revolvers. Iceblox bullets contain a cryogenic payload."
+	name = "скорозарядник .38 калибра: Замораживающий"
+	desc = "Предназначен для быстрой перезарядки старомодных револьверов. При удачном попадании замораживает цель. Немного слабее стандартных пуль."
 	ammo_type = /obj/item/ammo_casing/c38/iceblox
-	ammo_band_color = "#658e94"
 
 /obj/item/ammo_box/c9mm
-	name = "ammo box (9mm)"
+	name = "упаковка 9мм патронов"
+	desc = "Обычные патроны калибра 9мм. Используется в пистолетах и пистолет-пулеметах."
 	icon_state = "9mmbox"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 30
 
+/obj/item/ammo_box/c9mm_traumatic
+	name = "упаковка травматических 9мм патронов"
+	desc = "Боевая пуля в них заменена на резиновую болванку. Практически не наносит урона, однако валит с пары-тройки попаданий."
+	icon_state = "9mmbox"
+	ammo_type = /obj/item/ammo_casing/c9mm/traumatic
+	max_ammo = 30
+
 /obj/item/ammo_box/c10mm
-	name = "ammo box (10mm)"
+	name = "упаковка 10мм патронов"
+	desc = "Обычные патроны калибра 10мм. Используется в пистолетах."
 	icon_state = "10mmbox"
 	ammo_type = /obj/item/ammo_casing/c10mm
-	max_ammo = 20
+	max_ammo = 30
 
 /obj/item/ammo_box/c45
-	name = "ammo box (.45)"
+	name = "упаковка патронов .45 калибра"
+	desc = "Обычные патроны калибра .45мм. Используется в пистолетах и пистолет-пулеметах."
 	icon_state = "45box"
 	ammo_type = /obj/item/ammo_casing/c45
+	max_ammo = 30
+
+/obj/item/ammo_box/a50ae
+	name = "упаковка патронов .50AE калибра"
+	desc = "Обычные патроны калибра 50AE. Используется в пистолете Пустынный Орел."
+	icon_state = "50aebox"
+	ammo_type = /obj/item/ammo_casing/a50ae
 	max_ammo = 20
 
 /obj/item/ammo_box/a40mm
-	name = "ammo box (40mm grenades)"
+	name = "упаковка 40мм гранат"
+	desc = "Боевая фугасная граната, которая может быть активирована только при выстрела из гранатомета."
 	icon_state = "40mm"
 	ammo_type = /obj/item/ammo_casing/a40mm
 	max_ammo = 4
 	multiple_sprites = AMMO_BOX_PER_BULLET
 
-/obj/item/ammo_box/a40mm/rubber
-	name = "ammo box (40mm rubber slug)"
-	ammo_type = /obj/item/ammo_casing/a40mm/rubber
-
-/obj/item/ammo_box/rocket
-	name = "rocket bouquet (84mm HE)"
-	icon_state = "rocketbundle"
-	ammo_type = /obj/item/ammo_casing/rocket
-	max_ammo = 3
-	multiple_sprites = AMMO_BOX_PER_BULLET
-
-/obj/item/ammo_box/rocket/can_load(mob/user)
-	return FALSE
-
-/obj/item/ammo_box/strilka310
-	name = "stripper clip (.310 Strilka)"
-	desc = "A stripper clip."
-	icon_state = "310_strip"
-	ammo_type = /obj/item/ammo_casing/strilka310
+/obj/item/ammo_box/a762
+	name = "скорозарядник калибра 7.62мм"
+	desc = "Вмещает до 5 патронов калибра 7.62мм. Подходит к винтовке Мосина."
+	icon_state = "762"
+	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 5
-	caliber = CALIBER_STRILKA310
 	multiple_sprites = AMMO_BOX_PER_BULLET
 
-/obj/item/ammo_box/strilka310/surplus
-	name = "stripper clip (.310 Surplus)"
-	ammo_type = /obj/item/ammo_casing/strilka310/surplus
+/obj/item/ammo_box/zinc_762
+	name = "цинк патронов калибра 7.62мм"
+	desc = "Вмещает 90 патронов калибра 7.62мм. Подходит к большинству оружия Красной Армии."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "ammobox"
+	inhand_icon_state = "ammobox"
+	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
+	pickup_sound =  'sound/items/handling/ammobox_pickup.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
+	ammo_type = /obj/item/ammo_casing/a762
+	max_ammo = 90
+
+/obj/item/ammo_box/magazine/ak47mag
+	name = "магазин калибра 7.62мм"
+	desc = "Содержит обычные патроны калибра 7.62мм. Подходит к автомату Калашникова."
+	icon = 'white/valtos/icons/ammo.dmi'
+	icon_state = "akm"
+	ammo_type = /obj/item/ammo_casing/a762
+	caliber = "a762"
+	max_ammo = 30
+
+/obj/item/ammo_box/magazine/ak47mag/update_icon()
+	..()
+	icon_state = "akm-[ammo_count() ? "30" : "0"]"
 
 /obj/item/ammo_box/n762
-	name = "ammo box (7.62x38mmR)"
+	name = "упаковка патронов калибра 7.62x38мм-R"
+	desc = "Содержит обычные патроны калибра 7.62x38мм-R. Используется в револьверах системы Нагана."
 	icon_state = "10mmbox"
 	ammo_type = /obj/item/ammo_casing/n762
 	max_ammo = 14
 
 /obj/item/ammo_box/foambox
-	name = "ammo box (Foam Darts)"
-	icon = 'icons/obj/weapons/guns/toy.dmi'
+	name = "упаковка пенчиков"
+	desc = "Детям от восьми лет и старше."
+	icon = 'icons/obj/guns/toy.dmi'
 	icon_state = "foambox"
-	ammo_type = /obj/item/ammo_casing/foam_dart
+	ammo_type = /obj/item/ammo_casing/caseless/foam_dart
 	max_ammo = 40
-	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*5)
-
-/obj/item/ammo_box/foambox/mini
-	icon_state = "foambox_mini"
-	max_ammo = 20
-	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*2.5)
+	custom_materials = list(/datum/material/iron = 500)
 
 /obj/item/ammo_box/foambox/riot
+	name = "упаковка резиновых пенчиков"
+	desc = "Повышенного останавливающего возздействия. Детям от восьми лет и старше."
 	icon_state = "foambox_riot"
-	ammo_type = /obj/item/ammo_casing/foam_dart/riot
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*25)
+	ammo_type = /obj/item/ammo_casing/caseless/foam_dart/riot
+	custom_materials = list(/datum/material/iron = 50000)
 
-/obj/item/ammo_box/foambox/riot/mini
-	icon_state = "foambox_riot_mini"
-	max_ammo = 20
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*12.5)
+/obj/item/ammo_box/n792x57
+	name = "ящик с патронами (7.92x57)"
+	icon_state = "10mmbox"
+	ammo_type = /obj/item/ammo_casing/a792x57
+	max_ammo = 14

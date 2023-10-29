@@ -16,22 +16,14 @@ GLOBAL_LIST_EMPTY(GPS_list)
 	GLOB.GPS_list -= src
 	return ..()
 
-/datum/component/gps/kheiral_cuffs
-
-/datum/component/gps/kheiral_cuffs/Initialize(_gpstag = "COM0")
-	. = ..()
-	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(deactivate_kheiral_cuffs))
-
-/datum/component/gps/kheiral_cuffs/proc/deactivate_kheiral_cuffs(datum/source)
-	SIGNAL_HANDLER
-	qdel(src)
-
 ///GPS component subtype. Only gps/item's can be used to open the UI.
 /datum/component/gps/item
 	var/updating = TRUE //Automatic updating of GPS list. Can be set to manual by user.
 	var/global_mode = TRUE //If disabled, only GPS signals of the same Z level are shown
-	/// UI state of GPS, altering when it can be used.
-	var/datum/ui_state/state = null
+	var/state
+
+/datum/component/gps/item/off
+	tracking = FALSE
 
 /datum/component/gps/item/Initialize(_gpstag = "COM0", emp_proof = FALSE, state = null, overlay_state = "working")
 	. = ..()
@@ -44,12 +36,13 @@ GLOBAL_LIST_EMPTY(GPS_list)
 
 	var/atom/A = parent
 	if(overlay_state)
-		A.add_overlay(overlay_state)
+		if(tracking)
+			A.add_overlay(overlay_state)
 	A.name = "[initial(A.name)] ([gpstag])"
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, PROC_REF(interact))
 	if(!emp_proof)
 		RegisterSignal(parent, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
-	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(parent, COMSIG_CLICK_ALT, PROC_REF(on_AltClick))
 
 ///Called on COMSIG_ITEM_ATTACK_SELF
@@ -59,17 +52,16 @@ GLOBAL_LIST_EMPTY(GPS_list)
 	if(user)
 		INVOKE_ASYNC(src, PROC_REF(ui_interact), user)
 
-///Called on COMSIG_ATOM_EXAMINE
+///Called on COMSIG_PARENT_EXAMINE
 /datum/component/gps/item/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += span_notice("Alt-click to switch it [tracking ? "off":"on"].")
+	examine_list += "<hr><span class='notice'>ПКМ to switch it [tracking ? "off":"on"].</span>"
 
 ///Called on COMSIG_ATOM_EMP_ACT
-/datum/component/gps/item/proc/on_emp_act(datum/source, severity, protection)
+/datum/component/gps/item/proc/on_emp_act(datum/source, severity)
 	SIGNAL_HANDLER
-	if(protection & EMP_PROTECT_SELF)
-		return
+
 	emped = TRUE
 	var/atom/A = parent
 	A.cut_overlay("working")
@@ -92,7 +84,7 @@ GLOBAL_LIST_EMPTY(GPS_list)
 
 ///Toggles the tracking for the gps
 /datum/component/gps/item/proc/toggletracking(mob/user)
-	if(!user.can_perform_action(parent))
+	if(!user.canUseTopic(parent, BE_CLOSE))
 		return //user not valid to use gps
 	if(emped)
 		to_chat(user, span_warning("It's busted!"))
@@ -161,15 +153,15 @@ GLOBAL_LIST_EMPTY(GPS_list)
 	switch(action)
 		if("rename")
 			var/atom/parentasatom = parent
-			var/a = tgui_input_text(usr, "Enter the desired tag", "GPS Tag", gpstag, 20)
+			var/a = stripped_input(usr, "Please enter desired tag.", parentasatom.name, gpstag, 20)
 
 			if (!a)
 				return
 
 			gpstag = a
 			. = TRUE
-			usr.log_message("renamed [parentasatom] to \"[initial(parentasatom.name)] ([gpstag])\".", LOG_GAME)
-			parentasatom.name = "[initial(parentasatom.name)] ([gpstag])"
+			log_game("[key_name(usr)] renamed [parentasatom] to \"global positioning system ([gpstag])\".")
+			parentasatom.name = "global positioning system ([gpstag])"
 
 		if("power")
 			toggletracking(usr)

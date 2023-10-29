@@ -6,7 +6,7 @@
 
 import { classes } from 'common/react';
 import { useDispatch } from 'common/redux';
-import { decodeHtmlEntities, toTitleCase } from 'common/string';
+import { capitalize, decodeHtmlEntities, toTitleCase } from 'common/string';
 import { Component } from 'inferno';
 import { backendSuspendStart, useBackend } from '../backend';
 import { Icon } from '../components';
@@ -36,11 +36,9 @@ export class Window extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // prettier-ignore
-    const shouldUpdateGeometry = (
-      this.props.width !== prevProps.width
-      || this.props.height !== prevProps.height
-    );
+    const shouldUpdateGeometry =
+      this.props.width !== prevProps.width ||
+      this.props.height !== prevProps.height;
     if (shouldUpdateGeometry) {
       this.updateGeometry();
     }
@@ -68,12 +66,11 @@ export class Window extends Component {
     const dispatch = useDispatch(this.context);
     const fancy = config.window?.fancy;
     // Determine when to show dimmer
-    // prettier-ignore
-    const showDimmer = config.user && (
-      config.user.observer
+    const showDimmer =
+      config.user &&
+      (config.user.observer
         ? config.status < UI_DISABLED
-        : config.status < UI_INTERACTIVE
-    );
+        : config.status < UI_INTERACTIVE);
     return (
       <Layout className="Window" theme={theme}>
         <TitleBar
@@ -86,9 +83,8 @@ export class Window extends Component {
             logger.log('pressed close');
             dispatch(backendSuspendStart());
           }}
-          canClose={canClose}>
-          {buttons}
-        </TitleBar>
+          canClose={canClose}
+        />
         <div
           className={classes(['Window__rest', debugLayout && 'debug-layout'])}>
           {!suspended && children}
@@ -154,13 +150,6 @@ const TitleBar = (props, context) => {
     children,
   } = props;
   const dispatch = useDispatch(context);
-  // prettier-ignore
-  const finalTitle = (
-    typeof title === 'string'
-    && title === title.toLowerCase()
-    && toTitleCase(title)
-    || title
-  );
   return (
     <div className={classes(['TitleBar', className])}>
       {(status === undefined && (
@@ -177,7 +166,10 @@ const TitleBar = (props, context) => {
         onMousedown={(e) => fancy && onDragStart(e)}
       />
       <div className="TitleBar__title">
-        {finalTitle}
+        {(typeof title === 'string' &&
+          title === title.toLowerCase() &&
+          capitalize(toTitleCase(title))) ||
+          title}
         {!!children && <div className="TitleBar__buttons">{children}</div>}
       </div>
       {process.env.NODE_ENV !== 'production' && (

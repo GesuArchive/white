@@ -1,10 +1,5 @@
 #define RESTART_COUNTER_PATH "data/round_counter.txt"
 
-/// Force the log directory to be something specific in the data/logs folder
-#define OVERRIDE_LOG_DIRECTORY_PARAMETER "log-directory"
-/// Prevent the master controller from starting automatically
-#define NO_INIT_PARAMETER "no-init"
-
 GLOBAL_VAR(restart_counter)
 
 /**
@@ -26,9 +21,6 @@ GLOBAL_VAR(restart_counter)
  * - (all pre-mapped atoms) /atom/New()
  * - world.New() =>
  *   - config.Load()
- *   - world.InitTgs() =>
- *     - TgsNew() *may sleep
- *     - GLOB.rev_data.load_tgs_info()
  *   - world.ConfigLoaded() =>
  *     - SSdbcore.InitializeRound()
  *     - world.SetupLogs()
@@ -47,15 +39,10 @@ GLOBAL_VAR(restart_counter)
  *
  * GOT IT MEMORIZED?
  * - Dominion/Cyberboss
- *
- * Where to put init shit quick guide:
- * If you need it to happen before the mc is created: world/Genesis.
- * If you need it to happen last: world/New(),
- * Otherwise, in a subsystem preinit or init. Subsystems can set an init priority.
  */
 
 /**
- * THIS !!!SINGLE!!! PROC IS WHERE ANY FORM OF INIITIALIZATION THAT CAN'T BE PERFORMED IN SUBSYSTEMS OR WORLD/NEW IS DONE
+ * THIS !!!SINGLE!!! PROC IS WHERE ANY FORM OF INIITIALIZATION THAT CAN'T BE PERFORMED IN MASTER/NEW() IS DONE
  * NOWHERE THE FUCK ELSE
  * I DON'T CARE HOW MANY LAYERS OF DEBUG/PROFILE/TRACE WE HAVE, YOU JUST HAVE TO DEAL WITH THIS PROC EXISTING
  * I'M NOT EVEN GOING TO TELL YOU WHERE IT'S CALLED FROM BECAUSE I'M DECLARING THAT FORBIDDEN KNOWLEDGE
@@ -81,9 +68,6 @@ GLOBAL_VAR(restart_counter)
 	// Init the debugger first so we can debug Master
 	init_debugger()
 
-	// Create the logger
-	logger = new
-
 	// THAT'S IT, WE'RE DONE, THE. FUCKING. END.
 	Master = new
 
@@ -103,17 +87,21 @@ GLOBAL_VAR(restart_counter)
  * For clarity, this proc gets triggered later in the initialization pipeline, it is not the first thing to happen, as it might seem.
  *
  * Initialization Pipeline:
- * Global vars are new()'ed, (including config, glob, and the master controller will also new and preinit all subsystems when it gets new()ed)
- * Compiled in maps are loaded (mainly centcom). all areas/turfs/objs/mobs(ATOMs) in these maps will be new()ed
- * world/New() (You are here)
- * Once world/New() returns, client's can connect.
- * 1 second sleep
- * Master Controller initialization.
- * Subsystem initialization.
- * Non-compiled-in maps are maploaded, all atoms are new()ed
- * All atoms in both compiled and uncompiled maps are initialized()
+ *		Global vars are new()'ed, (including config, glob, and the master controller will also new and preinit all subsystems when it gets new()ed)
+ *		Compiled in maps are loaded (mainly centcom). all areas/turfs/objs/mobs(ATOMs) in these maps will be new()ed
+ *		world/New() (You are here)
+ *		Once world/New() returns, client's can connect.
+ *		1 second sleep
+ *		Master Controller initialization.
+ *		Subsystem initialization.
+ *			Non-compiled-in maps are maploaded, all atoms are new()ed
+ *			All atoms in both compiled and uncompiled maps are initialized()
  */
 /world/New()
+
+	if(cs_setup_threads())
+		log_world("CS active!")
+
 	log_world("World loaded at [time_stamp()]!")
 
 	// From a really fucking old commit (91d7150)
@@ -122,7 +110,6 @@ GLOBAL_VAR(restart_counter)
 	GLOB.timezoneOffset = text2num(time2text(0,"hh")) * 36000
 
 	// First possible sleep()
-	InitTgs()
 
 	config.Load(params[OVERRIDE_CONFIG_DIRECTORY_PARAMETER])
 
@@ -135,11 +122,6 @@ GLOBAL_VAR(restart_counter)
 
 	RunUnattendedFunctions()
 
-/// Initializes TGS and loads the returned revising info into GLOB.revdata
-/world/proc/InitTgs()
-	TgsNew(new /datum/tgs_event_handler/impl, TGS_SECURITY_TRUSTED)
-	GLOB.revdata.load_tgs_info()
-
 /// Runs after config is loaded but before Master is initialized
 /world/proc/ConfigLoaded()
 	// Everything in here is prioritized in a very specific way.
@@ -151,9 +133,17 @@ GLOBAL_VAR(restart_counter)
 
 	SetupLogs()
 
+	populate_gear_list()
+
 	load_admins()
 
 	load_poll_data()
+
+	load_whitelist()
+
+	load_whitelist_exrp()
+
+	load_whitelist_soup()
 
 	LoadVerbs(/datum/verbs/menu)
 
@@ -163,6 +153,7 @@ GLOBAL_VAR(restart_counter)
 
 /// Runs after the call to Master.Initialize, but before the delay kicks in. Used to turn the world execution into some single function then exit
 /world/proc/RunUnattendedFunctions()
+
 	#ifdef UNIT_TESTS
 	HandleTestRun()
 	#endif
@@ -180,18 +171,10 @@ GLOBAL_VAR(restart_counter)
 #ifdef UNIT_TESTS
 	cb = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(RunUnitTests))
 #else
-	cb = VARSET_CALLBACK(SSticker, force_ending, ADMIN_FORCE_END_ROUND)
+	cb = VARSET_CALLBACK(SSticker, force_ending, TRUE)
 #endif
 	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), cb, 10 SECONDS))
 
-/// Returns a list of data about the world state, don't clutter
-/world/proc/get_world_state_for_logging()
-	var/data = list()
-	data["tick_usage"] = world.tick_usage
-	data["tick_lag"] = world.tick_lag
-	data["time"] = world.time
-	data["timestamp"] = logger.unix_timestamp_string()
-	return data
 
 /world/proc/SetupLogs()
 	var/override_dir = params[OVERRIDE_LOG_DIRECTORY_PARAMETER]
@@ -215,29 +198,21 @@ GLOBAL_VAR(restart_counter)
 		GLOB.picture_logging_prefix = "O_[override_dir]_"
 		GLOB.picture_log_directory = "data/picture_logs/[override_dir]"
 
-	logger.init_logging()
+	GLOB.logger.init_logging()
 
-	var/latest_changelog = file("[global.config.directory]/../html/changelogs/archive/" + time2text(world.timeofday, "YYYY-MM") + ".yml")
-	GLOB.changelog_hash = fexists(latest_changelog) ? md5(latest_changelog) : 0 //for telling if the changelog has changed recently
+	GLOB.changelog_hash = md5(file2text("data/changelog.json")) //for telling if the changelog has changed recently
+	if(fexists(GLOB.config_error_log))
+		fcopy(GLOB.config_error_log, "[GLOB.log_directory]/config_error.log")
+		fdel(GLOB.config_error_log)
 
 	if(GLOB.round_id)
 		log_game("Round ID: [GLOB.round_id]")
 
-	// This was printed early in startup to the world log and config_error.log,
-	// but those are both private, so let's put the commit info in the runtime
-	// log which is ultimately public.
-	log_runtime(GLOB.revdata.get_log_message())
-
 #ifndef USE_CUSTOM_ERROR_HANDLER
 	world.log = file("[GLOB.log_directory]/dd.log")
-#else
-	if (TgsAvailable()) // why
-		world.log = file("[GLOB.log_directory]/dd.log") //not all runtimes trigger world/Error, so this is the only way to ensure we can see all of them.
 #endif
 
 /world/Topic(T, addr, master, key)
-	TGS_TOPIC //redirect to server tools if necessary
-
 	var/static/list/topic_handlers = TopicHandlers()
 
 	var/list/input = params2list(T)
@@ -257,13 +232,13 @@ GLOBAL_VAR(restart_counter)
 	return handler.TryRun(input)
 
 /world/proc/AnnouncePR(announcement, list/payload)
-	var/static/list/PRcounts = list() //PR id -> number of times announced this round
+	var/static/list/PRcounts = list()	//PR id -> number of times announced this round
 	var/id = "[payload["pull_request"]["id"]]"
 	if(!PRcounts[id])
 		PRcounts[id] = 1
 	else
 		++PRcounts[id]
-		if(PRcounts[id] > CONFIG_GET(number/pr_announcements_per_round))
+		if(PRcounts[id] > PR_ANNOUNCEMENTS_PER_ROUND)
 			return
 
 	var/final_composed = span_announce("PR: [announcement]")
@@ -288,106 +263,103 @@ GLOBAL_VAR(restart_counter)
 		text2file("Success!", "[GLOB.log_directory]/clean_run.lk")
 	else
 		log_world("Test run failed!\n[fail_reasons.Join("\n")]")
-	sleep(0) //yes, 0, this'll let Reboot finish and prevent byond memes
-	qdel(src) //shut it down
+	sleep(0)	//yes, 0, this'll let Reboot finish and prevent byond memes
+	qdel(src)	//shut it down
 
 /world/Reboot(reason = 0, fast_track = FALSE)
+	var/rid = GLOB.round_id
 	if (reason || fast_track) //special reboot, do none of the normal stuff
 		if (usr)
 			log_admin("[key_name(usr)] Has requested an immediate world restart via client side debugging tools")
 			message_admins("[key_name_admin(usr)] Has requested an immediate world restart via client side debugging tools")
-		to_chat(world, span_boldannounce("Rebooting World immediately due to host request."))
+		to_chat(world, span_boldannounce("Немедленная перезагрузка по требованию сервера."))
 	else
-		to_chat(world, span_boldannounce("Rebooting world..."))
-		Master.Shutdown() //run SS shutdowns
+		to_chat(world, span_boldannounce("Конец!"))
+		Master.Shutdown()	//run SS shutdowns
 
 	#ifdef UNIT_TESTS
 	FinishTestRun()
 	return
-	#else
-	if(TgsAvailable())
-		var/do_hard_reboot
-		// check the hard reboot counter
-		var/ruhr = CONFIG_GET(number/rounds_until_hard_restart)
-		switch(ruhr)
-			if(-1)
-				do_hard_reboot = FALSE
-			if(0)
-				do_hard_reboot = TRUE
-			else
-				if(GLOB.restart_counter >= ruhr)
-					do_hard_reboot = TRUE
-				else
-					text2file("[++GLOB.restart_counter]", RESTART_COUNTER_PATH)
-					do_hard_reboot = FALSE
-
-		if(do_hard_reboot)
-			log_world("World hard rebooted at [time_stamp()]")
-			shutdown_logging() // See comment below.
-			auxcleanup()
-			TgsEndProcess()
-			return ..()
+	#endif
 
 	log_world("World rebooted at [time_stamp()]")
 
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
-	auxcleanup()
-
-	TgsReboot() // TGS can decide to kill us right here, so it's important to do it last
-
+	if(CONFIG_GET(flag/this_shit_is_stable))
+		shelleo("curl -X POST http://localhost:3636/hard-reboot-white/[rid]")
+	AUXTOOLS_FULL_SHUTDOWN(AUXLUA)
 	..()
-	#endif
 
-/world/proc/auxcleanup()
+/world/Del()
+	shutdown_logging() // makes sure the thread is closed before end, else we terminate
 	AUXTOOLS_FULL_SHUTDOWN(AUXLUA)
 	var/debug_server = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
 	if (debug_server)
 		LIBCALL(debug_server, "auxtools_shutdown")()
+	..()
 
-/world/Del()
-	auxcleanup()
-	. = ..()
+/*
+:::y+-+oooossoosssysoshyssyo/+``````````+y..++hhhhhdoyhyoosydddodh+/+//.:o//+ddh++oooossyhmdhmmdhsydmmmddmmmNmymmmmmmmmm
+::yo-+osoosoooosyysoysyoos+:o.``````````+o``++yyhhhmyhdhhddddddydy+s+/:.-///+ddh+++++++++ohdhmhsooosdmmyymmmNmshmmmmmmmm
+:ys./osossoooosyysos:oooss-+:```````````s/``++yyhhhmhyhhhhdddhdhdhyho+/-:s//ohdy++++++++++ohymsooooosddsymmmNmsymdmmmmmm
+yh.:osoosoooooyysoo:.yosy--o````````````s:``/+ysyhhdhyhhhhddhddhdhhdh+/-:s/+shdh+++++++++++sydsoooossyyssmmmNmssdhyhdmmm
+d/-+soosooooohysoo-`+sss+`/:````````````o:``:+ysyyyddshhhyhhhhhhdhhhhy/-/y+oyddh+++++++++++oydsoooosssyssmdmNdssyyyyyhhh
+o`/ssossooooyysos-``yoso.`o.````````````+:``.+yyssyhmsyhhyhhhhhhdhhhdhs:/dyhhddho+++++++osssydyoooossyysyddmNhssyyyyyyyh
+.-osooy++o+shsoo-``.yso+:-s:---..```````:/```+hsysssdyoyysyhhhhhdhhhhhh//hdhhddddhsooosydmhshmhoosssymysymdmNyssyyyyyyyh
+`/sooyo++oohyoo-```.s+o:--+/-:://++/-.``.s```:hsysssyyossysyyyyyhhhhhhho+sdhhdddddddhhddmmdhdmdossssdmyshmdmNssshyyyyyhh
+-osooyo+ooyhso:`````::-```.-``````.-/+/.`s-``.hyysoossyosyssssyyhyhhhhho+odyydddddddddddmmhmmmdssssdmmhsdmdmdsshdyyyyyyh
+/soossoooshyo+```````-````````````````-+.:+```/hsyooososossosssyyyyyyyhs+oyhyhddddddddddddhmdmmysshmmmdymmdNhshmhhdmdhhd
++sooyoooohhys.```````````````````````````.+-``.+sys+os/sooyoosssyhyyyyhy+++hyhddmdddddddddhmdmmdyhmmmmddmmdNyymmmmNNNNNN
+ssoohoooyhdh+``````````.....-::-.`````````./.``-sos++os:sosyooooshsssyyys//sysyhddhhddddddhmdmmmdmmmdmmmmdmmymNmmNNNNNNN
+ssooho+ohhdhhhso++//-.`````````...`````````./.``:s++++s/-ssssoooohsssssyos//yssyhmhhhhhhhdhddmdddmmmdmdmddmmmmmmmNNNNNNN
+soooy++shdNMMMMMMMMMMNmho:.`````````````````...``:oo+++s--ssssooosyssssyoy+/+hssydhyyyhhhhhhmmdddddmddddddNmmmNNNNNNNNNN
+ooooh++ydy/oNs----:/oNMMMMMdo-````````````````.``.:oo/++o--+ssossoysssssy/y//sysyhmyyyhhhhhhmmhhddddhddddmmmmmmmNNNNNNNN
+ooooho+hho:`.s.     :NNmNNMMMMdo-`````````````````.-+s/++o-./sso+osyssssy++s//sysymhyyyyyyhyNdhhhhhdhddddNmmmmmmmNNNNNNN
+ooosho+hs/-```.`   `-yhhhhdmNNMMd+-`````````````````.:o::+s/.-oso/osyossososs++yyshmhyyyyyyyNdhhhhhdhdddmNdmmmmmmNNNNNNm
+oooshs+h+:-````````shhhhyhhmdhdNMN+-`````````````````..::.-/+-.:oo/+sssssoo:+ysshyyddyyyyyyymmhhhhhdhdddNddmmmmmmmNNNNNd
+oooshhoy/.-`````````.-:+oydNdhyhdNNs`````````````````````.``.--.-:/+/+ssooo+:+s+osyydhyyyyyydmhyhhhhhhdmmdddmmmmmmmmmmNy
+oooshdys/````````````````.-/+syhhmNd/``````````````````````````....---:/ossoo//o//syydhyyyyyhNdyhhhhhhmNdddddmmmmmmmmmds
+sooshdhs+.``.````...``````````.-+y:..``````````````````````````````.---::+osso++s++syddhyyyyymmyyhdyhdNdhhddddmmmmmmmmyo
+dooohmsoo-.....---........`````````````````````````````````````````````````.-+oo+oo+ohddhyyyymmhyhdhdNdyhhdddddmmmmmmdso
+dyoohNo/o/.........---....`````````````````````````````````..----....`````````.::-:+oohmdhyyyhNdyhhhmmyhhhdddddmmmmmmsos
+ydsohm:.-::........```....--.``````````````````````````.:+sdmmmmmmmmdhyo/-.``````..`-ooshddysymmhdhmNyyhhhddddddmmmmhooh
+sydosm.`....```.....--....`````.``````````````````````.-///:::::::/oNMMMMMmds/-```````-+oyddyshmdddNhshhhhhdddddmmmdsosm
+syyhsy/``````.---...```....----..````   `````````````````````     ``smdmmNNMMMNds:.`````.odhdhydmmmdsyhhhhhdddddmmmyoodm
+yssyhsy.```````````````.....````.--`    ````````````````````````..yhhhhhhhdmmNMMMMNy/````./hhhhhNmmsyyyhhhhdddddmmdooymm
+sssyhoyo.```````````````````````.``````````````````````````````````.:+shhhmNdhhmNMMMMms-```.yhhmmmssyyyhhhhhhdddddsoodmm
+sssho./os/.````````````````````````````````````````````````````````````-:odmhyyhdmNMMMMMdo-``+dmmssyyyyhhhhhhddddyoohmmN
+sssm:`.-:/+/:-.````````````````````````````````````````````````````````````-/syhhdNm/sNMMMmo:`dNyssyyyyyhhhhhdddhoosmmNm
+sssm.`````````````````````````````````````````````````````````````````````````.:smh. `:mMMMy::mysssyyyyyhhhhddddo+odmmmd
+sssm```````````````````````````````````````ХУЙ``````````...-------.````````.`````.```.:osssymdhssssyyyyyykahdddsoohmmNmh
+sssm` `````````````````````````````````````````````````````````........----.```````````````/syssssyyyyyyhhhhdds+osdmNmdm
+sssm. ``````````````:.`````````````````````````````````````----................-.`````````+sssssssyyyyyhhhhddy++odmNmdyy
+sssd/ ``````````````.:-```````````````````````````````````````.......----.......```..````+ssssssssyyyyhhhhhdho+ohdmNmhoo
+sssyy`````````````````....``````````````````````````````````..-.......`........---...``-ssssssssssyyyyhhhhhho++ydmNmdydd
+syysyo````````````````````...``````````````````````````````````````````.......````````:o+ossssssyyyyyhhhhhho++yddmdmhsyd
+yyyysh+ ``````````````````````````.`````````````````````````````````````````.....----+++oosssssyyyyyhhhhhho++sddmdddo+hy
+yyysssh/ ``````````````````````````.....````````````````````````````````````....``.+++oooosssyysyyhhhhhhho++oddmdhdy+ohs
+yssssssh+` ``````````````````````````````.........```````.-`````````````````````-os++oooosssyssyhdhyyhhhs//ohdmmhdyo/oyo
+ysssssssho``````````````````````````````````````.....----.````````````````````:sy+/ooooossyssshdhyyyhhho//+hdmmdhyy++o+y
+yysssssysys````````````````````````````````````````````````````````````````-+yyo+ooooosyyssyhddyyyyyhho//+hhmmdyy+soosdN
+yysssyysssyy. `````````````````````````````````````````````````````````.:oyhso+oooosyhyyyhddhyssyyyhho//+hhmmdyhoyoydNNm
+yyyhhysssssyh-``````````````````````````````````````````````:..--::/+shhyysooooosyhdhhhhdhyysssyyyyyo//+yhmddhyyoyNNNNmy
+hyso+oyhyssssh:`````````````````````````````````````````````.:+osyyyyyssssssyhhhyshdhhhyyssysyyyyyyo//+hhmyhhyhdhmNNNNdo
+++++ooosyhysssy+````````````````````````````````````````````````.-://+++++/////:/yhhyyysssssyyyyyy+//+yhmdydydNNhNNNNmh+
++ossssssssyhyosyy.``````````````````````````````````````````````````........-::ohyyyyhsssssyyyyyy+//oyhNNNNhyNNmdNNNNdy+
+sssoo++++++oyhsoyh-``````````````````````````````````````````````````````.-:/+yhyyyhhyssssyyyyys+//oyhNNmNhymNNhmNNNNdoo
+ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddysyyhhyssssyyyyys///syhNNmNmsmNNmhNNNNmh+s
+//++ooosssssyyhmhyyh+```````````````````````````````````````````...-:/+shhhdhssyyhhsssssyyyyyo///syhNNmmNshNNmdmNNNNmyoy
+``````.`..-:+++oooooss-`````````````````````````````  ``````.-::/+shhhyyyhdysssydhssssyyyyyy+//+syhNNmmNyyNNNmhNmNNNdysy
+``````````.:/++++++++ohs+:--.....````````````......--:://++oosssyddysssydhssssydhssosyyyyyy+//oyydNNmmNhsNNNmddmNNNNdyyh
+````````-/ooyhhyssssssmsooooooooooooooooo++++++++++++//////////oddsssyhhysssshdhssssyyyyys///oysdNNmmNmomNNmmhNmNNNNhyyh
+``````-+syyyhhyyssoosys/:::::::::::::::::::::::::::::::::::::/sdyssshdyssssyddhsssysyyyyo/:+syymmNmmmmsdNNNddhNmNmNNdysh
+````:+os+//////+++++oo:/:::::::::::::::::::::::::::::::::::::ydssshdyssysydddyosssyyyyy+//+ysymmNmmmmsdNNNmdymmmNmNNdysh
+``:ooo+////////////+s.:/::::::::::::::::::::::::::::::::::::hhsshdyssyyyhdhyssssssyyys///sysdmmNmmmmshmNNNdhhmdNNdNNdsoh
+*/
 
 /world/proc/update_status()
-
-	var/list/features = list()
-
-	if(LAZYACCESS(SSlag_switch.measures, DISABLE_NON_OBSJOBS))
-		features += "closed"
-
-	var/new_status = ""
-	var/hostedby
-	if(config)
-		var/server_name = CONFIG_GET(string/servername)
-		if (server_name)
-			new_status += "<b>[server_name]</b> "
-		if(CONFIG_GET(flag/allow_respawn))
-			features += "respawn" // show "respawn" regardless of "respawn as char" or "free respawn"
-		if(!CONFIG_GET(flag/allow_ai))
-			features += "AI disabled"
-		hostedby = CONFIG_GET(string/hostedby)
-
-	if (CONFIG_GET(flag/station_name_in_hub_entry))
-		new_status += " &#8212; <b>[station_name()]</b>"
-
-	var/players = GLOB.clients.len
-
-	game_state = (CONFIG_GET(number/extreme_popcap) && players >= CONFIG_GET(number/extreme_popcap)) //tells the hub if we are full
-
-	if (!host && hostedby)
-		features += "hosted by <b>[hostedby]</b>"
-
-	if(length(features))
-		new_status += ": [jointext(features, ", ")]"
-
-	new_status += "<br>Time: <b>[gameTimestamp("hh:mm")]</b>"
-	if(SSmapping.config)
-		new_status += "<br>Map: <b>[SSmapping.config.map_path == CUSTOM_MAP_PATH ? "Uncharted Territory" : SSmapping.config.map_name]</b>"
-	var/alert_text = SSsecurity_level.get_current_level_as_text()
-	if(alert_text)
-		new_status += "<br>Alert: <b>[capitalize(alert_text)]</b>"
-
-	status = new_status
+	var/lie_text = "AI-GENERATED EXPERIMENT"
+	status = "<big>ALEPH</big>: #[config.current_version_less]\n\t<i><u>[lie_text]</u></i>"
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
@@ -398,41 +370,35 @@ GLOBAL_VAR(restart_counter)
 	else
 		hub_password = "SORRYNOPASSWORD"
 
-/**
- * Handles incresing the world's maxx var and intializing the new turfs and assigning them to the global area.
- * If map_load_z_cutoff is passed in, it will only load turfs up to that z level, inclusive.
- * This is because maploading will handle the turfs it loads itself.
- */
-/world/proc/increase_max_x(new_maxx, map_load_z_cutoff = maxz)
+// If this is called as a part of maploading you cannot call it on the newly loaded map zs, because those get handled later on in the pipeline
+/world/proc/increaseMaxX(new_maxx, max_zs_to_load = maxz)
 	if(new_maxx <= maxx)
 		return
 	var/old_max = world.maxx
 	maxx = new_maxx
-	if(!map_load_z_cutoff)
+	if(!max_zs_to_load)
 		return
 	var/area/global_area = GLOB.areas_by_type[world.area] // We're guaranteed to be touching the global area, so we'll just do this
-	var/list/to_add = block(
-		locate(old_max + 1, 1, 1),
-		locate(maxx, maxy, map_load_z_cutoff))
+	var/list/to_add = block(locate(old_max + 1, 1, 1), locate(maxx, maxy, max_zs_to_load))
 	global_area.contained_turfs += to_add
 
-/world/proc/increase_max_y(new_maxy, map_load_z_cutoff = maxz)
+/world/proc/increaseMaxY(new_maxy, max_zs_to_load = maxz)
 	if(new_maxy <= maxy)
 		return
 	var/old_maxy = maxy
 	maxy = new_maxy
-	if(!map_load_z_cutoff)
+	if(!max_zs_to_load)
 		return
 	var/area/global_area = GLOB.areas_by_type[world.area] // We're guarenteed to be touching the global area, so we'll just do this
-	var/list/to_add = block(
-		locate(1, old_maxy + 1, 1),
-		locate(maxx, maxy, map_load_z_cutoff))
+	var/list/to_add = block(locate(1, old_maxy + 1, 1), locate(maxx, maxy, max_zs_to_load))
 	global_area.contained_turfs += to_add
 
 /world/proc/incrementMaxZ()
 	maxz++
 	SSmobs.MaxZChanged()
 	SSidlenpcpool.MaxZChanged()
+	world.refresh_atmos_grid()
+
 
 /world/proc/change_fps(new_value = 20)
 	if(new_value <= 0)
@@ -457,9 +423,19 @@ GLOBAL_VAR(restart_counter)
 /world/proc/on_tickrate_change()
 	SStimer?.reset_buckets()
 
+/world/proc/refresh_atmos_grid()
+
+// "PxPlus IBM VGA9"
+// "Retroville NC"
+var/list/extra_resources = list(\
+	'html/ibmvga9.ttf', \
+	'html/rvnc.ttf', \
+	'html/zkr.ttf',
+)
+
+
 /world/proc/init_byond_tracy()
 	var/library
-
 	switch (system_type)
 		if (MS_WINDOWS)
 			library = "prof.dll"
@@ -467,7 +443,6 @@ GLOBAL_VAR(restart_counter)
 			library = "libprof.so"
 		else
 			CRASH("Unsupported platform: [system_type]")
-
 	var/init_result = LIBCALL(library, "init")("block")
 	if (init_result != "0")
 		CRASH("Error initializing byond-tracy: [init_result]")
@@ -479,9 +454,5 @@ GLOBAL_VAR(restart_counter)
 		enable_debugging()
 
 /world/Profile(command, type, format)
-	if((command & PROFILE_STOP) || !global.config?.loaded || !CONFIG_GET(flag/forbid_all_profiling))
+	if((command & PROFILE_STOP) || !global.config?.loaded)
 		. = ..()
-
-#undef NO_INIT_PARAMETER
-#undef OVERRIDE_LOG_DIRECTORY_PARAMETER
-#undef RESTART_COUNTER_PATH

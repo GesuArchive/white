@@ -13,17 +13,17 @@
 	///Required chemicals that must be present in the container but are not USED.
 	var/list/required_catalysts = new/list()
 
-	/// If required_container will check for the exact type, or will also accept subtypes
-	var/required_container_accepts_subtypes = FALSE
-	/// If required_container_accepts_subtypes is FALSE, the exact type of what container this reaction can take place in. Otherwise, what type including subtypes are acceptable.
-	var/atom/required_container
-	/// Set this to true to call pre_reaction_other_checks() on react and do some more interesting reaction logic
-	var/required_other = FALSE
+	// Both of these variables are mostly going to be used with slime cores - but if you want to, you can use them for other things
+	/// the exact container path required for the reaction to happen
+	var/required_container
+	/// an integer required for the reaction to happen
+	var/required_other = 0
 
 	///Determines if a chemical reaction can occur inside a mob
 	var/mob_react = TRUE
+
 	///The message shown to nearby people upon mixing, if applicable
-	var/mix_message = "The solution begins to bubble."
+	var/mix_message = "Раствор начинает бурлить."
 	///The sound played upon mixing, if applicable
 	var/mix_sound = 'sound/effects/bubbles.ogg'
 
@@ -74,14 +74,7 @@
 /datum/chemical_reaction/proc/update_info()
 	return
 
-
 ///REACTION PROCS
-
-/**
- * Checks if this reaction can occur. Only is ran if required_other is set to TRUE.
- */
-/datum/chemical_reaction/proc/pre_reaction_other_checks(datum/reagents/holder)
-	return TRUE
 
 /**
  * Shit that happens on reaction
@@ -140,8 +133,22 @@
 		if(!reagent)
 			continue
 		//Split like this so it's easier for people to edit this function in a child
+		convert_into_failed(reagent, holder)
 		reaction_clear_check(reagent, holder)
 	holder.chem_temp = cached_temp
+
+/**
+ * Converts a reagent into the type specified by the failed_chem var of the input reagent
+ *
+ * Arguments:
+ * * reagent - the target reagent to convert
+ */
+/datum/chemical_reaction/proc/convert_into_failed(datum/reagent/reagent, datum/reagents/holder)
+	if(reagent.purity < purity_min && reagent.failed_chem)
+		var/cached_volume = reagent.volume
+		holder.remove_reagent(reagent.type, cached_volume, FALSE)
+		holder.add_reagent(reagent.failed_chem, cached_volume, FALSE, added_purity = 1)
+		SSblackbox.record_feedback("tally", "chemical_reaction", 1, "[type] failed reactions")
 
 /**
  * REACTION_CLEAR handler
@@ -162,8 +169,15 @@
 		if((reaction_flags & REACTION_CLEAR_INVERSE) && reagent.inverse_chem)
 			if(reagent.inverse_chem_val > reagent.purity)
 				holder.remove_reagent(reagent.type, cached_volume, FALSE)
-				holder.add_reagent(reagent.inverse_chem, cached_volume, FALSE, added_purity = reagent.get_inverse_purity(cached_purity))
+				holder.add_reagent(reagent.inverse_chem, cached_volume, FALSE, added_purity = 1-cached_purity)
 				return
+
+		if((reaction_flags & REACTION_CLEAR_IMPURE) && reagent.impure_chem)
+			var/impureVol = cached_volume * (1 - reagent.purity)
+			holder.remove_reagent(reagent.type, (impureVol), FALSE)
+			holder.add_reagent(reagent.impure_chem, impureVol, FALSE, added_purity = 1-cached_purity)
+			reagent.creation_purity = cached_purity
+			reagent.chemical_flags = reagent.chemical_flags | REAGENT_DONOTSPLIT
 
 /**
  * Occurs when a reation is overheated (i.e. past it's overheatTemp)
@@ -182,7 +196,7 @@
 		var/datum/reagent/reagent = holder.get_reagent(id)
 		if(!reagent)
 			return
-		reagent.volume = round((reagent.volume*0.98), 0.01) //Slowly lower yield per tick
+		reagent.volume =  round((reagent.volume*0.98), 0.01) //Slowly lower yield per tick
 
 /**
  * Occurs when a reation is too impure (i.e. it's below purity_min)
@@ -216,7 +230,7 @@
  * * mob_faction - used in determining targets, mobs from the same faction won't harm eachother.
  * * random - creates random mobs. self explanatory.
  */
-/datum/chemical_reaction/proc/chemical_mob_spawn(datum/reagents/holder, amount_to_spawn, reaction_name, mob_class = HOSTILE_SPAWN, mob_faction = FACTION_CHEMICAL_SUMMON, random = TRUE)
+/datum/chemical_reaction/proc/chemical_mob_spawn(datum/reagents/holder, amount_to_spawn, reaction_name, mob_class = HOSTILE_SPAWN, mob_faction = "chemicalsummon", random = TRUE)
 	if(holder?.my_atom)
 		var/atom/A = holder.my_atom
 		var/turf/T = get_turf(A)
@@ -238,15 +252,15 @@
 			C.flash_act()
 
 		for(var/i in 1 to amount_to_spawn)
-			var/mob/living/spawned_mob
+			var/mob/living/simple_animal/S
 			if(random)
-				spawned_mob = create_random_mob(get_turf(holder.my_atom), mob_class)
+				S = create_random_mob(get_turf(holder.my_atom), mob_class)
 			else
-				spawned_mob = new mob_class(get_turf(holder.my_atom))//Spawn our specific mob_class
-			spawned_mob.faction |= mob_faction
+				S = new mob_class(get_turf(holder.my_atom))//Spawn our specific mob_class
+			S.faction |= mob_faction
 			if(prob(50))
-				for(var/j in 1 to rand(1, 3))
-					step(spawned_mob, pick(NORTH,SOUTH,EAST,WEST))
+				for(var/j = 1, j <= rand(1, 3), j++)
+					step(S, pick(NORTH,SOUTH,EAST,WEST))
 
 /**
  * Magical move-wooney that happens sometimes.
@@ -280,6 +294,7 @@
 				if(step_towards(X, T) && moving_power > 1)
 					addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_step_towards), X, T), 2)
 
+
 //////////////////Generic explosions/failures////////////////////
 // It is HIGHLY, HIGHLY recomended that you consume all/a good volume of the reagents/products in an explosion - because it will just keep going forever until the reaction stops
 //If you have competitive reactions - it's a good idea to consume ALL reagents in a beaker (or product+reactant), otherwise it'll swing back with the deficit and blow up again
@@ -303,7 +318,7 @@
 		if(ismob(holder.my_atom))
 			var/mob/M = holder.my_atom
 			inside_msg = " inside [ADMIN_LOOKUPFLW(M)]"
-		var/lastkey = holder.my_atom.fingerprintslast //This can runtime (null.fingerprintslast) - due to plumbing?
+		var/lastkey = holder?.my_atom?.fingerprintslast //This can runtime (null.fingerprintslast) - due to plumbing?
 		var/touch_msg = "N/A"
 		if(lastkey)
 			var/mob/toucher = get_mob_by_key(lastkey)
@@ -313,7 +328,7 @@
 		log_game("Reagent explosion reaction occurred at [AREACOORD(T)]. Last Fingerprint: [lastkey ? lastkey : "N/A"]." )
 		var/datum/effect_system/reagents_explosion/e = new()
 		e.set_up(power , T, 0, 0)
-		e.start(holder.my_atom)
+		e.start()
 	holder.clear_reagents()
 
 /*
@@ -327,7 +342,7 @@
 	var/turf/location = get_turf(holder.my_atom)
 	for(var/mob/living/living_mob in viewers(range, location))
 		living_mob.flash_act(length = length)
-	holder.my_atom.visible_message("The [holder.my_atom] suddenly lets out a bright flash!")
+	holder.my_atom.visible_message("Раствор в [holder.my_atom] вспыхивает!")
 
 /*
  *Deafens those in range causing ear damage and muting sound
@@ -419,6 +434,7 @@
 			var/atom/throw_target = get_edge_target_turf(movey, get_dir(movey, get_step_away(movey, this_turf)))
 			movey.throw_at(throw_target, moving_power, 1)
 
+
 ////////BEGIN FIRE BASED EXPLOSIONS
 
 //Calls the default explosion subsystem handiler to explode with fire (random firespots and noise)
@@ -472,7 +488,7 @@
 	if(fire_range == 0)
 		new /obj/effect/hotspot(location)
 		return
-	for(var/turf/turf as anything in RANGE_TURFS(fire_range, location))
+	for(var/turf/turf as anything in range(fire_range, location))
 		new /obj/effect/hotspot(turf)
 
 ///////////END FIRE BASED EXPLOSIONS
@@ -487,11 +503,11 @@
 */
 /datum/chemical_reaction/proc/freeze_radius(datum/reagents/holder, datum/equilibrium/equilibrium, temp, radius = 2, freeze_duration = 50 SECONDS, snowball_chance = 0)
 	for(var/any_turf in circle_range_turfs(center = get_turf(holder.my_atom), radius = radius))
-		if(!isopenturf(any_turf))
+		if(!istype(any_turf, /turf/open))
 			continue
 		var/turf/open/open_turf = any_turf
 		open_turf.MakeSlippery(TURF_WET_PERMAFROST, freeze_duration, freeze_duration, freeze_duration)
-		open_turf.temperature = temp
+		open_turf.initial_temperature = temp
 		if(prob(snowball_chance))
 			new /obj/item/toy/snowball(open_turf)
 

@@ -1,83 +1,82 @@
+/datum/bounty/item/security/riotshotgun
+	name = "Штурмовой дробовик"
+	description = "Хулиганы взошли на борт ЦК! Быстрее отправьте дробовики, иначе всё станет еще хуже."
+	reward = CARGO_CRATE_VALUE * 10
+	required_count = 2
+	wanted_types = list(/obj/item/gun/ballistic/shotgun/riot)
+
 /datum/bounty/item/security/recharger
-	name = "Rechargers"
-	description = "Nanotrasen military academy is conducting marksmanship exercises. They request that rechargers be shipped."
+	name = "Зарядные устройства"
+	description = "Военная академия NanoTrasen проводит стрелковые учения. Они требуют, чтобы зарядные устройства были отправлены."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
-	wanted_types = list(/obj/machinery/recharger = TRUE)
+	wanted_types = list(/obj/machinery/recharger)
 
 /datum/bounty/item/security/pepperspray
-	name = "Pepperspray"
-	description = "We've been having a bad run of riots on Space Station 76. We could use some new pepperspray cans."
+	name = "Перцовый балончик"
+	description = "У нас было много беспорядков на космической станции 76. Нам бы не помешали новые перцовые баллончики."
 	reward = CARGO_CRATE_VALUE * 6
 	required_count = 4
-	wanted_types = list(/obj/item/reagent_containers/spray/pepper = TRUE)
+	wanted_types = list(/obj/item/reagent_containers/spray/pepper)
 
 /datum/bounty/item/security/prison_clothes
-	name = "Prison Uniforms"
-	description = "TerraGov has been unable to source any new prisoner uniforms, so if you have any spares, we'll take them off your hands."
+	name = "Тюремная форма"
+	description = "ТерраГов не смогли получить новую форму для заключенных, поэтому, если у вас есть запасная форма, мы её заберем."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 4
-	wanted_types = list(/obj/item/clothing/under/rank/prisoner = TRUE)
+	wanted_types = list(/obj/item/clothing/under/rank/prisoner)
 
 /datum/bounty/item/security/plates
-	name = "License Plates"
-	description = "As a result of a bad clown car crash, we could use an advance on some of your prisoners' license plates."
-	reward = CARGO_CRATE_VALUE * 2
+	name = "Номерные знаки"
+	description = "В результате автокатастрофы с участием клоуна мы могли бы использовать аванс на некоторые из номерных знаков заключенного."
+	reward = CARGO_CRATE_VALUE * 20
 	required_count = 10
-	wanted_types = list(/obj/item/stack/license_plates/filled = TRUE)
+	wanted_types = list(/obj/item/stack/license_plates/filled)
 
 /datum/bounty/item/security/earmuffs
-	name = "Earmuffs"
-	description = "Central Command is getting tired of your station's messages. They've ordered that you ship some earmuffs to lessen the annoyance."
+	name = "Защитные наушники"
+	description = "Центральное Командование устало от сообщений вашей станции. Они приказали вам отправить защитные наушники, чтобы уменьшить раздражение."
 	reward = CARGO_CRATE_VALUE * 2
-	wanted_types = list(/obj/item/clothing/ears/earmuffs = TRUE)
+	wanted_types = list(/obj/item/clothing/ears/earmuffs)
 
 /datum/bounty/item/security/handcuffs
-	name = "Handcuffs"
-	description = "A large influx of escaped convicts have arrived at Central Command. Now is the perfect time to ship out spare handcuffs (or restraints)."
+	name = "Наручники"
+	description = "В Центральное Командование прибыл большой поток беглых заключенных. Сейчас идеальное время для отправки запасных наручников (или удерживающих устройств)."
 	reward = CARGO_CRATE_VALUE * 2
 	required_count = 5
-	wanted_types = list(/obj/item/restraints/handcuffs = TRUE)
+	wanted_types = list(/obj/item/restraints/handcuffs)
 
 
 ///Bounties that require you to perform documentation and inspection of your department to send to centcom.
 /datum/bounty/item/security/paperwork
-	name = "Routine Security Inspection"
-	description = "Perform a routine security inspection using an N-spect scanner on the following station area:"
+	name = "Рутинная проверка безопасности"
+	description = "Выполните рутинную проверку безопасности, используя in-spect сканер для проверки:"
 	required_count = 1
-	wanted_types = list(/obj/item/paper/report = TRUE)
-	reward = CARGO_CRATE_VALUE * 5
+	wanted_types = list(/obj/item/report)
+	reward = CARGO_CRATE_VALUE * 10
 	var/area/demanded_area
 
 /datum/bounty/item/security/paperwork/New()
-	///list of areas for security to choose from to perform an inspection. Pulls the list and cross references it to the map to make sure the area is on the map before assigning.
-	var/static/list/possible_areas
-	if(!possible_areas)
-		possible_areas = typecacheof(list(\
-			/area/station/maintenance,\
-			/area/station/commons,\
-			/area/station/service,\
-			/area/station/hallway/primary,\
-			/area/station/security/office,\
-			/area/station/security/prison,\
-			/area/station/security/range,\
-			/area/station/security/checkpoint,\
-			/area/station/security/tram,\
-			/area/station/security/breakroom,\
-			/area/station/security/interrogation))
-		for (var/area_type in possible_areas)
-			if(GLOB.areas_by_type[area_type])
-				continue
-			possible_areas -= area_type
+	///list of areas for security to choose from to perform an inspection.
+	var/static/list/possible_areas = list(\
+		/area/maintenance,\
+		/area/service/library,\
+		/area/commons,\
+		/area/hallway/primary,\
+		/area/lawoffice,\
+		/area/security/main,\
+		/area/security/prison,\
+		/area/security/range,\
+		/area/security/checkpoint)
 	demanded_area = pick(possible_areas)
 	name = name + ": [initial(demanded_area.name)]"
 	description = initial(description) + " [initial(demanded_area.name)]"
 
 /datum/bounty/item/security/paperwork/applies_to(obj/O)
 	. = ..()
-	if(!istype(O, /obj/item/paper/report))
+	if(!istype(O, /obj/item/report))
 		return FALSE
-	var/obj/item/paper/report/slip = O
+	var/obj/item/report/slip = O
 	if(istype(slip.scanned_area, demanded_area))
 		return TRUE
 	return FALSE

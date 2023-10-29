@@ -13,7 +13,7 @@
 
 
 /obj/effect/particle_effect/sparks
-	name = "sparks"
+	name = "искры"
 	icon_state = "sparks"
 	anchored = TRUE
 	light_system = MOVABLE_LIGHT
@@ -27,7 +27,7 @@
 
 /obj/effect/particle_effect/sparks/LateInitialize()
 	flick(icon_state, src)
-	playsound(src, SFX_SPARKS, 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(src, "zap", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	var/turf/T = loc
 	if(isturf(T))
 		T.hotspot_expose(1000,100)
@@ -55,11 +55,11 @@
 //electricity
 
 /obj/effect/particle_effect/sparks/electricity
-	name = "lightning"
+	name = "молния"
 	icon_state = "electricity"
 
 /obj/effect/particle_effect/sparks/quantum
-	name = "quantum sparks"
+	name = "квантовые искры"
 	icon_state = "quantum_sparks"
 
 /datum/effect_system/lightning_spread

@@ -3,7 +3,7 @@
 // normal transit tubes
 /obj/structure/c_transit_tube
 	name = "unattached transit tube"
-	icon = 'icons/obj/pipes_n_cables/transit_tube.dmi'
+	icon = 'icons/obj/atmospherics/pipes/transit_tube.dmi'
 	icon_state = "straight"
 	desc = "An unattached segment of transit tube."
 	density = FALSE
@@ -12,10 +12,7 @@
 	var/flipped = FALSE
 	var/build_type = /obj/structure/transit_tube
 	var/flipped_build_type
-
-/obj/structure/c_transit_tube/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/simple_rotation, AfterRotation = CALLBACK(src, PROC_REF(AfterRotation)))
+	var/base_icon
 
 /obj/structure/c_transit_tube/proc/can_wrench_in_loc(mob/user)
 	var/turf/source_turf = get_turf(loc)
@@ -23,20 +20,24 @@
 	for(var/obj/structure/transit_tube/tube in source_turf)
 		existing_tubes +=1
 		if(existing_tubes >= 2)
-			to_chat(user, "[span_warning("You cannot wrench any more transit tubes!")] ")
+			to_chat(user, "<span class='warning'>You cannot wrench any more transit tubes!</span> ")
 			return FALSE
 	return TRUE
 
-/obj/structure/c_transit_tube/proc/AfterRotation(mob/user, degrees)
-	if(flipped_build_type && degrees == ROTATION_FLIP)
-		setDir(turn(dir, degrees)) //Turn back we don't actually flip
+/obj/structure/c_transit_tube/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_FLIP | ROTATION_VERBS,null,null,CALLBACK(src, PROC_REF(after_rot)))
+
+/obj/structure/c_transit_tube/proc/after_rot(mob/user,rotation_type)
+	if(flipped_build_type && rotation_type == ROTATION_FLIP)
+		setDir(turn(dir,-180)) //Turn back we don't actually flip
 		flipped = !flipped
 		var/cur_flip = initial(flipped) ? !flipped : flipped
 		if(cur_flip)
 			build_type = flipped_build_type
 		else
 			build_type = initial(build_type)
-		icon_state = "[base_icon_state][flipped]"
+		icon_state = "[base_icon][flipped]"
 
 /obj/structure/c_transit_tube/wrench_act(mob/living/user, obj/item/I)
 	..()
@@ -51,16 +52,13 @@
 		qdel(src)
 	return TRUE
 
-/obj/structure/c_transit_tube/AltClick(mob/user)
-	return ..() // This hotkey is BLACKLISTED since it's used by /datum/component/simple_rotation
-
 // transit tube station
 /obj/structure/c_transit_tube/station
 	name = "unattached through station"
 	icon_state = "closed_station0"
 	build_type = /obj/structure/transit_tube/station
 	flipped_build_type = /obj/structure/transit_tube/station/flipped
-	base_icon_state = "closed_station"
+	base_icon = "closed_station"
 
 /obj/structure/c_transit_tube/station/flipped
 	icon_state = "closed_station1"
@@ -75,7 +73,7 @@
 	icon_state = "closed_terminus0"
 	build_type = /obj/structure/transit_tube/station/reverse
 	flipped_build_type = /obj/structure/transit_tube/station/reverse/flipped
-	base_icon_state = "closed_terminus"
+	base_icon = "closed_terminus"
 
 /obj/structure/c_transit_tube/station/reverse/flipped
 	icon_state = "closed_terminus1"
@@ -86,14 +84,13 @@
 //all the dispenser stations
 
 /obj/structure/c_transit_tube/station/dispenser
-	icon_state = "open_dispenser0"
+	icon_state = "closed_dispenser0"
 	name = "unattached dispenser station"
 	build_type = /obj/structure/transit_tube/station/dispenser
 	flipped_build_type = /obj/structure/transit_tube/station/dispenser/flipped
-	base_icon_state = "open_dispenser"
 
 /obj/structure/c_transit_tube/station/dispenser/flipped
-	icon_state = "open_dispenser1"
+	icon_state = "closed_station1"
 	flipped = TRUE
 	build_type = /obj/structure/transit_tube/station/dispenser/flipped
 	flipped_build_type = /obj/structure/transit_tube/station/dispenser
@@ -102,13 +99,13 @@
 
 /obj/structure/c_transit_tube/station/dispenser/reverse
 	name = "unattached terminus dispenser station"
-	icon_state = "open_terminusdispenser0"
+	icon_state = "closed_terminus0"
 	build_type = /obj/structure/transit_tube/station/dispenser/reverse
 	flipped_build_type = /obj/structure/transit_tube/station/dispenser/reverse/flipped
-	base_icon_state = "open_terminusdispenser"
+	base_icon = "closed_terminus"
 
 /obj/structure/c_transit_tube/station/dispenser/reverse/flipped
-	icon_state = "open_terminusdispenser1"
+	icon_state = "closed_terminus1"
 	flipped = TRUE
 	build_type = /obj/structure/transit_tube/station/dispenser/reverse/flipped
 	flipped_build_type = /obj/structure/transit_tube/station/dispenser/reverse
@@ -133,7 +130,7 @@
 	icon_state = "curved0"
 	build_type = /obj/structure/transit_tube/curved
 	flipped_build_type = /obj/structure/transit_tube/curved/flipped
-	base_icon_state = "curved"
+	base_icon = "curved"
 
 /obj/structure/c_transit_tube/curved/flipped
 	icon_state = "curved1"
@@ -146,7 +143,7 @@
 	icon_state = "junction0"
 	build_type = /obj/structure/transit_tube/junction
 	flipped_build_type = /obj/structure/transit_tube/junction/flipped
-	base_icon_state = "junction"
+	base_icon = "junction"
 
 
 /obj/structure/c_transit_tube/junction/flipped
@@ -160,7 +157,7 @@
 //see station.dm for the logic
 /obj/structure/c_transit_tube_pod
 	name = "unattached transit tube pod"
-	icon = 'icons/obj/pipes_n_cables/transit_tube.dmi'
+	icon = 'icons/obj/atmospherics/pipes/transit_tube.dmi'
 	icon_state = "pod"
 	desc = "Could probably be <b>dragged</b> into an open Transit Tube."
 	anchored = FALSE

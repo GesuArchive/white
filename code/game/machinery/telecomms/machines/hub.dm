@@ -1,16 +1,17 @@
-/**
- * The HUB idles until it receives information. It then passes on that information
- * depending on where it came from.
- *
- * This is the heart of the Telecommunications Network, sending information where it
- * is needed. It mainly receives information from long-distance Relays and then sends
- * that information to be processed. Afterwards it gets the uncompressed information
- * from Servers/Buses and sends that back to the relay, to then be broadcasted.
- */
+/*
+	The HUB idles until it receives information. It then passes on that information
+	depending on where it came from.
+
+	This is the heart of the Telecommunications Network, sending information where it
+	is needed. It mainly receives information from long-distance Relays and then sends
+	that information to be processed. Afterwards it gets the uncompressed information
+	from Servers/Buses and sends that back to the relay, to then be broadcasted.
+*/
+
 /obj/machinery/telecomms/hub
-	name = "telecommunication hub"
+	name = "Телекоммуникационный узел"
 	icon_state = "hub"
-	desc = "A mighty piece of hardware used to send/receive massive amounts of data."
+	desc = "Мощное аппаратное обеспечение, используемое для отправки / приема огромных объемов данных."
 	telecomms_type = /obj/machinery/telecomms/hub
 	density = TRUE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.01
@@ -33,50 +34,16 @@
 
 	use_power(idle_power_usage)
 
-/obj/machinery/telecomms/hub/update_power()
-	var/old_on = on
-	if (toggled && (machine_stat & (BROKEN|NOPOWER|EMPED)))
-		on = FALSE
-		soundloop.stop()
-	else
-		on = TRUE
-		soundloop.start()
-	if(old_on != on)
-		update_appearance()
-
-/obj/machinery/telecomms/hub/Initialize(mapload)
-	. = ..()
-	soundloop = new(src, on)
-
-/obj/machinery/telecomms/hub/Destroy()
-	QDEL_NULL(soundloop)
-	return ..()
-
-// Preset HUB
+//Preset HUB
 
 /obj/machinery/telecomms/hub/preset
 	id = "Hub"
 	network = "tcommsat"
-	autolinkers = list(
-		"hub",
-		"relay",
-		"s_relay",
-		"m_relay",
-		"r_relay",
-		"h_relay",
-		"science",
-		"medical",
-		"supply",
-		"service",
-		"common",
-		"command",
-		"engineering",
-		"security",
-		"receiverA",
-		"receiverB",
-		"broadcasterA",
-		"broadcasterB",
-		"autorelay",
-		"messaging",
-	)
+	autolinkers = list("hub", "relay", "s_relay", "m_relay", "r_relay", "h_relay", "science", "medical",
+	"supply", "service", "common", "command", "engineering", "security", "exp_relay", "y_relay",
+	"receiverA", "receiverB", "broadcasterA", "broadcasterB", "autorelay", "messaging")
 
+/obj/machinery/telecomms/hub/preset/exploration
+	id = "Exploration Hub"
+	network = "exploration"
+	autolinkers = list("exp_relay", "exploration", "receiverExp", "broadcasterExp")

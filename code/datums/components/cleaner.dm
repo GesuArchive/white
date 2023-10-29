@@ -30,8 +30,10 @@
 	src.on_cleaned_callback = on_cleaned_callback
 
 /datum/component/cleaner/Destroy(force, silent)
-	pre_clean_callback = null
-	on_cleaned_callback = null
+	if(pre_clean_callback)
+		QDEL_NULL(pre_clean_callback)
+	if(on_cleaned_callback)
+		QDEL_NULL(on_cleaned_callback)
 	return ..()
 
 /datum/component/cleaner/RegisterWithParent()
@@ -67,14 +69,12 @@
 	SIGNAL_HANDLER
 	if(!proximity_flag)
 		return
-	. |= COMPONENT_AFTERATTACK_PROCESSED_ITEM
 	var/clean_target
 	if(pre_clean_callback)
 		clean_target = pre_clean_callback?.Invoke(source, target, user)
 		if(clean_target == DO_NOT_CLEAN)
-			return .
+			return
 	INVOKE_ASYNC(src, PROC_REF(clean), source, target, user, clean_target) //signal handlers can't have do_afters inside of them
-	return .
 
 /**
  * Cleans something using this cleaner.
@@ -89,20 +89,15 @@
  */
 /datum/component/cleaner/proc/clean(datum/source, atom/target, mob/living/user, clean_target = TRUE)
 	//make sure we don't attempt to clean something while it's already being cleaned
-	if(HAS_TRAIT(target, TRAIT_CURRENTLY_CLEANING))
+	if(HAS_TRAIT(target, CURRENTLY_CLEANING))
 		return
 
 	//add the trait and overlay
-	ADD_TRAIT(target, TRAIT_CURRENTLY_CLEANING, REF(src))
+	ADD_TRAIT(target, CURRENTLY_CLEANING, REF(src))
 	// We need to update our planes on overlay changes
 	RegisterSignal(target, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(cleaning_target_moved))
 	var/mutable_appearance/low_bubble = mutable_appearance('icons/effects/effects.dmi', "bubbles", FLOOR_CLEAN_LAYER, target, GAME_PLANE)
 	var/mutable_appearance/high_bubble = mutable_appearance('icons/effects/effects.dmi', "bubbles", FLOOR_CLEAN_LAYER, target, ABOVE_GAME_PLANE)
-	var/list/icon_offsets = target.get_oversized_icon_offsets()
-	low_bubble.pixel_x = icon_offsets["x"]
-	low_bubble.pixel_y = icon_offsets["y"]
-	high_bubble.pixel_x = icon_offsets["x"]
-	high_bubble.pixel_y = icon_offsets["y"]
 	if(target.plane > low_bubble.plane) //check if the higher overlay is necessary
 		target.add_overlay(high_bubble)
 	else if(target.plane == low_bubble.plane)
@@ -120,7 +115,9 @@
 		cleaning_duration = (cleaning_duration * min(user.mind.get_skill_modifier(/datum/skill/cleaning, SKILL_SPEED_MODIFIER)+skill_duration_modifier_offset, 1))
 
 	//do the cleaning
+	user.visible_message(span_notice("<b>[user]</b> начинает мыть <b>[target]</b>!"), span_notice("Начинаю мыть <b>[target]</b>..."))
 	if(do_after(user, cleaning_duration, target = target))
+		user.visible_message(span_notice("<b>[user]</b> моет <b>[target]</b>!"), span_notice("Мою <b>[target]</b>."))
 		if(clean_target)
 			for(var/obj/effect/decal/cleanable/cleanable_decal in target) //it's important to do this before you wash all of the cleanables off
 				user.mind?.adjust_experience(/datum/skill/cleaning, round(cleanable_decal.beauty / CLEAN_SKILL_BEAUTY_ADJUSTMENT))
@@ -131,8 +128,7 @@
 	//remove the cleaning overlay
 	target.cut_overlay(low_bubble)
 	target.cut_overlay(high_bubble)
-	UnregisterSignal(target, COMSIG_MOVABLE_Z_CHANGED)
-	REMOVE_TRAIT(target, TRAIT_CURRENTLY_CLEANING, REF(src))
+	REMOVE_TRAIT(target, CURRENTLY_CLEANING, src)
 
 /datum/component/cleaner/proc/cleaning_target_moved(atom/movable/source, turf/old_turf, turf/new_turf, same_z_layer)
 	if(same_z_layer)

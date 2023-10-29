@@ -2,7 +2,7 @@
 /obj/machinery/pdapainter
 	name = "\improper Tablet & ID Painter"
 	desc = "A painting machine that can be used to paint PDAs and trim IDs. To use, simply insert the item and choose the desired preset."
-	icon = 'icons/obj/machines/pda.dmi'
+	icon = 'icons/obj/pda.dmi'
 	icon_state = "pdapainter"
 	base_icon_state = "pdapainter"
 	density = TRUE
@@ -10,14 +10,14 @@
 	/// Current ID card inserted into the machine.
 	var/obj/item/card/id/stored_id_card = null
 	/// Current PDA inserted into the machine.
-	var/obj/item/modular_computer/pda/stored_pda = null
+	var/obj/item/modular_computer/tablet/pda/stored_pda = null
 	/// A blacklist of PDA types that we should not be able to paint.
 	var/static/list/pda_type_blacklist = list(
-		/obj/item/modular_computer/pda/heads,
-		/obj/item/modular_computer/pda/clear,
-		/obj/item/modular_computer/pda/syndicate,
-		/obj/item/modular_computer/pda/chameleon,
-		/obj/item/modular_computer/pda/chameleon/broken)
+		/obj/item/modular_computer/tablet/pda/heads,
+		/obj/item/modular_computer/tablet/pda/clear,
+		/obj/item/modular_computer/tablet/pda/syndicate,
+		/obj/item/modular_computer/tablet/pda/chameleon,
+		/obj/item/modular_computer/tablet/pda/chameleon/broken)
 	/// A list of the PDA types that this machine can currently paint.
 	var/list/pda_types = list()
 	/// A list of the card trims that this machine can currently imprint onto a card.
@@ -93,49 +93,46 @@
 			if(stored_id_card)
 				SSexplosions.low_mov_atom += stored_id_card
 
-/obj/machinery/pdapainter/Exited(atom/movable/gone, direction)
-	. = ..()
-	if(gone == stored_pda)
+/obj/machinery/pdapainter/handle_atom_del(atom/A)
+	if(A == stored_pda)
 		stored_pda = null
-		update_appearance(UPDATE_ICON)
-	if(gone == stored_id_card)
+		update_icon()
+	if(A == stored_id_card)
 		stored_id_card = null
-		update_appearance(UPDATE_ICON)
-
-/obj/machinery/pdapainter/wrench_act(mob/living/user, obj/item/tool)
-	. = ..()
-	if(default_unfasten_wrench(user, tool))
-		power_change()
-	return TOOL_ACT_TOOLTYPE_SUCCESS
+		update_icon()
 
 /obj/machinery/pdapainter/attackby(obj/item/O, mob/living/user, params)
 	if(machine_stat & BROKEN)
-		if(O.tool_behaviour == TOOL_WELDER && !user.combat_mode)
-			if(!O.tool_start_check(user, amount=1))
+		if(O.tool_behaviour == TOOL_WELDER && user.a_intent != INTENT_HARM)
+			if(!O.tool_start_check(user, amount=0))
 				return
-			user.visible_message(span_notice("[user] is repairing [src]."), \
-							span_notice("You begin repairing [src]..."), \
+			user.visible_message(span_notice("[user] is repairing [src].") , \
+							span_notice("You begin repairing [src]...") , \
 							span_hear("You hear welding."))
 			if(O.use_tool(src, user, 40, volume=50))
 				if(!(machine_stat & BROKEN))
 					return
 				to_chat(user, span_notice("You repair [src]."))
 				set_machine_stat(machine_stat & ~BROKEN)
-				atom_integrity = max_integrity
-				update_appearance(UPDATE_ICON)
+				obj_integrity = max_integrity
+				update_icon()
 			return
 		return ..()
+
+	if(default_unfasten_wrench(user, O))
+		power_change()
+		return
 
 	// Chameleon checks first so they can exit the logic early if they're detected.
 	if(istype(O, /obj/item/card/id/advanced/chameleon))
 		to_chat(user, span_warning("The machine rejects your [O]. This ID card does not appear to be compatible with the PDA Painter."))
 		return
 
-	if(istype(O, /obj/item/modular_computer/pda))
+	if(istype(O, /obj/item/modular_computer/tablet/pda))
 		insert_pda(O, user)
 		return
 
-	if(isidcard(O))
+	if(istype(O, /obj/item/card/id))
 		if(stored_id_card)
 			to_chat(user, span_warning("There is already an ID card inside!"))
 			return
@@ -145,10 +142,13 @@
 
 		stored_id_card = O
 		O.add_fingerprint(user)
-		update_appearance(UPDATE_ICON)
+		update_icon()
 		return
 
 	return ..()
+
+/obj/machinery/pdapainter/deconstruct(disassembled = TRUE)
+	obj_break()
 
 /obj/machinery/pdapainter/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
@@ -160,9 +160,6 @@
 		eject_id_card(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/machinery/pdapainter/deconstruct(disassembled = TRUE)
-	atom_break()
-
 /**
  * Insert a PDA into the machine.
  *
@@ -172,7 +169,7 @@
  * * new_pda - The PDA to insert.
  * * user - The user to try and eject the PDA into the hands of.
  */
-/obj/machinery/pdapainter/proc/insert_pda(obj/item/modular_computer/pda/new_pda, mob/living/user)
+/obj/machinery/pdapainter/proc/insert_pda(obj/item/modular_computer/new_pda, mob/living/user)
 	if(!istype(new_pda))
 		return FALSE
 
@@ -239,14 +236,13 @@
  */
 /obj/machinery/pdapainter/proc/eject_id_card(mob/living/user)
 	if(stored_id_card)
-		GLOB.manifest.modify(stored_id_card.registered_name, stored_id_card.assignment, stored_id_card.get_trim_assignment())
 		if(user && !issilicon(user) && in_range(src, user))
 			user.put_in_hands(stored_id_card)
 		else
 			stored_id_card.forceMove(drop_location())
 
 		stored_id_card = null
-		update_appearance(UPDATE_ICON)
+		update_icon()
 
 /obj/machinery/pdapainter/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -292,7 +288,7 @@
 				return TRUE
 
 			var/obj/item/held_item = usr.get_active_held_item()
-			if(istype(held_item, /obj/item/modular_computer/pda))
+			if(istype(held_item, /obj/item/modular_computer/tablet/pda))
 				// If we successfully inserted, we've ejected the old item. Return early.
 				if(insert_pda(held_item, usr))
 					return TRUE
@@ -307,7 +303,7 @@
 				return TRUE
 
 			var/obj/item/held_item = usr.get_active_held_item()
-			if(isidcard(held_item))
+			if(istype(held_item, /obj/item/card/id))
 				// If we successfully inserted, we've ejected the old item. Return early.
 				if(insert_id_card(held_item, usr))
 					return TRUE
@@ -322,7 +318,7 @@
 				return TRUE
 
 			var/selection = params["selection"]
-			var/obj/item/modular_computer/pda/pda_path = /obj/item/modular_computer/pda
+			var/obj/item/modular_computer/tablet/pda/pda_path = /obj/item/modular_computer/tablet/pda
 
 			for(var/path in pda_types)
 				if(pda_types[path] == selection)
@@ -337,12 +333,6 @@
 			stored_pda.desc = initial(pda_path.desc)
 
 			return TRUE
-		if("reset_pda")
-			if((machine_stat & BROKEN) || !stored_pda)
-				return TRUE
-
-			stored_pda.reset_imprint()
-			return TRUE
 		if("trim_card")
 			if((machine_stat & BROKEN) || !stored_id_card)
 				return TRUE
@@ -355,7 +345,7 @@
 				if(SSid_access.apply_trim_to_card(stored_id_card, path, copy_access = FALSE))
 					return TRUE
 
-				to_chat(usr, span_warning("The trim you selected could not be added to \the [stored_id_card]. You will need a rarer ID card to imprint that trim data."))
+				to_chat(usr, span_warning("The trim you selected could not be added to [stored_id_card]. You will need a rarer ID card to imprint that trim data."))
 
 			return TRUE
 		if("reset_card")
@@ -385,8 +375,3 @@
 /obj/machinery/pdapainter/engineering
 	name = "\improper Engineering PDA & ID Painter"
 	target_dept = REGION_ENGINEERING
-
-/// Supply departmental variant. Limited to PDAs defined in the SSid_access.sub_department_managers_tgui data structure.
-/obj/machinery/pdapainter/supply
-	name = "\improper Supply PDA & ID Painter"
-	target_dept = REGION_SUPPLY

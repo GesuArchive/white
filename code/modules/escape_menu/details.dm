@@ -13,7 +13,7 @@ GLOBAL_DATUM(escape_menu_details, /atom/movable/screen/escape_menu/details)
 	maptext_height = 100
 	maptext_width = 200
 
-/atom/movable/screen/escape_menu/details/Initialize(mapload, datum/hud/hud_owner)
+/atom/movable/screen/escape_menu/details/Initialize(mapload)
 	. = ..()
 
 	update_text()
@@ -27,16 +27,16 @@ GLOBAL_DATUM(escape_menu_details, /atom/movable/screen/escape_menu/details)
 	STOP_PROCESSING(SSescape_menu, src)
 	return ..()
 
-/atom/movable/screen/escape_menu/details/process(seconds_per_tick)
+/atom/movable/screen/escape_menu/details/process(delta_time)
 	update_text()
 
 /atom/movable/screen/escape_menu/details/proc/update_text()
 	var/new_maptext = {"
 		<span style='text-align: right; line-height: 0.7'>
-			Round ID: [GLOB.round_id || "Unset"]<br />
-			Round Time: [ROUND_TIME()]<br />
-			Map: [SSmapping.config?.map_name || "Loading..."]<br />
-			Time Dilation: [round(SStime_track.time_dilation_current,1)]%<br />
+			ID раунда: [GLOB.round_id || "хз"]<br />
+			Длительность: [ROUND_TIME()]<br />
+			Карта: [SSmapping.config?.map_name || "Загрузка..."]<br />
+			Замедление: [round(SStime_track.time_dilation_current,1)]%<br />
 		</span>
 	"}
 

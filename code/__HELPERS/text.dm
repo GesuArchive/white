@@ -1,11 +1,11 @@
 /*
  * Holds procs designed to help with filtering text
  * Contains groups:
- * SQL sanitization/formating
- * Text sanitization
- * Text searches
- * Text modification
- * Misc
+ *			SQL sanitization/formating
+ *			Text sanitization
+ *			Text searches
+ *			Text modification
+ *			Misc
  */
 
 
@@ -20,39 +20,50 @@
  * Text sanitization
  */
 
+//Simply removes < and > and limits the length of the message
+/proc/strip_html_simple(t,limit=MAX_MESSAGE_LEN)
+	var/list/strip_chars = list("<",">")
+	t = copytext(t,1,limit)
+	for(var/char in strip_chars)
+		var/index = findtext(t, char)
+		while(index)
+			t = copytext(t, 1, index) + copytext(t, index+1)
+			index = findtext(t, char)
+	return t
+
+//Removes a few problematic characters
+/proc/sanitize_simple(t,list/repl_chars = list("\n"="#","\t"="#"))
+	for(var/char in repl_chars)
+		var/index = findtext(t, char)
+		while(index)
+			t = copytext(t, 1, index) + repl_chars[char] + copytext(t, index + length(char))
+			index = findtext(t, char, index + length(char))
+	return t
+
+/proc/sanitize_filename(t)
+	return sanitize_simple(t, list("\n"="", "\t"="", "/"="", "\\"="", "?"="", "%"="", "*"="", ":"="", "|"="", "\""="", "<"="", ">"=""))
 
 ///returns nothing with an alert instead of the message if it contains something in the ic filter, and sanitizes normally if the name is fine. It returns nothing so it backs out of the input the same way as if you had entered nothing.
-/proc/sanitize_name(target, allow_numbers = FALSE, cap_after_symbols = TRUE)
-	if(is_ic_filtered(target) || is_soft_ic_filtered(target))
-		tgui_alert(usr, "You cannot set a name that contains a word prohibited in IC chat!")
-		return ""
-	var/result = reject_bad_name(target, allow_numbers = allow_numbers, strict = TRUE, cap_after_symbols = cap_after_symbols)
-	if(!result)
+/proc/sanitize_name(t,allow_numbers=FALSE)
+	var/r = reject_bad_name(t,allow_numbers=allow_numbers,strict=TRUE)
+	if(!r)
 		tgui_alert(usr, "Invalid name.")
 		return ""
-	return sanitize(result)
+	return sanitize(r)
 
+//Runs byond's sanitization proc along-side sanitize_simple
+/proc/sanitize(t,list/repl_chars = null)
+	return html_encode(sanitize_simple(t,repl_chars))
 
-/// Runs byond's html encoding sanitization proc, after replacing new-lines and tabs for the # character.
-/proc/sanitize(text)
-	var/static/regex/regex = regex(@"[\n\t]", "g")
-	return html_encode(regex.Replace(text, "#"))
+//Runs sanitize and strip_html_simple
+//I believe strip_html_simple() is required to run first to prevent '<' from displaying as '&lt;' after sanitize() calls byond's html_encode()
+/proc/strip_html(t,limit=MAX_MESSAGE_LEN)
+	return copytext((sanitize(strip_html_simple(t))),1,limit)
 
-
-/// Runs STRIP_HTML_SIMPLE and sanitize.
-/proc/strip_html(text, limit = MAX_MESSAGE_LEN)
-	return sanitize(STRIP_HTML_SIMPLE(text, limit))
-
-
-/// Runs STRIP_HTML_FULL and sanitize.
-/proc/strip_html_full(text, limit = MAX_MESSAGE_LEN)
-	return sanitize(STRIP_HTML_FULL(text, limit))
-
-
-/// Runs STRIP_HTML_SIMPLE and byond's sanitization proc.
-/proc/adminscrub(text, limit = MAX_MESSAGE_LEN)
-	return html_encode(STRIP_HTML_SIMPLE(text, limit))
-
+//Runs byond's sanitization proc along-side strip_html_simple
+//I believe strip_html_simple() is required to run first to prevent '<' from displaying as '&lt;' that html_encode() would cause
+/proc/adminscrub(t,limit=MAX_MESSAGE_LEN)
+	return copytext((html_encode(strip_html_simple(t))),1,limit)
 
 /**
  * Perform a whitespace cleanup on the text, similar to what HTML renderers do
@@ -77,72 +88,51 @@
 
 	return t
 
-
-/**
- * Returns the text if properly formatted, or null else.
- *
- * Things considered improper:
- * * Larger than max_length.
- * * Presence of non-ASCII characters if asci_only is set to TRUE.
- * * Only whitespaces, tabs and/or line breaks in the text.
- * * Presence of the <, >, \ and / characters.
- * * Presence of ASCII special control characters (horizontal tab and new line not included).
- * */
-/proc/reject_bad_text(text, max_length = 512, ascii_only = TRUE)
-	if(ascii_only)
-		if(length(text) > max_length)
-			return null
-		var/static/regex/non_ascii = regex(@"[^\x20-\x7E\t\n]")
-		if(non_ascii.Find(text))
-			return null
-	else if(length_char(text) > max_length)
-		return null
-	var/static/regex/non_whitespace = regex(@"\S")
-	if(!non_whitespace.Find(text))
-		return null
-	var/static/regex/bad_chars = regex(@"[\\<>/\x00-\x08\x11-\x1F]")
-	if(bad_chars.Find(text))
-		return null
+//Returns null if there is any bad text in the string
+/proc/reject_bad_text(text, max_length = 512, ascii_only = FALSE)
 	return text
+	/*
+	var/char_count = 0
+	var/non_whitespace = FALSE
+	var/lenbytes = length(text)
+	var/char = ""
+	for(var/i = 1, i <= lenbytes, i += length(char))
+		char = text[i]
+		char_count++
+		if(char_count > max_length)
+			return
+		switch(text2ascii(char))
+			if(62, 60, 92, 47) // <, >, \, /
+				return
+			if(0 to 31)
+				return
+			if(32)
+				continue
+			if(127 to INFINITY)
+				continue
+			else
+				non_whitespace = TRUE
+	if(non_whitespace)
+		return text		//only accepts the text if it has some non-spaces
+	*/
 
-
-/**
- * Used to get a properly sanitized input. Returns null if cancel is pressed.
- *
- * Arguments
- ** user - Target of the input prompt.
- ** message - The text inside of the prompt.
- ** title - The window title of the prompt.
- ** max_length - If you intend to impose a length limit - default is 1024.
- ** no_trim - Prevents the input from being trimmed if you intend to parse newlines or whitespace.
-*/
+/// Used to get a properly sanitized input, of max_length
+/// no_trim is self explanatory but it prevents the input from being trimed if you intend to parse newlines or whitespace.
 /proc/stripped_input(mob/user, message = "", title = "", default = "", max_length=MAX_MESSAGE_LEN, no_trim=FALSE)
-	var/user_input = input(user, message, title, default) as text|null
-	if(isnull(user_input)) // User pressed cancel
-		return
-	if(no_trim)
-		return copytext(html_encode(user_input), 1, max_length)
-	else
-		return trim(html_encode(user_input), max_length) //trim is "outside" because html_encode can expand single symbols into multiple symbols (such as turning < into &lt;)
+	var/name = tgui_input_text(user, message, title, default)
 
-/**
- * Used to get a properly sanitized input in a larger box. Works very similarly to stripped_input.
- *
- * Arguments
- ** user - Target of the input prompt.
- ** message - The text inside of the prompt.
- ** title - The window title of the prompt.
- ** max_length - If you intend to impose a length limit - default is 1024.
- ** no_trim - Prevents the input from being trimmed if you intend to parse newlines or whitespace.
-*/
-/proc/stripped_multiline_input(mob/user, message = "", title = "", default = "", max_length=MAX_MESSAGE_LEN, no_trim=FALSE)
-	var/user_input = input(user, message, title, default) as message|null
-	if(isnull(user_input)) // User pressed cancel
-		return
 	if(no_trim)
-		return copytext(html_encode(user_input), 1, max_length)
+		return copytext_char(html_encode(name), 1, max_length)
 	else
-		return trim(html_encode(user_input), max_length)
+		return trim(html_encode(name), max_length) //trim is "outside" because html_encode can expand single symbols into multiple symbols (such as turning < into &lt;)
+
+// Used to get a properly sanitized multiline input, of max_length
+/proc/stripped_multiline_input(mob/user, message = "", title = "", default = "", max_length=MAX_MESSAGE_LEN, no_trim=FALSE)
+	var/name = input(user, message, title, default) as message|null
+	if(no_trim)
+		return copytext(html_encode(name), 1, max_length)
+	else
+		return trim(html_encode(name), max_length)
 
 #define NO_CHARS_DETECTED 0
 #define SPACES_DETECTED 1
@@ -155,9 +145,8 @@
  *
  * * strict - return null immidiately instead of filtering out
  * * allow_numbers - allows numbers and common special characters - used for silicon/other weird things names
- * * cap_after_symbols - words like Bob's will be capitalized to Bob'S by default. False is good for titles.
  */
-/proc/reject_bad_name(t_in, allow_numbers = FALSE, max_length = MAX_NAME_LEN, ascii_only = TRUE, strict = FALSE, cap_after_symbols = TRUE)
+/proc/reject_bad_name(t_in, allow_numbers = FALSE, max_length = MAX_NAME_LEN, ascii_only = FALSE, strict = FALSE)
 	if(!t_in)
 		return //Rejects the input if it is null
 
@@ -176,29 +165,39 @@
 	for(var/i = 1, i <= t_len, i += length(char))
 		char = t_in[i]
 		switch(text2ascii(char))
-
 			// A  .. Z
-			if(65 to 90) //Uppercase Letters
+			if(65 to 90)			//Uppercase Letters
 				number_of_alphanumeric++
 				last_char_group = LETTERS_DETECTED
 
 			// a  .. z
-			if(97 to 122) //Lowercase Letters
-				if(last_char_group == NO_CHARS_DETECTED || last_char_group == SPACES_DETECTED || cap_after_symbols && last_char_group == SYMBOLS_DETECTED) //start of a word
+			if(97 to 122)			//Lowercase Letters
+				if(last_char_group == NO_CHARS_DETECTED || last_char_group == SPACES_DETECTED || last_char_group == SYMBOLS_DETECTED) //start of a word
+					char = uppertext(char)
+				number_of_alphanumeric++
+				last_char_group = LETTERS_DETECTED
+
+			if(1040 to 1071)			//Русские буковки
+				number_of_alphanumeric++
+				last_char_group = LETTERS_DETECTED
+
+			if(1072 to 1105)			//Русские буковки
+				if(last_char_group == NO_CHARS_DETECTED || last_char_group == SPACES_DETECTED || last_char_group == SYMBOLS_DETECTED) //start of a word
 					char = uppertext(char)
 				number_of_alphanumeric++
 				last_char_group = LETTERS_DETECTED
 
 			// 0  .. 9
-			if(48 to 57) //Numbers
-				if(!allow_numbers) //allow name to start with number if AI/Borg
+			if(48 to 57)			//Numbers
+				if(last_char_group == NO_CHARS_DETECTED || !allow_numbers) //suppress at start of string
 					if(strict)
 						return
 					continue
 				number_of_alphanumeric++
 				last_char_group = NUMBERS_DETECTED
+
 			// '  -  .
-			if(39,45,46) //Common name punctuation
+			if(39,45,46)			//Common name punctuation
 				if(last_char_group == NO_CHARS_DETECTED)
 					if(strict)
 						return
@@ -206,7 +205,7 @@
 				last_char_group = SYMBOLS_DETECTED
 
 			// ~   |   @  :  #  $  %  &  *  +
-			if(126,124,64,58,35,36,37,38,42,43) //Other symbols that we'll allow (mainly for AI)
+			if(126,124,64,58,35,36,37,38,42,43)			//Other symbols that we'll allow (mainly for AI)
 				if(last_char_group == NO_CHARS_DETECTED || !allow_numbers) //suppress at start of string
 					if(strict)
 						return
@@ -236,18 +235,14 @@
 			break
 
 	if(number_of_alphanumeric < 2)
-		return //protects against tiny names like "A" and also names like "' ' ' ' ' ' ' '"
+		return		//protects against tiny names like "A" and also names like "' ' ' ' ' ' ' '"
 
 	if(last_char_group == SPACES_DETECTED)
 		t_out = copytext_char(t_out, 1, -1) //removes the last character (in this case a space)
 
-	for(var/bad_name in list("space","floor","wall","r-wall","monkey","unknown","inactive ai")) //prevents these common metagamey names
+	for(var/bad_name in list("space","floor","wall","r-wall","monkey","неизвестный","inactive ai"))	//prevents these common metagamey names
 		if(cmptext(t_out,bad_name))
-			return //(not case sensitive)
-
-	// Protects against names containing IC chat prohibited words.
-	if(is_ic_filtered(t_out) || is_soft_ic_filtered(t_out))
-		return
+			return	//(not case sensitive)
 
 	return t_out
 
@@ -256,7 +251,27 @@
 #undef NUMBERS_DETECTED
 #undef LETTERS_DETECTED
 
+//Checks the end of a string for a specified substring.
+//Returns the position of the substring or 0 if it was not found
+/proc/dd_hassuffix(text, suffix)
+	var/start = length(text) - length(suffix)
+	if(start)
+		return findtext(text, suffix, start, null)
+	return
 
+//Checks the end of a string for a specified substring. This proc is case sensitive
+//Returns the position of the substring or 0 if it was not found
+/proc/dd_hassuffix_case(text, suffix)
+	var/start = length(text) - length(suffix)
+	if(start)
+		return findtextEx(text, suffix, start, null)
+
+//Limits the length of the text. Note: MAX_MESSAGE_LEN and MAX_NAME_LEN are widely used for this purpose
+/proc/dd_limittext(message, length)
+	var/size = length(message)
+	if(size <= length)
+		return message
+	return copytext(message, 1, length + 1)
 
 //html_encode helper proc that returns the smallest non null of two numbers
 //or 0 if they're both null (needed because of findtext returning 0 when a value is not present)
@@ -341,7 +356,6 @@
 /proc/truncate(text, max_length)
 	if(length(text) > max_length)
 		return copytext(text, 1, max_length)
-	return text
 
 //Returns a string with reserved characters and spaces before the first word and after the last word removed.
 /proc/trim(text, max_length)
@@ -349,17 +363,21 @@
 		text = copytext_char(text, 1, max_length)
 	return trim_reduced(text)
 
-//Returns a string with the first element of the string capitalized.
 /proc/capitalize(t)
 	. = t
-	if(t)
-		. = t[1]
-		return uppertext(.) + copytext(t, 1 + length(.))
+	if(isatom(t))
+		var/atom/A = t
+		t = A.name
+	. = copytext_char(t, 1, 2)
+	return uppertext(.) + copytext_char(t, 2)
 
-///Returns a string with the first letter of each word capitialized
-/proc/full_capitalize(input)
-	var/regex/first_letter = new(@"[^A-z]*?([A-z]*)", "g")
-	return replacetext(input, first_letter, /proc/capitalize)
+//Returns a string with the first element of the every word of the string capitalized.
+/proc/capitalize_words(text)
+	var/list/S = splittext(text, " ")
+	var/list/M = list()
+	for (var/w in S)
+		M += capitalize(w)
+	return jointext(M, " ")
 
 /proc/stringmerge(text,compare,replace = "*")
 //This proc fills in all spaces with the "replace" var (* by default) with whatever
@@ -415,18 +433,15 @@
 GLOBAL_LIST_INIT(zero_character_only, list("0"))
 GLOBAL_LIST_INIT(hex_characters, list("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"))
 GLOBAL_LIST_INIT(alphabet, list("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"))
-GLOBAL_LIST_INIT(alphabet_upper, list("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"))
-GLOBAL_LIST_INIT(numerals, list("1","2","3","4","5","6","7","8","9","0"))
-GLOBAL_LIST_INIT(space, list(" "))
 GLOBAL_LIST_INIT(binary, list("0","1"))
 /proc/random_string(length, list/characters)
 	. = ""
-	for(var/i in 1 to length)
+	for(var/i=1, i<=length, i++)
 		. += pick(characters)
 
 /proc/repeat_string(times, string="")
 	. = ""
-	for(var/i in 1 to times)
+	for(var/i=1, i<=times, i++)
 		. += string
 
 /proc/random_short_color()
@@ -528,7 +543,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		var/tlistlen = tlist.len
 		var/listlevel = -1
 		var/singlespace = -1 // if 0, double spaces are used before asterisks, if 1, single are
-		for(var/i in 1 to tlistlen)
+		for(var/i = 1, i <= tlistlen, i++)
 			var/line = tlist[i]
 			var/count_asterisk = length(replacetext(line, regex("\[^\\*\]+", "g"), ""))
 			if(count_asterisk % 2 == 1 && findtext(line, regex("^\\s*\\*", "g"))) // there is an extra asterisk in the beggining
@@ -561,7 +576,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		// end for
 
 		t = tlist[1]
-		for(var/i in 2 to tlistlen)
+		for(var/i = 2, i <= tlistlen, i++)
 			t += "\n" + tlist[i]
 
 		while(listlevel >= 0)
@@ -631,7 +646,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 
 	t = parsemarkdown_basic_step1(t)
 
-	t = replacetext(t, regex("%s(?:ign)?(?=\\s|$)", "igm"), user ? "<font face=\"[SIGNATURE_FONT]\"><i>[user.real_name]</i></font>" : "<span class=\"paper_field\"></span>")
+	t = replacetext(t, regex("%s(?:ign)?(?=\\s|$)", "igm"), user ? "<font face=\"[SIGNFONT]\"><i>[user.real_name]</i></font>" : "<span class=\"paper_field\"></span>")
 	t = replacetext(t, regex("%f(?:ield)?(?=\\s|$)", "igm"), "<span class=\"paper_field\"></span>")
 
 	t = parsemarkdown_basic_step2(t)
@@ -666,6 +681,10 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 			if(65 to 77, 97 to 109) //A to M, a to m
 				ascii += 13
 			if(78 to 90, 110 to 122) //N to Z, n to z
+				ascii -= 13
+			if(1040 to 1058, 1072 to 1092)
+				ascii += 13
+			if(1059 to 1071, 1093 to 1105)
 				ascii -= 13
 		. += ascii2text(ascii)
 
@@ -704,7 +723,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		var/punctbuffer = ""
 		var/cutoff = 0
 		lentext = length_char(buffer)
-		for(var/pos in 1 to lentext)
+		for(var/pos = 1, pos <= lentext, pos++)
 			let = copytext_char(buffer, -pos, -pos + 1)
 			if(!findtext(let, GLOB.is_punctuation)) //This won't handle things like Nyaaaa!~ but that's fine
 				break
@@ -749,7 +768,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/list/oldjson = list()
 	var/list/oldentries = list()
 	if(fexists(log))
-		oldjson = json_decode(file2text(log))
+		oldjson = r_json_decode(file2text(log))
 		oldentries = oldjson["data"]
 	if(length(oldentries))
 		for(var/string in accepted)
@@ -768,65 +787,6 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/list/tosend = list()
 	tosend["data"] = finalized
 	WRITE_FILE(log, json_encode(tosend))
-
-//Used for applying byonds text macros to strings that are loaded at runtime
-/proc/apply_text_macros(string)
-	var/next_backslash = findtext(string, "\\")
-	if(!next_backslash)
-		return string
-
-	var/leng = length(string)
-
-	var/next_space = findtext(string, " ", next_backslash + length(string[next_backslash]))
-	if(!next_space)
-		next_space = leng - next_backslash
-
-	if(!next_space) //trailing bs
-		return string
-
-	var/base = next_backslash == 1 ? "" : copytext(string, 1, next_backslash)
-	var/macro = lowertext(copytext(string, next_backslash + length(string[next_backslash]), next_space))
-	var/rest = next_backslash > leng ? "" : copytext(string, next_space + length(string[next_space]))
-
-	//See https://secure.byond.com/docs/ref/info.html#/DM/text/macros
-	switch(macro)
-		//prefixes/agnostic
-		if("the")
-			rest = "\the [rest]"
-		if("a")
-			rest = "\a [rest]"
-		if("an")
-			rest = "\an [rest]"
-		if("proper")
-			rest = "\proper [rest]"
-		if("improper")
-			rest = "\improper [rest]"
-		if("roman")
-			rest = "\roman [rest]"
-		//postfixes
-		if("th")
-			base = "[rest]\th"
-		if("s")
-			base = "[rest]\s"
-		if("he")
-			base = "[rest]\he"
-		if("she")
-			base = "[rest]\she"
-		if("his")
-			base = "[rest]\his"
-		if("himself")
-			base = "[rest]\himself"
-		if("herself")
-			base = "[rest]\herself"
-		if("hers")
-			base = "[rest]\hers"
-		else // Someone fucked up, if you're not a macro just go home yeah?
-			// This does technically break parsing, but at least it's better then what it used to do
-			return base
-
-	. = base
-	if(rest)
-		. += .(rest)
 
 //Replacement for the \th macro when you want the whole word output as text (first instead of 1st)
 /proc/thtotext(number)
@@ -860,113 +820,6 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		else
 			return "[number]\th"
 
-/**
- * Takes a 1, 2 or 3 digit number and returns it in words. Don't call this directly, use convert_integer_to_words() instead.
- *
- * Arguments:
- * * number - 1, 2 or 3 digit number to convert.
- * * carried_string - Text to append after number is converted to words, e.g. "million", as in "eighty million".
- * * capitalise - Whether the number it returns should be capitalised or not, e.g. "Eighty-Eight" vs. "eighty-eight".
- */
-/proc/int_to_words(number, carried_string, capitalise = FALSE)
-	var/static/list/tens = list("", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety")
-	var/static/list/ones = list("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen")
-	number = round(number)
-
-	if(number > 999)
-		return
-
-	if(number <= 0)
-		return
-
-	var/list/string = list()
-
-	if(number >= 100)
-		string += int_to_words(number / 100, "hundred")
-		number = round(number % 100)
-		if(!number)
-			return string + carried_string
-		string += "and"
-
-	//if number is more than 19, divide it
-	if(number > 19)
-		var/temp_num = tens[number / 10]
-		if(number % 10)
-			temp_num += "-"
-			if(capitalise)
-				temp_num += capitalize(ones[number % 10])
-			else
-				temp_num += ones[number % 10]
-		string += temp_num
-	else
-		string += ones[number]
-
-	if(carried_string)
-		string += carried_string
-
-	return string
-
-/**
- * Takes an integer up to 999,999,999 and returns it in words. Works with negative numbers and 0.
- *
- * Arguments:
- * * number - Integer up to 999,999,999 to convert.
- * * capitalise - Whether the number it returns should be capitalised or not, e.g. "Eighty Million" vs. "eighty million".
- */
-/proc/convert_integer_to_words(number, capitalise = FALSE)
-
-	if(!isnum(number))
-		return
-
-	var/negative = FALSE
-	if(number < 0)
-		number = abs(number)
-		negative = TRUE
-
-	number = round(number)
-
-	if(number > 999999999)
-		return negative ? -number : number
-
-	if(number == 0)
-		return capitalise ? "Zero" : "zero"
-
-	//stores word representation of given number
-	var/list/output = list()
-
-	//handles millions
-	var/millions = int_to_words(((number / 1000000) % 1000), "million", capitalise)
-	if(length(millions))
-		output += millions
-
-	///handles thousands
-	var/thousands = int_to_words(((number / 1000) % 1000), "thousand", capitalise)
-	if(length(thousands))
-		output += thousands
-
-	if(length(output) && number % 1000 && (number % 1000) < 100) //e.g. One Thousand And Ninety-Nine, instead of One Thousand Ninety-Nine
-		output += "and"
-
-	//handles digits at ones, tens and hundreds places (if any)
-	output += int_to_words((number % 1000), "", capitalise)
-
-	for(var/index in 1 to length(output))
-		if(isnull(output[index]))
-			output -= output[index]
-			continue
-		if(capitalise)
-			output[index] = capitalize(output[index])
-
-	if(!length(output))
-		return negative ? -number : number
-
-	var/number_in_words
-	if(negative)
-		number_in_words += capitalise ? "Negative " : "negative "
-
-	number_in_words += output.Join(" ")
-
-	return number_in_words
 
 /proc/random_capital_letter()
 	return uppertext(pick(GLOB.alphabet))
@@ -975,17 +828,17 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/regex/word_boundaries = regex(@"\b[\S]+\b", "g")
 	var/prefix = message[1]
 	if(prefix == ";")
-		message = copytext(message, 1 + length(prefix))
+		message = copytext_char(message, 1 + length_char(prefix))
 	else if(prefix in list(":", "#"))
-		prefix += message[1 + length(prefix)]
-		message = copytext(message, length(prefix))
+		prefix += message[1 + length_char(prefix)]
+		message = copytext_char(message, length_char(prefix))
 	else
 		prefix = ""
 
 	var/list/rearranged = list()
 	while(word_boundaries.Find(message))
 		var/cword = word_boundaries.match
-		if(length(cword))
+		if(length_char(cword))
 			rearranged += cword
 	shuffle_inplace(rearranged)
 	return "[prefix][jointext(rearranged, " ")]"
@@ -1021,7 +874,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 //json decode that will return null on parse error instead of runtiming.
 /proc/safe_json_decode(data)
 	try
-		return json_decode(data)
+		return r_json_decode(data)
 	catch
 		return null
 
@@ -1048,8 +901,27 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
  * * For pressure conversion, use proc/siunit_pressure() below
  */
 /proc/siunit(value, unit, maxdecimals=1)
-	var/si_isolated = siunit_isolated(value, unit, maxdecimals)
-	return "[si_isolated[SI_COEFFICIENT]][si_isolated[SI_UNIT]]"
+	var/static/list/prefixes = list("f","p","n","μ","m","","k","M","G","T","P")
+
+	// We don't have prefixes beyond this point
+	// and this also captures value = 0 which you can't compute the logarithm for
+	// and also byond numbers are floats and doesn't have much precision beyond this point anyway
+	if(abs(value) <= 1e-18)
+		return "0 [unit]"
+
+	var/exponent = clamp(log(10, abs(value)), -15, 15) // Calculate the exponent and clamp it so we don't go outside the prefix list bounds
+	var/divider = 10 ** (round(exponent / 3) * 3) // Rounds the exponent to nearest SI unit and power it back to the full form
+	var/coefficient = round(value / divider, 10 ** -maxdecimals) // Calculate the coefficient and round it to desired decimals
+	var/prefix_index = round(exponent / 3) + 6 // Calculate the index in the prefixes list for this exponent
+
+	// An edge case which happens if we round 999.9 to 0 decimals for example, which gets rounded to 1000
+	// In that case, we manually swap up to the next prefix if there is one available
+	if(coefficient >= 1000 && prefix_index < 11)
+		coefficient /= 1e3
+		prefix_index++
+
+	var/prefix = prefixes[prefix_index]
+	return "[coefficient] [prefix][unit]"
 
 
 /** The game code never uses Pa, but kPa, since 1 Pa is too small to reasonably handle
@@ -1077,57 +949,10 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		out += prob(replaceprob)? pick(replacementchars) : char
 	return out.Join("")
 
-///runs `piglatin_word()` proc on each word in a sentence. preserves caps and punctuation
-/proc/piglatin_sentence(text)
-	var/text_length = length(text)
-
-	//remove caps since words will be shuffled
-	text = lowertext(text)
-	//remove punctuation for same reasons as above
-	var/punctuation = ""
-	var/punctuation_hit_list = list("!","?",".","-")
-	for(var/letter_index in text_length to 1 step -1)
-		var/letter = text[letter_index]
-		if(!(letter in punctuation_hit_list))
-			break
-		punctuation += letter
-	punctuation = reverse_text(punctuation)
-	text = copytext(text, 1, ((text_length + 1) - length(punctuation)))
-
-	//now piglatin each word
-	var/list/old_words = splittext(text, " ")
-	var/list/new_words = list()
-	for(var/word in old_words)
-		new_words += piglatin_word(word)
-	text = new_words.Join(" ")
-	//replace caps and punc
-	text = capitalize(text)
-	text += punctuation
-	return text
-
-///takes "word", and returns it piglatinized.
-/proc/piglatin_word(word)
-	if(length(word) == 1)
-		return word
-	var/first_letter = copytext(word, 1, 2)
-	var/first_two_letters = copytext(word, 1, 3)
-	var/first_word_is_vowel = (first_letter in list("a", "e", "i", "o", "u"))
-	var/second_word_is_vowel = (copytext(word, 2, 3) in list("a", "e", "i", "o", "u"))
-	//If a word starts with a vowel add the word "way" at the end of the word.
-	if(first_word_is_vowel)
-		return word + pick("yay", "way", "hay") //in cultures around the world it's different, so heck lets have fun and make it random. should still be readable
-	//If a word starts with a consonant and a vowel, put the first letter of the word at the end of the word and add "ay."
-	if(!first_word_is_vowel && second_word_is_vowel)
-		word = copytext(word, 2)
-		word += first_letter
-		return word + "ay"
-	//If a word starts with two consonants move the two consonants to the end of the word and add "ay."
-	if(!first_word_is_vowel && !second_word_is_vowel)
-		word = copytext(word, 3)
-		word += first_two_letters
-		return word + "ay"
-	//otherwise unmutated
-	return word
+/proc/add_zero(t, u)
+	while(length(t) < u)
+		t = "0[t]"
+	return t
 
 /**
  * The procedure to check the text of the entered text on ntnrc_client.dm
@@ -1161,17 +986,17 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 /proc/weight_class_to_text(w_class)
 	switch(w_class)
 		if(WEIGHT_CLASS_TINY)
-			. = "tiny"
+			. = "маленького"
 		if(WEIGHT_CLASS_SMALL)
-			. = "small"
+			. = "небольшого"
 		if(WEIGHT_CLASS_NORMAL)
-			. = "normal-sized"
+			. = "среднего"
 		if(WEIGHT_CLASS_BULKY)
-			. = "bulky"
+			. = "большого"
 		if(WEIGHT_CLASS_HUGE)
-			. = "huge"
+			. = "огромного"
 		if(WEIGHT_CLASS_GIGANTIC)
-			. = "gigantic"
+			. = "гигантского"
 		else
 			. = ""
 
@@ -1180,19 +1005,476 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/static/regex/regex = new(@"[^a-zA-Z0-9]","g")
 	return replacetext(name, regex, "")
 
-/// Converts a semver string into a list of numbers
-/proc/semver_to_list(semver_string)
-	var/static/regex/semver_regex = regex(@"(\d+)\.(\d+)\.(\d+)", "")
-	if(!semver_regex.Find(semver_string))
-		return null
+/proc/parse_zone(zone)	// Именительный
+	if(zone == BODY_ZONE_PRECISE_R_HAND)
+		return "правая кисть"
+	else if (zone == BODY_ZONE_PRECISE_L_HAND)
+		return "левая кисть"
+	else if (zone == BODY_ZONE_L_ARM)
+		return "левая рука"
+	else if (zone == BODY_ZONE_R_ARM)
+		return "правая рука"
+	else if (zone == BODY_ZONE_L_LEG)
+		return "левая нога"
+	else if (zone == BODY_ZONE_R_LEG)
+		return "правая нога"
+	else if (zone == BODY_ZONE_PRECISE_L_FOOT)
+		return "левая ступня"
+	else if (zone == BODY_ZONE_PRECISE_R_FOOT)
+		return "правая ступня"
+	else if (zone == "chest")
+		return "грудь"
+	else if (zone == "mouth")
+		return "рот"
+	else if (zone == "groin")
+		return "пах"
+	else if (zone == "head")
+		return "голова"
+	else if (zone == "eyes")
+		return "глаза"
+	else
+		return zone
 
-	return list(
-		text2num(semver_regex.group[1]),
-		text2num(semver_regex.group[2]),
-		text2num(semver_regex.group[3]),
-	)
+/proc/ru_parse_zone(zone)	// Винительный
+	if(zone == "правая кисть")
+		return "правую кисть"
+	else if (zone == "левая кисть")
+		return "левую кисть"
+	else if (zone == "левая рука")
+		return "левую руку"
+	else if (zone == "правая рука")
+		return "правую руку"
+	else if (zone == "левая нога")
+		return "левую ногу"
+	else if (zone == "правая нога")
+		return "правую ногу"
+	else if (zone == "левая ступня")
+		return "левую ступню"
+	else if (zone == "правая ступня")
+		return "правую ступню"
+	else if (zone == "грудь")
+		return "грудь"
+	else if (zone == "рот")
+		return "рот"
+	else if (zone == "пах")
+		return "пах"
+	else if (zone == "голова")
+		return "голову"
+	else
+		return zone
 
-/// Returns TRUE if the input_text ends with the ending
-/proc/endswith(input_text, ending)
-	var/input_length = LAZYLEN(ending)
-	return !!findtext(input_text, ending, -input_length)
+/proc/ru_gde_zone(zone)	// Дательный
+	if(zone == "правая кисть")
+		return "правой кисти"
+	else if (zone == "левая кисть")
+		return "левой кисти"
+	else if (zone == "левая рука")
+		return "левой руке"
+	else if (zone == "правая рука")
+		return "правой руке"
+	else if (zone == "левая нога")
+		return "левой ноге"
+	else if (zone == "правая нога")
+		return "правой ноге"
+	else if (zone == "левая ступня")
+		return "левой ступне"
+	else if (zone == "правая ступня")
+		return "правой ступне"
+	else if (zone == "грудь")
+		return "груди"
+	else if (zone == "рот")
+		return "ротовой полости"
+	else if (zone == "пах")
+		return "паховой области"
+	else if (zone == "голова")
+		return "голове"
+	else
+		return zone
+
+/proc/ru_otkuda_zone(zone)	// Родительный
+	if(zone == "правая кисть")
+		return "правой кисти"
+	else if (zone == "левая кисть")
+		return "левой кисти"
+	else if (zone == "левая рука")
+		return "левой руки"
+	else if (zone == "правая рука")
+		return "правой руки"
+	else if (zone == "левая нога")
+		return "левой ноги"
+	else if (zone == "правая нога")
+		return "правой ноги"
+	else if (zone == "левая ступня")
+		return "левой ступни"
+	else if (zone == "правая ступня")
+		return "правой ступни"
+	else if (zone == "грудь")
+		return "груди"
+	else if (zone == "рот")
+		return "ротовой полости"
+	else if (zone == "пах")
+		return "паховой области"
+	else if (zone == "голова")
+		return "головы"
+	else
+		return zone
+
+/proc/ru_chem_zone(zone)	// Творительный
+	if(zone == "правая кисть")
+		return "правой кистью"
+	else if (zone == "левая кисть")
+		return "левой кистью"
+	else if (zone == "левая рука")
+		return "левой рукой"
+	else if (zone == "правая рука")
+		return "правой рукой"
+	else if (zone == "левая нога")
+		return "левой ногой"
+	else if (zone == "правая нога")
+		return "правой ногой"
+	else if (zone == "левая ступня")
+		return "левой ступней"
+	else if (zone == "правая ступня")
+		return "правой ступней"
+	else if (zone == "грудь")
+		return "грудью"
+	else if (zone == "рот")
+		return "ртом"
+	else if (zone == "пах")
+		return "пахом"
+	else if (zone == "голова")
+		return "головой"
+	else
+		return zone
+
+/proc/ru_exam_parse_zone(zone)
+	if (zone == "chest")
+		return "грудь"
+	else if (zone == "mouth")
+		return "рот"
+	else if (zone == "groin")
+		return "пах"
+	else if (zone == "head")
+		return "голова"
+	else
+		return zone
+
+/proc/ru_intent(intent)
+	switch(intent)
+		if (INTENT_HELP)
+			return "помогать"
+		if (INTENT_GRAB)
+			return "хватать"
+		if (INTENT_DISARM)
+			return "толкать"
+		if (INTENT_HARM)
+			return "вредить"
+		else
+			return intent
+
+// FUCK?
+/proc/ru_job_parse(job)
+	if(GLOB.is_theme_applied == "lfwb")
+		return ru_lfwb_job_parse(job)
+	if (job == JOB_ASSISTANT)
+		return "Ассистент"
+	else if (job == JOB_INTERN)
+		return "Практикант"
+	else if (job == JOB_CAPTAIN)
+		return "Капитан"
+	else if (job == JOB_CHIEF_ENGINEER)
+		return "Старший Инженер"
+	else if (job == JOB_STATION_ENGINEER)
+		return "Инженер"
+	else if (job == JOB_MECHANIC)
+		return "Механик"
+	else if (job == JOB_ATMOSPHERIC_TECHNICIAN)
+		return "Атмосферный Техник"
+	else if (job == JOB_CHIEF_MEDICAL_OFFICER)
+		return "Главный Врач"
+	else if (job == JOB_MEDICAL_DOCTOR)
+		return "Врач"
+	else if (job == JOB_PARAMEDIC)
+		return "Парамедик"
+	else if (job == JOB_VIROLOGIST)
+		return "Вирусолог"
+	else if (job == JOB_CHEMIST)
+		return "Химик"
+	else if (job == JOB_FIELD_MEDIC)
+		return "Полевой Медик"
+	else if (job == JOB_RESEARCH_DIRECTOR)
+		return "Научный Руководитель"
+	else if (job == JOB_SCIENTIST)
+		return "Учёный"
+	else if (job == JOB_GENETICIST)
+		return "Генетик"
+	else if (job == JOB_ROBOTICIST)
+		return "Робототехник"
+	else if (job == JOB_HACKER)
+		return "Анальный хакир"
+	else if (job == JOB_HEAD_OF_SECURITY)
+		return "Начальник Охраны"
+	else if (job == JOB_WARDEN)
+		return "Надзиратель"
+	else if (job == JOB_DETECTIVE)
+		return "Детектив"
+	else if (job == JOB_SECURITY_OFFICER)
+		return "Офицер"
+	else if (job == JOB_SPECIALIST)
+		return "Специалист"
+	else if (job == JOB_SECURITY_OFFICER_SUPPLY)
+		return "Офицер (Снабжение)"
+	else if (job == JOB_SECURITY_OFFICER_ENGINEERING)
+		return "Офицер (Инженерный)"
+	else if (job == JOB_SECURITY_OFFICER_MEDICAL)
+		return "Офицер (Медбей)"
+	else if (job == JOB_SECURITY_OFFICER_SCIENCE)
+		return "Офицер (Научный)"
+	else if (job == JOB_RUSSIAN_OFFICER)
+		return "Русский Офицер"
+	else if (job == JOB_VETERAN)
+		return "Ветеран"
+	else if (job == JOB_QUARTERMASTER)
+		return "Квартирмейстер"
+	else if (job == JOB_CARGO_TECHNICIAN)
+		return "Грузчик"
+	else if (job == JOB_SHAFT_MINER)
+		return "Шахтёр"
+	else if (job == JOB_HUNTER)
+		return "Охотник"
+	else if (job == JOB_FREELANCER)
+		return "Путешественник"
+	else if (job == JOB_RANGER)
+		return "Рейнджер"
+	else if (job == JOB_TRADER)
+		return "Торговец"
+	else if (job == JOB_HEAD_OF_PERSONNEL)
+		return "Глава Персонала"
+	else if (job == JOB_BARTENDER)
+		return "Бармен"
+	else if (job == JOB_BOTANIST)
+		return "Ботаник"
+	else if (job == JOB_COOK)
+		return "Повар"
+	else if (job == JOB_JANITOR)
+		return "Уборщик"
+	else if (job == JOB_CURATOR)
+		return "Куратор"
+	else if (job == JOB_PSYCHOLOGIST)
+		return "Психолог"
+	else if (job == JOB_LAWYER)
+		return "Адвокат"
+	else if (job == JOB_CHAPLAIN)
+		return "Капеллан"
+	else if (job == JOB_CLOWN)
+		return "Клоун"
+	else if (job == JOB_MIME)
+		return "Мим"
+	else if (job == JOB_PRISONER)
+		return "Заключённый"
+	else if (job == JOB_BOMJ)
+		return "Бомж"
+	else if (job == JOB_COMBATANT_RED)
+		return "комбатанта красных"
+	else if (job == JOB_COMBATANT_BLUE)
+		return "комбатанта синих"
+	else if (job == "red")
+		return "Красный"
+	else if (job == "blue")
+		return "Синий"
+	else if (job == JOB_RUST_ENJOYER)
+		return "Выживший"
+	else
+		return job
+
+/proc/ru_lfwb_job_parse(job)
+	if (job == JOB_ASSISTANT)
+		return "Служанка"
+	else if (job == JOB_INTERN)
+		return "Ребенок"
+	else if (job == JOB_CAPTAIN)
+		return "Барон"
+	else if (job == JOB_CHIEF_ENGINEER)
+		return "Старший Мортус"
+	else if (job == JOB_STATION_ENGINEER)
+		return "Мортус"
+	else if (job == JOB_MECHANIC)
+		return "Горбач"
+	else if (job == JOB_ATMOSPHERIC_TECHNICIAN)
+		return "Атмосферный Горбач"
+	else if (job == JOB_CHIEF_MEDICAL_OFFICER)
+		return "Эскулап"
+	else if (job == JOB_MEDICAL_DOCTOR)
+		return "Серпент"
+	else if (job == JOB_PARAMEDIC)
+		return "Консайт"
+	else if (job == JOB_VIROLOGIST)
+		return "Знахарь"
+	else if (job == JOB_CHEMIST)
+		return "Химсестра"
+	else if (job == JOB_FIELD_MEDIC)
+		return "Полевой Серпент"
+	else if (job == JOB_SPECIALIST)
+		return "Боевой Мортус"
+	else if (job == JOB_RESEARCH_DIRECTOR)
+		return "Инквизитор"
+	else if (job == JOB_SCIENTIST)
+		return "Практик"
+	else if (job == JOB_GENETICIST)
+		return "Монахиня"
+	else if (job == JOB_ROBOTICIST)
+		return "Монах"
+	else if (job == JOB_HACKER)
+		return "Дример"
+	else if (job == JOB_HEAD_OF_SECURITY)
+		return "Цензор"
+	else if (job == JOB_WARDEN)
+		return "Инкарн"
+	else if (job == JOB_DETECTIVE)
+		return "Нюхач"
+	else if (job == JOB_SECURITY_OFFICER)
+		return "Цербер"
+	else if (job == JOB_SECURITY_OFFICER_SUPPLY)
+		return "Цербер (Торговец)"
+	else if (job == JOB_SECURITY_OFFICER_ENGINEERING)
+		return "Цербер (Мортуарий)"
+	else if (job == JOB_SECURITY_OFFICER_MEDICAL)
+		return "Цербер (Санктуарий)"
+	else if (job == JOB_SECURITY_OFFICER_SCIENCE)
+		return "Цербер (Инквизиция)"
+	else if (job == JOB_RUSSIAN_OFFICER)
+		return "Русский Цербер"
+	else if (job == JOB_VETERAN)
+		return "Ветеран"
+	else if (job == JOB_QUARTERMASTER)
+		return "Торговец"
+	else if (job == JOB_CARGO_TECHNICIAN)
+		return "Грузчик"
+	else if (job == JOB_SHAFT_MINER)
+		return "Шахтёр"
+	else if (job == JOB_HUNTER)
+		return "Охотник"
+	else if (job == JOB_FREELANCER)
+		return "Приключенец"
+	else if (job == JOB_RANGER)
+		return "Ушер"
+	else if (job == JOB_TRADER)
+		return "Купец"
+	else if (job == JOB_HEAD_OF_PERSONNEL)
+		return "Десница"
+	else if (job == JOB_BARTENDER)
+		return "Трактирщик"
+	else if (job == JOB_BOTANIST)
+		return "Земляр"
+	else if (job == JOB_COOK)
+		return "Жена Трактирщика"
+	else if (job == JOB_JANITOR)
+		return "Мизеро"
+	else if (job == JOB_CURATOR)
+		return "Гадалка"
+	else if (job == JOB_PSYCHOLOGIST)
+		return "Барыга"
+	else if (job == JOB_LAWYER)
+		return "Крестоносец"
+	else if (job == JOB_CHAPLAIN)
+		return "Епископ"
+	else if (job == JOB_CLOWN)
+		return "Шут"
+	else if (job == JOB_MIME)
+		return "Забавница"
+	else if (job == JOB_PRISONER)
+		return "Узник"
+	else if (job == JOB_BOMJ)
+		return "Бомж"
+	else if (job == JOB_COMBATANT_RED)
+		return "комбатанта красных"
+	else if (job == JOB_COMBATANT_BLUE)
+		return "комбатанта синих"
+	else if (job == "red")
+		return "Красный"
+	else if (job == "blue")
+		return "Синий"
+	else
+		return job
+
+/proc/jumpsuit_to_ru_conversion(jumpsuit)
+	switch(jumpsuit)
+		if("Jumpsuit")
+			return "Комбез"
+		if("Jumpskirt")
+			return "Юбкомбез"
+		else
+			return jumpsuit
+
+/proc/backpack_to_ru_conversion(backpack)
+	switch(backpack)
+		if("Grey Backpack")
+			return "Серый рюкзак"
+		if("Grey Satchel")
+			return "Серая сумка"
+		if("Grey Duffel Bag")
+			return "Серый вещмешок"
+		if("Leather Satchel")
+			return "Кожаная сумка"
+		if("Department Backpack")
+			return "Рюкзак отдела"
+		if("Department Satchel")
+			return "Сумка отдела"
+		if("Department Duffel Bag")
+			return "Вещмешок отдела"
+		else
+			return backpack
+
+/proc/uplink_to_ru_conversion(uplink)
+	switch(uplink)
+		if("PDA")
+			return "ПДА"
+		if("Radio")
+			return "Наушник"
+		if("Pen")
+			return "Ручка"
+		if("Implant")
+			return "Имплант"
+		else
+			return uplink
+
+/// Generates a random Unicode emoji that will look ok in the chat
+/proc/random_emoji()
+	// source for ranges: https://stackoverflow.com/questions/30470079/emoji-value-range
+	return ascii2text(pick(
+		1; 0x00A9,
+		1; 0x00AE,
+		1; 0x203C,
+		1; 0x2049,
+		1; 0x20E3,
+		1; 0x2122,
+		1; 0x2139,
+		(0x2199 - 0x2194 + 1); rand(0x2194, 0x2199),
+		(0x21AA - 0x21A9 + 1); rand(0x21A9, 0x21AA),
+		1; 0x231A,
+		1; 0x231B,
+		1; 0x2328,
+		1; 0x23CF,
+		(0x23F3 - 0x23E9 + 1); rand(0x23E9, 0x23F3),
+		(0x23FA - 0x23F8 + 1); rand(0x23F8, 0x23FA),
+		1; 0x24C2,
+		1; 0x25AA,
+		1; 0x25AB,
+		1; 0x25B6,
+		1; 0x25C0,
+		(0x25FE - 0x25FB + 1); rand(0x25FB, 0x25FE),
+		(0x27EF - 0x2600 + 1); rand(0x2600, 0x27EF),
+		1; 0x2934,
+		1; 0x2935,
+		(0x2BFF - 0x2B00 + 1); rand(0x2B00, 0x2BFF),
+		1; 0x3030,
+		1; 0x303D,
+		1; 0x3297,
+		1; 0x3299,
+		(0x1F02F - 0x1F000 + 1); rand(0x1F000, 0x1F02F),
+		(0x1F0FF - 0x1F0A0 + 1); rand(0x1F0A0, 0x1F0FF),
+		(0x1F64F - 0x1F100 + 1); rand(0x1F100, 0x1F64F),
+		(0x1F6FF - 0x1F680 + 1); rand(0x1F680, 0x1F6FF),
+		(0x1F96B - 0x1F910 + 1); rand(0x1F910, 0x1F96B),
+		(0x1F9E0 - 0x1F980 + 1); rand(0x1F980, 0x1F9E0)
+		))

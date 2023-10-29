@@ -1,87 +1,15 @@
 /turf/open/space/transit
-	name = "\proper hyperspace"
-	desc = "What is this, light-speed? We need to go to plaid speed!"  // spaceballs was a great movie
+	name = "гиперпространство"
 	icon_state = "black"
 	dir = SOUTH
 	baseturfs = /turf/open/space/transit
 	turf_flags = NOJAUNT //This line goes out to every wizard that ever managed to escape the den. I'm sorry.
-	explosive_resistance = INFINITY
-
-/turf/open/space/transit/Initialize(mapload)
-	. = ..()
-	update_appearance()
-	RegisterSignal(src, COMSIG_TURF_RESERVATION_RELEASED, PROC_REF(launch_contents))
-	RegisterSignal(src, COMSIG_ATOM_ENTERED, PROC_REF(initialize_drifting))
-	RegisterSignal(src, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON, PROC_REF(initialize_drifting_but_from_initialize))
-
-/turf/open/space/transit/Destroy()
-	//Signals are NOT removed from turfs upon replacement, and we get replaced ALOT, so unregister our signal
-	UnregisterSignal(src, list(COMSIG_TURF_RESERVATION_RELEASED, COMSIG_ATOM_ENTERED, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON))
-
-	return ..()
+	explosion_block = INFINITY
 
 /turf/open/space/transit/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	. = ..()
 	underlay_appearance.icon_state = "speedspace_ns_[get_transit_state(asking_turf)]"
 	underlay_appearance.transform = turn(matrix(), get_transit_angle(asking_turf))
-
-/turf/open/space/transit/update_icon()
-	. = ..()
-	transform = turn(matrix(), get_transit_angle(src))
-
-/turf/open/space/transit/update_icon_state()
-	icon_state = "speedspace_ns_[get_transit_state(src)]"
-	return ..()
-
-/turf/open/space/transit/proc/initialize_drifting(atom/entered, atom/movable/enterer)
-	SIGNAL_HANDLER
-
-	if(enterer && !HAS_TRAIT(enterer, TRAIT_HYPERSPACED) && !HAS_TRAIT(src, TRAIT_HYPERSPACE_STOPPED))
-		enterer.AddComponent(/datum/component/shuttle_cling, REVERSE_DIR(dir))
-
-/turf/open/space/transit/proc/initialize_drifting_but_from_initialize(atom/movable/location, atom/movable/enterer, mapload)
-	SIGNAL_HANDLER
-
-	if(!mapload && !enterer.anchored)
-		INVOKE_ASYNC(src, PROC_REF(initialize_drifting), src, enterer)
-
-/turf/open/space/transit/Exited(atom/movable/gone, direction)
-	. = ..()
-
-	var/turf/location = gone.loc
-	if(istype(location, /turf/open/space) && !istype(location, src.type))//they got forced out of transit area into default space tiles
-		dump_in_space(gone) //launch them into game space, away from transitspace
-
-///Get rid of all our contents, called when our reservation is released (which in our case means the shuttle arrived)
-/turf/open/space/transit/proc/launch_contents(datum/turf_reservation/reservation)
-	SIGNAL_HANDLER
-
-	for(var/atom/movable/movable in contents)
-		dump_in_space(movable)
-
-///Dump a movable in a random valid spacetile
-/proc/dump_in_space(atom/movable/dumpee)
-	if(HAS_TRAIT(dumpee, TRAIT_DEL_ON_SPACE_DUMP))
-		qdel(dumpee)
-		return
-
-	var/max = world.maxx-TRANSITIONEDGE
-	var/min = 1+TRANSITIONEDGE
-
-	var/list/possible_transtitons = list()
-	for(var/datum/space_level/level as anything in SSmapping.z_list)
-		if (level.linkage == CROSSLINKED)
-			possible_transtitons += level.z_value
-	if(!length(possible_transtitons)) //No space to throw them to - try throwing them onto mining
-		possible_transtitons = SSmapping.levels_by_trait(ZTRAIT_MINING)
-		if(!length(possible_transtitons)) //Just throw them back on station, if not just runtime.
-			possible_transtitons = SSmapping.levels_by_trait(ZTRAIT_STATION)
-
-	//move the dumpee to a random coordinate turf
-	dumpee.forceMove(locate(rand(min,max), rand(min,max), pick(possible_transtitons)))
-
-/turf/open/space/transit/CanBuildHere()
-	return SSshuttle.is_in_shuttle_bounds(src)
 
 /turf/open/space/transit/south
 	dir = SOUTH
@@ -97,6 +25,100 @@
 
 /turf/open/space/transit/east
 	dir = EAST
+
+/turf/open/space/transit/Entered(atom/movable/AM, atom/OldLoc)
+	..()
+	if(HAS_TRAIT(AM, TRAIT_HYPERSPACE_IMMUNE))
+		return
+	if(!locate(/obj/structure/lattice) in src)
+		throw_atom(AM, OldLoc)
+
+/turf/open/space/transit/proc/throw_atom(atom/movable/AM, atom/OldLoc)
+	if(!AM || istype(AM, /obj/docking_port) || istype(AM, /obj/effect/abstract) || istype(AM, /obj/projectile/bullet/shuttle))
+		return
+	if(AM.loc != src) 	// Multi-tile objects are "in" multiple locs but its loc is it's true placement.
+		return			// Don't move multi tile objects if their origin isn't in transit
+	var/max = world.maxx-TRANSITIONEDGE
+	var/min = 1+TRANSITIONEDGE
+
+	//Find our location
+	var/_z = 2
+
+	var/should_make_level = ismob(AM)
+	if(!should_make_level && isitem(AM))
+		var/obj/item/I = AM
+		if(I.resistance_flags & INDESTRUCTIBLE)	//incase there is an important item
+			should_make_level = TRUE
+
+	if(should_make_level)
+		//Check if we are on a shuttle
+		var/turf/oldTurf = get_turf(OldLoc)
+		var/area/shuttle/shuttleArea = get_area(oldTurf)
+		if(istype(shuttleArea))
+			var/shuttleId = shuttleArea.mobile_port?.id || "null"
+			//Find the shuttle object
+			var/datum/orbital_object/shuttle/shuttleObj = SSorbits.assoc_shuttles[shuttleId]
+			if(shuttleObj)
+				if(length(shuttleObj.can_dock_with?.linked_z_level))
+					_z = shuttleObj.can_dock_with.linked_z_level[1].z_value
+				else if(length(shuttleObj.docking_target?.linked_z_level))
+					_z = shuttleObj.docking_target.linked_z_level[1].z_value
+				else
+					//Interdiction (Its an empty z-level)
+					var/datum/orbital_object/z_linked/beacon/ruin/z_linked = new /datum/orbital_object/z_linked/beacon/ruin/interdiction(
+						new /datum/orbital_vector(shuttleObj.position.GetX(), shuttleObj.position.GetY())
+					)
+					z_linked.name = "Заблудший [AM]"
+					z_linked.assign_z_level(FALSE)
+					if(length(z_linked.linked_z_level))
+						_z = z_linked.linked_z_level[1].z_value
+	if(_z == 2)
+		//Chuck them at the space level
+		for(var/A in SSmapping.z_list)
+			var/datum/space_level/D = A
+			if (D.linkage == CROSSLINKED)
+				_z = D.z_value
+				break
+
+	//now select coordinates for a border turf
+	var/_x
+	var/_y
+	switch(dir)
+		if(SOUTH)
+			_x = rand(min,max)
+			_y = max
+		if(WEST)
+			_x = max
+			_y = rand(min,max)
+		if(EAST)
+			_x = min
+			_y = rand(min,max)
+		else
+			_x = rand(min,max)
+			_y = min
+
+	var/turf/T = locate(_x, _y, _z)
+	AM.forceMove(T)
+
+
+/turf/open/space/transit/CanBuildHere()
+	return SSshuttle.is_in_shuttle_bounds(src)
+
+
+/turf/open/space/transit/Initialize(mapload)
+	. = ..()
+	update_icon()
+	for(var/atom/movable/AM in src)
+		spawn(0)
+			throw_atom(AM, src)
+
+/turf/open/space/transit/update_icon()
+	. = ..()
+	transform = turn(matrix(), get_transit_angle(src))
+
+/turf/open/space/transit/update_icon_state()
+	. = ..()
+	icon_state = "speedspace_ns_[get_transit_state(src)]"
 
 /proc/get_transit_state(turf/T)
 	var/p = 9

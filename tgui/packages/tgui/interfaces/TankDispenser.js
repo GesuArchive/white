@@ -10,11 +10,11 @@ export const TankDispenser = (props, context) => {
         <Section>
           <LabeledList>
             <LabeledList.Item
-              label="Plasma"
+              label="Плазма"
               buttons={
                 <Button
                   icon={data.plasma ? 'square' : 'square-o'}
-                  content="Dispense"
+                  content="Выдать"
                   disabled={!data.plasma}
                   onClick={() => act('plasma')}
                 />
@@ -22,11 +22,11 @@ export const TankDispenser = (props, context) => {
               {data.plasma}
             </LabeledList.Item>
             <LabeledList.Item
-              label="Oxygen"
+              label="Кислород"
               buttons={
                 <Button
                   icon={data.oxygen ? 'square' : 'square-o'}
-                  content="Dispense"
+                  content="Выдать"
                   disabled={!data.oxygen}
                   onClick={() => act('oxygen')}
                 />

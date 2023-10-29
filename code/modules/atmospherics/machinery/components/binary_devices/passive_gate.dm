@@ -9,8 +9,10 @@ Passive gate is similar to the regular pump except:
 
 /obj/machinery/atmospherics/components/binary/passive_gate
 	icon_state = "passgate_map-3"
-	name = "passive gate"
-	desc = "A one-way air valve that does not require power. Passes gas when the output pressure is lower than the target pressure."
+
+	name = "Пассивные врата"
+	desc = "Врата, пропускающие газ в одну сторону и не требующие энергии. Пропускают газ когда внешнее давление ниже давления источника"
+
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
 	interaction_flags_machine = INTERACT_MACHINE_OFFLINE | INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON | INTERACT_MACHINE_SET_MACHINE
@@ -42,7 +44,7 @@ Passive gate is similar to the regular pump except:
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)
-		balloon_alert(user, "pressure output set to [target_pressure] kPa")
+		balloon_alert(user, "максимально выкручиваю давление на [target_pressure] кПа")
 		update_appearance()
 	return ..()
 
@@ -104,7 +106,7 @@ Passive gate is similar to the regular pump except:
 /obj/machinery/atmospherics/components/binary/passive_gate/can_unwrench(mob/user)
 	. = ..()
 	if(. && on)
-		to_chat(user, span_warning("You cannot unwrench [src], turn it off first!"))
+		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!"))
 		return FALSE
 
 

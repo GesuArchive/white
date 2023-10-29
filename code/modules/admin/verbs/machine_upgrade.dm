@@ -1,6 +1,6 @@
 /proc/machine_upgrade(obj/machinery/M in world)
 	set name = "Tweak Component Ratings"
-	set category = "Debug"
+	set category = "Дбг"
 	if (!istype(M))
 		return
 
@@ -10,4 +10,4 @@
 			P.rating = new_rating
 		M.RefreshParts()
 
-	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Machine Upgrade", "[new_rating]")) // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Machine Upgrade", "[new_rating]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

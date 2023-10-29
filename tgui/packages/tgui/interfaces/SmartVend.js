@@ -9,25 +9,25 @@ export const SmartVend = (props, context) => {
     <Window width={440} height={550}>
       <Window.Content scrollable>
         <Section
-          title="Storage"
+          title="Хранилище"
           buttons={
             !!data.isdryer && (
               <Button
                 icon={data.drying ? 'stop' : 'tint'}
                 onClick={() => act('Dry')}>
-                {data.drying ? 'Stop drying' : 'Dry'}
+                {data.drying ? 'Остановить' : 'Сушить'}
               </Button>
             )
           }>
           {(data.contents.length === 0 && (
-            <NoticeBox>Unfortunately, this {data.name} is empty.</NoticeBox>
+            <NoticeBox>К сожалению, {data.name} пуст.</NoticeBox>
           )) || (
             <Table>
               <Table.Row header>
-                <Table.Cell>Item</Table.Cell>
+                <Table.Cell>Предмет</Table.Cell>
                 <Table.Cell collapsing />
                 <Table.Cell collapsing textAlign="center">
-                  {data.verb ? data.verb : 'Dispense'}
+                  {data.verb ? data.verb : 'Выдать'}
                 </Table.Cell>
               </Table.Row>
               {map((value, key) => (
@@ -38,7 +38,7 @@ export const SmartVend = (props, context) => {
                   </Table.Cell>
                   <Table.Cell collapsing>
                     <Button
-                      content="One"
+                      content="Один"
                       disabled={value.amount < 1}
                       onClick={() =>
                         act('Release', {
@@ -48,7 +48,7 @@ export const SmartVend = (props, context) => {
                       }
                     />
                     <Button
-                      content="Many"
+                      content="Много"
                       disabled={value.amount <= 1}
                       onClick={() =>
                         act('Release', {

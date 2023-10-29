@@ -10,31 +10,6 @@
 	msg = "## NOTICE: [msg]"
 	log_world(msg)
 
-#define SET_SERIALIZATION_SEMVER(semver_list, semver) semver_list[type] = semver
-#define CHECK_SERIALIZATION_SEMVER(wanted, actual) (__check_serialization_semver(wanted, actual))
-
-/// Checks if the actual semver is equal or later than the wanted semver
-/// Must be passed as TEXT; you're probably looking for CHECK_SERIALIZATION_SEMVER, look right above
-/proc/__check_serialization_semver(wanted, actual)
-	if(wanted == actual)
-		return TRUE
-
-	var/list/wanted_versions = semver_to_list(wanted)
-	var/list/actual_versions = semver_to_list(actual)
-
-	if(!wanted_versions || !actual_versions)
-		stack_trace("Invalid semver string(s) passed to __check_serialization_semver: '[wanted]' and '[actual]'")
-		return FALSE
-
-	if(wanted_versions[1] != actual_versions[1])
-		return FALSE // major must always
-
-	if(wanted_versions[2] > actual_versions[2])
-		return FALSE // actual must be later than wanted
-
-	// patch is not checked
-	return TRUE
-
 //print a testing-mode debug message to world.log and world
 #ifdef TESTING
 #define testing(msg) log_world("## TESTING: [msg]"); to_chat(world, "## TESTING: [msg]")
@@ -101,8 +76,7 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 
 	var/log_text = "[key_name(src)] [message] [loc_name(src)]"
 	switch(message_type)
-		/// ship both attack logs and victim logs to the end of round attack.log just to ensure we don't lose information
-		if(LOG_ATTACK, LOG_VICTIM)
+		if(LOG_ATTACK)
 			log_attack(log_text)
 		if(LOG_SAY)
 			log_say(log_text)
@@ -110,8 +84,6 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 			log_whisper(log_text)
 		if(LOG_EMOTE)
 			log_emote(log_text)
-		if(LOG_RADIO_EMOTE)
-			log_radio_emote(log_text)
 		if(LOG_DSAY)
 			log_dsay(log_text)
 		if(LOG_PDA)
@@ -122,12 +94,14 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 			log_comment(log_text)
 		if(LOG_TELECOMMS)
 			log_telecomms(log_text)
-		if(LOG_TRANSPORT)
-			log_transport(log_text)
 		if(LOG_ECON)
 			log_econ(log_text)
 		if(LOG_OOC)
 			log_ooc(log_text)
+		if(LOG_LOOC)
+			log_looc(log_text)
+		if(LOG_LOBBY)
+			log_lobby(log_text)
 		if(LOG_ADMIN)
 			log_admin(log_text)
 		if(LOG_ADMIN_PRIVATE)
@@ -155,7 +129,7 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 /* Close open log handles. This should be called as late as possible, and no logging should hapen after. */
 /proc/shutdown_logging()
 	rustg_log_close_all()
-	logger.shutdown_logging()
+	GLOB.logger.shutdown_logging()
 
 /* Helper procs for building detailed log lines */
 /proc/key_name(whom, include_link = null, include_name = TRUE)
@@ -199,7 +173,7 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 		if(istype(whom, /atom))
 			var/atom/A = whom
 			swhom = "[A.name]"
-		else if(isdatum(whom))
+		else if(istype(whom, /datum))
 			swhom = "[whom]"
 
 		if(!swhom)
@@ -215,7 +189,7 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 	if(key)
 		if(C?.holder && C.holder.fakekey && !include_name)
 			if(include_link)
-				. += "<a href='?priv_msg=[C.getStealthKey()]'>"
+				. += "<a href='?priv_msg=[C.findStealthKey()]'>"
 			. += "Administrator"
 		else
 			if(include_link)

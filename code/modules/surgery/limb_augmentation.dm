@@ -5,92 +5,60 @@
 //SURGERY STEPS
 
 /datum/surgery_step/replace_limb
-	name = "replace limb"
-	implements = list(
-		/obj/item/bodypart = 100,
-		/obj/item/borg/apparatus/organ_storage = 100)
+	name = "Замените часть тела"
+	implements = list(/obj/item/bodypart = 100, /obj/item/organ_storage = 100)
 	time = 32
-	var/obj/item/bodypart/target_limb
+	var/obj/item/bodypart/L = null // L because "limb"
 
 
 /datum/surgery_step/replace_limb/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	if(HAS_TRAIT(target, TRAIT_NO_AUGMENTS))
-		to_chat(user, span_warning("[target] cannot be augmented!"))
-		return SURGERY_STEP_FAIL
-	if(istype(tool, /obj/item/borg/apparatus/organ_storage) && istype(tool.contents[1], /obj/item/bodypart))
+	if(NOAUGMENTS in target.dna.species.species_traits)
+		to_chat(user, span_warning("[target] не может быть аугментирована!"))
+		return -1
+	if(istype(tool, /obj/item/organ_storage) && istype(tool.contents[1], /obj/item/bodypart))
 		tool = tool.contents[1]
 	var/obj/item/bodypart/aug = tool
-	if(IS_ORGANIC_LIMB(aug))
-		to_chat(user, span_warning("That's not an augment, silly!"))
-		return SURGERY_STEP_FAIL
+	if(aug.status != BODYPART_ROBOTIC)
+		to_chat(user, span_warning("Это не так работает, глупый!"))
+		return -1
 	if(aug.body_zone != target_zone)
-		to_chat(user, span_warning("[tool] isn't the right type for [parse_zone(target_zone)]."))
-		return SURGERY_STEP_FAIL
-	target_limb = surgery.operated_bodypart
-	if(target_limb)
-		display_results(
-			user,
-			target,
-			span_notice("You begin to augment [target]'s [parse_zone(user.zone_selected)]..."),
-			span_notice("[user] begins to augment [target]'s [parse_zone(user.zone_selected)] with [aug]."),
-			span_notice("[user] begins to augment [target]'s [parse_zone(user.zone_selected)]."),
-		)
-		display_pain(target, "You feel a horrible pain in your [parse_zone(user.zone_selected)]!")
+		to_chat(user, span_warning("Кажется [tool] не подходит для [ru_otkuda_zone(parse_zone(target_zone))]."))
+		return -1
+	L = surgery.operated_bodypart
+	if(L)
+		display_results(user, target, span_notice("Начинаю аугментировать [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает аугментировать [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] при помощи [aug].") ,
+			span_notice("[user] начинает аугментировать [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]."))
+		display_pain(target, "Чувствую холод в [ru_gde_zone(parse_zone(user.zone_selected))]!")
 	else
-		user.visible_message(span_notice("[user] looks for [target]'s [parse_zone(user.zone_selected)]."), span_notice("You look for [target]'s [parse_zone(user.zone_selected)]..."))
+		user.visible_message(span_notice("[user] пытается найти [parse_zone(user.zone_selected)] [target].") , span_notice("Пытаюсь найти [parse_zone(user.zone_selected)] [target]..."))
 
 
 //ACTUAL SURGERIES
 
 /datum/surgery/augmentation
-	name = "Augmentation"
-	surgery_flags = SURGERY_REQUIRE_RESTING | SURGERY_REQUIRE_LIMB | SURGERY_REQUIRES_REAL_LIMB
-	possible_locs = list(
-		BODY_ZONE_R_ARM,
-		BODY_ZONE_L_ARM,
-		BODY_ZONE_R_LEG,
-		BODY_ZONE_L_LEG,
-		BODY_ZONE_CHEST,
-		BODY_ZONE_HEAD,
-	)
-	steps = list(
-		/datum/surgery_step/incise,
-		/datum/surgery_step/retract_skin,
-		/datum/surgery_step/clamp_bleeders,
-		/datum/surgery_step/replace_limb,
-	)
+	name = "Аугментация"
+	steps = list(/datum/surgery_step/incise, /datum/surgery_step/clamp_bleeders, /datum/surgery_step/retract_skin, /datum/surgery_step/replace_limb)
+	target_mobtypes = list(/mob/living/carbon/human)
+	possible_locs = list(BODY_ZONE_R_ARM,BODY_ZONE_L_ARM,BODY_ZONE_R_LEG,BODY_ZONE_L_LEG,BODY_ZONE_CHEST,BODY_ZONE_HEAD)
+	requires_real_bodypart = TRUE
 
 //SURGERY STEP SUCCESSES
 
-/datum/surgery_step/replace_limb/success(mob/living/user, mob/living/carbon/target, target_zone, obj/item/bodypart/tool, datum/surgery/surgery, default_display_results = FALSE)
-	if(target_limb)
-		if(istype(tool, /obj/item/borg/apparatus/organ_storage))
+/datum/surgery_step/replace_limb/success(mob/user, mob/living/carbon/target, target_zone, obj/item/bodypart/tool, datum/surgery/surgery, default_display_results = FALSE)
+	if(L)
+		if(istype(tool, /obj/item/organ_storage))
 			tool.icon_state = initial(tool.icon_state)
 			tool.desc = initial(tool.desc)
 			tool.cut_overlays()
 			tool = tool.contents[1]
 		if(istype(tool) && user.temporarilyRemoveItemFromInventory(tool))
-			if(!tool.replace_limb(target))
-				display_results(
-					user,
-					target,
-					span_warning("You fail in replacing [target]'s [parse_zone(target_zone)]! Their body has rejected [tool]!"),
-					span_warning("[user] fails to replace [target]'s [parse_zone(target_zone)]!"),
-					span_warning("[user] fails to replaces [target]'s [parse_zone(target_zone)]!"),
-				)
-				tool.forceMove(target.loc)
-				return
-		if(tool.check_for_frankenstein(target))
-			tool.bodypart_flags |= BODYPART_IMPLANTED
-		display_results(
-			user,
-			target,
-			span_notice("You successfully augment [target]'s [parse_zone(target_zone)]."),
-			span_notice("[user] successfully augments [target]'s [parse_zone(target_zone)] with [tool]!"),
-			span_notice("[user] successfully augments [target]'s [parse_zone(target_zone)]!"),
-		)
-		display_pain(target, "Your [parse_zone(target_zone)] comes awash with synthetic sensation!", mechanical_surgery = TRUE)
-		log_combat(user, target, "augmented", addition="by giving him new [parse_zone(target_zone)] COMBAT MODE: [uppertext(user.combat_mode)]")
+			tool.replace_limb(target, TRUE)
+		display_results(user, target, span_notice("Успешно аугментирую [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] успешно аугментировал [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]!") ,
+			span_notice("[user] успешно аугментировал [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]!"))
+		log_combat(user, target, "аугментировал", addition="дав ему новую [parse_zone(target_zone)] INTENT: [uppertext(user.a_intent)]")
+		display_pain(target, "Я вновь чувствую свою [ru_parse_zone(parse_zone(target_zone))], однако она ощущается немного по другому...", mechanical_surgery = TRUE)
 	else
-		to_chat(user, span_warning("[target] has no organic [parse_zone(target_zone)] there!"))
+		to_chat(user, span_warning("[target] не имеет органики на [parse_zone(target_zone)]!"))
 	return ..()

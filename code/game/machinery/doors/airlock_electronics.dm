@@ -1,5 +1,5 @@
 /obj/item/electronics/airlock
-	name = "airlock electronics"
+	name = "контролер шлюза"
 	req_access = list(ACCESS_MAINT_TUNNELS)
 	/// A list of all granted accesses
 	var/list/accesses = list()
@@ -20,26 +20,7 @@
 
 /obj/item/electronics/airlock/examine(mob/user)
 	. = ..()
-	. += span_notice("Has a neat <i>selection menu</i> for modifying airlock access levels.")
-
-/**
- * Create a copy of the electronics
- * Arguments
- * * [location][atom]- the location to create the new copy in
- */
-/obj/item/electronics/airlock/proc/create_copy(atom/location)
-	//create a copy
-	var/obj/item/electronics/airlock/new_electronics = new(location)
-	//copy all params
-	new_electronics.accesses = accesses.Copy()
-	new_electronics.one_access = one_access
-	new_electronics.unres_sides = unres_sides
-	new_electronics.passed_name = passed_name
-	new_electronics.passed_cycle_id = passed_cycle_id
-	new_electronics.shell = shell
-	//return copy
-	return new_electronics
-
+	. += span_notice("<hr>Has a neat <i>selection menu</i> for modifying airlock access levels.")
 
 /obj/item/electronics/airlock/ui_state(mob/user)
 	return GLOB.hands_state
@@ -71,50 +52,56 @@
 	data["shell"] = shell
 	return data
 
-///shared by rcd & airlock electronics
-/obj/item/electronics/airlock/proc/do_action(action, params)
+/obj/item/electronics/airlock/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+
 	switch(action)
 		if("clear_all")
 			accesses = list()
 			one_access = 0
+			. = TRUE
 		if("grant_all")
 			accesses = SSid_access.get_region_access_list(list(REGION_ALL_STATION))
+			. = TRUE
 		if("one_access")
 			one_access = !one_access
+			. = TRUE
 		if("set")
 			var/access = params["access"]
 			if (!(access in accesses))
 				accesses += access
 			else
 				accesses -= access
+			. = TRUE
 		if("set_shell")
 			shell = !!params["on"]
+			. = TRUE
 		if("direc_set")
 			var/unres_direction = text2num(params["unres_direction"])
 			unres_sides ^= unres_direction //XOR, toggles only the bit that was clicked
+			. = TRUE
 		if("grant_region")
 			var/region = params["region"]
 			if(isnull(region))
 				return
 			accesses |= SSid_access.get_region_access_list(list(region))
+			. = TRUE
 		if("deny_region")
 			var/region = params["region"]
 			if(isnull(region))
 				return
 			accesses -= SSid_access.get_region_access_list(list(region))
+			. = TRUE
 		if("passedName")
 			var/new_name = trim("[params["passedName"]]", 30)
 			passed_name = new_name
+			. = TRUE
 		if("passedCycleId")
 			var/new_cycle_id = trim(params["passedCycleId"], 30)
 			passed_cycle_id = new_cycle_id
-
-/obj/item/electronics/airlock/ui_act(action, params)
-	. = ..()
-	if(.)
-		return
-	do_action(action, params)
-	return TRUE
+			. = TRUE
 
 /obj/item/electronics/airlock/ui_host()
 	if(holder)

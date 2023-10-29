@@ -10,9 +10,7 @@
 /datum/wires/explosive/on_pulse(index)
 	explode()
 
-/datum/wires/explosive/on_cut(index, mend, source)
-	if (!isnull(source))
-		log_combat(source, holder, "cut the detonation wire for")
+/datum/wires/explosive/on_cut(index, mend)
 	explode()
 
 /datum/wires/explosive/proc/explode()
@@ -24,23 +22,9 @@
 	var/fingerprint
 
 /datum/wires/explosive/chem_grenade/interactable(mob/user)
-	if(!..())
-		return FALSE
 	var/obj/item/grenade/chem_grenade/G = holder
 	if(G.stage == GRENADE_WIRED)
 		return TRUE
-
-/datum/wires/explosive/chem_grenade/on_pulse(index)
-	var/obj/item/grenade/chem_grenade/grenade = holder
-	if(grenade.stage != GRENADE_READY)
-		return
-	. = ..()
-
-/datum/wires/explosive/chem_grenade/on_cut(index, mend, source)
-	var/obj/item/grenade/chem_grenade/grenade = holder
-	if(grenade.stage != GRENADE_READY)
-		return
-	. = ..()
 
 /datum/wires/explosive/chem_grenade/attach_assembly(color, obj/item/assembly/S)
 	if(istype(S,/obj/item/assembly/timer))
@@ -61,22 +45,19 @@
 	fingerprint = S.fingerprintslast
 	return ..()
 
+
 /datum/wires/explosive/chem_grenade/explode()
-	var/obj/item/grenade/chem_grenade/grenade = holder
-	var/obj/item/assembly/pulser = get_attached(get_wire(1))
-	var/message = "\An [pulser] has pulsed [grenade] ([grenade.type]), which was installed by [fingerprint]"
-	if(istype(pulser, /obj/item/assembly/voice))
-		var/obj/item/assembly/voice/spoken_trigger = pulser
-		message +=  " with the following activation message: \"[spoken_trigger.recorded]\""
-	if(!grenade.dud_flags)
-		message_admins(message)
-	log_game(message)
+	var/obj/item/grenade/chem_grenade/G = holder
+	var/obj/item/assembly/assembly = get_attached(get_wire(1))
+	message_admins("\An [assembly] has pulsed a grenade, which was installed by [fingerprint].")
+	log_game("\An [assembly] has pulsed a grenade, which was installed by [fingerprint].")
 	var/mob/M = get_mob_by_ckey(fingerprint)
-	grenade.log_grenade(M) //Used in arm_grenade() too but this one conveys where the mob who triggered the bomb is
-	if(grenade.landminemode)
-		grenade.detonate() ///already armed
+	var/turf/T = get_turf(M)
+	G.log_grenade(M, T) //Used in arm_grenade() too but this one conveys where the mob who triggered the bomb is
+	if(G.landminemode)
+		G.detonate() ///already armed
 	else
-		grenade.arm_grenade() //The one here conveys where the bomb was when it went boom
+		G.arm_grenade() //The one here conveys where the bomb was when it went boom
 
 
 /datum/wires/explosive/chem_grenade/detach_assembly(color)
@@ -84,7 +65,6 @@
 	if(S && istype(S))
 		assemblies -= color
 		S.connected = null
-		S.holder = null
 		S.forceMove(holder.drop_location())
 		var/obj/item/grenade/chem_grenade/G = holder
 		G.landminemode = null
@@ -92,6 +72,9 @@
 
 /datum/wires/explosive/c4 // Also includes X4
 	holder_type = /obj/item/grenade/c4
+
+/datum/wires/explosive/c4/interactable(mob/user) // No need to unscrew wire panels on plastic explosives
+	return TRUE
 
 /datum/wires/explosive/c4/explode()
 	var/obj/item/grenade/c4/P = holder
@@ -108,8 +91,6 @@
 	..()
 
 /datum/wires/explosive/pizza/interactable(mob/user)
-	if(!..())
-		return FALSE
 	var/obj/item/pizzabox/P = holder
 	if(P.open && P.bomb)
 		return TRUE
@@ -117,8 +98,8 @@
 /datum/wires/explosive/pizza/get_status()
 	var/obj/item/pizzabox/P = holder
 	var/list/status = list()
-	status += "The red light is [P.bomb_active ? "on" : "off"]."
-	status += "The green light is [P.bomb_defused ? "on": "off"]."
+	status += "Красный индикатор [P.bomb_active ? "горит" : "не горит"]."
+	status += "Зелёный индикатор [P.bomb_defused ? "горит": "не горит"]."
 	return status
 
 /datum/wires/explosive/pizza/on_pulse(wire)
@@ -129,7 +110,7 @@
 		else // Boom
 			explode()
 
-/datum/wires/explosive/pizza/on_cut(wire, mend, source)
+/datum/wires/explosive/pizza/on_cut(wire, mend)
 	var/obj/item/pizzabox/P = holder
 	switch(wire)
 		if(WIRE_DISARM) // Disarm and untrap the box.
@@ -137,10 +118,16 @@
 				P.bomb_defused = TRUE
 		else
 			if(!mend && !P.bomb_defused)
-				if (!isnull(source))
-					log_combat(source, holder, "cut the detonation wire for")
 				explode()
 
 /datum/wires/explosive/pizza/explode()
 	var/obj/item/pizzabox/P = holder
 	P.bomb.detonate()
+
+
+/datum/wires/explosive/gibtonite
+	holder_type = /obj/item/gibtonite
+
+/datum/wires/explosive/gibtonite/explode()
+	var/obj/item/gibtonite/P = holder
+	P.GibtoniteReaction(null, 2)

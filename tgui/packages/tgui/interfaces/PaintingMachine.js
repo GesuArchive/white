@@ -20,31 +20,21 @@ export const PaintingMachine = (props, context) => {
   );
 
   return (
-    <Window width={500} height={620}>
+    <Window width={450} height={450}>
       <Window.Content scrollable>
         <Section
           title="PDA Painter"
           buttons={
-            <>
-              <Button.Confirm
-                disabled={!hasPDA}
-                content="Paint PDA"
-                confirmContent="Confirm?"
-                onClick={() =>
-                  act('trim_pda', {
-                    selection: selectedPDA,
-                  })
-                }
-              />
-              <Button.Confirm
-                disabled={!hasPDA}
-                content="Reset Imprint"
-                confirmContent="Confirm?"
-                onClick={() => {
-                  act('reset_pda');
-                }}
-              />
-            </>
+            <Button.Confirm
+              disabled={!hasPDA}
+              content="Paint PDA"
+              confirmContent="Confirm?"
+              onClick={() =>
+                act('trim_pda', {
+                  selection: selectedPDA,
+                })
+              }
+            />
           }>
           <Stack vertical>
             <Stack.Item height="100%">
@@ -65,13 +55,13 @@ export const PaintingMachine = (props, context) => {
               <Button.Confirm
                 disabled={!hasID}
                 content="Reset ID Account"
-                confirmContent="Confirm?"
+                confirmContent="Да?"
                 onClick={() => act('reset_card')}
               />
               <Button.Confirm
                 disabled={!hasID}
                 content="Imprint ID Trim"
-                confirmContent="Confirm?"
+                confirmContent="Да?"
                 onClick={(sel) =>
                   act('trim_card', {
                     selection: selectedTrim,

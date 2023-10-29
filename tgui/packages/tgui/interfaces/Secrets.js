@@ -1,616 +1,607 @@
 import { toFixed } from 'common/math';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Flex, LabeledControls, NoticeBox, RoundGauge, Section, Stack } from '../components';
+import { Button, Flex, LabeledControls, NoticeBox, RoundGauge, Section } from '../components';
 import { Window } from '../layouts';
 
 const TAB2NAME = [
   {
-    title: 'Debugging',
-    blurb: 'Where useless shit goes to die',
+    title: 'Дебаг',
+    blurb: 'Куда вербы отправляются умирать',
     gauge: 5,
     component: () => DebuggingTab,
   },
   {
-    title: 'Helpful',
-    blurb: 'Where fuckwits put logging',
+    title: 'Полезные',
+    blurb: 'Где чулочники подкладывают логи',
     gauge: 25,
     component: () => HelpfulTab,
   },
   {
-    title: 'Fun',
-    blurb: 'How I ran an """event"""',
+    title: 'Смешное',
+    blurb: 'Как я решил устроил """ивент"""',
     gauge: 75,
     component: () => FunTab,
   },
   {
-    title: 'Only Fun For You',
-    blurb: 'How I spent my last day adminning',
+    title: 'Смешно Только Тебе',
+    blurb: 'Как я попедалил напоследок',
     gauge: 95,
     component: () => FunForYouTab,
   },
 ];
 
 const lineHeightNormal = 2.79;
-const buttonWidthNormal = 12.9;
-const lineHeightDebug = 6.09;
+const lineHeightDebug = 6;
 
 const DebuggingTab = (props, context) => {
   const { act } = useBackend(context);
   return (
-    <Stack fill vertical>
-      <Stack.Item>
+    <Flex
+      grow={1}
+      mb={-0.25}
+      mx={-0.5}
+      direction="column"
+      height="100%"
+      textAlign="center"
+      align="stretch"
+      justify="center">
+      <Flex.Item my={0.5}>
         <Button
-          color="average"
           lineHeight={lineHeightDebug}
           icon="question"
           fluid
-          content="Change all maintenance doors to engie/brig access only"
+          content="Сменить доступ всех технических шлюзов на бриг/инженерный"
           onClick={() => act('maint_access_engiebrig')}
         />
-      </Stack.Item>
-      <Stack.Item>
+      </Flex.Item>
+      <Flex.Item my={0.5}>
         <Button
-          color="average"
           lineHeight={lineHeightDebug}
           icon="question"
           fluid
-          content="Change all maintenance doors to brig access only"
+          content="Сменить доступ всех технических шлюзов на бриг"
           onClick={() => act('maint_access_brig')}
         />
-      </Stack.Item>
-      <Stack.Item>
+      </Flex.Item>
+      <Flex.Item mt={0.5} mb={-0.5}>
         <Button
-          color="average"
           lineHeight={lineHeightDebug}
           icon="question"
           fluid
-          content="Remove cap on security officers"
+          content="Убрать кап на офицеров"
           onClick={() => act('infinite_sec')}
         />
-      </Stack.Item>
-    </Stack>
+      </Flex.Item>
+    </Flex>
   );
 };
 
 const HelpfulTab = (props, context) => {
   const { act } = useBackend(context);
   return (
-    <Stack fill vertical>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <NoticeBox
-              mb={-0.5}
-              width={buttonWidthNormal}
-              height={lineHeightNormal}>
-              Your admin button here, coder!
-            </NoticeBox>
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="plus"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Cure all diseases"
-              onClick={() => act('clear_virus')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="biohazard"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Trigger Outbreak"
-              onClick={() => act('virus')}
-            />
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <NoticeBox
-              mb={-0.5}
-              width={buttonWidthNormal}
-              height={lineHeightNormal}>
-              Your admin button here, coder!
-            </NoticeBox>
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="grin-beam-sweat"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Break all lights"
-              onClick={() => act('blackout')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="magic"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Fix all lights"
-              onClick={() => act('whiteout')}
-            />
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <Button
-              icon="bomb"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="List Bombers"
-              onClick={() => act('list_bombers')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="signal"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="List Signalers"
-              onClick={() => act('list_signalers')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="robot"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="List laws"
-              onClick={() => act('list_lawchanges')}
-            />
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <Button
-              icon="address-book"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Show Manifest"
-              onClick={() => act('manifest')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="dna"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Show DNA"
-              onClick={() => act('dna')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="fingerprint"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Show Fingerprints"
-              onClick={() => act('fingerprints')}
-            />
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <Button
-              icon="flag"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Toggle CTF"
-              onClick={() => act('ctfbutton')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="sync-alt"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Reset Thunderdome"
-              onClick={() => act('tdomereset')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="moon"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Set Nightshift"
-              onClick={() => act('night_shift_set')}
-            />
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <Button
-              icon="pencil-alt"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Rename Station"
-              onClick={() => act('set_name')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="eraser"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Default Station Name"
-              onClick={() => act('reset_name')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <NoticeBox
-              mb={-0.5}
-              width={buttonWidthNormal}
-              height={lineHeightNormal}>
-              Your admin button here, coder!
-            </NoticeBox>
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-    </Stack>
+    <Flex direction="column" mb={-0.75} mx={-0.5}>
+      <Flex
+        mb={1}
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="plus"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Вылечить все болезни"
+            onClick={() => act('clear_virus')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} ml={0.5}>
+          <Button
+            icon="eye"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Показать Режим Игры"
+            onClick={() => act('showgm')}
+          />
+        </Flex.Item>
+      </Flex>
+      <Flex
+        mb={1}
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="bomb"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Список Джихадов"
+            onClick={() => act('list_bombers')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} mx={0.5}>
+          <Button
+            icon="signal"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Список Сигналлеров"
+            onClick={() => act('list_signalers')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1}>
+          <Button
+            icon="robot"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Список Законов"
+            onClick={() => act('list_lawchanges')}
+          />
+        </Flex.Item>
+      </Flex>
+      <Flex
+        mb={1}
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="address-book"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Показать Манифест"
+            onClick={() => act('manifest')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} mx={0.5}>
+          <Button
+            icon="dna"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Показать ДНК"
+            onClick={() => act('dna')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1}>
+          <Button
+            icon="fingerprint"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Показать Отпечатки"
+            onClick={() => act('fingerprints')}
+          />
+        </Flex.Item>
+      </Flex>
+      <Flex
+        mb={1}
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="flag"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Врубить CTF"
+            onClick={() => act('ctfbutton')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} mx={0.5}>
+          <Button
+            icon="sync-alt"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Сбросить Арену"
+            onClick={() => act('tdomereset')}
+          />
+        </Flex.Item>
+        <Flex.Item>
+          <Button
+            icon="moon"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Врубить Ночную Смену"
+            onClick={() => act('night_shift_set')}
+          />
+        </Flex.Item>
+      </Flex>
+      <Flex
+        mb={1}
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="pencil-alt"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Переименовать Станцию"
+            onClick={() => act('set_name')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} ml={0.5}>
+          <Button
+            icon="eraser"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Сбросить Имя Станции"
+            onClick={() => act('reset_name')}
+          />
+        </Flex.Item>
+      </Flex>
+      <Flex
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="plane-departure"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Отправить Шаттл"
+            onClick={() => act('moveferry')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} mx={0.5}>
+          <Button
+            icon="plane"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Переключить Шаттл"
+            onClick={() => act('togglearrivals')}
+          />
+        </Flex.Item>
+        <Flex.Item>
+          <Button
+            icon="plane-arrival"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Отправить Труд. Шаттл"
+            onClick={() => act('movelaborshuttle')}
+          />
+        </Flex.Item>
+      </Flex>
+    </Flex>
   );
 };
 
 const FunTab = (props, context) => {
   const { act } = useBackend(context);
   return (
-    <Stack fill vertical>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <Button
-              icon="robot"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Make N.E.R.D."
-              onClick={() => act('makeNerd')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="flag"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="CTF Instagib Mode"
-              onClick={() => act('ctf_instagib')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <NoticeBox
-              mb={0.0}
-              width={buttonWidthNormal}
-              height={lineHeightNormal}>
-              Your admin button here, coder!
-            </NoticeBox>
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <Button
-              icon="bolt"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="All areas powered"
-              onClick={() => act('power')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="moon"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="All areas unpowered"
-              onClick={() => act('unpower')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="plug"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="recharge SMESs"
-              onClick={() => act('quickpower')}
-            />
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <Button
-              icon="user-ninja"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Anonymous Names"
-              onClick={() => act('anon_name')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="users"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Triple AI mode"
-              onClick={() => act('tripleAI')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="bullhorn"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="THERE CAN ONLY BE-"
-              onClick={() => act('onlyone')}
-            />
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <Button
-              icon="grin-beam-sweat"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Summon Guns"
-              onClick={() => act('guns')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="magic"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Summon Magic"
-              onClick={() => act('magic')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="meteor"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Summon Events"
-              onClick={() => act('events')}
-            />
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <Button
-              icon="hammer"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Egalitarian Station"
-              onClick={() => act('eagles')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="dollar-sign"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Ancap Station"
-              onClick={() => act('ancap')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <NoticeBox
-              mb={-0.5}
-              width={buttonWidthNormal}
-              height={lineHeightNormal}>
-              Your admin button here, coder!
-            </NoticeBox>
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <Button
-              icon="bullseye"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Custom Portal Storm"
-              onClick={() => act('customportal')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="bomb"
-              lineHeight={lineHeightNormal}
-              width={buttonWidthNormal}
-              content="Change Bomb Cap"
-              onClick={() => act('changebombcap')}
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <NoticeBox
-              mb={-0.5}
-              width={buttonWidthNormal}
-              height={lineHeightNormal}>
-              Your admin button here, coder!
-            </NoticeBox>
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-    </Stack>
+    <Flex direction="column" mb={-0.75} mx={-0.5} textAlign="center">
+      <Flex
+        mb={1}
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="grin-beam-sweat"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Сломать Все Лампы"
+            onClick={() => act('blackout')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} mx={0.5}>
+          <Button
+            icon="magic"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Починить Все Лампы"
+            onClick={() => act('whiteout')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1}>
+          <Button
+            icon="biohazard"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Вызвать Вспышку"
+            onClick={() => act('virus')}
+          />
+        </Flex.Item>
+      </Flex>
+      <Flex
+        mb={1}
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="bolt"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Зарядить все зоны"
+            onClick={() => act('power')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} mx={0.5}>
+          <Button
+            icon="moon"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Разрядить все зоны"
+            onClick={() => act('unpower')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1}>
+          <Button
+            icon="plug"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Зарядить СМЕСы"
+            onClick={() => act('quickpower')}
+          />
+        </Flex.Item>
+      </Flex>
+      <Flex
+        mb={1}
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="user-ninja"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Анонимные Имена"
+            onClick={() => act('anon_name')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} mx={0.5}>
+          <Button
+            icon="users"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Режим Тройного ИИ"
+            onClick={() => act('tripleAI')}
+          />
+        </Flex.Item>
+        <Flex.Item>
+          <Button
+            icon="bullhorn"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="ОСТАНЕТСЯ ЛИШЬ ОДИН!"
+            onClick={() => act('onlyone')}
+          />
+        </Flex.Item>
+      </Flex>
+      <Flex
+        mb={1}
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="grin-beam-sweat"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Раздать Пушки"
+            onClick={() => act('guns')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} mx={0.5}>
+          <Button
+            icon="magic"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Вызвать Магию"
+            onClick={() => act('magic')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1}>
+          <Button
+            icon="meteor"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Вызвать Ивенты"
+            onClick={() => act('events')}
+          />
+        </Flex.Item>
+      </Flex>
+      <Flex
+        mb={1}
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="hammer"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Эгалитарная Станция"
+            onClick={() => act('eagles')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} ml={0.5}>
+          <Button
+            icon="dollar-sign"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Анархо-Капиталистическая Станция"
+            onClick={() => act('ancap')}
+          />
+        </Flex.Item>
+      </Flex>
+      <Flex
+        grow={1}
+        direction="row"
+        height="100%"
+        align="stretch"
+        justify="space-between">
+        <Flex.Item grow={1}>
+          <Button
+            icon="bullseye"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Портальный Шторм"
+            onClick={() => act('customportal')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1} mx={0.5}>
+          <Button
+            icon="bomb"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Поменять Бомбкап"
+            onClick={() => act('changebombcap')}
+          />
+        </Flex.Item>
+        <Flex.Item grow={1}>
+          <Button
+            icon="paw"
+            lineHeight={lineHeightNormal}
+            fluid
+            content="Сменить Всем Расу"
+            onClick={() => act('allspecies')}
+          />
+        </Flex.Item>
+      </Flex>
+    </Flex>
   );
 };
 
 const FunForYouTab = (props, context) => {
   const { act } = useBackend(context);
   return (
-    <Stack fill vertical>
-      <Stack.Item>
-        <Stack>
-          <Stack.Item>
-            <NoticeBox danger mb={0} width={19.6}>
-              <Button
-                color="red"
-                icon="user-secret"
-                fluid
-                content="Everyone is the traitor"
-                onClick={() => act('traitor_all')}
-              />
-            </NoticeBox>
-          </Stack.Item>
-          <Stack.Item>
-            <NoticeBox danger width={19.6} mb={0}>
-              <Button
-                color="red"
-                icon="brain"
-                fluid
-                content="Everyone gets brain damage"
-                onClick={() => act('massbraindamage')}
-              />
-            </NoticeBox>
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack>
-          <Stack.Item>
-            <NoticeBox danger mb={0} width={19.6}>
-              <Button
-                color="red"
-                icon="hand-lizard"
-                fluid
-                content="Change everyone's species"
-                onClick={() => act('allspecies')}
-              />
-            </NoticeBox>
-          </Stack.Item>
-          <Stack.Item>
-            <NoticeBox danger width={19.6} mb={0}>
-              <Button
-                color="red"
-                icon="paw"
-                fluid
-                content="Change everyone to monkeys"
-                onClick={() => act('monkey')}
-              />
-            </NoticeBox>
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <NoticeBox danger mb={0}>
+    <Flex
+      grow={1}
+      mx={-0.5}
+      mb={-1.75}
+      direction="column"
+      height="100%"
+      align="stretch"
+      justify="center">
+      <Flex.Item>
+        <NoticeBox danger>
+          <Button
+            color="red"
+            icon="paw"
+            fluid
+            content="Превратить всех в мартых"
+            onClick={() => act('monkey')}
+          />
+        </NoticeBox>
+      </Flex.Item>
+      <Flex.Item>
+        <NoticeBox danger>
+          <Button
+            color="red"
+            icon="user-secret"
+            fluid
+            content="Выдать трейторку каждому"
+            onClick={() => act('traitor_all')}
+          />
+        </NoticeBox>
+      </Flex.Item>
+      <Flex.Item>
+        <NoticeBox danger>
+          <Button
+            color="red"
+            icon="brain"
+            fluid
+            content="Брейндамаг всем игрокам"
+            onClick={() => act('massbraindamage')}
+          />
+        </NoticeBox>
+      </Flex.Item>
+      <Flex.Item>
+        <NoticeBox danger>
           <Button
             color="black"
             icon="fire"
             fluid
-            content="The floor is lava! (DANGEROUS: extremely lame)"
+            content="Пол это лава! (ВНИМАНИЕ: пиздец уныло)"
             onClick={() => act('floorlava')}
           />
         </NoticeBox>
-      </Stack.Item>
-      <Stack.Item>
-        <NoticeBox danger mb={0}>
+      </Flex.Item>
+      <Flex.Item>
+        <NoticeBox danger>
           <Button
             color="black"
-            icon="fire"
+            icon="tired"
             fluid
-            content="Chinese Cartoons! (DANGEROUS: no going back, also fuck you)"
+            content="Китайские Мультики! (ВНИМАНИЕ: возврата нет, и ещё, иди нахуй)"
             onClick={() => act('anime')}
           />
         </NoticeBox>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <NoticeBox danger width={19.6} mb={0}>
+      </Flex.Item>
+      <Flex.Item>
+        <Flex>
+          <Flex.Item width="240px" mr={0.25}>
+            <NoticeBox danger>
               <Button
                 color="red"
                 icon="cat"
                 fluid
-                content="Mass Purrbation"
+                content="Массовая Пуррбация"
                 onClick={() => act('masspurrbation')}
               />
             </NoticeBox>
-          </Stack.Item>
-          <Stack.Item>
-            <NoticeBox info width={19.6} mb={0}>
+          </Flex.Item>
+          <Flex.Item grow={1} ml={0.25}>
+            <NoticeBox info>
               <Button
                 color="blue"
                 icon="user"
                 fluid
-                content="Cure Purrbation"
+                content="Анмассовая Пуррбация"
                 onClick={() => act('massremovepurrbation')}
               />
             </NoticeBox>
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack>
-          <Stack.Item grow>
-            <NoticeBox danger width={19.6} mb={0}>
+          </Flex.Item>
+        </Flex>
+      </Flex.Item>
+      <Flex.Item>
+        <Flex justify="space-between">
+          <Flex.Item width="240px" mr={0.25}>
+            <NoticeBox danger>
               <Button
                 color="red"
                 icon="flushed"
                 fluid
-                content="Fully Immerse Everyone"
+                content="Полное Погружение"
                 onClick={() => act('massimmerse')}
               />
             </NoticeBox>
-          </Stack.Item>
-          <Stack.Item grow>
-            <NoticeBox info width={19.6} mb={0}>
+          </Flex.Item>
+          <Flex.Item grow={1} ml={0.25}>
+            <NoticeBox info>
               <Button
                 color="blue"
                 icon="sync-alt"
                 fluid
-                content="Shatter the Immersion"
+                content="Разбить Погружение"
                 onClick={() => act('unmassimmerse')}
               />
             </NoticeBox>
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-      <Stack.Item>
-        <Stack fill>
-          <Stack.Item>
-            <NoticeBox danger width={19.6} mb={0}>
-              <Button
-                color="red"
-                icon="comment-slash"
-                fluid
-                content="Tower of Babel"
-                onClick={() => act('towerOfBabel')}
-              />
-            </NoticeBox>
-          </Stack.Item>
-          <Stack.Item>
-            <NoticeBox info width={19.6} mb={0}>
-              <Button
-                color="blue"
-                icon="comment"
-                fluid
-                content="Undo Tower of Babel"
-                onClick={() => act('cureTowerOfBabel')}
-              />
-            </NoticeBox>
-          </Stack.Item>
-        </Stack>
-      </Stack.Item>
-    </Stack>
+          </Flex.Item>
+        </Flex>
+      </Flex.Item>
+    </Flex>
   );
 };
 
@@ -620,24 +611,30 @@ export const Secrets = (props, context) => {
   const [tabIndex, setTabIndex] = useLocalState(context, 'tab-index', 2);
   const TabComponent = TAB2NAME[tabIndex - 1].component();
   return (
-    <Window title="Secrets Panel" width={500} height={488} theme="admin">
+    <Window title="Панель Секретов" width={530} height={500}>
       <Window.Content>
         <Flex direction="column" height="100%">
           <Flex.Item mb={1}>
             <Section
-              title="Secrets"
+              title="Секреты"
               buttons={
                 <>
                   <Button
                     color="blue"
+                    icon="arrow-circle-right"
+                    content="Ментор Лог"
+                    onClick={() => act('mentor_log')}
+                  />
+                  <Button
+                    color="blue"
                     icon="address-card"
-                    content="Admin Log"
+                    content="Админ Лог"
                     onClick={() => act('admin_log')}
                   />
                   <Button
                     color="blue"
                     icon="eye"
-                    content="Show Admins"
+                    content="Показать Админов"
                     onClick={() => act('show_admins')}
                   />
                 </>
@@ -645,8 +642,8 @@ export const Secrets = (props, context) => {
               <Flex mx={-0.5} align="stretch" justify="center">
                 <Flex.Item bold>
                   <NoticeBox color="black">
-                    &quot;The first rule of adminbuse is: you don&apos;t talk
-                    about the adminbuse.&quot;
+                    &quot;Первое правило админабуза: никому не рассказывать о
+                    админабузе.&quot;
                   </NoticeBox>
                 </Flex.Item>
               </Flex>
@@ -655,11 +652,11 @@ export const Secrets = (props, context) => {
                 mx={-0.5}
                 align="stretch"
                 justify="center">
-                <Flex.Item ml={-10} mr={1}>
+                <Flex.Item ml={-4} mr={2}>
                   <Button
                     selected={tabIndex === 2}
                     icon="check-circle"
-                    content="Helpful"
+                    content="Полезное"
                     onClick={() => setTabIndex(2)}
                   />
                 </Flex.Item>
@@ -668,18 +665,18 @@ export const Secrets = (props, context) => {
                     disabled={is_funmin === 0}
                     selected={tabIndex === 3}
                     icon="smile"
-                    content="Fun"
+                    content="Смешное"
                     onClick={() => setTabIndex(3)}
                   />
                 </Flex.Item>
               </Flex>
               <Flex mx={-0.5} align="stretch" justify="center">
-                <Flex.Item mt={1}>
+                <Flex.Item mt={1} ml={12}>
                   <Button
                     disabled={is_debugger === 0}
                     selected={tabIndex === 1}
                     icon="glasses"
-                    content="Debugging"
+                    content="Дебаг"
                     onClick={() => setTabIndex(1)}
                   />
                 </Flex.Item>
@@ -687,7 +684,7 @@ export const Secrets = (props, context) => {
                   <LabeledControls>
                     <LabeledControls.Item
                       minWidth="66px"
-                      label="Chances of admin complaint">
+                      label="Шанс анпендала">
                       <RoundGauge
                         size={2}
                         value={TAB2NAME[tabIndex - 1].gauge}
@@ -709,7 +706,7 @@ export const Secrets = (props, context) => {
                     disabled={is_funmin === 0}
                     selected={tabIndex === 4}
                     icon="smile-wink"
-                    content="Only Fun For You"
+                    content="Смешно Только Тебе"
                     onClick={() => setTabIndex(4)}
                   />
                 </Flex.Item>
@@ -721,7 +718,7 @@ export const Secrets = (props, context) => {
               fill={false}
               title={
                 TAB2NAME[tabIndex - 1].title +
-                ' Or: ' +
+                ' Или: ' +
                 TAB2NAME[tabIndex - 1].blurb
               }>
               <TabComponent />

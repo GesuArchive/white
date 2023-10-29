@@ -1,31 +1,33 @@
 /obj/item/modular_computer/laptop
-	name = "laptop"
-	desc = "A portable laptop computer."
+	name = "Ноутбук"
+	desc = "Портативный ноутбук"
 
 	icon = 'icons/obj/modular_laptop.dmi'
 	icon_state = "laptop-closed"
 	icon_state_powered = "laptop"
 	icon_state_unpowered = "laptop-off"
 	icon_state_menu = "menu"
+	display_overlays = FALSE
 
 	hardware_flag = PROGRAM_LAPTOP
+	max_hardware_size = 2
 	max_idle_programs = 3
 	w_class = WEIGHT_CLASS_NORMAL
+	max_bays = 4
 
 	// No running around with open laptops in hands.
 	item_flags = SLOWS_WHILE_IN_HAND
 
-	drag_slowdown = 0
 	screen_on = FALSE // Starts closed
 	var/start_open = TRUE // unless this var is set to 1
 	var/icon_state_closed = "laptop-closed"
 	var/w_class_open = WEIGHT_CLASS_BULKY
-	var/slowdown_open = 1
+	var/slowdown_open = TRUE
 
 /obj/item/modular_computer/laptop/examine(mob/user)
 	. = ..()
 	if(screen_on)
-		. += span_notice("Alt-click to close it.")
+		. += "<hr><span class='notice'>Нажмите на \"Alt\", чтобы закрыть это.</span>"
 
 /obj/item/modular_computer/laptop/Initialize(mapload)
 	. = ..()
@@ -53,7 +55,7 @@
 
 /obj/item/modular_computer/laptop/verb/open_computer()
 	set name = "Toggle Open"
-	set category = "Object"
+	set category = "Объект"
 	set src in view(1)
 
 	try_toggle_open(usr)
@@ -85,7 +87,7 @@
 		return
 	if(!isturf(loc) && !ismob(loc)) // No opening it in backpack.
 		return
-	if(!user.can_perform_action(src))
+	if(!user.canUseTopic(src, be_close = TRUE))
 		return
 
 	toggle_open(user)
@@ -102,25 +104,19 @@
 
 /obj/item/modular_computer/laptop/proc/toggle_open(mob/living/user=null)
 	if(screen_on)
-		to_chat(user, span_notice("You close \the [src]."))
+		to_chat(user, span_notice("Закрываю <b>[src.name]</b>."))
 		slowdown = initial(slowdown)
 		w_class = initial(w_class)
-		drag_slowdown = initial(drag_slowdown)
 	else
-		to_chat(user, span_notice("You open \the [src]."))
+		to_chat(user, span_notice("Открываю <b>[src.name]</b>."))
 		slowdown = slowdown_open
 		w_class = w_class_open
-		drag_slowdown = slowdown_open
-	if(isliving(loc))
-		var/mob/living/localmob = loc
-		localmob.update_equipment_speed_mods()
-		localmob.update_pull_movespeed()
 
 	screen_on = !screen_on
+	display_overlays = screen_on
 	update_appearance()
 
-/obj/item/modular_computer/laptop/get_messenger_ending()
-	return "Sent from my UNIX Laptop"
+
 
 // Laptop frame, starts empty and closed.
 /obj/item/modular_computer/laptop/buildable

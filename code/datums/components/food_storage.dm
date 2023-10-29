@@ -18,11 +18,9 @@
 
 /datum/component/food_storage/Initialize(_minimum_weight_class = WEIGHT_CLASS_SMALL, _bad_chance = 0, _good_chance = 100)
 
-	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY_SECONDARY, PROC_REF(try_inserting_item))
+	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(try_inserting_item))
 	RegisterSignal(parent, COMSIG_CLICK_CTRL, PROC_REF(try_removing_item))
 	RegisterSignal(parent, COMSIG_FOOD_EATEN, PROC_REF(consume_food_storage))
-	RegisterSignal(parent, COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM, PROC_REF(on_requesting_context_from_item))
-
 
 	var/atom/food = parent
 	initial_volume = food.reagents.total_volume
@@ -30,8 +28,6 @@
 	minimum_weight_class = _minimum_weight_class
 	bad_chance_of_discovery = _bad_chance
 	good_chance_of_discovery = _good_chance
-
-	food.flags_1 |= HAS_CONTEXTUAL_SCREENTIPS_1
 
 /datum/component/food_storage/Destroy(force, silent)
 	if(stored_item)
@@ -56,23 +52,23 @@
 		return
 
 	//Harm intent will bypass inserting for injecting food with syringes and such
-	if(user.combat_mode)
+	if(user.a_intent == INTENT_HARM)
 		return
 
 	if(inserted_item.w_class > minimum_weight_class)
-		to_chat(user, span_warning("\The [inserted_item.name] won't fit in \the [parent]."))
+		to_chat(user, span_warning("<b>[capitalize(inserted_item.name)]</b> won't fit in <b>[parent]</b>."))
 		return
 
 	if(!QDELETED(stored_item))
-		to_chat(user, span_warning("There's something in \the [parent]."))
+		to_chat(user, span_warning("There's something in <b>[parent]</b>."))
 		return
 
 	if(HAS_TRAIT(inserted_item, TRAIT_NODROP))
-		to_chat(user, span_warning("\the [inserted_item] is stuck to your hand, you can't put into \the [parent]!"))
+		to_chat(user, span_warning("<b>[capitalize(inserted_item)]</b> is stuck to your hand, you can't put into <b>[parent]</b>!"))
 		return
 
-	user.visible_message(span_notice("[user.name] begins inserting [inserted_item.name] into \the [parent]."), \
-					span_notice("You start to insert the [inserted_item.name] into \the [parent]."))
+	user.visible_message(span_notice("[user.name] begins inserting [inserted_item.name] into <b>[parent]</b>."), \
+					span_notice("You start to insert the [inserted_item.name] into <b>[parent]</b>."))
 
 	INVOKE_ASYNC(src, PROC_REF(insert_item), inserted_item, user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -87,6 +83,8 @@
 /datum/component/food_storage/proc/try_removing_item(datum/source, mob/user)
 	SIGNAL_HANDLER
 
+	if(user.a_intent != INTENT_GRAB)
+		return
 	var/atom/food = parent
 
 	if(QDELETED(stored_item))
@@ -95,8 +93,8 @@
 	if(!food.can_interact(user))
 		return
 
-	user.visible_message(span_notice("[user.name] begins tearing at \the [parent]."), \
-					span_notice("You start to rip into \the [parent]."))
+	user.visible_message(span_notice("[user.name] begins tearing at <b>[parent]</b>."), \
+					span_notice("You start to rip into <b>[parent]</b>."))
 
 	INVOKE_ASYNC(src, PROC_REF(begin_remove_item), user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -110,9 +108,9 @@
 /datum/component/food_storage/proc/insert_item(obj/item/inserted_item, mob/user)
 	if(do_after(user, 1.5 SECONDS, target = parent))
 		var/atom/food = parent
-		to_chat(user, span_notice("You slip [inserted_item.name] inside \the [parent]."))
+		to_chat(user, span_notice("You slip [inserted_item.name] inside <b>[parent]</b>."))
 		inserted_item.forceMove(food)
-		user.log_message("inserted [inserted_item] into [parent].", LOG_ATTACK)
+		user.log_message("[key_name(user)] inserted [inserted_item] into [parent] at [AREACOORD(user)]", LOG_ATTACK)
 		food.add_fingerprint(user)
 		inserted_item.add_fingerprint(user)
 
@@ -132,11 +130,11 @@
  */
 /datum/component/food_storage/proc/remove_item(mob/user)
 	if(user.put_in_hands(stored_item))
-		user.visible_message(span_warning("[user.name] slowly pulls [stored_item.name] out of \the [parent]."), \
-							span_warning("You slowly pull [stored_item.name] out of \the [parent]."))
+		user.visible_message(span_warning("[user.name] slowly pulls [stored_item.name] out of <b>[parent]</b>."), \
+							span_warning("You slowly pull [stored_item.name] out of <b>[parent]</b>."))
 	else
 		stored_item.dropped()
-		stored_item.visible_message(span_warning("[stored_item.name] falls out of \the [parent]."))
+		stored_item.visible_message(span_warning("[stored_item.name] falls out of <b>[parent]</b>."))
 
 	update_stored_item()
 
@@ -167,10 +165,10 @@
 
 	if(prob(good_chance_of_discovery)) //finding the item, without biting it
 		discovered = TRUE
-		to_chat(target, span_warning("It feels like there's something in \the [parent]...!"))
+		to_chat(target, span_warning("It feels like there's something in <b>[parent]</b>...!"))
 
 	else if(prob(bad_chance_of_discovery)) //finding the item, BY biting it
-		user.log_message("just fed [key_name(target)] \a [stored_item] which was hidden in [parent].", LOG_ATTACK)
+		user.log_message("[key_name(user)] just fed [key_name(target)] a/an [stored_item] which was hidden in [parent] at [AREACOORD(target)]", LOG_ATTACK)
 		discovered = stored_item.on_accidental_consumption(target, user, parent)
 		update_stored_item() //make sure if the item was changed, the reference changes as well
 
@@ -203,26 +201,3 @@
 	//if there's nothing else in the food, or we found nothing valid
 	stored_item = null
 	return FALSE
-
-/**
- * Adds context sensitivy directly to the processable file for screentips
- * Arguments:
- * * source - refers to item that will display its screentip
- * * context - refers to, in this case, an item that can be inserted into another item
- * * held_item - refers to item in user's hand, typically the one that will be inserted into the food item
- * * user - refers to user who will see the screentip when the proper context and tool are there
- */
-
-/datum/component/food_storage/proc/on_requesting_context_from_item(datum/source, list/context, obj/item/held_item, mob/user)
-	SIGNAL_HANDLER
-	. = NONE
-
-	if(isnull(held_item) || held_item == source)
-		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Remove embedded item (if any)"
-		. = CONTEXTUAL_SCREENTIP_SET
-
-	if(istype(held_item) && held_item.w_class <= WEIGHT_CLASS_SMALL && held_item != source && !IS_EDIBLE(held_item))
-		context[SCREENTIP_CONTEXT_RMB] = "Embed item"
-		. = CONTEXTUAL_SCREENTIP_SET
-
-	return .

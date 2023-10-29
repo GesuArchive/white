@@ -1,6 +1,6 @@
 /datum/wires/radio
 	holder_type = /obj/item/radio
-	proper_name = "Radio"
+	proper_name = "Радио"
 
 /datum/wires/radio/New(atom/holder)
 	wires = list(
@@ -10,8 +10,6 @@
 	..()
 
 /datum/wires/radio/interactable(mob/user)
-	if(!..())
-		return FALSE
 	var/obj/item/radio/R = holder
 	return R.unscrewed
 

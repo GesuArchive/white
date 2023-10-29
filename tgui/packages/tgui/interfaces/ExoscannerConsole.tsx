@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { BlockQuote, Box, Button, Icon, Modal, Section, LabeledList, NoticeBox, Stack } from '../components';
+import { BlockQuote, Box, Button, Flex, Icon, Modal, Section, LabeledList, NoticeBox, Stack } from '../components';
 import { Window } from '../layouts';
 import { formatTime } from '../format';
 
@@ -22,17 +22,17 @@ type ScanData = {
 };
 
 const ScanFailedModal = (props, context) => {
-  const { act } = useBackend(context);
+  const { act, data } = useBackend(context);
   return (
     <Modal>
-      <Stack fill vertical>
-        <Stack.Item>
+      <Flex direction="column">
+        <Flex.Item>
           <Box color="bad">SCAN FAILURE!</Box>
-        </Stack.Item>
-        <Stack.Item>
+        </Flex.Item>
+        <Flex.Item>
           <Button content="Confirm" onClick={() => act('confirm_fail')} />
-        </Stack.Item>
-      </Stack>
+        </Flex.Item>
+      </Flex>
     </Modal>
   );
 };
@@ -51,7 +51,7 @@ const ScanSelectionSection = (props, context) => {
 
   const point_cost = scan_power > 0 ? formatTime(point_scan_eta, 'short') : '∞';
   const deep_cost = scan_power > 0 ? formatTime(deep_scan_eta, 'short') : '∞';
-  const scan_available = !point_scan_complete || !deep_scan_complete;
+  const scan_availible = !point_scan_complete || !deep_scan_complete;
   return (
     <Stack vertical fill>
       <Stack.Item grow>
@@ -83,7 +83,7 @@ const ScanSelectionSection = (props, context) => {
           </LabeledList>
         </Section>
       </Stack.Item>
-      {scan_available && (
+      {scan_availible && (
         <Stack.Item>
           <Section fill title="Scans">
             {!point_scan_complete && (
@@ -191,7 +191,7 @@ export const ExoscannerConsole = (props, context) => {
   const can_start_wide_scan = scan_power > 0;
 
   return (
-    <Window width={550} height={600}>
+    <Window>
       {!!scan_in_progress && <ScanInProgressModal />}
       {!!failed && <ScanFailedModal />}
       <Window.Content>
@@ -229,17 +229,7 @@ export const ExoscannerConsole = (props, context) => {
           {!selected_site && (
             <>
               <Stack.Item>
-                <Section
-                  buttons={
-                    <Button
-                      icon="search"
-                      disabled={!can_start_wide_scan}
-                      onClick={() => act('start_wide_scan')}>
-                      Scan
-                    </Button>
-                  }
-                  fill
-                  title="Configure Wide Scan">
+                <Section fill title="Configure Wide Scan">
                   <Stack>
                     <Stack.Item>
                       <BlockQuote>
@@ -252,6 +242,14 @@ export const ExoscannerConsole = (props, context) => {
                       {scan_power > 0
                         ? formatTime(wide_scan_eta, 'short')
                         : '∞ minutes'}
+                    </Stack.Item>
+                    <Stack.Item>
+                      <Button
+                        mt={2}
+                        content="Scan"
+                        disabled={!can_start_wide_scan}
+                        onClick={() => act('start_wide_scan')}
+                      />
                     </Stack.Item>
                   </Stack>
                 </Section>

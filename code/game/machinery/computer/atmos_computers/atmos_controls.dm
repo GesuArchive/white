@@ -120,7 +120,7 @@
 
 /obj/machinery/computer/atmos_control/ordnancemix
 	name = "Ordnance Chamber Control"
-	circuit = /obj/item/circuitboard/computer/atmos_control/ordnancemix
+	circuit = /obj/item/circuitboard/computer/atmos_control/toxinsmix
 	atmos_chambers = list(
 		ATMOS_GAS_MONITOR_ORDNANCE_BURN = "Ordnance Burn Chamber",
 		ATMOS_GAS_MONITOR_ORDNANCE_FREEZER = "Ordnance Freezer Chamber",

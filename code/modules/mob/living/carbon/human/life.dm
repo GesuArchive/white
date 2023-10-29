@@ -6,20 +6,20 @@
 // Used with human/proc/get_heat_protection() and human/proc/get_cold_protection()
 // The values here should add up to 1.
 // Hands and feet have 2.5%, arms and legs 7.5%, each of the torso parts has 15% and the head has 30%
-#define THERMAL_PROTECTION_HEAD 0.3
-#define THERMAL_PROTECTION_CHEST 0.15
-#define THERMAL_PROTECTION_GROIN 0.15
-#define THERMAL_PROTECTION_LEG_LEFT 0.075
-#define THERMAL_PROTECTION_LEG_RIGHT 0.075
-#define THERMAL_PROTECTION_FOOT_LEFT 0.025
-#define THERMAL_PROTECTION_FOOT_RIGHT 0.025
-#define THERMAL_PROTECTION_ARM_LEFT 0.075
-#define THERMAL_PROTECTION_ARM_RIGHT 0.075
-#define THERMAL_PROTECTION_HAND_LEFT 0.025
-#define THERMAL_PROTECTION_HAND_RIGHT 0.025
+#define THERMAL_PROTECTION_HEAD			0.3
+#define THERMAL_PROTECTION_CHEST		0.15
+#define THERMAL_PROTECTION_GROIN		0.15
+#define THERMAL_PROTECTION_LEG_LEFT		0.075
+#define THERMAL_PROTECTION_LEG_RIGHT	0.075
+#define THERMAL_PROTECTION_FOOT_LEFT	0.025
+#define THERMAL_PROTECTION_FOOT_RIGHT	0.025
+#define THERMAL_PROTECTION_ARM_LEFT		0.075
+#define THERMAL_PROTECTION_ARM_RIGHT	0.075
+#define THERMAL_PROTECTION_HAND_LEFT	0.025
+#define THERMAL_PROTECTION_HAND_RIGHT	0.025
 
-/mob/living/carbon/human/Life(seconds_per_tick = SSMOBS_DT, times_fired)
-	if(HAS_TRAIT(src, TRAIT_NO_TRANSFORM))
+/mob/living/carbon/human/Life(delta_time = SSMOBS_DT, times_fired)
+	if(notransform)
 		return
 
 	. = ..()
@@ -27,29 +27,43 @@
 		return FALSE
 
 	//Body temperature stability and damage
-	dna.species.handle_body_temperature(src, seconds_per_tick, times_fired)
-	if(!HAS_TRAIT(src, TRAIT_STASIS))
-		if(stat != DEAD)
-			//handle active mutations
-			for(var/datum/mutation/human/human_mutation as anything in dna.mutations)
-				human_mutation.on_life(seconds_per_tick, times_fired)
-			//heart attack stuff
-			handle_heart(seconds_per_tick, times_fired)
-			//handles liver failure effects, if we lack a liver
-			handle_liver(seconds_per_tick, times_fired)
+	dna.species.handle_body_temperature(src, delta_time, times_fired)
 
-		// for special species interactions
-		dna.species.spec_life(src, seconds_per_tick, times_fired)
+	if(!IS_IN_STASIS(src))
+		if(.) //not dead
+
+			for(var/datum/mutation/human/HM in dna.mutations) // Handle active genes
+				HM.on_life(delta_time, times_fired)
+
+		if(stat != DEAD)
+			//heart attack stuff
+			handle_heart(delta_time, times_fired)
+			handle_liver(delta_time, times_fired)
+			if(!client && !ai_controller)
+				PermaSleeping()
+			else if(IsPermaSleeping())
+				SetSleeping(rand(10, 30))
+			if(dancing_period)
+				dancing_period--
+			if(prob(2))
+				if(nutrition < NUTRITION_LEVEL_STARVING)
+					to_chat(src, span_warning("[pick("Голодно...", "Кушать хочу...", "Вот бы что-нибудь съесть...", "Мой живот урчит...")]"))
+					take_overall_damage(stamina = 60)
+				if(hydration <= HYDRATION_LEVEL_DEHYDRATED)
+					to_chat(src, span_warning("[pick("Пить хочется...", "В горле пересохло...", "Водички бы сейчас...")]"))
+					take_overall_damage(stamina = 60)
+
+		dna.species.spec_life(src, delta_time, times_fired) // for mutantraces
 	else
-		for(var/datum/wound/iter_wound as anything in all_wounds)
-			iter_wound.on_stasis(seconds_per_tick, times_fired)
+		for(var/i in all_wounds)
+			var/datum/wound/iter_wound = i
+			iter_wound.on_stasis(delta_time, times_fired)
 
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
 	if(stat != DEAD)
 		return TRUE
-
 
 /mob/living/carbon/human/calculate_affecting_pressure(pressure)
 	var/chest_covered = FALSE
@@ -68,42 +82,63 @@
 		return (occupied_space.contents_pressure_protection * ONE_ATMOSPHERE + (1 - occupied_space.contents_pressure_protection) * pressure)
 	return pressure
 
+
+/mob/living/carbon/human/handle_traits(delta_time, times_fired)
+	if (getOrganLoss(ORGAN_SLOT_BRAIN) >= 60)
+		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "brain_damage", /datum/mood_event/brain_damage)
+	else
+		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "brain_damage")
+	return ..()
+
+/mob/living/carbon/human/handle_mutations_and_radiation(delta_time, times_fired)
+	if(!dna || !dna.species.handle_mutations_and_radiation(src, delta_time, times_fired))
+		..()
+
 /mob/living/carbon/human/breathe()
-	if(!HAS_TRAIT(src, TRAIT_NOBREATH))
-		return ..()
+	if(!dna.species.breathe(src))
+		..()
 
 /mob/living/carbon/human/check_breath(datum/gas_mixture/breath)
-	var/obj/item/organ/internal/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
-	if(human_lungs)
-		return human_lungs.check_breath(breath, src)
 
-	if(health >= crit_threshold)
-		adjustOxyLoss(HUMAN_MAX_OXYLOSS + 1)
-	else if(!HAS_TRAIT(src, TRAIT_NOCRITDAMAGE))
-		adjustOxyLoss(HUMAN_CRIT_MAX_OXYLOSS)
+	var/L = get_organ_slot(ORGAN_SLOT_LUNGS)
 
-	failed_last_breath = TRUE
+	if(!L)
+		if(health >= crit_threshold)
+			adjustOxyLoss(HUMAN_MAX_OXYLOSS + 1)
+		else if(!HAS_TRAIT(src, TRAIT_NOCRITDAMAGE))
+			adjustOxyLoss(HUMAN_CRIT_MAX_OXYLOSS)
 
-	var/datum/species/human_species = dna.species
+		failed_last_breath = TRUE
 
-	switch(human_species.breathid)
-		if(GAS_O2)
-			throw_alert(ALERT_NOT_ENOUGH_OXYGEN, /atom/movable/screen/alert/not_enough_oxy)
-		if(GAS_PLASMA)
-			throw_alert(ALERT_NOT_ENOUGH_PLASMA, /atom/movable/screen/alert/not_enough_plas)
-		if(GAS_CO2)
-			throw_alert(ALERT_NOT_ENOUGH_CO2, /atom/movable/screen/alert/not_enough_co2)
-		if(GAS_N2)
-			throw_alert(ALERT_NOT_ENOUGH_NITRO, /atom/movable/screen/alert/not_enough_nitro)
-	return FALSE
+		var/datum/species/S = dna.species
+
+		if(S.breathid == "o2")
+			throw_alert("not_enough_oxy", /atom/movable/screen/alert/not_enough_oxy)
+		else if(S.breathid == "tox")
+			throw_alert("not_enough_tox", /atom/movable/screen/alert/not_enough_tox)
+		else if(S.breathid == "co2")
+			throw_alert("not_enough_co2", /atom/movable/screen/alert/not_enough_co2)
+		else if(S.breathid == "n2")
+			throw_alert("not_enough_nitro", /atom/movable/screen/alert/not_enough_nitro)
+
+		return FALSE
+	else
+		if(istype(L, /obj/item/organ/lungs))
+			var/obj/item/organ/lungs/lun = L
+			lun.check_breath(breath,src)
 
 /// Environment handlers for species
-/mob/living/carbon/human/handle_environment(datum/gas_mixture/environment, seconds_per_tick, times_fired)
+/mob/living/carbon/human/handle_environment(datum/gas_mixture/environment, delta_time, times_fired)
+
+	if(client)
+		var/areatemp = get_temperature(environment)
+		handle_temp_color(areatemp)
+
 	// If we are in a cryo bed do not process life functions
-	if(istype(loc, /obj/machinery/cryo_cell))
+	if(istype(loc, /obj/machinery/atmospherics/components/unary/cryo_cell))
 		return
 
-	dna.species.handle_environment(src, environment, seconds_per_tick, times_fired)
+	dna.species.handle_environment(src, environment, delta_time, times_fired)
 
 /**
  * Adjust the core temperature of a mob
@@ -114,11 +149,7 @@
  * * max_temp (optional) The maximum body temperature after adjustment
  */
 /mob/living/carbon/human/proc/adjust_coretemperature(amount, min_temp=0, max_temp=INFINITY)
-	set_coretemperature(clamp(coretemperature + amount, min_temp, max_temp))
-
-/mob/living/carbon/human/proc/set_coretemperature(value)
-	SEND_SIGNAL(src, COMSIG_HUMAN_CORETEMP_CHANGE, coretemperature, value)
-	coretemperature = value
+	coretemperature = clamp(coretemperature + amount, min_temp, max_temp)
 
 /**
  * get_body_temperature Returns the body temperature with any modifications applied
@@ -134,12 +165,6 @@
 		return dna.species.bodytemp_normal
 	return dna.species.bodytemp_normal + get_body_temp_normal_change()
 
-/mob/living/carbon/human/get_body_temp_heat_damage_limit()
-	return dna.species.bodytemp_heat_damage_limit
-
-/mob/living/carbon/human/get_body_temp_cold_damage_limit()
-	return dna.species.bodytemp_cold_damage_limit
-
 /mob/living/carbon/human/proc/get_thermal_protection()
 	var/thermal_protection = 0 //Simple check to estimate how protected we are against multiple temperatures
 	if(wear_suit)
@@ -150,8 +175,6 @@
 			thermal_protection += (head.max_heat_protection_temperature * THERMAL_PROTECTION_HEAD)
 	thermal_protection = round(thermal_protection)
 	return thermal_protection
-
-//END FIRE CODE
 
 //This proc returns a number made up of the flags for body parts which you are protected on. (such as HEAD, CHEST, GROIN, etc. See setup.dm for the full list)
 /mob/living/carbon/human/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
@@ -270,16 +293,16 @@
 
 	return min(1, thermal_protection)
 
-/mob/living/carbon/human/handle_random_events(seconds_per_tick, times_fired)
+/mob/living/carbon/human/handle_random_events(delta_time, times_fired)
 	//Puke if toxloss is too high
 	if(stat)
 		return
 	if(getToxLoss() < 45 || nutrition <= 20)
 		return
 
-	lastpuke += SPT_PROB(30, seconds_per_tick)
+	lastpuke += DT_PROB(30, delta_time)
 	if(lastpuke >= 50) // about 25 second delay I guess // This is actually closer to 150 seconds
-		vomit(VOMIT_CATEGORY_DEFAULT, lost_nutrition = 20)
+		vomit(20)
 		lastpuke = 0
 
 
@@ -296,17 +319,17 @@
 			return TRUE
 	return ..()
 
-/mob/living/carbon/human/proc/handle_heart(seconds_per_tick, times_fired)
+/mob/living/carbon/human/proc/handle_heart(delta_time, times_fired)
 	var/we_breath = !HAS_TRAIT_FROM(src, TRAIT_NOBREATH, SPECIES_TRAIT)
 
 	if(!undergoing_cardiac_arrest())
 		return
 
 	if(we_breath)
-		adjustOxyLoss(4 * seconds_per_tick)
+		adjustOxyLoss(4 * delta_time)
 		Unconscious(80)
 	// Tissues die without blood circulation
-	adjustBruteLoss(1 * seconds_per_tick)
+	adjustBruteLoss(1 * delta_time)
 
 #undef THERMAL_PROTECTION_HEAD
 #undef THERMAL_PROTECTION_CHEST

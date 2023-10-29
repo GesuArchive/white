@@ -4,13 +4,14 @@
  * A handheld device with one big button.
  */
 /obj/item/compact_remote
-	name = "compact remote"
-	icon = 'icons/obj/science/circuits.dmi'
+	name = "Пульт"
+	desc = "Портативная оболочка с одной большой кнопкой. Используется для приема по удаленной связи входных данных от оболочки. <b>Используйте оболочку в руке</b>, чтобы запустить выходной сигнал."
+	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_small_simple"
 	inhand_icon_state = "electronic"
 	worn_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	light_system = MOVABLE_LIGHT_DIRECTIONAL
 	light_on = FALSE
 
@@ -21,8 +22,8 @@
 	), SHELL_CAPACITY_SMALL)
 
 /obj/item/circuit_component/compact_remote
-	display_name = "Compact Remote"
-	desc = "Used to receive inputs from the compact remote shell. Use the shell in hand to trigger the output signal."
+	display_name = "Пульт"
+	desc = "Портативная оболочка с одной большой кнопкой. Используется для приема по удаленной связи входных данных от оболочки. <b>Используйте оболочку в руке</b>, чтобы запустить выходной сигнал."
 
 	/// Called when attack_self is called on the shell.
 	var/datum/port/output/signal
@@ -45,6 +46,6 @@
 /obj/item/circuit_component/compact_remote/proc/send_trigger(atom/source, mob/user)
 	SIGNAL_HANDLER
 	source.balloon_alert(user, "clicked primary button")
-	playsound(source, get_sfx(SFX_TERMINAL_TYPE), 25, FALSE)
+	playsound(source, get_sfx("terminal_type"), 25, FALSE)
 	entity.set_output(user)
 	signal.set_output(COMPONENT_SIGNAL)

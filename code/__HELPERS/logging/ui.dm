@@ -1,17 +1,12 @@
-/proc/log_href(text, list/data)
-	logger.Log(LOG_CATEGORY_HREF, text, data)
+/proc/log_href(text)
+	WRITE_LOG(GLOB.world_href_log, "HREF: [text]")
 
 /**
  * Appends a tgui-related log entry. All arguments are optional.
  */
-/proc/log_tgui(
-	user,
-	message,
-	context,
-	datum/tgui_window/window,
-	datum/src_object,
-)
-
+/proc/log_tgui(user, message, context,
+		datum/tgui_window/window,
+		datum/src_object)
 	var/entry = ""
 	// Insert user info
 	if(!user)
@@ -36,4 +31,4 @@
 	// Insert message
 	if(message)
 		entry += "\n[message]"
-	logger.Log(LOG_CATEGORY_HREF_TGUI, entry)
+	WRITE_LOG(GLOB.tgui_log, entry)

@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////CAKE////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/carrotcake
-	name = "Carrot cake"
+	name = "Морковный торт"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/carrot = 2
@@ -13,16 +13,16 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/cheesecake
-	name = "Cheese cake"
+	name = "Сырный торт"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
-		/obj/item/food/cheese/wedge = 2
+		/obj/item/food/cheesewedge = 2
 	)
 	result = /obj/item/food/cake/cheese
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/applecake
-	name = "Apple cake"
+	name = "Яблочный торт"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/apple = 2
@@ -31,7 +31,7 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/orangecake
-	name = "Orange cake"
+	name = "Апельсиновый торт"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/citrus/orange = 2
@@ -40,7 +40,7 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/limecake
-	name = "Lime cake"
+	name = "Лаймовый торт"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/citrus/lime = 2
@@ -49,7 +49,7 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/lemoncake
-	name = "Lemon cake"
+	name = "Лимонный торт"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/citrus/lemon = 2
@@ -58,7 +58,7 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/chocolatecake
-	name = "Chocolate cake"
+	name = "Шоколадный торт"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/chocolatebar = 2
@@ -67,10 +67,10 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/birthdaycake
-	name = "Birthday cake"
+	name = "Праздничный торт"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
-		/obj/item/flashlight/flare/candle = 1,
+		/obj/item/candle = 1,
 		/datum/reagent/consumable/sugar = 5,
 		/datum/reagent/consumable/caramel = 2
 	)
@@ -78,7 +78,7 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/energycake
-	name = "Energy cake"
+	name = "Энерго торт"
 	reqs = list(
 		/obj/item/food/cake/birthday = 1,
 		/obj/item/melee/energy/sword = 1,
@@ -88,16 +88,16 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/braincake
-	name = "Brain cake"
+	name = "Торт с мозгами"
 	reqs = list(
-		/obj/item/organ/internal/brain = 1,
+		/obj/item/organ/brain = 1,
 		/obj/item/food/cake/plain = 1
 	)
 	result = /obj/item/food/cake/brain
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/slimecake
-	name = "Slime cake"
+	name = "Слаймовый торт"
 	reqs = list(
 		/obj/item/slime_extract = 1,
 		/obj/item/food/cake/plain = 1
@@ -106,7 +106,7 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/pumpkinspicecake
-	name = "Pumpkin spice cake"
+	name = "Тыквенно-пряный торт"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/pumpkin = 2
@@ -115,7 +115,7 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/holycake
-	name = "Angel food cake"
+	name = "Торт \"Пища Ангелов\""
 	reqs = list(
 		/datum/reagent/water/holywater = 15,
 		/obj/item/food/cake/plain = 1
@@ -124,7 +124,7 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/poundcake
-	name = "Pound cake"
+	name = "Фунтовый торт"
 	reqs = list(
 		/obj/item/food/cake/plain = 4
 	)
@@ -132,7 +132,7 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/hardwarecake
-	name = "Hardware cake"
+	name = "Аппаратурный торт"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/circuitboard = 2,
@@ -141,49 +141,27 @@
 	result = /obj/item/food/cake/hardware_cake
 	category = CAT_CAKE
 
-/datum/crafting_recipe/food/berry_chocolate_cake
-	name = "strawberry chocolate cake"
+/datum/crafting_recipe/food/bscccake
+	name = "Шоколадный торт с ежевикой и клубникой"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/chocolatebar = 2,
 		/obj/item/food/grown/berries = 5
 	)
-	result = /obj/item/food/cake/berry_chocolate_cake
+	result = /obj/item/food/cake/bscc
 	category = CAT_CAKE
 
-/datum/crafting_recipe/food/pavlovacream
-	name = "Pavlova with cream"
-	reqs = list(
-		/datum/reagent/consumable/eggwhite = 12,
-		/datum/reagent/consumable/sugar = 15,
-		/datum/reagent/consumable/whipped_cream = 10,
-		/obj/item/food/grown/berries = 5
-	)
-	result = /obj/item/food/cake/pavlova
-	category = CAT_CAKE
-
-/datum/crafting_recipe/food/pavlovakorta
-	name = "Pavlova with korta cream"
-	reqs = list(
-		/datum/reagent/consumable/eggwhite = 12,
-		/datum/reagent/consumable/sugar = 15,
-		/datum/reagent/consumable/korta_milk = 10,
-		/obj/item/food/grown/berries = 5
-	)
-	result = /obj/item/food/cake/pavlova/nuts
-	category = CAT_CAKE
-
-/datum/crafting_recipe/food/berry_vanilla_cake
-	name = "blackberry and strawberry vanilla cake"
+/datum/crafting_recipe/food/bscvcake
+	name = "Ванильный торт с ежевикой и клубникой"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/berries = 5
 	)
-	result = /obj/item/food/cake/berry_vanilla_cake
+	result = /obj/item/food/cake/bsvc
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/clowncake
-	name = "clown cake"
+	name = "Клоунский торт"
 	always_available = FALSE
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
@@ -194,7 +172,7 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/vanillacake
-	name = "vanilla cake"
+	name = "Ванильный торт"
 	always_available = FALSE
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
@@ -204,7 +182,7 @@
 	category = CAT_CAKE
 
 /datum/crafting_recipe/food/trumpetcake
-	name = "Spaceman's Cake"
+	name = "Торт космонавтов"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/trumpet = 2,
@@ -216,10 +194,10 @@
 
 
 /datum/crafting_recipe/food/cak
-	name = "Living cat/cake hybrid"
+	name = "Живой торт"
 	reqs = list(
-		/obj/item/organ/internal/brain = 1,
-		/obj/item/organ/internal/heart = 1,
+		/obj/item/organ/brain = 1,
+		/obj/item/organ/heart = 1,
 		/obj/item/food/cake/birthday = 1,
 		/obj/item/food/meat/slab = 3,
 		/datum/reagent/blood = 30,
@@ -228,42 +206,3 @@
 	)
 	result = /mob/living/simple_animal/pet/cat/cak
 	category = CAT_CAKE //Cat! Haha, get it? CAT? GET IT? We get it - Love Felines
-
-/datum/crafting_recipe/food/fruitcake
-	name = "english fruitcake"
-	reqs = list(
-		/obj/item/food/cake/plain = 1,
-		/obj/item/food/no_raisin = 1,
-		/obj/item/food/grown/cherries = 1,
-		/datum/reagent/consumable/ethanol/rum = 5
-	)
-	result = /obj/item/food/cake/fruit
-	category = CAT_CAKE
-
-/datum/crafting_recipe/food/plumcake
-	name = "Plum cake"
-	reqs = list(
-		/obj/item/food/cake/plain = 1,
-		/obj/item/food/grown/plum = 2
-	)
-	result = /obj/item/food/cake/plum
-	category = CAT_CAKE
-
-/datum/crafting_recipe/food/weddingcake
-	name = "Wedding cake"
-	reqs = list(
-		/obj/item/food/cake/plain = 4,
-		/datum/reagent/consumable/sugar = 120,
-	)
-	result = /obj/item/food/cake/wedding
-	category = CAT_CAKE
-
-/datum/crafting_recipe/food/pineapple_cream_cake
-	name = "Pineapple cream cake"
-	reqs = list(
-		/obj/item/food/cake/plain = 1,
-		/obj/item/food/grown/pineapple = 1,
-		/datum/reagent/consumable/cream = 20,
-	)
-	result = /obj/item/food/cake/pineapple_cream_cake
-	category = CAT_CAKE

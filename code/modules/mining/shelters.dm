@@ -1,10 +1,11 @@
+
 /datum/map_template/shelter
 	var/shelter_id
 	var/description
-	var/list/blacklisted_turfs
-	var/list/whitelisted_turfs
-	var/list/banned_areas
-	var/list/banned_objects
+	var/blacklisted_turfs
+	var/whitelisted_turfs
+	var/banned_areas
+	var/banned_objects
 	has_ceiling = TRUE
 	ceiling_turf = /turf/open/floor/engine/hull
 	ceiling_baseturfs = list(/turf/open/floor/plating)
@@ -18,10 +19,12 @@
 
 /datum/map_template/shelter/proc/check_deploy(turf/deploy_location)
 	var/affected = get_affected_turfs(deploy_location, centered=TRUE)
+	var/turf/dest = get_turf(src)
 	for(var/turf/T in affected)
 		var/area/A = get_area(T)
 		if(is_type_in_typecache(A, banned_areas))
-			return SHELTER_DEPLOY_BAD_AREA
+			if(!is_centcom_level(dest.z))
+				return SHELTER_DEPLOY_BAD_AREA
 
 		var/banned = is_type_in_typecache(T, blacklisted_turfs)
 		var/permitted = is_type_in_typecache(T, whitelisted_turfs)
@@ -31,15 +34,6 @@
 		for(var/obj/O in T)
 			if((O.density && O.anchored) || is_type_in_typecache(O, banned_objects))
 				return SHELTER_DEPLOY_ANCHORED_OBJECTS
-
-	// Check if the shelter sticks out of map borders
-	var/shelter_origin_x = deploy_location.x - round(width/2)
-	if(shelter_origin_x <= 1 || shelter_origin_x+width > world.maxx)
-		return SHELTER_DEPLOY_OUTSIDE_MAP
-	var/shelter_origin_y = deploy_location.y - round(height/2)
-	if(shelter_origin_y <= 1 || shelter_origin_y+height > world.maxy)
-		return SHELTER_DEPLOY_OUTSIDE_MAP
-
 	return SHELTER_DEPLOY_ALLOWED
 
 /datum/map_template/shelter/alpha
@@ -82,19 +76,6 @@
 	mappath = "_maps/templates/shelter_3.dmm"
 
 /datum/map_template/shelter/charlie/New()
-	. = ..()
-	whitelisted_turfs = typecacheof(/turf/closed/mineral)
-	banned_objects = typecacheof(/obj/structure/stone_tile)
-
-/datum/map_template/shelter/toilet
-	name = "Emergency Relief Shelter"
-	shelter_id = "shelter_toilet"
-	description = "A stripped-down emergency shelter focused on providing \
-		only the most essential amenities to unfortunate employees who find \
-		themselves in need far from home."
-	mappath = "_maps/templates/shelter_t.dmm"
-
-/datum/map_template/shelter/toilet/New()
 	. = ..()
 	whitelisted_turfs = typecacheof(/turf/closed/mineral)
 	banned_objects = typecacheof(/obj/structure/stone_tile)

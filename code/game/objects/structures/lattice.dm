@@ -1,47 +1,36 @@
 /obj/structure/lattice
-	name = "lattice"
-	desc = "A lightweight support lattice. These hold our station together."
+	name = "опорная балка"
+	desc = "Легкая опорная балка состоящая из стержней. Она позволяет нашей станции не развалиться на части."
 	icon = 'icons/obj/smooth_structures/lattice.dmi'
 	icon_state = "lattice-255"
 	base_icon_state = "lattice"
 	density = FALSE
 	anchored = TRUE
-	armor_type = /datum/armor/structure_lattice
+	armor = list(MELEE = 50, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 80, ACID = 50)
 	max_integrity = 50
 	layer = LATTICE_LAYER //under pipes
 	plane = FLOOR_PLANE
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_LATTICE
-	canSmoothWith = SMOOTH_GROUP_LATTICE + SMOOTH_GROUP_WALLS + SMOOTH_GROUP_OPEN_FLOOR
+	smoothing_groups = list(SMOOTH_GROUP_LATTICE)
+	canSmoothWith = list(SMOOTH_GROUP_LATTICE, SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_CLOSED_TURFS)
 	var/number_of_mats = 1
 	var/build_material = /obj/item/stack/rods
-	var/list/give_turf_traits = list(TRAIT_CHASM_STOPPED, TRAIT_HYPERSPACE_STOPPED)
 
-/obj/structure/lattice/Initialize(mapload)
-	. = ..()
-	if(length(give_turf_traits))
-		give_turf_traits = string_list(give_turf_traits)
-		AddElement(/datum/element/give_turf_traits, give_turf_traits)
-
-/datum/armor/structure_lattice
-	melee = 50
-	fire = 80
-	acid = 50
 
 /obj/structure/lattice/examine(mob/user)
 	. = ..()
 	. += deconstruction_hints(user)
 
 /obj/structure/lattice/proc/deconstruction_hints(mob/user)
-	return span_notice("The rods look like they could be <b>cut</b>. There's space for more <i>rods</i> or a <i>tile</i>.")
+	return "<hr><span class='notice'>Эти стержни можно <b>отрезать</b>. Здесь есть ещё место для <i>стержней</i> или для <i>плитки</i>.</span>"
 
 /obj/structure/lattice/Initialize(mapload)
 	. = ..()
 	for(var/obj/structure/lattice/LAT in loc)
 		if(LAT == src)
 			continue
-		stack_trace("multiple lattices found in ([loc.x], [loc.y], [loc.z])")
+		log_runtime("multiple lattices found in ([loc.x], [loc.y], [loc.z])")
 		return INITIALIZE_HINT_QDEL
 
 /obj/structure/lattice/blob_act(obj/structure/blob/B)
@@ -51,7 +40,7 @@
 	if(resistance_flags & INDESTRUCTIBLE)
 		return
 	if(C.tool_behaviour == TOOL_WIRECUTTER)
-		to_chat(user, span_notice("Slicing [name] joints ..."))
+		to_chat(user, span_notice("Режем [name]..."))
 		deconstruct()
 	else
 		var/turf/T = get_turf(src)
@@ -63,23 +52,16 @@
 	qdel(src)
 
 /obj/structure/lattice/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
-	if(the_rcd.mode == RCD_TURF)
-		return list("delay" = 0, "cost" = the_rcd.rcd_design_path == /obj/structure/lattice/catwalk ? 2 : 1)
-	return FALSE
+	if(the_rcd.mode == RCD_FLOORWALL)
+		return list("mode" = RCD_FLOORWALL, "delay" = 0, "cost" = 2)
 
-/obj/structure/lattice/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, list/rcd_data)
-	if(rcd_data["[RCD_DESIGN_MODE]"] == RCD_TURF)
-		var/design_structure = rcd_data["[RCD_DESIGN_PATH]"]
-		if(design_structure == /turf/open/floor/plating)
-			var/turf/T = src.loc
-			if(isgroundlessturf(T))
-				T.PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
-				qdel(src)
-				return TRUE
-		if(design_structure == /obj/structure/lattice/catwalk)
-			var/turf/turf = loc
+/obj/structure/lattice/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
+	if(passed_mode == RCD_FLOORWALL)
+		to_chat(user, span_notice("Создаю пол."))
+		var/turf/T = src.loc
+		if(isspaceturf(T))
+			T.PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			qdel(src)
-			new /obj/structure/lattice/catwalk(turf)
 			return TRUE
 	return FALSE
 
@@ -88,24 +70,19 @@
 		deconstruct()
 
 /obj/structure/lattice/catwalk
-	name = "catwalk"
-	desc = "A catwalk for easier EVA maneuvering and cable placement."
+	name = "помост"
+	desc = "Помост для более легкого маневрирования в открытом космосе и прокладки кабелей."
 	icon = 'icons/obj/smooth_structures/catwalk.dmi'
 	icon_state = "catwalk-0"
 	base_icon_state = "catwalk"
 	number_of_mats = 2
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_CATWALK + SMOOTH_GROUP_LATTICE + SMOOTH_GROUP_OPEN_FLOOR
-	canSmoothWith = SMOOTH_GROUP_CATWALK
+	smoothing_groups = list(SMOOTH_GROUP_LATTICE, SMOOTH_GROUP_CATWALK, SMOOTH_GROUP_OPEN_FLOOR)
+	canSmoothWith = list(SMOOTH_GROUP_CATWALK)
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
-	give_turf_traits = list(TRAIT_TURF_IGNORE_SLOWDOWN, TRAIT_LAVA_STOPPED, TRAIT_CHASM_STOPPED, TRAIT_IMMERSE_STOPPED, TRAIT_HYPERSPACE_STOPPED)
-
-/obj/structure/lattice/catwalk/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/footstep_override, footstep = FOOTSTEP_CATWALK)
 
 /obj/structure/lattice/catwalk/deconstruction_hints(mob/user)
-	return span_notice("The supporting rods look like they could be <b>cut</b>.")
+	return span_notice("Эти стержни можно <b>отрезать</b>.")
 
 /obj/structure/lattice/catwalk/Move()
 	var/turf/T = loc
@@ -113,59 +90,45 @@
 		C.deconstruct()
 	..()
 
+/obj/structure/lattice/catwalk/Initialize(mapload)
+	. = ..()
+	var/turf/open/T = loc
+	if(isopenturf(T))
+		T.footstep = FOOTSTEP_CATWALK
+
 /obj/structure/lattice/catwalk/deconstruct()
-	var/turf/T = loc
+	var/turf/open/T = loc
 	for(var/obj/structure/cable/C in T)
 		C.deconstruct()
+	if(isopenturf(T))
+		T.footstep = initial(T.footstep)
 	..()
 
-/obj/structure/lattice/catwalk/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
-	if(the_rcd.mode == RCD_DECONSTRUCT)
-		return list("mode" = RCD_DECONSTRUCT, "delay" = 1 SECONDS, "cost" = 5)
-	return FALSE
-
-/obj/structure/lattice/catwalk/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
-	if(passed_mode == RCD_DECONSTRUCT)
-		var/turf/turf = loc
-		for(var/obj/structure/cable/cable_coil in turf)
-			cable_coil.deconstruct()
-		qdel(src)
-		return TRUE
-
-/obj/structure/lattice/catwalk/mining
-	name = "reinforced catwalk"
-	desc = "A heavily reinforced catwalk used to build bridges in hostile environments. It doesn't look like anything could make this budge."
-	resistance_flags = INDESTRUCTIBLE
-
-/obj/structure/lattice/catwalk/mining/deconstruction_hints(mob/user)
-	return
-
 /obj/structure/lattice/lava
-	name = "heatproof support lattice"
-	desc = "A specialized support beam for building across lava. Watch your step."
+	name = "жаропрочная балка"
+	desc = "Специализированная опорная балка для строительства на лаве. Смотри куда идёшь."
 	icon = 'icons/obj/smooth_structures/catwalk.dmi'
 	icon_state = "catwalk-0"
 	base_icon_state = "catwalk"
 	number_of_mats = 1
 	color = "#5286b9ff"
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_LATTICE + SMOOTH_GROUP_OPEN_FLOOR
-	canSmoothWith = SMOOTH_GROUP_LATTICE
+	smoothing_groups = list(SMOOTH_GROUP_LATTICE, SMOOTH_GROUP_OPEN_FLOOR)
+	canSmoothWith = list(SMOOTH_GROUP_LATTICE)
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
-	give_turf_traits = list(TRAIT_LAVA_STOPPED, TRAIT_CHASM_STOPPED, TRAIT_IMMERSE_STOPPED, TRAIT_HYPERSPACE_STOPPED)
 
 /obj/structure/lattice/lava/deconstruction_hints(mob/user)
-	return span_notice("The rods look like they could be <b>cut</b>, but the <i>heat treatment will shatter off</i>. There's space for a <i>tile</i>.")
+	return span_notice("Эти стержни можно <b>отрезать</b>, но <i>термозащита будет уничтожена</i>. Здесь есть место для установки <i>плитки</i>.")
 
 /obj/structure/lattice/lava/attackby(obj/item/C, mob/user, params)
 	. = ..()
-	if(istype(C, /obj/item/stack/tile/iron))
-		var/obj/item/stack/tile/iron/P = C
+	if(istype(C, /obj/item/stack/tile/plasteel))
+		var/obj/item/stack/tile/plasteel/P = C
 		if(P.use(1))
-			to_chat(user, span_notice("You construct a floor plating, as lava settles around the rods."))
+			to_chat(user, span_notice("Создаю обшивку и в это же время лава поглощает стержни."))
 			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 			new /turf/open/floor/plating(locate(x, y, z))
 		else
-			to_chat(user, span_warning("You need one floor tile to build atop [src]."))
+			to_chat(user, span_warning("Требуется хотя бы одна единица плитки для создания обшивки на [src]."))
 		return

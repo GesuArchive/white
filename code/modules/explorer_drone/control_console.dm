@@ -1,7 +1,6 @@
 /obj/machinery/computer/exodrone_control_console
-	name = "exploration drone control console"
-	desc = "Control exploration drones from interstellar distances. Communication lag not included."
-	circuit = /obj/item/circuitboard/computer/exodrone_console
+	name = "Консоль управления исследовательским дроном"
+	desc = "Управляйте исследовательскими дронами с межзвездных расстояний. Задержка в комплект не входит."
 	//Currently controlled drone
 	var/obj/item/exodrone/controlled_drone
 	/// Have we lost contact with the drone without disconnecting. Unset on user confirmation.
@@ -20,7 +19,7 @@
 		end_drone_control()
 		controlled_drone = drone
 		controlled_drone.controlled = TRUE
-		RegisterSignal(controlled_drone,COMSIG_QDELETING, PROC_REF(drone_destroyed))
+		RegisterSignal(controlled_drone,COMSIG_PARENT_QDELETING, PROC_REF(drone_destroyed))
 		RegisterSignal(controlled_drone,COMSIG_EXODRONE_STATUS_CHANGED, PROC_REF(on_exodrone_status_changed))
 		update_icon()
 
@@ -38,7 +37,7 @@
 /obj/machinery/computer/exodrone_control_console/proc/end_drone_control()
 	if(controlled_drone)
 		controlled_drone.controlled = FALSE
-		UnregisterSignal(controlled_drone,list(COMSIG_QDELETING,COMSIG_EXODRONE_STATUS_CHANGED))
+		UnregisterSignal(controlled_drone,list(COMSIG_PARENT_QDELETING,COMSIG_EXODRONE_STATUS_CHANGED))
 		controlled_drone = null
 		update_icon()
 
@@ -58,7 +57,7 @@
 	if(controlled_drone)
 		.["drone_status"] = controlled_drone.drone_status
 		.["drone_name"] = controlled_drone.name
-		.["drone_integrity"] = controlled_drone.get_integrity()
+		.["drone_integrity"] = controlled_drone.obj_integrity
 		.["drone_max_integrity"] = controlled_drone.max_integrity
 		.["drone_log"] = controlled_drone.drone_log
 		.["configurable"] = controlled_drone.drone_status == EXODRONE_IDLE
@@ -130,9 +129,6 @@
 				if(params["target_site"])
 					target_site = locate(params["target_site"]) in GLOB.exploration_sites
 					if(!target_site)
-						return TRUE
-					if(!controlled_drone.check_blacklist())
-						say("Error - An unauthorized object was found inside the cargo!")
 						return TRUE
 				controlled_drone.launch_for(target_site)
 			return TRUE

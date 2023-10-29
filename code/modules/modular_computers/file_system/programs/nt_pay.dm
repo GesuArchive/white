@@ -1,9 +1,9 @@
 /datum/computer_file/program/nt_pay
 	filename = "ntpay"
-	filedesc = "Nanotrasen Pay System"
+	filedesc = "Платежная система НаноТрейзен"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "generic"
-	extended_desc = "An application that locally (in your sector) helps to transfer money or track your expenses and profits."
+	extended_desc = "Приложение, которое локально (в вашем секторе) помогает переводить деньги или отслеживать ваши расходы и прибыль."
 	size = 2
 	tgui_id = "NtosPay"
 	program_icon = "money-bill-wave"
@@ -18,11 +18,12 @@
 	var/wanted_token
 
 /datum/computer_file/program/nt_pay/ui_act(action, list/params, datum/tgui/ui)
+	. = ..()
+	if(.)
+		return
+
 	switch(action)
 		if("Transaction")
-			if(IS_DEPARTMENTAL_ACCOUNT(current_user))
-				return to_chat(usr, span_notice("The app is unable to withdraw from that card."))
-
 			token = params["token"]
 			money_to_send = params["amount"]
 			var/datum/bank_account/recipient
@@ -41,7 +42,7 @@
 
 			if(!recipient)
 				return to_chat(usr, span_notice("The app can't find who you're trying to pay. Did you enter the pay token right?"))
-			if(!current_user.has_money(money_to_send) || money_to_send < 1)
+			if(!current_user.has_money(money_to_send))
 				return current_user.bank_card_talk("You cannot afford it.")
 
 			recipient.bank_card_talk("You received [money_to_send] credit(s). Reason: transfer from [current_user.account_holder]")
@@ -61,9 +62,14 @@
 
 
 /datum/computer_file/program/nt_pay/ui_data(mob/user)
-	var/list/data = list()
+	var/list/data = get_header_data()
+	var/obj/item/computer_hardware/card_slot/card_slot = computer.all_components[MC_CARD]
 
-	current_user = computer.computer_id_slot?.registered_account || null
+	if(card_slot && card_slot.stored_card && card_slot.stored_card.registered_account)
+		current_user = card_slot.stored_card.registered_account
+	else
+		current_user = null
+
 	if(!current_user)
 		data["name"] = null
 	else

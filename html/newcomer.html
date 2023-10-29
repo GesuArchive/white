@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<base target="_blank" />
+		<title>Памятка новичка</title>
+		<style>
+		body {
+			color: #ffddff;
+			font-family: Tahoma;
+			font-size: 12px;
+			background: #000;
+			padding: 0;
+			margin: 0;
+			user-select: none;
+			-ms-user-select: none;
+		}
+
+		@keyframes wololo {
+			0%   { background-position: 0% 0%; }
+			50%  { background-position: 50% 0; }
+			100% { background-position: 100% 0; }
+		}
+
+		.anim_bg {
+			width: calc(100% + 100px);
+			background: repeating-linear-gradient(45deg, #000 25%, #000 50%, #212 50%, #212 75%);
+			background-size: 100px 100px;
+			animation: wololo 90s infinite linear;
+			position: fixed;
+		}
+
+		.main_content {
+			padding: 8px 8px;
+			margin-right: 108px;
+		}
+
+		.block {
+			background: rgba(0, 0, 0, 0.5);
+		}
+
+		.block_header {
+			font-size: 20px;
+			padding: 4px;
+			padding-left: 0;
+			padding-top: 8px;
+			display: inline-block;
+			height: 30px;
+			vertical-align: top;
+		}
+
+		.baton_icon {
+			width: 32px;
+			height: 32px;
+			display: inline-block;
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAhUExURevt6S4uLkpKSv+AQEBAQMBhMm5ubikpKRwcHBcmGwAAAJjOMdkAAAALdFJOU/////////////8ASk8B8gAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAJxJREFUOE+l0tESgjAMRNFEKtb+/wcb2kBD2JVxjA9C7lEYUdrN/AFkJApEH70xILoMQYD1sigHvZcnBaETUNa9QyC6FvWOQO/+KyAwup8AsPVX2GaQewaXnsDWa1r5ex/QT8Ae4KVHgD4fgXXwBROQfgDWd0D7BKTPS9T6/grsXy5QhJ1oeMrHzJWovfw4zG8A3URY3d7k6dintQ8YgSLsOiIV8QAAAABJRU5ErkJggg==);
+			margin: 4px;
+		}
+
+		.ass_icon {
+			width: 32px;
+			height: 32px;
+			display: inline-block;
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABsUExURevt6QAAABgYGP/e0ImJifXRw9uynbCwsO3Gt+i+qmhoaJmZmUlJSaenp2pqavPz84CAgMDAwCoqKk9PT1VVVby8vIuLi2JiYq2trQD//0pKSq6srA0NDR0dHZiUlP///+ro6MvJyX5+fgAAALahX/sAAAAkdFJOU///////////////////////////////////////////////AFgsDQ0AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE3SURBVDhPtZPbcoQgDIZjKZQuAQHXaqvuob7/OzYoIrjd6VV/RnL6gmMGYf5DJQBB0Y8qQqiCDj3RBq31A5EFVH9htEqiABiraLGnwCtnyxK/A/AGgst3WdaLEwLBqf4UOCklpVTqlBO7DyfUpq5rozEnkgvWoSfCaI/OZn2btU5j47TRrkGdETugLfpz+9Eqj+QfgVC32Jxb06oGbUYkQFlA7whoPS7RWkhA13UB6E3vCAjRWkiAYFKg7wmoPArJ0jh3gEuq96b6rLzk8hHgTBikEaD/MjTxI0CEoC8h0YWxIYj5BITraJ1zmh6bX8zdW4ap6ZR80A+Apff8K6BowssWM0E5QAPu1i1mgnYfhmGcJpimcRjytmhnuFxv95GA8X67XrK+aGf4XrSZmM2A9c+GzUTN8w9czGUYgW5KcgAAAABJRU5ErkJggg==);
+			margin: 4px;
+		}
+
+		.microwave_icon {
+			width: 32px;
+			height: 32px;
+			display: inline-block;
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAA2UExURevt6SsrK8G6taWTg4FzacygHgCAAAD/APn0pOHLL+nJZ09PT0VFRYCAgBcXF6ioqGRZUQAAAIFvKkcAAAASdFJOU///////////////////////AOK/vxIAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACSSURBVDhPzY/LEsIgDABrq1gIpPL/P1uQV4wJHvTg5pTJzg4s8QO/ERadKlw0urBuEuufCTJDuMoQof67UfYX4UZJuzF3Juy2TxEME+zu6lil0O7uWXh/AyuAByb0eymEEJhACph27z0T+t3hgfMChiRMC1mQCm2UwgAhCQDsm5T8iwwRHjJD0GiCThGmfCvEeAL7MSC4gdv22wAAAABJRU5ErkJggg==);
+			margin: 4px;
+		}
+
+		.gitara_icon {
+			width: 32px;
+			height: 32px;
+			display: inline-block;
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGbUExURevt6T8eAGo0Da+flGs1C0YXAFIhAEsRAGYyClIiAEoTAGM3DE0VAFslAEUXAF4oA10mAGcyCkkTAGc7FFsmAEgSAMmNVc+DSrpzOGEoA1okAMiPVcZ9RMl5O7x6QE4mA2g0DcuOV8yARbt2PcpvP1UcAEcaAM6FS7x3P8xsOVwrA1ceALBKGMuBSL15Prx6PFAbAMJiK59PGMaGSsCCSMd+Rrx3O8N0OzMdCioXB7VuMbhdJJ9PG8KASciBR7d0OcV0O7x4PC8aCSgVB7p3PMFnLKRcI00rD758P8N1Obp5PMpvO8ZzOL12Pb16O7t5QLRuM6peJq1FF7NrLs57P8t0PVY0F7l4O8N0PL95Pch5PLhkLalaJLhNHbZdJMB4PEQpEcl2Prp4OrljLqVdJKpfJ7NqL8R1PLh1O8VmMKVbI55PG61XI8BoLrp4P7p3Pcx2PLBrMKpdJKFPGahcJMFrLrltNLJnL7ZsMbBpMqRaI7pJGZ5OGrBQHapfJbVcJ6RcJ61VIa5HGJ9OGa9OG59RHp9IF51MGgAAAC3+lcwAAACJdFJOU/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8A0YG4uAAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAW5JREFUOE+l0mVfg1AUBvBzvXbrsQt1ds0WWyxsnTF11uzu7tZ9bO8F3ASGvvB5w+D5czj8GHj+yD8AqJUlAEKUzgoACaCKsABAAmmQIiwBDaYh1gBIaBgNt34EkAga+cuSbH5UNLF+TSAxseobKGfaUQ2w24DE0XhvrwMAiMjmJyT6+p+A1UnJKSQ1zTef5QfF9IzMLCGbsv20Szze34A5ubY8geYX6PpvwLbDwqJioaSUCmVonsC3K6+wI9JKoaraDABrauvqG1BsRKGpucUEAFvbbO0dEnZ2YXdPL8oGANjXPzA4NCyNII6OOcZRNIGJySknnZ6Zddnn5hf0A1SwuCSJbiotr6yuIcq6ASpY39h0Od10a3sHZUOvgt29/YND0Xl0fGK8XwUynp6dX1xeXd/c6hfk4UDEu3vHw+PT84thQR5+gY3A17f3j0/zAzQgyoyw+OkVwAQjLH56FbCPKfL46TXACf8/muLxfAHxMJsrpkPKGAAAAABJRU5ErkJggg==);
+			margin: 4px;
+		}
+
+		.block_text {
+			padding: 8px;
+			padding-left: 16px;
+		}
+
+		.confirm {
+			display: block;
+			background: #000;
+			font-size: 32px;
+			text-decoration: none;
+			padding: 8px;
+			text-align: center;
+		}
+
+		.confirm:hover {
+			background: #727;
+			color: #000;
+			transition: 1s;
+		}
+
+		hr {
+			clear: both;
+			border: 0;
+			height: 1px;
+			background-image: linear-gradient(to right,rgba(0,0,0,0),rgba(255,155,255,.25),rgba(0,0,0,0));
+			margin: 0;
+		}
+
+		li {
+			list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURevt6Z8bG3EREcwjI0INDf///wAAAJG/w5cAAAAHdFJOU////////wAaSwNGAAAACXBIWXMAAA7CAAAOwgEVKEqAAAAARklEQVQoU42PQQ4AIQgDEdz+/8lWcUWNJs6tkyYFAWSCCZICZaSwgWaWjkIbpmmIjyxib1idoA/Rua/8PIvAhR/hMK7vAwU31wJIVgrFcQAAAABJRU5ErkJggg==);
+			padding-inline-start: 1ch;
+		}
+
+		a {
+			color: #f3f;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+
+		a:hover {
+			background: #727;
+			color: #000;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="anim_bg">
+			<div class="main_content">
+				<div class="block">
+					<div class="ass_icon"></div>
+					<div class="block_header">
+						Привет, космонавт!
+					</div>
+					<div class="block_text">
+						Удели минутку внимания этой странице, так как здесь написана очень важная для тебя информация.
+					</div>
+					<hr>
+				</div>
+				<div class="block">
+					<div class="microwave_icon"></div>
+					<div class="block_header">
+						Мы экспериментируем с нейросетью
+					</div>
+					<div class="block_text">
+						Это означает то, что некоторые очевидные игровые механики могут иметь вполне непресказуемое поведение, в отличие от обычных серверов по станции.
+					</div>
+					<hr>
+				</div>
+				<div class="block">
+					<div class="baton_icon"></div>
+					<div class="block_header">
+						Необходимые знания
+					</div>
+					<div class="block_text">
+						Даже если ты уже играл в SS13 где-то ещё, то это не означает, что тебе могут быть по зубам наши особенности игры. Настоятельно рекомендуем изучить данный список:
+						<ul>
+							<li>
+								Обязательно прочитай <a onclick="window.location='?action=openLink&link=https%3A%2F%2Fwiki.station13.ru%2FStarter_Guide'">страницу для новичков</a>.
+							</li>
+							<li>
+								Наши <a onclick="window.location='?action=openLink&link=https%3A%2F%2Fwiki.station13.ru%2FRules'">особые правила</a> написаны кровью.
+							</li>
+							<li>
+								У нас есть <a onclick="window.location='?action=openLink&link=https%3A%2F%2Fhub.station13.ru%2Fmap%2F'">интерактивная карта</a>.
+							</li>
+							<li>
+								А также <a onclick="window.location='?action=openLink&link=https%3A%2F%2Fhub.station13.ru%2Frounds%2F'">список всех прошедших раундов</a> с подробностями, включая повторы.
+							</li>
+							<li>
+								При любом вопросе по игре всегда жми F1. Это прямая связь с администрацией, она не кусается. :3
+							</li>
+							<li>
+								Старайся играть не для себя, а для других, если хочешь получить удовольствие от станции. Проверено.
+							</li>
+						</ul>
+					</div>
+					<hr>
+				</div>
+				<div class="block">
+					<div class="gitara_icon"></div>
+					<div class="block_header">
+						Всё прочитано?
+					</div>
+					<div class="block_text">
+						<a onclick="window.location='?action=iconsent'" class="confirm">Да, впустите меня!</a>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -289,19 +289,6 @@ const TankCompressorRecords = (props, context) => {
                       });
                     }}
                   />,
-                  <Button
-                    key="save"
-                    icon="floppy-disk"
-                    content="Save"
-                    disabled={!disk}
-                    tooltip="Save the record selected to an inserted data disk."
-                    tooltipPosition="bottom"
-                    onClick={() => {
-                      act('save_record', {
-                        'ref': activeRecord.ref,
-                      });
-                    }}
-                  />,
                 ]}>
                 <LabeledList>
                   <LabeledList.Item label="Timestamp">

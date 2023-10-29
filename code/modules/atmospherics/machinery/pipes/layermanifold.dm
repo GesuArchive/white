@@ -1,8 +1,8 @@
 /obj/machinery/atmospherics/pipe/layer_manifold
-	name = "layer adaptor"
-	icon = 'icons/obj/pipes_n_cables/manifold.dmi'
+	name = "переходник"
+	icon = 'icons/obj/atmospherics/pipes/manifold.dmi'
 	icon_state = "manifoldlayer"
-	desc = "A special pipe to bridge pipe layers with."
+	desc = "Специальная труба для соединения разных слоёв труб."
 	dir = SOUTH
 	initialize_directions = NORTH|SOUTH
 	pipe_flags = PIPING_ALL_LAYER | PIPING_DEFAULT_LAYER_ONLY | PIPING_CARDINAL_AUTONORMALIZE | PIPING_BRIDGE
@@ -12,7 +12,6 @@
 	construction_type = /obj/item/pipe/binary
 	pipe_state = "manifoldlayer"
 	paintable = TRUE
-	has_gas_visuals = FALSE
 
 	///Reference to all the nodes in the front
 	var/list/front_nodes
@@ -68,7 +67,7 @@
 	. += get_attached_image(get_dir(src, machine_check), machine_check.piping_layer, machine_check.pipe_color)
 
 /obj/machinery/atmospherics/pipe/layer_manifold/proc/get_attached_image(p_dir, p_layer, p_color)
-	var/mutable_appearance/muta = mutable_appearance('icons/obj/pipes_n_cables/layer_manifold_underlays.dmi', "intact_[p_dir]_[p_layer]", layer = layer - 0.01, appearance_flags = RESET_COLOR)
+	var/mutable_appearance/muta = mutable_appearance(icon, "intact_[p_dir]_[p_layer]", layer = layer - 0.01, appearance_flags = RESET_COLOR)
 	muta.color = p_color
 	return muta
 
@@ -127,7 +126,7 @@
 		user.ventcrawl_layer = clamp(user.ventcrawl_layer + 1, PIPING_LAYER_MIN, PIPING_LAYER_MAX)
 	if((SOUTH|WEST) & direction)
 		user.ventcrawl_layer = clamp(user.ventcrawl_layer - 1, PIPING_LAYER_MIN, PIPING_LAYER_MAX)
-	to_chat(user, "You align yourself with the [user.ventcrawl_layer]\th output.")
+	to_chat(user, "Переключаюсь на слой [user.ventcrawl_layer].")
 
 /obj/machinery/atmospherics/pipe/layer_manifold/visible
 	hide = FALSE

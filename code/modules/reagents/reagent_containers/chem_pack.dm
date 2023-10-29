@@ -1,21 +1,20 @@
 /obj/item/reagent_containers/chem_pack
-	name = "intravenous medicine bag"
-	desc = "A plastic pressure bag, or 'chem pack', for IV administration of drugs. It is fitted with a thermosealing strip."
-	icon = 'icons/obj/medical/bloodpack.dmi'
+	name = "пакет для внутривенного введения лекарств"
+	desc = "Пластиковый пакет под давлением, также известный как 'химпакет' используемый для внутривенного введения медикаментов. Он снабжен термостойкой полосой. Объем 100 единиц."
+	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "chempack"
-	volume = 100
+	volume = 200
 	reagent_flags = OPENCONTAINER
 	spillable = TRUE
 	obj_flags = UNIQUE_RENAME
 	resistance_flags = ACID_PROOF
 	var/sealed = FALSE
 	fill_icon_thresholds = list(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
-	has_variable_transfer_amount = FALSE
 
 /obj/item/reagent_containers/chem_pack/AltClick(mob/living/user)
-	if(user.can_perform_action(src, NEED_DEXTERITY) && !sealed)
+	if(user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY) && !sealed)
 		if(iscarbon(user) && (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50)))
-			to_chat(user, span_warning("Uh... whoops! You accidentally spill the content of the bag onto yourself."))
+			to_chat(user, span_warning("Ух.. бля! Я случайно разлил содержимое пакета прямо на себя."))
 			SplashReagents(user)
 			return
 
@@ -24,14 +23,14 @@
 		reagents.flags = reagent_flags
 		spillable = FALSE
 		sealed = TRUE
-		to_chat(user, span_notice("You seal the bag."))
+		to_chat(user, span_notice("Запечатал пакет."))
 
 /obj/item/reagent_containers/chem_pack/examine()
 	. = ..()
 	if(sealed)
-		. += span_notice("The bag is sealed shut.")
+		. += "<hr><span class='notice'>Пакет запечатан.</span>"
 	else
-		. += span_notice("Alt-click to seal it.")
+		. += "<hr><span class='notice'>Alt+ЛКМ для того чтобы запечатать.</span>"
 
 
 /obj/item/reagent_containers/chem_pack/attack_self(mob/user)

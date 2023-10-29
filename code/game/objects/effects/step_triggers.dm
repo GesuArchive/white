@@ -37,7 +37,7 @@
 /* Sends a message to mob when triggered*/
 
 /obj/effect/step_trigger/message
-	var/message //the message to give to the mob
+	var/message	//the message to give to the mob
 	var/once = 1
 	mobs_only = TRUE
 
@@ -48,14 +48,14 @@
 			qdel(src)
 
 /* Tosses things in a certain direction */
+
 /obj/effect/step_trigger/thrower
 	var/direction = SOUTH // the direction of throw
-	var/tiles = 3 // if 0: forever until atom hits a stopper
+	var/tiles = 3	// if 0: forever until atom hits a stopper
 	var/immobilize = 1 // if nonzero: prevents mobs from moving while they're being flung
-	var/speed = 1 // delay of movement
+	var/speed = 1	// delay of movement
 	var/facedir = 0 // if 1: atom faces the direction of movement
 	var/nostop = 0 // if 1: will only be stopped by teleporters
-	///List of moving atoms mapped to their inital direction
 	var/list/affecting = list()
 
 /obj/effect/step_trigger/thrower/Trigger(atom/A)
@@ -67,13 +67,13 @@
 			return
 
 	if(immobilize)
-		ADD_TRAIT(AM, TRAIT_IMMOBILIZED, REF(src))
+		ADD_TRAIT(AM, TRAIT_IMMOBILIZED, src)
 
 	affecting[AM] = AM.dir
 	var/datum/move_loop/loop = SSmove_manager.move(AM, direction, speed, tiles ? tiles * speed : INFINITY)
 	RegisterSignal(loop, COMSIG_MOVELOOP_PREPROCESS_CHECK, PROC_REF(pre_move))
 	RegisterSignal(loop, COMSIG_MOVELOOP_POSTPROCESS, PROC_REF(post_move))
-	RegisterSignal(loop, COMSIG_QDELETING, PROC_REF(set_to_normal))
+	RegisterSignal(loop, COMSIG_PARENT_QDELETING, PROC_REF(set_to_normal))
 
 /obj/effect/step_trigger/thrower/proc/pre_move(datum/move_loop/source)
 	SIGNAL_HANDLER
@@ -103,8 +103,7 @@
 	SIGNAL_HANDLER
 	var/atom/movable/being_moved = source.moving
 	affecting -= being_moved
-	REMOVE_TRAIT(being_moved, TRAIT_IMMOBILIZED, REF(src))
-
+	REMOVE_TRAIT(being_moved, TRAIT_IMMOBILIZED, src)
 
 /* Stops things thrown by a thrower, doesn't do anything */
 
@@ -113,7 +112,7 @@
 /* Instant teleporter */
 
 /obj/effect/step_trigger/teleporter
-	var/teleport_x = 0 // teleportation coordinates (if one is null, then no teleport!)
+	var/teleport_x = 0	// teleportation coordinates (if one is null, then no teleport!)
 	var/teleport_y = 0
 	var/teleport_z = 0
 
@@ -143,7 +142,7 @@
 /obj/effect/step_trigger/teleport_fancy
 	var/locationx
 	var/locationy
-	var/uses = 1 //0 for infinite uses
+	var/uses = 1	//0 for infinite uses
 	var/entersparks = 0
 	var/exitsparks = 0
 	var/entersmoke = 0

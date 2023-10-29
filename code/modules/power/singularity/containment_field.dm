@@ -1,9 +1,9 @@
 
 
 /obj/machinery/field/containment
-	name = "containment field"
-	desc = "An energy field."
-	icon = 'icons/obj/machines/engine/singularity.dmi'
+	name = "силовое поле"
+	desc = "Энергетическое поле. Круто."
+	icon = 'icons/obj/singularity.dmi'
 	icon_state = "Contain_F"
 	density = FALSE
 	move_resist = INFINITY
@@ -14,16 +14,12 @@
 	can_atmos_pass = ATMOS_PASS_NO
 	light_range = 4
 	layer = ABOVE_OBJ_LAYER
-	explosion_block = INFINITY
-	///First of the generators producing the containment field
-	var/obj/machinery/field/generator/field_gen_1 = null
-	///Second of the generators producing the containment field
-	var/obj/machinery/field/generator/field_gen_2 = null
+	var/obj/machinery/field/generator/FG1 = null
+	var/obj/machinery/field/generator/FG2 = null
 
 /obj/machinery/field/containment/Initialize(mapload)
-	AddElement(/datum/element/blocks_explosives)
 	. = ..()
-	air_update_turf(TRUE, TRUE)
+	air_update_turf(TRUE)
 	RegisterSignal(src, COMSIG_ATOM_SINGULARITY_TRY_MOVE, PROC_REF(block_singularity))
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
@@ -31,18 +27,14 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/machinery/field/containment/Destroy()
-	if(field_gen_1)
-		field_gen_1.fields -= src
-		field_gen_1 = null
-	if(field_gen_2)
-		field_gen_2.fields -= src
-		field_gen_2 = null
+	FG1.fields -= src
+	FG2.fields -= src
 	can_atmos_pass = ATMOS_PASS_YES
-	air_update_turf(TRUE, FALSE)
+	air_update_turf(TRUE)
 	return ..()
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/machinery/field/containment/attack_hand(mob/user, list/modifiers)
+/obj/machinery/field/containment/attack_hand(mob/user)
 	if(get_dist(src, user) > 1)
 		return FALSE
 	else
@@ -66,32 +58,30 @@
 /obj/machinery/field/containment/ex_act(severity, target)
 	return FALSE
 
-/obj/machinery/field/containment/attack_animal(mob/living/simple_animal/user, list/modifiers)
-	if(!field_gen_1 || !field_gen_2)
+/obj/machinery/field/containment/attack_animal(mob/living/simple_animal/M)
+	if(!FG1 || !FG2)
 		qdel(src)
 		return
-	if(ismegafauna(user))
-		user.visible_message(span_warning("[user] glows fiercely as the containment field flickers out!"))
-		field_gen_1.calc_power(INFINITY) //rip that 'containment' field
-		user.adjustHealth(-user.obj_damage)
+	if(ismegafauna(M))
+		M.visible_message(span_warning("<b>[M]</b> свирепо светится, когда вспыхивает поле сдерживания!"))
+		FG1.calc_power(INFINITY) //rip that 'containment' field
+		M.adjustHealth(-M.obj_damage)
 	else
 		return ..()
 
-/obj/machinery/field/containment/proc/on_entered(datum/source, atom/movable/considered_atom)
+/obj/machinery/field/containment/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
-	if(isliving(considered_atom))
-		var/mob/living/living_moving_through_field = considered_atom
-		if(!living_moving_through_field.incorporeal_move)
-			shock(considered_atom)
+	if(isliving(AM))
+		shock(AM)
 
-	if(ismachinery(considered_atom) || isstructure(considered_atom) || ismecha(considered_atom))
-		bump_field(considered_atom)
+	if(ismachinery(AM) || isstructure(AM) || ismecha(AM))
+		bump_field(AM)
 
 /obj/machinery/field/containment/proc/set_master(master1,master2)
 	if(!master1 || !master2)
 		return FALSE
-	field_gen_1 = master1
-	field_gen_2 = master2
+	FG1 = master1
+	FG2 = master2
 	return TRUE
 
 /obj/machinery/field/containment/proc/block_singularity()
@@ -100,7 +90,7 @@
 	return SINGULARITY_TRY_MOVE_BLOCK
 
 /obj/machinery/field/containment/shock(mob/living/user)
-	if(!field_gen_1 || !field_gen_2)
+	if(!FG1 || !FG2)
 		qdel(src)
 		return FALSE
 	..()
@@ -114,11 +104,10 @@
 // Used for overriding certain procs
 
 /obj/machinery/field
-	///Used to add a delay between shocks. In some cases this used to crash servers by spawning hundreds of sparks every second.
-	var/has_shocked = FALSE
+	var/hasShocked = FALSE //Used to add a delay between shocks. In some cases this used to crash servers by spawning hundreds of sparks every second.
 
 /obj/machinery/field/Bumped(atom/movable/mover)
-	if(has_shocked)
+	if(hasShocked)
 		return
 	if(isliving(mover))
 		shock(mover)
@@ -130,38 +119,35 @@
 
 /obj/machinery/field/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
-	if(has_shocked || isliving(mover) || ismachinery(mover) || isstructure(mover) || ismecha(mover))
+	if(hasShocked || isliving(mover) || ismachinery(mover) || isstructure(mover) || ismecha(mover))
 		return FALSE
 
 /obj/machinery/field/proc/shock(mob/living/user)
 	var/shock_damage = min(rand(30,40),rand(30,40))
 
 	if(iscarbon(user))
-		user.Paralyze(10 SECONDS)
+		user.Paralyze(300)
 		user.electrocute_act(shock_damage, src, 1)
 
 	else if(issilicon(user))
 		if(prob(20))
 			user.Stun(40)
-		user.take_overall_damage(burn = shock_damage)
-		user.visible_message(span_danger("[user.name] is shocked by the [src.name]!"), \
-		span_userdanger("Energy pulse detected, system damaged!"), \
-		span_hear("You hear an electrical crack."))
+		user.take_overall_damage(0, shock_damage)
+		user.visible_message(span_danger("<b>[user.name]</b> ударило током <b>[src.name]</b>!") , \
+		span_userdanger("Обнаружен импульс энергии, повреждение систем!") , \
+		span_hear("Слышу электрический треск."))
 
 	user.updatehealth()
 	bump_field(user)
 
 /obj/machinery/field/proc/clear_shock()
-	has_shocked = FALSE
+	hasShocked = FALSE
 
-/obj/machinery/field/proc/bump_field(atom/movable/considered_atom as mob|obj)
-	if(has_shocked)
+/obj/machinery/field/proc/bump_field(atom/movable/AM as mob|obj)
+	if(hasShocked)
 		return FALSE
-	has_shocked = TRUE
-	do_sparks(5, TRUE, considered_atom.loc)
-	var/atom/target = get_edge_target_turf(considered_atom, get_dir(src, get_step_away(considered_atom, src)))
-	if(isliving(considered_atom))
-		to_chat(considered_atom, span_userdanger("The field repels you with tremendous force!"))
-	playsound(src, 'sound/effects/gravhit.ogg', 50, TRUE)
-	considered_atom.throw_at(target, 200, 4)
+	hasShocked = TRUE
+	do_sparks(5, TRUE, AM.loc)
+	var/atom/target = get_edge_target_turf(AM, get_dir(src, get_step_away(AM, src)))
+	AM.throw_at(target, 200, 4)
 	addtimer(CALLBACK(src, PROC_REF(clear_shock)), 5)

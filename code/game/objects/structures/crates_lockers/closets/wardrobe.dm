@@ -1,6 +1,6 @@
 /obj/structure/closet/wardrobe
-	name = "wardrobe"
-	desc = "It's a storage unit for standard-issue Nanotrasen attire."
+	name = "гардероб"
+	desc = "Хранилище для стандартной одежды NanoTrasen."
 	icon_door = "blue"
 
 /obj/structure/closet/wardrobe/PopulateContents()
@@ -14,7 +14,7 @@
 	return
 
 /obj/structure/closet/wardrobe/pink
-	name = "pink wardrobe"
+	name = "шкаф с розовой одеждой"
 	icon_door = "pink"
 
 /obj/structure/closet/wardrobe/pink/PopulateContents()
@@ -27,7 +27,7 @@
 	return
 
 /obj/structure/closet/wardrobe/black
-	name = "black wardrobe"
+	name = "шкаф с чёрной одеждой"
 	icon_door = "black"
 
 /obj/structure/closet/wardrobe/black/PopulateContents()
@@ -38,11 +38,11 @@
 	if(prob(25))
 		new /obj/item/clothing/suit/jacket/leather(src)
 	if(prob(20))
-		new /obj/item/clothing/suit/jacket/leather/biker(src)
+		new /obj/item/clothing/suit/jacket/leather/overcoat(src)
 	for(var/i in 1 to 3)
 		new /obj/item/clothing/shoes/sneakers/black(src)
 	for(var/i in 1 to 3)
-		new /obj/item/clothing/head/hats/tophat(src)
+		new /obj/item/clothing/head/that(src)
 	for(var/i in 1 to 3)
 		new /obj/item/clothing/head/soft/black(src)
 	new /obj/item/clothing/mask/bandana/black(src)
@@ -53,7 +53,7 @@
 
 
 /obj/structure/closet/wardrobe/green
-	name = "green wardrobe"
+	name = "шкаф с зелёной одеждой"
 	icon_door = "green"
 
 /obj/structure/closet/wardrobe/green/PopulateContents()
@@ -69,8 +69,8 @@
 
 
 /obj/structure/closet/wardrobe/orange
-	name = "prison wardrobe"
-	desc = "It's a storage unit for Nanotrasen-regulation prisoner attire."
+	name = "шкаф с тюремной одеждой"
+	desc = "Хранилище для одежды заключенных, регламентируемая NanoTrasen."
 	icon_door = "orange"
 
 /obj/structure/closet/wardrobe/orange/PopulateContents()
@@ -84,7 +84,7 @@
 
 
 /obj/structure/closet/wardrobe/yellow
-	name = "yellow wardrobe"
+	name = "шкаф с жёлтой одеждой"
 	icon_door = "yellow"
 
 /obj/structure/closet/wardrobe/yellow/PopulateContents()
@@ -100,7 +100,7 @@
 
 
 /obj/structure/closet/wardrobe/white
-	name = "white wardrobe"
+	name = "шкаф с белой одеждой"
 	icon_door = "white"
 
 /obj/structure/closet/wardrobe/white/PopulateContents()
@@ -117,25 +117,21 @@
 	return
 
 /obj/structure/closet/wardrobe/pjs
-	name = "pajama wardrobe"
+	name = "шкаф с пижамами"
 	icon_door = "white"
 
 /obj/structure/closet/wardrobe/pjs/PopulateContents()
 	new /obj/item/clothing/under/misc/pj/red(src)
 	new /obj/item/clothing/under/misc/pj/red(src)
-	new /obj/item/clothing/head/costume/nightcap/red(src)
-	new /obj/item/clothing/head/costume/nightcap/red(src)
 	new /obj/item/clothing/under/misc/pj/blue(src)
 	new /obj/item/clothing/under/misc/pj/blue(src)
-	new /obj/item/clothing/head/costume/nightcap/blue(src)
-	new /obj/item/clothing/head/costume/nightcap/blue(src)
 	for(var/i in 1 to 4)
 		new /obj/item/clothing/shoes/sneakers/white(src)
 	return
 
 
 /obj/structure/closet/wardrobe/grey
-	name = "grey wardrobe"
+	name = "шкаф с серой одеждой"
 	icon_door = "grey"
 
 /obj/structure/closet/wardrobe/grey/PopulateContents()
@@ -165,12 +161,14 @@
 
 
 /obj/structure/closet/wardrobe/mixed
-	name = "mixed wardrobe"
+	name = "гардероб с разной одеждой"
 	icon_door = "mixed"
 
 /obj/structure/closet/wardrobe/mixed/PopulateContents()
 	if(prob(40))
-		new /obj/item/clothing/suit/jacket/bomber(src)
+		new /obj/item/clothing/suit/jacket(src)
+	if(prob(40))
+		new /obj/item/clothing/suit/jacket(src)
 	new /obj/item/clothing/under/color/white(src)
 	new /obj/item/clothing/under/color/jumpskirt/white(src)
 	new /obj/item/clothing/under/color/blue(src)
@@ -191,8 +189,15 @@
 	new /obj/item/clothing/under/color/jumpskirt/teal(src)
 	new /obj/item/clothing/under/color/lightpurple(src)
 	new /obj/item/clothing/under/color/jumpskirt/lightpurple(src)
+	new /obj/item/clothing/under/color/green(src)
+	new /obj/item/clothing/under/color/jumpskirt/green(src)
+	new /obj/item/clothing/under/color/brown(src)
+	new /obj/item/clothing/under/color/jumpskirt/brown(src)
+	new /obj/item/clothing/mask/bandana/red(src)
 	new /obj/item/clothing/mask/bandana/red(src)
 	new /obj/item/clothing/mask/bandana/blue(src)
+	new /obj/item/clothing/mask/bandana/blue(src)
+	new /obj/item/clothing/mask/bandana/gold(src)
 	new /obj/item/clothing/mask/bandana/gold(src)
 	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/shoes/sneakers/brown(src)

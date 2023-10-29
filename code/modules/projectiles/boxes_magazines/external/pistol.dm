@@ -1,117 +1,125 @@
 /obj/item/ammo_box/magazine/m10mm
-	name = "pistol magazine (10mm)"
-	desc = "A gun magazine."
+	name = "10мм магазин"
+	desc = "Содержит обычные патроны калибра 10мм. Используется в пистолете Таннер М41."
 	icon_state = "9x19p"
-	base_icon_state = "9x19p"
 	ammo_type = /obj/item/ammo_casing/c10mm
-	caliber = CALIBER_10MM
+	caliber = "10mm"
 	max_ammo = 8
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
-	multiple_sprite_use_base = TRUE
 
 /obj/item/ammo_box/magazine/m10mm/fire
-	name = "pistol magazine (10mm incendiary)"
+	name = "10мм магазин: Зажигательный"
+	desc = "Содержит пули поджигающие цель. Немного слабее стандартных пуль. Используется в пистолете Таннер М41."
 	icon_state = "9x19pI"
-	base_icon_state = "9x19pI"
-	desc = "A 10mm pistol magazine. Loaded with rounds which ignite the target."
 	ammo_type = /obj/item/ammo_casing/c10mm/fire
 
 /obj/item/ammo_box/magazine/m10mm/hp
-	name = "pistol magazine (10mm HP)"
+	name = "10мм магазин: Экспансивный"
+	desc = "Содержит пули со смещенным центром тяжести. Наносят повышенный урон, однако заметно хуже пробивают броню. Используется в пистолете Таннер М41."
 	icon_state = "9x19pH"
-	base_icon_state = "9x19pH"
-	desc= "A 10mm pistol magazine. Loaded with hollow-point rounds, extremely effective against unarmored targets, but nearly useless against protective clothing."
 	ammo_type = /obj/item/ammo_casing/c10mm/hp
 
 /obj/item/ammo_box/magazine/m10mm/ap
-	name = "pistol magazine (10mm AP)"
+	name = "10мм магазин: Бронебойный"
+	desc = "Содержит пули с закаленным сердечником, это заметно повышает бронепробитие, однако незначительно понижает урон. Используется в пистолете Таннер М41."
 	icon_state = "9x19pA"
-	base_icon_state = "9x19pA"
-	desc= "A 10mm pistol magazine. Loaded with rounds which penetrate armour, but are less effective against normal targets."
 	ammo_type = /obj/item/ammo_casing/c10mm/ap
 
 /obj/item/ammo_box/magazine/m45
-	name = "handgun magazine (.45)"
+	name = "магазин .45 калибра"
+	desc = "Содержит обычные патроны .45 калибра. Используется в пистолете M1911."
 	icon_state = "45-8"
-	base_icon_state = "45"
 	ammo_type = /obj/item/ammo_casing/c45
-	caliber = CALIBER_45
+	caliber = ".45"
 	max_ammo = 8
-	multiple_sprites = AMMO_BOX_PER_BULLET
-	multiple_sprite_use_base = TRUE
+
+/obj/item/ammo_box/magazine/m45/update_icon()
+	..()
+	if (ammo_count() >= 8)
+		icon_state = "45-8"
+	else
+		icon_state = "45-[ammo_count()]"
 
 /obj/item/ammo_box/magazine/m9mm
-	name = "pistol magazine (9mm)"
-	icon_state = "9x19p"
-	base_icon_state = "9x19p"
+	name = "9мм магазин"
+	desc = "Содержит обычный патроны калибра 9мм. Используется в пистолете Макарова."
+	icon_state = "9x19p-8"
 	ammo_type = /obj/item/ammo_casing/c9mm
-	caliber = CALIBER_9MM
+	caliber = "9mm"
 	max_ammo = 8
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
-	multiple_sprite_use_base = TRUE
+
+/obj/item/ammo_box/magazine/m9mm/update_icon()
+	..()
+	icon_state = "9x19p-[ammo_count() ? "8" : "0"]"
 
 /obj/item/ammo_box/magazine/m9mm/fire
-	name = "pistol magazine (9mm incendiary)"
+	name = "9мм магазин: Зажигательный"
+	desc = "Содержит патроны поджигающие цель. Немного слабее стандартных пуль. Используется в пистолете Макарова."
 	icon_state = "9x19pI"
-	base_icon_state = "9x19pI"
-	desc = "A gun magazine. Loaded with rounds which ignite the target."
 	ammo_type = /obj/item/ammo_casing/c9mm/fire
 
 /obj/item/ammo_box/magazine/m9mm/hp
-	name = "pistol magazine (9mm HP)"
+	name = "9мм магазин: Экспансивный"
+	desc = "Содержит патроны со смещенным центром тяжести. Наносят повышенный урон, однако заметно хуже пробивают броню. Используется в пистолете Макарова."
 	icon_state = "9x19pH"
-	base_icon_state = "9x19pH"
-	desc= "A gun magazine. Loaded with hollow-point rounds, extremely effective against unarmored targets, but nearly useless against protective clothing."
 	ammo_type = /obj/item/ammo_casing/c9mm/hp
 
+/obj/item/ammo_box/magazine/traumatic
+	name = "9мм магазин: Травматический"
+	desc = "Боевая пуля в них заменена на резиновую болванку. Практически не наносит урона, однако валит с пары-тройки попаданий."
+	icon_state = "45-10"
+	ammo_type = /obj/item/ammo_casing/c9mm/traumatic
+	caliber = "9mm"
+	max_ammo = 10
+
+/obj/item/ammo_box/magazine/traumatic/update_icon()
+	..()
+	if (ammo_count() >= 10)
+		icon_state = "45-10"
+	else
+		icon_state = "45-[ammo_count()]"
+
 /obj/item/ammo_box/magazine/m9mm/ap
-	name = "pistol magazine (9mm AP)"
+	name = "9мм магазин: Бронебойный"
+	desc = "Содержит патроны с закаленным сердечником, это заметно повышает бронепробитие, однако незначительно понижает урон. Используется в пистолете Макарова."
 	icon_state = "9x19pA"
-	base_icon_state = "9x19pA"
-	desc= "A gun magazine. Loaded with rounds which penetrate armour, but are less effective against normal targets."
 	ammo_type = /obj/item/ammo_casing/c9mm/ap
 
 /obj/item/ammo_box/magazine/m9mm_aps
-	name = "stechkin pistol magazine (9mm)"
+	name = "удлиненный 9мм магазин"
+	desc = "Содержит обычные патроны калибра 9мм. Используется в АПС."
 	icon_state = "9mmaps-15"
-	base_icon_state = "9mmaps"
 	ammo_type = /obj/item/ammo_casing/c9mm
-	caliber = CALIBER_9MM
-	max_ammo = 15
+	caliber = "9mm"
+	max_ammo = 20
 
-/obj/item/ammo_box/magazine/m9mm_aps/update_icon_state()
+/obj/item/ammo_box/magazine/m9mm_aps/update_icon()
 	. = ..()
-	icon_state = "[base_icon_state]-[round(ammo_count(), 5)]"
+	icon_state = "9mmaps-[round(ammo_count(),5)]"
 
 /obj/item/ammo_box/magazine/m9mm_aps/fire
-	name = "stechkin pistol magazine (9mm incendiary)"
+	name = "удлиненный 9мм магазин: Зажигательный"
+	desc = "При удачном попадании поджигает цель. Немного слабее стандартных пуль. Используется в АПС"
 	ammo_type = /obj/item/ammo_casing/c9mm/fire
-	max_ammo = 15
+	max_ammo = 20
 
 /obj/item/ammo_box/magazine/m9mm_aps/hp
-	name = "stechkin pistol magazine (9mm HP)"
+	name = "удлиненный 9мм магазин: Экспансивный"
+	desc = "Содержит патроны со смещенным центром тяжести. Наносят повышенный урон, однако заметно хуже пробивают броню. Используется в АПС."
 	ammo_type = /obj/item/ammo_casing/c9mm/hp
-	max_ammo = 15
+	max_ammo = 20
 
 /obj/item/ammo_box/magazine/m9mm_aps/ap
-	name = "stechkin pistol magazine (9mm AP)"
+	name = "удлиненный 9мм магазин: Бронебойный"
+	desc = "Содержит патроны с закаленным сердечником, это заметно повышает бронепробитие, однако незначительно понижает урон. Используется в АПС."
 	ammo_type = /obj/item/ammo_casing/c9mm/ap
-	max_ammo = 15
+	max_ammo = 20
 
 /obj/item/ammo_box/magazine/m50
-	name = "handgun magazine (.50ae)"
+	name = "магазин .50АЕ калибра"
+	desc = "Содержит обычные патроны калибра 10мм. Используется в пистолете Пустынный Орел."
 	icon_state = "50ae"
 	ammo_type = /obj/item/ammo_casing/a50ae
-	caliber = CALIBER_50AE
+	caliber = ".50"
 	max_ammo = 7
 	multiple_sprites = AMMO_BOX_PER_BULLET
-
-/obj/item/ammo_box/magazine/r10mm
-	name = "regal condor magazine (10mm Reaper)"
-	icon_state = "r10mm-8"
-	base_icon_state = "r10mm"
-	ammo_type = /obj/item/ammo_casing/c10mm/reaper
-	caliber = CALIBER_10MM
-	max_ammo = 8
-	multiple_sprites = AMMO_BOX_PER_BULLET
-	multiple_sprite_use_base = TRUE

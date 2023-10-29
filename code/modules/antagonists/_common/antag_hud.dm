@@ -50,9 +50,9 @@ GLOBAL_LIST_EMPTY_TYPED(has_antagonist_huds, /datum/atom_hud/alternate_appearanc
 	return ..()
 
 /datum/atom_hud/alternate_appearance/basic/antagonist_hud/mobShouldSee(mob/mob)
-	return Master.current_runlevel >= RUNLEVEL_POSTGAME || (mob.client?.combo_hud_enabled && !isnull(mob.client?.holder))
+	return Master.current_runlevel >= RUNLEVEL_POSTGAME || mob.client?.combo_hud_enabled
 
-/datum/atom_hud/alternate_appearance/basic/antagonist_hud/process(seconds_per_tick)
+/datum/atom_hud/alternate_appearance/basic/antagonist_hud/process(delta_time)
 	index += 1
 	update_icon()
 
@@ -73,7 +73,7 @@ GLOBAL_LIST_EMPTY_TYPED(has_antagonist_huds, /datum/atom_hud/alternate_appearanc
 	for (var/datum/antagonist/antagonist as anything in mind?.antag_datums)
 		if (isnull(antagonist.antag_hud_name))
 			continue
-		final_antag_hud_images += antagonist.hud_image_on(mind.current)
+		final_antag_hud_images += image('icons/mob/hud.dmi', mind.current, antagonist.antag_hud_name)
 
 	return final_antag_hud_images
 
@@ -81,7 +81,7 @@ GLOBAL_LIST_EMPTY_TYPED(has_antagonist_huds, /datum/atom_hud/alternate_appearanc
 	if (antag_hud_images.len == 0)
 		image.icon = icon('icons/blanks/32x32.dmi', "nothing")
 	else
-		image.icon = icon(get_antag_image(index).icon, get_antag_image(index).icon_state)
+		image.icon = icon('icons/mob/hud.dmi', get_antag_image(index).icon_state)
 
 /datum/atom_hud/alternate_appearance/basic/antagonist_hud/proc/update_antag_hud_images(datum/mind/source)
 	SIGNAL_HANDLER

@@ -3,18 +3,19 @@
 	name = "chemical synthesizer"
 	desc = "Produces a single chemical at a given volume. Must be plumbed. Most effective when working in unison with other chemical synthesizers, heaters and filters."
 
-	icon_state = "synthesizer"
-	icon = 'icons/obj/pipes_n_cables/hydrochem/plumbers.dmi'
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 2
+
+	icon_state = "synthesizer"
+	icon = 'icons/obj/plumbing/plumbers.dmi'
 
 	///Amount we produce for every process. Ideally keep under 5 since thats currently the standard duct capacity
 	var/amount = 1
 	///I track them here because I have no idea how I'd make tgui loop like that
-	var/static/list/possible_amounts = list(0, 1, 2, 3, 4, 5)
+	var/static/list/possible_amounts = list(0,1,2,3,4,5)
 	///The reagent we are producing. We are a typepath, but are also typecast because there's several occations where we need to use initial.
 	var/datum/reagent/reagent_id = null
 	///straight up copied from chem dispenser. Being a subtype would be extremely tedious and making it global would restrict potential subtypes using different dispensable_reagents
-	var/static/list/default_reagents = list(
+	var/list/dispensable_reagents = list(
 		/datum/reagent/aluminium,
 		/datum/reagent/bromine,
 		/datum/reagent/carbon,
@@ -41,21 +42,25 @@
 		/datum/reagent/water,
 		/datum/reagent/fuel,
 	)
-	//reagents this synthesizer can dispense
-	var/list/dispensable_reagents
+	//for mechcomp input stuff
+	var/glue = "&"
 
 /obj/machinery/plumbing/synthesizer/Initialize(mapload, bolt, layer)
 	. = ..()
 	AddComponent(/datum/component/plumbing/simple_supply, bolt, layer)
-	dispensable_reagents = default_reagents
+	//lololol
+	AddComponent(/datum/component/mechanics_holder)
 
-/obj/machinery/plumbing/synthesizer/process(seconds_per_tick)
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Chemical to dispense", "mechcomp_update_chems")
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set Glue", "set_glue")
+
+/obj/machinery/plumbing/synthesizer/process(delta_time)
 	if(machine_stat & NOPOWER || !reagent_id || !amount)
 		return
-	if(reagents.total_volume >= amount*seconds_per_tick*0.5) //otherwise we get leftovers, and we need this to be precise
+	if(reagents.total_volume >= amount*delta_time*0.5) //otherwise we get leftovers, and we need this to be precise
 		return
-	reagents.add_reagent(reagent_id, amount*seconds_per_tick*0.5)
-	use_power(active_power_usage * amount * seconds_per_tick * 0.5)
+	reagents.add_reagent(reagent_id, amount*delta_time*0.5)
+	use_power(active_power_usage * amount * delta_time * 0.5)
 
 /obj/machinery/plumbing/synthesizer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -66,10 +71,7 @@
 /obj/machinery/plumbing/synthesizer/ui_data(mob/user)
 	var/list/data = list()
 
-	var/is_hallucinating = FALSE
-	if(isliving(user))
-		var/mob/living/living_user = user
-		is_hallucinating = !!living_user.has_status_effect(/datum/status_effect/hallucination)
+	var/is_hallucinating = user.hallucinating()
 	var/list/chemicals = list()
 
 	for(var/A in dispensable_reagents)
@@ -78,12 +80,12 @@
 			var/chemname = R.name
 			if(is_hallucinating && prob(5))
 				chemname = "[pick_list_replacements("hallucination.json", "chemicals")]"
-			chemicals.Add(list(list("title" = chemname, "id" = ckey(R.name))))
+			chemicals.Add(list(list("title" = chemname, "id" = lowertext(R.name))))
 	data["chemicals"] = chemicals
 	data["amount"] = amount
 	data["possible_amounts"] = possible_amounts
 
-	data["current_reagent"] = ckey(initial(reagent_id.name))
+	data["current_reagent"] = lowertext(initial(reagent_id.name))
 	return data
 
 /obj/machinery/plumbing/synthesizer/ui_act(action, params)
@@ -102,85 +104,67 @@
 			if(new_reagent in dispensable_reagents)
 				reagent_id = new_reagent
 				. = TRUE
-	update_appearance()
+	update_icon()
 	reagents.clear_reagents()
 
 /obj/machinery/plumbing/synthesizer/update_overlays()
 	. = ..()
 	var/mutable_appearance/r_overlay = mutable_appearance(icon, "[icon_state]_overlay")
-	r_overlay.color = reagent_id ? initial(reagent_id.color) : "#FFFFFF"
+	if(reagent_id)
+		r_overlay.color = initial(reagent_id.color)
+	else
+		r_overlay.color = "#FFFFFF"
 	. += r_overlay
 
-/obj/machinery/plumbing/synthesizer/soda
-	name = "soda synthesizer"
-	desc = "Produces a single chemical at a given volume. Must be plumbed."
-	icon_state = "synthesizer_soda"
+/obj/machinery/plumbing/synthesizer/proc/mechcomp_update_chems(datum/mechcompMessage/msg)
+	var/err = 0
+	var/list/signal = splittext(msg.signal, glue)
 
-	//Copied from soda dispenser
-	var/static/list/soda_reagents = list(
-		/datum/reagent/consumable/coffee,
-		/datum/reagent/consumable/space_cola,
-		/datum/reagent/consumable/cream,
-		/datum/reagent/consumable/dr_gibb,
-		/datum/reagent/consumable/grenadine,
-		/datum/reagent/consumable/ice,
-		/datum/reagent/consumable/icetea,
-		/datum/reagent/consumable/lemonjuice,
-		/datum/reagent/consumable/lemon_lime,
-		/datum/reagent/consumable/limejuice,
-		/datum/reagent/consumable/menthol,
-		/datum/reagent/consumable/orangejuice,
-		/datum/reagent/consumable/pineapplejuice,
-		/datum/reagent/consumable/pwr_game,
-		/datum/reagent/consumable/shamblers,
-		/datum/reagent/consumable/spacemountainwind,
-		/datum/reagent/consumable/sodawater,
-		/datum/reagent/consumable/space_up,
-		/datum/reagent/consumable/sugar,
-		/datum/reagent/consumable/tea,
-		/datum/reagent/consumable/tomatojuice,
-		/datum/reagent/consumable/tonic,
-		/datum/reagent/water,
-	)
+	if(length(signal) == 0 || length(signal) > 2)
+		say("Invalid signal syntax! Proper signal syntax is: \[CHEM_NAME]&\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
+		return
 
-/obj/machinery/plumbing/synthesizer/soda/Initialize(mapload, bolt, layer)
-	. = ..()
 
-	dispensable_reagents = soda_reagents
+	//the following code is ugly af, so i am going to comment it because ladder ifs (like these) kinda suck ass.
+	if(length(signal == 1))
+		//only the chemical or amount has been passed, let's figure out which one.
+		var/t2n = text2num(signal[1])
+		//is it a number?
+		if(!isnull(t2n))
+			//oh, it's a number!
+			if(t2n in possible_amounts)
+				amount = t2n
+			else
+				//wait, it's an invalid number!
+				err = 2
+		else
+			//it's not a number, therefore it must be a reagent name.
+			var/new_chem =  GLOB.name2reagent[signal[1]]
+			if(new_chem in dispensable_reagents)
+				reagent_id = new_chem
+			else
+				//that chemical doesn't exist. Too bad!
+				err = 2
 
-/obj/machinery/plumbing/synthesizer/beer
-	name = "beer synthesizer"
-	desc = "Produces a single chemical at a given volume. Must be plumbed."
+	else
+		//this part only executes if there are 2 parts in the signal, separated by a ";".
+		var/new_reagent = get_chem_id(signal[1])
+		if(new_reagent in dispensable_reagents)
+			reagent_id = new_reagent
+		else
+			err += 2
 
-	icon_state = "synthesizer_booze"
+		var/new_amount = text2num(signal[2])
+		if(new_amount in possible_amounts)
+			amount = new_amount
+		else
+			err += 1
 
-	//Copied from beer dispenser
-	var/static/list/beer_reagents = list(
-		/datum/reagent/consumable/ethanol/absinthe,
-		/datum/reagent/consumable/ethanol/ale,
-		/datum/reagent/consumable/ethanol/applejack,
-		/datum/reagent/consumable/ethanol/beer,
-		/datum/reagent/consumable/ethanol/cognac,
-		/datum/reagent/consumable/ethanol/creme_de_cacao,
-		/datum/reagent/consumable/ethanol/creme_de_coconut,
-		/datum/reagent/consumable/ethanol/creme_de_menthe,
-		/datum/reagent/consumable/ethanol/curacao,
-		/datum/reagent/consumable/ethanol/gin,
-		/datum/reagent/consumable/ethanol/hcider,
-		/datum/reagent/consumable/ethanol/kahlua,
-		/datum/reagent/consumable/ethanol/beer/maltliquor,
-		/datum/reagent/consumable/ethanol/navy_rum,
-		/datum/reagent/consumable/ethanol/rum,
-		/datum/reagent/consumable/ethanol/sake,
-		/datum/reagent/consumable/ethanol/tequila,
-		/datum/reagent/consumable/ethanol/triple_sec,
-		/datum/reagent/consumable/ethanol/vermouth,
-		/datum/reagent/consumable/ethanol/vodka,
-		/datum/reagent/consumable/ethanol/whiskey,
-		/datum/reagent/consumable/ethanol/wine,
-	)
+	if(err)
+		say("Invalid [err == 1 ? "chemical name!" : "[err == 2 ? "dispense amount!" : "chemical name and dispense amount!" ]" ] Proper signal syntax is: \[CHEM_NAME]&\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
 
-/obj/machinery/plumbing/synthesizer/beer/Initialize(mapload, bolt, layer)
-	. = ..()
-
-	dispensable_reagents = beer_reagents
+/obj/machinery/plumbing/synthesizer/proc/set_glue(obj/item/I, mob/user)
+	var/input = tgui_input_text(usr, "Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure the list you pass to [src.name] uses the same glue!", "Glue", glue)
+	if(!isnull(input))
+		glue = input
+		to_chat(user, span_notice("You set [src.name]'s glue to \"[glue]\""))

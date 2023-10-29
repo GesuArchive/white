@@ -1,23 +1,23 @@
 /datum/action/cooldown/spell/pointed/projectile/furious_steel
-	name = "Furious Steel"
-	desc = "Summon three silver blades which orbit you. \
-		While orbiting you, these blades will protect you from from attacks, but will be consumed on use. \
-		Additionally, you can click to fire the blades at a target, dealing damage and causing bleeding."
-	background_icon_state = "bg_heretic"
-	overlay_icon_state = "bg_heretic_border"
+	name = "Яростная сталь"
+	desc = "Призывает серебряные лезвия, которые вращаются вокруг вас. \
+		Эти лезвия защищают от атак дальнего боя и ломаются при блокировании. \
+		Кроме того, вы можете нажать на своего противника, чтобы выстрелить в нее лезвием, нанося урон и вызывая кровотечение."
+	background_icon_state = "bg_ecult"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
-	button_icon_state = "furious_steel"
+	button_icon_state = "furious_steel0"
 	sound = 'sound/weapons/guillotine.ogg'
 
 	school = SCHOOL_FORBIDDEN
-	cooldown_time = 60 SECONDS
+	cooldown_time = 30 SECONDS
 	invocation = "F'LSH'NG S'LV'R!"
 	invocation_type = INVOCATION_SHOUT
 
 	spell_requirements = NONE
 
-	active_msg = "You summon forth three blades of furious silver."
-	deactive_msg = "You conceal the blades of furious silver."
+	base_icon_state = "furious_steel"
+	active_msg = "Призываю три лезвия яростного серебра."
+	deactive_msg = "Прячу клинки яростного серебра."
 	cast_range = 20
 	projectile_type = /obj/projectile/floating_blade
 	projectile_amount = 3
@@ -43,12 +43,12 @@
 
 	unset_click_ability(source, refund_cooldown = TRUE)
 
-/datum/action/cooldown/spell/pointed/projectile/furious_steel/InterceptClickOn(mob/living/caller, params, atom/target)
+/datum/action/cooldown/spell/pointed/projectile/furious_steel/InterceptClickOn(mob/living/caller, params, atom/click_target)
 	// Let the caster prioritize using items like guns over blade casts
 	if(caller.get_active_held_item())
 		return FALSE
 	// Let the caster prioritize melee attacks like punches and shoves over blade casts
-	if(get_dist(caller, target) <= 1)
+	if(get_dist(caller, click_target) <= 1)
 		return FALSE
 
 	return ..()
@@ -63,12 +63,12 @@
 	// Delete existing
 	if(blade_effect)
 		stack_trace("[type] had an existing blade effect in on_activation. This might be an exploit, and should be investigated.")
-		UnregisterSignal(blade_effect, COMSIG_QDELETING)
+		UnregisterSignal(blade_effect, COMSIG_PARENT_QDELETING)
 		QDEL_NULL(blade_effect)
 
 	var/mob/living/living_user = on_who
 	blade_effect = living_user.apply_status_effect(/datum/status_effect/protective_blades, null, projectile_amount, 25, 0.66 SECONDS)
-	RegisterSignal(blade_effect, COMSIG_QDELETING, PROC_REF(on_status_effect_deleted))
+	RegisterSignal(blade_effect, COMSIG_PARENT_QDELETING, PROC_REF(on_status_effect_deleted))
 
 /datum/action/cooldown/spell/pointed/projectile/furious_steel/on_deactivation(mob/on_who, refund_cooldown = TRUE)
 	. = ..()
@@ -97,8 +97,8 @@
 	on_deactivation()
 
 /obj/projectile/floating_blade
-	name = "blade"
-	icon = 'icons/obj/service/kitchen.dmi'
+	name = "Лезвие"
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "knife"
 	speed = 2
 	damage = 25
@@ -122,9 +122,5 @@
 			var/datum/antagonist/heretic_monster/monster = victim.mind?.has_antag_datum(/datum/antagonist/heretic_monster)
 			if(monster?.master == caster.mind)
 				return PROJECTILE_PIERCE_PHASE
-
-		if(victim.can_block_magic(MAGIC_RESISTANCE))
-			visible_message(span_warning("[src] drops to the ground and melts on contact [victim]!"))
-			return PROJECTILE_DELETE_WITHOUT_HITTING
 
 	return ..()

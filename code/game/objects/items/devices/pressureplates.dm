@@ -1,11 +1,8 @@
 /obj/item/pressure_plate
 	name = "pressure plate"
-	desc = "An electronic device that triggers when stepped on."
-	desc_controls = "Ctrl-Click to toggle the pressure plate off and on."
-	icon = 'icons/obj/fluff/puzzle_small.dmi'
-	inhand_icon_state = "flashtool"
-	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
+	desc = "An electronic device that triggers when stepped on. Ctrl-Click to toggle the pressure plate off and on."
+	icon = 'icons/obj/puzzle_small.dmi'
+	inhand_icon_state = "flash"
 	icon_state = "pressureplate"
 	layer = LOW_OBJ_LAYER
 	var/trigger_mob = TRUE
@@ -24,18 +21,16 @@
 	var/can_trigger = TRUE
 	var/trigger_delay = 10
 	var/protected = FALSE
-	var/undertile_pressureplate = TRUE
 
 /obj/item/pressure_plate/Initialize(mapload)
 	. = ..()
-	tile_overlay = image(icon = 'icons/turf/floors.dmi', icon_state = "pp_overlay")
+	tile_overlay = image(icon = DEFAULT_FLOORS_ICON, icon_state = "pp_overlay")
 	if(roundstart_signaller)
 		sigdev = new
 		sigdev.code = roundstart_signaller_code
-		sigdev.set_frequency(roundstart_signaller_freq)
+		sigdev.frequency = roundstart_signaller_freq
 
-	if(undertile_pressureplate)
-		AddElement(/datum/element/undertile, tile_overlay = tile_overlay, use_anchor = TRUE)
+	AddElement(/datum/element/undertile, tile_overlay = tile_overlay, use_anchor = TRUE)
 	RegisterSignal(src, COMSIG_OBJ_HIDE, PROC_REF(ToggleActive))
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
@@ -62,7 +57,7 @@
 		sigdev.signal()
 
 /obj/item/pressure_plate/attackby(obj/item/I, mob/living/L)
-	if(issignaler(I) && !istype(sigdev) && removable_signaller && L.transferItemToLoc(I, src))
+	if(istype(I, /obj/item/assembly/signaler) && !istype(sigdev) && removable_signaller && L.transferItemToLoc(I, src))
 		sigdev = I
 		to_chat(L, span_notice("You attach [I] to [src]!"))
 	return ..()
@@ -86,8 +81,6 @@
 		to_chat(user, span_notice("You turn [src] off."))
 
 ///Called from COMSIG_OBJ_HIDE to toggle the active part, because yeah im not making a special exception on the element to support it
-/obj/item/pressure_plate/proc/ToggleActive(datum/source, underfloor_accessibility)
-	SIGNAL_HANDLER
-
-	active = underfloor_accessibility < UNDERFLOOR_VISIBLE
+/obj/item/pressure_plate/proc/ToggleActive(datum/source, covered)
+	active = covered
 

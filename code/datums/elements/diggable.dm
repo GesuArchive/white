@@ -1,6 +1,6 @@
 /// Lets you make hitting a turf with a shovel pop something out, and scrape the turf
 /datum/element/diggable
-	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH_ON_HOST_DESTROY // Detach for turfs
+	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH_ON_HOST_DESTROY
 	argument_hash_start_idx = 2
 	/// Typepath of what we spawn on shovel
 	var/atom/to_spawn
@@ -13,7 +13,7 @@
 	/// Percentage chance of receiving a bonus worm
 	var/worm_chance
 
-/datum/element/diggable/Attach(datum/target, to_spawn, amount = 1, worm_chance = 30, action_text = "dig up", action_text_third_person = "digs up")
+/datum/element/diggable/Attach(datum/target, to_spawn, amount = 1, worm_chance = 30, action_text = "вскапываю", action_text_third_person = "вскапывает")
 	. = ..()
 	if(!isturf(target))
 		return ELEMENT_INCOMPATIBLE
@@ -44,7 +44,7 @@
 
 	user.visible_message(
 		span_notice("[user] [action_text_third_person] [source]."),
-		span_notice("You [action_text] [source]."),
+		span_notice("[capitalize(action_text)] [source]."),
 	)
 
 	playsound(source, 'sound/effects/shovel_dig.ogg', 50, TRUE)

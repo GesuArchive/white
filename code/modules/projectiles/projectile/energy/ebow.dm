@@ -1,17 +1,17 @@
 /obj/projectile/energy/bolt //ebow bolts
-	name = "bolt"
+	name = "заряд"
 	icon_state = "cbbolt"
 	damage = 15
 	damage_type = TOX
+	nodamage = FALSE
 	stamina = 60
-	eyeblur = 20 SECONDS
+	eyeblur = 10
 	knockdown = 10
-	slur = 10 SECONDS
+	slur = 5
 
 /obj/projectile/energy/bolt/halloween
-	name = "candy corn"
+	name = "сладкий попкорн"
 	icon_state = "candy_corn"
-	icon = 'icons/obj/food/food.dmi'
 
 /obj/projectile/energy/bolt/large
 	damage = 20

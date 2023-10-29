@@ -4,8 +4,8 @@
 #define LIGHTFLOOR_BROKEN 3
 
 /turf/open/floor/light
-	name = "light floor"
-	desc = "A wired glass tile embedded into the floor. Modify the color with a Multitool."
+	name = "светящийся пол"
+	desc = "В пол вмонтирована электрическая светящаяся стеклянная плитка."
 	light_range = 5
 	icon_state = "light_on-1"
 	floor_tile = /obj/item/stack/tile/light
@@ -14,7 +14,7 @@
 	///defines on top
 	var/state = LIGHTFLOOR_FINE
 	///list of colours to choose
-	var/static/list/coloredlights = list(LIGHT_COLOR_CYAN, COLOR_SOFT_RED, LIGHT_COLOR_ORANGE, LIGHT_COLOR_GREEN, LIGHT_COLOR_DIM_YELLOW, LIGHT_COLOR_DARK_BLUE, LIGHT_COLOR_LAVENDER, COLOR_WHITE,  LIGHT_COLOR_SLIME_LAMP, LIGHT_COLOR_FIRE)
+	var/static/list/coloredlights = list(LIGHT_COLOR_CYAN, COLOR_SOFT_RED, LIGHT_COLOR_ORANGE, LIGHT_COLOR_GREEN, LIGHT_COLOR_YELLOW, LIGHT_COLOR_DARK_BLUE, LIGHT_COLOR_LAVENDER, COLOR_WHITE,  LIGHT_COLOR_SLIME_LAMP, LIGHT_COLOR_FIRE)
 	///current light color
 	var/currentcolor = LIGHT_COLOR_CYAN
 	///var to prevent changing color on certain admin spawn only tiles
@@ -25,16 +25,16 @@
 	///used for light floors that cycle colours
 	var/cycle = FALSE
 
-/turf/open/floor/light/broken_states()
+/turf/open/floor/light/setup_broken_states()
 	return list("light_broken")
 
 /turf/open/floor/light/examine(mob/user)
 	. = ..()
-	. += span_notice("There's a <b>small crack</b> on the edge of it.")
-	. += span_notice("Use a multitool on it to change colors.")
-	. += span_notice("Use a screwdriver to turn it off or on.")
+	. += "<hr><span class='notice'>Здесь есть <b>небольшая щель</b> с краю.</span>"
+	. += span_notice("\nМультитулом можно изменить цвет, надо не забыть.")
+	. += span_notice("\nОтвёрткой можно отключить или включить эту плитку.")
 	if(state) ///check if broken
-		. += span_danger("The light bulb seems fried!")
+		. += "<hr><span class='danger'>Похоже лампочка перегорела!</span>"
 
 ///create radial menu
 /turf/open/floor/light/proc/populate_lighttile_designs()
@@ -43,7 +43,7 @@
 		COLOR_SOFT_RED = image(icon = src.icon, icon_state = "light_on-2"),
 		LIGHT_COLOR_ORANGE = image(icon = src.icon, icon_state = "light_on-3"),
 		LIGHT_COLOR_GREEN = image(icon = src.icon, icon_state = "light_on-4"),
-		LIGHT_COLOR_DIM_YELLOW = image(icon = src.icon, icon_state = "light_on-5"),
+		LIGHT_COLOR_YELLOW = image(icon = src.icon, icon_state = "light_on-5"),
 		LIGHT_COLOR_DARK_BLUE = image(icon = src.icon, icon_state = "light_on-6"),
 		LIGHT_COLOR_LAVENDER = image(icon = src.icon, icon_state = "light_on-7"),
 		COLOR_WHITE = image(icon = src.icon, icon_state = "light_on-8"),
@@ -53,60 +53,48 @@
 
 /turf/open/floor/light/Initialize(mapload)
 	. = ..()
-	update_appearance()
+	update_icon()
 	if(!length(lighttile_designs))
 		populate_lighttile_designs()
 
 /turf/open/floor/light/break_tile()
 	..()
 	state = pick(LIGHTFLOOR_FLICKER, LIGHTFLOOR_BREAKING, LIGHTFLOOR_BROKEN)/// pick a broken state
-	update_appearance()
+	update_icon()
 
-/turf/open/floor/light/update_appearance(updates)
-	. = ..()
-	if(!on)
-		set_light(0)
-		return
-
-	switch(state)
-		if(LIGHTFLOOR_FINE)
-			set_light_color(currentcolor)
-			set_light(5)
-			light_range = 3
-		if(LIGHTFLOOR_FLICKER)
-			set_light_color(currentcolor)
-			set_light(3)
-			light_range = 2
-		if(LIGHTFLOOR_BREAKING)
-			set_light(1)
-		if(LIGHTFLOOR_BROKEN)
-			set_light(0)
-
-/turf/open/floor/light/update_icon_state()
-	if(!on)
-		icon_state = "light_off"
-		return ..()
-
-	switch(state)
-		if(LIGHTFLOOR_FINE)
-			if(cycle)
-				if(istype(src, /turf/open/floor/light/colour_cycle/dancefloor_a))
-					icon_state = "light_on-dancefloor_A"
-				else if(istype(src, /turf/open/floor/light/colour_cycle/dancefloor_b))
-					icon_state = "light_on-dancefloor_B"
+/turf/open/floor/light/update_icon()
+	..()
+	if(on)
+		switch(state)
+			if(LIGHTFLOOR_FINE)
+				if(cycle)
+					if(istype(src, /turf/open/floor/light/colour_cycle/dancefloor_a))
+						icon_state = "light_on-dancefloor_A"
+					else if(istype(src, /turf/open/floor/light/colour_cycle/dancefloor_b))
+						icon_state = "light_on-dancefloor_B"
+					else
+						icon_state = "light_on-cycle_all"
 				else
-					icon_state = "light_on-cycle_all"
-			else
-				icon_state = "light_on-[LAZYFIND(coloredlights, currentcolor)]"
-		if(LIGHTFLOOR_FLICKER)
-			icon_state = "light_on_flicker-[LAZYFIND(coloredlights, currentcolor)]"
-		if(LIGHTFLOOR_BREAKING)
-			icon_state = "light_on_broken"
-		if(LIGHTFLOOR_BROKEN)
-			icon_state = "light_off"
-	return ..()
+					icon_state = "light_on-[LAZYFIND(coloredlights, currentcolor)]"
+				set_light_color(currentcolor)
+				set_light(5)
+				set_light_range(3)
+			if(LIGHTFLOOR_FLICKER)
+				icon_state = "light_on_flicker-[LAZYFIND(coloredlights, currentcolor)]"
+				set_light_color(currentcolor)
+				set_light(3)
+				set_light_range(2)
+			if(LIGHTFLOOR_BREAKING)
+				icon_state = "light_on_broken"
+				set_light(1)
+			if(LIGHTFLOOR_BROKEN)
+				icon_state = "light_off"
+				set_light(0)
+	else
+		set_light(0)
+		icon_state = "light_off"
 
-/turf/open/floor/light/ChangeTurf(path, new_baseturfs, flags)
+/turf/open/floor/light/ChangeTurf(path, new_baseturf, flags)
 	set_light(0)
 	return ..()
 
@@ -115,7 +103,7 @@
 	if(!can_modify_colour && !cycle)
 		return
 	on = !on
-	update_appearance()
+	update_icon()
 
 /turf/open/floor/light/multitool_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -127,7 +115,7 @@
 	if(!choice)
 		return FALSE
 	currentcolor = choice
-	update_appearance()
+	update_icon()
 
 /turf/open/floor/light/attackby(obj/item/C, mob/user, params)
 	if(..())
@@ -140,10 +128,10 @@
 		if(state && user.temporarilyRemoveItemFromInventory(C))
 			qdel(C)
 			state = LIGHTFLOOR_FINE //fixing it by bashing it with a light bulb, fun eh?
-			update_appearance()
-			to_chat(user, span_notice("You replace the light bulb."))
+			update_icon()
+			to_chat(user, span_notice("Заменяю лампочку."))
 		else
-			to_chat(user, span_notice("The light bulb seems fine, no need to replace it."))
+			to_chat(user, span_notice("Лампочка кажется в порядке, замена лампочки не требуется."))
 
 /turf/open/floor/light/emp_act(severity)
 	. = ..()
@@ -155,12 +143,12 @@
 	if(prob(50))
 		state++
 	currentcolor = pick(coloredlights)
-	update_appearance()
+	update_icon()
 
 //Cycles through all of the colours
 /turf/open/floor/light/colour_cycle
-	name = "dancefloor"
-	desc = "Funky floor."
+	name = "танцпол"
+	desc = "Заводной пол."
 	icon_state = "light_on-cycle_all"
 	light_color = LIGHT_COLOR_SLIME_LAMP
 	can_modify_colour = FALSE

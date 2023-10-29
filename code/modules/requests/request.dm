@@ -1,3 +1,12 @@
+/// Requests from prayers
+#define REQUEST_PRAYER "request_prayer"
+/// Requests for Centcom
+#define REQUEST_CENTCOM "request_centcom"
+/// Requests for the Syndicate
+#define REQUEST_SYNDICATE "request_syndicate"
+/// Requests for the nuke code
+#define REQUEST_NUKE "request_nuke"
+
 /**
  * # Request
  *
@@ -18,12 +27,10 @@
 	var/owner_name
 	/// The message associated with the request
 	var/message
-	/// Just any information, which you can to send with request. For example paper datum.
-	var/additional_information
 	/// When the request was created
 	var/timestamp
 
-/datum/request/New(client/requestee, type, request, additional_info)
+/datum/request/New(client/requestee, type, request)
 	if (!requestee)
 		qdel(src)
 		return
@@ -32,6 +39,5 @@
 	owner_ckey = owner.ckey
 	req_type = type
 	message = request
-	additional_information = additional_info
 	timestamp = world.time
 	owner_name = key_name(requestee, FALSE)

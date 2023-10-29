@@ -2,44 +2,6 @@
 	name = "contraband loot spawner"
 	desc = "Pstttthhh! Pass it under the table."
 	icon_state = "prisoner"
-	loot = list(
-		/obj/item/poster/random_contraband = 40,
-		/obj/item/food/grown/cannabis = 40,
-		/obj/item/clothing/mask/gas/syndicate = 30,
-		/obj/item/clothing/neck/necklace/dope = 30,
-		/obj/item/food/grown/cannabis/rainbow = 20,
-		/obj/item/reagent_containers/cup/glass/bottle/absinthe = 20,
-		/obj/item/toy/cards/deck/syndicate = 20,
-		/obj/item/clothing/under/syndicate/tacticool = 20,
-		/obj/item/food/grown/cannabis/white = 10,
-		/obj/item/storage/box/fireworks/dangerous = 10,
-		/obj/item/storage/pill_bottle/zoom = 10,
-		/obj/item/storage/pill_bottle/happy = 10,
-		/obj/item/storage/pill_bottle/lsd = 10,
-		/obj/item/storage/pill_bottle/aranesp = 10,
-		/obj/item/storage/pill_bottle/stimulant = 10,
-		/obj/item/storage/fancy/cigarettes/cigpack_syndicate = 10,
-		/obj/item/storage/fancy/cigarettes/cigpack_shadyjims = 10,
-		/obj/item/storage/box/donkpockets = 10,
-		/obj/item/reagent_containers/pill/maintenance = 5,
-		/obj/effect/spawner/random/contraband/plus = 5,
-	)
-
-/obj/effect/spawner/random/contraband/plus
-	name = "contraband loot spawner plus"
-	desc = "Where'd ya find this?"
-	loot = list(
-		/obj/effect/spawner/random/contraband/prison = 40,
-		/obj/item/clothing/under/syndicate = 20,
-		/obj/item/reagent_containers/cup/bottle/thermite = 20,
-		/obj/item/reagent_containers/pill/maintenance = 10,
-		/obj/item/restraints/legcuffs/beartrap = 10,
-		/obj/effect/spawner/random/contraband/narcotics = 10,
-		/obj/item/seeds/kronkus = 5,
-		/obj/item/seeds/odious_puffball = 5,
-		/obj/item/grenade/empgrenade = 5,
-		/obj/effect/spawner/random/contraband/armory = 1,
-	)
 
 /obj/effect/spawner/random/contraband/armory
 	name = "armory loot spawner"
@@ -59,13 +21,12 @@
 	icon_state = "pill"
 	loot = list(
 		/obj/item/reagent_containers/syringe/contraband/space_drugs,
+		/obj/item/reagent_containers/syringe/contraband/krokodil,
 		/obj/item/reagent_containers/syringe/contraband/methamphetamine,
 		/obj/item/reagent_containers/syringe/contraband/bath_salts,
 		/obj/item/reagent_containers/syringe/contraband/fentanyl,
 		/obj/item/reagent_containers/syringe/contraband/morphine,
-		/obj/item/food/drug/saturnx,
-		/obj/item/reagent_containers/cup/blastoff_ampoule,
-		/obj/item/food/drug/moon_rock,
+		/obj/item/reagent_containers/syringe/contraband/saturnx,
 		/obj/item/storage/pill_bottle/happy,
 		/obj/item/storage/pill_bottle/lsd,
 		/obj/item/storage/pill_bottle/psicodine,
@@ -75,10 +36,10 @@
 	name = "permabrig weapon spawner"
 	icon_state = "shiv"
 	loot = list(
-		/obj/item/knife/shiv = 5,
-		/obj/item/knife/shiv/carrot = 5,
+		/obj/item/kitchen/knife/shiv = 5,
+		/obj/item/kitchen/knife/shiv/carrot = 5,
 		/obj/item/tailclub = 5, //want to buy makeshift wooden club sprite
-		/obj/item/knife = 3,
+		/obj/item/kitchen/knife = 3,
 		/obj/item/assembly/flash/handheld = 1,
 		/obj/item/grenade/smokebomb = 1,
 	)
@@ -94,7 +55,7 @@
 		/obj/item/restraints/handcuffs,
 		/obj/item/paper/fluff/jobs/prisoner/letter,
 		/obj/item/storage/wallet/random,
-		/obj/item/modular_computer/pda,
+		/obj/item/modular_computer/tablet/pda,
 		/obj/item/radio/off,
 	)
 
@@ -113,7 +74,8 @@
 
 /obj/effect/spawner/random/contraband/cannabis
 	name = "Random Cannabis Spawner" //blasphemously overpowered, use extremely sparingly (if at all)
-	icon_state = "cannabis"
+	icon = 'goon/icons/obj/hydroponics.dmi'
+	icon_state = "cannabis_spawner"
 	loot = list(
 		/obj/item/food/grown/cannabis = 25,
 		/obj/item/food/grown/cannabis/white = 25,
@@ -129,15 +91,4 @@
 		/obj/item/food/grown/cannabis/death = 45, //i mean, it's been there for a while?
 		/obj/item/food/grown/cannabis/rainbow = 15,
 		/obj/item/food/grown/cannabis/ultimate = 1,
-	)
-
-/obj/effect/spawner/random/contraband/landmine
-	name = "landmine spawner"
-	loot = list(
-		/obj/effect/mine/explosive/light = 10,
-		/obj/effect/mine/explosive/flame = 10,
-		/obj/effect/mine/explosive/flash = 15,
-		/obj/effect/mine/explosive = 2,
-		/obj/item/restraints/legcuffs/beartrap/prearmed = 5, //not really a landmine, but still a good threat
-		/obj/effect/mine/shrapnel = 5,
 	)

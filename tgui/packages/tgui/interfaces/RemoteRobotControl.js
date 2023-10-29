@@ -5,7 +5,7 @@ import { Window } from '../layouts';
 
 export const RemoteRobotControl = (props, context) => {
   return (
-    <Window title="Remote Robot Control" width={500} height={500}>
+    <Window title="Удалённое управление роботами" width={500} height={500}>
       <Window.Content scrollable>
         <RemoteRobotControlContent />
       </Window.Content>
@@ -19,7 +19,7 @@ export const RemoteRobotControlContent = (props, context) => {
   if (!robots.length) {
     return (
       <Section>
-        <NoticeBox textAlign="center">No robots detected</NoticeBox>
+        <NoticeBox textAlign="center">Не обнаружено роботов</NoticeBox>
       </Section>
     );
   }
@@ -32,7 +32,7 @@ export const RemoteRobotControlContent = (props, context) => {
           <>
             <Button
               icon="tools"
-              content="Interface"
+              content="Интерфейс"
               onClick={() =>
                 act('interface', {
                   ref: robot.ref,
@@ -41,7 +41,7 @@ export const RemoteRobotControlContent = (props, context) => {
             />
             <Button
               icon="phone-alt"
-              content="Call"
+              content="Вызвать"
               onClick={() =>
                 act('callbot', {
                   ref: robot.ref,
@@ -51,7 +51,7 @@ export const RemoteRobotControlContent = (props, context) => {
           </>
         }>
         <LabeledList>
-          <LabeledList.Item label="Status">
+          <LabeledList.Item label="Состояние">
             <Box
               inline
               color={
@@ -65,12 +65,14 @@ export const RemoteRobotControlContent = (props, context) => {
             </Box>{' '}
             {(robot.hacked && (
               <Box inline color="bad">
-                (HACKED)
+                (ВЗЛОМАН)
               </Box>
             )) ||
               ''}
           </LabeledList.Item>
-          <LabeledList.Item label="Location">{robot.location}</LabeledList.Item>
+          <LabeledList.Item label="Местоположение">
+            {robot.location}
+          </LabeledList.Item>
         </LabeledList>
       </Section>
     );

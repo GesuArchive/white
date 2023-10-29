@@ -70,7 +70,7 @@
 	animate(src, time = frames, alpha = 0)
 
 
-/obj/effect/particle_effect/fluid/smoke/spread(seconds_per_tick = 0.1 SECONDS)
+/obj/effect/particle_effect/fluid/smoke/spread(delta_time = 0.1 SECONDS)
 	if(group.total_size > group.target_size)
 		return
 	var/turf/t_loc = get_turf(src)
@@ -83,7 +83,7 @@
 		if(locate(type) in spread_turf)
 			continue // Don't spread smoke where there's already smoke!
 		for(var/mob/living/smoker in spread_turf)
-			smoke_mob(smoker, seconds_per_tick)
+			smoke_mob(smoker, delta_time)
 
 		var/obj/effect/particle_effect/fluid/smoke/spread_smoke = new type(spread_turf, group, src)
 		reagents.copy_to(spread_smoke, reagents.total_volume)
@@ -94,13 +94,13 @@
 		SSfoam.queue_spread(spread_smoke)
 
 
-/obj/effect/particle_effect/fluid/smoke/process(seconds_per_tick)
-	lifetime -= seconds_per_tick SECONDS
+/obj/effect/particle_effect/fluid/smoke/process(delta_time)
+	lifetime -= delta_time SECONDS
 	if(lifetime <= 0)
 		kill_smoke()
 		return FALSE
 	for(var/mob/living/smoker in loc) // In case smoke somehow winds up in a locker or something this should still behave sanely.
-		smoke_mob(smoker, seconds_per_tick)
+		smoke_mob(smoker, delta_time)
 	return TRUE
 
 /**
@@ -108,11 +108,11 @@
  *
  * Arguments:
  * - [smoker][/mob/living/carbon]: The mob that is being exposed to this smoke.
- * - seconds_per_tick: A scaling factor for the effects this has. Primarily based off of tick rate to normalize effects to units of rate/sec.
+ * - delta_time: A scaling factor for the effects this has. Primarily based off of tick rate to normalize effects to units of rate/sec.
  *
  * Returns whether the smoke effect was applied to the mob.
  */
-/obj/effect/particle_effect/fluid/smoke/proc/smoke_mob(mob/living/carbon/smoker, seconds_per_tick)
+/obj/effect/particle_effect/fluid/smoke/proc/smoke_mob(mob/living/carbon/smoker, delta_time)
 	if(!istype(smoker))
 		return FALSE
 	if(lifetime < 1)
@@ -234,7 +234,7 @@
 
 /// Green smoke that makes you cough.
 /obj/effect/particle_effect/fluid/smoke/bad/green
-	name = "green smoke"
+	name = "зелёный дым"
 	color = "#00FF00"
 	opacity = FALSE
 
@@ -244,7 +244,7 @@
 
 /// Black smoke that makes you cough. (Actually dark grey)
 /obj/effect/particle_effect/fluid/smoke/bad/black
-	name = "black smoke"
+	name = "чёрный дым"
 	color = "#383838"
 	opacity = FALSE
 
@@ -258,7 +258,7 @@
 
 /// Light blue, transparent smoke which is usually paired with a blast that chills every turf in the area.
 /obj/effect/particle_effect/fluid/smoke/freezing
-	name = "nanofrost smoke"
+	name = "холодный дым"
 	color = "#B2FFFF"
 	opacity = FALSE
 
@@ -292,14 +292,11 @@
 	if(chilly.air)
 		var/datum/gas_mixture/air = chilly.air
 		if(!distcheck || get_dist(location, chilly) < blast) // Otherwise we'll get silliness like people using Nanofrost to kill people through walls with cold air
-			air.temperature = temperature
+			air.set_temperature(temperature)
 
-		var/list/gases = air.gases
-		if(gases[/datum/gas/plasma])
-			air.assert_gas(/datum/gas/nitrogen)
-			gases[/datum/gas/nitrogen][MOLES] += gases[/datum/gas/plasma][MOLES]
-			gases[/datum/gas/plasma][MOLES] = 0
-			air.garbage_collect()
+		if(air.get_moles(GAS_PLASMA))
+			air.adjust_moles(GAS_N2, air.get_moles(GAS_PLASMA))
+			air.set_moles(GAS_PLASMA, 0)
 
 		for(var/obj/effect/hotspot/fire in chilly)
 			qdel(fire)
@@ -310,7 +307,7 @@
 			if(!isnull(comp.welded) && !comp.welded) //must be an unwelded vent pump or vent scrubber.
 				comp.welded = TRUE
 				comp.update_appearance()
-				comp.visible_message(span_danger("[comp] is frozen shut!"))
+				comp.visible_message(span_danger("[comp] замерзает!"))
 
 	// Extinguishes everything in the turf
 	for(var/mob/living/potential_tinder in chilly)
@@ -318,11 +315,11 @@
 	for(var/obj/item/potential_tinder in chilly)
 		potential_tinder.extinguish()
 
-/datum/effect_system/fluid_spread/smoke/freezing/set_up(range = 5, amount = DIAMOND_AREA(range), atom/holder, atom/location, blast_radius = 0)
+/datum/effect_system/fluid_spread/smoke/freezing/set_up(range = 5, amount = DIAMOND_AREA(range), atom/location, blast_radius = 0)
 	. = ..()
 	blast = blast_radius
 
-/datum/effect_system/fluid_spread/smoke/freezing/start(log = FALSE)
+/datum/effect_system/fluid_spread/smoke/freezing/start()
 	if(blast)
 		for(var/turf/T in RANGE_TURFS(blast, location))
 			Chilled(T)
@@ -330,7 +327,7 @@
 
 /// A variant of the base freezing smoke formerly used by the vent decontamination event.
 /datum/effect_system/fluid_spread/smoke/freezing/decon
-	temperature = T20C
+	temperature = 293.15
 	distcheck = FALSE
 	weldvents = FALSE
 
@@ -344,7 +341,7 @@
 	color = "#9C3636"
 	lifetime = 20 SECONDS
 
-/obj/effect/particle_effect/fluid/smoke/sleeping/smoke_mob(mob/living/carbon/smoker, seconds_per_tick)
+/obj/effect/particle_effect/fluid/smoke/sleeping/smoke_mob(mob/living/carbon/smoker, delta_time)
 	if(..())
 		smoker.Sleeping(20 SECONDS)
 		smoker.emote("cough")
@@ -364,24 +361,24 @@
 /obj/effect/particle_effect/fluid/smoke/chem
 	lifetime = 20 SECONDS
 
-/obj/effect/particle_effect/fluid/smoke/chem/process(seconds_per_tick)
+/obj/effect/particle_effect/fluid/smoke/chem/process(delta_time)
 	. = ..()
 	if(!.)
 		return
 
 	var/turf/location = get_turf(src)
-	var/fraction = (seconds_per_tick SECONDS) / initial(lifetime)
+	var/fraction = (delta_time SECONDS) / initial(lifetime)
 	for(var/atom/movable/thing as anything in location)
 		if(thing == src)
 			continue
-		if(location.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && HAS_TRAIT(thing, TRAIT_T_RAY_VISIBLE))
+		if(location.intact && HAS_TRAIT(thing, TRAIT_T_RAY_VISIBLE))
 			continue
 		reagents.expose(thing, TOUCH, fraction)
 
 	reagents.expose(location, TOUCH, fraction)
 	return TRUE
 
-/obj/effect/particle_effect/fluid/smoke/chem/smoke_mob(mob/living/carbon/smoker, seconds_per_tick)
+/obj/effect/particle_effect/fluid/smoke/chem/smoke_mob(mob/living/carbon/smoker, delta_time)
 	if(lifetime < 1)
 		return FALSE
 	if(!istype(smoker))
@@ -389,20 +386,11 @@
 	if(smoker.internal != null || smoker.has_smoke_protection())
 		return FALSE
 
-	var/fraction = (seconds_per_tick SECONDS) / initial(lifetime)
+	var/fraction = (delta_time SECONDS) / initial(lifetime)
 	reagents.copy_to(smoker, reagents.total_volume, fraction)
 	reagents.expose(smoker, INGEST, fraction)
 	return TRUE
 
-/// Helper to quickly create a cloud of reagent smoke
-/proc/do_chem_smoke(range = 0, amount = DIAMOND_AREA(range), atom/holder = null, location = null, reagent_type = /datum/reagent/water, reagent_volume = 10, log = FALSE)
-	var/datum/reagents/smoke_reagents = new/datum/reagents(reagent_volume)
-	smoke_reagents.add_reagent(reagent_type, reagent_volume)
-
-	var/datum/effect_system/fluid_spread/smoke/chem/smoke = new
-	smoke.attach(location)
-	smoke.set_up(amount = amount, holder = holder, location = location, carry = smoke_reagents, silent = TRUE)
-	smoke.start(log = log)
 
 /// A factory which produces clouds of chemical bearing smoke.
 /datum/effect_system/fluid_spread/smoke/chem
@@ -417,7 +405,6 @@
 /datum/effect_system/fluid_spread/smoke/chem/Destroy()
 	QDEL_NULL(chemholder)
 	return ..()
-
 
 /datum/effect_system/fluid_spread/smoke/chem/set_up(range = 1, amount = DIAMOND_AREA(range), atom/holder, atom/location = null, datum/reagents/carry = null, silent = FALSE)
 	. = ..()

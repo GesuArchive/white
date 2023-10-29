@@ -1,13 +1,8 @@
-/**
- * Logs a mesage to the mob_tags log, including the mobs tag
- * Arguments:
- * * text - text to log.
- */
-/mob/proc/log_mob_tag(text, list/data)
-	logger.Log(LOG_CATEGORY_DEBUG_MOBTAG, text, data)
+/proc/log_mob_tag(text)
+	WRITE_LOG(GLOB.world_mob_tag_log, "TAG: [text]")
 
-/proc/log_silicon(text, list/data)
-	logger.Log(LOG_CATEGORY_SILICON, text, data)
+/proc/log_silicon(text)
+	WRITE_LOG(GLOB.world_silicon_log, "SILICON: [text]")
 
 
 /// Logs a message in a mob's individual log, and in the global logs as well if log_globally is true
@@ -43,8 +38,6 @@
 			colored_message = "(ASAY) [colored_message]"
 		if(LOG_EMOTE)
 			colored_message = "(EMOTE) [colored_message]"
-		if(LOG_RADIO_EMOTE)
-			colored_message = "(RADIOEMOTE) [colored_message]"
 
 	var/list/timestamped_message = list("\[[time_stamp(format = "YYYY-MM-DD hh:mm:ss")]\] [key_name(src)] [loc_name(src)] (Event #[LAZYLEN(logging[smessage_type])])" = colored_message)
 

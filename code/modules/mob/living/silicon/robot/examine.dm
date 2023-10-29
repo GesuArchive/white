@@ -1,54 +1,51 @@
 /mob/living/silicon/robot/examine(mob/user)
-	. = list("<span class='info'>This is [icon2html(src, user)] <EM>[src]</EM>!")
-	if(desc)
-		. += "[desc]"
+	. = list("<span class='info'>Это же")
 
-	var/model_name = model ? "\improper [model.name]" : "\improper Default"
-	. += "\nIt is currently \a \"[span_bold("[model_name]")]\"-type cyborg.\n"
+	. += ..()
+
+	. += "<hr>"
+
+	if(desc)
+		. += "[desc]<hr>"
 
 	var/obj/act_module = get_active_held_item()
 	if(act_module)
-		. += "It is holding [icon2html(act_module, user)] \a [act_module]."
-	. += get_status_effect_examinations()
+		. += "Он держит [icon2html(act_module, user)] <b>[act_module]</b>.\n"
+	. += status_effect_examines()
 	if (getBruteLoss())
 		if (getBruteLoss() < maxHealth*0.5)
-			. += span_warning("It looks slightly dented.")
+			. += "<span class='warning'>Выглядит немного побитым.</span>\n"
 		else
-			. += span_warning("<B>It looks severely dented!</B>")
+			. += "<span class='warning'><B>Выглядит сильно побитым!</B></span>\n"
 	if (getFireLoss() || getToxLoss())
 		var/overall_fireloss = getFireLoss() + getToxLoss()
 		if (overall_fireloss < maxHealth * 0.5)
-			. += span_warning("It looks slightly charred.")
+			. += "<span class='warning'>Выглядит немного обугленным.</span>\n"
 		else
-			. += span_warning("<B>It looks severely burnt and heat-warped!</B>")
+			. += "<span class='warning'><B>Выглядит так, будто его прожарили в печи!</B></span>\n"
 	if (health < -maxHealth*0.5)
-		. += span_warning("It looks barely operational.")
+		. += "<span class='warning'>Выглядит полностью рабочим.</span>\n"
 	if (fire_stacks < 0)
-		. += span_warning("It's covered in water.")
+		. += "<span class='warning'>Он мокрый.</span>\n"
 	else if (fire_stacks > 0)
-		. += span_warning("It's coated in something flammable.")
+		. += "<span class='warning'>Он в чём-то горючем.</span>\n"
 
 	if(opened)
-		. += span_warning("Its cover is open and the power cell is [cell ? "installed" : "missing"].")
+		. += "<hr><span class='warning'>Крышка открыта, батарейка [cell ? "на месте" : "не на месте"].</span>"
 	else
-		. += "Its cover is closed[locked ? "" : ", and looks unlocked"]."
+		. += "<hr>Крышка закрыта[locked ? "" : " и похоже не заперта"]."
 
 	if(cell && cell.charge <= 0)
-		. += span_warning("Its battery indicator is blinking red!")
+		. += "<hr><span class='warning'>Индикатор зарядки мигает красным!</span>"
 
 	switch(stat)
 		if(CONSCIOUS)
 			if(shell)
-				. += "It appears to be an [deployed ? "active" : "empty"] AI shell."
+				. += "<hr>Похоже это [deployed ? "активная" : "пустая"] оболочка ИИ."
 			else if(!client)
-				. += "It appears to be in stand-by mode." //afk
+				. += "<hr>Он в режиме ожидания." //afk
 		if(SOFT_CRIT, UNCONSCIOUS, HARD_CRIT)
-			. += span_warning("It doesn't seem to be responding.")
+			. += "<hr><span class='warning'>Он не реагирует на движения.</span>"
 		if(DEAD)
-			. += span_deadsay("It looks like its system is corrupted and requires a reset.")
+			. += "<hr><span class='deadsay'>Выглядит полностью уничтоженым. Похоже потребуется полный перезапуск.</span>"
 	. += "</span>"
-
-	. += ..()
-
-/mob/living/silicon/robot/get_examine_string(mob/user, thats = FALSE)
-	return null

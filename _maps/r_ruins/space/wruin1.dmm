@@ -1,0 +1,996 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/template_noop,
+/area/template_noop)
+"ab" = (
+/turf/closed/mineral/random,
+/area/ruin/space/has_grav/powered/telepadovo)
+"ac" = (
+/turf/open/floor/plating/asteroid/airless,
+/area/ruin/space/has_grav/powered/telepadovo)
+"ad" = (
+/turf/closed/wall/partyhard,
+/area/ruin/space/has_grav/powered/telepadovo)
+"af" = (
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"ag" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/autolathe/hacked,
+/obj/item/stack/sheet/iron/five,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"ah" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/syndicate,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"ai" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aj" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/electrical,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"an" = (
+/obj/structure/cable,
+/turf/open/floor/resin,
+/area/ruin/space/has_grav/powered/telepadovo)
+"ao" = (
+/obj/machinery/power/port_gen/pacman,
+/obj/structure/cable,
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 30
+	},
+/turf/open/floor/resin,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aq" = (
+/obj/machinery/telepad,
+/turf/open/floor/resin,
+/area/ruin/space/has_grav/powered/telepadovo)
+"ar" = (
+/obj/machinery/computer/telescience{
+	dir = 8
+	},
+/turf/open/floor/resin,
+/area/ruin/space/has_grav/powered/telepadovo)
+"at" = (
+/obj/machinery/computer/camera_advanced/syndie{
+	dir = 8
+	},
+/turf/open/floor/resin,
+/area/ruin/space/has_grav/powered/telepadovo)
+"au" = (
+/obj/effect/spawner/structure/window/reinforced/partyhard,
+/turf/open/floor/partyhard/steel{
+	icon_state = "st-6"
+	},
+/area/ruin/space/has_grav/powered/telepadovo)
+"aw" = (
+/obj/item/flashlight,
+/obj/structure/closet/cabinet,
+/obj/item/radio,
+/obj/item/crowbar/red,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"az" = (
+/turf/open/floor/resin,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aA" = (
+/obj/machinery/sleeper/syndie{
+	dir = 8
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aB" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/mob_spawn/human/syndicate{
+	desc = "Там кто-то есть. И он смотрит на меня не очень мило.";
+	dir = 8;
+	flavour_text = "Я заведующий этой космоостановкой. В мои обязанности входит переправка прибывающих агентов на станцию.";
+	important_info = "И мне нельзя покидать это место, если только ему совсем не придут кранты.";
+	short_desc = "Я телепадовец"
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aC" = (
+/obj/machinery/door/airlock/hatch,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aD" = (
+/obj/machinery/vending/games,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aF" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aG" = (
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aH" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aI" = (
+/obj/structure/table/wood/fancy/royalblack,
+/obj/item/melee/baton/loaded,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aJ" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aL" = (
+/obj/structure/chair/comfy/black,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aN" = (
+/obj/structure/table/reinforced,
+/obj/item/flashlight/lamp,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aO" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/modular_computer/console/preset/civilian,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aP" = (
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aQ" = (
+/obj/structure/chair{
+	dir = 4
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aR" = (
+/obj/structure/table/wood/fancy/royalblack,
+/obj/item/reagent_containers/food/condiment/saltshaker,
+/obj/item/reagent_containers/food/condiment/peppermill,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aS" = (
+/obj/structure/table/wood/fancy/royalblack,
+/obj/item/reagent_containers/food/condiment/milk,
+/obj/item/reagent_containers/food/condiment/soymilk,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aT" = (
+/obj/structure/table/wood/fancy/royalblack,
+/obj/item/radio,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aU" = (
+/obj/structure/chair{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aV" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aX" = (
+/obj/structure/table/wood/fancy/royalblack,
+/obj/item/reagent_containers/hypospray/combat/nanites,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"aY" = (
+/obj/structure/table/wood/fancy/royalblack,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bb" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"be" = (
+/obj/machinery/vending/cigarette/syndicate,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bf" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/spawner/random/vending/colavend,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bg" = (
+/obj/machinery/vending/coffee,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bh" = (
+/obj/structure/table/reinforced,
+/obj/item/phone,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bi" = (
+/obj/structure/chair{
+	dir = 8
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bj" = (
+/obj/machinery/status_display,
+/turf/closed/wall/partyhard,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bk" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bl" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bm" = (
+/obj/machinery/light/small,
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bn" = (
+/obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bo" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bp" = (
+/obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bq" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"br" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bs" = (
+/obj/machinery/portable_atmospherics/scrubber,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bt" = (
+/obj/machinery/portable_atmospherics/pump,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"bu" = (
+/obj/machinery/ntnet_relay,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+"iP" = (
+/obj/structure/table/wood/fancy/royalblack,
+/obj/item/restraints/handcuffs/cable/zipties,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin/space/has_grav/powered/telepadovo)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+ac
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ac
+ac
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+ac
+ab
+ab
+ab
+ab
+aa
+ab
+ac
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+ac
+ac
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+ad
+ad
+bj
+ad
+ad
+ad
+ad
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+ac
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+ac
+aa
+aa
+aa
+ab
+ad
+be
+aP
+aP
+bn
+bo
+bp
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+ac
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+ab
+ab
+ad
+bf
+aP
+bk
+ad
+ad
+ad
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+ac
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ad
+bg
+aP
+bk
+ad
+ab
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+ab
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+bh
+aP
+bl
+ad
+ab
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+ab
+ab
+ad
+bs
+bt
+br
+bq
+bq
+bq
+ad
+aD
+aP
+aC
+aP
+aP
+aC
+aP
+aP
+bk
+ad
+ab
+ab
+aa
+aa
+"}
+(10,1,1) = {"
+ab
+ab
+ab
+ad
+af
+an
+an
+az
+az
+aP
+au
+aP
+aP
+ad
+aN
+aV
+ad
+aP
+aP
+bm
+ad
+ab
+ab
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+ab
+ab
+ad
+aP
+az
+ao
+az
+az
+aP
+ad
+aP
+aJ
+ad
+aO
+bi
+au
+aP
+aP
+ad
+ad
+ab
+ab
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+ab
+ad
+bu
+az
+az
+az
+az
+aP
+aC
+aP
+aP
+ad
+aP
+aP
+au
+bi
+bi
+ad
+ab
+ab
+aa
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+ab
+ad
+ag
+az
+aq
+az
+az
+aP
+aC
+aP
+aP
+ad
+aC
+ad
+ad
+ad
+ad
+ad
+ab
+ab
+aa
+aa
+aa
+"}
+(14,1,1) = {"
+aa
+aa
+ab
+ad
+ah
+az
+az
+az
+az
+aP
+ad
+aF
+aP
+aP
+aQ
+aQ
+aP
+ad
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+"}
+(15,1,1) = {"
+aa
+ab
+ab
+ad
+ai
+az
+ar
+at
+az
+aP
+au
+aP
+aP
+aP
+aR
+aX
+bb
+ad
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+"}
+(16,1,1) = {"
+aa
+ab
+ab
+ad
+aj
+aP
+aP
+aP
+aP
+aP
+ad
+aG
+aP
+aL
+aS
+aY
+bm
+ad
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+"}
+(17,1,1) = {"
+aa
+aa
+ab
+ad
+ad
+ad
+ad
+au
+au
+au
+ad
+aP
+aP
+aP
+aT
+aY
+bk
+ad
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+ab
+ab
+ab
+ab
+ad
+aP
+aP
+aP
+aC
+aH
+aH
+aH
+aU
+bi
+aP
+ad
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+ab
+ab
+ab
+ab
+ad
+aw
+aA
+aB
+ad
+aI
+iP
+iP
+ad
+ad
+ad
+ad
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+ab
+ab
+ab
+ab
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+ab
+ab
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

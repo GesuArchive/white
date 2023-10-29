@@ -27,15 +27,6 @@
 	remove_all_indicators()
 	return ..()
 
-/// Whether or not to show a typing indicator when speaking. Defaults to on.
-/datum/preference/toggle/typing_indicator
-	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
-	savefile_key = "typingIndicator"
-	savefile_identifier = PREFERENCE_PLAYER
-
-/datum/preference/toggle/typing_indicator/apply_to_client(client/client, value)
-	client?.typing_indicators = value
-
 /** Sets the mob as "thinking" - with indicator and variable thinking_IC */
 /datum/tgui_say/proc/start_thinking()
 	if(!window_open || !client.typing_indicators)
@@ -77,7 +68,7 @@
 /mob/living/create_thinking_indicator()
 	if(active_thinking_indicator || active_typing_indicator || !thinking_IC || stat != CONSCIOUS )
 		return FALSE
-	active_thinking_indicator = mutable_appearance('icons/mob/effects/talk.dmi', "[bubble_icon]3", TYPING_LAYER)
+	active_thinking_indicator = mutable_appearance('icons/mob/talk.dmi', "[bubble_icon]3", TYPING_LAYER)
 	add_overlay(active_thinking_indicator)
 	play_fov_effect(src, 6, "talk", ignore_self = TRUE)
 
@@ -90,7 +81,7 @@
 /mob/living/create_typing_indicator()
 	if(active_typing_indicator || active_thinking_indicator || !thinking_IC || stat != CONSCIOUS)
 		return FALSE
-	active_typing_indicator = mutable_appearance('icons/mob/effects/talk.dmi', "[bubble_icon]0", TYPING_LAYER)
+	active_typing_indicator = mutable_appearance('icons/mob/talk.dmi', "[bubble_icon]0", TYPING_LAYER)
 	add_overlay(active_typing_indicator)
 	play_fov_effect(src, 6, "talk", ignore_self = TRUE)
 
@@ -104,4 +95,3 @@
 	thinking_IC = FALSE
 	remove_thinking_indicator()
 	remove_typing_indicator()
-

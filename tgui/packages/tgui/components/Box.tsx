@@ -5,11 +5,11 @@
  */
 
 import { BooleanLike, classes, pureComponentHooks } from 'common/react';
-import { createVNode, InfernoNode, SFC } from 'inferno';
+import { createVNode, InfernoNode } from 'inferno';
 import { ChildFlags, VNodeFlags } from 'inferno-vnode-flags';
 import { CSS_COLORS } from '../constants';
 
-export type BoxProps = {
+export interface BoxProps {
   [key: string]: any;
   as?: string;
   className?: string | BooleanLike;
@@ -38,7 +38,6 @@ export type BoxProps = {
   bold?: BooleanLike;
   italic?: BooleanLike;
   nowrap?: BooleanLike;
-  preserveWhitespace?: BooleanLike;
   m?: string | BooleanLike;
   mx?: string | BooleanLike;
   my?: string | BooleanLike;
@@ -57,7 +56,7 @@ export type BoxProps = {
   textColor?: string | BooleanLike;
   backgroundColor?: string | BooleanLike;
   fillPositionedParent?: boolean;
-};
+}
 
 /**
  * Coverts our rem-like spacing unit into a CSS unit.
@@ -161,8 +160,7 @@ const styleMapperByPropName = {
   bold: mapBooleanPropTo('font-weight', 'bold'),
   italic: mapBooleanPropTo('font-style', 'italic'),
   nowrap: mapBooleanPropTo('white-space', 'nowrap'),
-  preserveWhitespace: mapBooleanPropTo('white-space', 'pre-wrap'),
-  // Margin
+  // Margins
   m: mapDirectionalUnitPropTo('margin', halfUnit, [
     'top',
     'bottom',
@@ -175,7 +173,7 @@ const styleMapperByPropName = {
   mb: mapUnitPropTo('margin-bottom', halfUnit),
   ml: mapUnitPropTo('margin-left', halfUnit),
   mr: mapUnitPropTo('margin-right', halfUnit),
-  // Padding
+  // Margins
   p: mapDirectionalUnitPropTo('padding', halfUnit, [
     'top',
     'bottom',
@@ -252,7 +250,7 @@ export const computeBoxClassName = (props: BoxProps) => {
   ]);
 };
 
-export const Box: SFC<BoxProps> = (props: BoxProps) => {
+export const Box = (props: BoxProps) => {
   const { as = 'div', className, children, ...rest } = props;
   // Render props
   if (typeof children === 'function') {
@@ -270,8 +268,7 @@ export const Box: SFC<BoxProps> = (props: BoxProps) => {
     computedClassName,
     children,
     ChildFlags.UnknownChildren,
-    computedProps,
-    undefined
+    computedProps
   );
 };
 

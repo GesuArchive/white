@@ -2,11 +2,11 @@
 
 ///Armor Booster - Grants your suit more armor and speed in exchange for EVA protection. Also acts as a welding screen.
 /obj/item/mod/module/armor_booster
-	name = "MOD armor booster module"
-	desc = "A retrofitted series of retractable armor plates, allowing the suit to function as essentially power armor, \
-		giving the user incredible protection against conventional firearms, or everyday attacks in close-quarters. \
-		However, the additional plating cannot deploy alongside parts of the suit used for vacuum sealing, \
-		so this extra armor provides zero ability for extravehicular activity while deployed."
+	name = "модуль усилителя брони"
+	desc = "Модифицированная серия выдвижных бронепластин, позволяющая костюму функционировать как, будто это силовая броня, \
+		предоставляя пользователю невероятную защиту от обычного огнестрельного оружия или частых атак в ближнем бою. \
+		Однако, дополнительная броня не может развертываться вместе с частями костюма, используемыми для вакуумного уплотнения, \
+		Таким образом, эта дополнительная броня обеспечивает нулевую способность для внеатмосферной деятельности."
 	icon_state = "armor_booster"
 	module_type = MODULE_TOGGLE
 	active_power_cost = DEFAULT_CHARGE_DRAIN * 0.3
@@ -23,15 +23,9 @@
 	/// Speed that we actually added.
 	var/actual_speed_added = 0
 	/// Armor values added to the suit parts.
-	var/list/armor_mod = /datum/armor/mod_module_armor_boost
+	var/list/armor_values = list(MELEE = 25, BULLET = 30, LASER = 15, ENERGY = 15)
 	/// List of parts of the suit that are spaceproofed, for giving them back the pressure protection.
 	var/list/spaceproofed = list()
-
-/datum/armor/mod_module_armor_boost
-	melee = 25
-	bullet = 30
-	laser = 15
-	energy = 15
 
 /obj/item/mod/module/armor_booster/on_suit_activation()
 	mod.helmet.flash_protect = FLASH_PROTECTION_WELDER
@@ -51,7 +45,7 @@
 	mod.wearer.update_equipment_speed_mods()
 	var/list/parts = mod.mod_parts + mod
 	for(var/obj/item/part as anything in parts)
-		part.set_armor(part.get_armor().add_other_armor(armor_mod))
+		part.armor = part.armor.modifyRating(arglist(armor_values))
 		if(!remove_pressure_protection || !isclothing(part))
 			continue
 		var/obj/item/clothing/clothing_part = part
@@ -68,8 +62,11 @@
 	mod.slowdown += actual_speed_added
 	mod.wearer.update_equipment_speed_mods()
 	var/list/parts = mod.mod_parts + mod
+	var/list/removed_armor = armor_values.Copy()
+	for(var/armor_type in removed_armor)
+		removed_armor[armor_type] = -removed_armor[armor_type]
 	for(var/obj/item/part as anything in parts)
-		part.set_armor(part.get_armor().subtract_other_armor(armor_mod))
+		part.armor = part.armor.modifyRating(arglist(removed_armor))
 		if(!remove_pressure_protection || !isclothing(part))
 			continue
 		var/obj/item/clothing/clothing_part = part
@@ -84,11 +81,11 @@
 
 ///Energy Shield - Gives you a rechargeable energy shield that nullifies attacks.
 /obj/item/mod/module/energy_shield
-	name = "MOD energy shield module"
-	desc = "A personal, protective forcefield typically seen in military applications. \
-		This advanced deflector shield is essentially a scaled down version of those seen on starships, \
-		and the power cost can be an easy indicator of this. However, it is capable of blocking nearly any incoming attack, \
-		though with its' low amount of separate charges, the user remains mortal."
+	name = "модуль силового щита"
+	desc = "Личное защитное силовое поле, обычно используемое в военных целях. \
+		Этот продвинутый дефлекторный щит, по сути, является уменьшенной версией тех, какие были установленны на кораблях, \
+		о чём говорит их потребление электроэнергии. Однако, он способен блокировать практически любую атаку, \
+		впрочем из-за низкого числа зарядов, пользователь всё ещё остаётся смертным."
 	icon_state = "energy_shield"
 	complexity = 3
 	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0.5
@@ -128,27 +125,18 @@
 	qdel(shield)
 	UnregisterSignal(mod.wearer, COMSIG_HUMAN_CHECK_SHIELDS)
 
-/obj/item/mod/module/energy_shield/proc/shield_reaction(mob/living/carbon/human/owner,
-	atom/movable/hitby,
-	damage = 0,
-	attack_text = "the attack",
-	attack_type = MELEE_ATTACK,
-	armour_penetration = 0,
-	damage_type = BRUTE
-)
-	SIGNAL_HANDLER
-
-	if(SEND_SIGNAL(mod, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, 0, damage, attack_type, damage_type) & COMPONENT_HIT_REACTION_BLOCK)
+/obj/item/mod/module/energy_shield/proc/shield_reaction(mob/living/carbon/human/owner, atom/movable/hitby, damage = 0, attack_text = "the attack", attack_type = MELEE_ATTACK, armour_penetration = 0)
+	if(SEND_SIGNAL(mod, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, 0, damage, attack_type) & COMPONENT_HIT_REACTION_BLOCK)
 		drain_power(use_power_cost)
 		return SHIELD_BLOCK
 	return NONE
 
 /obj/item/mod/module/energy_shield/wizard
-	name = "MOD battlemage shield module"
-	desc = "The caster wielding this spell gains a visible barrier around them, channeling arcane power through \
-		specialized runes engraved onto the surface of the suit to generate a wall of force. \
-		This shield can perfectly nullify attacks ranging from high-caliber rifles to magic missiles, \
-		though can also be drained by more mundane attacks. It will not protect the caster from social ridicule."
+	name = "силовой щит боевого мага"
+	desc = "Заклинатель, владеющий этим заклинанием, получает видимый барьер вокруг себя, направляя магическую силу через \
+		специализированные руны, выгравированные на поверхности костюма, что создают силовой щит. \
+		Этот щит может полностью нейтрализовать урон от крупнокалиберных винтовок до волшебных стрел, \
+		хотя может также быть истощён более простыми нападениями. Однако он не способен защитить вас от насмешек окружающих."
 	icon_state = "battlemage_shield"
 	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0 //magic
 	use_power_cost = DEFAULT_CHARGE_DRAIN * 0 //magic too
@@ -161,43 +149,45 @@
 
 ///Magic Nullifier - Protects you from magic.
 /obj/item/mod/module/anti_magic
-	name = "MOD magic nullifier module"
-	desc = "A series of obsidian rods installed into critical points around the suit, \
-		vibrated at a certain low frequency to enable them to resonate. \
-		This creates a low-range, yet strong, magic nullification field around the user, \
-		aided by a full replacement of the suit's normal coolant with holy water. \
-		Spells will spall right off this field, though it'll do nothing to help others believe you about all this."
+	name = "модуль анти-магии"
+	desc = "Комплексное защитное покрытие из алюминиевой фольги и установленных в критических точках по периметру костюма обсидиановых стержней, \
+		резонирующих на низкой частоте. Это создает высоконасыщенное анти-магическое поле вокруг пользователя. Используя святую воду как хладоген. \
+		Это гарантированно нейтрализует любую магию даже ни смотря на то, что признанные эксперты НаноТрейзен утверждают, что магии не существует."
 	icon_state = "magic_nullifier"
 	removable = FALSE
 	incompatible_modules = list(/obj/item/mod/module/anti_magic)
 
 /obj/item/mod/module/anti_magic/on_suit_activation()
-	mod.wearer.add_traits(list(TRAIT_ANTIMAGIC, TRAIT_HOLY), MOD_TRAIT)
+	ADD_TRAIT(mod.wearer, TRAIT_ANTIMAGIC, MOD_TRAIT)
+	ADD_TRAIT(mod.wearer, TRAIT_HOLY, MOD_TRAIT)
 
 /obj/item/mod/module/anti_magic/on_suit_deactivation(deleting = FALSE)
-	mod.wearer.remove_traits(list(TRAIT_ANTIMAGIC, TRAIT_HOLY), MOD_TRAIT)
+	REMOVE_TRAIT(mod.wearer, TRAIT_ANTIMAGIC, MOD_TRAIT)
+	REMOVE_TRAIT(mod.wearer, TRAIT_HOLY, MOD_TRAIT)
 
 /obj/item/mod/module/anti_magic/wizard
-	name = "MOD magic neutralizer module"
-	desc = "The caster wielding this spell gains an invisible barrier around them, channeling arcane power through \
-		specialized runes engraved onto the surface of the suit to generate anti-magic field. \
-		The field will neutralize all magic that comes into contact with the user. \
-		It will not protect the caster from social ridicule."
+	name = "односторонний анти-магический модуль"
+	desc = "Маг, владеющий этим заклинанием, получает невидимый барьер вокруг себя, направляя магическую силу через \
+		специализированные руны, выгравированые на поверхности костюма, чтобы создать антимагическое поле. \
+		Поле нейтрализует любую магию, которая входит в контакт с пользователем. \
+		Это не защитит заклинателя от насмешек окружающих."
 	icon_state = "magic_neutralizer"
 
 /obj/item/mod/module/anti_magic/wizard/on_suit_activation()
-	mod.wearer.add_traits(list(TRAIT_ANTIMAGIC, TRAIT_ANTIMAGIC_NO_SELFBLOCK), MOD_TRAIT)
+	ADD_TRAIT(mod.wearer, TRAIT_ANTIMAGIC, MOD_TRAIT)
+	ADD_TRAIT(mod.wearer, TRAIT_ANTIMAGIC_NO_SELFBLOCK, MOD_TRAIT)
 
 /obj/item/mod/module/anti_magic/wizard/on_suit_deactivation(deleting = FALSE)
-	mod.wearer.remove_traits(list(TRAIT_ANTIMAGIC, TRAIT_ANTIMAGIC_NO_SELFBLOCK), MOD_TRAIT)
+	REMOVE_TRAIT(mod.wearer, TRAIT_ANTIMAGIC, MOD_TRAIT)
+	REMOVE_TRAIT(mod.wearer, TRAIT_ANTIMAGIC_NO_SELFBLOCK, MOD_TRAIT)
 
 ///Insignia - Gives you a skin specific stripe.
 /obj/item/mod/module/insignia
-	name = "MOD insignia module"
-	desc = "Despite the existence of IFF systems, radio communique, and modern methods of deductive reasoning involving \
-		the wearer's own eyes, colorful paint jobs remain a popular way for different factions in the galaxy to display who \
-		they are. This system utilizes a series of tiny moving paint sprayers to both apply and remove different \
-		color patterns to and from the suit."
+	name = "модуль идентификации"
+	desc = "Несмотря на существование систем радио локационного опонавания, радиокоммюнике и современных методов дедуктивного мышления, включающих \
+		собственные глаза владельца, цветовое обозначение остаются популярным способом для различных фракций в галактике, чтобы показать, кто \
+		они. Эта система использует серию крошечных движущихся распылителей краски для нанесения и удаления различных \
+		цветовых узоров на костюме."
 	icon_state = "insignia"
 	removable = FALSE
 	incompatible_modules = list(/obj/item/mod/module/insignia)
@@ -232,22 +222,21 @@
 
 ///Anti Slip - Prevents you from slipping on water.
 /obj/item/mod/module/noslip
-	name = "MOD anti slip module"
-	desc = "These are a modified variant of standard magnetic boots, utilizing piezoelectric crystals on the soles. \
-		The two plates on the bottom of the boots automatically extend and magnetize as the user steps; \
-		a pull that's too weak to offer them the ability to affix to a hull, but just strong enough to \
-		protect against the fact that you didn't read the wet floor sign. Honk Co. has come out numerous times \
-		in protest of these modules being legal."
+	name = "модуль анти-скольжения"
+	desc = "Это модифицированный вариант стандартных магнитных ботинок, использующих пьезоэлектрические кристаллы на подошвах. \
+		Две пластины на дне ботинок размагничиваются по необходимости в процессе движения. \
+		Сила магнитного притяжения недостаточна сильна для фиксации в невесомости, однако удовлетворительна, чтобы \
+		защитить от того, что вы не увидели знак мокрого пола. Хонк Ко. устраивали многочисленные протесты в попытках признать данный модуль незаконным."
 	icon_state = "noslip"
 	complexity = 1
 	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0.1
 	incompatible_modules = list(/obj/item/mod/module/noslip)
 
 /obj/item/mod/module/noslip/on_suit_activation()
-	ADD_TRAIT(mod.wearer, TRAIT_NO_SLIP_WATER, MOD_TRAIT)
+	ADD_TRAIT(mod.wearer, TRAIT_NOSLIPWATER, MOD_TRAIT)
 
 /obj/item/mod/module/noslip/on_suit_deactivation(deleting = FALSE)
-	REMOVE_TRAIT(mod.wearer, TRAIT_NO_SLIP_WATER, MOD_TRAIT)
+	REMOVE_TRAIT(mod.wearer, TRAIT_NOSLIPWATER, MOD_TRAIT)
 
 //Bite of 87 Springlock - Equips faster, disguised as DNA lock.
 /obj/item/mod/module/springlock/bite_of_87
@@ -269,15 +258,15 @@
 
 /obj/item/mod/module/springlock/bite_of_87/on_suit_activation()
 	..()
-	if(check_holidays(APRIL_FOOLS) || prob(1))
+	if(SSevents.holidays && SSevents.holidays[APRIL_FOOLS] || prob(1))
 		mod.set_mod_color("#b17f00")
 		mod.wearer.remove_atom_colour(WASHABLE_COLOUR_PRIORITY) // turns purple guy purple
 		mod.wearer.add_atom_colour("#704b96", FIXED_COLOUR_PRIORITY)
 
 ///Flamethrower - Launches fire across the area.
 /obj/item/mod/module/flamethrower
-	name = "MOD flamethrower module"
-	desc = "A custom-manufactured flamethrower, used to burn through your path. Burn well."
+	name = "модуль огнемёта"
+	desc = "Интегрированный в скафандр огнемет, используемый для сжигания всего на вашем пути."
 	icon_state = "flamethrower"
 	module_type = MODULE_ACTIVE
 	complexity = 3
@@ -291,7 +280,7 @@
 	. = ..()
 	if(!.)
 		return
-	var/obj/projectile/flame = new /obj/projectile/bullet/incendiary/fire(mod.wearer.loc)
+	var/obj/projectile/flame = new /obj/projectile/bullet/incendiary(mod.wearer.loc)
 	flame.preparePixelProjectile(target, mod.wearer)
 	flame.firer = mod.wearer
 	playsound(src, 'sound/items/modsuit/flamethrower.ogg', 75, TRUE)
@@ -300,8 +289,8 @@
 
 ///Power kick - Lets the user launch themselves at someone to kick them.
 /obj/item/mod/module/power_kick
-	name = "MOD power kick module"
-	desc = "This module uses high-power myomer to generate an incredible amount of energy, transferred into the power of a kick."
+	name = "MOD модуль силового удара"
+	desc = "Этот модуль использует мощный маймер, чтобы сгенерировать невероятное количество энергии и передать её в удар"
 	icon_state = "power_kick"
 	module_type = MODULE_ACTIVE
 	removable = FALSE
@@ -319,10 +308,10 @@
 	. = ..()
 	if(!.)
 		return
-	mod.wearer.visible_message(span_warning("[mod.wearer] starts charging a kick!"), \
-		blind_message = span_hear("You hear a charging sound."))
+	mod.wearer.visible_message(span_warning("[mod.wearer] начинает заряжать удар!"), \
+		blind_message = span_hear("Слышу звук накапливаемой энергии."))
 	playsound(src, 'sound/items/modsuit/loader_charge.ogg', 75, TRUE)
-	balloon_alert(mod.wearer, "you start charging...")
+	balloon_alert(mod.wearer, "Накапливаю заряд...")
 	animate(mod.wearer, 0.3 SECONDS, pixel_z = 16, flags = ANIMATION_RELATIVE, easing = SINE_EASING|EASE_OUT)
 	addtimer(CALLBACK(mod.wearer, TYPE_PROC_REF(/atom, SpinAnimation), 3, 2), 0.3 SECONDS)
 	if(!do_after(mod.wearer, 1 SECONDS, target = mod))
@@ -342,7 +331,7 @@
 	user.transform = user.transform.Turn(angle)
 	animate(user, 0.2 SECONDS, pixel_z = -16, flags = ANIMATION_RELATIVE, easing = SINE_EASING|EASE_IN)
 
-/obj/item/mod/module/power_kick/proc/on_throw_impact(mob/living/source, atom/target, datum/thrownthing/thrownthing)
+/obj/item/mod/module/power_kick/proc/on_throw_impact(mob/living/source, obj/target, datum/thrownthing/thrownthing)
 	SIGNAL_HANDLER
 
 	UnregisterSignal(source, COMSIG_MOVABLE_IMPACT)
@@ -352,7 +341,7 @@
 		var/mob/living/living_target = target
 		living_target.apply_damage(damage, BRUTE, mod.wearer.zone_selected, wound_bonus = wounding_power)
 		living_target.Knockdown(knockdown_time)
-	else if(target.uses_integrity)
+	else if(target.obj_integrity)
 		target.take_damage(damage, BRUTE, MELEE)
 	else
 		return
@@ -360,8 +349,8 @@
 
 ///Chameleon - lets the suit disguise as any item that would fit on that slot.
 /obj/item/mod/module/chameleon
-	name = "MOD chameleon module"
-	desc = "A module using chameleon technology to disguise the suit as another object."
+	name = "модуль хамелеона"
+	desc = "Модуль, использующий технологию хамелеона, чтобы замаскировать костюм под другой объект."
 	icon_state = "chameleon"
 	module_type = MODULE_USABLE
 	complexity = 2
@@ -389,7 +378,7 @@
 
 /obj/item/mod/module/chameleon/on_use()
 	if(mod.active || mod.activating)
-		balloon_alert(mod.wearer, "suit active!")
+		balloon_alert(mod.wearer, "Костюм активен!")
 		return
 	. = ..()
 	if(!.)
@@ -397,7 +386,7 @@
 	if(current_disguise)
 		return_look()
 		return
-	var/picked_name = tgui_input_list(mod.wearer, "Select look to change into", "Chameleon Settings", possible_disguises)
+	var/picked_name = tgui_input_list(mod.wearer, "Выберите чем стать", "Настройки хамелеона", possible_disguises)
 	if(!possible_disguises[picked_name] || mod.active || mod.activating)
 		return
 	current_disguise = possible_disguises[picked_name]
@@ -435,9 +424,9 @@
 
 ///Plate Compression - Compresses the suit to normal size
 /obj/item/mod/module/plate_compression
-	name = "MOD plate compression module"
-	desc = "A module that keeps the suit in a very tightly fit state, lowering the overall size. \
-		Due to the pressure on all the parts, typical storage modules do not fit."
+	name = "модуль сверхкомпактности"
+	desc = "Модуль перестраивающий структуру МОД-Скафа в крайне малые габариты, уменьшая общий размер.  \
+		Из-за давления на все детали, модули инвентаря не работают."
 	icon_state = "plate_compression"
 	complexity = 2
 	incompatible_modules = list(/obj/item/mod/module/plate_compression, /obj/item/mod/module/storage)
@@ -459,63 +448,3 @@
 	if(!holding_storage || holding_storage.max_specific_storage >= mod.w_class)
 		return
 	mod.forceMove(drop_location())
-
-/obj/item/mod/module/demoralizer
-	name = "MOD psi-echo demoralizer module"
-	desc = "One incredibly morbid member of the RND team at Roseus Galactic posed a question to her colleagues. \
-	'I desire the power to scar my enemies mentally as I murder them. Who will stop me implementing this in our next project?' \
-	And thus the Psi-Echo Demoralizer Device was reluctantly invented. The future of psychological warfare, today!"
-	icon_state = "brain_hurties"
-	complexity = 0
-	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0.1
-	removable = FALSE
-	var/datum/proximity_monitor/advanced/demoraliser/demoralizer
-
-/obj/item/mod/module/demoralizer/on_suit_activation()
-	var/datum/demoralise_moods/module/mood_category = new()
-	demoralizer = new(mod.wearer, 7, TRUE, mood_category)
-
-/obj/item/mod/module/demoralizer/on_suit_deactivation(deleting = FALSE)
-	QDEL_NULL(demoralizer)
-
-/obj/item/mod/module/infiltrator
-	name = "MOD infiltration core programs module"
-	desc = "The primary stealth systems operating within the suit. Utilizing electromagnetic signals, \
-		the wearer simply cannot be observed closely, or heard clearly by those around them."
-	icon_state = "infiltrator"
-	complexity = 0
-	removable = FALSE
-	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0
-	incompatible_modules = list(/obj/item/mod/module/infiltrator, /obj/item/mod/module/armor_booster, /obj/item/mod/module/welding)
-
-/obj/item/mod/module/infiltrator/on_install()
-	mod.item_flags |= EXAMINE_SKIP
-
-/obj/item/mod/module/infiltrator/on_uninstall(deleting = FALSE)
-	mod.item_flags &= ~EXAMINE_SKIP
-
-/obj/item/mod/module/infiltrator/on_suit_activation()
-	mod.wearer.add_traits(list(TRAIT_SILENT_FOOTSTEPS, TRAIT_UNKNOWN), MOD_TRAIT)
-	mod.helmet.flash_protect = FLASH_PROTECTION_WELDER
-
-/obj/item/mod/module/infiltrator/on_suit_deactivation(deleting = FALSE)
-	mod.wearer.remove_traits(list(TRAIT_SILENT_FOOTSTEPS, TRAIT_UNKNOWN), MOD_TRAIT)
-	if(deleting)
-		return
-	mod.helmet.flash_protect = initial(mod.helmet.flash_protect)
-
-///Medbeam - Medbeam but built into a modsuit
-/obj/item/mod/module/medbeam
-	name = "MOD Medbeam Module"
-	desc = "A wrist mounted variant of the medbeam gun, allowing the user to heal their allies without the risk of dropping it."
-	icon_state = "chronogun"
-	module_type = MODULE_ACTIVE
-	complexity = 1
-	active_power_cost = DEFAULT_CHARGE_DRAIN
-	device = /obj/item/gun/medbeam/mod
-	incompatible_modules = list(/obj/item/mod/module/medbeam)
-	removable = TRUE
-	cooldown_time = 0.5
-
-/obj/item/gun/medbeam/mod
-	name = "MOD medbeam"

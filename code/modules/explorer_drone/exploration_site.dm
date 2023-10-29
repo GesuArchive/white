@@ -60,9 +60,9 @@ GLOBAL_LIST_EMPTY(exploration_sites)
 		/datum/exploration_event/simple/resource = 1
 	)
 	/// Weight mods scaled by distance, resources are more easily found on farther sites
-	var/static/list/distance_modifiers = list(
+	var/static/list/distance_modifiers  = list(
 		/datum/exploration_event/simple/trader = 0.3,
-		/datum/exploration_event/simple/resource = 0.3,
+		/datum/exploration_event/simple/resource = 0.3
 	)
 	var/list/category_weights = base_weights.Copy()
 	for(var/modifier in distance_modifiers)
@@ -82,14 +82,14 @@ GLOBAL_LIST_EMPTY(exploration_sites)
 
 /datum/exploration_site/proc/generate_adventure(site_traits)
 	var/list/possible_adventures = list()
-	for(var/datum/adventure_db_entry/entry in GLOB.explorer_drone_adventure_db_entries)
-		if(entry.valid_for_use(site_traits))
-			possible_adventures += entry
+	for(var/datum/adventure/adventure_candidate in GLOB.explorer_drone_adventures)
+		if(adventure_candidate.placed || (adventure_candidate.required_site_traits && length(adventure_candidate.required_site_traits - site_traits) != 0))
+			continue
+		possible_adventures += adventure_candidate
 	if(!length(possible_adventures))
 		return
-	var/datum/adventure_db_entry/chosen_db_entry = pick(possible_adventures)
-	var/datum/adventure/chosen_adventure = chosen_db_entry.create_adventure()
-	chosen_db_entry.placed = TRUE
+	var/datum/adventure/chosen_adventure = pick(possible_adventures)
+	chosen_adventure.placed = TRUE
 	var/datum/exploration_event/adventure/adventure_event = new
 	adventure_event.adventure = chosen_adventure
 	adventure_event.band_values = chosen_adventure.band_modifiers
@@ -190,13 +190,13 @@ GLOBAL_LIST_EMPTY(exploration_sites)
 
 /datum/exploration_site/abandoned_refueling_station
 	name = "abandoned refueling station"
-	description = "An old shuttle refueling station drifting through the void."
+	description =  "old shuttle refueling station drifting through the void."
 	band_info = list(EXOSCANNER_BAND_TECH = 1)
 	site_traits = list(EXPLORATION_SITE_RUINS,EXPLORATION_SITE_TECHNOLOGY,EXPLORATION_SITE_STATION)
 
 /datum/exploration_site/trader_post
 	name = "unregistered trading station"
-	description = "A weak radio transmission advertises this place as RANDOMIZED_NAME"
+	description = "Weak radio transmission advertises this place as RANDOMIZED_NAME"
 	band_info = list(EXOSCANNER_BAND_TECH = 1, EXOSCANNER_BAND_LIFE = 1)
 	site_traits = list(EXPLORATION_SITE_TECHNOLOGY,EXPLORATION_SITE_STATION,EXPLORATION_SITE_HABITABLE,EXPLORATION_SITE_CIVILIZED)
 	fluff_type = "fluff_trading"
@@ -209,19 +209,19 @@ GLOBAL_LIST_EMPTY(exploration_sites)
 
 /datum/exploration_site/cargo_wreck
 	name = "interstellar cargo ship wreckage"
-	description = "Wreckage of a long-range cargo shuttle."
+	description = "wreckage of long-range cargo shuttle"
 	band_info = list(EXOSCANNER_BAND_TECH = 1, EXOSCANNER_BAND_DENSITY = 1)
 	site_traits = list(EXPLORATION_SITE_SHIP,EXPLORATION_SITE_TECHNOLOGY)
 
 /datum/exploration_site/alien_spaceship
 	name = "ancient alien spaceship"
-	description = "A gigantic spaceship of unknown origin. It doesn't respond to your hails but does not prevent you boarding, either."
+	description = "a gigantic spaceship of unknown origin, it doesnt respond to your hails but does not prevent you boarding either"
 	band_info = list(EXOSCANNER_BAND_TECH = 1, EXOSCANNER_BAND_RADIATION = 1)
 	site_traits = list(EXPLORATION_SITE_SHIP,EXPLORATION_SITE_HABITABLE,EXPLORATION_SITE_ALIEN)
 
 /datum/exploration_site/uncharted_planet
 	name = "uncharted planet"
-	description = "A planet missing from Nanotrasen starcharts."
+	description = "planet missing from nanotrasen starcharts."
 	band_info = list(EXOSCANNER_BAND_LIFE = 3)
 	site_traits = list(EXPLORATION_SITE_SURFACE)
 
@@ -240,26 +240,26 @@ GLOBAL_LIST_EMPTY(exploration_sites)
 
 /datum/exploration_site/alien_ruins
 	name = "alien ruins"
-	description = "Alien ruins on a small moon's surface."
+	description = "alien ruins on small moon surface."
 	site_traits = list(EXPLORATION_SITE_HABITABLE,EXPLORATION_SITE_SURFACE,EXPLORATION_SITE_ALIEN,EXPLORATION_SITE_RUINS)
 	fluff_type = "fluff_ruins"
 
 /datum/exploration_site/asteroid_belt
 	name = "asteroid belt"
-	description = "A dense asteroid belt."
+	description = "dense asteroid belt"
 	site_traits = list(EXPLORATION_SITE_SURFACE)
 	fluff_type = "fluff_space"
 
 /datum/exploration_site/spacemine
 	name = "mining facility"
-	description = "An abandoned mining facility attached to an ore-rich asteroid."
+	description = "abandoned mining facility attached to ore-heavy asteroid"
 	band_info = list(EXOSCANNER_BAND_PLASMA = 3)
 	site_traits = list(EXPLORATION_SITE_RUINS,EXPLORATION_SITE_HABITABLE,EXPLORATION_SITE_SURFACE)
 	fluff_type = "fluff_ruins"
 
 /datum/exploration_site/junkyard
 	name = "space junk field"
-	description = "A giant cluster of space junk."
+	description = "a giant cluster of space junk."
 	band_info = list(EXOSCANNER_BAND_DENSITY = 3)
 	site_traits = list(EXPLORATION_SITE_TECHNOLOGY,EXPLORATION_SITE_SPACE)
 	fluff_type = "fluff_space"

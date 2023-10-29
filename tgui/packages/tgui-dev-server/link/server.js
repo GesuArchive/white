@@ -76,17 +76,19 @@ class LinkServer {
       if (level <= 0 && !DEBUG) {
         return;
       }
-      // prettier-ignore
-      directLog(ns, ...args.map(arg => {
-        if (typeof arg === 'object') {
-          return inspect(arg, {
-            depth: Infinity,
-            colors: true,
-            compact: 8,
-          });
-        }
-        return arg;
-      }));
+      directLog(
+        ns,
+        ...args.map((arg) => {
+          if (typeof arg === 'object') {
+            return inspect(arg, {
+              depth: Infinity,
+              colors: true,
+              compact: 8,
+            });
+          }
+          return arg;
+        })
+      );
       return;
     }
     if (type === 'relay') {

@@ -7,16 +7,14 @@
 	anchored = TRUE
 	opacity = TRUE
 	layer = CLOSED_DOOR_LAYER
-	material_flags = MATERIAL_EFFECTS
 
 	icon = 'icons/obj/doors/mineral_doors.dmi'
 	icon_state = "metal"
 	max_integrity = 200
-	armor_type = /datum/armor/structure_mineral_door
+	armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 10, BIO = 100, RAD = 100, FIRE = 50, ACID = 50)
 	can_atmos_pass = ATMOS_PASS_DENSITY
+	flags_1 = RAD_PROTECT_CONTENTS_1 | RAD_NO_CONTAMINATE_1
 	rad_insulation = RAD_MEDIUM_INSULATION
-	material_flags = MATERIAL_EFFECTS
-	material_modifier = 0.25
 
 	var/door_opened = FALSE //if it's open or not.
 	var/isSwitchingStates = FALSE //don't try to change stats if we're already opening
@@ -26,25 +24,15 @@
 	var/closeSound = 'sound/effects/stonedoor_openclose.ogg'
 
 	var/sheetType = /obj/item/stack/sheet/iron //what we're made of
-	var/sheetAmount = 10 //how much it takes to construct us.
-
-/datum/armor/structure_mineral_door
-	melee = 10
-	energy = 100
-	bomb = 10
-	fire = 50
-	acid = 50
+	var/sheetAmount = 7 //how much we drop when deconstructed
 
 /obj/structure/mineral_door/Initialize(mapload)
 	. = ..()
-	var/obj/item/stack/initialized_mineral = new sheetType // Okay this kinda sucks.
-	set_custom_materials(initialized_mineral.mats_per_unit, sheetAmount)
-	qdel(initialized_mineral)
-	air_update_turf(TRUE, TRUE)
+	air_update_turf(TRUE)
 
 /obj/structure/mineral_door/Destroy()
 	if(!door_opened)
-		air_update_turf(TRUE, FALSE)
+		air_update_turf(TRUE)
 	. = ..()
 
 /obj/structure/mineral_door/Move()
@@ -65,10 +53,10 @@
 		if(get_dist(user,src) <= 1) //not remotely though
 			return TryToSwitchState(user)
 
-/obj/structure/mineral_door/attack_paw(mob/user, list/modifiers)
-	return attack_hand(user, modifiers)
+/obj/structure/mineral_door/attack_paw(mob/user)
+	return attack_hand(user)
 
-/obj/structure/mineral_door/attack_hand(mob/user, list/modifiers)
+/obj/structure/mineral_door/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -83,11 +71,11 @@
 	if(isSwitchingStates || !anchored)
 		return
 	if(isliving(user))
-		var/mob/living/matters = user
-		if(matters.client)
-			if(iscarbon(matters))
-				var/mob/living/carbon/carbon_user = matters
-				if(!carbon_user.handcuffed)
+		var/mob/living/M = user
+		if(M.client)
+			if(iscarbon(M))
+				var/mob/living/carbon/C = M
+				if(!C.handcuffed)
 					SwitchState()
 			else
 				SwitchState()
@@ -105,12 +93,12 @@
 	playsound(src, openSound, 100, TRUE)
 	set_opacity(FALSE)
 	flick("[initial(icon_state)]opening",src)
-	sleep(1 SECONDS)
+	sleep(10)
 	set_density(FALSE)
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
-	air_update_turf(TRUE, FALSE)
-	update_appearance()
+	air_update_turf(TRUE)
+	update_icon()
 	isSwitchingStates = FALSE
 
 	if(close_delay != -1)
@@ -125,23 +113,23 @@
 	isSwitchingStates = TRUE
 	playsound(src, closeSound, 100, TRUE)
 	flick("[initial(icon_state)]closing",src)
-	sleep(1 SECONDS)
+	sleep(10)
 	set_density(TRUE)
 	set_opacity(TRUE)
 	door_opened = FALSE
 	layer = initial(layer)
-	air_update_turf(TRUE, TRUE)
-	update_appearance()
+	air_update_turf(TRUE)
+	update_icon()
 	isSwitchingStates = FALSE
 
 /obj/structure/mineral_door/update_icon_state()
+	. = ..()
 	icon_state = "[initial(icon_state)][door_opened ? "open":""]"
-	return ..()
 
-/obj/structure/mineral_door/attackby(obj/item/I, mob/living/user)
+/obj/structure/mineral_door/attackby(obj/item/I, mob/user)
 	if(pickaxe_door(user, I))
 		return
-	else if(!user.combat_mode)
+	else if(user.a_intent != INTENT_HARM)
 		return attack_hand(user)
 	else
 		return ..()
@@ -149,12 +137,12 @@
 /obj/structure/mineral_door/set_anchored(anchorvalue) //called in default_unfasten_wrench() chain
 	. = ..()
 	set_opacity(anchored ? !door_opened : FALSE)
-	air_update_turf(TRUE, anchorvalue)
+	air_update_turf(anchorvalue)
 
-/obj/structure/mineral_door/wrench_act(mob/living/user, obj/item/tool)
-	. = ..()
-	default_unfasten_wrench(user, tool, time = 4 SECONDS)
-	return TOOL_ACT_TOOLTYPE_SUCCESS
+/obj/structure/mineral_door/wrench_act(mob/living/user, obj/item/I)
+	..()
+	default_unfasten_wrench(user, I, 40)
+	return TRUE
 
 
 /////////////////////// TOOL OVERRIDES ///////////////////////
@@ -175,29 +163,29 @@
 	..()
 	. = TRUE
 	if(anchored)
-		to_chat(user, span_warning("[src] is still firmly secured to the ground!"))
+		to_chat(user, span_warning("[capitalize(src.name)] is still firmly secured to the ground!"))
 		return
 
-	user.visible_message(span_notice("[user] starts to weld apart [src]!"), span_notice("You start welding apart [src]."))
+	user.visible_message(span_notice("[user] starts to weld apart [src]!") , span_notice("You start welding apart [src]."))
 	if(!I.use_tool(src, user, 60, 5, 50))
 		to_chat(user, span_warning("You failed to weld apart [src]!"))
 		return
 
-	user.visible_message(span_notice("[user] welded [src] into pieces!"), span_notice("You welded apart [src]!"))
+	user.visible_message(span_notice("[user] welded [src] into pieces!") , span_notice("You welded apart [src]!"))
 	deconstruct(TRUE)
 
 /obj/structure/mineral_door/proc/crowbar_door(mob/living/user, obj/item/I) //if the door is flammable, call this in crowbar_act() so we can still decon it
 	. = TRUE
 	if(anchored)
-		to_chat(user, span_warning("[src] is still firmly secured to the ground!"))
+		to_chat(user, span_warning("[capitalize(src.name)] is still firmly secured to the ground!"))
 		return
 
-	user.visible_message(span_notice("[user] starts to pry apart [src]!"), span_notice("You start prying apart [src]."))
+	user.visible_message(span_notice("[user] starts to pry apart [src]!") , span_notice("You start prying apart [src]."))
 	if(!I.use_tool(src, user, 60, volume = 50))
 		to_chat(user, span_warning("You failed to pry apart [src]!"))
 		return
 
-	user.visible_message(span_notice("[user] pried [src] into pieces!"), span_notice("You pried apart [src]!"))
+	user.visible_message(span_notice("[user] pried [src] into pieces!") , span_notice("You pried apart [src]!"))
 	deconstruct(TRUE)
 
 
@@ -216,7 +204,7 @@
 /obj/structure/mineral_door/iron
 	name = "iron door"
 	max_integrity = 300
-	sheetAmount = 20
+	smoothing_groups = list(SMOOTH_GROUP_INDUSTRIAL_LIFT)
 
 /obj/structure/mineral_door/silver
 	name = "silver door"
@@ -238,6 +226,9 @@
 	max_integrity = 300
 	light_range = 2
 
+/obj/structure/mineral_door/uranium/ComponentInitialize()
+	return
+
 /obj/structure/mineral_door/sandstone
 	name = "sandstone door"
 	icon_state = "sandstone"
@@ -256,6 +247,32 @@
 	name = "plasma door"
 	icon_state = "plasma"
 	sheetType = /obj/item/stack/sheet/mineral/plasma
+
+/obj/structure/mineral_door/transparent/plasma/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/atmos_sensitive)
+
+/obj/structure/mineral_door/transparent/plasma/welder_act(mob/living/user, obj/item/I)
+	return
+
+/obj/structure/mineral_door/transparent/plasma/attackby(obj/item/W, mob/user, params)
+	if(W.get_temperature())
+		var/turf/T = get_turf(src)
+		message_admins("Plasma mineral door ignited by [ADMIN_LOOKUPFLW(user)] in [ADMIN_VERBOSEJMP(T)]")
+		log_game("Plasma mineral door ignited by [key_name(user)] in [AREACOORD(T)]")
+		TemperatureAct()
+	else
+		return ..()
+
+/obj/structure/mineral_door/transparent/plasma/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
+	return exposed_temperature > 300
+
+/obj/structure/mineral_door/transparent/plasma/atmos_expose(datum/gas_mixture/air, exposed_temperature)
+	TemperatureAct()
+
+/obj/structure/mineral_door/transparent/plasma/proc/TemperatureAct()
+	atmos_spawn_air("plasma=500;TEMP=1000")
+	deconstruct(FALSE)
 
 /obj/structure/mineral_door/transparent/diamond
 	name = "diamond door"
@@ -307,8 +324,8 @@
 
 /obj/structure/mineral_door/paperframe/examine(mob/user)
 	. = ..()
-	if(atom_integrity < max_integrity)
-		. += span_info("It looks a bit damaged, you may be able to fix it with some <b>paper</b>.")
+	if(obj_integrity < max_integrity)
+		. += "<hr><span class='info'>It looks a bit damaged, you may be able to fix it with some <b>paper</b>.</span>"
 
 /obj/structure/mineral_door/paperframe/pickaxe_door(mob/living/user, obj/item/I)
 	return
@@ -324,15 +341,18 @@
 		fire_act(I.get_temperature())
 		return
 
-	if((!user.combat_mode) && istype(I, /obj/item/paper) && (atom_integrity < max_integrity))
-		user.visible_message(span_notice("[user] starts to patch the holes in [src]."), span_notice("You start patching some of the holes in [src]!"))
+	if((user.a_intent != INTENT_HARM) && istype(I, /obj/item/paper) && (obj_integrity < max_integrity))
+		user.visible_message(span_notice("[user] starts to patch the holes in [src].") , span_notice("You start patching some of the holes in [src]!"))
 		if(do_after(user, 2 SECONDS, src))
-			atom_integrity = min(atom_integrity+4,max_integrity)
+			obj_integrity = min(obj_integrity+4,max_integrity)
 			qdel(I)
-			user.visible_message(span_notice("[user] patches some of the holes in [src]."), span_notice("You patch some of the holes in [src]!"))
+			user.visible_message(span_notice("[user] patches some of the holes in [src].") , span_notice("You patch some of the holes in [src]!"))
 			return TRUE
 
 	return ..()
+
+/obj/structure/mineral_door/paperframe/ComponentInitialize()
+	return
 
 /obj/structure/mineral_door/paperframe/Destroy()
 	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))

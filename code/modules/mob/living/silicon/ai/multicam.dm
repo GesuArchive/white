@@ -6,7 +6,7 @@
 	var/highlighted = FALSE
 	var/mob/camera/ai_eye/pic_in_pic/aiEye
 
-/atom/movable/screen/movable/pic_in_pic/ai/Initialize(mapload, datum/hud/hud_owner)
+/atom/movable/screen/movable/pic_in_pic/ai/Initialize(mapload)
 	. = ..()
 	aiEye = new /mob/camera/ai_eye/pic_in_pic()
 	aiEye.screen = src
@@ -97,7 +97,7 @@
 	SIGNAL_HANDLER
 	SET_PLANE_W_SCALAR(src, initial(plane), SSmapping.max_plane_offset)
 
-/area/centcom/ai_multicam_room
+/area/ai_multicam_room
 	name = "ai_multicam_room"
 	icon_state = "ai_camera_room"
 	static_lighting = FALSE

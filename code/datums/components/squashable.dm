@@ -29,10 +29,6 @@
 
 	AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
 
-/datum/component/squashable/Destroy(force, silent)
-	on_squash_callback = null
-	return ..()
-
 ///Handles the squashing of the mob
 /datum/component/squashable/proc/on_entered(turf/source_turf, atom/movable/crossing_movable)
 	SIGNAL_HANDLER
@@ -41,13 +37,11 @@
 		return
 
 	var/mob/living/parent_as_living = parent
-	if((squash_flags & SQUASHED_DONT_SQUASH_IN_CONTENTS) && !isturf(parent_as_living.loc))
+
+	if(squash_flags & SQUASHED_SHOULD_BE_DOWN && parent_as_living.body_position != LYING_DOWN)
 		return
 
-	if((squash_flags & SQUASHED_SHOULD_BE_DOWN) && parent_as_living.body_position != LYING_DOWN)
-		return
-
-	var/should_squash = ((squash_flags & SQUASHED_ALWAYS_IF_DEAD) && parent_as_living.stat == DEAD) || prob(squash_chance)
+	var/should_squash = prob(squash_chance)
 
 	if(should_squash && on_squash_callback)
 		if(on_squash_callback.Invoke(parent_as_living, crossing_movable))
@@ -72,7 +66,7 @@
 
 /datum/component/squashable/proc/Squish(mob/living/target)
 	if(squash_flags & SQUASHED_SHOULD_BE_GIBBED)
-		target.gib(DROP_ALL_REMAINS)
+		target.gib()
 	else
 		target.adjustBruteLoss(squash_damage)
 

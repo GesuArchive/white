@@ -14,9 +14,8 @@
 	var/mob/living/simple_animal/bot/secbot/ed209/summoned_bot = summoned_object
 	summoned_bot.name = "Wizard's Justicebot"
 
-	summoned_bot.security_mode_flags = ~SECBOT_DECLARE_ARRESTS
-	summoned_bot.bot_mode_flags &= ~BOT_MODE_REMOTE_ENABLED
-	summoned_bot.bot_mode_flags |= BOT_COVER_EMAGGED
+	summoned_bot.declare_arrests = FALSE
+	summoned_bot.emagged = 2
 
 	summoned_bot.projectile = /obj/projectile/beam/laser
 	summoned_bot.shoot_sound = 'sound/weapons/laser.ogg'

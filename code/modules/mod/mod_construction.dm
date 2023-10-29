@@ -1,93 +1,66 @@
 /obj/item/mod/construction
-	desc = "A part used in MOD construction."
+	desc = "Часть, используемая в конструкции МОД-Скафандра."
 	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
 	inhand_icon_state = "rack_parts"
 
 /obj/item/mod/construction/helmet
-	name = "MOD helmet"
+	name = "шлем МОД-Скафандра"
 	icon_state = "helmet"
 
 /obj/item/mod/construction/helmet/examine(mob/user)
 	. = ..()
-	. += span_notice("You could insert it into a <b>MOD shell</b>...")
+	. += span_notice("При внимательном осмотре становятся заметны порты подключения к каркасу...")
 
 /obj/item/mod/construction/chestplate
-	name = "MOD chestplate"
+	name = "нагрудник МОД-Скафандра"
 	icon_state = "chestplate"
 
 /obj/item/mod/construction/chestplate/examine(mob/user)
 	. = ..()
-	. += span_notice("You could insert it into a <b>MOD shell</b>...")
+	. += span_notice("При внимательном осмотре становятся заметны порты подключения к каркасу...")
 
 /obj/item/mod/construction/gauntlets
-	name = "MOD gauntlets"
+	name = "перчатки МОД-Скафандра"
 	icon_state = "gauntlets"
 
 /obj/item/mod/construction/gauntlets/examine(mob/user)
 	. = ..()
-	. += span_notice("You could insert these into a <b>MOD shell</b>...")
+	. += span_notice("При внимательном осмотре становятся заметны порты подключения к каркасу...")
 
 /obj/item/mod/construction/boots
-	name = "MOD boots"
+	name = "ботинки МОД-Скафандра"
 	icon_state = "boots"
 
 /obj/item/mod/construction/boots/examine(mob/user)
 	. = ..()
-	. += span_notice("You could insert these into a <b>MOD shell</b>...")
+	. += span_notice("При внимательном осмотре становятся заметны порты подключения к каркасу...")
 
 /obj/item/mod/construction/broken_core
-	name = "broken MOD core"
+	name = "сломанное МОД ядро"
 	icon_state = "mod-core"
-	desc = "An internal power source for a Modular Outerwear Device. You don't seem to be able to source any power from this one, though."
+	desc = "Внутренний источник питания для Модульного Устройства Внешней защиты. На первый взгляд оно сломано, хотя..."
 
 /obj/item/mod/construction/broken_core/examine(mob/user)
 	. = ..()
-	. += span_notice("You could repair it with a <b>screwdriver</b>...")
+	. += span_notice("Возможно его выйдет починить при помощи <b>отвёртки</b>...")
 
 /obj/item/mod/construction/broken_core/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
-	balloon_alert(user, "repairing...")
 	if(!tool.use_tool(src, user, 5 SECONDS, volume = 30))
-		balloon_alert(user, "interrupted!")
 		return
 	new /obj/item/mod/core/standard(drop_location())
 	qdel(src)
 
-/obj/item/mod/construction/lavalandcore
-	name = "plasma flower"
-	icon_state = "plasma-flower"
-	desc = "A strange flower from the desolate wastes of lavaland. It pulses with a bright purple glow.  \
-		Its shape is remarkably similar to that of a MOD core."
-	light_system = MOVABLE_LIGHT
-	light_color = "#cc00cc"
-	light_range = 2
-
-/obj/item/mod/construction/lavalandcore/examine(mob/user)
-	. = ..()
-	. += span_notice("You could probably attach some <b>wires</b> to it...")
-
-/obj/item/mod/construction/lavalandcore/attackby(obj/item/weapon, mob/user, params)
-	if(!istype(weapon, /obj/item/stack/cable_coil))
-		return ..()
-	if(!weapon.tool_start_check(user, amount=2))
-		return
-	balloon_alert(user, "installing wires...")
-	if(!weapon.use_tool(src, user, 5 SECONDS, amount = 2, volume = 30))
-		balloon_alert(user, "interrupted!")
-		return
-	new /obj/item/mod/core/plasma/lavaland(drop_location())
-	qdel(src)
-
 /obj/item/mod/construction/plating
-	name = "MOD external plating"
-	desc = "External plating used to finish a MOD control unit."
+	name = "МОД внешняя обшивка"
+	desc = "Внешняя обшивка используется для отделки блока управления МОД-Скафандра."
 	icon_state = "standard-plating"
 	var/datum/mod_theme/theme = /datum/mod_theme
 
 /obj/item/mod/construction/plating/Initialize(mapload)
 	. = ..()
 	var/datum/mod_theme/used_theme = GLOB.mod_themes[theme]
-	name = "MOD [used_theme.name] external plating"
+	name = "МОД [used_theme.ru_name] внешняя обшивка"
 	desc = "[desc] [used_theme.desc]"
 	icon_state = "[used_theme.default_skin]-plating"
 
@@ -117,9 +90,9 @@
 #define SCREWED_ASSEMBLY_STEP "screwed_assembly"
 
 /obj/item/mod/construction/shell
-	name = "MOD shell"
+	name = "Каркас МОД-Скафандра"
 	icon_state = "mod-construction_start"
-	desc = "A MOD shell."
+	desc = "Несущая рама для крепления остальных частей МОД-Скафандра. В центре заметен порт для крепления ядра."
 	var/obj/item/core
 	var/obj/item/helmet
 	var/obj/item/chestplate
@@ -132,23 +105,23 @@
 	var/display_text
 	switch(step)
 		if(START_STEP)
-			display_text = "It looks like it's missing a <b>MOD core</b>..."
+			display_text = "Похоже, здесь не хватает <b>ядра</b>..."
 		if(CORE_STEP)
-			display_text = "The core seems <b>loose</b>..."
+			display_text = "Ядро выглядит <b>свободно болтающейся</b>..."
 		if(SCREWED_CORE_STEP)
-			display_text = "It looks like it's missing a <b>helmet</b>..."
+			display_text = "Похоже, здесь не хватает <b>шлема</b>..."
 		if(HELMET_STEP)
-			display_text = "It looks like it's missing a <b>chestplate</b>..."
+			display_text = "Похоже, здесь не хватает <b>нагрудника</b>..."
 		if(CHESTPLATE_STEP)
-			display_text = "It looks like it's missing <b>gauntlets</b>..."
+			display_text = "Похоже, здесь не хватает <b>перчаток</b>..."
 		if(GAUNTLETS_STEP)
-			display_text = "It looks like it's missing <b>boots</b>..."
+			display_text = "Похоже, здесь не хватает <b>ботинок</b>..."
 		if(BOOTS_STEP)
-			display_text = "The assembly seems <b>unsecured</b>..."
+			display_text = "Сборка выглядит <b>незафиксированной</b>..."
 		if(WRENCHED_ASSEMBLY_STEP)
-			display_text = "The assembly seems <b>loose</b>..."
+			display_text = "Сборка выглядит <b>свободно болтающейся</b>..."
 		if(SCREWED_ASSEMBLY_STEP)
-			display_text = "All it's missing is <b>external plating</b>..."
+			display_text = "Не хватает только <b>внешней обшивки</b>..."
 	. += span_notice(display_text)
 
 /obj/item/mod/construction/shell/attackby(obj/item/part, mob/user, params)
@@ -158,99 +131,99 @@
 			if(!istype(part, /obj/item/mod/core))
 				return
 			if(!user.transferItemToLoc(part, src))
-				balloon_alert(user, "core stuck to your hand!")
+				balloon_alert(user, "Ядро прилипло к вашей руке!")
 				return
 			playsound(src, 'sound/machines/click.ogg', 30, TRUE)
-			balloon_alert(user, "core inserted")
+			balloon_alert(user, "Ядро вставлено")
 			core = part
 			step = CORE_STEP
 		if(CORE_STEP)
 			if(part.tool_behaviour == TOOL_SCREWDRIVER) //Construct
 				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "core screwed")
+					balloon_alert(user, "Ядро закручено")
 				step = SCREWED_CORE_STEP
 			else if(part.tool_behaviour == TOOL_CROWBAR) //Deconstruct
 				if(part.use_tool(src, user, 0, volume=30))
 					core.forceMove(drop_location())
-					balloon_alert(user, "core taken out")
+					balloon_alert(user, "Ядро извлечено")
 				step = START_STEP
 		if(SCREWED_CORE_STEP)
 			if(istype(part, /obj/item/mod/construction/helmet)) //Construct
 				if(!user.transferItemToLoc(part, src))
-					balloon_alert(user, "helmet stuck to your hand!")
+					balloon_alert(user, "Шлем прилип к вашей руке!")
 					return
 				playsound(src, 'sound/machines/click.ogg', 30, TRUE)
-				balloon_alert(user, "helmet added")
+				balloon_alert(user, "Шлем закреплен")
 				helmet = part
 				step = HELMET_STEP
 			else if(part.tool_behaviour == TOOL_SCREWDRIVER) //Deconstruct
 				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "core unscrewed")
+					balloon_alert(user, "Ядро раскручено")
 					step = CORE_STEP
 		if(HELMET_STEP)
 			if(istype(part, /obj/item/mod/construction/chestplate)) //Construct
 				if(!user.transferItemToLoc(part, src))
-					balloon_alert(user, "chestplate stuck to your hand!")
+					balloon_alert(user, "Нагрудник прилип к вашей руке!")
 					return
 				playsound(src, 'sound/machines/click.ogg', 30, TRUE)
-				balloon_alert(user, "chestplate added")
+				balloon_alert(user, "Нагрудник закреплен")
 				chestplate = part
 				step = CHESTPLATE_STEP
 			else if(part.tool_behaviour == TOOL_CROWBAR) //Deconstruct
 				if(part.use_tool(src, user, 0, volume=30))
 					helmet.forceMove(drop_location())
-					balloon_alert(user, "helmet removed")
+					balloon_alert(user, "Шлеп извлечён")
 					helmet = null
 					step = SCREWED_CORE_STEP
 		if(CHESTPLATE_STEP)
 			if(istype(part, /obj/item/mod/construction/gauntlets)) //Construct
 				if(!user.transferItemToLoc(part, src))
-					balloon_alert(user, "gauntlets stuck to your hand!")
+					balloon_alert(user, "Перчатки прилипли к вашей руке!")
 					return
 				playsound(src, 'sound/machines/click.ogg', 30, TRUE)
-				balloon_alert(user, "gauntlets added")
+				balloon_alert(user, "Перчатки закреплены")
 				gauntlets = part
 				step = GAUNTLETS_STEP
 			else if(part.tool_behaviour == TOOL_CROWBAR) //Deconstruct
 				if(part.use_tool(src, user, 0, volume=30))
 					chestplate.forceMove(drop_location())
-					balloon_alert(user, "chestplate removed")
+					balloon_alert(user, "Нагрудник извлечён")
 					chestplate = null
 					step = HELMET_STEP
 		if(GAUNTLETS_STEP)
 			if(istype(part, /obj/item/mod/construction/boots)) //Construct
 				if(!user.transferItemToLoc(part, src))
-					balloon_alert(user, "boots added")
+					balloon_alert(user, "Ботинки закреплены")
 					return
 				playsound(src, 'sound/machines/click.ogg', 30, TRUE)
-				balloon_alert(user, "fit [part.name]")
+				balloon_alert(user, "Вы прицепили [part] к [src].")
 				boots = part
 				step = BOOTS_STEP
 			else if(part.tool_behaviour == TOOL_CROWBAR) //Deconstruct
 				if(part.use_tool(src, user, 0, volume=30))
 					gauntlets.forceMove(drop_location())
-					balloon_alert(user, "gauntlets removed")
+					balloon_alert(user, "Перчатки извлечены")
 					gauntlets = null
 					step = CHESTPLATE_STEP
 		if(BOOTS_STEP)
 			if(part.tool_behaviour == TOOL_WRENCH) //Construct
 				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "assembly secured")
+					balloon_alert(user, "Сборка зафиксирована")
 					step = WRENCHED_ASSEMBLY_STEP
 			else if(part.tool_behaviour == TOOL_CROWBAR) //Deconstruct
 				if(part.use_tool(src, user, 0, volume=30))
 					boots.forceMove(drop_location())
-					balloon_alert(user, "boots removed")
+					balloon_alert(user, "Ботинки извлечены")
 					boots = null
 					step = GAUNTLETS_STEP
 		if(WRENCHED_ASSEMBLY_STEP)
 			if(part.tool_behaviour == TOOL_SCREWDRIVER) //Construct
 				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "assembly screwed")
+					balloon_alert(user, "Сборка зафиксирована")
 					step = SCREWED_ASSEMBLY_STEP
 			else if(part.tool_behaviour == TOOL_WRENCH) //Deconstruct
 				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "assembly unsecured")
+					balloon_alert(user, "Сборка раскручена")
 					step = BOOTS_STEP
 		if(SCREWED_ASSEMBLY_STEP)
 			if(istype(part, /obj/item/mod/construction/plating)) //Construct
@@ -258,14 +231,14 @@
 				if(!user.transferItemToLoc(part, src))
 					return
 				playsound(src, 'sound/machines/click.ogg', 30, TRUE)
+				balloon_alert(user, "Скафандр готов")
 				var/obj/item/mod = new /obj/item/mod/control(drop_location(), external_plating.theme, null, core)
 				core = null
 				qdel(src)
 				user.put_in_hands(mod)
-				mod.balloon_alert(user, "suit finished")
 			else if(part.tool_behaviour == TOOL_SCREWDRIVER) //Construct
 				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "assembly unscrewed")
+					balloon_alert(user, "Сборка раскручена")
 					step = SCREWED_ASSEMBLY_STEP
 	update_icon_state()
 
@@ -281,18 +254,18 @@
 	QDEL_NULL(boots)
 	return ..()
 
-/obj/item/mod/construction/shell/Exited(atom/movable/gone, direction)
-	. = ..()
-	if(gone == core)
+/obj/item/mod/construction/shell/handle_atom_del(atom/deleted_atom)
+	if(deleted_atom == core)
 		core = null
-	if(gone == helmet)
+	if(deleted_atom == helmet)
 		helmet = null
-	if(gone == chestplate)
+	if(deleted_atom == chestplate)
 		chestplate = null
-	if(gone == gauntlets)
+	if(deleted_atom == gauntlets)
 		gauntlets = null
-	if(gone == boots)
+	if(deleted_atom == boots)
 		boots = null
+	return ..()
 
 #undef START_STEP
 #undef CORE_STEP

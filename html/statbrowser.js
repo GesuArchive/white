@@ -15,24 +15,22 @@ if (!String.prototype.trim) {
 }
 
 // Status panel implementation ------------------------------------------------
-var status_tab_parts = ["Loading..."];
+var status_tab_parts = ["Загрузка..."];
 var current_tab = null;
-var mc_tab_parts = [["Loading...", ""]];
+var mc_tab_parts = [["Загрузка...", ""]];
 var href_token = null;
 var spells = [];
 var spell_tabs = [];
 var verb_tabs = [];
 var verbs = [["", ""]]; // list with a list inside
 var tickets = [];
-var interviewManager = { status: "", interviews: [] };
 var sdql2 = [];
 var permanent_tabs = []; // tabs that won't be cleared by wipes
 var turfcontents = [];
 var turfname = "";
-var imageRetryDelay = 500;
+var imageRetryDelay = 1000;
 var imageRetryLimit = 50;
 var menu = document.getElementById('menu');
-var under_menu = document.getElementById('under_menu');
 var statcontentdiv = document.getElementById('statcontent');
 var storedimages = [];
 var split_admin_tabs = false;
@@ -47,7 +45,7 @@ function run_after_focus(callback) {
 function createStatusTab(name) {
 	if (name.indexOf(".") != -1) {
 		var splitName = name.split(".");
-		if (split_admin_tabs && splitName[0] === "Admin")
+		if (split_admin_tabs && splitName[0] === "Адм")
 			name = splitName[1];
 		else
 			name = splitName[0];
@@ -66,15 +64,50 @@ function createStatusTab(name) {
 	B.id = name;
 	B.textContent = name;
 	B.className = "button";
+	B.innerHTML = "<img src=\"" + get_icon_for_tab_by_name(name) + "\">";
 	//ORDERING ALPHABETICALLY
 	B.style.order = name.charCodeAt(0);
-	if (name == "Status" || name == "MC") {
-		B.style.order = name == "Status" ? 1 : 2;
+	if (name == "Состояние" || name == "MC") {
+		B.style.order = name == "Состояние" ? 1 : 2;
 	}
 	//END ORDERING
 	menu.appendChild(B);
 	SendTabToByond(name);
-	under_menu.style.height = menu.clientHeight + 'px';
+}
+
+function get_icon_for_tab_by_name(name) {
+	switch(name) {
+		case 'Состояние':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURQkQEXO+00d1glRUVCEhIWtrazU1NRc6JFcAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB6SURBVCjPbY3BDcAgCACBCXQD4wpdQTpBZQLC/iMU6MfWnuFBuJzwAquDWHOh7hB12MC0SsiPRtRChv9aLUutt72GaZanRmm2vVbyQy+G1vJDL361YwHGArBMiblkKrCxibBNEV+U1W86REJj9YtOc+20Uy3G31Ib4wZjliSHvSz/iwAAAABJRU5ErkJggg==';
+		case 'IC':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAkUExURRkzLTlKUCEhISAuN6jKWMZRl4GXlqUwMKTd21RUVGtrazU1NZ89PIkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACASURBVCjPY0AFgnDAwKBoDAcCDIomLi7OLi4mEA6KjGlwWlqaWTIWGfPy8nIgNi/GkLHoMEtLTjPGogeZoyRsDHOOAoOSoqESFDAAOUIQpgIDiANnMjDMRAIMSkgAxFm1arXWqtVQjtLq3Vq7d8M5SlqbsCrbvXu3NkIZBCgpAQA3cT11uoNTSgAAAABJRU5ErkJggg==';
+		case 'OOC':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAYUExURRAUHxkeI1hfTiMqMVRUVCEhIWtrazU1NbWA1osAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB3SURBVCjPZczhEYAgCAVgR4haoKMFOlmhFbQNbAJy/UC0uOudP953COGXGeM6OiBRHH0mwW4dNgGi9cWwGqLufFB5UAf5CeHWbwOAwU7LkqzsHaAIA0sfNEimhsMlJJeQcil3KSxPwfnmzFf1+H87q4Zr+/YmpQcwkzQzzlq5SAAAAABJRU5ErkJggg==';
+		case 'Настройки':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAYUExURWd3doGXlkhUUy41NVRUVCEhIWtrazU1NZjp0o8AAAAJcEhZcwAADsMAAA7DAcdvqGQAAACMSURBVCjPhY7LEcMgDESVVGCFBiK5gdhqIS2AO4AKkNqPIP4wueRxeTvsLMB/bnjqnYNMhzKt+OqBmRFJdiUUIZ6aEwZhnnHx4Lp67SEBgFxbbWkDdNTawNxr/H2DL+3Lz/Mjg/7wHoA4AElr1pL7gZRV1ZIVx280a00170G1pFrMa5s1tmrRbFiL8QNLITAP7QTczAAAAABJRU5ErkJggg==';
+		case 'Объект':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAeUExURa13V39XQde1lIJtWVRUVCEhIWtrazU1NVFRUWBgYDs4ZekAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACLSURBVCjPZczbFQIhDARQtgMHGthoBViDLcB2kGgBhBIswXbluXKO8zWXhJi/bHZfOt33X4cfs9rh0bTBtglVABblD2ECdfOEW+D8zU84D3J+oOxQP40msnTpKLq23oD+PoDezWOJCUtMZGVNLCIsJqpmTc8355grWOX1EYmpr0ldKzjyzJGWayF8AeffL/Beaj0UAAAAAElFTkSuQmCC';
+		case 'Особенное':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAbUExURXcjIzMPD6UwMFRUVCEhIWtrazU1NVFRUWBgYF5An40AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB3SURBVCjPhY7RDYUwCEUZQTqBsoIrtG5QfAMUdAJHcG6x6gsaEw8/nAC3hZ1ABBcYMPx7J+gE70JEaBFtlQ4rX3K7qWmIjZO3d55y/frIPU6gd0B0QMolS2HOVpBEZLKGeVxsInnmnd8KSW2k59pQBtWiFZcW4wZrPyfLLyQ2OAAAAABJRU5ErkJggg==';
+		case 'Призрак':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAbUExURUAnUXo2ex4dOVRUVCEhIWtrazU1NVFRUWBgYB9dZAoAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVCjPpczRDYAgDARQRgAmsF3BFQob0AlodQFHcG9RIEGNX97XvVxT84pzzraKgIhQKz4A6D+W37i9BvC2A70f0K8qcKqYhxgaYihxYg7CIWVDfCYtm8iFssm6S1uURVi0QFVJo2rMNHwjOgCoMyvAv7le1QAAAABJRU5ErkJggg==';
+		case 'Адм':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAqUExURfaLINpVKP////aKHfnp5f77+v78+/77+NlTJvaIFlRUVCEhIWtrazU1NUH5RWMAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB6SURBVCjPlY7LDYAgEEQxNuBs4h24GMuwFFuxHFtAO4AKgF4c/5xMfOxm50GyQX1TiX4zXoEBkfrIGNCOkDPDQgy6S8Tw6FvsZGz/CNH/5KAp5PrMc03mAuUKlPNxSXuFEBSHT8EnNsUnJubzhWTWLmsmcc2Ro9jm3AaLaVUbaSmPEwAAAABJRU5ErkJggg==';
+		case 'Дбг':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAbUExURUaCMiVWLtDakVRUVCEhIWtrazU1NVFRUWBgYAcqPmEAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABxSURBVCjPZYsBDcAgDASLA4oCNguzABKYAh4LszDZK6RAkz0h6eX+6Z/g4rpd4A1swFlgPsISZ0+cQgx7Xcjk4Cl2TcQwXhe7xnavQAb8BlZBlwklE4ECebV/Shl40AA0gVLwdocqtTuPEwPaTIeVlD500CXtVqFa9wAAAABJRU5ErkJggg==';
+		case 'Срв':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAbUExURYGXliAuN8fPzFRUVCEhIWtrazU1NVFRUWBgYAF9VpQAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB4SURBVCjPfY3RDYAwCESJExQnUFZwhdYNrA5gGMERnFsObcOX1+TCowfQr3gUaSVqmYa3ZnF1aEGkZjQacPyxKKcAqW+eUz/jw0LxzvTB2G4CQNzB9C5YgigHUakb3gmnovtVTXAq53FbV+Eeq7q506qmrO5hW84PhDkn9oovDHIAAAAASUVORK5CYII=';
+		case 'Тикеты':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAbUExURd6eQYhLK+jBcFRUVCEhIWtrazU1NVFRUWBgYOPFzscAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB3SURBVCjPdY7RFYAgCEVpg3QDW6EVxA2kBlBGaITmTjQNP7r+eM/jPIB/lm0AYDbzIuJc+1srYpu4KqZG1jSpkesiVV302FSgq6el0zkfStZy9a4ArwCMORFRLI/AU84U+biQRbAEdN6YWITrGKaScEgsBEkG3j/OUiqUTia46gAAAABJRU5ErkJggg==';
+		case 'MC':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAhUExURQ4IEUAnUTQgQh4SJnb/A///AP/NQFRUVCEhIWtrazU1NRNYwNgAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABwSURBVCjPtcxbDYAwDIXhAga4GGCH8E46CyhABBawMHAACtapZCSsgAC+p/7JSekjq1RJOWqDGpeWcsONYYz9NMeIZ4MU3IEB27GNAdVSYdXw5+uP5YXcyxXrsct+pBCREFIEEa8zvz6zzW9BZzfnTuJUS/j2Hbz2AAAAAElFTkSuQmCC';
+		case 'МАГИЯ':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURTxei6Td2yE0TFRUVCEhIWtrazU1NU0H69sAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACRSURBVCjPVU6BEcQgCON/AmWCwgq/gnYDnQDcf4SSqnd+zkNCMJH+kYhUE65oLlGVpBd9iL4aEEGDlUlCWiSLvu9jnHPQnKbC7+ZUVBh+cMNcELTdQJYbKwsLLQNlFtk50Smn+cnlBkk3kPM7QOUA1d6see/Vm1F1YPTmHmS4NzecIAbNOgrddo8xbES1w62UBxrpLntrppUPAAAAAElFTkSuQmCC';
+		case 'Знаток':
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAbUExURXo2ez8cP9+EpVRUVCEhIWtrazU1NVFRUWBgYFcV9HUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACBSURBVCjPfY3rDcMgDISdDQoTuF4hK0CSAcpNgNh/hPhBIn71kMDnD5/pv1Lmt0xJJMpN6yzCT1/BRA7U8zPhNEz+mvFAB+bFd0gQm7KomUiUxZ3dHCbEvnTqsxhN2xdRWUS1AxVND0CnP3UAbdClZYNx/Mh6Srp/O/pQxb2klXIDFi8pFDRAUp8AAAAASUVORK5CYII=';
+		default:
+			return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURR4dOXo2e0AnUVRUVCEhIWtrazU1NXlNNgAAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABMSURBVCjPY2AQYGQQYGBgBNEMSkKKSkJKSoogmkEQCZClDDeHuvagKDNGAgwuSADMcQ0NDYNz3NLSEBygFBIHKIUkk+KCJAPiuLgAAER9JX3dL1DAAAAAAElFTkSuQmCC';
+	}
 }
 
 function removeStatusTab(name) {
@@ -88,7 +121,6 @@ function removeStatusTab(name) {
 	}
 	menu.removeChild(document.getElementById(name));
 	TakeTabFromByond(name);
-	under_menu.style.height = menu.clientHeight + 'px';
 }
 
 function sortVerbs() {
@@ -102,10 +134,6 @@ function sortVerbs() {
 		}
 		return 0;
 	})
-}
-
-window.onresize = function () {
-	under_menu.style.height = menu.clientHeight + 'px';
 }
 
 function addPermanentTab(name) {
@@ -152,7 +180,7 @@ function verbs_cat_check(cat) {
 	var tabCat = cat;
 	if (cat.indexOf(".") != -1) {
 		var splitName = cat.split(".");
-		if (split_admin_tabs && splitName[0] === "Admin")
+		if (split_admin_tabs && splitName[0] === "Адм")
 			tabCat = splitName[1];
 		else
 			tabCat = splitName[0];
@@ -168,7 +196,7 @@ function verbs_cat_check(cat) {
 		verbcat = part[0];
 		if (verbcat.indexOf(".") != -1) {
 			var splitName = verbcat.split(".");
-			if (split_admin_tabs && splitName[0] === "Admin")
+			if (split_admin_tabs && splitName[0] === "Адм")
 				verbcat = splitName[1];
 			else
 				verbcat = splitName[0];
@@ -184,7 +212,7 @@ function verbs_cat_check(cat) {
 	if (verbs_in_cat != 1) {
 		removeStatusTab(tabCat);
 		if (current_tab == tabCat)
-			tab_change("Status");
+			tab_change("Состояние");
 	}
 }
 
@@ -248,7 +276,7 @@ function tab_change(tab) {
 		document.getElementById(tab).className = "button active"; // make current button active
 	var spell_tabs_thingy = (spell_tabs.includes(tab));
 	var verb_tabs_thingy = (verb_tabs.includes(tab));
-	if (tab == "Status") {
+	if (tab == "Состояние") {
 		draw_status();
 	} else if (tab == "MC") {
 		draw_mc();
@@ -258,15 +286,14 @@ function tab_change(tab) {
 		draw_verbs(tab);
 	} else if (tab == "Debug Stat Panel") {
 		draw_debug();
-	} else if (tab == "Tickets") {
+	} else if (tab == "Тикеты") {
 		draw_tickets();
-		draw_interviews();
 	} else if (tab == "SDQL2") {
 		draw_sdql2();
 	} else if (tab == turfname) {
 		draw_listedturf();
 	} else {
-		statcontentdiv.textContext = "Loading...";
+		statcontentdiv.textContext = "Загрузка...";
 	}
 	Byond.winset(Byond.windowId, {
 		'is-visible': true,
@@ -300,7 +327,7 @@ function draw_debug() {
 		// Hide subgroups except admin subgroups if they are split
 		if (verb_tabs[i].lastIndexOf(".") != -1) {
 			var splitName = verb_tabs[i].split(".");
-			if (split_admin_tabs && splitName[0] === "Admin")
+			if (split_admin_tabs && splitName[0] === "Адм")
 				part = splitName[1];
 			else
 				continue;
@@ -350,9 +377,9 @@ function draw_debug() {
 
 }
 function draw_status() {
-	if (!document.getElementById("Status")) {
-		createStatusTab("Status");
-		current_tab = "Status";
+	if (!document.getElementById("Состояние")) {
+		createStatusTab("Состояние");
+		current_tab = "Состояние";
 	}
 	statcontentdiv.textContent = '';
 	for (var i = 0; i < status_tab_parts.length; i++) {
@@ -365,7 +392,7 @@ function draw_status() {
 		}
 	}
 	if (verb_tabs.length == 0 || !verbs) {
-		Byond.command("Fix-Stat-Panel");
+		Byond.command("Починить-ЭТУ-панель");
 	}
 }
 
@@ -396,9 +423,9 @@ function draw_mc() {
 function remove_tickets() {
 	if (tickets) {
 		tickets = [];
-		removePermanentTab("Tickets");
-		if (current_tab == "Tickets")
-			tab_change("Status");
+		removePermanentTab("Тикеты");
+		if (current_tab == "Тикеты")
+			tab_change("Состояние");
 	}
 	checkStatusTab();
 }
@@ -408,14 +435,7 @@ function remove_sdql2() {
 		sdql2 = [];
 		removePermanentTab("SDQL2");
 		if (current_tab == "SDQL2")
-			tab_change("Status");
-	}
-	checkStatusTab();
-}
-
-function remove_interviews() {
-	if (tickets) {
-		tickets = [];
+			tab_change("Состояние");
 	}
 	checkStatusTab();
 }
@@ -499,14 +519,14 @@ function remove_listedturf() {
 	removePermanentTab(turfname);
 	checkStatusTab();
 	if (current_tab == turfname) {
-		tab_change("Status");
+		tab_change("Состояние");
 	}
 }
 
 function remove_mc() {
 	removePermanentTab("MC");
 	if (current_tab == "MC") {
-		tab_change("Status");
+		tab_change("Состояние");
 	}
 };
 
@@ -566,56 +586,6 @@ function draw_tickets() {
 	document.getElementById("statcontent").appendChild(table);
 }
 
-function draw_interviews() {
-	var body = document.createElement("div");
-	var header = document.createElement("h3");
-	header.textContent = "Interviews";
-	body.appendChild(header);
-	var manDiv = document.createElement("div");
-	manDiv.className = "interview_panel_controls"
-	var manLink = document.createElement("a");
-	manLink.textContent = "Open Interview Manager Panel";
-	manLink.href = "?_src_=holder;admin_token=" + href_token + ";interview_man=1;statpanel_item_click=left";
-	manDiv.appendChild(manLink);
-	body.appendChild(manDiv);
-
-	// List interview stats
-	var statsDiv = document.createElement("table");
-	statsDiv.className = "interview_panel_stats";
-	for (var key in interviewManager.status) {
-		var d = document.createElement("div");
-		var tr = document.createElement("tr");
-		var stat_name = document.createElement("td");
-		var stat_text = document.createElement("td");
-		stat_name.textContent = key;
-		stat_text.textContent = interviewManager.status[key];
-		tr.appendChild(stat_name);
-		tr.appendChild(stat_text);
-		statsDiv.appendChild(tr);
-	}
-	body.appendChild(statsDiv);
-	document.getElementById("statcontent").appendChild(body);
-
-	// List interviews if any are open
-	var table = document.createElement("table");
-	table.className = "interview_panel_table";
-	if (!interviewManager) {
-		return;
-	}
-	for (var i = 0; i < interviewManager.interviews.length; i++) {
-		var part = interviewManager.interviews[i];
-		var tr = document.createElement("tr");
-		var td = document.createElement("td");
-		var a = document.createElement("a");
-		a.textContent = part["status"];
-		a.href = "?_src_=holder;admin_token=" + href_token + ";interview=" + part["ref"] + ";statpanel_item_click=left";
-		td.appendChild(a);
-		tr.appendChild(td);
-		table.appendChild(tr);
-	}
-	document.getElementById("statcontent").appendChild(table);
-}
-
 function draw_spells(cat) {
 	statcontentdiv.textContent = "";
 	var table = document.createElement("table");
@@ -657,7 +627,7 @@ function draw_verbs(cat) {
 	sortVerbs();
 	if (split_admin_tabs && cat.lastIndexOf(".") != -1) {
 		var splitName = cat.split(".");
-		if (splitName[0] === "Admin")
+		if (splitName[0] === "Адм")
 			cat = splitName[1];
 	}
 	verbs.reverse(); // sort verbs backwards before we draw
@@ -666,7 +636,7 @@ function draw_verbs(cat) {
 		var name = part[0];
 		if (split_admin_tabs && name.lastIndexOf(".") != -1) {
 			var splitName = name.split(".");
-			if (splitName[0] === "Admin")
+			if (splitName[0] === "Адм")
 				name = splitName[1];
 		}
 		var command = part[1];
@@ -711,6 +681,9 @@ function set_theme(which) {
 	if (which == "light") {
 		document.body.className = "";
 		set_style_sheet("browserOutput_white");
+	} else if (which == "gruvbox") {
+		document.body.className = "gruvbox";
+		set_style_sheet("browserOutput");
 	} else if (which == "dark") {
 		document.body.className = "dark";
 		set_style_sheet("browserOutput");
@@ -763,7 +736,7 @@ function add_verb_list(payload) {
 		var category = part[0];
 		if (category.indexOf(".") != -1) {
 			var splitName = category.split(".");
-			if (split_admin_tabs && splitName[0] === "Admin")
+			if (split_admin_tabs && splitName[0] === "Адм")
 				category = splitName[1];
 			else
 				category = splitName[0];
@@ -798,8 +771,8 @@ document.addEventListener("mouseup", restoreFocus);
 document.addEventListener("keyup", restoreFocus);
 
 if (!current_tab) {
-	addPermanentTab("Status");
-	tab_change("Status");
+	addPermanentTab("Состояние");
+	tab_change("Состояние");
 }
 
 window.onload = function () {
@@ -870,7 +843,7 @@ Byond.subscribeTo('update_stat', function (payload) {
 
 	for (var i = 0; i < parsed.length; i++) if (parsed[i] != null) status_tab_parts.push(parsed[i]);
 
-	if (current_tab == "Status") {
+	if (current_tab == "Состояние") {
 		draw_status();
 	} else if (current_tab == "Debug Stat Panel") {
 		draw_debug();
@@ -935,20 +908,12 @@ Byond.subscribeTo('remove_admin_tabs', function () {
 	remove_mc();
 	remove_tickets();
 	remove_sdql2();
-	remove_interviews();
 });
 
 Byond.subscribeTo('update_listedturf', function (TC) {
 	turfcontents = TC;
 	if (current_tab == turfname) {
 		draw_listedturf();
-	}
-});
-
-Byond.subscribeTo('update_interviews', function (I) {
-	interviewManager = I;
-	if (current_tab == "Tickets") {
-		draw_interviews();
 	}
 });
 
@@ -969,7 +934,7 @@ Byond.subscribeTo('update_split_admin_tabs', function (status) {
 Byond.subscribeTo('add_admin_tabs', function (ht) {
 	href_token = ht;
 	addPermanentTab("MC");
-	addPermanentTab("Tickets");
+	addPermanentTab("Тикеты");
 });
 
 Byond.subscribeTo('update_sdql2', function (S) {
@@ -985,11 +950,11 @@ Byond.subscribeTo('update_sdql2', function (S) {
 
 Byond.subscribeTo('update_tickets', function (T) {
 	tickets = T;
-	if (!verb_tabs.includes("Tickets")) {
-		verb_tabs.push("Tickets");
-		addPermanentTab("Tickets");
+	if (!verb_tabs.includes("Тикеты")) {
+		verb_tabs.push("Тикеты");
+		addPermanentTab("Тикеты");
 	}
-	if (current_tab == "Tickets") {
+	if (current_tab == "Тикеты") {
 		draw_tickets();
 	}
 });

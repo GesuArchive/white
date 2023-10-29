@@ -1,24 +1,22 @@
 /obj/structure/closet/crate/wooden
-	name = "wooden crate"
-	desc = "Works just as well as a metal one."
+	name = "деревянный ящик"
+	desc = "Как металлический, только деревянный."
 	material_drop = /obj/item/stack/sheet/mineral/wood
 	material_drop_amount = 6
 	icon_state = "wooden"
-	base_icon_state = "wooden"
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
 	close_sound = 'sound/machines/wooden_closet_close.ogg'
 	open_sound_volume = 25
 	close_sound_volume = 50
-	paint_jobs = null
 
 /obj/structure/closet/crate/wooden/toy
-	name = "toy box"
-	desc = "It has the words \"Clown + Mime\" written underneath of it with marker."
+	name = "коробка с игрушками"
+	desc = "Снизу маркером написано \"Клоун + Мим\" ."
 
 /obj/structure/closet/crate/wooden/toy/PopulateContents()
 	. = ..()
-	new /obj/item/megaphone/clown(src)
-	new /obj/item/reagent_containers/cup/soda_cans/canned_laughter(src)
+	new	/obj/item/megaphone/clown(src)
+	new	/obj/item/reagent_containers/food/drinks/soda_cans/canned_laughter(src)
 	new /obj/item/pneumatic_cannon/pie(src)
 	new /obj/item/food/pie/cream(src)
 	new /obj/item/storage/crayons(src)

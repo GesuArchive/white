@@ -29,7 +29,7 @@
 }
 
 .header {
-	font-size: 24px; font-weight: bold;
+	font-size: 20px; font-weight: bold;
 }
 
 .big {
@@ -65,15 +65,16 @@ li {
 }
 
 .panel {
-	background-color: #313131;
+	background-color: #121212;
 	padding: 10px;
-	border-radius: 10px;
-	margin-bottom: 5px;
+	border-radius: 8px;
+	margin-top: 8px;
+	margin-bottom: 8px;
 }
 
 body {
-	background-color: #272727;
-	color: #efefef;
+	background-color: #050505;
+	color: #aaaaaa;
 }
 
 .tooltip_container {

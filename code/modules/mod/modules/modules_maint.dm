@@ -2,11 +2,11 @@
 
 ///Springlock Mechanism - allows your modsuit to activate faster, but reagents are very dangerous.
 /obj/item/mod/module/springlock
-	name = "MOD springlock module"
-	desc = "A module that spans the entire size of the MOD unit, sitting under the outer shell. \
-		This mechanical exoskeleton pushes out of the way when the user enters and it helps in booting \
-		up, but was taken out of modern suits because of the springlock's tendency to \"snap\" back \
-		into place when exposed to humidity. You know what it's like to have an entire exoskeleton enter you?"
+	name = "модуль пружинных фиксаторов"
+	desc = "Модуль, охватывающий весь скафандр, установленный в наружней оболочке. \
+		Этот механический экзоскелет выдвигается во время активации скафандра и помогает в фиксации систем,  \
+		но был демонтирован с современных скафандров по причине возможных \"схлопываний\" пружин от малейшей влаги обратно в оболочку. \
+		Вы знаете какого это, когда весь экзоскелет впивается в ваше тело?"
 	icon_state = "springlock"
 	complexity = 3 // it is inside every part of your suit, so
 	incompatible_modules = list(/obj/item/mod/module/springlock)
@@ -29,7 +29,7 @@
 
 	if(!(methods & (VAPOR|PATCH|TOUCH)))
 		return //remove non-touch reagent exposure
-	to_chat(mod.wearer, span_danger("[src] makes an ominous click sound..."))
+	to_chat(mod.wearer, span_danger("[src] издает зловещий щелчок..."))
 	playsound(src, 'sound/items/modsuit/springlock.ogg', 75, TRUE)
 	addtimer(CALLBACK(src, PROC_REF(snap_shut)), rand(3 SECONDS, 5 SECONDS))
 	RegisterSignal(mod, COMSIG_MOD_ACTIVATE, PROC_REF(on_activate_spring_block))
@@ -37,7 +37,8 @@
 ///Signal fired when wearer attempts to activate/deactivate suits
 /obj/item/mod/module/springlock/proc/on_activate_spring_block(datum/source, user)
 	SIGNAL_HANDLER
-	balloon_alert(user, "springlocks aren't responding...?")
+
+	balloon_alert(user, "Пружинный фиксатор не отвечает...?")
 	return MOD_CANCEL_ACTIVATE
 
 ///Delayed death proc of the suit after the wearer is exposed to reagents
@@ -45,21 +46,19 @@
 	UnregisterSignal(mod, COMSIG_MOD_ACTIVATE)
 	if(!mod.wearer) //while there is a guaranteed user when on_wearer_exposed() fires, that isn't the same case for this proc
 		return
-	mod.wearer.visible_message("[src] inside [mod.wearer]'s [mod.name] snaps shut, mutilating the user inside!", span_userdanger("*SNAP*"))
+	mod.wearer.visible_message("[src] схлопывает [mod.wearer] внутри, изувечивая пользователя!", span_userdanger("*ЩЕЛЧОК*"))
 	mod.wearer.emote("scream")
 	playsound(mod.wearer, 'sound/effects/snap.ogg', 75, TRUE, frequency = 0.5)
 	playsound(mod.wearer, 'sound/effects/splat.ogg', 50, TRUE, frequency = 0.5)
-	mod.wearer.client?.give_award(/datum/award/achievement/misc/springlock, mod.wearer)
 	mod.wearer.apply_damage(500, BRUTE, forced = TRUE, spread_damage = TRUE, sharpness = SHARP_POINTY) //boggers, bogchamp, etc
 	if(!HAS_TRAIT(mod.wearer, TRAIT_NODEATH))
-		mod.wearer.investigate_log("has been killed by [src].", INVESTIGATE_DEATHS)
 		mod.wearer.death() //just in case, for some reason, they're still alive
 	flash_color(mod.wearer, flash_color = "#FF0000", flash_time = 10 SECONDS)
 
 ///Rave Visor - Gives you a rainbow visor and plays jukebox music to you.
 /obj/item/mod/module/visor/rave
-	name = "MOD rave visor module"
-	desc = "A Super Cool Awesome Visor (SCAV), intended for modular suits."
+	name = "модуль рейв визора"
+	desc = "Супер крутой афигенный визор (СКАВ), для MOD-Скафандров."
 	icon_state = "rave_visor"
 	complexity = 1
 	overlay_state_inactive = "module_rave"
@@ -123,7 +122,7 @@
 	for(var/mutable_appearance/appearance as anything in .)
 		appearance.color = active ? rainbow_order[rave_number] : null
 
-/obj/item/mod/module/visor/rave/on_active_process(seconds_per_tick)
+/obj/item/mod/module/visor/rave/on_active_process(delta_time)
 	rave_number++
 	if(rave_number > length(rainbow_order))
 		rave_number = 1
@@ -133,7 +132,7 @@
 /obj/item/mod/module/visor/rave/get_configuration()
 	. = ..()
 	if(length(songs))
-		.["selection"] = add_ui_configuration("Song", "list", selection.song_name, clean_songs())
+		.["selection"] = add_ui_configuration("Песня", "list", selection.song_name, clean_songs())
 
 /obj/item/mod/module/visor/rave/configure_edit(key, value)
 	switch(key)
@@ -149,9 +148,9 @@
 
 ///Tanner - Tans you with spraytan.
 /obj/item/mod/module/tanner
-	name = "MOD tanning module"
-	desc = "A tanning module for modular suits. Skin cancer functionality has not been ever proven, \
-		although who knows with the rumors..."
+	name = "модуль загара"
+	desc = "Модуль загара для MOD-Скафандров. Технически факт образования рака кожи не был доказан, \
+		хотя, кто-знает, ходят некоторые слухи..."
 	icon_state = "tanning"
 	module_type = MODULE_USABLE
 	complexity = 1
@@ -168,13 +167,13 @@
 	holder.add_reagent(/datum/reagent/spraytan, 10)
 	holder.trans_to(mod.wearer, 10, methods = VAPOR)
 	if(prob(5))
-		SSradiation.irradiate(mod.wearer)
+		mod.wearer.rad_act(300)
 	drain_power(use_power_cost)
 
 ///Balloon Blower - Blows a balloon.
 /obj/item/mod/module/balloon
-	name = "MOD balloon blower module"
-	desc = "A strange module invented years ago by some ingenious mimes. It blows balloons."
+	name = "модуль авто-надутия шариков"
+	desc = "Странный модуль изобретённый гениальными мимами. Он надувает шарики."
 	icon_state = "bloon"
 	module_type = MODULE_USABLE
 	complexity = 1
@@ -196,9 +195,9 @@
 
 ///Paper Dispenser - Dispenses (sometimes burning) paper sheets.
 /obj/item/mod/module/paper_dispenser
-	name = "MOD paper dispenser module"
-	desc = "A simple module designed by the bureaucrats of Torch Bay. \
-		It dispenses 'warm, clean, and crisp sheets of paper' onto a nearby table. Usually."
+	name = "модуль раздатчика бумаги"
+	desc = "Простой модуль изобретённый бюрократами одной корпоративной конторы. \
+		Он создаёт теплые, чистые и свежие листы бумаги на ближайший стол. Обычно."
 	icon_state = "paper_maker"
 	module_type = MODULE_USABLE
 	complexity = 1
@@ -216,11 +215,11 @@
 		return FALSE
 
 	var/obj/item/paper/crisp_paper = new(get_turf(src))
-	crisp_paper.desc = "It's crisp and warm to the touch. Must be fresh."
+	crisp_paper.desc = "Он свежий и теплый на ощупь. Должен быть свежим."
 
 	var/obj/structure/table/nearby_table = locate() in range(1, mod.wearer)
 	playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
-	balloon_alert(mod.wearer, "dispensed paper[nearby_table ? " onto table":""]")
+	balloon_alert(mod.wearer, "Выдал бумагу [nearby_table ? "на стол":""]")
 
 	mod.wearer.put_in_hands(crisp_paper)
 	if(nearby_table)
@@ -230,8 +229,8 @@
 	if(prob(min(num_sheets_dispensed * 2, 30)))
 		if(crisp_paper in mod.wearer.held_items)
 			mod.wearer.dropItemToGround(crisp_paper, force = TRUE)
-		crisp_paper.balloon_alert(mod.wearer, UNLINT("PC LOAD LETTER!"))
-		crisp_paper.visible_message(span_warning("[crisp_paper] bursts into flames, it's too crisp!"))
+		crisp_paper.balloon_alert(mod.wearer, UNLINT("ЗАГРУЗИТЕ БУМАЖНУЮ КАСЕТУ!")) // инглишный вариант является мемом старым но мы тут русские
+		crisp_paper.visible_message(span_warning("[crisp_paper] загорается, слишком свежий!"))
 		crisp_paper.fire_act(1000, 100)
 
 	drain_power(use_power_cost)
@@ -240,9 +239,9 @@
 
 ///Stamper - Extends a stamp that can switch between accept/deny modes.
 /obj/item/mod/module/stamp
-	name = "MOD stamper module"
-	desc = "A module installed into the wrist of the suit, this functions as a high-power stamp, \
-		able to switch between accept and deny modes."
+	name = "модуль штампа"
+	desc = "Модуль, установленный в запястье скафандра, и функционирующий как штамп высокой мощности, \
+		с возможностью переключаться между режимами ОДОБРЕНО и ОТКАЗАНО."
 	icon_state = "stamp"
 	module_type = MODULE_ACTIVE
 	complexity = 1
@@ -252,8 +251,8 @@
 	cooldown_time = 0.5 SECONDS
 
 /obj/item/stamp/mod
-	name = "MOD electronic stamp"
-	desc = "A high-power stamp, able to switch between accept and deny mode when used."
+	name = "электрический штамп"
+	desc = "Штамп высокой мощности, способный переключаться между ОДОБРЕНО и ОТКАЗАНО при использовании."
 
 /obj/item/stamp/mod/attack_self(mob/user, modifiers)
 	. = ..()
@@ -261,12 +260,12 @@
 		icon_state = "stamp-deny"
 	else
 		icon_state = "stamp-ok"
-	balloon_alert(user, "switched mode")
+	balloon_alert(user, "Смена режима")
 
 ///Atrocinator - Flips your gravity.
 /obj/item/mod/module/atrocinator
-	name = "MOD atrocinator module"
-	desc = "A mysterious orb that has mysterious effects when inserted in a MODsuit."
+	name = "модуль атроцинатора" // перевода атроцинатора нет
+	desc = "Таинственный шар, который таинственно влияет на скафандр."
 	icon_state = "atrocinator"
 	module_type = MODULE_TOGGLE
 	complexity = 2
@@ -286,13 +285,13 @@
 	playsound(src, 'sound/effects/curseattack.ogg', 50)
 	mod.wearer.AddElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
 	RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, PROC_REF(check_upstairs))
-	RegisterSignal(mod.wearer, COMSIG_MOB_SAY, PROC_REF(on_talk))
+	mod.wearer.update_gravity(mod.wearer.has_gravity())
 	ADD_TRAIT(mod.wearer, TRAIT_SILENT_FOOTSTEPS, MOD_TRAIT)
 	check_upstairs() //todo at some point flip your screen around
 
 /obj/item/mod/module/atrocinator/on_deactivation(display_message = TRUE, deleting = FALSE)
 	if(you_fucked_up && !deleting)
-		to_chat(mod.wearer, span_danger("It's too late."))
+		to_chat(mod.wearer, span_danger("Слишком поздно."))
 		return FALSE
 	. = ..()
 	if(!.)
@@ -301,8 +300,8 @@
 		playsound(src, 'sound/effects/curseattack.ogg', 50)
 	qdel(mod.wearer.RemoveElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY))
 	UnregisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED)
-	UnregisterSignal(mod.wearer, COMSIG_MOB_SAY)
 	step_count = 0
+	mod.wearer.update_gravity(mod.wearer.has_gravity())
 	REMOVE_TRAIT(mod.wearer, TRAIT_SILENT_FOOTSTEPS, MOD_TRAIT)
 	var/turf/open/openspace/current_turf = get_turf(mod.wearer)
 	if(istype(current_turf))
@@ -328,27 +327,9 @@
 /obj/item/mod/module/atrocinator/proc/fly_away()
 	you_fucked_up = TRUE
 	playsound(src, 'sound/effects/whirthunk.ogg', 75)
-	to_chat(mod.wearer, span_userdanger("That was stupid."))
-	investigate_log("has flown off into space due to the [src].", INVESTIGATE_DEATHS)
+	to_chat(mod.wearer, span_userdanger("Это было тупо."))
 	mod.wearer.Stun(FLY_TIME, ignore_canstun = TRUE)
 	animate(mod.wearer, FLY_TIME, pixel_z = 256, alpha = 0)
 	QDEL_IN(mod.wearer, FLY_TIME)
 
 #undef FLY_TIME
-
-/obj/item/mod/module/atrocinator/proc/on_talk(datum/source, list/speech_args)
-	SIGNAL_HANDLER
-	speech_args[SPEECH_SPANS] |= "upside_down"
-
-/obj/item/mod/module/recycler/donk/safe
-	name = "MOD foam dart recycler module"
-	desc = "A mod module that collects and repackages fired foam darts into half-sized ammo boxes. \
-		Activate on a nearby turf or storage to unload stored ammo boxes."
-	icon_state = "donk_safe_recycler"
-	overlay_state_inactive = "module_donk_safe_recycler"
-	overlay_state_active = "module_donk_safe_recycler"
-	complexity = 1
-	efficiency = 1
-	allowed_item_types = list(/obj/item/ammo_casing/foam_dart)
-	ammobox_type = /obj/item/ammo_box/foambox/mini
-	required_amount = SMALL_MATERIAL_AMOUNT*2.5

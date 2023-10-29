@@ -1,0 +1,1885 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/ruin/unpowered)
+"aj" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner,
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/corner,
+/area/ruin/unpowered)
+"aM" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 4
+	},
+/obj/item/reagent_containers/hypospray/medipen{
+	pixel_y = 9;
+	pixel_x = 7
+	},
+/obj/item/bonesetter,
+/obj/item/reagent_containers/hypospray/medipen{
+	pixel_y = 15;
+	pixel_x = 4
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/ruin/unpowered)
+"aZ" = (
+/obj/effect/turf_decal/box/white/corners,
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/ruin/unpowered)
+"bz" = (
+/obj/effect/turf_decal/trimline/blue/line,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"cT" = (
+/obj/effect/turf_decal/trimline/brown/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/xenoblood/xgibs{
+	pixel_y = 17
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"dC" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/trimline/red/line{
+	dir = 8
+	},
+/obj/item/folder/red{
+	pixel_y = 2;
+	pixel_x = -2
+	},
+/obj/item/pen{
+	pixel_x = -5
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"dJ" = (
+/obj/effect/turf_decal/trimline/green/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"dN" = (
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/leaper_sludge,
+/turf/open/floor/plasteel/monofloor,
+/area/ruin/unpowered)
+"dS" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 8
+	},
+/obj/item/wrench{
+	pixel_y = -10;
+	pixel_x = -2
+	},
+/obj/item/screwdriver{
+	pixel_y = 1
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"dT" = (
+/obj/structure/table/reinforced,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 4
+	},
+/obj/item/storage/box/syringes{
+	pixel_x = -4;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_x = -5;
+	pixel_y = -5
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"eb" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"er" = (
+/obj/machinery/smartfridge/organ,
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/ruin/unpowered)
+"eR" = (
+/obj/machinery/computer/crew{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"fd" = (
+/obj/effect/decal/cleanable/plastic,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"fA" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 4
+	},
+/obj/item/multitool{
+	pixel_y = -10;
+	pixel_x = 4
+	},
+/obj/item/wirecutters{
+	pixel_y = 6;
+	pixel_x = 1
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"fQ" = (
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/corner,
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/ruin/unpowered)
+"fY" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 4
+	},
+/obj/item/weldingtool{
+	pixel_y = -10
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"ga" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/obj/structure/table/reinforced,
+/obj/item/storage/firstaid/fire{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/storage/firstaid/brute{
+	pixel_x = -1;
+	pixel_y = -1
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -5;
+	pixel_y = -3
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 2
+	},
+/obj/machinery/door/window/northleft{
+	dir = 8;
+	icon_state = "right";
+	name = "First-Aid Supplies"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"gh" = (
+/obj/structure/table/glass,
+/obj/effect/turf_decal/trimline/red/line{
+	dir = 4
+	},
+/obj/item/storage/backpack/duffelbag/med/surgery{
+	pixel_y = 12
+	},
+/obj/item/storage/backpack/duffelbag/med/surgery,
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"gi" = (
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"gV" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"hf" = (
+/obj/structure/railing/corner,
+/obj/effect/turf_decal/trimline/red/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/ruin/unpowered)
+"hP" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 4
+	},
+/obj/item/clothing/neck/stethoscope{
+	pixel_y = -1;
+	pixel_x = 2
+	},
+/obj/item/breathing_bag{
+	pixel_y = 6
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"ig" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"iu" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/obj/structure/table/reinforced,
+/obj/item/disk/design_disk/limbs/lizard{
+	pixel_y = 7;
+	pixel_x = -2
+	},
+/obj/item/disk/design_disk/limbs/plasmaman{
+	pixel_y = -1;
+	pixel_x = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"ix" = (
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"jb" = (
+/obj/effect/turf_decal/trimline/yellow/line,
+/obj/structure/closet/body_bag,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"ka" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 8
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/northleft{
+	dir = 8;
+	name = "First-Aid Supplies"
+	},
+/obj/item/storage/backpack/duffelbag/med/surgery{
+	pixel_y = 12
+	},
+/obj/item/clothing/gloves/color/latex/nitrile/polymer{
+	pixel_y = -11
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"kc" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8;
+	pixel_y = 8
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"kq" = (
+/obj/effect/turf_decal/trimline/purple/warning{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"kN" = (
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"lu" = (
+/obj/machinery/light,
+/obj/effect/turf_decal/trimline/red/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"lY" = (
+/obj/structure/table/optable,
+/obj/effect/decal/cleanable/wrapping,
+/obj/effect/decal/cleanable/plasma,
+/obj/effect/decal/cleanable/robot_debris,
+/obj/effect/decal/cleanable/molten_object,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"ma" = (
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
+"my" = (
+/obj/effect/turf_decal/trimline/red/warning,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"mH" = (
+/obj/effect/decal/cleanable/blood/bubblegum,
+/obj/effect/decal/cleanable/blood/gibs{
+	pixel_y = 8;
+	pixel_x = 9
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"nj" = (
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/ruin/unpowered)
+"nx" = (
+/obj/effect/decal/cleanable/shreds,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"nA" = (
+/obj/effect/turf_decal/trimline/brown/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"nE" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin/unpowered)
+"nN" = (
+/obj/structure/table/reinforced,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/brown/line{
+	dir = 4
+	},
+/obj/item/clothing/glasses/science{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"oa" = (
+/obj/structure/table/reinforced,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown/line{
+	dir = 8
+	},
+/obj/item/scalpel{
+	pixel_y = 7
+	},
+/obj/item/retractor{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/cautery{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"oi" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 8
+	},
+/obj/machinery/smartfridge/organ/alien,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"ot" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 8
+	},
+/obj/item/crowbar{
+	pixel_x = -3;
+	pixel_y = 11
+	},
+/obj/item/surgical_drapes,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"ow" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/effect/turf_decal/trimline/green/line,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"oC" = (
+/obj/structure/table/glass,
+/obj/effect/turf_decal/trimline/red/line{
+	dir = 4
+	},
+/obj/item/storage/organbox,
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"oV" = (
+/obj/effect/turf_decal/trimline/red/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"pi" = (
+/obj/structure/table/reinforced,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/line{
+	dir = 8
+	},
+/obj/item/organ/zombie_infection,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"ps" = (
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"qY" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/corner,
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/blood/lizard{
+	pixel_y = 5;
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/blood/lizard{
+	pixel_x = 6
+	},
+/obj/item/blood_filter{
+	pixel_y = -9
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/ruin/unpowered)
+"qZ" = (
+/obj/structure/table/optable,
+/obj/item/bodypart/chest/alien,
+/obj/effect/decal/cleanable/insectguts{
+	pixel_y = -8
+	},
+/obj/effect/decal/cleanable/greenglow{
+	pixel_y = -11
+	},
+/obj/item/bodypart/r_arm/alien{
+	pixel_x = -10
+	},
+/obj/item/bodypart/head/alien{
+	pixel_x = 9;
+	pixel_y = -7
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"rd" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/brown/corner,
+/obj/structure/table/reinforced,
+/obj/effect/spawner/lootdrop/ruinloot/medical,
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/ruin/unpowered)
+"ry" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/trimline/red/line{
+	dir = 8
+	},
+/obj/item/shears{
+	pixel_x = -4;
+	pixel_y = 16
+	},
+/obj/item/circular_saw{
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"td" = (
+/obj/structure/table/optable,
+/mob/living/simple_animal/hostile/vanya/killermeat{
+	maxHealth = 500;
+	health = 500
+	},
+/obj/effect/decal/cleanable/blood/bubblegum,
+/obj/effect/decal/cleanable/blood/gibs{
+	pixel_y = 8;
+	pixel_x = 9
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"te" = (
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 8
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"tW" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown/corner{
+	dir = 8
+	},
+/obj/structure/table/reinforced,
+/obj/item/organ/body_egg/alien_embryo,
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/ruin/unpowered)
+"uA" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 1
+	},
+/obj/structure/table/reinforced,
+/obj/item/gun/syringe,
+/obj/item/reagent_containers/glass/bottle/epinephrine{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/glass/bottle/atropine,
+/obj/item/reagent_containers/glass/bottle/multiver{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"uP" = (
+/obj/effect/turf_decal/trimline/purple/line,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/blood/ethereal,
+/obj/item/reagent_containers/blood/ethereal,
+/obj/item/reagent_containers/blood/ethereal,
+/obj/item/reagent_containers/blood/ethereal,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"uU" = (
+/obj/item/bodypart/l_arm/alien,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"uV" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 1
+	},
+/obj/item/bodypart/head/robot{
+	pixel_y = 11
+	},
+/obj/item/bodypart/l_arm/robot{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/obj/item/bodypart/r_arm/robot{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/bodypart/l_leg/robot{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/item/bodypart/r_leg/robot{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/obj/item/bodypart/chest/robot,
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
+"vW" = (
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/unpowered)
+"ws" = (
+/obj/effect/turf_decal/trimline/purple/line,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"wu" = (
+/obj/effect/turf_decal/trimline/red/corner,
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/ruin/unpowered)
+"wV" = (
+/obj/effect/turf_decal/trimline/blue/warning{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 18;
+	pixel_x = -14
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 12;
+	pixel_x = 10
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"xa" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4;
+	pixel_y = 8
+	},
+/obj/effect/decal/cleanable/blood/bubblegum{
+	pixel_x = -13
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"xk" = (
+/obj/effect/decal/cleanable/xenoblood{
+	pixel_y = 6;
+	pixel_x = 14
+	},
+/obj/item/bodypart/r_leg/alien{
+	pixel_x = 17;
+	pixel_y = 9
+	},
+/obj/effect/decal/cleanable/xenoblood/xgibs/larva,
+/obj/effect/decal/remains/xeno/larva,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"xm" = (
+/obj/effect/turf_decal/trimline/red/line{
+	dir = 1
+	},
+/obj/structure/closet/body_bag,
+/obj/effect/mob_spawn/human/corpse/russian,
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"xo" = (
+/obj/machinery/light,
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 1
+	},
+/obj/structure/bed/roller,
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"xr" = (
+/obj/structure/table/optable,
+/obj/effect/decal/cleanable/blood/gibs,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"xw" = (
+/obj/structure/closet/l3closet/virology,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
+"xM" = (
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 12;
+	pixel_x = -6
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 11;
+	pixel_x = 15
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"yL" = (
+/obj/structure/table/reinforced,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 4
+	},
+/obj/item/iv_drip_item,
+/obj/item/iv_drip_item{
+	pixel_y = 7
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"yO" = (
+/obj/structure/closet/l3closet/virology,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/ruin/unpowered)
+"yU" = (
+/obj/structure/table/glass,
+/obj/item/paper_bin{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/geiger_counter{
+	pixel_y = 3;
+	pixel_x = 6
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/ruin/unpowered)
+"ze" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/effect/turf_decal/trimline/purple/line,
+/obj/structure/closet/crate/freezer/blood,
+/obj/item/reagent_containers/blood/a_minus,
+/obj/item/reagent_containers/blood/a_plus,
+/obj/item/reagent_containers/blood/b_minus,
+/obj/item/reagent_containers/blood/b_plus,
+/obj/item/reagent_containers/blood/o_minus,
+/obj/item/reagent_containers/blood/o_plus,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"zj" = (
+/obj/effect/turf_decal/trimline/red/line,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"BP" = (
+/obj/structure/table/reinforced,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown/line{
+	dir = 8
+	},
+/obj/effect/spawner/lootdrop/ruinloot/medical,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"BQ" = (
+/obj/structure/safe,
+/obj/item/autosurgeon/organ,
+/obj/item/autosurgeon/organ/hud/medical,
+/turf/open/floor/circuit,
+/area/ruin/unpowered)
+"Ck" = (
+/obj/effect/turf_decal/trimline/green/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/ruin/unpowered)
+"DV" = (
+/obj/effect/turf_decal/box/white/corners,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/ruin/unpowered)
+"Ea" = (
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
+"El" = (
+/obj/effect/decal/cleanable/oil,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"Fp" = (
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 1
+	},
+/obj/structure/bed/roller,
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"Fz" = (
+/obj/structure/table/glass,
+/obj/item/gun/medbeam,
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/ruin/unpowered)
+"FE" = (
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/corner,
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/ruin/unpowered)
+"Gh" = (
+/obj/effect/decal/cleanable/xenoblood,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"Gu" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/brown/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/ruin/unpowered)
+"GI" = (
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 15;
+	pixel_x = 8
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 11;
+	pixel_x = -9
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"GY" = (
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 8;
+	pixel_x = -3
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 8;
+	pixel_x = 14
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"Hi" = (
+/obj/effect/turf_decal/trimline/blue/warning,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1;
+	pixel_y = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"Hv" = (
+/obj/structure/closet/body_bag,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"HD" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/corner{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"HH" = (
+/obj/machinery/light,
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"HQ" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 4
+	},
+/obj/item/folder/blue{
+	pixel_y = 3;
+	pixel_x = 3
+	},
+/obj/item/healthanalyzer{
+	pixel_y = -9
+	},
+/obj/item/pen,
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"HY" = (
+/obj/effect/turf_decal/trimline/green/corner,
+/obj/structure/table,
+/obj/item/folder/white{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/folder/white{
+	pixel_x = 2
+	},
+/obj/item/pen{
+	pixel_x = -1
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -9
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/ruin/unpowered)
+"Ia" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 8
+	},
+/turf/open/floor/material,
+/area/ruin/unpowered)
+"If" = (
+/obj/effect/turf_decal/trimline/green/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/splatter{
+	pixel_y = -12;
+	pixel_x = -12
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"Ih" = (
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_y = 11;
+	pixel_x = -8
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_y = 3;
+	pixel_x = 10
+	},
+/obj/effect/decal/cleanable/blood/bubblegum{
+	icon_state = "splatter2";
+	pixel_x = 6
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/ruin/unpowered)
+"Ii" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4;
+	pixel_y = 8
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"Io" = (
+/obj/structure/table/optable,
+/obj/effect/decal/cleanable/blood/gibs,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	pixel_y = 13
+	},
+/obj/effect/mob_spawn/human/corpse/cargo_tech,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"Iv" = (
+/obj/structure/table/reinforced,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/line{
+	dir = 8
+	},
+/obj/item/scalpel{
+	pixel_y = 14
+	},
+/obj/item/hemostat{
+	pixel_y = -3
+	},
+/obj/item/surgicaldrill,
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"IH" = (
+/obj/effect/turf_decal/trimline/purple/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
+"Jj" = (
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = 8;
+	pixel_x = 18
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"Jr" = (
+/obj/effect/decal/cleanable/blood/bubblegum,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"Kq" = (
+/obj/effect/turf_decal/trimline/yellow/line,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"Kr" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"Kw" = (
+/obj/structure/table/optable,
+/obj/structure/closet/body_bag,
+/obj/effect/mob_spawn/human/corpse/russian/ranged/officer,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"Kx" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/robot_debris,
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"KG" = (
+/obj/effect/turf_decal/trimline/blue/warning{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"KZ" = (
+/obj/effect/turf_decal/trimline/purple/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/ruin/unpowered)
+"LO" = (
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/corner{
+	dir = 1
+	},
+/obj/structure/closet/body_bag,
+/obj/effect/mob_spawn/human/corpse/cat_butcher,
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
+"Md" = (
+/obj/machinery/iv_drip,
+/obj/effect/decal/cleanable/blood/bubblegum{
+	pixel_x = -13
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"Mt" = (
+/obj/structure/table/glass,
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"MA" = (
+/obj/item/bodypart/l_leg/alien,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"MJ" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"MQ" = (
+/obj/structure/table/glass,
+/obj/item/folder/white{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/folder/white{
+	pixel_x = 2
+	},
+/obj/item/pen{
+	pixel_x = -1
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"Nk" = (
+/obj/structure/railing/corner,
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 8
+	},
+/obj/structure/closet/body_bag,
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/ruin/unpowered)
+"Nz" = (
+/obj/structure/chair/office/light{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/end{
+	dir = 8
+	},
+/obj/effect/mob_spawn/human/corpse/der_cmo,
+/obj/item/gun/ballistic/revolver/russian,
+/turf/open/floor/plasteel/monofloor,
+/area/ruin/unpowered)
+"NM" = (
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4;
+	pixel_y = -1;
+	pixel_x = -3
+	},
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"Oh" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 8
+	},
+/obj/item/disk/design_disk/limbs/ethereal{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/disk/design_disk/limbs/felinid{
+	pixel_y = -10;
+	pixel_x = 3
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"OL" = (
+/obj/effect/turf_decal/trimline/brown/line,
+/obj/effect/decal/cleanable/xenoblood,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"OU" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"OX" = (
+/obj/structure/table/reinforced,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/brown/line{
+	dir = 4
+	},
+/obj/item/bodypart/chest/larva{
+	pixel_x = 6
+	},
+/obj/item/bodypart/head/larva{
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"Pb" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/ruin/unpowered)
+"Pe" = (
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"PL" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
+"PX" = (
+/obj/structure/table/glass,
+/obj/machinery/computer/med_data/laptop,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"Qm" = (
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/ruin/unpowered)
+"QQ" = (
+/obj/structure/table/reinforced,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/corner{
+	dir = 8
+	},
+/obj/item/razor{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/ruin/unpowered)
+"Rs" = (
+/obj/effect/turf_decal/trimline/green/line,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"RQ" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/trimline/red/corner{
+	dir = 1
+	},
+/obj/item/mmi{
+	pixel_y = 3
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
+"RR" = (
+/obj/machinery/computer/med_data{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/green/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 8
+	},
+/area/ruin/unpowered)
+"Sm" = (
+/obj/effect/turf_decal/trimline/brown/line,
+/obj/effect/decal/cleanable/xenoblood/xgibs{
+	pixel_y = -17;
+	pixel_x = -10
+	},
+/obj/effect/decal/cleanable/greenglow,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"SQ" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/northleft{
+	name = "First-Aid Supplies"
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = -3;
+	pixel_y = 1
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Ui" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	pixel_y = 8
+	},
+/obj/effect/decal/cleanable/blood/bubblegum,
+/turf/open/floor/plasteel/freezer,
+/area/ruin/unpowered)
+"UU" = (
+/obj/effect/turf_decal/trimline/green/line{
+	dir = 1
+	},
+/obj/structure/closet/body_bag,
+/turf/open/floor/plasteel/dark/side,
+/area/ruin/unpowered)
+"VI" = (
+/obj/machinery/limbgrower,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"VX" = (
+/obj/effect/turf_decal/trimline/blue/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
+"XE" = (
+/obj/effect/turf_decal/trimline/purple/warning{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
+/area/ruin/unpowered)
+"Ya" = (
+/obj/effect/turf_decal/trimline/yellow/warning,
+/obj/effect/decal/cleanable/blood/splatter{
+	pixel_y = 15
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"Yo" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 5;
+	pixel_y = 8
+	},
+/obj/effect/decal/cleanable/blood/bubblegum{
+	pixel_y = -12;
+	pixel_x = -8
+	},
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/unpowered)
+"YV" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/effect/turf_decal/trimline/brown/line,
+/turf/open/floor/plasteel/dark/side{
+	dir = 1
+	},
+/area/ruin/unpowered)
+"Zf" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 4
+	},
+/obj/item/folder/yellow{
+	pixel_y = 2;
+	pixel_x = 3
+	},
+/obj/item/pen,
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/ruin/unpowered)
+"Zr" = (
+/obj/effect/spawner/structure/window/survival_pod,
+/turf/open/floor/circuit,
+/area/ruin/unpowered)
+"Zy" = (
+/obj/machinery/door/airlock/public/glass,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+nE
+nE
+nE
+nE
+nE
+Ia
+nE
+nE
+nE
+nE
+nE
+"}
+(2,1,1) = {"
+nE
+HY
+RR
+eR
+Ck
+te
+wu
+oC
+gh
+er
+nE
+"}
+(3,1,1) = {"
+nE
+Rs
+Pe
+Pe
+dJ
+GI
+zj
+Pe
+Hv
+xm
+nE
+"}
+(4,1,1) = {"
+nE
+ow
+Kw
+Pe
+If
+Jj
+my
+Pe
+xr
+lu
+nE
+"}
+(5,1,1) = {"
+nE
+Rs
+Pe
+Pe
+UU
+ps
+zj
+Kr
+Pe
+oV
+nE
+"}
+(6,1,1) = {"
+nE
+QQ
+Iv
+pi
+LO
+xM
+hf
+dC
+ry
+RQ
+nE
+"}
+(7,1,1) = {"
+nE
+rd
+nN
+OX
+Gu
+ps
+fQ
+fY
+fA
+Zf
+nE
+"}
+(8,1,1) = {"
+nE
+OL
+Pe
+xk
+nA
+GY
+Kq
+El
+nx
+gV
+nE
+"}
+(9,1,1) = {"
+nE
+YV
+qZ
+MA
+cT
+mH
+Ya
+fd
+lY
+HH
+nE
+"}
+(10,1,1) = {"
+nE
+Sm
+uU
+Gh
+nA
+xa
+jb
+Pe
+Pe
+Kx
+nE
+"}
+(11,1,1) = {"
+nE
+tW
+BP
+oa
+Ea
+Ii
+Nk
+dS
+ot
+uV
+nE
+"}
+(12,1,1) = {"
+nE
+qY
+dT
+yL
+aa
+kc
+FE
+HQ
+hP
+aM
+nE
+"}
+(13,1,1) = {"
+nE
+ws
+Pe
+Jr
+gi
+Ii
+bz
+Pe
+Pe
+ix
+nE
+"}
+(14,1,1) = {"
+nE
+ze
+td
+Pe
+kq
+Yo
+Hi
+Ui
+Io
+xo
+nE
+"}
+(15,1,1) = {"
+nE
+uP
+Md
+Pe
+gi
+kN
+bz
+NM
+MJ
+Fp
+nE
+"}
+(16,1,1) = {"
+nE
+KZ
+XE
+XE
+IH
+vW
+Qm
+KG
+wV
+VX
+nE
+"}
+(17,1,1) = {"
+nE
+aZ
+nj
+Zr
+Zr
+Zr
+Zr
+Zr
+DV
+nj
+nE
+"}
+(18,1,1) = {"
+nE
+yO
+ma
+Zr
+yU
+Mt
+Fz
+Zr
+Ih
+xw
+nE
+"}
+(19,1,1) = {"
+nE
+nE
+Zy
+nE
+PX
+Nz
+MQ
+nE
+Zy
+nE
+nE
+"}
+(20,1,1) = {"
+nE
+VI
+Pb
+ig
+HD
+dN
+aj
+ig
+PL
+SQ
+nE
+"}
+(21,1,1) = {"
+nE
+oi
+Oh
+iu
+OU
+BQ
+eb
+ga
+ka
+uA
+nE
+"}
+(22,1,1) = {"
+nE
+nE
+nE
+nE
+nE
+nE
+nE
+nE
+nE
+nE
+nE
+"}

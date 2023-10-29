@@ -6,8 +6,10 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 
 /obj/machinery/atmospherics/components/binary/valve
 	icon_state = "mvalve_map-3"
-	name = "manual valve"
-	desc = "A pipe with a valve that can be used to disable flow of gas through it."
+
+	name = "Вентиль"
+	desc = "Труба с вентилем, с помощью которого можно вручную выключить или включить проход газа."
+
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
 	interaction_flags_machine = INTERACT_MACHINE_OFFLINE | INTERACT_MACHINE_OPEN //Intentionally no allow_silicon flag
@@ -66,6 +68,9 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 		return
 	update_icon_nopipes(TRUE)
 	switching = TRUE
+
+	playsound(src, 'white/valtos/sounds/valve.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
+
 	addtimer(CALLBACK(src, PROC_REF(finish_interact)), 1 SECONDS)
 
 /**
@@ -78,8 +83,8 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 /obj/machinery/atmospherics/components/binary/valve/digital // can be controlled by AI
 	icon_state = "dvalve_map-3"
 
-	name = "digital valve"
-	desc = "A digitally controlled valve."
+	name = "Электронный вентиль"
+	desc = "Вентиль, контролируемый электроникой."
 	valve_type = DIGITAL_VALVE
 	pipe_state = "dvalve"
 

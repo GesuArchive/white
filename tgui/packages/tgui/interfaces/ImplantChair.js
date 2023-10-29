@@ -7,14 +7,14 @@ export const ImplantChair = (props, context) => {
   return (
     <Window width={375} height={280}>
       <Window.Content>
-        <Section title="Occupant Information" textAlign="center">
+        <Section title="Пациент" textAlign="center">
           <LabeledList>
-            <LabeledList.Item label="Name">
-              {data.occupant.name || 'No Occupant'}
+            <LabeledList.Item label="Имя">
+              {data.occupant.name ? data.occupant.name : 'Нет'}
             </LabeledList.Item>
             {!!data.occupied && (
               <LabeledList.Item
-                label="Status"
+                label="Состояние"
                 color={
                   data.occupant.stat === 0
                     ? 'good'
@@ -23,21 +23,21 @@ export const ImplantChair = (props, context) => {
                       : 'bad'
                 }>
                 {data.occupant.stat === 0
-                  ? 'Conscious'
+                  ? 'В сознании'
                   : data.occupant.stat === 1
-                    ? 'Unconscious'
-                    : 'Dead'}
+                    ? 'Без сознания'
+                    : 'Мёртв'}
               </LabeledList.Item>
             )}
           </LabeledList>
         </Section>
-        <Section title="Operations" textAlign="center">
+        <Section title="Операции" textAlign="center">
           <LabeledList>
-            <LabeledList.Item label="Door">
+            <LabeledList.Item label="Дверца">
               <Button
                 icon={data.open ? 'unlock' : 'lock'}
                 color={data.open ? 'default' : 'red'}
-                content={data.open ? 'Open' : 'Closed'}
+                content={data.open ? 'Открыта' : 'Закрыта'}
                 onClick={() => act('door')}
               />
             </LabeledList.Item>
@@ -45,13 +45,15 @@ export const ImplantChair = (props, context) => {
               <Button
                 icon="code-branch"
                 content={
-                  data.ready ? data.special_name || 'Implant' : 'Recharging'
+                  data.ready
+                    ? data.special_name || 'Имплантировать'
+                    : 'Перезарядка'
                 }
                 onClick={() => act('implant')}
               />
               {data.ready === 0 && <Icon name="cog" color="orange" spin />}
             </LabeledList.Item>
-            <LabeledList.Item label="Implants Remaining">
+            <LabeledList.Item label="Имплантов осталось">
               {data.ready_implants}
               {data.replenishing === 1 && <Icon name="sync" color="red" spin />}
             </LabeledList.Item>

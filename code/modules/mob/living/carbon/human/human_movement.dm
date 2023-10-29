@@ -9,16 +9,27 @@
 		return
 	return considering
 
-/mob/living/carbon/human/slip(knockdown_amount, obj/slipped_on, lube_flags, paralyze, force_drop = FALSE)
-	if(HAS_TRAIT(src, TRAIT_NO_SLIP_ALL))
+/mob/living/carbon/human/slip(knockdown_amount, obj/O, lube, paralyze, forcedrop)
+	if(HAS_TRAIT(src, TRAIT_NOSLIPALL))
 		return FALSE
+	if (!(lube & GALOSHES_DONT_HELP))
+		if(HAS_TRAIT(src, TRAIT_NOSLIPWATER))
+			return FALSE
+		if(shoes && istype(shoes, /obj/item/clothing))
+			var/obj/item/clothing/CS = shoes
+			if (CS.clothing_flags & NOSLIP)
+				return FALSE
+	if (lube & SLIDE_ICE)
+		if(shoes && istype(shoes, /obj/item/clothing))
+			var/obj/item/clothing/CS = shoes
+			if (CS.clothing_flags & NOSLIP_ICE)
+				return FALSE
+	return ..()
 
-	if(HAS_TRAIT(src, TRAIT_NO_SLIP_WATER) && !(lube_flags & GALOSHES_DONT_HELP))
+/mob/living/carbon/human/experience_pressure_difference()
+	playsound(src, 'sound/effects/space_wind.ogg', 50, TRUE, channel = open_sound_channel_for_wind())
+	if(HAS_TRAIT(src, TRAIT_NEGATES_GRAVITY))
 		return FALSE
-
-	if(HAS_TRAIT(src, TRAIT_NO_SLIP_ICE) && (lube_flags & SLIDE_ICE))
-		return FALSE
-
 	return ..()
 
 /mob/living/carbon/human/mob_negates_gravity()
@@ -29,7 +40,24 @@
 	if(shoes && body_position == STANDING_UP && loc == NewLoc && has_gravity(loc))
 		SEND_SIGNAL(shoes, COMSIG_SHOES_STEP_ACTION)
 
-/mob/living/carbon/human/Process_Spacemove(movement_dir = 0, continuous_move = FALSE)
-	if(movement_type & FLYING || HAS_TRAIT(src, TRAIT_FREE_FLOAT_MOVEMENT))
+	var/turf/T = get_turf(src)
+
+	//Snow footprints
+	if(istype(T, /turf/open/floor/grass/snow) || istype(T, /turf/open/floor/plating/snowed))
+		if(!buckled && !(movement_type & FLYING))
+			if(loc == NewLoc)
+				if(!has_gravity(loc))
+					return
+				var/obj/effect/decal/cleanable/snow_footprints/oldFP = locate(/obj/effect/decal/cleanable/snow_footprints) in T
+				if(oldFP)
+					oldFP.entered_dirs |= dir
+					oldFP.update_icon()
+				else
+					var/obj/effect/decal/cleanable/snow_footprints/FP = new /obj/effect/decal/cleanable/snow_footprints(T)
+					FP.entered_dirs |= dir
+					FP.update_icon()
+
+/mob/living/carbon/human/Process_Spacemove(movement_dir = 0, continuous_move = FALSE) //Temporary laziness thing. Will change to handles by species reee.
+	if(dna.species.space_move(src))
 		return TRUE
 	return ..()

@@ -11,11 +11,11 @@ export const Holodeck = (props, context) => {
     <Window width={400} height={500}>
       <Window.Content scrollable>
         <Section
-          title="Default Programs"
+          title="Стандартные программы"
           buttons={
             <Button
               icon={emagged ? 'unlock' : 'lock'}
-              content="Safeties"
+              content="Безопасность"
               color="bad"
               disabled={!can_toggle_safety}
               selected={!emagged}
@@ -26,7 +26,7 @@ export const Holodeck = (props, context) => {
             <Button
               fluid
               key={def_program.id}
-              content={def_program.name.substring(11)}
+              content={def_program.name.substring(9)}
               textAlign="center"
               selected={def_program.id === program}
               onClick={() =>
@@ -38,12 +38,12 @@ export const Holodeck = (props, context) => {
           ))}
         </Section>
         {!!emagged && (
-          <Section title="Dangerous Programs">
+          <Section title="Опасные программы">
             {emag_programs.map((emag_program) => (
               <Button
                 fluid
                 key={emag_program.id}
-                content={emag_program.name.substring(11)}
+                content={emag_program.name.substring(9)}
                 color="bad"
                 textAlign="center"
                 selected={emag_program.id === program}

@@ -5,10 +5,10 @@
 
 /datum/computer_file/program/atmosscan
 	filename = "atmosscan"
-	filedesc = "AtmoZphere"
+	filedesc = "АтмоЗфера"
 	category = PROGRAM_CATEGORY_ENGI
 	program_icon_state = "air"
-	extended_desc = "A small built-in sensor reads out the atmospheric conditions around the device."
+	extended_desc = "Программный пакет для определения условий окружающей среды с помощью используемого устройства."
 	size = 4
 	tgui_id = "NtosGasAnalyzer"
 	program_icon = "thermometer-half"
@@ -23,7 +23,7 @@
 	SIGNAL_HANDLER
 	if(atmozphere_mode != ATMOZPHERE_SCAN_CLICK)
 		return
-	atmos_scan(user=user, target=get_turf(computer), silent=FALSE)
+	atmosanalyzer_scan(user=user, target=get_turf(computer), silent=FALSE)
 	on_analyze(source=source, target=get_turf(computer))
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
@@ -31,7 +31,7 @@
 /datum/computer_file/program/atmosscan/tap(atom/A, mob/living/user, params)
 	if(atmozphere_mode != ATMOZPHERE_SCAN_CLICK)
 		return FALSE
-	if(!atmos_scan(user=user, target=A, silent=FALSE))
+	if(!atmosanalyzer_scan(user=user, target=A, silent=FALSE))
 		return FALSE
 	on_analyze(source=computer, target=A)
 	return TRUE
@@ -50,11 +50,8 @@
 		new_gasmix_data += list(gas_mixture_parser(air, mix_name))
 	last_gasmix_data = new_gasmix_data
 
-/datum/computer_file/program/atmosscan/ui_static_data(mob/user)
-	return return_atmos_handbooks()
-
 /datum/computer_file/program/atmosscan/ui_data(mob/user)
-	var/list/data = list()
+	var/list/data = get_header_data()
 	var/turf/turf = get_turf(computer)
 	data["atmozphereMode"] = atmozphere_mode
 	data["clickAtmozphereCompatible"] = (computer.hardware_flag & PROGRAM_TABLET)
@@ -68,6 +65,9 @@
 	return data
 
 /datum/computer_file/program/atmosscan/ui_act(action, list/params)
+	. = ..()
+	if(.)
+		return
 	switch(action)
 		if("scantoggle")
 			if(atmozphere_mode == ATMOZPHERE_SCAN_CLICK)
@@ -82,6 +82,3 @@
 			var/turf/turf = get_turf(computer)
 			last_gasmix_data = list(gas_mixture_parser(turf?.return_air(), "Location Reading"))
 			return TRUE
-
-#undef ATMOZPHERE_SCAN_ENV
-#undef ATMOZPHERE_SCAN_CLICK

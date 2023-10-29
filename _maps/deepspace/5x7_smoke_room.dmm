@@ -1,0 +1,154 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aW" = (
+/obj/structure/table/wood,
+/obj/item/clipboard,
+/obj/item/electronics/airalarm,
+/obj/item/electronics/airlock,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+"bI" = (
+/obj/structure/table/wood,
+/obj/item/storage/fancy/cigarettes/cigpack_uplift{
+	pixel_x = 6
+	},
+/obj/item/storage/fancy/cigarettes/cigpack_carp{
+	pixel_x = -3
+	},
+/obj/item/lighter,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+"dA" = (
+/obj/structure/table/wood,
+/obj/item/electronics/firelock,
+/obj/item/electronics/airlock,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+"iZ" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/machinery/photocopier,
+/obj/item/newspaper{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/newspaper,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+"lE" = (
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/plating/rust,
+/area/ruin/unpowered)
+"mj" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin/unpowered)
+"mZ" = (
+/obj/structure/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+"nA" = (
+/obj/structure/table/wood,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/circuitboard/machine/microwave,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+"oL" = (
+/obj/structure/chair/comfy/brown{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+"qG" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+"vW" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"BO" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Id" = (
+/obj/structure/table/wood,
+/obj/item/poster/random_contraband{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/poster/random_contraband{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/poster/random_contraband,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+"Lh" = (
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+"NT" = (
+/obj/machinery/vending/cigarette,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+"Oa" = (
+/obj/structure/table/wood,
+/obj/item/storage/briefcase,
+/obj/item/taperecorder,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+mj
+mj
+mj
+mj
+vW
+mj
+mj
+"}
+(2,1,1) = {"
+mj
+iZ
+Id
+dA
+qG
+aW
+mj
+"}
+(3,1,1) = {"
+BO
+Lh
+Lh
+Lh
+Lh
+nA
+mj
+"}
+(4,1,1) = {"
+mj
+bI
+mZ
+oL
+NT
+Oa
+mj
+"}
+(5,1,1) = {"
+mj
+lE
+lE
+lE
+lE
+mj
+mj
+"}

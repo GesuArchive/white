@@ -1,16 +1,3 @@
-/// Requests from prayers
-#define REQUEST_PRAYER "request_prayer"
-/// Requests for Centcom
-#define REQUEST_CENTCOM "request_centcom"
-/// Requests for the Syndicate
-#define REQUEST_SYNDICATE "request_syndicate"
-/// Requests for the nuke code
-#define REQUEST_NUKE "request_nuke"
-/// Requests somebody from fax
-#define REQUEST_FAX "request_fax"
-/// Requests from Request Music
-#define REQUEST_INTERNET_SOUND "request_internet_sound"
-
 GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 
 /**
@@ -66,7 +53,7 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 /datum/request_manager/proc/pray(client/C, message, is_chaplain)
 	request_for_client(C, REQUEST_PRAYER, message)
 	for(var/client/admin in GLOB.admins)
-		if(is_chaplain && get_chat_toggles(admin) & CHAT_PRAYER && admin.prefs.toggles & SOUND_PRAYERS)
+		if(is_chaplain && admin.prefs.chat_toggles & CHAT_PRAYER && admin.prefs.toggles & SOUND_PRAYERS)
 			SEND_SOUND(admin, sound('sound/effects/pray.ogg'))
 
 /**
@@ -100,27 +87,6 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 	request_for_client(C, REQUEST_NUKE, message)
 
 /**
- * Creates a request for fax answer
- *
- * Arguments:
- * * requester - The client who is sending the request
- * * message - Paper with text.. some stamps.. and another things.
- */
-/datum/request_manager/proc/fax_request(client/requester, message, additional_info)
-	request_for_client(requester, REQUEST_FAX, message, additional_info)
-
-/**
- * Creates a request for a song
- *
- * Arguments:
- * * requester - The client who is sending the request
- * * message - The URL of the song
- */
-
-/datum/request_manager/proc/music_request(client/requester, message)
-	request_for_client(requester, REQUEST_INTERNET_SOUND, message)
-
-/**
  * Creates a request and registers the request with all necessary internal tracking lists
  *
  * Arguments:
@@ -128,8 +94,8 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
  * * type - The type of request, see defines
  * * message - The message
  */
-/datum/request_manager/proc/request_for_client(client/C, type, message, additional_info)
-	var/datum/request/request = new(C, type, message, additional_info)
+/datum/request_manager/proc/request_for_client(client/C, type, message)
+	var/datum/request/request = new(C, type, message)
 	if (!requests[C.ckey])
 		requests[C.ckey] = list()
 	requests[C.ckey] += request
@@ -151,13 +117,13 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 
 	// Only admins should be sending actions
 	if (!check_rights(R_ADMIN))
-		to_chat(usr, "You do not have permission to do this, you require +ADMIN", confidential = TRUE)
+		to_chat(usr, "You do not have permission to do this, you require +ADMIN")
 		return
 
 	// Get the request this relates to
 	var/id = params["id"] != null ? text2num(params["id"]) : null
 	if (!id)
-		to_chat(usr, "Failed to find a request ID in your action, please report this", confidential = TRUE)
+		to_chat(usr, "Failed to find a request ID in your action, please report this")
 		CRASH("Received an action without a request ID, this shouldn't happen!")
 	var/datum/request/request = !id ? null : requests_by_id[id]
 
@@ -186,7 +152,7 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 			if(!ismob(M))
 				var/datum/mind/D = M
 				if(!istype(D))
-					to_chat(usr, "This can only be used on instances of type /mob and /mind", confidential = TRUE)
+					to_chat(usr, "This can only be used on instances of type /mob and /mind")
 					return TRUE
 				else
 					D.traitor_panel()
@@ -197,52 +163,35 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 		if ("logs")
 			var/mob/M = request.owner?.mob
 			if(!ismob(M))
-				to_chat(usr, "This can only be used on instances of type /mob.", confidential = TRUE)
+				to_chat(usr, "This can only be used on instances of type /mob.")
 				return TRUE
 			show_individual_logging_panel(M, null, null)
 			return TRUE
 		if ("smite")
 			if(!check_rights(R_FUN))
-				to_chat(usr, "Insufficient permissions to smite, you require +FUN", confidential = TRUE)
+				to_chat(usr, "Insufficient permissions to smite, you require +FUN")
 				return TRUE
 			var/mob/living/carbon/human/H = request.owner?.mob
 			if (!H || !istype(H))
-				to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human", confidential = TRUE)
+				to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 				return TRUE
 			usr.client.smite(H)
 			return TRUE
 		if ("rply")
 			if (request.req_type == REQUEST_PRAYER)
-				to_chat(usr, "Cannot reply to a prayer", confidential = TRUE)
+				to_chat(usr, "Cannot reply to a prayer")
 				return TRUE
 			var/mob/M = request.owner?.mob
 			usr.client.admin_headset_message(M, request.req_type == REQUEST_SYNDICATE ? RADIO_CHANNEL_SYNDICATE : RADIO_CHANNEL_CENTCOM)
 			return TRUE
 		if ("setcode")
 			if (request.req_type != REQUEST_NUKE)
-				to_chat(usr, "You cannot set the nuke code for a non-nuke-code-request request!", confidential = TRUE)
+				to_chat(usr, "You cannot set the nuke code for a non-nuke-code-request request!")
 				return TRUE
 			var/code = random_nukecode()
-			for(var/obj/machinery/nuclearbomb/selfdestruct/SD in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/nuclearbomb/selfdestruct))
+			for(var/obj/machinery/nuclearbomb/selfdestruct/SD in GLOB.nuke_list)
 				SD.r_code = code
 			message_admins("[key_name_admin(usr)] has set the self-destruct code to \"[code]\".")
-			return TRUE
-		if ("show")
-			if(request.req_type != REQUEST_FAX)
-				to_chat(usr, "Request doesn't have a paper to read.", confidential = TRUE)
-				return TRUE
-			var/obj/item/paper/request_message = request.additional_information
-			request_message.ui_interact(usr)
-			return TRUE
-		if ("play")
-			if(request.req_type != REQUEST_INTERNET_SOUND)
-				to_chat(usr, "Request doesn't have a sound to play.", confidential = TRUE)
-				return TRUE
-			if(findtext(request.message, ":") && !findtext(request.message, GLOB.is_http_protocol))
-				to_chat(usr, "Request is not a valid URL.", confidential = TRUE)
-				return TRUE
-
-			web_sound(usr, request.message)
 			return TRUE
 
 /datum/request_manager/ui_data(mob/user)
@@ -258,15 +207,7 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 				"owner_ckey" = request.owner_ckey,
 				"owner_name" = request.owner_name,
 				"message" = request.message,
-				"additional_info" = request.additional_information,
 				"timestamp" = request.timestamp,
 				"timestamp_str" = gameTimestamp(wtime = request.timestamp)
 			)
 			.["requests"] += list(data)
-
-#undef REQUEST_PRAYER
-#undef REQUEST_CENTCOM
-#undef REQUEST_SYNDICATE
-#undef REQUEST_NUKE
-#undef REQUEST_FAX
-#undef REQUEST_INTERNET_SOUND

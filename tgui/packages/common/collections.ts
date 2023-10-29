@@ -11,6 +11,8 @@
  *
  * If collection is 'null' or 'undefined', it will be returned "as is"
  * without emitting any errors (which can be useful in some cases).
+ *
+ * @returns {any[]}
  */
 export const filter =
   <T>(iterateeFn: (input: T, index: number, collection: T[]) => boolean) =>
@@ -191,9 +193,7 @@ export const uniqBy =
     const result: T[] = [];
     const seen: unknown[] = iterateeFn ? [] : result;
     let index = -1;
-    // prettier-ignore
-    outer:
-    while (++index < length) {
+    outer: while (++index < length) {
       let value: T | 0 = array[index];
       const computed = iterateeFn ? iterateeFn(value) : value;
       if (computed === computed) {
@@ -216,6 +216,7 @@ export const uniqBy =
     }
     return result;
   };
+/* eslint-enable indent */
 
 export const uniq = uniqBy();
 
@@ -293,55 +294,12 @@ const binarySearch = <T, U = unknown>(
   return compare > insertingKey ? middle : middle + 1;
 };
 
-export const binaryInsertWith =
-  <T, U = unknown>(getKey: (value: T) => U) =>
-  (collection: readonly T[], value: T) => {
+export const binaryInsertWith = <T, U = unknown>(
+  getKey: (value: T) => U
+): ((collection: readonly T[], value: T) => T[]) => {
+  return (collection, value) => {
     const copy = [...collection];
     copy.splice(binarySearch(getKey, collection, value), 0, value);
     return copy;
   };
-
-/**
- * This method takes a collection of items and a number, returning a collection
- * of collections, where the maximum amount of items in each is that second arg
- */
-export const paginate = <T>(collection: T[], maxPerPage: number): T[][] => {
-  const pages: T[][] = [];
-  let page: T[] = [];
-  let itemsToAdd = maxPerPage;
-
-  for (const item of collection) {
-    page.push(item);
-    itemsToAdd--;
-    if (!itemsToAdd) {
-      itemsToAdd = maxPerPage;
-      pages.push(page);
-      page = [];
-    }
-  }
-  if (page.length) {
-    pages.push(page);
-  }
-  return pages;
-};
-
-const isObject = (obj: unknown) => typeof obj === 'object' && obj !== null;
-
-// Does a deep merge of two objects. DO NOT FEED CIRCULAR OBJECTS!!
-export const deepMerge = (...objects: any[]): any => {
-  const target = {};
-  for (const object of objects) {
-    for (const key of Object.keys(object)) {
-      const targetValue = target[key];
-      const objectValue = object[key];
-      if (Array.isArray(targetValue) && Array.isArray(objectValue)) {
-        target[key] = [...targetValue, ...objectValue];
-      } else if (isObject(targetValue) && isObject(objectValue)) {
-        target[key] = deepMerge(targetValue, objectValue);
-      } else {
-        target[key] = objectValue;
-      }
-    }
-  }
-  return target;
 };

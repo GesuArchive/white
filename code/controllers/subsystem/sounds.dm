@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(sounds)
 	name = "Sounds"
 	flags = SS_NO_FIRE
 	init_order = INIT_ORDER_SOUNDS
-	var/static/using_channels_max = CHANNEL_HIGHEST_AVAILABLE //BYOND max channels
+	var/static/using_channels_max = CHANNEL_HIGHEST_AVAILABLE		//BYOND max channels
 	/// Amount of channels to reserve for random usage rather than reservations being allowed to reserve all channels. Also a nice safeguard for when someone screws up.
 	var/static/random_channels_min = 50
 
@@ -23,12 +23,8 @@ SUBSYSTEM_DEF(sounds)
 	/// higher reserve position - decremented and incremented to reserve sound channels, anything above this is reserved. The channel at this index is the highest unreserved channel.
 	var/channel_reserve_high
 
-	/// All valid sound files in the sound directory
-	var/list/all_sounds
-
 /datum/controller/subsystem/sounds/Initialize()
 	setup_available_channels()
-	find_all_available_sounds()
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/sounds/proc/setup_available_channels()
@@ -41,32 +37,12 @@ SUBSYSTEM_DEF(sounds)
 	channel_random_low = 1
 	channel_reserve_high = length(channel_list)
 
-/datum/controller/subsystem/sounds/proc/find_all_available_sounds()
-	all_sounds = list()
-	// Put more common extensions first to speed this up a bit
-	var/static/list/valid_file_extensions = list(
-		".ogg",
-		".wav",
-		".mid",
-		".midi",
-		".mod",
-		".it",
-		".s3m",
-		".xm",
-		".oxm",
-		".raw",
-		".wma",
-		".aiff",
-	)
-
-	all_sounds = pathwalk("sound/", valid_file_extensions)
-
 /// Removes a channel from using list.
 /datum/controller/subsystem/sounds/proc/free_sound_channel(channel)
 	var/text_channel = num2text(channel)
 	var/using = using_channels[text_channel]
 	using_channels -= text_channel
-	if(using != TRUE) // datum channel
+	if(using != TRUE)		// datum channel
 		using_channels_by_datum[using] -= channel
 		if(!length(using_channels_by_datum[using]))
 			using_channels_by_datum -= using
@@ -89,7 +65,7 @@ SUBSYSTEM_DEF(sounds)
 /// NO AUTOMATIC CLEANUP - If you use this, you better manually free it later! Returns an integer for channel.
 /datum/controller/subsystem/sounds/proc/reserve_sound_channel_datumless()
 	. = reserve_channel()
-	if(!.) //oh no..
+	if(!.)		//oh no..
 		return FALSE
 	var/text_channel = num2text(.)
 	using_channels[text_channel] = DATUMLESS
@@ -98,11 +74,11 @@ SUBSYSTEM_DEF(sounds)
 
 /// Reserves a channel for a datum. Automatic cleanup only when the datum is deleted. Returns an integer for channel.
 /datum/controller/subsystem/sounds/proc/reserve_sound_channel(datum/D)
-	if(!D) //i don't like typechecks but someone will fuck it up
+	if(!D)		//i don't like typechecks but someone will fuck it up
 		CRASH("Attempted to reserve sound channel without datum using the managed proc.")
 	.= reserve_channel()
 	if(!.)
-		CRASH("No more sound channels can be reserved")
+		return FALSE
 	var/text_channel = num2text(.)
 	using_channels[text_channel] = D
 	LAZYINITLIST(using_channels_by_datum[D])
@@ -113,7 +89,7 @@ SUBSYSTEM_DEF(sounds)
  */
 /datum/controller/subsystem/sounds/proc/reserve_channel()
 	PRIVATE_PROC(TRUE)
-	if(channel_reserve_high <= random_channels_min) // out of channels
+	if(channel_reserve_high <= random_channels_min)		// out of channels
 		return
 	var/channel = channel_list[channel_reserve_high]
 	reserved_channels[num2text(channel)] = channel_reserve_high--
@@ -136,7 +112,7 @@ SUBSYSTEM_DEF(sounds)
 	// now, an existing reserved channel will likely (exception: unreserving last reserved channel) be at index
 	// get it, and update position.
 	var/text_reserved = num2text(channel_list[index])
-	if(!reserved_channels[text_reserved]) //if it isn't already reserved make sure we don't accidently mistakenly put it on reserved list!
+	if(!reserved_channels[text_reserved])				//if it isn't already reserved make sure we don't accidently mistakenly put it on reserved list!
 		return
 	reserved_channels[text_reserved] = index
 

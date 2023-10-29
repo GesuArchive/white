@@ -1,13 +1,8 @@
 /// The range at which a singularity is considered "contained" to admins
 #define FIELD_CONTAINMENT_DISTANCE 30
 
-/// What's the chance that, when a normal singularity moves, it'll go to its target?
+/// What's the chance that, when a singularity moves, it'll go to its target?
 #define CHANCE_TO_MOVE_TO_TARGET 60
-
-/// What's the /bloodthirsty subtype chance it'll go to its target?
-#define CHANCE_TO_MOVE_TO_TARGET_BLOODTHIRSTY 80
-/// what's the /bloodthirsty subtype chance it'll change targets to a closer one?
-#define CHANCE_TO_CHANGE_TARGET_BLOODTHIRSTY 20
 
 /// Things that maybe move around and does stuff to things around them
 /// Used for the singularity (duh) and Nar'Sie
@@ -45,14 +40,11 @@
 	/// If specified, the singularity will slowly move to this target
 	var/atom/target
 
-	/// List of turfs we have yet to consume, but need to
-	var/list/turf/turfs_to_consume = list()
+	///Amount of turfs we need to eat
+	var/turfs_to_eat = 0
 
 	/// The time that has elapsed since our last move/eat call
 	var/time_since_last_eat
-
-	/// What's the chance that, when a singularity moves, it'll go to its target?
-	var/chance_to_move_to_target = CHANCE_TO_MOVE_TO_TARGET
 
 /datum/component/singularity/Initialize(
 	bsa_targetable = TRUE,
@@ -92,7 +84,7 @@
 		COMSIG_ATOM_ATTACK_HAND,
 		COMSIG_ATOM_ATTACK_PAW,
 	), PROC_REF(consume_attack))
-	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, PROC_REF(consume_attackby))
+	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(consume_attackby))
 
 	RegisterSignal(parent, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(moved))
 	RegisterSignal(parent, COMSIG_ATOM_BUMPED, PROC_REF(consume))
@@ -101,7 +93,7 @@
 	)
 	AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
 
-	RegisterSignal(parent, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(consume_bullets))
+	RegisterSignal(parent, COMSIG_ATOM_BULLET_ACT, PROC_REF(consume_bullets))
 
 	if (notify_admins)
 		admin_investigate_setup()
@@ -110,7 +102,7 @@
 
 /datum/component/singularity/Destroy(force, silent)
 	GLOB.singularities -= src
-	consume_callback = null
+	QDEL_NULL(consume_callback)
 	target = null
 
 	return ..()
@@ -127,24 +119,20 @@
 		COMSIG_ATOM_ATTACK_PAW,
 		COMSIG_ATOM_BLOB_ACT,
 		COMSIG_ATOM_BSA_BEAM,
-		COMSIG_ATOM_PRE_BULLET_ACT,
+		COMSIG_ATOM_BULLET_ACT,
 		COMSIG_ATOM_BUMPED,
 		COMSIG_MOVABLE_PRE_MOVE,
-		COMSIG_ATOM_ATTACKBY,
+		COMSIG_PARENT_ATTACKBY,
 	))
 
-/datum/component/singularity/process(seconds_per_tick)
+/datum/component/singularity/process(delta_time)
 	// We want to move and eat once a second, but want to process our turf consume queue the rest of the time
-	time_since_last_eat += seconds_per_tick
-	digest()
-	if(TICK_CHECK)
-		return
+	time_since_last_eat += delta_time
 	if(time_since_last_eat > 1) // Delta time is in seconds for "reasons"
 		time_since_last_eat = 0
 		if (roaming)
 			move()
 		eat()
-		digest() // Try and process as much as you can with the time we have left
 
 /datum/component/singularity/proc/block_blob()
 	SIGNAL_HANDLER
@@ -180,63 +168,53 @@
 	SIGNAL_HANDLER
 
 	qdel(projectile)
-	return COMPONENT_BULLET_BLOCKED
 
 /// Calls singularity_act on the thing passed, usually destroying the object
 /datum/component/singularity/proc/default_singularity_act(atom/thing)
 	thing.singularity_act(singularity_size, parent)
 
 /datum/component/singularity/proc/eat()
-	turfs_to_consume |= spiral_range_turfs(grav_pull, parent)
+	if (turfs_to_eat > 0)
+		return
+	//Begin performing tickchecked enumeration
+	var/list/turfs_to_consume = spiral_range_turfs(grav_pull, parent)
+	turfs_to_eat = length(turfs_to_consume)
+	var/datum/enumerator/turf_enumerator = get_list_enumerator(turfs_to_consume)
+	SSenumeration.tickcheck(turf_enumerator.foreach(CALLBACK(src, PROC_REF(consume_turf))))
 
-/datum/component/singularity/proc/digest()
-	var/atom/atom_parent = parent
+/datum/component/singularity/proc/consume_turf(turf/tile)
+	var/dist_to_tile = get_dist(tile, parent)
 
-	if(!isturf(atom_parent.loc))
+	if(grav_pull < dist_to_tile) //If we've exited the singulo's range already, just skip us
+		turfs_to_eat--
 		return
 
-	// We use a static index for this to prevent infinite runtimes.
-	// Maybe a might overengineered, but let's be safe yes?
-	var/static/cached_index = 0
-	if(cached_index)
-		var/old_index = cached_index
-		cached_index = 0 // Prevents infinite Cut() runtimes. Sorry MSO
-		turfs_to_consume.Cut(1, old_index + 1)
+	var/in_consume_range = (dist_to_tile <= consume_range)
+	if (in_consume_range)
+		consume(src, tile)
+	else
+		tile.singularity_pull(parent, singularity_size)
 
-	for (cached_index in 1 to length(turfs_to_consume))
-		var/turf/tile = turfs_to_consume[cached_index]
-		var/dist_to_tile = get_dist(tile, parent)
-
-		if(grav_pull < dist_to_tile) //If we've exited the singulo's range already, just skip us
+	for(var/atom/movable/thing as anything in tile)
+		if(thing == parent)
 			continue
 
-		var/in_consume_range = (dist_to_tile <= consume_range)
 		if (in_consume_range)
-			consume(src, tile)
+			consume(src, thing)
 		else
-			tile.singularity_pull(parent, singularity_size)
+			thing.singularity_pull(parent, singularity_size)
 
-		for (var/atom/movable/thing as anything in tile)
-			if(thing == parent)
-				continue
-			if (in_consume_range)
-				consume(src, thing)
-			else
-				thing.singularity_pull(parent, singularity_size)
-
-		if(TICK_CHECK) //Yes this means the singulo can eat all of its host subsystem's cpu, but like it's the singulo, and it was gonna do that anyway
-			turfs_to_consume.Cut(1, cached_index + 1)
-			cached_index = 0
-			return
-
-	turfs_to_consume.Cut()
-	cached_index = 0
+	turfs_to_eat--
 
 /datum/component/singularity/proc/move()
 	var/drifting_dir = pick(GLOB.alldirs - last_failed_movement)
 
-	if (!QDELETED(target) && prob(chance_to_move_to_target))
+	if (!QDELETED(target) && prob(CHANCE_TO_MOVE_TO_TARGET))
 		drifting_dir = get_dir(parent, target)
+
+	if(SSmapping.get_turf_below(get_turf(parent)))
+		var/atom/movable/S = parent
+		S.forceMove(SSmapping.get_turf_below(get_turf(parent)))
 
 	step(parent, drifting_dir)
 
@@ -332,7 +310,7 @@
 	var/turf/spawned_turf = get_turf(parent)
 	message_admins("A singulo has been created at [ADMIN_VERBOSEJMP(spawned_turf)].")
 	var/atom/atom_parent = parent
-	atom_parent.investigate_log("was made into a singularity at [AREACOORD(spawned_turf)].", INVESTIGATE_ENGINE)
+	atom_parent.investigate_log("was made a singularity at [AREACOORD(spawned_turf)].", INVESTIGATE_SINGULO)
 
 /// Fired when the singularity is fired at with the BSA and deletes it
 /datum/component/singularity/proc/bluespace_reaction()
@@ -341,62 +319,8 @@
 		return
 
 	var/atom/atom_parent = parent
-	atom_parent.investigate_log("has been shot by bluespace artillery and destroyed.", INVESTIGATE_ENGINE)
+	atom_parent.investigate_log("has been shot by bluespace artillery and destroyed.", INVESTIGATE_SINGULO)
 	qdel(parent)
 
-/datum/component/singularity/bloodthirsty
-	chance_to_move_to_target = CHANCE_TO_MOVE_TO_TARGET_BLOODTHIRSTY
-
-/datum/component/singularity/bloodthirsty/move()
-	var/atom/atom_parent = parent
-	//handle current target
-	if(target && !QDELETED(target))
-		if(istype(target, /obj/machinery/power/singularity_beacon))
-			return ..() //don't switch targets from a singulo beacon
-		if(target.z != atom_parent.z)
-			target = null
-		var/mob/living/potentially_closer = find_new_target()
-		if(potentially_closer != target && prob(20))
-			target = potentially_closer
-	//if we lost that target get a new one
-	if(!target || QDELETED(target))
-		target = find_new_target()
-		foreboding_nosebleed(target)
-	return ..()
-
-///Searches the living list for the closest target, and begins chasing them down.
-/datum/component/singularity/bloodthirsty/proc/find_new_target()
-	var/atom/atom_parent = parent
-	var/closest_distance = INFINITY
-	var/mob/living/closest_target
-	for(var/mob/living/target as anything in GLOB.mob_living_list)
-		if(target.z != atom_parent.z)
-			continue
-		if(target.status_effects & GODMODE)
-			continue
-		var/distance_from_target = get_dist(target, atom_parent)
-		if(distance_from_target < closest_distance)
-			closest_distance = distance_from_target
-			closest_target = target
-	return closest_target
-
-/// gives a little fluff warning that someone is being hunted.
-/datum/component/singularity/bloodthirsty/proc/foreboding_nosebleed(mob/living/target)
-	if(!iscarbon(target))
-		to_chat(target, span_warning("You feel a bit nauseous for just a moment."))
-		return
-	var/mob/living/carbon/carbon_target = target
-	var/obj/item/bodypart/head = carbon_target.get_bodypart(BODY_ZONE_HEAD)
-	if(head)
-		if(HAS_TRAIT(carbon_target, TRAIT_NOBLOOD))
-			to_chat(carbon_target, span_notice("You get a headache."))
-			return
-		head.adjustBleedStacks(5)
-		carbon_target.visible_message(span_notice("[carbon_target] gets a nosebleed."), span_warning("You get a nosebleed."))
-		return
-	to_chat(target, span_warning("You feel a bit nauseous for just a moment."))
-
 #undef CHANCE_TO_MOVE_TO_TARGET
-#undef CHANCE_TO_MOVE_TO_TARGET_BLOODTHIRSTY
-#undef CHANCE_TO_CHANGE_TARGET_BLOODTHIRSTY
 #undef FIELD_CONTAINMENT_DISTANCE

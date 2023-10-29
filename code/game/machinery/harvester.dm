@@ -1,11 +1,10 @@
 /obj/machinery/harvester
-	name = "organ harvester"
-	desc = "An advanced machine used for harvesting organs and limbs from the deceased."
+	name = "Авто-Потрошитель МК II"
+	desc = "Извлекает из тела ВСЁ лишнее, включая органы, конечности и голову."
 	density = TRUE
 	icon = 'icons/obj/machines/harvester.dmi'
 	icon_state = "harvester"
-	base_icon_state = "harvester"
-	verb_say = "states"
+	verb_say = "констатирует"
 	state_open = FALSE
 	circuit = /obj/item/circuitboard/machine/harvester
 	light_color = LIGHT_COLOR_BLUE
@@ -13,7 +12,6 @@
 	var/harvesting = FALSE
 	var/warming_up = FALSE
 	var/list/operation_order = list() //Order of wich we harvest limbs.
-	var/output_dir = SOUTH //Direction to drop the limbs in
 	var/allow_clothing = FALSE
 	var/allow_living = FALSE
 
@@ -26,47 +24,35 @@
 	. = ..()
 	interval = 0
 	var/max_time = 40
-	for(var/datum/stock_part/micro_laser/micro_laser in component_parts)
-		max_time -= micro_laser.tier
+	for(var/obj/item/stock_parts/micro_laser/L in component_parts)
+		max_time -= L.rating
 	interval = max(max_time,1)
 
 /obj/machinery/harvester/update_icon_state()
+	. = ..()
 	if(state_open)
-		icon_state = "[base_icon_state]-open"
-		return ..()
-	if(warming_up)
-		icon_state = "[base_icon_state]-charging"
-		return ..()
-	if(harvesting)
-		icon_state = "[base_icon_state]-active"
-		return ..()
-	icon_state = base_icon_state
-	return ..()
+		icon_state = initial(icon_state)+"-open"
+	else if(warming_up)
+		icon_state = initial(icon_state)+"-charging"
+	else if(harvesting)
+		icon_state = initial(icon_state)+"-active"
+	else
+		icon_state = initial(icon_state)
 
-/obj/machinery/harvester/open_machine(drop = TRUE, density_to_set = FALSE)
+/obj/machinery/harvester/open_machine(drop = TRUE)
 	if(panel_open)
 		return
 	. = ..()
 	warming_up = FALSE
 	harvesting = FALSE
 
-/obj/machinery/harvester/attack_hand(mob/user, list/modifiers)
-	. = ..()
+/obj/machinery/harvester/attack_hand(mob/user)
 	if(state_open)
 		close_machine()
 	else if(!harvesting)
 		open_machine()
 
 /obj/machinery/harvester/AltClick(mob/user)
-	. = ..()
-	if(!user.can_perform_action(src))
-		return
-	if(panel_open)
-		output_dir = turn(output_dir, -90)
-		to_chat(user, span_notice("You change [src]'s output settings, setting the output to [dir2text(output_dir)]."))
-		return
-	if(!can_interact(user))
-		return
 	if(harvesting || !user || !isliving(user) || state_open)
 		return
 	if(can_harvest())
@@ -75,130 +61,125 @@
 /obj/machinery/harvester/proc/can_harvest()
 	if(!powered() || state_open || !occupant || !iscarbon(occupant))
 		return
-	var/mob/living/carbon/carbon_occupant = occupant
+	var/mob/living/carbon/C = occupant
 	if(!allow_clothing)
-		for(var/obj/item/abiotic_item in carbon_occupant.held_items + carbon_occupant.get_equipped_items())
-			if(!(HAS_TRAIT(abiotic_item, TRAIT_NODROP)))
+		for(var/A in C.held_items + C.get_equipped_items())
+			if(!isitem(A))
+				continue
+			var/obj/item/I = A
+			if(!(HAS_TRAIT(I, TRAIT_NODROP)))
 				say("Subject may not have abiotic items on.")
-				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+				playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 				return
-	if(!(carbon_occupant.mob_biotypes & MOB_ORGANIC))
+	if(!(C.mob_biotypes & MOB_ORGANIC))
 		say("Subject is not organic.")
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 		return
-	if(!allow_living && !(carbon_occupant.stat == DEAD || HAS_TRAIT(carbon_occupant, TRAIT_FAKEDEATH)))     //I mean, the machines scanners arent advanced enough to tell you're alive
+	if(!allow_living && !(C.stat == DEAD || HAS_TRAIT(C, TRAIT_FAKEDEATH)))     //I mean, the machines scanners arent advanced enough to tell you're alive
 		say("Subject is still alive.")
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
+		playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 		return
 	return TRUE
 
 /obj/machinery/harvester/proc/start_harvest()
 	if(!occupant || !iscarbon(occupant))
 		return
-
-	var/mob/living/carbon/carbon_occupant = occupant
-
-	if(carbon_occupant.stat < UNCONSCIOUS)
-		notify_ghosts(
-			"[occupant] is about to be ground up by a malfunctioning organ harvester!",
-			source = src,
-			header = "Gruesome!",
-			action = NOTIFY_ORBIT,
-		)
-
-	operation_order = reverseList(carbon_occupant.bodyparts)   //Chest and head are first in bodyparts, so we invert it to make them suffer more
+	var/mob/living/carbon/C = occupant
+	operation_order = reverseList(C.bodyparts)   //Chest and head are first in bodyparts, so we invert it to make them suffer more
 	warming_up = TRUE
 	harvesting = TRUE
 	visible_message(span_notice("The [name] begins warming up!"))
 	say("Initializing harvest protocol.")
-	update_appearance()
+	update_icon()
 	addtimer(CALLBACK(src, PROC_REF(harvest)), interval)
 
 /obj/machinery/harvester/proc/harvest()
 	warming_up = FALSE
-	update_appearance()
+	update_icon()
 	if(!harvesting || state_open || !powered() || !occupant || !iscarbon(occupant))
-		end_harvesting(success = FALSE)
 		return
 	playsound(src, 'sound/machines/juicer.ogg', 20, TRUE)
-	var/mob/living/carbon/carbon_occupant = occupant
+	var/mob/living/carbon/C = occupant
 	if(!LAZYLEN(operation_order)) //The list is empty, so we're done here
-		end_harvesting(success = TRUE)
+		end_harvesting()
 		return
-	var/turf/target = get_step(src, output_dir)
-	for(var/obj/item/bodypart/limb_to_remove as anything in operation_order) //first we do non-essential limbs
-		limb_to_remove.drop_limb()
-		carbon_occupant.emote("scream")
-		if(limb_to_remove.body_zone != "chest")
-			limb_to_remove.forceMove(target)    //Move the limbs right next to it, except chest, that's a weird one
-			limb_to_remove.drop_organs()
+	var/turf/target
+	for(var/adir in list(EAST,NORTH,SOUTH,WEST))
+		var/turf/T = get_step(src,adir)
+		if(!T)
+			continue
+		if(istype(T, /turf/closed))
+			continue
+		target = T
+		break
+	if(!target)
+		target = get_turf(src)
+	for(var/obj/item/bodypart/BP in operation_order) //first we do non-essential limbs
+		BP.drop_limb()
+		C.emote("agony")
+		if(BP.body_zone != "chest")
+			BP.forceMove(target)    //Move the limbs right next to it, except chest, that's a weird one
+			BP.drop_organs()
 		else
-			for(var/obj/item/organ/organ_to_remove in limb_to_remove.dismember())
-				organ_to_remove.forceMove(target) //Some organs, like chest ones, are different so we need to manually move them
-		operation_order.Remove(limb_to_remove)
+			for(var/obj/item/organ/O in BP.dismember())
+				O.forceMove(target) //Some organs, like chest ones, are different so we need to manually move them
+		operation_order.Remove(BP)
 		break
 	use_power(active_power_usage)
 	addtimer(CALLBACK(src, PROC_REF(harvest)), interval)
 
-/obj/machinery/harvester/proc/end_harvesting(success = TRUE)
+/obj/machinery/harvester/proc/end_harvesting()
 	warming_up = FALSE
 	harvesting = FALSE
 	open_machine()
-	if (!success)
-		say("Protocol interrupted. Aborting harvest.")
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
-	else
-		say("Subject has been successfully harvested.")
-		playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
+	say("Subject has been successfully harvested.")
+	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
 
-/obj/machinery/harvester/screwdriver_act(mob/living/user, obj/item/tool)
+/obj/machinery/harvester/screwdriver_act(mob/living/user, obj/item/I)
 	. = TRUE
 	if(..())
 		return
 	if(occupant)
-		to_chat(user, span_warning("[src] is currently occupied!"))
+		to_chat(user, span_warning("[capitalize(src.name)] is currently occupied!"))
 		return
 	if(state_open)
-		to_chat(user, span_warning("[src] must be closed to [panel_open ? "close" : "open"] its maintenance hatch!"))
+		to_chat(user, span_warning("[capitalize(src.name)] must be closed to [panel_open ? "close" : "open"] its maintenance hatch!"))
 		return
-	if(default_deconstruction_screwdriver(user, "[initial(icon_state)]-o", initial(icon_state), tool))
+	if(default_deconstruction_screwdriver(user, "[initial(icon_state)]-o", initial(icon_state), I))
 		return
 	return FALSE
 
-/obj/machinery/harvester/crowbar_act(mob/living/user, obj/item/tool)
-	if(default_pry_open(tool))
+/obj/machinery/harvester/crowbar_act(mob/living/user, obj/item/I)
+	if(default_pry_open(I))
 		return TRUE
-	if(default_deconstruction_crowbar(tool))
+	if(default_deconstruction_crowbar(I))
 		return TRUE
 
-/obj/machinery/harvester/default_pry_open(obj/item/tool) //wew
-	. = !(state_open || panel_open || (flags_1 & NODECONSTRUCT_1)) && tool.tool_behaviour == TOOL_CROWBAR //We removed is_operational here
+/obj/machinery/harvester/default_pry_open(obj/item/I) //wew
+	. = !(state_open || panel_open || (flags_1 & NODECONSTRUCT_1)) && I.tool_behaviour == TOOL_CROWBAR //We removed is_operational here
 	if(.)
-		tool.play_tool_sound(src, 50)
-		visible_message(span_notice("[usr] pries open \the [src]."), span_notice("You pry open [src]."))
+		I.play_tool_sound(src, 50)
+		visible_message(span_notice("[usr] pries open <b>[src.name]</b>.") , span_notice("You pry open [src]."))
 		open_machine()
 
-/obj/machinery/harvester/emag_act(mob/user, obj/item/card/emag/emag_card)
+/obj/machinery/harvester/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
-		return FALSE
+		return
 	obj_flags |= EMAGGED
 	allow_living = TRUE
-	allow_clothing = TRUE
-	balloon_alert(!user, "lifesign scanners overloaded")
-	return TRUE
+	to_chat(user, span_warning("You overload [src] lifesign scanners."))
 
 /obj/machinery/harvester/container_resist_act(mob/living/user)
 	if(!harvesting)
-		visible_message(span_notice("[occupant] emerges from [src]!"),
+		visible_message(span_notice("[occupant] emerges from [src]!") ,
 			span_notice("You climb out of [src]!"))
 		open_machine()
 	else
-		to_chat(user,span_warning("[src] is active and can't be opened!")) //rip
+		to_chat(user,span_warning("[capitalize(src.name)] is active and can't be opened!")) //rip
 
-/obj/machinery/harvester/Exited(atom/movable/gone, direction)
-	if (!state_open && gone == occupant)
-		container_resist_act(gone)
-	return ..()
+/obj/machinery/harvester/Exited(atom/movable/user)
+	if (!state_open && user == occupant)
+		container_resist_act(user)
 
 /obj/machinery/harvester/relaymove(mob/living/user, direction)
 	if (!state_open)
@@ -209,8 +190,8 @@
 	if(machine_stat & BROKEN)
 		return
 	if(state_open)
-		. += span_notice("[src] must be closed before harvesting.")
+		. += "<hr><span class='notice'>[capitalize(src.name)] must be closed before harvesting.</span>"
 	else if(!harvesting)
-		. += span_notice("Alt-click [src] to start harvesting.")
+		. += "<hr><span class='notice'>ПКМ [src] to start harvesting.</span>"
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Harvest speed at <b>[interval*0.1]</b> seconds per organ. Outputting to the <b>[dir2text(output_dir)]</b>.")
+		. += "<hr><span class='notice'>Дисплей: Harvest speed at <b>[interval*0.1]</b> seconds per organ.</span>"

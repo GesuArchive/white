@@ -11,8 +11,8 @@
 #define MAX_HOLE_SIZE LARGE_HOLE
 
 /obj/structure/fence
-	name = "fence"
-	desc = "A chain link fence. Not as effective as a wall, but generally it keeps people out."
+	name = "заборчик"
+	desc = "Забор из сетки рабицы. Не так эффективно, как стена, но людей не пропускает."
 	density = TRUE
 	anchored = TRUE
 
@@ -31,11 +31,13 @@
 /obj/structure/fence/examine(mob/user)
 	. = ..()
 
+	. += "<hr>"
+
 	switch(hole_size)
 		if(MEDIUM_HOLE)
-			. += "There is a large hole in \the [src]."
+			. += "There is a large hole in <b>[src.name]</b>."
 		if(LARGE_HOLE)
-			. += "\The [src] has been completely cut through."
+			. += "<b>[src.name]</b> has been completely cut through."
 
 /obj/structure/fence/end
 	icon_state = "end"
@@ -70,19 +72,19 @@
 			to_chat(user, span_warning("This fence has too much cut out of it already!"))
 			return
 
-		user.visible_message(span_danger("\The [user] starts cutting through \the [src] with \the [W]."),\
-		span_danger("You start cutting through \the [src] with \the [W]."))
+		user.visible_message(span_danger("<b>[capitalize(user)]</b> starts cutting through <b>[src]</b> with <b>[W]</b>."),\
+		span_danger("You start cutting through <b>[src]</b> with <b>[W]</b>."))
 
 		if(do_after(user, CUT_TIME*W.toolspeed, target = src))
 			if(current_stage == hole_size)
 				switch(++hole_size)
 					if(MEDIUM_HOLE)
-						visible_message(span_notice("\The [user] cuts into \the [src] some more."))
+						visible_message(span_notice("<b>[capitalize(user)]</b> cuts into <b>[src]</b> some more."))
 						to_chat(user, span_info("You could probably fit yourself through that hole now. Although climbing through would be much faster if you made it even bigger."))
 						AddElement(/datum/element/climbable)
 					if(LARGE_HOLE)
-						visible_message(span_notice("\The [user] completely cuts through \the [src]."))
-						to_chat(user, span_info("The hole in \the [src] is now big enough to walk through."))
+						visible_message(span_notice("<b>[capitalize(user)]</b> completely cuts through <b>[src]</b>."))
+						to_chat(user, span_info("The hole in <b>[src]</b> is now big enough to walk through."))
 						RemoveElement(/datum/element/climbable)
 
 				update_cut_status()
@@ -106,35 +108,37 @@
 //FENCE DOORS
 
 /obj/structure/fence/door
-	name = "fence door"
-	desc = "Not very useful without a real lock."
+	name = "калитка"
+	desc = "Сомнительная польза без замка. В виду активизации деятельности международной террористической организации «ИГИЛ» убедительно просим вас закрывать калитку на крючок."
 	icon_state = "door_closed"
 	cuttable = FALSE
+	var/open = FALSE
 
 /obj/structure/fence/door/Initialize(mapload)
 	. = ..()
 
-	update_icon_state()
+	update_door_status()
 
 /obj/structure/fence/door/opened
 	icon_state = "door_opened"
-	density = FALSE
+	open = TRUE
+	density = TRUE
 
-/obj/structure/fence/door/attack_hand(mob/user, list/modifiers)
+/obj/structure/fence/door/attack_hand(mob/user)
 	if(can_open(user))
 		toggle(user)
 
 	return TRUE
 
 /obj/structure/fence/door/proc/toggle(mob/user)
-	visible_message(span_notice("\The [user] [density ? "opens" : "closes"] \the [src]."))
-	set_density(!density)
-	update_icon_state()
+	open = !open
+	visible_message(span_notice(" [user] [open ? "открывает" : "закрывает"] <b>[src.name]</b>."))
+	update_door_status()
 	playsound(src, 'sound/machines/click.ogg', 100, TRUE)
 
-/obj/structure/fence/door/update_icon_state()
+/obj/structure/fence/door/proc/update_door_status()
+	set_density(!density)
 	icon_state = density ? "door_closed" : "door_opened"
-	return ..()
 
 /obj/structure/fence/door/proc/can_open(mob/user)
 	return TRUE

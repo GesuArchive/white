@@ -1,17 +1,16 @@
 #define USERNAME_SIZE 32
-#define CHANNELNAME_SIZE 18
+#define CHANNELNAME_SIZE 12
 #define MESSAGE_SIZE 2048
-
-#define PING_COOLDOWN_TIME (3 SECONDS)
 
 /datum/computer_file/program/chatclient
 	filename = "ntnrc_client"
-	filedesc = "Chat Client"
-	category = PROGRAM_CATEGORY_CREW
+	filedesc = "Чат Клиент"
+	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "command"
-	extended_desc = "This program allows communication over NTNRC network"
+	extended_desc = "Программа коммуникации в сети НТ."
 	size = 8
 	requires_ntnet = TRUE
+	requires_ntnet_feature = NTNET_COMMUNICATION
 	ui_header = "ntnrc_idle.gif"
 	available_on_ntnet = TRUE
 	tgui_id = "NtosNetChat"
@@ -28,13 +27,9 @@
 	var/netadmin_mode = FALSE
 	///All NTnet conversations the application is apart of.
 	var/list/datum/ntnet_conversation/conversations = list()
-	///Cooldown timer between pings.
-	COOLDOWN_DECLARE(ping_cooldown)
 
-/datum/computer_file/program/chatclient/on_install(datum/computer_file/source, obj/item/modular_computer/computer_installing)
-	. = ..()
-	if(!username)
-		username = "DefaultUser[rand(100, 999)]"
+/datum/computer_file/program/chatclient/New()
+	username = "DefaultUser[rand(100, 999)]"
 
 /datum/computer_file/program/chatclient/Destroy()
 	for(var/datum/ntnet_conversation/discussion as anything in conversations)
@@ -49,8 +44,12 @@
 	active_channel = new_converstaion.id
 	return new_converstaion
 
-/datum/computer_file/program/chatclient/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
-	var/datum/ntnet_conversation/channel = SSmodular_computers.get_chat_channel_by_id(active_channel)
+/datum/computer_file/program/chatclient/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+
+	var/datum/ntnet_conversation/channel = SSnetworks.station_network.get_chat_channel_by_id(active_channel)
 	var/authed = FALSE
 	if(channel && ((channel.channel_operator == src) || netadmin_mode))
 		authed = TRUE
@@ -81,7 +80,7 @@
 				return TRUE
 
 			active_channel = new_target
-			channel = SSmodular_computers.get_chat_channel_by_id(new_target)
+			channel = SSnetworks.station_network.get_chat_channel_by_id(new_target)
 			if((!(src in channel.active_clients) && !(src in channel.offline_clients)) && !channel.password)
 				channel.add_client(src)
 			return TRUE
@@ -100,23 +99,23 @@
 			if(netadmin_mode)
 				netadmin_mode = FALSE
 				channel?.add_client(src)
-				return TRUE
+				return UI_UPDATE
 			var/mob/living/user = usr
-			if(can_run(user, TRUE, list(ACCESS_NETWORK)))
-				for(var/datum/ntnet_conversation/channels as anything in SSmodular_computers.chat_channels)
+			if(can_run(user, TRUE, ACCESS_NETWORK))
+				for(var/datum/ntnet_conversation/channels as anything in SSnetworks.station_network.chat_channels)
 					channels.remove_client(src)
 				netadmin_mode = TRUE
-				return TRUE
+				return UI_UPDATE
 		if("PRG_changename")
 			var/newname = reject_bad_chattext(params["new_name"], USERNAME_SIZE)
 			newname = replacetext(newname, " ", "_")
 			if(!newname || newname == username)
 				return
-			for(var/datum/ntnet_conversation/anychannel as anything in SSmodular_computers.chat_channels)
+			for(var/datum/ntnet_conversation/anychannel as anything in SSnetworks.station_network.chat_channels)
 				if(src in anychannel.active_clients)
 					anychannel.add_status_message("[username] is now known as [newname].")
 			username = newname
-			return TRUE
+			return UI_UPDATE
 		if("PRG_savelog")
 			if(!channel)
 				return
@@ -135,7 +134,7 @@
 				if(!computer)
 					// This program shouldn't even be runnable without computer.
 					CRASH("Var computer is null!")
-				computer.visible_message(span_warning("\The [computer] shows an \"I/O Error - Hard drive may be full. Please free some space and try again. Required space: [logfile.size]GQ\" warning."))
+				computer.visible_message(span_warning("[computer] отображает предупреждение \"I/O Ошибка: жёсткий диск может быть заполнен. Освободите место и попробуйте еще раз. Требуемое пространство: [logfile.size]GQ\"."))
 			return TRUE
 		if("PRG_renamechannel")
 			if(!authed)
@@ -143,7 +142,7 @@
 			var/newname = reject_bad_chattext(params["new_name"], CHANNELNAME_SIZE)
 			if(!newname || !channel)
 				return
-			channel.add_status_message("Channel renamed from [channel.title] to [newname] by operator.")
+			channel.add_status_message("Канал переименован с [channel.title] на [newname] оператором.")
 			channel.title = newname
 			return TRUE
 		if("PRG_deletechannel")
@@ -166,19 +165,16 @@
 			channel.mute_user(src, muted)
 			return TRUE
 		if("PRG_ping_user")
-			if(!COOLDOWN_FINISHED(src, ping_cooldown))
-				return
-			if(src in channel.muted_clients)
+			if(!authed)
 				return
 			var/datum/computer_file/program/chatclient/pinged = locate(params["ref"]) in channel.active_clients + channel.offline_clients
 			channel.ping_user(src, pinged)
-			COOLDOWN_START(src, ping_cooldown, PING_COOLDOWN_TIME)
 			return TRUE
 
-/datum/computer_file/program/chatclient/process_tick(seconds_per_tick)
+/datum/computer_file/program/chatclient/process_tick(delta_time)
 	. = ..()
-	var/datum/ntnet_conversation/channel = SSmodular_computers.get_chat_channel_by_id(active_channel)
-	if(src in computer.idle_threads)
+	var/datum/ntnet_conversation/channel = SSnetworks.station_network.get_chat_channel_by_id(active_channel)
+	if(program_state != PROGRAM_STATE_KILLED)
 		ui_header = "ntnrc_idle.gif"
 		if(channel)
 			// Remember the last message. If there is no message in the channel remember null.
@@ -195,27 +191,32 @@
 	. = ..()
 	if(!.)
 		return
-	for(var/datum/ntnet_conversation/channel as anything in SSmodular_computers.chat_channels)
+	for(var/datum/ntnet_conversation/channel as anything in SSnetworks.station_network.chat_channels)
 		if(src in channel.offline_clients)
 			channel.offline_clients.Remove(src)
 			channel.active_clients.Add(src)
 
-/datum/computer_file/program/chatclient/kill_program(mob/user)
-	for(var/datum/ntnet_conversation/channel as anything in SSmodular_computers.chat_channels)
+/datum/computer_file/program/chatclient/kill_program(forced = FALSE)
+	for(var/datum/ntnet_conversation/channel as anything in SSnetworks.station_network.chat_channels)
 		channel.go_offline(src)
 	active_channel = null
 	return ..()
 
 /datum/computer_file/program/chatclient/ui_static_data(mob/user)
 	var/list/data = list()
+	data["can_admin"] = can_run(user, FALSE, ACCESS_NETWORK)
 	data["selfref"] = REF(src) //used to verify who is you, as usernames can be copied.
+	data["username"] = username
+	data["adminmode"] = netadmin_mode
 	return data
 
 /datum/computer_file/program/chatclient/ui_data(mob/user)
-	var/list/data = list()
+	var/list/data = get_header_data()
+	if(!SSnetworks.station_network || !SSnetworks.station_network.chat_channels)
+		return data
 
 	var/list/all_channels = list()
-	for(var/datum/ntnet_conversation/conversations as anything in SSmodular_computers.chat_channels)
+	for(var/datum/ntnet_conversation/conversations as anything in SSnetworks.station_network.chat_channels)
 		if(conversations.title)
 			all_channels.Add(list(list(
 				"chan" = conversations.title,
@@ -224,7 +225,7 @@
 	data["all_channels"] = all_channels
 	data["active_channel"] = active_channel
 
-	var/datum/ntnet_conversation/channel = SSmodular_computers.get_chat_channel_by_id(active_channel)
+	var/datum/ntnet_conversation/channel = SSnetworks.station_network.get_chat_channel_by_id(active_channel)
 	var/authed = FALSE
 	data["clients"] = list()
 	data["messages"] = list()
@@ -238,8 +239,7 @@
 				authed = TRUE
 			clients.Add(list(list(
 				"name" = channel_client.username,
-				"online" = (channel_client == channel_client.computer.active_program),
-				"away" = (channel_client in channel_client.computer.idle_threads),
+				"status" = channel_client.program_state,
 				"muted" = (channel_client in channel.muted_clients),
 				"operator" = (channel.channel_operator == channel_client),
 				"ref" = REF(channel_client),
@@ -249,21 +249,16 @@
 			data["strong"] = channel.strong
 			data["clients"] = clients
 			var/list/messages = list()
-			for(var/i=channel.messages.len to 1 step -1)
+			for(var/message in channel.messages)
 				messages.Add(list(list(
-					"msg" = channel.messages[i],
+					"msg" = message,
 				)))
 			data["messages"] = messages
 			data["is_operator"] = (channel.channel_operator == src) || netadmin_mode
 
-	data["username"] = username
-	data["adminmode"] = netadmin_mode
-	data["can_admin"] = can_run(user, FALSE, list(ACCESS_NETWORK))
 	data["authed"] = authed
 	return data
 
 #undef USERNAME_SIZE
 #undef CHANNELNAME_SIZE
 #undef MESSAGE_SIZE
-
-#undef PING_COOLDOWN_TIME

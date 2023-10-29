@@ -13,16 +13,11 @@ export const Terminal = (props, context) => {
   const { messages = [], uppertext } = data;
 
   return (
-    <Window theme={data.tguitheme} title="Terminal" width={480} height={520}>
+    <Window theme={data.tguitheme} title="Терминал" width={480} height={520}>
       <Window.Content scrollable>
         <NoticeBox textAlign="left">{uppertext}</NoticeBox>
         {messages.map((message) => {
-          return (
-            <Section
-              key={message.key}
-              dangerouslySetInnerHTML={{ __html: message }}
-            />
-          );
+          return <Section key={message.key}>{message}</Section>;
         })}
       </Window.Content>
     </Window>

@@ -1,0 +1,3186 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"aJ" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/violence)
+"bF" = (
+/obj/structure/bed/maint,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"bR" = (
+/obj/effect/turf_decal/stripes/full,
+/obj/structure/grille,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"bT" = (
+/obj/effect/turf_decal/stripes/full,
+/obj/machinery/door/poddoor/multi_tile/two_tile_hor{
+	resistance_flags = 115
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"bX" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/violence)
+"cw" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/bed/maint,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"cT" = (
+/obj/effect/turf_decal/box/red,
+/obj/effect/landmark/bomb_plant_location,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"dj" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"dl" = (
+/obj/effect/landmark/start/combatant/blue,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"dZ" = (
+/obj/machinery/door/poddoor/multi_tile/three_tile_hor{
+	resistance_flags = 115
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"eb" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"eX" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"fo" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"gw" = (
+/obj/structure/deployable_barricade/metal,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"iz" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"iB" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 5
+	},
+/turf/open/floor/engine,
+/area/violence)
+"jj" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/light{
+	currentcolor = "#FA8282"
+	},
+/area/violence)
+"jl" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/floor/engine,
+/area/violence)
+"ju" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/light{
+	currentcolor = "#3375F8"
+	},
+/area/violence)
+"jB" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"jO" = (
+/obj/machinery/door/poddoor/multi_tile/two_tile_ver{
+	resistance_flags = 115
+	},
+/obj/effect/turf_decal/stripes/full,
+/obj/structure/grille,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"kJ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 5
+	},
+/turf/open/floor/engine,
+/area/violence)
+"ld" = (
+/turf/open/space/basic,
+/area/violence)
+"lp" = (
+/turf/closed/indestructible/riveted,
+/area/violence)
+"lH" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
+/turf/open/floor/engine,
+/area/violence)
+"lU" = (
+/obj/effect/turf_decal/arrows{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"mu" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/red/corners,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"mB" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"mZ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
+/turf/open/floor/engine,
+/area/violence)
+"nc" = (
+/obj/effect/turf_decal/arrows{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"nm" = (
+/obj/structure/bed/maint,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"oz" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/light_emitter{
+	light_range = 16;
+	set_cap = 2.5;
+	set_luminosity = 16
+	},
+/turf/open/floor/engine,
+/area/violence)
+"oP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/violence)
+"oT" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/violence)
+"oZ" = (
+/obj/effect/turf_decal/arrows{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"pb" = (
+/turf/open/space,
+/area/violence)
+"pI" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/engine,
+/area/violence)
+"qo" = (
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"qF" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/violence)
+"qM" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/engine,
+/area/violence)
+"rT" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"rY" = (
+/obj/effect/turf_decal/is12,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"sk" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"sl" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"sK" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/violence)
+"to" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/violence)
+"tC" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/violence)
+"uP" = (
+/turf/open/floor/plating,
+/area/violence)
+"vd" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"vp" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/violence)
+"vr" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
+/turf/open/floor/engine,
+/area/violence)
+"vH" = (
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"wc" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/plating,
+/area/violence)
+"wn" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/violence)
+"xi" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/violence)
+"zQ" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/violence)
+"Ad" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"AO" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"Bh" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/violence)
+"BD" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side/corner,
+/turf/open/floor/engine,
+/area/violence)
+"Cz" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"CF" = (
+/obj/effect/landmark/observer_start,
+/turf/open/floor/plating,
+/area/violence)
+"CQ" = (
+/obj/structure/bed/maint,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"DB" = (
+/turf/open/floor/light{
+	currentcolor = "#3375F8"
+	},
+/area/violence)
+"Em" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"EG" = (
+/obj/machinery/door/airlock/grunge,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"Fx" = (
+/obj/effect/turf_decal/arrows{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"FK" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/violence)
+"FO" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"Gc" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"Gf" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
+/turf/open/floor/engine,
+/area/violence)
+"GL" = (
+/obj/effect/landmark/start/combatant/blue,
+/turf/open/floor/light{
+	currentcolor = "#3375F8"
+	},
+/area/violence)
+"Hf" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/bed/maint,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"Hl" = (
+/obj/effect/landmark/start/combatant/red,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"Hy" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/engine,
+/area/violence)
+"IL" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
+/turf/open/floor/engine,
+/area/violence)
+"JB" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/violence)
+"Ko" = (
+/obj/effect/turf_decal/arrows{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"Ld" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"Ly" = (
+/obj/effect/turf_decal/stripes/full,
+/obj/machinery/door/poddoor/multi_tile/four_tile_ver{
+	resistance_flags = 115
+	},
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"Ng" = (
+/obj/machinery/door/poddoor/multi_tile/four_tile_ver{
+	resistance_flags = 115
+	},
+/obj/effect/turf_decal/arrows{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"NX" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/violence)
+"Oz" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"OG" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"Pj" = (
+/obj/effect/landmark/start/combatant/red,
+/turf/open/floor/light{
+	currentcolor = "#FA8282"
+	},
+/area/violence)
+"PN" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"Qv" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"QO" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"QR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"Rd" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/violence)
+"Rw" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/violence)
+"RA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"RJ" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/violence)
+"Sv" = (
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"Te" = (
+/turf/closed/wall,
+/area/violence)
+"Th" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"TZ" = (
+/turf/open/floor/light{
+	currentcolor = "#FA8282"
+	},
+/area/violence)
+"Uf" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/engine,
+/area/violence)
+"Vq" = (
+/obj/machinery/door/poddoor/multi_tile/four_tile_ver{
+	resistance_flags = 115
+	},
+/obj/effect/turf_decal/arrows{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"VH" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"VQ" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/violence)
+"Xp" = (
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/violence)
+"XS" = (
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"XZ" = (
+/obj/effect/turf_decal/box/red/corners,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"YP" = (
+/obj/machinery/door/poddoor/multi_tile/two_tile_ver{
+	resistance_flags = 115
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"Zb" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
+/turf/open/floor/engine,
+/area/violence)
+"ZF" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/violence)
+"ZO" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/violence)
+"ZQ" = (
+/obj/effect/turf_decal/arrows{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/plasteel/monofloor,
+/area/violence)
+"ZR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/violence)
+
+(1,1,1) = {"
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+"}
+(2,1,1) = {"
+lp
+Hf
+CQ
+CQ
+CQ
+CQ
+CQ
+nm
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+bF
+CQ
+CQ
+CQ
+CQ
+CQ
+cw
+lp
+"}
+(3,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+dZ
+Em
+Pj
+Pj
+Hl
+Pj
+Pj
+Hl
+Hl
+Pj
+Pj
+Hl
+Pj
+Pj
+Ad
+dZ
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(4,1,1) = {"
+lp
+Em
+XS
+Fx
+XS
+XS
+XS
+Ad
+qo
+Em
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Ad
+qo
+Em
+XS
+XS
+XS
+Fx
+XS
+Ad
+lp
+"}
+(5,1,1) = {"
+lp
+Em
+TZ
+TZ
+TZ
+TZ
+TZ
+Ad
+qo
+Em
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Pj
+Ad
+qo
+Em
+TZ
+TZ
+TZ
+TZ
+TZ
+Ad
+lp
+"}
+(6,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(7,1,1) = {"
+lp
+lp
+lp
+EG
+lp
+lp
+lp
+lp
+lp
+Em
+Pj
+Pj
+Hl
+Pj
+Pj
+Hl
+Hl
+Pj
+Pj
+Hl
+Pj
+Pj
+Ad
+lp
+lp
+lp
+lp
+lp
+EG
+lp
+lp
+lp
+"}
+(8,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(9,1,1) = {"
+lp
+Em
+TZ
+TZ
+TZ
+TZ
+TZ
+Ad
+lp
+lp
+qo
+YP
+lp
+lp
+ZQ
+ZQ
+ZQ
+Ng
+lp
+lp
+qo
+YP
+lp
+lp
+Em
+TZ
+TZ
+TZ
+TZ
+TZ
+Ad
+lp
+"}
+(10,1,1) = {"
+lp
+Em
+XS
+XS
+gw
+XS
+XS
+Ad
+lp
+Sv
+Sv
+Sv
+Sv
+lp
+lU
+lU
+lU
+lU
+lp
+Sv
+Sv
+Sv
+Sv
+lp
+Em
+XS
+rY
+Gc
+XS
+XS
+Ad
+lp
+"}
+(11,1,1) = {"
+lp
+Em
+XS
+XS
+gw
+XS
+XS
+Ad
+lp
+Sv
+TZ
+TZ
+Sv
+lp
+lU
+lU
+lU
+lU
+lp
+Sv
+TZ
+TZ
+Sv
+lp
+Em
+XS
+XS
+Gc
+XS
+XS
+Ad
+lp
+"}
+(12,1,1) = {"
+lp
+Em
+XS
+XS
+gw
+XS
+XS
+Ad
+lp
+Sv
+TZ
+TZ
+Sv
+lp
+lU
+lU
+lU
+lU
+lp
+Sv
+TZ
+TZ
+Sv
+lp
+Em
+XS
+XS
+Gc
+XS
+XS
+Ad
+lp
+"}
+(13,1,1) = {"
+lp
+lp
+xi
+xi
+xi
+lp
+bR
+jO
+lp
+sk
+sk
+sk
+sk
+lp
+ZQ
+ZQ
+ZQ
+Ng
+lp
+sk
+sk
+sk
+sk
+lp
+bR
+jO
+lp
+xi
+xi
+xi
+lp
+lp
+"}
+(14,1,1) = {"
+lp
+RA
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+vd
+lp
+"}
+(15,1,1) = {"
+lp
+Ld
+XS
+XS
+rY
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+TZ
+rY
+XS
+TZ
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Cz
+lp
+"}
+(16,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+TZ
+XS
+XS
+TZ
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Cz
+lp
+"}
+(17,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+vH
+vH
+vH
+vH
+vH
+vH
+XS
+XS
+XS
+jj
+eX
+eX
+jj
+XS
+XS
+XS
+vH
+vH
+vH
+vH
+vH
+vH
+vH
+XS
+XS
+Cz
+lp
+"}
+(18,1,1) = {"
+lp
+dj
+eX
+eX
+QO
+Te
+xi
+xi
+xi
+Te
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+QR
+Te
+xi
+xi
+xi
+Te
+QO
+eX
+eX
+jB
+lp
+"}
+(19,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+xi
+pb
+pb
+pb
+Te
+xi
+xi
+xi
+Te
+qo
+qo
+qo
+Ly
+Te
+xi
+xi
+xi
+xi
+pb
+pb
+pb
+xi
+vH
+XS
+XS
+Cz
+lp
+"}
+(20,1,1) = {"
+lp
+Ld
+TZ
+TZ
+vH
+xi
+pb
+ld
+ld
+xi
+vr
+vp
+vp
+vp
+vp
+vp
+vp
+vp
+vp
+vp
+vp
+kJ
+xi
+ld
+ld
+pb
+xi
+vH
+TZ
+TZ
+Cz
+lp
+"}
+(21,1,1) = {"
+lp
+Ld
+TZ
+TZ
+vH
+xi
+pb
+ld
+ld
+xi
+Uf
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+VQ
+Te
+ld
+ld
+pb
+xi
+vH
+TZ
+TZ
+Cz
+lp
+"}
+(22,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+Te
+Te
+xi
+xi
+Te
+Uf
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+FK
+VQ
+Te
+xi
+xi
+Te
+Te
+vH
+XS
+XS
+Cz
+lp
+"}
+(23,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+Cz
+Te
+mZ
+JB
+JB
+BD
+FK
+FK
+zQ
+zQ
+zQ
+zQ
+zQ
+zQ
+FK
+FK
+NX
+JB
+JB
+iB
+Te
+Ld
+vH
+XS
+XS
+Cz
+lp
+"}
+(24,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pI
+FK
+FK
+FK
+FK
+FK
+FK
+sK
+wn
+wn
+Bh
+FK
+FK
+FK
+FK
+FK
+FK
+to
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(25,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pI
+FK
+FK
+FK
+FK
+FK
+FK
+wc
+TZ
+TZ
+bX
+FK
+FK
+FK
+FK
+FK
+FK
+to
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(26,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pI
+zQ
+zQ
+zQ
+zQ
+zQ
+FK
+wc
+uP
+uP
+bX
+FK
+zQ
+zQ
+zQ
+zQ
+zQ
+to
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(27,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+Te
+pI
+FK
+FK
+oz
+FK
+FK
+FK
+wc
+TZ
+TZ
+bX
+FK
+FK
+FK
+oz
+FK
+FK
+to
+Te
+Ld
+XS
+rY
+XS
+Cz
+lp
+"}
+(28,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pI
+FK
+FK
+FK
+FK
+FK
+FK
+wc
+uP
+uP
+bX
+FK
+FK
+FK
+FK
+FK
+FK
+to
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(29,1,1) = {"
+lp
+Ld
+rY
+XS
+XS
+Cz
+xi
+pI
+FK
+FK
+FK
+FK
+FK
+FK
+wc
+TZ
+TZ
+bX
+FK
+FK
+FK
+FK
+FK
+FK
+to
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(30,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+pI
+FK
+FK
+FK
+FK
+FK
+FK
+wc
+uP
+uP
+bX
+FK
+FK
+FK
+FK
+FK
+FK
+to
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(31,1,1) = {"
+lp
+Ld
+TZ
+TZ
+XS
+Cz
+Te
+pI
+FK
+FK
+FK
+FK
+FK
+FK
+wc
+TZ
+TZ
+bX
+FK
+FK
+FK
+FK
+FK
+FK
+to
+Te
+Ld
+XS
+TZ
+TZ
+Cz
+lp
+"}
+(32,1,1) = {"
+lp
+Ld
+TZ
+TZ
+XS
+Cz
+bT
+pI
+FK
+FK
+FK
+FK
+FK
+FK
+wc
+CF
+uP
+bX
+FK
+FK
+FK
+FK
+FK
+FK
+to
+bT
+Ld
+XS
+TZ
+TZ
+Cz
+lp
+"}
+(33,1,1) = {"
+lp
+Ld
+DB
+DB
+XS
+Cz
+qo
+qM
+qF
+qF
+qF
+qF
+qF
+qF
+wc
+uP
+uP
+bX
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
+qo
+Ld
+XS
+DB
+DB
+Cz
+lp
+"}
+(34,1,1) = {"
+lp
+Ld
+DB
+DB
+XS
+Cz
+Te
+qM
+qF
+qF
+qF
+qF
+qF
+qF
+wc
+DB
+DB
+bX
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
+Te
+Ld
+XS
+DB
+DB
+Cz
+lp
+"}
+(35,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+qM
+qF
+qF
+qF
+qF
+qF
+qF
+wc
+uP
+uP
+bX
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(36,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+qM
+qF
+qF
+qF
+qF
+qF
+qF
+wc
+DB
+DB
+bX
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(37,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+qM
+qF
+qF
+qF
+qF
+qF
+qF
+wc
+uP
+uP
+bX
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(38,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+Te
+qM
+qF
+qF
+jl
+qF
+qF
+qF
+wc
+DB
+DB
+bX
+qF
+qF
+qF
+jl
+qF
+qF
+aJ
+Te
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(39,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+qM
+RJ
+RJ
+RJ
+RJ
+RJ
+qF
+wc
+uP
+uP
+bX
+qF
+RJ
+RJ
+RJ
+RJ
+RJ
+aJ
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(40,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+qM
+qF
+qF
+qF
+qF
+qF
+qF
+wc
+DB
+DB
+bX
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(41,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+Cz
+xi
+qM
+qF
+qF
+qF
+qF
+qF
+qF
+Rd
+ZR
+ZR
+oP
+qF
+qF
+qF
+qF
+qF
+qF
+aJ
+xi
+Ld
+XS
+XS
+XS
+Cz
+lp
+"}
+(42,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+Cz
+Te
+Zb
+Rw
+Rw
+oT
+qF
+qF
+RJ
+RJ
+RJ
+RJ
+RJ
+RJ
+qF
+qF
+ZF
+Rw
+Rw
+lH
+Te
+Ld
+vH
+XS
+XS
+Cz
+lp
+"}
+(43,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+Te
+Te
+xi
+xi
+Te
+Hy
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+tC
+Te
+xi
+xi
+Te
+Te
+vH
+XS
+XS
+Cz
+lp
+"}
+(44,1,1) = {"
+lp
+Ld
+DB
+DB
+vH
+xi
+pb
+ld
+ld
+xi
+Hy
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+qF
+tC
+xi
+ld
+ld
+pb
+xi
+vH
+DB
+DB
+Cz
+lp
+"}
+(45,1,1) = {"
+lp
+Ld
+DB
+DB
+vH
+xi
+pb
+ld
+ld
+xi
+Gf
+ZO
+ZO
+ZO
+ZO
+ZO
+ZO
+ZO
+ZO
+ZO
+ZO
+IL
+xi
+ld
+ld
+pb
+xi
+vH
+DB
+DB
+Cz
+lp
+"}
+(46,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+xi
+pb
+pb
+pb
+Te
+xi
+xi
+xi
+Te
+qo
+qo
+qo
+Ly
+Te
+xi
+xi
+xi
+Te
+pb
+pb
+pb
+xi
+vH
+XS
+XS
+Cz
+lp
+"}
+(47,1,1) = {"
+lp
+eb
+sl
+sl
+VH
+Te
+xi
+xi
+xi
+Te
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+iz
+Te
+xi
+xi
+xi
+Te
+VH
+sl
+sl
+mB
+lp
+"}
+(48,1,1) = {"
+lp
+Ld
+XS
+XS
+vH
+vH
+vH
+vH
+vH
+vH
+vH
+XS
+XS
+XS
+ju
+sl
+sl
+ju
+XS
+XS
+XS
+vH
+vH
+vH
+vH
+vH
+vH
+vH
+XS
+XS
+Cz
+lp
+"}
+(49,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+DB
+XS
+XS
+DB
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Cz
+lp
+"}
+(50,1,1) = {"
+lp
+Ld
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+rY
+XS
+XS
+XS
+XS
+DB
+XS
+XS
+DB
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+rY
+XS
+XS
+XS
+XS
+Cz
+lp
+"}
+(51,1,1) = {"
+lp
+Th
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+Oz
+lp
+"}
+(52,1,1) = {"
+lp
+lp
+xi
+xi
+xi
+lp
+bR
+jO
+lp
+Xp
+Xp
+Xp
+Xp
+lp
+Ko
+Ko
+Ko
+Vq
+lp
+Xp
+Xp
+Xp
+Xp
+lp
+bR
+jO
+lp
+xi
+xi
+xi
+lp
+lp
+"}
+(53,1,1) = {"
+lp
+mu
+XS
+rT
+gw
+XS
+XS
+Ad
+lp
+Sv
+DB
+DB
+Sv
+lp
+nc
+nc
+nc
+nc
+lp
+Sv
+DB
+DB
+Sv
+lp
+Em
+XS
+XS
+Gc
+XZ
+XS
+fo
+lp
+"}
+(54,1,1) = {"
+lp
+Em
+cT
+XS
+gw
+XS
+XS
+Ad
+lp
+Sv
+DB
+DB
+Sv
+lp
+nc
+nc
+nc
+nc
+lp
+Sv
+DB
+DB
+Sv
+lp
+Em
+XS
+XS
+Gc
+XS
+cT
+Ad
+lp
+"}
+(55,1,1) = {"
+lp
+AO
+XS
+Qv
+gw
+XS
+XS
+Ad
+lp
+Sv
+Sv
+Sv
+Sv
+lp
+nc
+nc
+nc
+nc
+lp
+Sv
+Sv
+Sv
+Sv
+lp
+Em
+XS
+XS
+Gc
+OG
+XS
+aa
+lp
+"}
+(56,1,1) = {"
+lp
+Em
+DB
+DB
+DB
+DB
+DB
+Ad
+lp
+lp
+qo
+YP
+lp
+lp
+Ko
+Ko
+Ko
+Vq
+lp
+lp
+qo
+YP
+lp
+lp
+Em
+DB
+DB
+DB
+DB
+DB
+Ad
+lp
+"}
+(57,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(58,1,1) = {"
+lp
+lp
+lp
+EG
+lp
+lp
+lp
+lp
+lp
+Em
+GL
+GL
+dl
+GL
+GL
+dl
+dl
+GL
+GL
+dl
+GL
+GL
+Ad
+lp
+lp
+lp
+lp
+lp
+EG
+lp
+lp
+lp
+"}
+(59,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+Em
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+Ad
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(60,1,1) = {"
+lp
+Em
+DB
+DB
+DB
+DB
+DB
+Ad
+dZ
+Em
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+GL
+Ad
+dZ
+Em
+DB
+DB
+DB
+DB
+DB
+Ad
+lp
+"}
+(61,1,1) = {"
+lp
+Em
+XS
+oZ
+rY
+XS
+XS
+Ad
+qo
+Em
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+Ad
+qo
+Em
+XS
+XS
+XS
+oZ
+XS
+Ad
+lp
+"}
+(62,1,1) = {"
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+qo
+Em
+GL
+GL
+dl
+GL
+GL
+dl
+dl
+GL
+GL
+dl
+GL
+GL
+Ad
+qo
+Em
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+"}
+(63,1,1) = {"
+lp
+Hf
+CQ
+CQ
+CQ
+CQ
+CQ
+nm
+lp
+Em
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+XS
+Ad
+lp
+bF
+CQ
+CQ
+CQ
+CQ
+CQ
+cw
+lp
+"}
+(64,1,1) = {"
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+"}

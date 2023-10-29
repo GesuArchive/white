@@ -1,6 +1,6 @@
 import { sortBy } from 'common/collections';
 import { useBackend } from '../backend';
-import { Box, Button, Flex, ProgressBar, Section, Table } from '../components';
+import { Box, Flex, ProgressBar, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 const JOB_REPORT_MENU_FAIL_REASON_TRACKING_DISABLED = 1;
@@ -10,15 +10,7 @@ const sortByPlaytime = sortBy(([_, playtime]) => -playtime);
 
 const PlaytimeSection = (props) => {
   const { playtimes } = props;
-
-  const sortedPlaytimes = sortByPlaytime(Object.entries(playtimes)).filter(
-    (entry) => entry[1]
-  );
-
-  if (!sortedPlaytimes.length) {
-    return 'No recorded playtime hours for this section.';
-  }
-
+  const sortedPlaytimes = sortByPlaytime(Object.entries(playtimes));
   const mostPlayed = sortedPlaytimes[0][1];
   return (
     <Table>
@@ -56,17 +48,9 @@ const PlaytimeSection = (props) => {
 };
 
 export const TrackedPlaytime = (props, context) => {
-  const { act, data } = useBackend(context);
-  const {
-    failReason,
-    jobPlaytimes,
-    specialPlaytimes,
-    exemptStatus,
-    isAdmin,
-    livingTime,
-    ghostTime,
-    adminTime,
-  } = data;
+  const { data } = useBackend(context);
+  const { failReason, jobPlaytimes, specialPlaytimes, livingTime, ghostTime } =
+    data;
   return (
     <Window title="Tracked Playtime" width={550} height={650}>
       <Window.Content scrollable>
@@ -83,21 +67,10 @@ export const TrackedPlaytime = (props, context) => {
                 playtimes={{
                   'Ghost': ghostTime,
                   'Living': livingTime,
-                  'Admin': adminTime,
                 }}
               />
             </Section>
-            <Section
-              title="Jobs"
-              buttons={
-                !!isAdmin && (
-                  <Button.Checkbox
-                    checked={!!exemptStatus}
-                    onClick={() => act('toggle_exempt')}>
-                    Job Playtime Exempt
-                  </Button.Checkbox>
-                )
-              }>
+            <Section title="Jobs">
               <PlaytimeSection playtimes={jobPlaytimes} />
             </Section>
             <Section title="Special">

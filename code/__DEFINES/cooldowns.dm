@@ -35,12 +35,12 @@
 #define COOLDOWN_MECHA_ARMOR "mecha_armor"
 #define COOLDOWN_MECHA_MELEE_ATTACK "mecha_melee"
 #define COOLDOWN_MECHA_SMOKE "mecha_smoke"
-#define COOLDOWN_MECHA_SKYFALL "mecha_skyfall"
-#define COOLDOWN_MECHA_MISSILE_STRIKE "mecha_missile_strike"
-#define COOLDOWN_MECHA_CABIN_SEAL "mecha_cabin_seal"
 
 //car cooldowns
 #define COOLDOWN_CAR_HONK "car_honk"
+
+//wheelchair bell cooldown
+#define COOLDOWN_BELL "bell_cooldown"
 
 //clown car cooldowns
 #define COOLDOWN_CLOWNCAR_RANDOMNESS "clown_car_randomness"
@@ -49,6 +49,7 @@
 #define COOLDOWN_SIGNALLER_SEND "cooldown_signaller_send"
 
 //circuit cooldowns
+
 #define COOLDOWN_CIRCUIT_SOUNDEMITTER "circuit_soundemitter"
 #define COOLDOWN_CIRCUIT_SPEECH "circuit_speech"
 #define COOLDOWN_CIRCUIT_PATHFIND_SAME "circuit_pathfind_same"
@@ -58,9 +59,6 @@
 
 // mob cooldowns
 #define COOLDOWN_YAWN_PROPAGATION "yawn_propagation_cooldown"
-
-// admin verb cooldowns
-#define COOLDOWN_INTERNET_SOUND "internet_sound"
 
 //Shared cooldowns for actions
 #define MOB_SHARED_COOLDOWN_1 (1<<0)
@@ -99,15 +97,11 @@
 
 #define COOLDOWN_DECLARE(cd_index) var/##cd_index = 0
 
-#define STATIC_COOLDOWN_DECLARE(cd_index) var/static/##cd_index = 0
-
 #define COOLDOWN_START(cd_source, cd_index, cd_time) (cd_source.cd_index = world.time + (cd_time))
 
 //Returns true if the cooldown has run its course, false otherwise
 #define COOLDOWN_FINISHED(cd_source, cd_index) (cd_source.cd_index < world.time)
 
 #define COOLDOWN_RESET(cd_source, cd_index) cd_source.cd_index = 0
-
-#define COOLDOWN_STARTED(cd_source, cd_index) (cd_source.cd_index != 0)
 
 #define COOLDOWN_TIMELEFT(cd_source, cd_index) (max(0, cd_source.cd_index - world.time))

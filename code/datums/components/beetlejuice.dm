@@ -9,7 +9,7 @@
 	var/case_sensitive = FALSE
 	var/regex/R
 
-/datum/component/beetlejuice/Initialize()
+/datum/component/beetlejuice/Initialize(mapload)
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 
@@ -33,7 +33,7 @@
 	if (var_name == NAMEOF(src, keyword) || var_name == NAMEOF(src, case_sensitive))
 		update_regex()
 
-/datum/component/beetlejuice/proc/say_react(datum/source, mob/speaker, message)
+/datum/component/beetlejuice/proc/say_react(datum/source, mob/speaker,message)
 	SIGNAL_HANDLER
 
 	if(!speaker || speaker == parent || !message || !active)

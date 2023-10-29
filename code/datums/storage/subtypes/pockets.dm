@@ -59,9 +59,9 @@
 
 /datum/storage/pockets/chefhat/can_insert(obj/item/to_insert, mob/user, messages, force)
 	. = ..()
-	if(ispickedupmob(to_insert))
+	if(istype(to_insert, /obj/item/clothing/head/mob_holder))
 		var/obj/item/clothing/head/mob_holder/mausholder = to_insert
-		if(locate(/mob/living/basic/mouse) in mausholder.contents)
+		if(locate(/mob/living/simple_animal/mouse) in mausholder.contents)
 			return
 		return FALSE
 
@@ -74,15 +74,12 @@
 /datum/storage/pockets/shoes/New()
 	. = ..()
 	set_holdable(list(
-		/obj/item/knife,
-		/obj/item/spess_knife,
+		/obj/item/kitchen/knife,
 		/obj/item/switchblade,
-		/obj/item/boxcutter,
 		/obj/item/pen,
 		/obj/item/scalpel,
-		/obj/item/dnainjector,
 		/obj/item/reagent_containers/syringe,
-		/obj/item/reagent_containers/pill,
+		/obj/item/dnainjector,
 		/obj/item/reagent_containers/hypospray/medipen,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/implanter,
@@ -91,19 +88,16 @@
 		/obj/item/firing_pin,
 		/obj/item/suppressor,
 		/obj/item/ammo_box/magazine/m9mm,
-		/obj/item/ammo_box/magazine/m10mm,
 		/obj/item/ammo_box/magazine/m45,
-		/obj/item/ammo_box/magazine/toy/pistol,
 		/obj/item/ammo_casing,
 		/obj/item/lipstick,
 		/obj/item/clothing/mask/cigarette,
 		/obj/item/lighter,
 		/obj/item/match,
 		/obj/item/holochip,
-		/obj/item/toy/crayon,
-		/obj/item/reagent_containers/cup/glass/flask),
+		/obj/item/toy/crayon),
 		list(/obj/item/screwdriver/power,
-		/obj/item/ammo_casing/rocket,
+		/obj/item/ammo_casing/caseless/rocket,
 		/obj/item/clothing/mask/cigarette/pipe,
 		/obj/item/toy/crayon/spraycan)
 		)
@@ -111,8 +105,7 @@
 /datum/storage/pockets/shoes/clown/New()
 	. = ..()
 	set_holdable(list(
-		/obj/item/knife,
-		/obj/item/spess_knife,
+		/obj/item/kitchen/knife,
 		/obj/item/switchblade,
 		/obj/item/pen,
 		/obj/item/scalpel,
@@ -126,7 +119,6 @@
 		/obj/item/firing_pin,
 		/obj/item/suppressor,
 		/obj/item/ammo_box/magazine/m9mm,
-		/obj/item/ammo_box/magazine/m10mm,
 		/obj/item/ammo_box/magazine/m45,
 		/obj/item/ammo_casing,
 		/obj/item/lipstick,
@@ -135,10 +127,9 @@
 		/obj/item/match,
 		/obj/item/holochip,
 		/obj/item/toy/crayon,
-		/obj/item/bikehorn,
-		/obj/item/reagent_containers/cup/glass/flask),
+		/obj/item/bikehorn),
 		list(/obj/item/screwdriver/power,
-		/obj/item/ammo_casing/rocket,
+		/obj/item/ammo_casing/caseless/rocket,
 		/obj/item/clothing/mask/cigarette/pipe,
 		/obj/item/toy/crayon/spraycan)
 		)
@@ -164,10 +155,10 @@
 
 /datum/storage/pockets/helmet/New()
 	. = ..()
-	set_holdable(list(/obj/item/reagent_containers/cup/glass/bottle/vodka,
-					  /obj/item/reagent_containers/cup/glass/bottle/molotov,
-					  /obj/item/reagent_containers/cup/glass/drinkingglass,
-					  /obj/item/ammo_box/strilka310))
+	set_holdable(list(/obj/item/reagent_containers/food/drinks/bottle/vodka,
+					  /obj/item/reagent_containers/food/drinks/bottle/molotov,
+					  /obj/item/reagent_containers/food/drinks/drinkingglass,
+					  /obj/item/ammo_box/a762))
 
 
 /datum/storage/pockets/void_cloak
@@ -178,7 +169,7 @@
 /datum/storage/pockets/void_cloak/New()
 	. = ..()
 	set_holdable(list(
-		/obj/item/ammo_box/strilka310/lionhunter,
+		/obj/item/ammo_box/a762/lionhunter,
 		/obj/item/bodypart, // Bodyparts are often used in rituals. They're also often normal sized, so you can only fit one.
 		/obj/item/clothing/neck/eldritch_amulet,
 		/obj/item/clothing/neck/heretic_focus,
@@ -188,7 +179,7 @@
 		/obj/item/melee/rune_carver,
 		/obj/item/melee/sickly_blade, // Normal sized, so you can only fit one.
 		/obj/item/organ, // Organs are also often used in rituals.
-		/obj/item/reagent_containers/cup/beaker/eldritch,
+		/obj/item/reagent_containers/glass/beaker/eldritch,
 	))
 
 	var/static/list/exception_cache = typecacheof(list(/obj/item/bodypart, /obj/item/melee/sickly_blade))

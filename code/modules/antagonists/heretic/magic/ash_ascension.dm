@@ -1,9 +1,8 @@
 /// Creates a constant Ring of Fire around the caster for a set duration of time, which follows them.
 /datum/action/cooldown/spell/fire_sworn
-	name = "Oath of Flame"
-	desc = "For a minute, you will passively create a ring of fire around you."
-	background_icon_state = "bg_heretic"
-	overlay_icon_state = "bg_heretic_border"
+	name = "Клятва Пламени"
+	desc = "На одну минуту вас оружит кольцо из огня, наносящее урон окружающим."
+	background_icon_state = "bg_ecult"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "fire_ring"
 
@@ -33,7 +32,7 @@
 /// Simple status effect for adding a ring of fire around a mob.
 /datum/status_effect/fire_ring
 	id = "fire_ring"
-	tick_interval = 0.2 SECONDS
+	tick_interval = 0.1 SECONDS
 	status_type = STATUS_EFFECT_REFRESH
 	alert_type = null
 	/// The radius of the ring around us.
@@ -44,7 +43,7 @@
 	src.ring_radius = radius
 	return ..()
 
-/datum/status_effect/fire_ring/tick(seconds_between_ticks)
+/datum/status_effect/fire_ring/tick(delta_time, times_fired)
 	if(QDELETED(owner) || owner.stat == DEAD)
 		qdel(src)
 		return
@@ -54,16 +53,15 @@
 
 	for(var/turf/nearby_turf as anything in RANGE_TURFS(1, owner))
 		new /obj/effect/hotspot(nearby_turf)
-		nearby_turf.hotspot_expose(750, 25 * seconds_between_ticks, 1)
+		nearby_turf.hotspot_expose(750, 25 * delta_time, 1)
 		for(var/mob/living/fried_living in nearby_turf.contents - owner)
-			fried_living.apply_damage(2.5 * seconds_between_ticks, BURN)
+			fried_living.apply_damage(2.5 * delta_time, BURN)
 
 /// Creates one, large, expanding ring of fire around the caster, which does not follow them.
 /datum/action/cooldown/spell/fire_cascade
-	name = "Lesser Fire Cascade"
-	desc = "Heats the air around you."
-	background_icon_state = "bg_heretic"
-	overlay_icon_state = "bg_heretic_border"
+	name = "Каскад Огня"
+	desc = "Раскаляет воздух вокруг вас."
+	background_icon_state = "bg_ecult"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "fire_ring"
 	sound = 'sound/items/welder.ogg'
@@ -88,7 +86,7 @@
 		for(var/turf/nearby_turf as anything in spiral_range_turfs(i + 1, centre))
 			new /obj/effect/hotspot(nearby_turf)
 			nearby_turf.hotspot_expose(750, 50, 1)
-			for(var/mob/living/fried_living in nearby_turf.contents - owner)
+			for(var/mob/living/fried_living in nearby_turf.contents - centre)
 				fried_living.apply_damage(5, BURN)
 
 		stoplag(0.3 SECONDS)
@@ -101,8 +99,7 @@
 /datum/action/cooldown/spell/pointed/ash_beams
 	name = "Nightwatcher's Rite"
 	desc = "A powerful spell that releases five streams of eldritch fire towards the target."
-	background_icon_state = "bg_heretic"
-	overlay_icon_state = "bg_heretic_border"
+	background_icon_state = "bg_ecult"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "flames"
 	ranged_mousepointer = 'icons/effects/mouse_pointers/throw_target.dmi'
@@ -141,7 +138,7 @@
 /datum/action/cooldown/spell/pointed/ash_beams/proc/fire_line(atom/source, list/turfs)
 	var/list/hit_list = list()
 	for(var/turf/T in turfs)
-		if(isclosedturf(T))
+		if(istype(T, /turf/closed))
 			break
 
 		for(var/mob/living/L in T.contents)
@@ -162,4 +159,4 @@
 				continue
 			hit_list += M
 			M.take_damage(45, BURN, MELEE, 1)
-		sleep(0.15 SECONDS)
+		sleep(1.5)

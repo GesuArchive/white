@@ -35,7 +35,7 @@
 
 	var/mutable_appearance/pointed_atom_appearance = new(pointed_atom.appearance)
 	pointed_atom_appearance.blend_mode = BLEND_INSET_OVERLAY
-	pointed_atom_appearance.plane = FLOAT_PLANE
+	SET_PLANE(pointed_atom_appearance, FLOAT_PLANE, pointed_atom_appearance)
 	pointed_atom_appearance.layer = FLOAT_LAYER
 	pointed_atom_appearance.pixel_x = 0
 	pointed_atom_appearance.pixel_y = 0
@@ -51,7 +51,7 @@
 
 	var/mutable_appearance/point_visual = mutable_appearance(
 		'icons/hud/screen_gen.dmi',
-		"arrow"
+		"arrow",
 	)
 
 	thought_bubble.overlays += point_visual
@@ -65,7 +65,7 @@
 	cut_overlay(thought_bubble)
 
 /obj/effect/temp_visual/point
-	name = "pointer"
+	name = "указатель"
 	icon = 'icons/hud/screen_gen.dmi'
 	icon_state = "arrow"
 	plane = POINT_PLANE
@@ -77,7 +77,7 @@
 	abstract_move(get_turf(src))
 	pixel_x = old_loc.pixel_x
 	pixel_y = old_loc.pixel_y
-	SetInvisibility(set_invis)
+	invisibility = set_invis
 
 #undef POINT_TIME
 
@@ -94,22 +94,16 @@
  *
  * overridden here and in /mob/dead/observer for different point span classes and sanity checks
  */
-/mob/verb/pointed(atom/A as mob|obj|turf in view())
-	set name = "Point To"
-	set category = "Object"
+/mob/verb/pointed(atom/target as mob|obj|turf in view())
+	set name = "Показать на..."
+	set category = "Объект"
 
-	if(istype(A, /obj/effect/temp_visual/point))
+	if(client && !(target in view(client.view, src)))
+		return FALSE
+	if(istype(target, /obj/effect/temp_visual/point))
 		return FALSE
 
-	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(_pointed), A))
+	point_at(target)
 
-/// possibly delayed verb that finishes the pointing process starting in [/mob/verb/pointed()].
-/// either called immediately or in the tick after pointed() was called, as per the [DEFAULT_QUEUE_OR_CALL_VERB()] macro
-/mob/proc/_pointed(atom/pointing_at)
-	if(client && !(pointing_at in view(client.view, src)))
-		return FALSE
-
-	point_at(pointing_at)
-
-	SEND_SIGNAL(src, COMSIG_MOB_POINTED, pointing_at)
+	SEND_SIGNAL(src, COMSIG_MOB_POINTED, target)
 	return TRUE

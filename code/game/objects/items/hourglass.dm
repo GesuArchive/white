@@ -6,9 +6,9 @@
 	var/obj/effect/countdown/hourglass/countdown
 	var/time = 1 MINUTES
 	var/finish_time //So countdown doesn't need to fiddle with timers
-	var/timing_id //if present we're timing
+	var/timing_id	//if present we're timing
 	var/hand_activated = TRUE
-	icon = 'icons/obj/toys/hourglass.dmi'
+	icon = 'icons/obj/hourglass.dmi'
 	icon_state = "hourglass_idle"
 
 /obj/item/hourglass/Initialize(mapload)
@@ -30,8 +30,11 @@
 		stop()
 
 /obj/item/hourglass/update_icon_state()
-	icon_state = "hourglass_[timing_id ? "active" : "idle"]"
-	return ..()
+	. = ..()
+	if(timing_id)
+		icon_state = "hourglass_active"
+	else
+		icon_state = "hourglass_idle"
 
 /obj/item/hourglass/proc/start()
 	finish_time = world.time + time
@@ -52,10 +55,10 @@
 	countdown.stop()
 	finish_time = null
 	animate(src)
-	update_appearance()
+	update_icon()
 
 /obj/item/hourglass/proc/finish()
-	visible_message(span_notice("[src] stops."))
+	visible_message(span_notice("[capitalize(src.name)] stops."))
 	stop()
 
 /obj/item/hourglass/Destroy()
@@ -68,7 +71,7 @@
 	anchored = TRUE
 	hand_activated = FALSE
 
-/obj/item/hourglass/admin/attack_hand(mob/user, list/modifiers)
+/obj/item/hourglass/admin/attack_hand(mob/user)
 	. = ..()
 	if(user.client && user.client.holder)
 		toggle(user)

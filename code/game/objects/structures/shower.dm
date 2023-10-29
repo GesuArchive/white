@@ -7,7 +7,8 @@
 /// The volume of it's internal reagents the shower applies to everything it sprays.
 #define SHOWER_SPRAY_VOLUME 5
 /// How much the volume of the shower's spay reagents are amplified by when it sprays something.
-#define SHOWER_EXPOSURE_MULTIPLIER 2 // Showers effectively double exposed reagents
+#define SHOWER_EXPOSURE_MULTIPLIER 2	// Showers effectively double exposed reagents
+
 /// How long we run in TIMED mode
 #define SHOWER_TIMED_LENGTH (15 SECONDS)
 
@@ -115,7 +116,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	if(!update_actually_on(intended_on))
 		balloon_alert(user, "[src] is dry!")
 		return FALSE
-
 	balloon_alert(user, "turned [intended_on ? "on" : "off"]")
 
 	return TRUE
@@ -167,7 +167,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 
 /obj/machinery/shower/screwdriver_act(mob/living/user, obj/item/I)
 	..()
-	to_chat(user, span_notice("You begin to adjust the temperature valve with \the [I]..."))
+	to_chat(user, span_notice("You begin to adjust the temperature valve with [I]..."))
 	if(I.use_tool(src, user, 50))
 		switch(current_temperature)
 			if(SHOWER_NORMAL)
@@ -176,8 +176,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 				current_temperature = SHOWER_BOILING
 			if(SHOWER_BOILING)
 				current_temperature = SHOWER_NORMAL
-		user.visible_message(span_notice("[user] adjusts the shower with \the [I]."), span_notice("You adjust the shower with \the [I] to [current_temperature] temperature."))
-		user.log_message("has wrenched a shower to [current_temperature].", LOG_ATTACK)
+		user.visible_message(span_notice("[user] adjusts the shower with [I].") , span_notice("You adjust the shower with [I] to [current_temperature] temperature."))
+		user.log_message("has wrenched a shower at [AREACOORD(src)] to [current_temperature].", LOG_ATTACK)
 		add_hiddenprint(user)
 	handle_mist()
 	return TRUE
@@ -243,12 +243,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 		wash_atom(AM)
 
 /obj/machinery/shower/proc/wash_atom(atom/target)
-	target.wash(CLEAN_RAD | CLEAN_WASH)
+	target.wash(CLEAN_RAD | CLEAN_TYPE_WEAK) // Clean radiation non-instantly
+	target.wash(CLEAN_WASH)
+	SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "shower", /datum/mood_event/nice_shower)
 	reagents.expose(target, (TOUCH), SHOWER_EXPOSURE_MULTIPLIER * SHOWER_SPRAY_VOLUME / max(reagents.total_volume, SHOWER_SPRAY_VOLUME))
 	if(isliving(target))
-		var/mob/living/living_target = target
-		check_heat(living_target)
-		living_target.add_mood_event("shower", /datum/mood_event/nice_shower)
+		check_heat(target)
 
 /**
  * Toggle whether shower is actually on and outputting water.
@@ -269,6 +269,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	actually_on = new_on_state
 
 	update_appearance()
+
 	handle_mist()
 	if(new_on_state)
 		begin_processing()
@@ -282,7 +283,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 
 	return TRUE
 
-/obj/machinery/shower/process(seconds_per_tick)
+/obj/machinery/shower/process(delta_time)
 	// the TIMED mode cutoff feature. User has to manually reactivate.
 	if(intended_on && mode == SHOWER_MODE_TIMED && COOLDOWN_FINISHED(src, timed_cooldown))
 		// the TIMED mode cutoff feature. User has to manually reactivate.
@@ -302,7 +303,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	// Reclaim water
 	if(!actually_on)
 		if(has_water_reclaimer && reagents.total_volume < reagents.maximum_volume)
-			reagents.add_reagent(reagent_id, refill_rate * seconds_per_tick)
+			reagents.add_reagent(reagent_id, refill_rate * delta_time)
 			return 0
 
 		// FOREVER mode stays processing so it can cycle back on.
@@ -328,12 +329,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	if(current_temperature == SHOWER_FREEZING)
 		if(iscarbon(L))
 			C.adjust_bodytemperature(-80, 80)
-		to_chat(L, span_warning("[src] is freezing!"))
+		to_chat(L, span_warning("[capitalize(src.name)] is freezing!"))
 	else if(current_temperature == SHOWER_BOILING)
 		if(iscarbon(L))
 			C.adjust_bodytemperature(35, 0, 500)
 		L.adjustFireLoss(5)
-		to_chat(L, span_danger("[src] is searing!"))
+		to_chat(L, span_danger("[capitalize(src.name)] is searing!"))
 
 
 /obj/structure/showerframe
@@ -342,10 +343,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	icon_state = "shower_frame"
 	desc = "A shower frame, that needs a water recycler to finish construction."
 	anchored = FALSE
-
-/obj/structure/showerframe/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/simple_rotation)
 
 /obj/structure/showerframe/attackby(obj/item/tool, mob/living/user, params)
 	if(istype(tool, /obj/item/stock_parts/water_recycler))
@@ -371,8 +368,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	deconstruct()
 	return TRUE
 
-/obj/structure/showerframe/AltClick(mob/user)
-	return ..() // This hotkey is BLACKLISTED since it's used by /datum/component/simple_rotation
+/obj/structure/showerframe/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS, null, CALLBACK(src, PROC_REF(can_be_rotated)))
+
+/obj/structure/showerframe/proc/can_be_rotated(mob/user, rotation_type)
+	if(anchored)
+		to_chat(user, span_warning("It is fastened to the floor!"))
+	return !anchored
 
 /obj/effect/mist
 	name = "mist"

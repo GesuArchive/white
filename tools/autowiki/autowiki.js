@@ -36,7 +36,7 @@ async function main() {
 	const bot = new MWBot()
 
 	await bot.loginGetEditToken({
-		apiUrl: "https://tgstation13.org/wiki/api.php",
+		apiUrl: "https://wiki.station13.ru/api.php",
 		username: USERNAME,
 		password: PASSWORD,
 	})
@@ -50,7 +50,7 @@ async function main() {
 		}
 
 		let { title, text } = JSON.parse(editLine)
-		text = "<noinclude><b>This page is automated by Autowiki. Do NOT edit it manually.</b></noinclude>" + text
+		text = "<noinclude><b>Эта страница поддерживается Autowiki. НЕ РЕДАКТИРУЙТЕ её вручную.</b></noinclude>" + text
 
 		console.log(`Editing ${title}...`)
 		await bot.edit(
@@ -73,6 +73,8 @@ async function main() {
 		).catch(error => {
 			if (error.code === "fileexists-no-change") {
 				console.log(`${assetName} is an exact duplicate`)
+			} else if (error.code === "empty-file") {
+				console.log(`${assetName} is an empty file`)
 			} else {
 				return Promise.reject(error)
 			}

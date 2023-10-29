@@ -38,6 +38,8 @@
 			window.mouse_event_macro_set = FALSE
 			window.set_mouse_macro()
 
+	winset(src, null, "input.focus=true")
+
 	update_special_keybinds()
 
 /// Manually clears any held keys, in case due to lag or other undefined behavior a key gets stuck.

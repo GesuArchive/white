@@ -1,0 +1,27 @@
+{
+	"gs_zwei_worn": [
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_worn_blade",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_worn_guard",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_worn_grip",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_worn_pommel",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	]
+}

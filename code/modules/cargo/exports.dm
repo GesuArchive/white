@@ -21,84 +21,58 @@ Then the player gets the profit from selling his own wasted time.
 
 // Simple holder datum to pass export results around
 /datum/export_report
-	///names of atoms sold/deleted by export
-	var/list/exported_atoms = list()
-	///export instance => total count of sold objects of its type, only exists if any were sold
-	var/list/total_amount = list()
-	///export instance => total value of sold objects
-	var/list/total_value = list()
-	///set to false if any objects in a dry run were unscannable
-	var/all_contents_scannable = TRUE
+	var/list/exported_atoms = list()	//names of atoms sold/deleted by export
+	var/list/total_amount = list()		//export instance => total count of sold objects of its type, only exists if any were sold
+	var/list/total_value = list()		//export instance => total value of sold objects
+	var/list/exported_atoms_ref = list()	//if they're not deleted they go in here for use.
 
-/*
-	* Handles exporting a movable atom and its contents
-	* Arguments:
-	** apply_elastic: if the price will change based on amount sold, where applicable
-	** delete_unsold: if the items that were not sold should be deleted
-	** dry_run: if the item should be actually sold, or if its just a pirce test
-	** external_report: works as "transaction" object, pass same one in if you're doing more than one export in single go
-	** ignore_typecache: typecache containing types that should be completely ignored
-*/
-/proc/export_item_and_contents(atom/movable/exported_atom, apply_elastic = TRUE, delete_unsold = TRUE, dry_run = FALSE, datum/export_report/external_report, list/ignore_typecache)
+// external_report works as "transaction" object, pass same one in if you're doing more than one export in single go
+/proc/export_item_and_contents(atom/movable/AM, apply_elastic = TRUE, delete_unsold = TRUE, dry_run=FALSE, datum/export_report/external_report)
 	if(!GLOB.exports_list.len)
 		setupExports()
 
-	var/list/contents = exported_atom.get_all_contents_ignoring(ignore_typecache)
+	var/profit_ratio = 1 //Percentage that gets sent to the seller, rest goes to cargo.
+
+	var/list/contents = AM.get_all_contents()
 
 	var/datum/export_report/report = external_report
 
 	if(!report) //If we don't have any longer transaction going on
 		report = new
 
-	// We go backwards, so it'll be innermost objects sold first. We also make sure nothing is accidentally delete before everything is sold.
-	var/list/to_delete = list()
-	for(var/atom/movable/thing as anything in reverse_range(contents))
+	// We go backwards, so it'll be innermost objects sold first
+	for(var/i in reverse_range(contents))
+		var/atom/movable/thing = i
 		var/sold = FALSE
-		for(var/datum/export/export as anything in GLOB.exports_list)
-			if(export.applies_to(thing, apply_elastic))
-				if(!dry_run && (SEND_SIGNAL(thing, COMSIG_ITEM_PRE_EXPORT) & COMPONENT_STOP_EXPORT))
-					break
-				//Don't add value of unscannable items for a dry run report
-				if(dry_run && !export.scannable)
-					report.all_contents_scannable = FALSE
-					break
-				sold = export.sell_object(thing, report, dry_run, apply_elastic)
+		if(QDELETED(thing))
+			continue
+
+		for(var/datum/export/E in GLOB.exports_list)
+			if(!E)
+				continue
+			if(E.applies_to(thing, apply_elastic))
+				sold = E.sell_object(thing, report, dry_run, apply_elastic, profit_ratio)
 				report.exported_atoms += " [thing.name]"
+				if(!QDELETED(thing))
+					report.exported_atoms_ref += thing
 				break
 		if(!dry_run && (sold || delete_unsold))
 			if(ismob(thing))
-				thing.investigate_log("deleted through cargo export", INVESTIGATE_CARGO)
-			to_delete += thing
-
-	for(var/atom/movable/thing as anything in to_delete)
-		if(!QDELETED(thing))
+				thing.investigate_log("deleted through cargo export",INVESTIGATE_CARGO)
 			qdel(thing)
 
 	return report
 
 /datum/export
-	/// Unit name. Only used in "Received [total_amount] [name]s [message]."
-	var/unit_name = ""
-	/// Message appended to the sale report
+	var/unit_name = ""				// Unit name. Only used in "Received [total_amount] [name]s [message]." message
 	var/message = ""
-	/// Cost of item, in cargo credits. Must not allow for infinite price dupes, see above.
-	var/cost = 1
-	/// whether this export can have a negative impact on the cargo budget or not
-	var/allow_negative_cost = FALSE
-	/// coefficient used in marginal price calculation that roughly corresponds to the inverse of price elasticity, or "quantity elasticity"
-	var/k_elasticity = 1/30
-	/// The multiplier of the amount sold shown on the report. Useful for exports, such as material, which costs are not strictly per single units sold.
-	var/amount_report_multiplier = 1
-	/// Type of the exported object. If none, the export datum is considered base type.
-	var/list/export_types = list()
-	/// Set to FALSE to make the datum apply only to a strict type.
-	var/include_subtypes = TRUE
-	/// Types excluded from export
-	var/list/exclude_types = list()
-	/// Set to false if the cost shouldn't be determinable by an export scanner
-	var/scannable = TRUE
+	var/cost = 1					// Cost of item, in cargo credits. Must not alow for infinite price dupes, see above.
+	var/k_elasticity = 1/30			//coefficient used in marginal price calculation that roughly corresponds to the inverse of price elasticity, or "quantity elasticity"
+	var/list/export_types = list()	// Type of the exported object. If none, the export datum is considered base type.
+	var/include_subtypes = TRUE		// Set to FALSE to make the datum apply only to a strict type.
+	var/list/exclude_types = list()	// Types excluded from export
 
-	/// cost includes elasticity, this does not.
+	//cost includes elasticity, this does not.
 	var/init_cost
 
 
@@ -107,7 +81,7 @@ Then the player gets the profit from selling his own wasted time.
 	..()
 	SSprocessing.processing += src
 	init_cost = cost
-	export_types = typecacheof(export_types, only_root_path = !include_subtypes, ignore_root_path = FALSE)
+	export_types = typecacheof(export_types, FALSE, !include_subtypes)
 	exclude_types = typecacheof(exclude_types)
 
 /datum/export/Destroy()
@@ -120,33 +94,31 @@ Then the player gets the profit from selling his own wasted time.
 	if(cost > init_cost)
 		cost = init_cost
 
-/// Checks the cost. 0 cost items are skipped in export.
-/datum/export/proc/get_cost(obj/exported_item, apply_elastic = TRUE)
-	var/amount = get_amount(exported_item)
+// Checks the cost. 0 cost items are skipped in export.
+/datum/export/proc/get_cost(obj/O, apply_elastic = TRUE)
+	var/amount = get_amount(O)
 	if(apply_elastic)
-		if(k_elasticity != 0)
-			return round((cost/k_elasticity) * (1 - NUM_E**(-1 * k_elasticity * amount))) //anti-derivative of the marginal cost function
+		if(k_elasticity!=0)
+			return round((cost/k_elasticity) * (1 - NUM_E**(-1 * k_elasticity * amount)))	//anti-derivative of the marginal cost function
 		else
-			return round(cost * amount) //alternative form derived from L'Hopital to avoid division by 0
+			return round(cost * amount)	//alternative form derived from L'Hopital to avoid division by 0
 	else
 		return round(init_cost * amount)
 
-/*
-* Checks the amount of exportable in object. Credits in the bill, sheets in the stack, etc.
-* Usually acts as a multiplier for a cost, so item that has 0 amount will be skipped in export.
-*/
-/datum/export/proc/get_amount(obj/exported_item)
+// Checks the amount of exportable in object. Credits in the bill, sheets in the stack, etc.
+// Usually acts as a multiplier for a cost, so item that has 0 amount will be skipped in export.
+/datum/export/proc/get_amount(obj/O)
 	return 1
 
-/// Checks if the item is fit for export datum.
-/datum/export/proc/applies_to(obj/exported_item, apply_elastic = TRUE)
-	if(!is_type_in_typecache(exported_item, export_types))
+// Checks if the item is fit for export datum.
+/datum/export/proc/applies_to(obj/O, apply_elastic = TRUE)
+	if(!is_type_in_typecache(O, export_types))
 		return FALSE
-	if(include_subtypes && is_type_in_typecache(exported_item, exclude_types))
+	if(include_subtypes && is_type_in_typecache(O, exclude_types))
 		return FALSE
-	if(!get_cost(exported_item, apply_elastic))
+	if(!get_cost(O, apply_elastic))
 		return FALSE
-	if(exported_item.flags_1 & HOLOGRAM_1)
+	if(O.flags_1 & HOLOGRAM_1)
 		return FALSE
 	return TRUE
 
@@ -158,36 +130,39 @@ Then the player gets the profit from selling his own wasted time.
  * get_cost, get_amount and applies_to do not neccesary mean a successful sale.
  *
  */
-/datum/export/proc/sell_object(obj/sold_item, datum/export_report/report, dry_run = TRUE, apply_elastic = TRUE)
+/datum/export/proc/sell_object(obj/O, datum/export_report/report, dry_run = TRUE, apply_elastic = TRUE)
 	///This is the value of the object, as derived from export datums.
-	var/export_value = get_cost(sold_item, apply_elastic)
+	var/the_cost = get_cost(O, apply_elastic)
 	///Quantity of the object in question.
-	var/export_amount = get_amount(sold_item)
+	var/amount = get_amount(O)
+	///Utilized in the pricetag component. Splits the object's profit when it has a pricetag by the specified amount.
+	var/profit_ratio = 0
 
-	if(export_amount <= 0 || (export_value <= 0 && !allow_negative_cost))
+	if(amount <=0 || the_cost <=0)
 		return FALSE
+	if(dry_run == FALSE)
+		if(SEND_SIGNAL(O, COMSIG_ITEM_SOLD, item_value = get_cost(O, apply_elastic)) & COMSIG_ITEM_SPLIT_VALUE)
+			profit_ratio = SEND_SIGNAL(O, COMSIG_ITEM_SPLIT_PROFIT_DRY)
+			the_cost = the_cost * ((100 - profit_ratio) * 0.01)
+	else
+		profit_ratio = SEND_SIGNAL(O, COMSIG_ITEM_SPLIT_PROFIT)
+		the_cost = the_cost * ((100 - profit_ratio) * 0.01)
+	report.total_value[src] += the_cost
 
-	// If we're not doing a dry run, send COMSIG_ITEM_EXPORTED to the sold item
-	var/export_result
-	if(!dry_run)
-		export_result = SEND_SIGNAL(sold_item, COMSIG_ITEM_EXPORTED, src, report, export_value)
-
-	// If the signal handled adding it to the report, don't do it now
-	if(!(export_result & COMPONENT_STOP_EXPORT_REPORT))
-		report.total_value[src] += export_value
-		report.total_amount[src] += export_amount * amount_report_multiplier
+	if(istype(O, /datum/export/material))
+		report.total_amount[src] += amount*MINERAL_MATERIAL_AMOUNT
+	else
+		report.total_amount[src] += amount
 
 	if(!dry_run)
 		if(apply_elastic)
-			cost *= NUM_E**(-1 * k_elasticity * export_amount) //marginal cost modifier
-		SSblackbox.record_feedback("nested tally", "export_sold_cost", 1, list("[sold_item.type]", "[export_value]"))
+			cost *= NUM_E**(-1*k_elasticity*amount)		//marginal cost modifier
+		SSblackbox.record_feedback("nested tally", "export_sold_cost", 1, list("[O.type]", "[the_cost]"))
 	return TRUE
 
-/*
-* Total printout for the cargo console.
-* Called before the end of current export cycle.
-* It must always return something if the datum adds or removes any credtis.
-*/
+// Total printout for the cargo console.
+// Called before the end of current export cycle.
+// It must always return something if the datum adds or removes any credts.
 /datum/export/proc/total_printout(datum/export_report/ex, notes = TRUE)
 	if(!ex.total_amount[src] || !ex.total_value[src])
 		return ""
@@ -195,14 +170,14 @@ Then the player gets the profit from selling his own wasted time.
 	var/total_value = ex.total_value[src]
 	var/total_amount = ex.total_amount[src]
 
-	var/msg = "[total_value] credits: Received [total_amount] "
+	var/msg = "[total_value] кредит[get_num_string(total_value)]: Возвращено [total_amount] "
 	if(total_value > 0)
 		msg = "+" + msg
 
 	if(unit_name)
 		msg += unit_name
 		if(total_amount > 1)
-			msg += "s"
+			msg += ""
 		if(message)
 			msg += " "
 
@@ -214,9 +189,8 @@ Then the player gets the profit from selling his own wasted time.
 
 GLOBAL_LIST_EMPTY(exports_list)
 
-/// Called when the global exports_list is empty, and sets it up.
 /proc/setupExports()
 	for(var/subtype in subtypesof(/datum/export))
-		var/datum/export/export_datum = new subtype
-		if(export_datum.export_types && export_datum.export_types.len) // Exports without a type are invalid/base types
-			GLOB.exports_list += export_datum
+		var/datum/export/E = new subtype
+		if(E.export_types && E.export_types.len) // Exports without a type are invalid/base types
+			GLOB.exports_list += E

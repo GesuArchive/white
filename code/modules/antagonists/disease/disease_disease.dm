@@ -1,11 +1,10 @@
 /datum/disease/advance/sentient_disease
 	form = "Virus"
-	name = "Sentient Virus"
-	desc = "An apparently sentient virus, extremely adaptable and resistant to outside sources of mutation."
+	name = "Разумный Вирус"
+	desc = "Явно разумный вирус, чрезвычайно адаптивный и устойчивый к внешним мутациям."
 	viable_mobtypes = list(/mob/living/carbon/human)
 	mutable = FALSE
 	var/mob/camera/disease/overmind
-	var/disease_id
 
 /datum/disease/advance/sentient_disease/New()
 	..()
@@ -39,7 +38,6 @@
 /datum/disease/advance/sentient_disease/Copy()
 	var/datum/disease/advance/sentient_disease/D = ..()
 	D.overmind = overmind
-	D.disease_id = disease_id
 	return D
 
 /datum/disease/advance/sentient_disease/after_add()
@@ -48,15 +46,13 @@
 
 
 /datum/disease/advance/sentient_disease/GetDiseaseID()
-	if (!disease_id) //if we don't set this here it can reinfect people after the disease dies, since overmind.tag won't be null when the disease is alive, but will be null afterwards, thus the disease ID changes
-		disease_id = "[type]|[overmind?.tag]"
-	return disease_id
+	return "[type]|[overmind ? overmind.tag : null]"
 
-/datum/disease/advance/sentient_disease/generate_cure()
+/datum/disease/advance/sentient_disease/GenerateCure()
 	if(cures.len)
 		return
 	var/list/not_used = advance_cures.Copy()
-	not_used.Cut(1, 6) // Removes the first five tiers of cures.
+	not_used.Cut(1, 6)	// Removes the first five tiers of cures.
 	cures = list(pick(pick_n_take(not_used)), pick(pick_n_take(not_used)))
 
 	// Get the cure name from the cure_id

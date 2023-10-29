@@ -1,0 +1,212 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bs" = (
+/obj/machinery/seed_extractor,
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"hx" = (
+/obj/machinery/hydroponics/soil,
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"iX" = (
+/obj/machinery/biogenerator,
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"mj" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin/unpowered)
+"mn" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/hydroponics/soil,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"qW" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/hydroponics/soil,
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"yt" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = -12
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"zv" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/poppy,
+/obj/item/food/grown/cherries,
+/obj/item/food/grown/tomato,
+/obj/item/seeds/tea,
+/obj/item/food/grown/watermelon,
+/obj/item/seeds/harebell,
+/obj/item/food/grown/wheat,
+/obj/item/reagent_containers/glass/bottle/nutrient/ez,
+/obj/item/food/grown/tea,
+/obj/item/reagent_containers/glass/bottle/nutrient/rh,
+/obj/item/seeds/tower,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Bf" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/machinery/microwave{
+	desc = "It looks really dirty.";
+	name = "maintenance microwave";
+	pixel_y = 5
+	},
+/obj/structure/table,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Bs" = (
+/obj/item/kirbyplants{
+	icon_state = "plant-22"
+	},
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"BO" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Fk" = (
+/obj/effect/abstract/doorway_marker,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Hv" = (
+/obj/machinery/hydroponics/soil,
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"KH" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = 11
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Ne" = (
+/obj/item/kirbyplants{
+	icon_state = "plant-21";
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"NT" = (
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+mj
+mj
+mj
+mj
+mj
+"}
+(2,1,1) = {"
+mj
+qW
+yt
+mn
+mj
+"}
+(3,1,1) = {"
+mj
+iX
+NT
+zv
+mj
+"}
+(4,1,1) = {"
+mj
+Bf
+NT
+Hv
+mj
+"}
+(5,1,1) = {"
+BO
+NT
+NT
+NT
+Fk
+"}
+(6,1,1) = {"
+mj
+Ne
+NT
+Hv
+mj
+"}
+(7,1,1) = {"
+mj
+bs
+NT
+Bs
+mj
+"}
+(8,1,1) = {"
+mj
+hx
+KH
+Hv
+mj
+"}
+(9,1,1) = {"
+mj
+mj
+mj
+mj
+mj
+"}

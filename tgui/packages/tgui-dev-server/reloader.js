@@ -52,11 +52,7 @@ export const findCacheRoot = async () => {
     logger.log('querying windows registry');
     let userpath = await regQuery('HKCU\\Software\\Dantom\\BYOND', 'userpath');
     if (userpath) {
-      // prettier-ignore
-      cacheRoot = userpath
-        .replace(/\\$/, '')
-        .replace(/\\/g, '/')
-        + '/cache';
+      cacheRoot = userpath.replace(/\\$/, '').replace(/\\/g, '/') + '/cache';
       onCacheRootFound(cacheRoot);
       return cacheRoot;
     }

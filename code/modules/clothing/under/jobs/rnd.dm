@@ -1,23 +1,14 @@
 /obj/item/clothing/under/rank/rnd
 	icon = 'icons/obj/clothing/under/rnd.dmi'
 	worn_icon = 'icons/mob/clothing/under/rnd.dmi'
-	armor_type = /datum/armor/clothing_under/science
-
-/datum/armor/clothing_under/science
-	bio = 50
 
 /obj/item/clothing/under/rank/rnd/research_director
-	desc = "It's a suit worn by those with the know-how to achieve the position of \"Research Director\". Its fabric provides minor protection from biological contaminants."
-	name = "research director's vest suit"
+	desc = "Костюм, который носят те, кто обладает ноу-хау для достижения позиции \"Научного Руководителя\". Его ткань обеспечивает незначительную защиту от биологических загрязнений."
+	name = "комбинезон научного руководителя"
 	icon_state = "director"
-	inhand_icon_state = "lb_suit"
-	armor_type = /datum/armor/clothing_under/rnd_research_director
+	inhand_icon_state = "w_suit"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 10, BIO = 10, RAD = 0, FIRE = 0, ACID = 35)
 	can_adjust = FALSE
-
-/datum/armor/clothing_under/rnd_research_director
-	bomb = 10
-	bio = 50
-	acid = 35
 
 /obj/item/clothing/under/rank/rnd/research_director/doctor_hilbert
 	desc = "A Research Director jumpsuit belonging to the late and great Doctor Hilbert. The suit sensors have long since fizzled out from the stress of the Hilbert's Hotel."
@@ -25,94 +16,105 @@
 	random_sensor = FALSE
 
 /obj/item/clothing/under/rank/rnd/research_director/skirt
-	name = "research director's vest suitskirt"
-	desc = "It's a suitskirt worn by those with the know-how to achieve the position of \"Research Director\". Its fabric provides minor protection from biological contaminants."
+	name = "комбинезон научного руководителя с юбкой"
+	desc = "Костюм, который носят те, кто обладает ноу-хау для достижения позиции \"Научного Руководителя\". Его ткань обеспечивает незначительную защиту от биологических загрязнений."
 	icon_state = "director_skirt"
+	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
+	can_adjust = FALSE
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	fitted = NO_FEMALE_UNIFORM
 
 /obj/item/clothing/under/rank/rnd/research_director/alt
-	name = "research director's tan suit"
-	desc = "Maybe you'll engineer your own half-man, half-pig creature some day. Its fabric provides minor protection from biological contaminants."
-	icon = 'icons/obj/clothing/under/shorts_pants_shirts.dmi'
-	worn_icon = 'icons/mob/clothing/under/shorts_pants_shirts.dmi'
-	icon_state = "buttondown_slacks"
-	greyscale_config = /datum/greyscale_config/buttondown_slacks
-	greyscale_config_worn = /datum/greyscale_config/buttondown_slacks/worn
-	greyscale_colors = "#ffeeb6#c2d3da#402912#615233"
+	desc = "Может, когда-нибудь ты сможешь создать свое собственное получеловечное, полуживое существо. Его ткань обеспечивает незначительную защиту от биологических загрязнений."
+	name = "рыжевато-коричневый костюм научного руководителя"
+	icon_state = "rdwhimsy"
+	inhand_icon_state = "rdwhimsy"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 10, RAD = 0, FIRE = 0, ACID = 0)
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
 
+/obj/item/clothing/under/rank/rnd/research_director/vest
+	desc = "Костюм, который носят те, кто обладает ноу-хау для достижения позиции \"Научного Руководителя\". Его ткань обеспечивает незначительную защиту от биологических загрязнений."
+	name = "костюм научного руководителя"
+	icon_state = "rd_vest"
+	inhand_icon_state = "lb_suit"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 10, RAD = 0, FIRE = 0, ACID = 0)
+	can_adjust = FALSE
+
 /obj/item/clothing/under/rank/rnd/research_director/alt/skirt
-	name = "research director's tan suitskirt"
-	icon_state = "buttondown_skirt"
-	greyscale_config = /datum/greyscale_config/buttondown_skirt
-	greyscale_config_worn = /datum/greyscale_config/buttondown_skirt/worn
+	name = "рыжевато-коричневый костюм научного руководителя с юбкой"
+	desc = "Может, когда-нибудь ты сможешь создать свое собственное получеловечное, полуживое существо. Его ткань обеспечивает незначительную защиту от биологических загрязнений."
+	icon_state = "rdwhimsy_skirt"
+	inhand_icon_state = "rdwhimsy"
 	body_parts_covered = CHEST|GROIN|ARMS
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	dying_key = DYE_REGISTRY_JUMPSKIRT
+	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/rnd/research_director/turtleneck
-	desc = "A Nanotrasen-purple turtleneck and black jeans, for a director with a superior sense of style."
-	name = "research director's turtleneck"
+	desc = "Темно-фиолетовая водолазка и загар хакис, для режиссера с превосходным чувством стиля."
+	name = "водолазка научного руководителя"
 	icon_state = "rdturtle"
 	inhand_icon_state = "p_suit"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 10, RAD = 0, FIRE = 0, ACID = 0)
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/rnd/research_director/turtleneck/skirt
-	name = "research director's turtleneck skirt"
-	desc = "A Nanotrasen-purple turtleneck and a black skirt, for a director with a superior sense of style."
+	name = "водолазка с юбкой"
+	desc = "Темно-фиолетовая водолазка и загар хакис, для режиссера с превосходным чувством стиля."
 	icon_state = "rdturtle_skirt"
+	inhand_icon_state = "p_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/rnd/scientist
-	name = "scientist's jumpsuit"
-	desc = "It's made of a special fiber that provides minor protection against explosives. It has markings that denote the wearer as a scientist."
-	icon_state = "science"
+	desc = "Он изготовлен из специального волокна, обеспечивающего незначительную защиту от взрывчатки. У него есть маркировка, обозначающая, что носитель является ученым."
+	name = "комбинезон учёного"
+	icon_state = "toxins"
 	inhand_icon_state = "w_suit"
-	armor_type = /datum/armor/clothing_under/science
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 10, BIO = 50, RAD = 0, FIRE = 0, ACID = 0)
 
 /obj/item/clothing/under/rank/rnd/scientist/skirt
-	name = "scientist's jumpskirt"
-	icon_state = "science_skirt"
+	name = "юбкомбез учёного"
+	desc = "Он изготовлен из специального волокна, обеспечивающего незначительную защиту от взрывчатки. У него есть маркировка, обозначающая, что носитель является ученым."
+	icon_state = "toxinswhite_skirt"
+	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	fitted = NO_FEMALE_UNIFORM
+	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/rnd/roboticist
-	desc = "It's a slimming black with reinforced seams; great for industrial work."
-	name = "roboticist's jumpsuit"
+	desc = "Он изготовлен из специального волокна, обеспечивающего незначительную защиту от взрывчатки. У него есть маркировка, обозначающая, что носитель является ученым."
+	name = "комбинезон робототехника"
 	icon_state = "robotics"
-	inhand_icon_state = null
+	inhand_icon_state = "robotics"
 	resistance_flags = NONE
 
 /obj/item/clothing/under/rank/rnd/roboticist/skirt
-	name = "roboticist's jumpskirt"
-	desc = "It's a slimming black with reinforced seams; great for industrial work."
+	name = "юбкомбез робототехника"
+	desc = "Он изготовлен из специального волокна, обеспечивающего незначительную защиту от взрывчатки. У него есть маркировка, обозначающая, что носитель является ученым."
 	icon_state = "robotics_skirt"
-	inhand_icon_state = null
+	inhand_icon_state = "robotics"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/rnd/geneticist
-	name = "geneticist's jumpsuit"
-	desc = "It's made of a special fiber that gives special protection against biohazards. It has a genetics rank stripe on it."
+	desc = "Сделан из специального волокна, которое обеспечивает особую защиту от биологических угроз. На нем есть маркировка генетики."
+	name = "комбинезон генетика"
 	icon_state = "genetics"
 	inhand_icon_state = "w_suit"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 50, RAD = 0, FIRE = 0, ACID = 0)
 
 /obj/item/clothing/under/rank/rnd/geneticist/skirt
-	name = "geneticist's jumpskirt"
-	icon_state = "genetics_skirt"
+	name = "комбинезон с юбкой генетика"
+	desc = "Сделан из специального волокна, которое обеспечивает особую защиту от биологических угроз. На нем есть маркировка генетики"
+	icon_state = "geneticswhite_skirt"
+	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	fitted = NO_FEMALE_UNIFORM
+	can_adjust = FALSE

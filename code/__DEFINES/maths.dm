@@ -1,13 +1,10 @@
 // Remove these once we have Byond implementation.
-// ------------------------------------
-#define IS_NAN(a) (a != a)
-
-#define IS_INF__UNSAFE(a) (a == a && a-a != a-a)
-#define IS_INF(a) (isnum(a) && IS_INF__UNSAFE(a))
+#define ISNAN(a) (a!=a)
+#define ISINF(a) (!ISNAN(a) && ISNAN(a-a))
+#define IS_INF_OR_NAN(a) (ISNAN(a-a))
 
 #define IS_FINITE__UNSAFE(a) (a-a == a-a)
 #define IS_FINITE(a) (isnum(a) && IS_FINITE__UNSAFE(a))
-// ------------------------------------
 // Aight dont remove the rest
 
 // Credits to Nickr5 for the useful procs I've taken from his library resource.
@@ -16,9 +13,10 @@
 
 #define NUM_E 2.71828183
 
+#define SQRT_2 1.414214 //CLOSE ENOUGH!
 
-#define PI 3.1416
-#define INFINITY 1e31 //closer then enough
+#define PI						3.1416
+#define INFINITY				1e31	//closer then enough
 
 #define SHORT_REAL_LIMIT 16777216
 
@@ -99,14 +97,13 @@
 // amount=0.5 returns the mean of a and b.
 #define LERP(a, b, amount) ( amount ? ((a) + ((b) - (a)) * (amount)) : a )
 
-/**
- * Performs an inverse linear interpolation between a, b, and a provided value between a and b
- * This returns the amount that you would need to feed into a lerp between A and B to return the third value
- */
-#define INVERSE_LERP(a, b, value) ((value - a) / (b - a))
-
 // Returns the nth root of x.
 #define ROOT(n, x) ((x) ** (1 / (n)))
+
+/// Low-pass filter a value to smooth out high frequent peaks. This can be thought of as a moving average filter as well.
+/// delta_time is how many seconds since we last ran this command. RC is the filter constant, high RC means more smoothing
+/// See https://en.wikipedia.org/wiki/Low-pass_filter#Simple_infinite_impulse_response_filter for the maths
+#define LPFILTER(memory, signal, delta_time, RC) (delta_time / (RC + delta_time)) * signal + (1 - delta_time / (RC + delta_time)) * memory
 
 // The quadratic formula. Returns a list with the solutions, or an empty list
 // if they are imaginary.
@@ -115,7 +112,7 @@
 	. = list()
 	var/d = b*b - 4 * a * c
 	var/bottom  = 2 * a
-	if(d < 0 || !IS_FINITE__UNSAFE(d) || !IS_FINITE__UNSAFE(bottom))
+	if(d < 0 || IS_INF_OR_NAN(d) || IS_INF_OR_NAN(bottom))
 		return
 	var/root = sqrt(d)
 	. += (-b + root) / bottom
@@ -127,7 +124,6 @@
 
 #define TORADIANS(degrees) ((degrees) * 0.0174532925)
 
-/// Gets shift x that would be required the bitflag (1<<x)
 /// We need the round because log has floating-point inaccuracy, and if we undershoot at all on list indexing we'll get the wrong index.
 #define TOBITSHIFT(bit) ( round(log(2, bit), 1) )
 
@@ -174,7 +170,7 @@
 			R1 = rand(-ACCURACY,ACCURACY)/ACCURACY
 			R2 = rand(-ACCURACY,ACCURACY)/ACCURACY
 			working = R1*R1 + R2*R2
-		while(working >= 1 || working == 0)
+		while(working >= 1 || working==0)
 		working = sqrt(-2 * log(working) / working)
 		R1 *= working
 		gaussian_next = R2 * working
@@ -228,32 +224,22 @@
 #define EXP_DISTRIBUTION(desired_mean) ( -(1/(1/desired_mean)) * log(rand(1, 1000) * 0.001) )
 
 #define LORENTZ_DISTRIBUTION(x, s) ( s*tan(TODEGREES(PI*(rand()-0.5))) + x )
-#define LORENTZ_CUMULATIVE_DISTRIBUTION(x, y, s) ( (1/PI)*TORADIANS(arctan((x-(y))/s)) + 1/2 )
+#define LORENTZ_CUMULATIVE_DISTRIBUTION(x, y, s) ( (1/PI)*TORADIANS(arctan((x-y)/s)) + 1/2 )
 
 #define RULE_OF_THREE(a, b, x) ((a*x)/b)
 
-/// Converts a probability/second chance to probability/seconds_per_tick chance
-/// For example, if you want an event to happen with a 10% per second chance, but your proc only runs every 5 seconds, do `if(prob(100*SPT_PROB_RATE(0.1, 5)))`
-#define SPT_PROB_RATE(prob_per_second, seconds_per_tick) (1 - (1 - (prob_per_second)) ** (seconds_per_tick))
+/// Converts a probability/second chance to probability/delta_time chance
+/// For example, if you want an event to happen with a 10% per second chance, but your proc only runs every 5 seconds, do `if(prob(100*DT_PROB_RATE(0.1, 5)))`
+#define DT_PROB_RATE(prob_per_second, delta_time) (1 - (1 - (prob_per_second)) ** (delta_time))
 
-/// Like SPT_PROB_RATE but easier to use, simply put `if(SPT_PROB(10, 5))`
-#define SPT_PROB(prob_per_second_percent, seconds_per_tick) (prob(100*SPT_PROB_RATE((prob_per_second_percent)/100, (seconds_per_tick))))
+/// Like DT_PROB_RATE but easier to use, simply put `if(DT_PROB(10, 5))`
+#define DT_PROB(prob_per_second_percent, delta_time) (prob(100*DT_PROB_RATE((prob_per_second_percent)/100, (delta_time))))
 // )
 
-// This value per these many units. Very unnecessary but helpful for readability (For example wanting 30 units of synthflesh to heal 50 damage - VALUE_PER(50, 30))
-#define VALUE_PER(value, per) (value / per)
-
 #define GET_TRUE_DIST(a, b) (a == null || b == null) ? -1 : max(abs(a.x -b.x), abs(a.y-b.y), abs(a.z-b.z))
-
-//We used to use linear regression to approximate the answer, but Mloc realized this was actually faster.
-//And lo and behold, it is, and it's more accurate to boot.
-#define CHEAP_HYPOTENUSE(Ax, Ay, Bx, By) (sqrt(abs(Ax - Bx) ** 2 + abs(Ay - By) ** 2)) //A squared + B squared = C squared
 
 /// The number of cells in a taxicab circle (rasterized diamond) of radius X.
 #define DIAMOND_AREA(X) (1 + 2*(X)*((X)+1))
 
-/// Returns a random decimal between x and y.
-#define RANDOM_DECIMAL(x, y) LERP((x), (y), rand())
-
-#define SI_COEFFICIENT "coefficient"
-#define SI_UNIT "unit"
+/// Checks if a number needs to have a 0 placed infront, 24 hour format. Takes a number, returns a string.
+#define TIMESTAMP_TO_PROPER_FORMAT(number) (number < 10 ? "0[number]" : number)

@@ -1,0 +1,53 @@
+{
+	"gs_zwei_inhand": [
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_inhand_blade",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_inhand_guard",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_inhand_grip",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_inhand_pommel",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	],
+
+	"gs_zwei_inhand_wielded": [
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_inhand_wielded_blade",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_inhand_wielded_guard",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_inhand_wielded_grip",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gs_zwei_inhand_wielded_pommel",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	]
+}

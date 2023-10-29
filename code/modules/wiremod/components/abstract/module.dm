@@ -4,8 +4,8 @@
  * A component that has an input, output
  */
 /obj/item/circuit_component/module
-	display_name = "Module"
-	desc = "A component that has other components within it, acting like a function. Use it in your hand to control the amount of input and output ports it has, as well as being able to access the integrated circuit contained inside."
+	display_name = "Модуль"
+	desc = "Компонент, содержащий внутри другие компоненты и действующий как функция. Используйте его в руке, чтобы назначить количество входных и выходных портов, а также получить доступ к интегральной схеме, находящейся внутри."
 	category = "Abstract"
 
 	var/obj/item/integrated_circuit/module/internal_circuit

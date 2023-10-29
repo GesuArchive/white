@@ -1,9 +1,9 @@
 #define AIRALARM_WARNING_COOLDOWN (10 SECONDS)
 
 /obj/machinery/airalarm
-	name = "air alarm"
-	desc = "A machine that monitors atmosphere levels. Goes off if the area is dangerous."
-	icon = 'icons/obj/machines/wallmounts.dmi'
+	name = "контроллер воздуха"
+	desc = "Устройство, которое управляет атмосферой в отсеке."
+	icon = 'icons/obj/monitors.dmi'
 	icon_state = "alarmp"
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.05
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.02
@@ -11,7 +11,7 @@
 	req_access = list(ACCESS_ATMOSPHERICS)
 	max_integrity = 250
 	integrity_failure = 0.33
-	armor_type = /datum/armor/machinery_airalarm
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
 	resistance_flags = FIRE_PROOF
 
 	/// Current alert level of our air alarm.
@@ -47,9 +47,9 @@
 	var/syndicate_access = FALSE
 	/// Used for air alarm helper called away_general_access to make air alarm's required access away_general_access.
 	var/away_general_access = FALSE
-	/// Used for air alarm helper called engine_access to make air alarm's required access one of ACCESS_ATMOSPHERICS & ACCESS_ENGINEERING.
+	/// Used for air alarm helper called engine_access to make air alarm's required access one of ACCESS_ATMOSPHERICS & ACCESS_ENGINE.
 	var/engine_access = FALSE
-	/// Used for air alarm helper called mixingchamber_access to make air alarm's required access one of ACCESS_ATMOSPHERICS & ACCESS_ORDNANCE.
+	/// Used for air alarm helper called mixingchamber_access to make air alarm's required access one of ACCESS_ATMOSPHERICS & ACCESS_TOXINS.
 	var/mixingchamber_access = FALSE
 	/// Used for air alarm helper called all_access to remove air alarm's required access.
 	var/all_access = FALSE
@@ -78,14 +78,9 @@
 
 GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 
-/datum/armor/machinery_airalarm
-	energy = 100
-	fire = 90
-	acid = 30
-
 /obj/machinery/airalarm/Initialize(mapload, ndir, nbuild)
 	. = ..()
-	set_wires(new /datum/wires/airalarm(src))
+	wires = new /datum/wires/airalarm(src)
 	if(ndir)
 		setDir(ndir)
 
@@ -112,7 +107,7 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 
 	my_area = connected_sensor ? get_area(connected_sensor) : get_area(src)
 	alarm_manager = new(src)
-	select_mode(src, /datum/air_alarm_mode/filtering, should_apply = FALSE)
+	select_mode(src, /datum/air_alarm_mode/filtering)
 
 	AddElement(/datum/element/connect_loc, atmos_connections)
 	AddComponent(/datum/component/usb_port, list(
@@ -124,7 +119,6 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 
 	GLOB.air_alarms += src
 	update_appearance()
-	find_and_hang_on_wall()
 
 /obj/machinery/airalarm/process()
 	if(!COOLDOWN_FINISHED(src, warning_cooldown))
@@ -172,15 +166,15 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 	. = ..()
 	switch(buildstage)
 		if(AIR_ALARM_BUILD_NO_CIRCUIT)
-			. += span_notice("It is missing air alarm electronics.")
+			. += span_notice("Отсутствует плата.")
 		if(AIR_ALARM_BUILD_NO_WIRES)
-			. += span_notice("It is missing wiring.")
+			. += span_notice("Не хватает проводов.")
 		if(AIR_ALARM_BUILD_COMPLETE)
-			. += span_notice("Right-click to [locked ? "unlock" : "lock"] the interface.")
+			. += span_notice("ПКМ, чтобы [locked ? "разблокировать" : "заблокировать"] интерфейс.")
 
 /obj/machinery/airalarm/ui_status(mob/user)
 	if(user.has_unlimited_silicon_privilege && aidisabled)
-		to_chat(user, "AI control has been disabled.")
+		to_chat(user, "Управление для ИИ отключено.")
 	else if(!shorted)
 		return ..()
 	return UI_CLOSE
@@ -234,29 +228,29 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 	var/temp = environment.temperature
 	var/pressure = environment.return_pressure()
 
-	data["envData"] = list()
+	data["environment_data"] = list()
 	if(connected_sensor)
-		data["envData"] += list(list(
-			"name" = "Linked area",
+		data["environment_data"] += list(list(
+			"name" = "Зона",
 			"value" = my_area.name
 		))
-	data["envData"] += list(list(
-		"name" = "Pressure",
-		"value" = "[round(pressure, 0.01)] kPa",
+	data["environment_data"] += list(list(
+		"name" = "Давление",
+		"value" = "[round(pressure, 0.01)] кПа",
 		"danger" = tlv_collection["pressure"].check_value(pressure)
 	))
-	data["envData"] += list(list(
-		"name" = "Temperature",
-		"value" = "[round(temp, 0.01)] Kelvin / [round(temp, 0.01) - T0C] Celcius",
+	data["environment_data"] += list(list(
+		"name" = "Температура",
+		"value" = "[round(temp, 0.01)] Кельвин / [round(temp, 0.01) - T0C] Цельсий",
 		"danger" = tlv_collection["temperature"].check_value(temp),
 	))
 	if(total_moles)
 		for(var/gas_path in environment.gases)
 			var/moles = environment.gases[gas_path][MOLES]
 			var/portion = moles / total_moles
-			data["envData"] += list(list(
+			data["environment_data"] += list(list(
 				"name" = GLOB.meta_gas_info[gas_path][META_GAS_NAME],
-				"value" = "[round(moles, 0.01)] moles / [round(100 * portion, 0.01)] % / [round(portion * pressure, 0.01)] kPa",
+				"value" = "[round(moles, 0.01)] моль / [round(100 * portion, 0.01)] % / [round(portion * pressure, 0.01)] кПа",
 				"danger" = tlv_collection[gas_path].check_value(portion * pressure),
 			))
 
@@ -265,14 +259,14 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 		var/datum/tlv/tlv = tlv_collection[threshold]
 		var/list/singular_tlv = list()
 		if(threshold == "pressure")
-			singular_tlv["name"] = "Pressure"
-			singular_tlv["unit"] = "kPa"
+			singular_tlv["name"] = "Давление"
+			singular_tlv["unit"] = "кПа"
 		else if (threshold == "temperature")
-			singular_tlv["name"] = "Temperature"
+			singular_tlv["name"] = "Температура"
 			singular_tlv["unit"] = "K"
 		else
 			singular_tlv["name"] = GLOB.meta_gas_info[threshold][META_GAS_NAME]
-			singular_tlv["unit"] = "kPa"
+			singular_tlv["unit"] = "кПа"
 		singular_tlv["id"] = threshold
 		singular_tlv["warning_min"] = tlv.warning_min
 		singular_tlv["hazard_min"] = tlv.hazard_min
@@ -287,8 +281,6 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 				"refID" = REF(vent),
 				"long_name" = sanitize(vent.name),
 				"power" = vent.on,
-				"overclock" = vent.fan_overclocked,
-				"integrity" = vent.get_integrity_percentage(),
 				"checks" = vent.pressure_checks,
 				"excheck" = vent.pressure_checks & ATMOS_EXTERNAL_BOUND,
 				"incheck" = vent.pressure_checks & ATMOS_INTERNAL_BOUND,
@@ -358,14 +350,6 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 			powering.on = !!params["val"]
 			powering.atmos_conditions_changed()
 			powering.update_appearance(UPDATE_ICON)
-
-		if("overclock")
-			if(isnull(vent))
-				return TRUE
-			vent.toggle_overclock()
-			vent.update_appearance(UPDATE_ICON)
-			return TRUE
-
 		if ("direction")
 			if (isnull(vent))
 				return TRUE
@@ -562,28 +546,28 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 	if(danger_level)
 		alarm_manager.send_alarm(ALARM_ATMOS)
 		if(pressure <= WARNING_LOW_PRESSURE && temp <= BODYTEMP_COLD_WARNING_1+10)
-			warning_message = "Danger! Low pressure and temperature detected."
+			warning_message = "Опасно! Низкое давление и температура."
 			return
 		if(pressure <= WARNING_LOW_PRESSURE && temp >= BODYTEMP_HEAT_WARNING_1-27)
-			warning_message = "Danger! Low pressure and high temperature detected."
+			warning_message = "Опасно! Низкое давление и высокая температура."
 			return
 		if(pressure >= WARNING_HIGH_PRESSURE && temp >= BODYTEMP_HEAT_WARNING_1-27)
-			warning_message = "Danger! High pressure and temperature detected."
+			warning_message = "Опасно! Высокое давление и температура."
 			return
 		if(pressure >= WARNING_HIGH_PRESSURE && temp <= BODYTEMP_COLD_WARNING_1+10)
-			warning_message = "Danger! High pressure and low temperature detected."
+			warning_message = "Опасно! Высокое давление и изкая температура."
 			return
 		if(pressure <= WARNING_LOW_PRESSURE)
-			warning_message = "Danger! Low pressure detected."
+			warning_message = "Опасно! Низкое давление."
 			return
 		if(pressure >= WARNING_HIGH_PRESSURE)
-			warning_message = "Danger! High pressure detected."
+			warning_message = "Опасно! Высокое давление."
 			return
 		if(temp <= BODYTEMP_COLD_WARNING_1+10)
-			warning_message = "Danger! Low temperature detected."
+			warning_message = "Опасно! Низкая температура."
 			return
 		if(temp >= BODYTEMP_HEAT_WARNING_1-27)
-			warning_message = "Danger! High temperature detected."
+			warning_message = "Опасно! Высокая температура."
 			return
 		else
 			warning_message = null
@@ -597,18 +581,17 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 
 	selected_mode.replace(my_area, pressure)
 
-/obj/machinery/airalarm/proc/select_mode(atom/source, datum/air_alarm_mode/mode_path, should_apply = TRUE)
+/obj/machinery/airalarm/proc/select_mode(atom/source, datum/air_alarm_mode/mode_path)
 	var/datum/air_alarm_mode/new_mode = GLOB.air_alarm_modes[mode_path]
 	if(!new_mode)
 		return
 	if(new_mode.emag && !(obj_flags & EMAGGED))
 		return
 	selected_mode = new_mode
-	if(should_apply)
-		selected_mode.apply(my_area)
+	selected_mode.apply(my_area)
 	SEND_SIGNAL(src, COMSIG_AIRALARM_UPDATE_MODE, source)
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/airalarm, 27)
+MAPPING_DIRECTIONAL_HELPERS_INVERTED(/obj/machinery/airalarm, 27)
 
 /obj/machinery/airalarm/proc/speak(warning_message)
 	if(machine_stat & (BROKEN|NOPOWER))
@@ -634,22 +617,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/airalarm, 27)
 
 ///Used for engine_access air alarm helper, which set air alarm's required access to away_general_access.
 /obj/machinery/airalarm/proc/give_engine_access()
-	name = "engine air alarm"
+	name = "инженерный контроллер воздуха"
 	locked = FALSE
 	req_access = null
-	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINEERING)
+	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE)
 
 ///Used for mixingchamber_access air alarm helper, which set air alarm's required access to away_general_access.
 /obj/machinery/airalarm/proc/give_mixingchamber_access()
-	name = "chamber air alarm"
+	name = "миксинговый контроллер воздуха"
 	locked = FALSE
 	req_access = null
-	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ORDNANCE)
+	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_TOXINS)
 
 ///Used for all_access air alarm helper, which set air alarm's required access to null.
 /obj/machinery/airalarm/proc/give_all_access()
-	name = "all-access air alarm"
-	desc = "This particular atmos control unit appears to have no access restrictions."
+	name = "доступный контроллер воздуха"
+	desc = "У этого контроллера нет проверки доступа."
 	locked = FALSE
 	req_access = null
 	req_one_access = null
@@ -675,9 +658,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/airalarm, 27)
 ///Used to connect air alarm with a sensor
 /obj/machinery/airalarm/proc/connect_sensor(obj/machinery/air_sensor/sensor)
 	if(!isnull(connected_sensor))
-		UnregisterSignal(connected_sensor, COMSIG_QDELETING)
+		UnregisterSignal(connected_sensor, COMSIG_PARENT_QDELETING)
 	connected_sensor = sensor
-	RegisterSignal(connected_sensor, COMSIG_QDELETING, PROC_REF(disconnect_sensor))
+	RegisterSignal(connected_sensor, COMSIG_PARENT_QDELETING, PROC_REF(disconnect_sensor))
 	my_area = get_area(connected_sensor)
 
 	var/turf/our_turf = get_turf(connected_sensor)
@@ -689,7 +672,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/airalarm, 27)
 
 ///Used to reset the air alarm to default configuration after disconnecting from air sensor
 /obj/machinery/airalarm/proc/disconnect_sensor()
-	UnregisterSignal(connected_sensor, COMSIG_QDELETING)
+	UnregisterSignal(connected_sensor, COMSIG_PARENT_QDELETING)
 	connected_sensor = null
 	my_area = get_area(src)
 

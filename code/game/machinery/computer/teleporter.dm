@@ -1,6 +1,6 @@
 /obj/machinery/computer/teleporter
-	name = "teleporter control console"
-	desc = "Used to control a linked teleportation Hub and Station."
+	name = "Консоль управления телепортом"
+	desc = "Используется для управления связанными телепортационной аркой и станцией."
 	icon_screen = "teleport"
 	icon_keyboard = "teleport_key"
 	light_color = LIGHT_COLOR_BLUE
@@ -27,14 +27,6 @@
 		power_station.teleporter_console = null
 		power_station = null
 	return ..()
-
-/obj/machinery/computer/teleporter/proc/check_for_disabled_beacon(datum/target)
-	if (!target)
-		return
-	if (target.weak_reference != target_ref)
-		return
-	turn_off()
-	set_teleport_target(null)
 
 /obj/machinery/computer/teleporter/proc/link_power_station()
 	if(power_station)
@@ -73,11 +65,6 @@
 
 	return data
 
-/obj/machinery/computer/teleporter/proc/turn_off()
-	power_station.engaged = FALSE
-	power_station.teleporter_hub.update_appearance()
-	power_station.teleporter_hub.calibrated = FALSE
-
 /obj/machinery/computer/teleporter/ui_act(action, params)
 	. = ..()
 	if(.)
@@ -92,11 +79,15 @@
 
 	switch(action)
 		if("regimeset")
-			turn_off()
+			power_station.engaged = FALSE
+			power_station.teleporter_hub.update_icon()
+			power_station.teleporter_hub.calibrated = FALSE
 			reset_regime()
 			. = TRUE
 		if("settarget")
-			turn_off()
+			power_station.engaged = FALSE
+			power_station.teleporter_hub.update_icon()
+			power_station.teleporter_hub.calibrated = FALSE
 			set_target(usr)
 			. = TRUE
 		if("calibrate")
@@ -109,23 +100,16 @@
 
 			say("Processing hub calibration to target...")
 			calibrating = TRUE
-			power_station.update_appearance()
+			power_station.update_icon()
 			addtimer(CALLBACK(src, PROC_REF(finish_calibration)), 50 * (3 - power_station.teleporter_hub.accuracy)) //Better parts mean faster calibration
 			return TRUE
 
 /obj/machinery/computer/teleporter/proc/set_teleport_target(new_target)
-	var/datum/old_target
 	var/datum/weakref/new_target_ref = WEAKREF(new_target)
 	if (target_ref == new_target_ref)
 		return
-	if (target_ref)
-		old_target = target_ref.resolve()
 	SEND_SIGNAL(src, COMSIG_TELEPORTER_NEW_TARGET, new_target)
 	target_ref = new_target_ref
-	if (istype(old_target, /obj/item/beacon))
-		UnregisterSignal(old_target, COMSIG_BEACON_DISABLED)
-	if (istype(new_target, /obj/item/beacon))
-		RegisterSignal(new_target, COMSIG_BEACON_DISABLED, PROC_REF(check_for_disabled_beacon))
 
 /obj/machinery/computer/teleporter/proc/finish_calibration()
 	calibrating = FALSE
@@ -134,7 +118,7 @@
 		say("Calibration complete.")
 	else
 		say("Error: Unable to detect hub.")
-	power_station.update_appearance()
+	power_station.update_icon()
 
 /obj/machinery/computer/teleporter/proc/check_hub_connection()
 	if(!power_station)
@@ -162,10 +146,10 @@
 				continue
 
 			if(beacon.renamed)
-				targets[avoid_assoc_duplicate_keys("[beacon.name] ([format_text(get_area(beacon))])", area_index)] = beacon
+				targets[avoid_assoc_duplicate_keys("[beacon.name] ([get_area(beacon)])", area_index)] = beacon
 			else
 				var/area/area = get_area(beacon)
-				targets[avoid_assoc_duplicate_keys(format_text(area.name), area_index)] = beacon
+				targets[avoid_assoc_duplicate_keys(area.name, area_index)] = beacon
 
 		for (var/obj/item/implant/tracking/tracking_implant in GLOB.tracked_implants)
 			if (!tracking_implant.imp_in || !isliving(tracking_implant.loc) || !tracking_implant.allow_teleport)
@@ -176,12 +160,12 @@
 				continue
 
 			if (is_eligible(tracking_implant))
-				targets[avoid_assoc_duplicate_keys("[implanted.real_name] ([format_text(get_area(implanted))])", area_index)] = tracking_implant
+				targets[avoid_assoc_duplicate_keys("[implanted.real_name] ([get_area(implanted)])", area_index)] = tracking_implant
 	else
 		for (var/obj/machinery/teleport/station/station as anything in power_station.linked_stations)
 			if (is_eligible(station) && station.teleporter_hub)
 				var/area/area = get_area(station)
-				targets[avoid_assoc_duplicate_keys(format_text(area.name), area_index)] = station
+				targets[avoid_assoc_duplicate_keys(area.name, area_index)] = station
 
 	return targets
 
@@ -191,33 +175,30 @@
 	target_station.set_machine_stat(target_station.machine_stat & ~NOPOWER)
 	if(target_station.teleporter_hub)
 		target_station.teleporter_hub.set_machine_stat(target_station.teleporter_hub.machine_stat & ~NOPOWER)
-		target_station.teleporter_hub.update_appearance()
+		target_station.teleporter_hub.update_icon()
 	if(target_station.teleporter_console)
 		target_station.teleporter_console.set_machine_stat(target_station.teleporter_console.machine_stat & ~NOPOWER)
-		target_station.teleporter_console.update_appearance()
+		target_station.teleporter_console.update_icon()
 
 /obj/machinery/computer/teleporter/proc/set_target(mob/user)
 	var/list/targets = get_targets()
 
 	if (regime_set == "Teleporter")
-		var/desc = tgui_input_list(usr, "Select a location to lock in", "Locking Computer", sort_list(targets))
-		if(isnull(desc))
-			return
+		var/desc = tgui_input_list(usr, "Please select a location to lock in.", "Locking Computer", sort_list(targets))
 		set_teleport_target(targets[desc])
-		user.log_message("set the teleporter target to [targets[desc]].]", LOG_GAME)
+		var/turf/target_turf = get_turf(targets[desc])
+		log_game("[key_name(user)] has set the teleporter target to [targets[desc]] at [AREACOORD(target_turf)]")
 	else
-		if (!length(targets))
+		if (targets.len == 0)
 			to_chat(user, span_alert("No active connected stations located."))
 			return
 
-		var/desc = tgui_input_list(usr, "Select a station to lock in", "Locking Computer", sort_list(targets))
-		if(isnull(desc))
-			return
+		var/desc = tgui_input_list(usr, "Please select a station to lock in.", "Locking Computer", sort_list(targets))
 		var/obj/machinery/teleport/station/target_station = targets[desc]
 		if(!target_station || !target_station.teleporter_hub)
 			return
 		var/turf/target_station_turf = get_turf(target_station)
-		user.log_message("set the teleporter target to [target_station_turf].", LOG_GAME)
+		log_game("[key_name(user)] has set the teleporter target to [target_station] at [AREACOORD(target_station_turf)]")
 		set_teleport_target(target_station.teleporter_hub)
 		lock_in_station(target_station)
 
@@ -228,7 +209,7 @@
 	if(is_centcom_level(T.z) || is_away_level(T.z))
 		return FALSE
 	var/area/A = get_area(T)
-	if(!A || (A.area_flags & NOTELEPORT))
+	if(!A ||(A.area_flags & NOTELEPORT))
 		return FALSE
 	return TRUE
 

@@ -18,24 +18,22 @@
 
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother
 	name = "goliath broodmother"
-	desc = "An example of sexual dimorphism, this female goliath looks much different than the males of her species.  She is, however, just as dangerous, if not more."
+	desc = "An example of sexual dimorphism, this female goliath looks much different than the males of her species. She is, however, just as dangerous, if not more."
 	gender = FEMALE
-	icon = 'icons/mob/simple/lavaland/lavaland_elites_64.dmi'
+	icon = 'icons/mob/lavaland/lavaland_elites_64.dmi'
 	icon_state = "broodmother"
 	icon_living = "broodmother"
 	icon_aggro = "broodmother"
 	icon_dead = "egg_sac"
 	icon_gib = "syndicate_gib"
-	pixel_x = -16
-	base_pixel_x = -16
 	health_doll_icon = "broodmother"
 	maxHealth = 1000
 	health = 1000
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	armour_penetration = 30
-	attack_verb_continuous = "beats down on"
-	attack_verb_simple = "beat down on"
+	attack_verb_continuous = "втаптывает в землю"
+	attack_verb_simple = "втаптывает в землю"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	throw_message = "does nothing to the rocky hide of the"
 	speed = 2
@@ -53,32 +51,28 @@
 	var/rand_tent = 0
 	var/list/mob/living/simple_animal/hostile/asteroid/elite/broodmother_child/children_list = list()
 
-/mob/living/simple_animal/hostile/asteroid/elite/broodmother/Initialize(mapload)
-	. = ..()
-	ADD_TRAIT(src, TRAIT_TENTACLE_IMMUNE, INNATE_TRAIT)
-
 /datum/action/innate/elite_attack/tentacle_patch
 	name = "Tentacle Patch"
 	button_icon_state = "tentacle_patch"
-	chosen_message = "<span class='boldwarning'>You are now attacking with a patch of tentacles.</span>"
+	chosen_message = span_boldwarning("You are now attacking with a patch of tentacles.")
 	chosen_attack_num = TENTACLE_PATCH
 
 /datum/action/innate/elite_attack/spawn_children
 	name = "Spawn Children"
 	button_icon_state = "spawn_children"
-	chosen_message = "<span class='boldwarning'>You will spawn two children at your location to assist you in combat.  You can have up to 8.</span>"
+	chosen_message = span_boldwarning("You will spawn two children at your location to assist you in combat. You can have up to 8.")
 	chosen_attack_num = SPAWN_CHILDREN
 
 /datum/action/innate/elite_attack/rage
 	name = "Rage"
 	button_icon_state = "rage"
-	chosen_message = "<span class='boldwarning'>You will temporarily increase your movement speed.</span>"
+	chosen_message = span_boldwarning("You will temporarily increase your movement speed.")
 	chosen_attack_num = RAGE
 
 /datum/action/innate/elite_attack/call_children
 	name = "Call Children"
 	button_icon_state = "call_children"
-	chosen_message = "<span class='boldwarning'>You will summon your children to your location.</span>"
+	chosen_message = span_boldwarning("You will summon your children to your location.")
 	chosen_attack_num = CALL_CHILDREN
 
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother/OpenFire()
@@ -104,7 +98,7 @@
 		if(CALL_CHILDREN)
 			call_children()
 
-/mob/living/simple_animal/hostile/asteroid/elite/broodmother/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/hostile/asteroid/elite/broodmother/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
 	if(!.) //Checks if they are dead as a rock.
 		return
@@ -116,15 +110,15 @@
 		var/tentacle_loc = spiral_range_turfs(5, get_turf(src))
 		for(var/i in 1 to tentacle_amount)
 			var/turf/t = pick_n_take(tentacle_loc)
-			new /obj/effect/goliath_tentacle/broodmother(t, src)
+			new /obj/effect/temp_visual/goliath_tentacle/broodmother(t, src)
 
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother/proc/tentacle_patch(target)
 	ranged_cooldown = world.time + 15
 	var/tturf = get_turf(target)
 	if(!isturf(tturf))
 		return
-	visible_message(span_warning("[src] digs its tentacles under [target]!"))
-	new /obj/effect/goliath_tentacle/broodmother/patch(tturf, src)
+	visible_message(span_warning("[capitalize(src.name)] digs its tentacles under [target]!"))
+	new /obj/effect/temp_visual/goliath_tentacle/broodmother/patch(tturf, src)
 
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother/proc/spawn_children(target)
 	ranged_cooldown = world.time + 40
@@ -141,8 +135,8 @@
 
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother/proc/rage()
 	ranged_cooldown = world.time + 100
-	playsound(src,'sound/voice/insane_low_laugh.ogg', 200, 1)
-	visible_message(span_warning("[src] starts picking up speed!"))
+	playsound(src,'sound/spookoween/insane_low_laugh.ogg', 200, 1)
+	visible_message(span_warning("[capitalize(src.name)] starts picking up speed!"))
 	color = "#FF0000"
 	set_varspeed(0)
 	move_to_delay = 3
@@ -167,8 +161,8 @@
 //The goliath's children.  Pretty weak, simple mobs which are able to put a single tentacle under their target when at range.
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother_child
 	name = "baby goliath"
-	desc = "A young goliath recently born from it's mother.  While they hatch from eggs, said eggs are incubated in the mother until they are ready to be born."
-	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
+	desc = "A young goliath recently born from it's mother. While they hatch from eggs, said eggs are incubated in the mother until they are ready to be born."
+	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	icon_state = "goliath_baby"
 	icon_living = "goliath_baby"
 	icon_aggro = "goliath_baby"
@@ -178,8 +172,8 @@
 	health = 30
 	melee_damage_lower = 5
 	melee_damage_upper = 5
-	attack_verb_continuous = "bashes against"
-	attack_verb_simple = "bash against"
+	attack_verb_continuous = "врезается в"
+	attack_verb_simple = "врезается в"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	throw_message = "does nothing to the rocky hide of the"
 	speed = 2
@@ -192,51 +186,58 @@
 	status_flags = CANPUSH
 	var/mob/living/simple_animal/hostile/asteroid/elite/broodmother/mother = null
 
-/mob/living/simple_animal/hostile/asteroid/elite/broodmother_child/Initialize(mapload)
-	. = ..()
-	ADD_TRAIT(src, TRAIT_TENTACLE_IMMUNE, INNATE_TRAIT)
-
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother_child/OpenFire(target)
 	ranged_cooldown = world.time + 40
 	var/tturf = get_turf(target)
 	if(!isturf(tturf))
 		return
 	if(get_dist(src, target) <= 7)//Screen range check, so it can't attack people off-screen
-		visible_message(span_warning("[src] digs one of its tentacles under [target]!"))
-		new /obj/effect/goliath_tentacle/broodmother(tturf, src)
+		visible_message(span_warning("[capitalize(src.name)] digs one of its tentacles under [target]!"))
+		new /obj/effect/temp_visual/goliath_tentacle/broodmother(tturf, src)
 
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother_child/death()
 	. = ..()
 	if(mother != null)
 		mother.children_list -= src
-	visible_message(span_warning("[src] explodes!"))
+	visible_message(span_warning("[capitalize(src.name)] explodes!"))
 	explosion(src, flame_range = 3, adminlog = FALSE)
-	gib(DROP_ALL_REMAINS)
+	gib()
 
-/obj/effect/goliath_tentacle/broodmother
-	grapple_time = 1 SECONDS
-	min_damage = 30
-	max_damage = 35
+//Tentacles have less stun time compared to regular variant, to balance being able to use them much more often.  Also, 10 more damage.
+/obj/effect/temp_visual/goliath_tentacle/broodmother/trip()
+	var/latched = FALSE
+	for(var/mob/living/L in loc)
+		if((!QDELETED(spawner) && spawner.faction_check_mob(L)) || L.stat == DEAD)
+			continue
+		visible_message(span_danger("[capitalize(src.name)] grabs hold of [L]!"))
+		L.Stun(10)
+		L.adjustBruteLoss(rand(30,35))
+		latched = TRUE
+	if(!latched)
+		retract()
+	else
+		deltimer(timerid)
+		timerid = addtimer(CALLBACK(src, PROC_REF(retract)), 10, TIMER_STOPPABLE)
 
-/obj/effect/goliath_tentacle/broodmother/patch/Initialize(mapload, new_spawner)
+/obj/effect/temp_visual/goliath_tentacle/broodmother/patch/Initialize(mapload, new_spawner)
 	. = ..()
 	INVOKE_ASYNC(src, PROC_REF(createpatch))
 
-/obj/effect/goliath_tentacle/broodmother/patch/proc/createpatch()
+/obj/effect/temp_visual/goliath_tentacle/broodmother/patch/proc/createpatch()
 	var/tentacle_locs = spiral_range_turfs(1, get_turf(src))
 	for(var/T in tentacle_locs)
-		new /obj/effect/goliath_tentacle/broodmother(T)
+		new /obj/effect/temp_visual/goliath_tentacle/broodmother(T, spawner)
 	var/list/directions = GLOB.cardinals.Copy()
 	for(var/i in directions)
 		var/turf/T = get_step(get_turf(src), i)
 		T = get_step(T, i)
-		new /obj/effect/goliath_tentacle/broodmother(T)
+		new /obj/effect/temp_visual/goliath_tentacle/broodmother(T, spawner)
 
 // Broodmother's loot: Broodmother Tongue
 /obj/item/crusher_trophy/broodmother_tongue
 	name = "broodmother tongue"
-	desc = "The tongue of a broodmother. If attached a certain way, makes for a suitable crusher trophy.  It also feels very spongey, I wonder what would happen if you squeezed it?..."
-	icon = 'icons/obj/mining_zones/elite_trophies.dmi'
+	desc = "The tongue of a broodmother. If attached a certain way, makes for a suitable crusher trophy. It also feels very spongey, I wonder what would happen if you squeezed it?..."
+	icon = 'icons/obj/lavaland/elite_trophies.dmi'
 	icon_state = "broodmother_tongue"
 	denied_type = /obj/item/crusher_trophy/broodmother_tongue
 	bonus_value = 10
@@ -247,8 +248,8 @@
 	return "mark detonation to have a <b>[bonus_value]%</b> chance to summon a patch of goliath tentacles at the target's location"
 
 /obj/item/crusher_trophy/broodmother_tongue/on_mark_detonation(mob/living/target, mob/living/user)
-	if(prob(bonus_value) && target.stat != DEAD)
-		new /obj/effect/goliath_tentacle/broodmother/patch(get_turf(target), user)
+	if(rand(1, 100) <= bonus_value && target.stat != DEAD)
+		new /obj/effect/temp_visual/goliath_tentacle/broodmother/patch(get_turf(target), user)
 
 /obj/item/crusher_trophy/broodmother_tongue/attack_self(mob/user)
 	if(!isliving(user))
@@ -257,15 +258,13 @@
 	if(use_time > world.time)
 		to_chat(living_user, "<b>The tongue looks dried out. You'll need to wait longer to use it again.</b>")
 		return
-	else if(HAS_TRAIT(living_user, TRAIT_LAVA_IMMUNE))
+	else if(WEATHER_LAVA in living_user.weather_immunities)
 		to_chat(living_user, "<b>You stare at the tongue. You don't think this is any use to you.</b>")
 		return
-	ADD_TRAIT(living_user, TRAIT_LAVA_IMMUNE, type)
+	LAZYOR(living_user.weather_immunities, WEATHER_LAVA)
 	to_chat(living_user, "<b>You squeeze the tongue, and some transluscent liquid shoots out all over you.</b>")
-	addtimer(TRAIT_CALLBACK_REMOVE(user, TRAIT_LAVA_IMMUNE, type), 10 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(remove_lavaproofing), living_user), 10 SECONDS)
 	use_time = world.time + 60 SECONDS
 
-#undef CALL_CHILDREN
-#undef RAGE
-#undef SPAWN_CHILDREN
-#undef TENTACLE_PATCH
+/obj/item/crusher_trophy/broodmother_tongue/proc/remove_lavaproofing(mob/living/user)
+	LAZYREMOVE(user.weather_immunities, WEATHER_LAVA)

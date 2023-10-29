@@ -65,7 +65,7 @@
 
 	/// Tracks the current execution state of the subsystem. Used to handle subsystems that sleep in fire so the mc doesn't run them again while they are sleeping
 	var/state = SS_IDLE
-	
+
 	/// Tracks how many times a subsystem has ever slept in fire().
 	var/slept_count = 0
 
@@ -147,7 +147,6 @@
 	if (Master)
 		Master.subsystems -= src
 	return ..()
-
 
 /** Update next_fire for the next run.
  *  reset_time (bool) - Ignore things that would normally alter the next fire, like tick_overrun, and last_fire. (also resets postpone)

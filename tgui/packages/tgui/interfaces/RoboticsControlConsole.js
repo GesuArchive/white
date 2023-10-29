@@ -5,7 +5,7 @@ import { Window } from '../layouts';
 export const RoboticsControlConsole = (props, context) => {
   const { act, data } = useBackend(context);
   const [tab, setTab] = useSharedState(context, 'tab', 1);
-  const { can_hack, can_detonate, cyborgs = [], drones = [] } = data;
+  const { can_hack, cyborgs = [], drones = [] } = data;
   return (
     <Window width={500} height={460}>
       <Window.Content scrollable>
@@ -25,13 +25,7 @@ export const RoboticsControlConsole = (props, context) => {
             Drones ({drones.length})
           </Tabs.Tab>
         </Tabs>
-        {tab === 1 && (
-          <Cyborgs
-            cyborgs={cyborgs}
-            can_hack={can_hack}
-            can_detonate={can_detonate}
-          />
-        )}
+        {tab === 1 && <Cyborgs cyborgs={cyborgs} can_hack={can_hack} />}
         {tab === 2 && <Drones drones={drones} />}
       </Window.Content>
     </Window>
@@ -39,12 +33,10 @@ export const RoboticsControlConsole = (props, context) => {
 };
 
 const Cyborgs = (props, context) => {
-  const { cyborgs, can_hack, can_detonate } = props;
+  const { cyborgs, can_hack } = props;
   const { act, data } = useBackend(context);
   if (!cyborgs.length) {
-    return (
-      <NoticeBox>No cyborg units detected within access parameters</NoticeBox>
-    );
+    return <NoticeBox>Не обнаружено подходящих киборгов</NoticeBox>;
   }
   return cyborgs.map((cyborg) => {
     return (
@@ -56,7 +48,7 @@ const Cyborgs = (props, context) => {
             {!!can_hack && !cyborg.emagged && (
               <Button
                 icon="terminal"
-                content="Hack"
+                content="Взломать"
                 color="bad"
                 onClick={() =>
                   act('magbot', {
@@ -68,41 +60,39 @@ const Cyborgs = (props, context) => {
             <Button.Confirm
               icon={cyborg.locked_down ? 'unlock' : 'lock'}
               color={cyborg.locked_down ? 'good' : 'default'}
-              content={cyborg.locked_down ? 'Release' : 'Lockdown'}
+              content={cyborg.locked_down ? 'Разблокировать' : 'Блокировать'}
               onClick={() =>
                 act('stopbot', {
                   ref: cyborg.ref,
                 })
               }
             />
-            {!!can_detonate && (
-              <Button.Confirm
-                icon="bomb"
-                content="Detonate"
-                color="bad"
-                onClick={() =>
-                  act('killbot', {
-                    ref: cyborg.ref,
-                  })
-                }
-              />
-            )}
+            <Button.Confirm
+              icon="bomb"
+              content="Взорвать"
+              color="bad"
+              onClick={() =>
+                act('killbot', {
+                  ref: cyborg.ref,
+                })
+              }
+            />
           </>
         }>
         <LabeledList>
-          <LabeledList.Item label="Status">
+          <LabeledList.Item label="Состояние">
             <Box
               color={
                 cyborg.status ? 'bad' : cyborg.locked_down ? 'average' : 'good'
               }>
               {cyborg.status
-                ? 'Not Responding'
+                ? 'Не отвечает'
                 : cyborg.locked_down
-                  ? 'Locked Down'
-                  : 'Nominal'}
+                  ? 'Заблокирован'
+                  : 'Стабильное'}
             </Box>
           </LabeledList.Item>
-          <LabeledList.Item label="Charge">
+          <LabeledList.Item label="Заряд">
             <Box
               color={
                 cyborg.charge <= 30
@@ -113,13 +103,13 @@ const Cyborgs = (props, context) => {
               }>
               {typeof cyborg.charge === 'number'
                 ? cyborg.charge + '%'
-                : 'Not Found'}
+                : 'Не обнаружено'}
             </Box>
           </LabeledList.Item>
-          <LabeledList.Item label="Model">{cyborg.module}</LabeledList.Item>
-          <LabeledList.Item label="Master AI">
+          <LabeledList.Item label="Модуль">{cyborg.module}</LabeledList.Item>
+          <LabeledList.Item label="Основной ИИ">
             <Box color={cyborg.synchronization ? 'default' : 'average'}>
-              {cyborg.synchronization || 'None'}
+              {cyborg.synchronization || 'Нет'}
             </Box>
           </LabeledList.Item>
         </LabeledList>
@@ -133,9 +123,7 @@ const Drones = (props, context) => {
   const { act } = useBackend(context);
 
   if (!drones.length) {
-    return (
-      <NoticeBox>No drone units detected within access parameters</NoticeBox>
-    );
+    return <NoticeBox>Не обнаружено подходящих дронов</NoticeBox>;
   }
 
   return drones.map((drone) => {
@@ -146,7 +134,7 @@ const Drones = (props, context) => {
         buttons={
           <Button.Confirm
             icon="bomb"
-            content="Detonate"
+            content="Взорвать"
             color="bad"
             onClick={() =>
               act('killdrone', {
@@ -156,9 +144,9 @@ const Drones = (props, context) => {
           />
         }>
         <LabeledList>
-          <LabeledList.Item label="Status">
+          <LabeledList.Item label="Состояние">
             <Box color={drone.status ? 'bad' : 'good'}>
-              {drone.status ? 'Not Responding' : 'Nominal'}
+              {drone.status ? 'Не отвечает' : 'Стабильное'}
             </Box>
           </LabeledList.Item>
         </LabeledList>

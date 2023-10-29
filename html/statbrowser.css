@@ -1,37 +1,57 @@
+@font-face {
+    font-family: "zkr";
+    src: url("./zkr.ttf") format("truetype");
+}
+
 body {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 12px !important;
+	font-family: zkr, Tahoma, Verdana, Geneva, sans-serif;
+	font-size: 14px !important;
 	margin: 0 !important;
 	padding: 0 !important;
 	overflow-x: hidden;
-	overflow-y: scroll;
+	background: #ffffff;
+	color: #000;
+	scrollbar-face-color: #242424;
+	scrollbar-arrow-color: #242424;
+	scrollbar-track-color: #090909;
+	scrollbar-3dlight-color: #080808;
+	scrollbar-darkshadow-Color: #080808;
+}
+
+::-webkit-scrollbar {
+	width: 4px;
 }
 
 body.dark {
-	background-color: #131313;
-	color: #b2c4dd;
-	scrollbar-base-color: #1c1c1c;
-	scrollbar-face-color: #3b3b3b;
-	scrollbar-3dlight-color: #252525;
-	scrollbar-highlight-color: #252525;
-	scrollbar-track-color: #1c1c1c;
-	scrollbar-arrow-color: #929292;
-	scrollbar-shadow-color: #3b3b3b;
+	background-color: #090909;
+	color: #aaaaaa;
+}
+
+body.gruvbox {
+	background-color: #1d2021;
+	color: #a89984;
 }
 
 #menu {
 	background-color: #F0F0F0;
 	position: fixed;
+	top: 0;
+	left: 0;
+	height: 32px;
 	width: 100%;
 	z-index: 100;
 }
 
-.dark #menu {
-	background-color: #202020;
+.dark #menu, .dark #menu {
+	background-color: #050505;
+}
+
+.gruvbox #menu, .gruvbox #menu {
+	background-color: #1d2021;
 }
 
 #statcontent {
-	padding: 7px 7px 7px 7px;
+	padding: 34px 2px 2px 2px;
 }
 
 a {
@@ -40,11 +60,14 @@ a {
 }
 
 .dark a {
-	color: #b2c4dd;
+	color: #d6d6d6;
 }
 
-a:hover,
-.dark a:hover {
+.gruvbox a {
+	color: #fbf1c7;
+}
+
+a:hover, .dark a:hover, .gruvbox a:hover {
 	text-decoration: underline;
 }
 
@@ -72,35 +95,39 @@ li a:hover:not(.active) {
 }
 
 .button-container {
-	display: inline-flex;
-	flex-wrap: wrap-reverse;
-	flex-direction: row;
-	align-items: flex-start;
-	overflow-x: hidden;
+	overflow-y: hidden;
 	white-space: pre-wrap;
-	padding: 0 4px;
+	padding: 0 2px;
 }
 
 .button {
 	background-color: #dfdfdf;
-	border: 1px solid #cecece;
-	border-bottom-width: 2px;
+	border-color: #cecece;
+	border-width: 1px;
+	border-style: solid;
 	color: rgba(0, 0, 0, 0.7);
-	padding: 6px 4px 4px;
+	padding: 0;
 	text-align: center;
 	text-decoration: none;
-	font-size: 12px;
-	margin: 0;
+	font-size: 13px;
+	margin: 0 1px;
 	cursor: pointer;
-	transition-duration: 100ms;
-	order: 3;
-	min-width: 40px;
+	transition-duration: 0.25s;
+	min-width: 0px;
+	height: 28px;
+	width: 26px;
 }
 
 .dark button {
-	background-color: #222222;
+	background-color: #000000;
 	border-color: #343434;
-	color: rgba(255, 255, 255, 0.5);
+	color: #d6d6d6;
+}
+
+.gruvbox button {
+	background-color: #1d2021;
+	border-color: #343434;
+	color: #fbf1c7;
 }
 
 .button:hover {
@@ -109,81 +136,73 @@ li a:hover:not(.active) {
 }
 
 .dark button:hover {
-	background-color: #2e2e2e;
+	background-color:  #d6d6d6;
+	color: #080808;
 }
 
-.button:active,
-.button.active {
-	background-color: #ffffff;
+.gruvbox button:hover {
+	background-color:  #fbf1c7;
+	color: #080808;
+}
+
+.button:active, .button.active {
+	background-color: #000000;
 	color: black;
-	border-top-color: #cecece;
-	border-left-color: #cecece;
-	border-right-color: #cecece;
-	border-bottom-color: #ffffff;
+	font-weight: bold;
+	border: 1px solid #cecece;
 }
 
-.dark .button:active,
-.dark .button.active {
-	background-color: #444444;
-	color: white;
-	border-top-color: #343434;
-	border-left-color: #343434;
-	border-right-color: #343434;
-	border-bottom-color: #ffffff;
+.dark .button:active, .dark .button.active {
+	background-color: #ffffff;
+	color: #d6d6d6;
+	border: 1px solid #343434;
+}
+
+.gruvbox .button:active, .gruvbox .button.active {
+	background-color: #ffffff;
+	color: #fbf1c7;
+	border: 1px solid #343434;
 }
 
 .grid-container {
-	margin: -2px;
-	margin-right: -15px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .grid-item {
 	position: relative;
-	display: inline-block;
-	width: 100%;
-	box-sizing: border-box;
-	overflow: visible;
-	padding: 3px 2px;
+	display: inline-flex;
+	width: 30%;
+	font-size: 11px;
+	white-space: pre-wrap;
+	padding: 3px 3px;
+	margin: 1px;
 	text-decoration: none;
+	overflow: visible;
+	border: 1px solid rgba(0, 0, 0, 0.7);
 }
 
-@media only screen and (min-width: 300px) {
+@media only screen and (min-width: 620px) {
 	.grid-item {
-		width: 50%;
-	}
-}
-
-@media only screen and (min-width: 430px) {
-	.grid-item {
-		width: 33%;
-	}
-}
-
-@media only screen and (min-width: 560px) {
-	.grid-item {
-		width: 25%;
-	}
-}
-
-@media only screen and (min-width: 770px) {
-	.grid-item {
-		width: 20%;
+		width: 195px;
 	}
 }
 
 .grid-item:hover {
-	z-index: 1;
+	background: #000;
 }
 
-.grid-item:hover .grid-item-text {
-	width: auto;
-	text-decoration: underline;
+.dark .grid-item:hover {
+	background: #d6d6d6;
+}
+
+.gruvbox .grid-item:hover {
+	background: #fbf1c7;
 }
 
 .grid-item-text {
 	display: inline-block;
 	width: 100%;
-	background-color: #ffffff;
 	margin: 0 -6px;
 	padding: 0 6px;
 	white-space: nowrap;
@@ -192,8 +211,32 @@ li a:hover:not(.active) {
 	pointer-events: none;
 }
 
-.dark .grid-item-text {
-	background-color: #131313;
+.grid-item:hover {
+	background: #000;
+	color: #fff;
+	text-decoration: none;
+}
+
+.dark .grid-item {
+	background: #090909;
+	border: 1px solid #202020;
+}
+
+.dark .grid-item:hover {
+	background: #d6d6d6;
+	color: #080808;
+	text-decoration: none;
+}
+
+.gruvbox .grid-item {
+	background: #1d2021;
+	border: 1px solid rgba(235, 219, 178, 0.4);
+}
+
+.gruvbox .grid-item:hover {
+	background: #fbf1c7;
+	color: #080808;
+	text-decoration: none;
 }
 
 .link {
@@ -209,7 +252,11 @@ li a:hover:not(.active) {
 }
 
 .dark .link {
-	color: #abc6ec;
+	color: #d6d6d6;
+}
+
+.gruvbox .link {
+	color: #fbf1c7;
 }
 
 .link:hover {
@@ -219,9 +266,22 @@ li a:hover:not(.active) {
 img {
 	-ms-interpolation-mode: nearest-neighbor;
 	image-rendering: pixelated;
+	border-bottom: 1px solid #343434;
 }
 
-.interview_panel_controls,
-.interview_panel_stats {
-	margin-bottom: 10px;
+@media only screen and (min-width: 520px) {
+	img {
+		width: 48px;
+		object-fit: cover;
+	}
+	#statcontent {
+		padding: 56px 2px 2px 2px;
+	}
+	#menu {
+		height: 48px;
+	}
+	.button {
+		height: 52px;
+		width: 52px;
+	}
 }

@@ -1,4 +1,3 @@
-
 //
 // Gravity Generator
 //
@@ -36,9 +35,6 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 /obj/machinery/gravity_generator/ex_act(severity, target)
 	if(severity >= EXPLODE_DEVASTATE) // Very sturdy.
 		set_broken()
-		return TRUE
-
-	return FALSE
 
 /obj/machinery/gravity_generator/blob_act(obj/structure/blob/B)
 	if(prob(20))
@@ -62,7 +58,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 	qdel(src)
 
 /obj/machinery/gravity_generator/proc/set_broken()
-	atom_break()
+	obj_break()
 
 /obj/machinery/gravity_generator/proc/set_fix()
 	set_machine_stat(machine_stat & ~BROKEN)
@@ -76,7 +72,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 	var/obj/machinery/gravity_generator/main/main_part
 
 /obj/machinery/gravity_generator/part/Destroy()
-	atom_break()
+	obj_break()
 	if(main_part)
 		UnregisterSignal(main_part, COMSIG_ATOM_UPDATED_ICON)
 		main_part = null
@@ -148,9 +144,6 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 	/// Audio for when the gravgen is on
 	var/datum/looping_sound/gravgen/soundloop
 
-	///Amount of shielding we offer against a radioactive nebula
-	var/radioactive_nebula_shielding = 4
-
 ///Station generator that spawns with gravity turned off.
 /obj/machinery/gravity_generator/main/off
 	on = FALSE
@@ -165,8 +158,6 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 		enable()
 		center_part.add_overlay("activated")
 
-	add_to_nebula_shielding(src, /datum/station_trait/nebula/hostile/radiation, PROC_REF(get_radioactive_nebula_shielding))
-
 /obj/machinery/gravity_generator/main/Destroy() // If we somehow get deleted, remove all of our other parts.
 	investigate_log("was destroyed!", INVESTIGATE_GRAVITY)
 	disable()
@@ -178,7 +169,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 /obj/machinery/gravity_generator/main/proc/setup_parts()
 	var/turf/our_turf = get_turf(src)
 	// 9x9 block obtained from the bottom middle of the block
-	var/list/spawn_turfs = CORNER_BLOCK_OFFSET(our_turf, 3, 3, -1, 0)
+	var/list/spawn_turfs = block(locate(our_turf.x - 1, our_turf.y + 2, our_turf.z), locate(our_turf.x + 1, our_turf.y, our_turf.z))
 	var/count = 10
 	for(var/turf/T in spawn_turfs)
 		count--
@@ -195,7 +186,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 		part.main_part = src
 		generator_parts += part
 		part.update_appearance()
-		part.RegisterSignal(src, COMSIG_ATOM_UPDATED_ICON, TYPE_PROC_REF(/obj/machinery/gravity_generator/part, on_update_icon))
+		part.RegisterSignal(src, COMSIG_ATOM_UPDATED_ICON, /obj/machinery/gravity_generator/part/proc/on_update_icon)
 
 /obj/machinery/gravity_generator/main/set_broken()
 	. = ..()
@@ -220,20 +211,6 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 
 // Interaction
 
-/obj/machinery/gravity_generator/main/examine(mob/user)
-	. = ..()
-	if(!(machine_stat & BROKEN))
-		return
-	switch(broken_state)
-		if(GRAV_NEEDS_SCREWDRIVER)
-			. += span_notice("The entire frame is barely holding together, the <b>screws</b> need to be refastened.")
-		if(GRAV_NEEDS_WELDING)
-			. += span_notice("There's lots of broken seals on the framework, it could use some <b>welding</b>.")
-		if(GRAV_NEEDS_PLASTEEL)
-			. += span_notice("Some of this damaged plating needs full replacement. <b>10 plasteel</> should be enough.")
-		if(GRAV_NEEDS_WRENCH)
-			. += span_notice("The new plating just needs to be <b>bolted</b> into place now.")
-
 // Fixing the gravity generator.
 /obj/machinery/gravity_generator/main/attackby(obj/item/weapon, mob/user, params)
 	if(machine_stat & BROKEN)
@@ -247,7 +224,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 					return
 			if(GRAV_NEEDS_WELDING)
 				if(weapon.tool_behaviour == TOOL_WELDER)
-					if(weapon.use_tool(src, user, 0, volume=50))
+					if(weapon.use_tool(src, user, 0, volume=50, amount=1))
 						to_chat(user, span_notice("You mend the damaged framework."))
 						broken_state++
 						update_appearance()
@@ -333,16 +310,14 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 	update_use_power(ACTIVE_POWER_USE)
 
 	soundloop.start()
-	var/old_gravity = gravity_in_level()
-	complete_state_update()
-	gravity_field = new(src, 2, TRUE, 6)
-
-	if (!old_gravity)
+	if (!gravity_in_level())
 		if(SSticker.current_state == GAME_STATE_PLAYING)
 			investigate_log("was brought online and is now producing gravity for this level.", INVESTIGATE_GRAVITY)
 			message_admins("The gravity generator was brought online [ADMIN_VERBOSEJMP(src)]")
 		shake_everyone()
+	gravity_field = new(src, 2, TRUE, 6)
 
+	complete_state_update()
 
 /obj/machinery/gravity_generator/main/proc/disable()
 	charging_state = POWER_IDLE
@@ -351,15 +326,13 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 
 	soundloop.stop()
 	QDEL_NULL(gravity_field)
-	var/old_gravity = gravity_in_level()
-	complete_state_update()
-
-	if (old_gravity)
+	if (gravity_in_level())
 		if(SSticker.current_state == GAME_STATE_PLAYING)
 			investigate_log("was brought offline and there is now no gravity for this level.", INVESTIGATE_GRAVITY)
 			message_admins("The gravity generator was brought offline with no backup generator. [ADMIN_VERBOSEJMP(src)]")
 		shake_everyone()
 
+	complete_state_update()
 
 /obj/machinery/gravity_generator/main/proc/complete_state_update()
 	update_appearance()
@@ -412,11 +385,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 		var/turf/mob_turf = get_turf(mobs)
 		if(!istype(mob_turf))
 			continue
-		if(!is_valid_z_level(T, mob_turf))
-			continue
-		if(isliving(mobs))
-			var/mob/living/grav_update = mobs
-			grav_update.refresh_gravity()
+		mobs.update_gravity(mobs.has_gravity())
 		if(mobs.client)
 			shake_camera(mobs, 15, 1)
 			mobs.playsound_local(T, null, 100, 1, 0.5, sound_to_use = alert_sound)
@@ -449,6 +418,11 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 			GLOB.gravity_generators["[z]"] -= src
 		SSmapping.calculate_z_level_gravity(z)
 
+/obj/machinery/gravity_generator/main/proc/change_setting(value)
+	if(value != setting)
+		setting = value
+		shake_everyone()
+
 /obj/machinery/gravity_generator/main/proc/blackout()
 	charge_count = 0
 	breaker = FALSE
@@ -472,10 +446,6 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 	for(var/obj/machinery/gravity_generator/part as anything in generator_parts)
 		SET_PLANE(part, PLANE_TO_TRUE(part.plane), new_turf)
 
-/// Returns the radioactive shielding (if there's a radioactive nebula). Called from a callback set in add_to_nebula_shielding()
-/obj/machinery/gravity_generator/main/proc/get_radioactive_nebula_shielding()
-	return on ? radioactive_nebula_shielding : 0
-
 //prevents shuttles attempting to rotate this since it messes up sprites
 /obj/machinery/gravity_generator/main/shuttleRotate(rotation, params)
 	params = NONE
@@ -486,7 +456,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 /// Gravity generator instruction guide
 /obj/item/paper/guides/jobs/engi/gravity_gen
 	name = "paper- 'Generate your own gravity!'"
-	default_raw_text = {"<h1>Gravity Generator Instructions For Dummies</h1>
+	info = {"<h1>Gravity Generator Instructions For Dummies</h1>
 	<p>Surprisingly, gravity isn't that hard to make! All you have to do is inject deadly radioactive minerals into a ball of
 	energy and you have yourself gravity! You can turn the machine on or off when required.
 	The generator produces a very harmful amount of gravity when enabled, so don't stay close for too long.</p>
@@ -498,12 +468,3 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 	<li>Mend the damaged framework with a welding tool.</li>
 	<li>Add additional plasteel plating.</li>
 	<li>Secure the additional plating with a wrench.</li></ol>"}
-
-#undef POWER_IDLE
-#undef POWER_UP
-#undef POWER_DOWN
-
-#undef GRAV_NEEDS_PLASTEEL
-#undef GRAV_NEEDS_SCREWDRIVER
-#undef GRAV_NEEDS_WELDING
-#undef GRAV_NEEDS_WRENCH

@@ -6,7 +6,7 @@
  * Possible improvements for the future: add an option to allow the cursed affix to be a prefix. right now only coded for suffixes
  */
 /datum/element/curse_announcement
-	element_flags = ELEMENT_BESPOKE
+	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH_ON_HOST_DESTROY
 	argument_hash_start_idx = 2
 	///message sent on announce
 	var/announcement_message

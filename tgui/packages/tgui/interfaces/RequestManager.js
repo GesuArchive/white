@@ -38,7 +38,7 @@ export const RequestManager = (props, context) => {
   }
 
   return (
-    <Window title="Request Manager" width={575} height={600} theme="admin">
+    <Window title="Request Manager" width={575} height={600}>
       <Window.Content scrollable>
         <Section
           title="Requests"
@@ -84,8 +84,6 @@ const displayTypeMap = {
   'request_centcom': 'CENTCOM',
   'request_syndicate': 'SYNDICATE',
   'request_nuke': 'NUKE CODE',
-  'request_fax': 'FAX',
-  'request_internet_sound': 'INTERNET SOUND',
 };
 
 const RequestType = (props) => {
@@ -119,17 +117,11 @@ const RequestControls = (props, context) => {
           SETCODE
         </Button>
       )}
-      {request.req_type === 'request_fax' && (
-        <Button onClick={() => act('show', { id: request.id })}>SHOW</Button>
-      )}
-      {request.req_type === 'request_internet_sound' && (
-        <Button onClick={() => act('play', { id: request.id })}>PLAY</Button>
-      )}
     </div>
   );
 };
 
-const FilterPanel = (props, context) => {
+const FilterPanel = (_, context) => {
   const [filterVisible, setFilterVisible] = useLocalState(
     context,
     'filterVisible',

@@ -1,8 +1,8 @@
 ///Holds a biological sample which can then be put into the growing vat
 /obj/item/petri_dish
-	name = "petri dish"
+	name = "Чаша Петри"
 	desc = "This makes you feel well-cultured."
-	icon = 'icons/obj/science/vatgrowing.dmi'
+	icon = 'icons/obj/xenobiology/vatgrowing.dmi'
 	icon_state = "petri_dish"
 	w_class = WEIGHT_CLASS_TINY
 	///The sample stored on the dish
@@ -12,16 +12,11 @@
 	. = ..()
 	QDEL_NULL(sample)
 
-/obj/item/petri_dish/vv_edit_var(vname, vval)
-	. = ..()
-	if(vname == NAMEOF(src, sample))
-		update_appearance()
-
 /obj/item/petri_dish/examine(mob/user)
 	. = ..()
 	if(!sample)
 		return
-	. += span_notice("You can see the following micro-organisms:")
+	. += "<hr><span class='notice'>You can see the following micro-organisms:</span>"
 	for(var/i in sample.micro_organisms)
 		var/datum/micro_organism/MO = i
 		. += MO.get_details()
@@ -32,7 +27,6 @@
 		return FALSE
 	to_chat(user, span_notice("You wash the sample out of [src]."))
 	sample = null
-	update_appearance()
 
 /obj/item/petri_dish/update_overlays()
 	. = ..()
@@ -49,7 +43,7 @@
 /obj/item/petri_dish/proc/deposit_sample(user, datum/biological_sample/deposited_sample)
 	sample = deposited_sample
 	to_chat(user, span_notice("You deposit a sample into [src]."))
-	update_appearance()
+	update_icon()
 
 /// Petri dish with random sample already in it.
 /obj/item/petri_dish/random
@@ -65,4 +59,4 @@
 	var/list/chosen = pick(possible_samples)
 	sample = new
 	sample.GenerateSample(chosen[1],chosen[2],chosen[3],chosen[4])
-	update_appearance()
+	update_icon()

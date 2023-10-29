@@ -15,19 +15,19 @@
 
 	if(!keycheck(rider))
 		if(z_move_flags & ZMOVE_FEEDBACK)
-			to_chat(rider, "<span class='warning'>[movable_parent] has no key inserted!</span>")
+			to_chat(rider, span_warning("[movable_parent] не имеет ключа внутри!"))
 		return COMPONENT_RIDDEN_STOP_Z_MOVE
 	if(HAS_TRAIT(rider, TRAIT_INCAPACITATED))
 		if(z_move_flags & ZMOVE_FEEDBACK)
-			to_chat(rider, "<span class='warning'>You cannot operate [movable_parent] right now!</span>")
+			to_chat(rider, span_warning("Я не могу управлять [movable_parent] в данный момент!"))
 		return COMPONENT_RIDDEN_STOP_Z_MOVE
 	if(ride_check_flags & RIDER_NEEDS_LEGS && HAS_TRAIT(rider, TRAIT_FLOORED))
 		if(z_move_flags & ZMOVE_FEEDBACK)
-			to_chat(rider, "<span class='warning'>You can't seem to manage that while unable to stand up enough to move [movable_parent]...</span>")
+			to_chat(rider, span_warning("Кажется, я не могу справиться с этим, будучи не в состоянии встать достаточно, чтобы двигаться [movable_parent]..."))
 		return COMPONENT_RIDDEN_STOP_Z_MOVE
 	if(ride_check_flags & RIDER_NEEDS_ARMS && HAS_TRAIT(rider, TRAIT_HANDS_BLOCKED))
 		if(z_move_flags & ZMOVE_FEEDBACK)
-			to_chat(rider, "<span class='warning'>You can't seem to hold onto [movable_parent] to move it...</span>")
+			to_chat(rider, span_warning("Кажется, я не могу удержаться на [movable_parent] чтобы управлять этим..."))
 		return COMPONENT_RIDDEN_STOP_Z_MOVE
 
 	return COMPONENT_RIDDEN_ALLOW_Z_MOVE
@@ -39,43 +39,43 @@
 
 	if(!keycheck(user))
 		if(COOLDOWN_FINISHED(src, message_cooldown))
-			to_chat(user, span_warning("[vehicle_parent] has no key inserted!"))
+			to_chat(user, span_warning("[vehicle_parent] не имеет ключа внутри!"))
 			COOLDOWN_START(src, message_cooldown, 5 SECONDS)
 		return COMPONENT_DRIVER_BLOCK_MOVE
 
 	if(HAS_TRAIT(user, TRAIT_INCAPACITATED))
 		if(ride_check_flags & UNBUCKLE_DISABLED_RIDER)
 			vehicle_parent.unbuckle_mob(user, TRUE)
-			user.visible_message(span_danger("[user] falls off \the [vehicle_parent]."),\
-			span_danger("You slip off \the [vehicle_parent] as your body slumps!"))
+			user.visible_message(span_danger("[user] падает с [vehicle_parent]."),\
+			span_danger("Я соскальзываю с [vehicle_parent] когда ваше тело падает!"))
 			user.Stun(3 SECONDS)
 
 		if(COOLDOWN_FINISHED(src, message_cooldown))
-			to_chat(user, span_warning("You cannot operate \the [vehicle_parent] right now!"))
+			to_chat(user, span_warning("Я не могу управлять [vehicle_parent] В данный момент!"))
 			COOLDOWN_START(src, message_cooldown, 5 SECONDS)
 		return COMPONENT_DRIVER_BLOCK_MOVE
 
 	if(ride_check_flags & RIDER_NEEDS_LEGS && HAS_TRAIT(user, TRAIT_FLOORED))
 		if(ride_check_flags & UNBUCKLE_DISABLED_RIDER)
 			vehicle_parent.unbuckle_mob(user, TRUE)
-			user.visible_message(span_danger("[user] falls off \the [vehicle_parent]."),\
-			span_danger("You fall off \the [vehicle_parent] while trying to operate it while unable to stand!"))
+			user.visible_message(span_danger("[user] падает с  [vehicle_parent]."),\
+			span_danger("Я падаю с  [vehicle_parent] при попытке управлять им, будучи не в состоянии стоять!"))
 			user.Stun(3 SECONDS)
 
 		if(COOLDOWN_FINISHED(src, message_cooldown))
-			to_chat(user, span_warning("You can't seem to manage that while unable to stand up enough to move \the [vehicle_parent]..."))
+			to_chat(user, span_warning("Кажется, я не могу справиться с этим, будучи не в состоянии встать достаточно, чтобы двигаться  [vehicle_parent]..."))
 			COOLDOWN_START(src, message_cooldown, 5 SECONDS)
 		return COMPONENT_DRIVER_BLOCK_MOVE
 
 	if(ride_check_flags & RIDER_NEEDS_ARMS && HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 		if(ride_check_flags & UNBUCKLE_DISABLED_RIDER)
 			vehicle_parent.unbuckle_mob(user, TRUE)
-			user.visible_message(span_danger("[user] falls off \the [vehicle_parent]."),\
-			span_danger("You fall off \the [vehicle_parent] while trying to operate it without being able to hold on!"))
+			user.visible_message(span_danger("[user] падает с  [vehicle_parent]."),\
+			span_danger("Я падаю с  [vehicle_parent] при попытке управлять им, не будучи в состоянии удержаться!"))
 			user.Stun(3 SECONDS)
 
 		if(COOLDOWN_FINISHED(src, message_cooldown))
-			to_chat(user, span_warning("You can't seem to hold onto \the [vehicle_parent] to move it..."))
+			to_chat(user, span_warning("Кажется, я не могу удержаться  [vehicle_parent] чтобы управлять этим..."))
 			COOLDOWN_START(src, message_cooldown, 5 SECONDS)
 		return COMPONENT_DRIVER_BLOCK_MOVE
 
@@ -91,7 +91,7 @@
 	if(!istype(next) || !istype(current))
 		return //not happening.
 	if(!turf_check(next, current))
-		to_chat(user, span_warning("\The [movable_parent] can not go onto [next]!"))
+		to_chat(user, span_warning("<b>[capitalize(movable_parent)]</b> can not go onto [next]!"))
 		return
 	if(!Process_Spacemove(direction) || !isturf(movable_parent.loc))
 		return
@@ -109,7 +109,7 @@
 /datum/component/riding/vehicle/atv
 	keytype = /obj/item/key/atv
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
-	vehicle_move_delay = 1.5
+	vehicle_move_delay = 1.2
 
 /datum/component/riding/vehicle/atv/handle_specials()
 	. = ..()
@@ -121,7 +121,7 @@
 
 /datum/component/riding/vehicle/bicycle
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
-	vehicle_move_delay = 0
+	vehicle_move_delay = 1.8
 
 /datum/component/riding/vehicle/bicycle/handle_specials()
 	. = ..()
@@ -132,6 +132,45 @@
 	ride_check_flags = NONE // not sure
 	keytype = /obj/item/oar
 	var/allowed_turf = /turf/open/lava
+
+//nasral
+
+
+/datum/component/riding/vehicle/lavaboat/driver_move(datum/source, dir)
+	var/atom/movable/movable_parent = parent
+	var/gaming = FALSE
+	for(var/mob/living/M in movable_parent.buckled_mobs)
+		if(M?.mind?.get_skill_level(/datum/skill/gaming) >= SKILL_LEVEL_MASTER)
+			gaming = TRUE
+			break
+	if(gaming)
+		gaming()
+	else
+		gaming_stop()
+
+	. = ..()
+
+/datum/component/riding/vehicle/lavaboat/proc/gaming()
+	if(override_allow_spacemove)
+		return
+	var/atom/movable/movable_parent = parent
+	vehicle_move_delay = 0.1
+	override_allow_spacemove = TRUE
+	allowed_turf_typecache = null
+	movable_parent.movement_type |= FLYING
+	for(var/mob/living/M in movable_parent.buckled_mobs)
+		M.movement_type |= FLYING
+
+/datum/component/riding/vehicle/lavaboat/proc/gaming_stop()
+	if(!override_allow_spacemove)
+		return
+	var/atom/movable/movable_parent = parent
+	vehicle_move_delay = initial(vehicle_move_delay)
+	override_allow_spacemove = FALSE
+	allowed_turf_typecache = typecacheof(allowed_turf)
+	movable_parent.movement_type = initial(movable_parent.movement_type)
+	for(var/mob/living/M in movable_parent.buckled_mobs)
+		M.movement_type = initial(M.movement_type)
 
 /datum/component/riding/vehicle/lavaboat/handle_specials()
 	. = ..()
@@ -151,10 +190,48 @@
 
 /datum/component/riding/vehicle/janicart
 	keytype = /obj/item/key/janitor
+	vehicle_move_delay = 1.6
 
 /datum/component/riding/vehicle/janicart/handle_specials()
 	. = ..()
 	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 4), TEXT_SOUTH = list(0, 7), TEXT_EAST = list(-12, 7), TEXT_WEST = list( 12, 7)))
+
+/datum/component/riding/vehicle/forklift
+	keytype = /obj/item/key/forklift
+
+/datum/component/riding/vehicle/forklift/handle_specials()
+	. = ..()
+	set_vehicle_dir_layer(SOUTH, OBJ_LAYER)
+	set_vehicle_dir_layer(NORTH, MOB_LAYER)
+	set_vehicle_dir_layer(EAST, MOB_LAYER)
+	set_vehicle_dir_layer(WEST, MOB_LAYER)
+
+/datum/component/riding/vehicle/forklift/engineering
+	keytype = /obj/item/key/forklift/engineering
+
+/datum/component/riding/vehicle/forklift/engineering/handle_specials()
+	. = ..()
+	set_vehicle_dir_offsets(NORTH, -16, -16)
+	set_vehicle_dir_offsets(SOUTH, -16, -16)
+	set_vehicle_dir_offsets(EAST, -16, -16)
+	set_vehicle_dir_offsets(WEST, -16, -16)
+	for(var/i in GLOB.cardinals)
+		set_vehicle_dir_layer(i, BELOW_MOB_LAYER)
+
+/datum/component/riding/vehicle/forklift/medical
+	keytype = /obj/item/key/forklift/medbay
+
+/datum/component/riding/vehicle/forklift/security
+	keytype = /obj/item/key/forklift/security
+
+/datum/component/riding/vehicle/forklift/cargo
+	keytype = /obj/item/key/forklift/cargo
+
+/datum/component/riding/vehicle/forklift/service
+	keytype = /obj/item/key/forklift/service
+
+/datum/component/riding/vehicle/forklift/science
+	keytype = /obj/item/key/forklift/science
 
 /datum/component/riding/vehicle/scooter
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
@@ -178,7 +255,7 @@
 	set_vehicle_dir_layer(WEST, OBJ_LAYER)
 
 /datum/component/riding/vehicle/scooter/skateboard/wheelys
-	vehicle_move_delay = 0
+	vehicle_move_delay = 1
 
 /datum/component/riding/vehicle/scooter/skateboard/wheelys/handle_specials()
 	. = ..()
@@ -192,7 +269,7 @@
 
 /datum/component/riding/vehicle/scooter/skateboard/wheelys/skishoes/handle_specials()
 	. = ..()
-	allowed_turf_typecache = typecacheof(list(/turf/open/misc/asteroid/snow, /turf/open/misc/snow, /turf/open/floor/holofloor/snow, /turf/open/misc/ice, /turf/open/floor/fake_snow))
+	allowed_turf_typecache = typecacheof(list(/turf/open/floor/plating/asteroid/snow, /turf/open/floor/grass/snow, /turf/open/floor/holofloor/snow, /turf/open/floor/plating/ice))
 
 /datum/component/riding/vehicle/secway
 	keytype = /obj/item/key/security
@@ -209,14 +286,14 @@
 
 	if(keycheck(user) && the_secway.eddie_murphy)
 		if(COOLDOWN_FINISHED(src, message_cooldown))
-			the_secway.visible_message(span_warning("[the_secway] sputters and refuses to move!"))
+			the_secway.visible_message(span_warning("[src] брызжет слюной и отказывается двигаться!"))
 			playsound(get_turf(the_secway), 'sound/effects/stall.ogg', 70)
 			COOLDOWN_START(src, message_cooldown, 0.75 SECONDS)
 		return COMPONENT_DRIVER_BLOCK_MOVE
 	return ..()
 
 /datum/component/riding/vehicle/speedbike
-	vehicle_move_delay = 0
+	vehicle_move_delay = 1
 	override_allow_spacemove = TRUE
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
 
@@ -227,9 +304,12 @@
 	set_vehicle_dir_offsets(SOUTH, -16, -16)
 	set_vehicle_dir_offsets(EAST, -18, 0)
 	set_vehicle_dir_offsets(WEST, -18, 0)
+	set_vehicle_dir_layer(SOUTH, VEHICLE_LAYER)
+	set_vehicle_dir_layer(EAST, VEHICLE_LAYER)
+	set_vehicle_dir_layer(WEST, VEHICLE_LAYER)
 
 /datum/component/riding/vehicle/speedwagon
-	vehicle_move_delay = 0
+	vehicle_move_delay = 1
 
 /datum/component/riding/vehicle/speedwagon/handle_specials()
 	. = ..()
@@ -246,7 +326,7 @@
 
 
 /datum/component/riding/vehicle/wheelchair
-	vehicle_move_delay = 0
+	vehicle_move_delay = 1
 	ride_check_flags = RIDER_NEEDS_ARMS
 
 /datum/component/riding/vehicle/wheelchair/handle_specials()
@@ -267,8 +347,8 @@
 	var/delay_multiplier = 6.7 // magic number from wheelchair code
 
 	var/obj/vehicle/ridden/wheelchair/motorized/our_chair = parent
-	for(var/datum/stock_part/servo/servo in our_chair.component_parts)
-		speed += servo.tier
+	for(var/obj/item/stock_parts/manipulator/M in our_chair.contents)
+		speed += M.rating
 	vehicle_move_delay = round(CONFIG_GET(number/movedelay/run_delay) * delay_multiplier) / speed
 	return ..()
 

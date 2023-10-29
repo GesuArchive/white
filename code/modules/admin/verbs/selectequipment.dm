@@ -1,5 +1,5 @@
 /client/proc/cmd_select_equipment(mob/target in GLOB.mob_list)
-	set category = "Admin.Events"
+	set category = "Адм.События"
 	set name = "Select equipment"
 
 
@@ -23,6 +23,7 @@
 	var/mob/target_mob
 
 	var/dummy_key
+	var/mob/living/carbon/human/dummy/dummy
 
 	//static list to share all the outfit typepaths between all instances of this datum.
 	var/static/list/cached_outfits
@@ -56,13 +57,18 @@
 		return UI_CLOSE
 	return ..()
 
-/datum/select_equipment/ui_close(mob/user)
+/datum/select_equipment/ui_close(mob/user, datum/tgui/tgui)
 	clear_human_dummy(dummy_key)
 	qdel(src)
 
 /datum/select_equipment/proc/init_dummy()
 	dummy_key = "selectequipmentUI_[target_mob]"
-	generate_dummy_lookalike(dummy_key, target_mob)
+	dummy = generate_or_wait_for_human_dummy(dummy_key)
+	var/mob/living/carbon/carbon_target = target_mob
+	if(istype(carbon_target))
+		carbon_target.dna.transfer_identity(dummy)
+		dummy.updateappearance()
+
 	unset_busy_human_dummy(dummy_key)
 	return
 
@@ -90,7 +96,7 @@
 		return list("category" = category, "ref" = identifier, "name" = name, "priority" = priority)
 	return list("category" = category, "path" = identifier, "name" = name, "priority" = priority)
 
-/datum/select_equipment/proc/make_outfit_entries(category="General", list/outfit_list)
+/datum/select_equipment/proc/make_outfit_entries(category="Осн", list/outfit_list)
 	var/list/entries = list()
 	for(var/path as anything in outfit_list)
 		var/datum/outfit/outfit = path
@@ -106,16 +112,14 @@
 
 /datum/select_equipment/ui_data(mob/user)
 	var/list/data = list()
-	if(!dummy_key)
+	if(!dummy)
 		init_dummy()
 
-	var/icon/dummysprite = get_flat_human_icon(null,
-		dummy_key = dummy_key,
-		outfit_override = selected_outfit)
+	var/datum/preferences/prefs = target_mob?.client?.prefs
+	var/icon/dummysprite = get_flat_human_icon(null, prefs=prefs, dummy_key = dummy_key, outfit_override = selected_outfit)
 	data["icon64"] = icon2base64(dummysprite)
 	data["name"] = target_mob
 
-	var/datum/preferences/prefs = user?.client?.prefs
 	data["favorites"] = list()
 	if(prefs)
 		data["favorites"] = prefs.favorite_outfits
@@ -131,10 +135,11 @@
 	var/list/data = list()
 	if(!cached_outfits)
 		cached_outfits = list()
-		cached_outfits += list(outfit_entry("General", /datum/outfit, "Naked", priority=TRUE))
-		cached_outfits += make_outfit_entries("General", subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman))
-		cached_outfits += make_outfit_entries("Jobs", typesof(/datum/outfit/job))
-		cached_outfits += make_outfit_entries("Plasmamen Outfits", typesof(/datum/outfit/plasmaman))
+		cached_outfits += list(outfit_entry("Осн", /datum/outfit, "Naked", priority=TRUE))
+		cached_outfits += make_outfit_entries("Осн", subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman) - typesof(/datum/outfit/whiterobust))
+		cached_outfits += make_outfit_entries("Джоб", typesof(/datum/outfit/job))
+		cached_outfits += make_outfit_entries("Плазмамен", typesof(/datum/outfit/plasmaman))
+		cached_outfits += make_outfit_entries("Турнир", typesof(/datum/outfit/whiterobust))
 
 	data["outfits"] = cached_outfits
 	return data
@@ -209,14 +214,14 @@
 	else
 		human_target = target
 		if(human_target.l_store || human_target.r_store || human_target.s_store) //saves a lot of time for admins and coders alike
-			if(tgui_alert(usr,"Do you need the items in your pockets?", "Pocket Items", list("Delete Them", "Drop Them")) == "Delete Them")
+			if(tgui_alert(usr,"Drop Items in Pockets? No will delete them.", "Robust quick dress shop", list("Yes", "No")) == "No")
 				delete_pocket = TRUE
 
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Select Equipment") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
-	for(var/obj/item/item in human_target.get_equipped_items(include_pockets = delete_pocket))
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Select Equipment") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	for(var/obj/item/item in human_target.get_equipped_items(delete_pocket))
 		qdel(item)
 
-	var/obj/item/organ/internal/brain/human_brain = human_target.get_organ_slot(BRAIN)
+	var/obj/item/organ/brain/human_brain = human_target.get_organ_slot(BRAIN)
 	human_brain.destroy_all_skillchips() // get rid of skillchips to prevent runtimes
 
 	if(dresscode != "Naked")

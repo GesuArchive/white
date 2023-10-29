@@ -1,0 +1,242 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall,
+/area/maintenance/port/aft)
+"b" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access_txt = "12"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"c" = (
+/turf/open/openspace,
+/area/maintenance/port/aft)
+"f" = (
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"g" = (
+/obj/structure/sign/warning/nosmoking{
+	pixel_x = -28
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"k" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	name = "Incinerator Access";
+	req_access_txt = "12"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/obj/structure/barricade/wooden{
+	name = "wooden barricade (CLOSED)"
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"l" = (
+/obj/item/stack/tile/plasteel,
+/turf/open/floor/plating/airless,
+/area/maintenance/port/aft)
+"o" = (
+/obj/item/weldingtool,
+/turf/open/floor/plating/airless,
+/area/maintenance/port/aft)
+"p" = (
+/obj/item/stack/sheet/iron,
+/turf/open/floor/plating/airless,
+/area/maintenance/port/aft)
+"q" = (
+/obj/item/stack/cable_coil{
+	amount = 5
+	},
+/turf/open/floor/plating/airless,
+/area/maintenance/port/aft)
+"r" = (
+/obj/item/clothing/head/hardhat,
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/maintenance/port/aft)
+"F" = (
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/maintenance/port/aft)
+"O" = (
+/turf/open/floor/plating/airless,
+/area/maintenance/port/aft)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+k
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+f
+g
+f
+f
+f
+f
+O
+O
+O
+O
+F
+F
+a
+"}
+(3,1,1) = {"
+a
+f
+f
+f
+f
+f
+f
+O
+O
+O
+F
+F
+O
+a
+"}
+(4,1,1) = {"
+b
+f
+f
+O
+O
+O
+O
+O
+O
+c
+F
+c
+F
+a
+"}
+(5,1,1) = {"
+a
+f
+f
+O
+O
+O
+l
+O
+O
+r
+F
+F
+O
+a
+"}
+(6,1,1) = {"
+a
+f
+f
+O
+O
+O
+O
+O
+p
+c
+F
+c
+O
+a
+"}
+(7,1,1) = {"
+a
+f
+f
+O
+O
+O
+O
+o
+q
+F
+F
+F
+O
+a
+"}
+(8,1,1) = {"
+a
+f
+f
+O
+O
+O
+O
+O
+O
+c
+F
+c
+F
+a
+"}
+(9,1,1) = {"
+a
+f
+f
+O
+O
+O
+O
+O
+O
+F
+F
+F
+O
+a
+"}
+(10,1,1) = {"
+a
+f
+f
+O
+O
+O
+O
+O
+O
+c
+O
+O
+O
+a
+"}
+(11,1,1) = {"
+a
+b
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

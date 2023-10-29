@@ -28,9 +28,9 @@ export const Smes = (props, context) => {
   const outputState =
     (outputting && 'good') || (charge > 0 && 'average') || 'bad';
   return (
-    <Window width={340} height={350}>
+    <Window width={340} height={330}>
       <Window.Content>
-        <Section title="Stored Energy">
+        <Section title="Накоплено энергии">
           <ProgressBar
             value={capacityPercent * 0.01}
             ranges={{
@@ -40,25 +40,25 @@ export const Smes = (props, context) => {
             }}
           />
         </Section>
-        <Section title="Input">
+        <Section title="Вход">
           <LabeledList>
             <LabeledList.Item
-              label="Charge Mode"
+              label="Режим зарядки"
               buttons={
                 <Button
                   icon={inputAttempt ? 'sync-alt' : 'times'}
                   selected={inputAttempt}
                   onClick={() => act('tryinput')}>
-                  {inputAttempt ? 'Auto' : 'Off'}
+                  {inputAttempt ? 'Авто' : 'Выкл'}
                 </Button>
               }>
               <Box color={inputState}>
-                {(capacityPercent >= 100 && 'Fully Charged') ||
-                  (inputting && 'Charging') ||
-                  'Not Charging'}
+                {(capacityPercent >= 100 && 'Полностью заряжено') ||
+                  (inputting && 'Зарядка') ||
+                  'Не заряжается'}
               </Box>
             </LabeledList.Item>
-            <LabeledList.Item label="Target Input">
+            <LabeledList.Item label="Целевой выход">
               <Flex inline width="100%">
                 <Flex.Item>
                   <Button
@@ -118,32 +118,32 @@ export const Smes = (props, context) => {
                 </Flex.Item>
               </Flex>
             </LabeledList.Item>
-            <LabeledList.Item label="Available">
+            <LabeledList.Item label="Доступно">
               {formatPower(inputAvailable)}
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Output">
+        <Section title="Выход">
           <LabeledList>
             <LabeledList.Item
-              label="Output Mode"
+              label="Режим вывода"
               buttons={
                 <Button
                   icon={outputAttempt ? 'power-off' : 'times'}
                   selected={outputAttempt}
                   onClick={() => act('tryoutput')}>
-                  {outputAttempt ? 'On' : 'Off'}
+                  {outputAttempt ? 'Вкл' : 'Выкл'}
                 </Button>
               }>
               <Box color={outputState}>
                 {outputting
-                  ? 'Sending'
+                  ? 'Отправляется'
                   : charge > 0
-                    ? 'Not Sending'
-                    : 'No Charge'}
+                    ? 'Не отправляется'
+                    : 'Нет заряда'}
               </Box>
             </LabeledList.Item>
-            <LabeledList.Item label="Target Output">
+            <LabeledList.Item label="Целевой выход">
               <Flex inline width="100%">
                 <Flex.Item>
                   <Button
@@ -202,7 +202,7 @@ export const Smes = (props, context) => {
                 </Flex.Item>
               </Flex>
             </LabeledList.Item>
-            <LabeledList.Item label="Outputting">
+            <LabeledList.Item label="Выход">
               {formatPower(outputUsed)}
             </LabeledList.Item>
           </LabeledList>

@@ -1,134 +1,127 @@
-// Defensive wizard spells
+// defensive wizard spells
 /datum/spellbook_entry/magicm
-	name = "Magic Missile"
-	desc = "Fires several, slow moving, magic projectiles at nearby targets."
+	name = "Волшебные ракеты"
+	desc = "Выпускает несколько медленно движущихся магических снарядов по ближайшим целям и оглушает их."
 	spell_type = /datum/action/cooldown/spell/aoe/magic_missile
 	category = "Defensive"
 
 /datum/spellbook_entry/disabletech
-	name = "Disable Tech"
-	desc = "Disables all weapons, cameras and most other technology in range."
+	name = "Подавление техники"
+	desc = "Отключает все энергитическое оружие, камеры и большинство других технологических устройств в радиусе действия."
 	spell_type = /datum/action/cooldown/spell/emp/disable_tech
 	category = "Defensive"
 	cost = 1
 
 /datum/spellbook_entry/repulse
-	name = "Repulse"
-	desc = "Throws everything around the user away."
+	name = "Ударная волна"
+	desc = "Отбрасывает все, что находится вокруг пользователя."
 	spell_type = /datum/action/cooldown/spell/aoe/repulse/wizard
 	category = "Defensive"
 
 /datum/spellbook_entry/lightning_packet
-	name = "Thrown Lightning"
-	desc = "Forged from eldrich energies, a packet of pure power, \
-		known as a spell packet will appear in your hand, that when thrown will stun the target."
+	name = "Метнуть молнию"
+	desc = "Сплетенный из сверхъестественной энергии, пучёк чистой силы, \
+		маленький сгусток появится в вашей руке, при успешном попадании ненадолго оглушает цель."
 	spell_type = /datum/action/cooldown/spell/conjure_item/spellpacket
 	category = "Defensive"
 
 /datum/spellbook_entry/timestop
-	name = "Time Stop"
-	desc = "Stops time for everyone except for you, allowing you to move freely \
-		while your enemies and even projectiles are frozen."
+	name = "Остановка Времени"
+	desc = "Останавливает время в небольшом радиусе вокруг применившего, для всех, кроме вас, позволяя вам свободно двигаться, \
+		в то время как ваши враги и даже снаряды останавливаются."
 	spell_type = /datum/action/cooldown/spell/timestop
 	category = "Defensive"
 
 /datum/spellbook_entry/smoke
-	name = "Smoke"
-	desc = "Spawns a cloud of choking smoke at your location."
+	name = "Дым"
+	desc = "Создает облако удушливого дыма вокруг вас."
 	spell_type = /datum/action/cooldown/spell/smoke
 	category = "Defensive"
 	cost = 1
 
 /datum/spellbook_entry/forcewall
-	name = "Force Wall"
-	desc = "Create a magical barrier that only you can pass through."
+	name = "Магическая стена"
+	desc = "Создайте магический барьер, через который сможете пройти только вы."
 	spell_type = /datum/action/cooldown/spell/forcewall
 	category = "Defensive"
 	cost = 1
 
 /datum/spellbook_entry/lichdom
-	name = "Bind Soul"
-	desc = "A dark necromantic pact that can forever bind your soul to an item of your choosing, \
-		turning you into an immortal Lich. So long as the item remains intact, you will revive from death, \
-		no matter the circumstances. Be wary - with each revival, your body will become weaker, and \
-		it will become easier for others to find your item of power."
+	name = "Привязать душу"
+	desc = "Проклятый тёмный пакт, который может навсегда запечатать вашу душу в предмет который вы держите в руках, \
+		превращая тебя в бессмертного Лича. До тех пор, пока предмет остается нетронутым, вы будете освобождены от смерти, \
+		независимо от обстоятельств. Будьте осторожны - с каждым возрождением ваше тело будет становиться слабее, и \
+		другим будет легче найти предмет с вашей душой."
 	spell_type =  /datum/action/cooldown/spell/lichdom
-	category = "Defensive"
-	no_coexistance_typecache = list(/datum/action/cooldown/spell/splattercasting)
-
-/datum/spellbook_entry/chuunibyou
-	name = "Chuuni Invocations"
-	desc = "Makes all your spells shout invocations, and the invocations become... stupid. You heal slightly after casting a spell."
-	spell_type =  /datum/action/cooldown/spell/chuuni_invocations
 	category = "Defensive"
 
 /datum/spellbook_entry/spacetime_dist
-	name = "Spacetime Distortion"
-	desc = "Entangle the strings of space-time in an area around you, \
-		randomizing the layout and making proper movement impossible. The strings vibrate..."
+	name = "Искажение пространства-времени"
+	desc = "Запутайте нити пространства-времени в области вокруг вас, \
+		исказив пространство вокруг и сделав осознанное перемещение практически невозможным. Пространство вибрирует..."
 	spell_type = /datum/action/cooldown/spell/spacetime_dist
 	category = "Defensive"
 	cost = 1
 
 /datum/spellbook_entry/the_traps
-	name = "The Traps!"
-	desc = "Summon a number of traps around you. They will damage and enrage any enemies that step on them."
+	name = "Ловушки!"
+	desc = "Призовите вокруг себя несколько ловушек. наносить урон и пакостить всем врагам, которые наступят на них."
 	spell_type = /datum/action/cooldown/spell/conjure/the_traps
 	category = "Defensive"
 	cost = 1
 
 /datum/spellbook_entry/bees
-	name = "Lesser Summon Bees"
-	desc = "This spell magically kicks a transdimensional beehive, \
-		instantly summoning a swarm of bees to your location. These bees are NOT friendly to anyone."
+	name = "Малый Призыв Пчёл"
+	desc = "Это заклинание волшебным образом пробуждает межпространственный улей, \
+		мгновенно вызывая рой пчел к вашему местоположению. ОСТОРОЖНО! Эти пчелы враждебны ко всем!"
 	spell_type = /datum/action/cooldown/spell/conjure/bee
 	category = "Defensive"
 
 /datum/spellbook_entry/duffelbag
-	name = "Bestow Cursed Duffel Bag"
-	desc = "A curse that firmly attaches a demonic duffel bag to the target's back. \
-		The duffel bag will make the person it's attached to take periodical damage \
-		if it is not fed regularly, and regardless of whether or not it's been fed, \
-		it will slow the person wearing it down significantly."
+	name = "Дар Проклятой Сумки"
+	desc = "Проклятие, которое насильно прикрепляет демоническую сумку к спине цели. \
+		Сумка вечно голодна и периодически кусает своего носителя, \
+		если её не кормить, и независимо от того, кормили её или нет, \
+		она значительно замедлит человека, носящего её."
 	spell_type = /datum/action/cooldown/spell/touch/duffelbag
 	category = "Defensive"
 	cost = 1
 
 /datum/spellbook_entry/item/staffhealing
-	name = "Staff of Healing"
-	desc = "An altruistic staff that can heal the lame and raise the dead."
+	name = "Посох исцеления"
+	desc = "Альтруистический посох, который может исцелять раненых и воскрешать мертвых."
 	item_path = /obj/item/gun/magic/staff/healing
 	cost = 1
 	category = "Defensive"
 
 /datum/spellbook_entry/item/lockerstaff
-	name = "Staff of the Locker"
-	desc = "A staff that shoots lockers. It eats anyone it hits on its way, leaving a welded locker with your victims behind."
+	name = "Посох Шкафчиков"
+	desc = "Мистический посох, снаряды которого замуровывают своих жертв в запертых волшебных шкафчиках."
 	item_path = /obj/item/gun/magic/staff/locker
 	category = "Defensive"
 
 /datum/spellbook_entry/item/scryingorb
-	name = "Scrying Orb"
-	desc = "An incandescent orb of crackling energy. Using it will allow you to release your ghost while alive, allowing you to spy upon the station and talk to the deceased. In addition, buying it will permanently grant you X-ray vision."
+	name = "Шар Провидца"
+	desc = "Раскаленный шар потусторонней энергии, просто держа его в руках, ваше зрение и слух с легкостью преступает рамки ограничивающие смертных, а пристальный взгляд в него позволяет вам увидеть всю вселенную."
 	item_path = /obj/item/scrying
 	category = "Defensive"
 
 /datum/spellbook_entry/item/wands
-	name = "Wand Assortment"
-	desc = "A collection of wands that allow for a wide variety of utility. \
-		Wands have a limited number of charges, so be conservative with their use. Comes in a handy belt."
+	name = "Перевязь для посохов"
+	desc = "Набор разнообразных посохов на все случаи жизни. \
+		Посохи имеют ограниченное количество зарядов, поэтому будьте осторожны в их использовании. Поставляются с удобной перевязью для хранения."
 	item_path = /obj/item/storage/belt/wands/full
 	category = "Defensive"
 
 /datum/spellbook_entry/item/wands/try_equip_item(mob/living/carbon/human/user, obj/item/to_equip)
 	var/was_equipped = user.equip_to_slot_if_possible(to_equip, ITEM_SLOT_BELT, disable_warning = TRUE)
-	to_chat(user, span_notice("\A [to_equip.name] has been summoned [was_equipped ? "on your waist" : "at your feet"]."))
+	to_chat(user, span_notice("[to_equip.name] был вызван [was_equipped ? "в моих руках" : "у моих ног"]."))
 
 /datum/spellbook_entry/item/armor
-	name = "Mastercrafted Armor Set"
-	desc = "An artefact suit of armor that allows you to cast spells \
-		while providing more protection against attacks and the void of space. \
-		Also grants a battlemage shield."
+	name = "Комплект Доспехов Боевого Мага"
+	desc = "Артефакторный доспех, помогающий при чтении заклинаний и \
+		обеспечивающий высокую защиту от всех видов урона и космического вакуума. \
+		Также дарует щит боевого мага."
 	item_path = /obj/item/mod/control/pre_equipped/enchanted
 	category = "Defensive"
 
@@ -148,8 +141,8 @@
 	mod.quick_activation()
 
 /datum/spellbook_entry/item/battlemage_charge
-	name = "Battlemage Armour Charges"
-	desc = "A powerful defensive rune, it will grant eight additional charges to a battlemage shield."
+	name = "Накопитель для доспехов боевого мага"
+	desc = "Мощный защитный оберег, дарующий восемь дополнительных зарядов для доспехов боевого мага."
 	item_path = /obj/item/wizard_armour_charge
 	category = "Defensive"
 	cost = 1

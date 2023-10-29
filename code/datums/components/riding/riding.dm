@@ -83,7 +83,6 @@
 	restore_position(rider)
 	unequip_buckle_inhands(rider)
 	rider.updating_glide_size = TRUE
-	UnregisterSignal(rider, COMSIG_LIVING_TRY_PULL)
 	if(!movable_parent.has_buckled_mobs())
 		qdel(src)
 
@@ -94,18 +93,6 @@
 	var/atom/movable/movable_parent = parent
 	handle_vehicle_layer(movable_parent.dir)
 	handle_vehicle_offsets(movable_parent.dir)
-
-	if(rider.pulling == source)
-		rider.stop_pulling()
-	RegisterSignal(rider, COMSIG_LIVING_TRY_PULL, PROC_REF(on_rider_try_pull))
-
-/// This proc is called when the rider attempts to grab the thing they're riding, preventing them from doing so.
-/datum/component/riding/proc/on_rider_try_pull(mob/living/rider_pulling, atom/movable/target, force)
-	SIGNAL_HANDLER
-	if(target == parent)
-		var/mob/living/ridden = parent
-		ridden.balloon_alert(rider_pulling, "not while riding it!")
-		return COMSIG_LIVING_CANCEL_PULL
 
 /// Some ridable atoms may want to only show on top of the rider in certain directions, like wheelchairs
 /datum/component/riding/proc/handle_vehicle_layer(dir)
@@ -171,7 +158,7 @@
 					if(diroffsets.len == 3)
 						buckled_mob.layer = diroffsets[3]
 					break dir_loop
-	var/list/static/default_vehicle_pixel_offsets = list(TEXT_NORTH = list(0, 0), TEXT_SOUTH = list(0, 0), TEXT_EAST = list(0, 0), TEXT_WEST = list(0, 0))
+	var/static/list/default_vehicle_pixel_offsets = list(TEXT_NORTH = list(0, 0), TEXT_SOUTH = list(0, 0), TEXT_EAST = list(0, 0), TEXT_WEST = list(0, 0))
 	var/px = default_vehicle_pixel_offsets[AM_dir]
 	var/py = default_vehicle_pixel_offsets[AM_dir]
 	if(directional_vehicle_offsets[AM_dir])
@@ -199,11 +186,6 @@
 	if(!islist(offsets))
 		return FALSE
 	riding_offsets["[index]"] = offsets
-
-/datum/component/riding/proc/set_vehicle_offsets(list/offsets)
-	if(!islist(offsets))
-		return FALSE
-	directional_vehicle_offsets = offsets
 
 /**
  * This proc is used to see if we have the appropriate key to drive this atom, if such a key is needed. Returns FALSE if we don't have what we need to drive.
@@ -248,12 +230,12 @@
 	if(!istype(possible_bumped_door))
 		return
 	for(var/occupant in movable_parent.buckled_mobs)
-		INVOKE_ASYNC(possible_bumped_door, TYPE_PROC_REF(/obj/machinery/door/, bumpopen), occupant)
+		INVOKE_ASYNC(possible_bumped_door, TYPE_PROC_REF(/obj/machinery/door, bumpopen), occupant)
 
 /datum/component/riding/proc/Unbuckle(atom/movable/M)
-	addtimer(CALLBACK(parent, TYPE_PROC_REF(/atom/movable/, unbuckle_mob), M), 0, TIMER_UNIQUE)
+	addtimer(CALLBACK(parent, TYPE_PROC_REF(/atom/movable, unbuckle_mob), M), 0, TIMER_UNIQUE)
 
-/datum/component/riding/proc/Process_Spacemove(direction, continuous_move)
+/datum/component/riding/proc/Process_Spacemove(direction)
 	var/atom/movable/AM = parent
 	return override_allow_spacemove || AM.has_gravity()
 

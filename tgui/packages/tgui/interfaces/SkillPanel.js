@@ -26,22 +26,22 @@ export const SkillPanel = (props, context) => {
                 <br />
                 <Level skill_lvl_num={skill.lvlnum} skill_lvl={skill.lvl} />
                 <br />
-                Total Experience: [{skill.exp} XP]
+                Всего опыта: [{skill.exp} XP]
                 <br />
-                XP To Next Level:
+                XP до следующего уровня:
                 {skill.exp_req !== 0 ? (
                   <span>
                     [{skill.exp_prog} / {skill.exp_req}]
                   </span>
                 ) : (
-                  <span style={skillgreen}>[MAXXED]</span>
+                  <span style={skillgreen}>[МАКСИМУМ]</span>
                 )}
                 <br />
-                Overall Skill Progress: [{skill.exp} / {skill.max_exp}]
+                Общий прогресс: [{skill.exp} / {skill.max_exp}]
                 <ProgressBar value={skill.exp_percent} color="good" />
                 <br />
                 <Button
-                  content="Adjust Exp"
+                  content="Настроить"
                   onClick={() =>
                     act('adj_exp', {
                       skill: skill.path,
@@ -49,7 +49,7 @@ export const SkillPanel = (props, context) => {
                   }
                 />
                 <Button
-                  content="Set Exp"
+                  content="Выставить"
                   onClick={() =>
                     act('set_exp', {
                       skill: skill.path,
@@ -57,7 +57,7 @@ export const SkillPanel = (props, context) => {
                   }
                 />
                 <Button
-                  content="Set Level"
+                  content="Уровень"
                   onClick={() =>
                     act('set_lvl', {
                       skill: skill.path,
@@ -79,7 +79,7 @@ const Level = (props) => {
   const { skill_lvl_num, skill_lvl } = props;
   return (
     <Box inline>
-      Level: [
+      Уровень: [
       <Box inline bold textColor={`hsl(${skill_lvl_num * 50}, 50%, 50%)`}>
         {skill_lvl}
       </Box>

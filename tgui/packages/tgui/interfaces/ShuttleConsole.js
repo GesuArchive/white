@@ -22,14 +22,14 @@ export const ShuttleConsole = (props, context) => {
               <Icon name="minus-circle" />
             </Flex.Item>
             <Flex.Item mt={2} ml={2} color="bad">
-              {type === 'shuttle' ? 'SHUTTLE LOCKED' : 'BASE LOCKED'}
+              {type === 'shuttle' ? 'ШАТТЛ ЗАБЛОКИРОВАН' : 'БЛОКИРОВКА'}
             </Flex.Item>
           </Flex>
           <Box fontSize="18px" mt={4}>
             <Button
               lineHeight="40px"
               icon="arrow-circle-right"
-              content="Request Authorization"
+              content="Запросить авторизацию"
               color="bad"
               onClick={() => act('request')}
             />
@@ -80,21 +80,21 @@ export const ShuttleConsoleContent = (props, context) => {
       </Box>
       <Box textAlign="center" fontSize="14px" mb={1}>
         <Box inline bold>
-          STATUS:
+          СОСТОЯНИЕ:
         </Box>
         <Box inline color={STATUS_COLOR_KEYS[status] || 'bad'} ml={1}>
-          {status || 'Not Available'}
+          {status || 'НЕДОСТУПНО'}
         </Box>
       </Box>
       <Section
-        title={type === 'shuttle' ? 'Shuttle Controls' : 'Base Launch Controls'}
+        title={type === 'shuttle' ? 'Управление шаттлом' : 'Управление пуском'}
         level={2}>
         <LabeledList>
-          <LabeledList.Item label="Location">
-            {docked_location || 'Not Available'}
+          <LabeledList.Item label="Локация">
+            {docked_location || 'НЕДОСТУПНО'}
           </LabeledList.Item>
           <LabeledList.Item
-            label="Destination"
+            label="Цель"
             buttons={
               type !== 'shuttle' &&
               locations.length === 0 &&
@@ -103,14 +103,14 @@ export const ShuttleConsoleContent = (props, context) => {
                   color="bad"
                   icon="exclamation-triangle"
                   disabled={authorization_required || !blind_drop}
-                  content={'Blind Drop'}
+                  content={'СБРОС НАУГАД'}
                   onClick={() => act('random')}
                 />
               )
             }>
             {(locations.length === 0 && (
               <Box mb={1.7} color="bad">
-                Not Available
+                НЕДОСТУПНО
               </Box>
             )) ||
               (locations.length === 1 && (
@@ -126,7 +126,7 @@ export const ShuttleConsoleContent = (props, context) => {
                   disabled={locked || authorization_required}
                   selected={
                     getLocationNameById(locations, destination) ||
-                    'Select a Destination'
+                    'Выберите цель'
                   }
                   onSelected={(value) =>
                     act('set_destination', {
@@ -139,7 +139,7 @@ export const ShuttleConsoleContent = (props, context) => {
         </LabeledList>
         <Button
           fluid
-          content="Depart"
+          content="ЗАПУСК"
           disabled={
             !getLocationNameById(locations, destination) ||
             locked ||

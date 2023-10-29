@@ -7,6 +7,84 @@
  *
  **/
 
+/*
+`/:::::::::--------------------------------------------..................................................`.`...........`
+`hh+++++++++/++++++/++//++//++/++//++//+//++//++//+//++/+osooyooo+/++//++/+++/++/+++/+++++o/+o+++o//+o++oooossssyssyyydy
+`yy.o/:/:////++++//:-:-://:+//+/://:.-:-//--::------:/+sssyysyysss+//-----.::--//::-.-/:://///::/+-::://++++//://o:+y-my
+`yy`///oyos::s+o::++o/-:soo++y++s+s-----:-...:--.-/ssyhyyyyyyyyyyyyyss+:.--:--.-::::--o+o++sooo+o::+ooo//o+s+/sssysys.mh
+`ys.++so++-/+sss//-+/ys:y+/++y++/+s::...-:/ososyssyyhhhhhhhhyhyyyyyyyyyssysos+/:-...::s+/++yo+++y/oy+o:++ssss+/oyyysh-mh
+`yy`/y//--::-h:y-::--o+s:++/oo+/+/--..-+syhhhhhhhyhhhhhhhhhhhhhhhyyyyyyyhhhhhhyys+:..-:///+oo//+/s+o::/+-y+h//+o:osho-mh
+`ys`s////+/:/+:+/:/+//:++.:-+o/-:....+syhhhhhhhhhhhhhhhhhhyyyyyyyyyyyhhyhhhhhhhhhhyo-.`.:-/++-/-+s://///:s/s+//+/+++h.mh
+`ys`h:s+sso:/+y+/:sss/o/hossssysssooshhhhhhhhhhhhhyyyysysyssssyssysyysyyyyhhhhhhhhhhsoosoosoossoy+++sss:/+y+s:oyysh+d-mh
+`yy`s///+o::/+:o::/++/-oddhyo//oyyhhhhhhhhhhhhyyysyssoosoos+soos+sossosssysyyyyhhhhhhhhhyso//syyho:/++o//o/+o//ssss+d.dh
+`ys`-y+o-::::y/y-::--//hdh/..-.../hddhhhhhhyyysssossosossoysyssysysssoosssoysyyyyhhhhhhh/------+hh/:--//-y/y//:+-o+y+.dy
+`ys`::sh/o-:+sss:::s/ohddy-`-::.`-ydhhhhyysyoosoososshyhdyhdhhdyhdhhdyyyyossssssyyyyhhhs:`::::.:yhy+/+:/:ysyo/:s+hy+:.dy
+`yy./:.+s++//o++:++yyhdddd+:-..-:+hhhhhyosssossyhhyhhhymmmmmdoymmmmdhddddhhhhyssssyshyhh+::-.::ohhhhsyo+:o+s//ossy-/+:dy
+`ys.://++/osooooos+/:ohhdhhhyssyhhhhyysssososhhdhyhhhdhmmmmhod+hmmmmhdmddhddhddyssosyyyyhhyooyyhhhho:/+oooossso+sso+/:dy
+`ys.//:+osysoos++oys:shhhhhhhhhhhhhyosososhdyhhhyyyyydhmmmmm+oydmmmmddmdhyhhdhhdmdysssyyyhhhhhhhhhh+-syyo+s+oyhs++s++-dy
+`yy.:/-:ysy+oy+so+yyyhhhhhhhhhhhhyssoossydhhhyyyyyyyydydhyoo+/oooosyhhmdhhyyhhhhhdmhyssyyyyhhhhhhhhooyy+ssoysohhyo/++:ds
+`yy://::/sys+oo+ohshhhhhhhhhhhhhyosss+ydyhhyyyyyyyyso+-..````````````./syyhyyyyhhdddmhssssyyhhhhhhhhhhshooosoyyys//ss+ds
+`ys-/++//.o+/sos:yhdhhhhhhhhhhyysososhhyhyyyyyyyys/..--..```````````````./syyyyyyyhdyNdyosyyyyhhhhhhhdhy/sss+os-o+ooy+ds
+`yy.:/+//-oyo+++syhhhhhhhhhhhhsssooodhdhyyyyyyyy+.`..:/:.``.../:.``.-.````.+yyyyyyyymhdmsssshshhhhhhhhhyoosooho-ooyo+-ds
+`ys`/:+o:-`yy+/+hhdhhhhhhhhhhyyoossdydyyyyyyyyy/```.--/oydmmmmNmmhs+-```````/yyyyyhhydhmmyooohyhhhhhhhhhh++ohy-/+yyoo-ds
+`ys-/+o+::.yhhyhhhhhhhhhhhhhyysoooshdyyyyyyyys-`````-ymNNNNNNNNmmmdhy/.``````/yyyyyyhymhdysssshyhhhhhhhddhyhhy-/+oy++/ds
+`ys.ooys+/`syhhhhhhhhhhhhhhhyoo+s+hyhyhyhyhhh-`````-ymmmNNNmmmmmmmdhy+:..`````syyhhhhhhdddssosyyyhhhhhhhhdhdhy-+syyoy:ds
+`ys/+hyyyo.syhhhhhhhhhhhhhhyssooodsdhdddddddy``````ohmNNNNNNmmmNmmdhyo:.``````:hhdddddddhddsosyyyhhhhhhhdhddhy-sdyhhsods
+`ys./+hy/-.yhhhhhhhhhhhhhhhsysos+mymdsdyhmmm/`````-yhyso+oshmmdy+///+/-.```````hmmmymddmmyNssosyyhhhhhhhhhddhy-/ohhso:ds
+`hs`:y+oo..syhhhhhhhhhhhhhhsos+sohhm/dhhommh.`````-so+/-.`./hdo.`.----..```````+mmm:h+smNyNysooyyhhhhhhdhhddhy..sssh:.do
+`ys.so//oo.syhhhhhhhhhhhhhyysooosydm+h+hsmmd.`````:yo//--/+odd::/o--:-/:.``````-mmm:d+smNsNysosyyyhhhhhhhhddhy-sooosy:ds
+`yyo/shh+/oshhhhhhhhhhhhhhhsssosohdmdohodmmm: ``` -ydhhhhdddmd/oddyssyy+.``````:mmmsmyhmNyNysosyyhhhhhdhddddhyo/sdhy+odo
+`ysoooosososyhhhhhhhhhhhhhhssoos+dyddddddddd/``` `.ohdmmmmmmmd/sdmmddhs:```````odddddddddyNssooyyhhhhhhdddddhsysyhhyyydo
+`ys:+/o+:+-syhhhhhhhhhhhhhhsysoo+hhhdddddddd/``````-oyhdmmmdmd+ydddyso:.``````/hddhdhhhhhhdooosyyhhhhhhhddddhy/o+ssoy+do
+`ys:+oyh+/-syhhhhhhhhhhhhhhhyoo+sodddhhhhhhh+``  ```-+yhdmdsyo:+hhys+:.``````:hhhhhhhhhhhhss+oyyyhhhhhddddddhy/sohhos+do
+`ys:++ss//-syhhhhhhhhhhhhhhhsysos+hydyysysyss-`     `/shhs+:--`./oo+:.````` .sysssssyshyhhosssyyhhhhhhdhddddhy/ooyyosodo
+`ys.o+++//.syhhhhhhhhhhhhhhhysysssodydhyyyyyys.`    `./o:.:-::-...--.``````.oyyyyyyyyhhymooosyyyhhhhhdhhddddhy-oosyso:do
+`ys-y+dh+y.syhhhhhhhhhhhhhhhhyysososdhmhyyyyyyo-     `...oyo:--/+-```` ```/yhyyyyyyyhdhmosoosyyhhhhhhhhhddddhy-yoddsd:d+
+`ys-s+ss++-syhhhhhhhhhhhhhhhhhyyssssohhmhyyyyyyo`      `./osso+:-.```   `-hhhyyyyyyhhymsoossyyhhhhhhhhhhhdddhy-sohysy:do
+`ys-++ss//-syhhhhhhhhhhhhhhhhhhyysoos+hhddhyyyys``   `` `.:++:--```  `````oyyyyyyhdyddos+osyyyhhhhhhhhhhhdddhy-+syysy/ds
+`ys.so+o++.syhhhhhhhhhhhhhhhhhhsyyysssosdhddyyyy-    --` ``.`````  ```````.yyyyhdhhdysoosyyyhhhhhhhhhhhhhhdhyy.ssosod-ds
+`ys.+/ss//.syhhhhhhhhhhhhhhhhhy+syyhsossoydhhs/:     /o/.`  `     ````` ```oyhdhhdyos+osyyyhhhhhhhhhhhhhhhddyy.o+ysoy-ds
+`ys-ssoos+-yyhhhhhhhhhhhhhhhhhyooshyyyssyooo.`      .oyyo:.```` ``.-.```````:--/sossssyyyhhhhhhhhhhhhhhhhhhhhy-oyssyy/do
+`ys.:+ss:-.syhhhhhhhhhhhhhhyhs/.+yhyhyyy+.``` ``  `/oyyyys+/+/:-://-..`````````````/hyyyhhhhhhhhhhhhhhddddddyy.:+hyo/-ho
+`ys-/+sy/:-syhhhhhhhhhhhhyhyyyyo++ysos-``         :yhhhhhhysoo++ss+:::-.````````````:+oyhhhhhhhhhhhhhhhhddhdhh-/+yy++:ho
+`ys-+oso+/-syhhhhhhhhhhhyhyyhh/..-:--.```..`    `-+oshmmdddyo+oyhysoo+/:.``````````````./syhhhhhhhhhhhhhdhhdhy-+oyys+-ho
+`ys./oss+/-syhhhhhhhhyyyyhyyhs...:/://-oos+-` ```/+sss+ssyyssooso+/::/:/+:``.--......```.``-+oyhhhhhhhhhhhhhyy-+syyso:do
+`ys-so+o//.syhhhhhhhyhyyyhyyys+-.-+sss/:sso:..``-:yhso/o+oo:+:o+//:-::+ys/-.-......`-.``..````./yhhhhhhhhhhhyy.ooosoy-hs
+`ys-o+os//.syhhhhhhhyhyyyyyyshys::/oys+.oo/::-..-/yyyo/yooo:+:+://:-:oyooso/-::...-.--.``..`````-ohhhhhhhhhhhy.soss+h:ho
+`ys:oss++/-syhhhhhhhhhhyyhyyoshhhs+/oo:.o/:/-./+/+ysy+/yoso/o/o///-/oooss+::++:..-.`:-.`.``.``````:shhhhhhhhhy:+ossss/ho
+`yo-y+hy/s-syhhhyhhyyyyhyysoosyhdhy+::.`//+-.-o+++sos/:s+o+:+:+:/::+/+o+//+o+:-:-.`..:...`.-.``````.+yhhhhhhhy-y+hyoh:h+
+`ys-s/o++o-syhhhhhhyyhyyyo++osyhhhy+-.`-++-.-/o+++oos:-s+++:+:/::-//::/+oso/://-.`.``-..`..:.````.```ohhhhhhhy-y+ssoh-h+
+`hs:++os/::syhhyhyhyyhyy+//+o+hdhs+:.`.+/--::++/+++o+::+sdhyhhhyyhhyyhdddho/+///ooo+++++/++o+////...`-hhhhhhhy-/ooso+:ho
+`ho+/syy/o:syhhyhhhyyys/:/o+/oddhy+.``-:.-/-/+//++/o/:oyymd+ydyhhmhhdddmmho:::mNmmmmddddhdddddmmd:/:`.yhhhhhhy:osyhoo+ho
+`yo+/+yy:o:syhhhyhhyyo:/+o/:/sdhhs/.``..-:::+///+//+/-oyymdoydssshyydhhhmo/-::NNyhhmssss+soyysdmd://``+hhhhhhy:oohyoo+ho
+`yo++//+/o/syhyyyyyy+:/o:/:/+/hhyo:``--.-/:/+:/+//:+:-oyymdyyhdhdyhdmdmmmy+::/NNhhhdhhsyyhhddhdmh://```shhhhhy:s+o++s+ho
+`hsyoshh+ossyhhyyys/:/:--+//+:+yy+-``.:-::-//:/+/::/--oyymmdsyhhddhdddmddy+::/NNmdddmyshhhdhhhdmh-+/```-yhhhhss+ohhyyyho
+`yo-oo+oo:/syhhyy+::-.--//++++-/+:.```/-:-:/::++/:::.-syymmhsossydohhsmdh+:--/Nmhydymyoyyshyssdmh.//````/yhhyy//sosy//h+
+`yo.oo//o+:syhhy/------://o++o-.-.``` /:-.:/:/://::-.-yyhmdhdhdhhdydddmmds/--/mmmdmddhhddddhhhdmy-++`````+yhyy-so/oss-ho
+`yo`/+yy/.:shhy+:--:-:////oo+o+`````  ::--::::::/---.:yhhmmmhhhhhhhydddddy+:-/mNmmmdddddddhdhdddy/oo`````.yhhy..+yss-.ho
+`yo/ssyho//syhs:--:/:/++//+o/+o:  ``  -:.-:::::::---.:yyymmhsyoos+s+yyhsdo::-/mNhyhyyyhohsoysssds/oo``````/yyy-+shhss:h+
+.yo:/syyy+/yyy:---/:/+o/////++o+. `   ./.--::--::--..:yyymmhhhhhhysyhdhyds/:-/mNhddyhhdhdyyyhhyds/oo```````yys/oyyhss/y+
+.yo-+++ooo/yyo.:--//++/:://://++/``  ``+-----.:-:--..-syymmdhhhyhhhdddddhs+:-:mmdmmmmmdhhdhhdddds/oo```````:yy-++oo+o-y+
+.yo./+o/o:/so:-::--////::::::+/+o-   `.+----..----..-:syymmhyohosysoyyohs+/:-:mmhyhyhsdosdssosyds+oo````````oy-:+ooo/-h+
+.yo./+///::so--:--.-://:::::/+//o/   `./-.-.`----...-:syymmdhhyhhyyhhdhdyo/:-/mNdmdhysdhhhyyyshmo++o````````oy-//+o+/-ho
+.y+`.+/+/`:s/--:-:.--::/:::://++s+  ``./-...`..-....::syymmddhhddddddmmmdy+:-/mNNmmmmddddddddddmso:o````````+h..+/+o..y+
+.ho`:://:.:o/-:-.:---::///:://s/o+ ```-/-..`-.....-:::yyymmyyhsyshdsyhhsh+:--/NNdhyyhyhssyshsdymss.o````````oy.-/+++/.y+
+.yo`.o:::`-s/-:-.----::///:://o/++` ``-/..`..``..-::.:yyymmhhhyhhhdhyddyho/--+NNyhyhhhhhhhyyydymso.o````````oy..+/++`.y+
+.y+.:/::::-s/--..--..-:/::-://+/++. ``-/``..``..::-.-:yyhmmmmmmmmmmmmmmmmho:/odmmmmmmmmmmmmmmmmmso-o` ``````+y-+/+/+/-s+
+.y+./:::/--o/-..`--...-::-:--::///- `.-:`````..:--..-/hhhhhddddddddddmmmmhhoyoss+hmmmmmmmmmmmmmmso-+  ``````oy.:/++/:.s+
+`y+-//o+::-s/..``.-.`..-:::---:/:/- `.--````.---.``.-/hy:------.-----:yy/hsoy+yo..-::::::::::///:+:+````````+y-//++/+-s/
+`y+-+yyy+--o:.```.-.`...--::--/:::. `.-.````....````.-/-..``````.`.```-o+yoos/y+.```.`........-----+````````+y-/syyss-s+
+`yo-:+ys/:-o:````....````..--:/:::` `.-.````.``   ````.....`` ...--.`  `-oo/y+oo-```-:--.`.-.`````..````````+s:/+yy++:s/
+`s++-/so///s/.....--....```..::::-```.-```..```````...-----``...---.``````:.::-:.```-::-.``..```````....````+s+:/ss/:/s/
+`o+oy+/:+h/+o+/++++/+++//+///++++++//+++/++++++++++++++oo++++/++o++++////+//+////+//+++++++//++//++//+++/++/o+sy//+sy+s/
+`o+:/-/:-+/+:..-..--..-``````-.`-.``..```.`````````````````.``.`..............-```.....--..-``.``.-.-:------/+//-//-s:s/
+`+/-/:--:::/:/+ss:-:..-....-....---oys+:-.`````````````.``````.`````.`````````-.::+yy+---.:---.-.-:.-::/so+::+-:-:/-/-s:
+`o/-/:---/-:/+osy+--....:--/-..`.-+ssyyo:.`````````.`.`````..`.`.`.`..`````````.osyyys+-....-/:/:-...-/syss//::/:::+/-s:
+`+/o+-/:-s++:.-::--/..-```.``:..-..-/:-```````````````````````.```.``.```````..``-:+:-.:-.::`.-``--.::-:/:--/ss+-//:s/o-
+`:/://://:---.---....```````..`.---.---.-:----:-.---.---.--:--------:.--:---:---------.--:-----......--.------/o///o+:o-
+`........................`.``.`.....---..--..---..-...--..--..-----------.--------..--.--------.--...--...-..---------:.
+*/
+
 // See initialization order in /code/game/world.dm
 GLOBAL_REAL(Master, /datum/controller/master)
 /datum/controller/master
@@ -32,8 +110,6 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	var/init_timeofday
 	var/init_time
 	var/tickdrift = 0
-	/// Tickdrift as of last tick, w no averaging going on
-	var/olddrift = 0
 
 	/// How long is the MC sleeping between runs, read only (set by Loop() based off of anti-tick-contention heuristics)
 	var/sleep_delta = 1
@@ -44,7 +120,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	/// makes the mc main loop runtime
 	var/make_runtime = FALSE
 
-	var/initializations_finished_with_no_players_logged_in //I wonder what this could be?
+	var/initializations_finished_with_no_players_logged_in	//I wonder what this could be?
 
 	/// The type of the last subsystem to be fire()'d.
 	var/last_type_processed
@@ -53,18 +129,14 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	var/datum/controller/subsystem/queue_tail //!End of queue linked list (used for appending to the list)
 	var/queue_priority_count = 0 //Running total so that we don't have to loop thru the queue each run to split up the tick
 	var/queue_priority_count_bg = 0 //Same, but for background subsystems
-	var/map_loading = FALSE //!Are we loading in a new map?
+	var/map_loading = FALSE	//!Are we loading in a new map?
 
-	var/current_runlevel //!for scheduling different subsystems for different stages of the round
+	var/current_runlevel	//!for scheduling different subsystems for different stages of the round
 	var/sleep_offline_after_initializations = TRUE
 
 	/// During initialization, will be the instanced subsytem that is currently initializing.
 	/// Outside of initialization, returns null.
 	var/current_initializing_subsystem = null
-
-	/// The last decisecond we force dumped profiling information
-	/// Used to avoid spamming profile reads since they can be expensive (string memes)
-	var/last_profiled = 0
 
 	var/static/restart_clear = 0
 	var/static/restart_timeout = 0
@@ -83,7 +155,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 
 	if(!random_seed)
 		#ifdef UNIT_TESTS
-		random_seed = 29051994 // How about 22475?
+		random_seed = 29051994
 		#else
 		random_seed = rand(1, 1e9)
 		#endif
@@ -183,28 +255,29 @@ GLOBAL_REAL(Master, /datum/controller/master)
 		LAZYINITLIST(BadBoy.failure_strikes)
 		switch(++BadBoy.failure_strikes[BadBoy.type])
 			if(2)
-				msg = "The [BadBoy.name] subsystem was the last to fire for 2 controller restarts. It will be recovered now and disabled if it happens again."
+				msg = "Подсистема <b>[BadBoy.name]</b> хочет поломать игру. Она была перезапущена и будет отключена, если не прекратит выёбываться."
 				FireHim = TRUE
 			if(3)
-				msg = "The [BadBoy.name] subsystem seems to be destabilizing the MC and will be put offline."
+				msg = "Подсистема <b>[BadBoy.name]</b> похоже хочет умереть. Отключаем её."
 				BadBoy.flags |= SS_NO_FIRE
 		if(msg)
-			to_chat(GLOB.admins, span_boldannounce("[msg]"))
+			to_chat(GLOB.admins, span_green("[msg]"))
 			log_world(msg)
 
 	if (istype(Master.subsystems))
 		if(FireHim)
-			Master.subsystems += new BadBoy.type //NEW_SS_GLOBAL will remove the old one
+			Master.subsystems += new BadBoy.type	//NEW_SS_GLOBAL will remove the old one
 		subsystems = Master.subsystems
 		current_runlevel = Master.current_runlevel
 		StartProcessing(10)
 	else
-		to_chat(world, span_boldannounce("The Master Controller is having some issues, we will need to re-initialize EVERYTHING"))
-		Initialize(20, TRUE, FALSE)
+		to_chat(world, span_green("Мастер-контроллер обосрался. Пытаемся переинициализировать <b>ВСЕ подсистемы</b>."))
+		Initialize(20, TRUE)
+
 
 // Please don't stuff random bullshit here,
-// Make a subsystem, give it the SS_NO_FIRE flag, and do your work in it's Initialize()
-/datum/controller/master/Initialize(delay, init_sss, tgs_prime)
+// 	Make a subsystem, give it the SS_NO_FIRE flag, and do your work in it's Initialize()
+/datum/controller/master/Initialize(delay, init_sss)
 	set waitfor = 0
 
 	if(delay)
@@ -216,7 +289,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	init_stage_completed = 0
 	var/mc_started = FALSE
 
-	to_chat(world, span_boldannounce("Initializing subsystems..."))
+	to_chat(world, span_green("Расставляем всё по полочкам..."))
 
 	var/list/stage_sorted_subsystems = new(INITSTAGE_MAX)
 	for (var/i in 1 to INITSTAGE_MAX)
@@ -240,39 +313,28 @@ GLOBAL_REAL(Master, /datum/controller/master)
 		// Initialize subsystems.
 		for (var/datum/controller/subsystem/subsystem in stage_sorted_subsystems[current_init_stage])
 			init_subsystem(subsystem)
-
 			CHECK_TICK
 		current_initializing_subsystem = null
 		init_stage_completed = current_init_stage
 		if (!mc_started)
 			mc_started = TRUE
 			if (!current_runlevel)
-				SetRunLevel(1) // Intentionally not using the defines here because the MC doesn't care about them
+				SetRunLevel(1)
 			// Loop.
 			Master.StartProcessing(0)
 
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
+	to_chat(world, span_green("-- $<b>Мир</b>:> <b>[time]с</b> --"))
 
-
-
-	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
-	to_chat(world, span_boldannounce("[msg]"))
-	log_world(msg)
-
-
-	if(world.system_type == MS_WINDOWS && CONFIG_GET(flag/toast_notification_on_init) && !length(GLOB.clients))
-		world.shelleo("start /min powershell -ExecutionPolicy Bypass -File tools/initToast/initToast.ps1 -name \"[world.name]\" -icon %CD%\\icons\\ui_icons\\common\\tg_16.png -port [world.port]")
+	log_world("World init for [time] seconds!")
 
 	// Set world options.
 	world.change_fps(CONFIG_GET(number/fps))
 	var/initialized_tod = REALTIMEOFDAY
 
-	if(tgs_prime)
-		world.TgsInitializationComplete()
-
 	if(sleep_offline_after_initializations)
 		world.sleep_offline = TRUE
-	sleep(1 TICKS)
+	sleep(1)
 
 	if(sleep_offline_after_initializations && CONFIG_GET(flag/resume_after_initializations))
 		world.sleep_offline = FALSE
@@ -290,7 +352,6 @@ GLOBAL_REAL(Master, /datum/controller/master)
 		SS_INIT_NONE,
 		SS_INIT_SUCCESS,
 		SS_INIT_NO_NEED,
-		SS_INIT_NO_MESSAGE,
 	)
 
 	if (subsystem.flags & SS_NO_INIT || subsystem.initialized) //Don't init SSs with the corresponding flag or if they already are initialized
@@ -334,32 +395,32 @@ GLOBAL_REAL(Master, /datum/controller/master)
 
 	switch(result)
 		if(SS_INIT_FAILURE)
-			message_prefix = "Failed to initialize [subsystem.name] subsystem after"
+			message_prefix = "Инициализация подсистемы [subsystem.name] провалена"
 			chat_warning = TRUE
-		if(SS_INIT_SUCCESS, SS_INIT_NO_MESSAGE)
-			message_prefix = "Initialized [subsystem.name] subsystem within"
+		if(SS_INIT_SUCCESS)
+			message_prefix = "Инициализация подсистемы [subsystem.name]"
 		if(SS_INIT_NO_NEED)
 			// This SS is disabled or is otherwise shy.
 			return
 		else
 			// SS_INIT_NONE or an invalid value.
-			message_prefix = "Initialized [subsystem.name] subsystem with errors within"
+			message_prefix = "Инициализация подсистемы [subsystem.name] с ошибками"
 			chat_warning = TRUE
 
-	var/message = "[message_prefix] [seconds] second[seconds == 1 ? "" : "s"]!"
-	var/chat_message = chat_warning ? span_boldwarning(message) : span_boldannounce(message)
+	var/message = "[message_prefix] за [seconds]с."
+	var/chat_message = chat_warning ? span_red(message) : span_green(message)
 
-	if(result != SS_INIT_NO_MESSAGE)
-		to_chat(world, chat_message)
+	to_chat(world, chat_message)
 	log_world(message)
 
 /datum/controller/master/proc/SetRunLevel(new_runlevel)
 	var/old_runlevel = current_runlevel
+	if(isnull(old_runlevel))
+		old_runlevel = "NULL"
 
-	testing("MC: Runlevel changed from [isnull(old_runlevel) ? "NULL" : old_runlevel] to [new_runlevel]")
+	testing("MC: Runlevel changed from [old_runlevel] to [new_runlevel]")
 	current_runlevel = log(2, new_runlevel) + 1
 	if(current_runlevel < 1)
-		current_runlevel = old_runlevel
 		CRASH("Attempted to set invalid runlevel: [new_runlevel]")
 
 // Starts the mc, and sticks around to restart it if the loop ever ends.
@@ -450,19 +511,13 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	canary.use_variable()
 	//the actual loop.
 	while (1)
-		var/newdrift = ((REALTIMEOFDAY - init_timeofday) - (world.time - init_time)) / world.tick_lag
-		tickdrift = max(0, MC_AVERAGE_FAST(tickdrift, newdrift))
+		tickdrift = max(0, MC_AVERAGE_FAST(tickdrift, (((REALTIMEOFDAY - init_timeofday) - (world.time - init_time)) / world.tick_lag)))
 		var/starting_tick_usage = TICK_USAGE
-
-		if(newdrift - olddrift >= CONFIG_GET(number/drift_dump_threshold))
-			AttemptProfileDump(CONFIG_GET(number/drift_profile_delay))
-		olddrift = newdrift
-
 		if (init_stage != init_stage_completed)
 			return MC_LOOP_RTN_NEWSTAGES
 		if (processing <= 0)
 			current_ticklimit = TICK_LIMIT_RUNNING
-			sleep(1 SECONDS)
+			sleep(10)
 			continue
 
 		//Anti-tick-contention heuristics:
@@ -502,7 +557,6 @@ GLOBAL_REAL(Master, /datum/controller/master)
 				var/list/old_subsystems = current_runlevel_subsystems
 				cached_runlevel = checking_runlevel
 				current_runlevel_subsystems = runlevel_sorted_subsystems[cached_runlevel]
-
 				//now we'll go through all the subsystems we want to offset and give them a next_fire
 				for(var/datum/controller/subsystem/SS as anything in current_runlevel_subsystems)
 					//we only want to offset it if it's new and also behind
@@ -515,7 +569,8 @@ GLOBAL_REAL(Master, /datum/controller/master)
 			subsystems_to_check = tickersubsystems
 
 		if (CheckQueue(subsystems_to_check) <= 0) //error processing queue
-			stack_trace("MC: CheckQueue failed. Current error_level is [round(error_level, 0.25)]")
+			message_admins("MC: CheckQueue failed. Current error_level is [round(error_level, 0.25)]")
+			log_runtime("MC: CheckQueue failed. Current error_level is [round(error_level, 0.25)]")
 			if (!SoftReset(tickersubsystems, runlevel_sorted_subsystems))
 				error_level++
 				CRASH("MC: SoftReset() failed, exiting loop()")
@@ -531,7 +586,8 @@ GLOBAL_REAL(Master, /datum/controller/master)
 
 		if (queue_head)
 			if (RunQueue() <= 0) //error running queue
-				stack_trace("MC: RunQueue failed. Current error_level is [round(error_level, 0.25)]")
+				message_admins("MC: RunQueue failed. Current error_level is [round(error_level, 0.25)]")
+				log_runtime("MC: RunQueue failed. Current error_level is [round(error_level, 0.25)]")
 				if (error_level > 1) //skip the first error,
 					if (!SoftReset(tickersubsystems, runlevel_sorted_subsystems))
 						error_level++
@@ -557,20 +613,6 @@ GLOBAL_REAL(Master, /datum/controller/master)
 		if (skip_ticks)
 			skip_ticks--
 		src.sleep_delta = MC_AVERAGE_FAST(src.sleep_delta, sleep_delta)
-
-// Force any verbs into overtime, to test how they perfrom under load
-// For local ONLY
-#ifdef VERB_STRESS_TEST
-		/// Target enough tick usage to only allow time for our maptick estimate and verb processing, and nothing else
-		var/overtime_target = TICK_LIMIT_RUNNING
-// This will leave just enough cpu time for maptick, forcing verbs to run into overtime
-// Use this for testing the worst case scenario, when maptick is spiking and usage is otherwise completely consumed
-#ifdef FORCE_VERB_OVERTIME
-		overtime_target += TICK_BYOND_RESERVE
-#endif
-		CONSUME_UNTIL(overtime_target)
-#endif
-
 		if (init_stage != INITSTAGE_MAX)
 			current_ticklimit = TICK_LIMIT_RUNNING * 2
 		else
@@ -579,9 +621,6 @@ GLOBAL_REAL(Master, /datum/controller/master)
 				current_ticklimit -= (TICK_LIMIT_RUNNING * 0.25) //reserve the tail 1/4 of the next tick for the mc if we plan on running next tick
 
 		sleep(world.tick_lag * (processing * sleep_delta))
-
-
-
 
 // This is what decides if something should run.
 /datum/controller/master/proc/CheckQueue(list/subsystemstocheck)
@@ -816,11 +855,3 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	for (var/thing in subsystems)
 		var/datum/controller/subsystem/SS = thing
 		SS.OnConfigLoad()
-
-/// Attempts to dump our current profile info into a file, triggered if the MC thinks shit is going down
-/// Accepts a delay in deciseconds of how long ago our last dump can be, this saves causing performance problems ourselves
-/datum/controller/master/proc/AttemptProfileDump(delay)
-	if(REALTIMEOFDAY - last_profiled <= delay)
-		return FALSE
-	last_profiled = REALTIMEOFDAY
-	SSprofiler.DumpFile(allow_yield = FALSE)

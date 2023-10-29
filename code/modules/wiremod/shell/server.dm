@@ -5,8 +5,9 @@
  * world.
  */
 /obj/structure/server
-	name = "server"
-	icon = 'icons/obj/science/circuits.dmi'
+	name = "Сервер"
+	desc = "Очень большая оболочка, которую можно перемещать только после откручивания от пола. Совместима сбольшинством компонентов."
+	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_stationary"
 
 	density = TRUE
@@ -20,5 +21,5 @@
 /obj/structure/server/wrench_act(mob/living/user, obj/item/tool)
 	set_anchored(!anchored)
 	tool.play_tool_sound(src)
-	balloon_alert(user, anchored ? "secured" : "unsecured")
+	balloon_alert(user, "[anchored?"При":"От"]кручиваю [src.name].")
 	return TRUE

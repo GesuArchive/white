@@ -51,11 +51,11 @@
 	log_admin("[key_name(usr)] renamed [old_name] team to [name]")
 
 /datum/team/proc/admin_communicate(mob/user)
-	var/message = input(user,"Message for the team ?","Team Message") as text|null
+	var/message = tgui_input_text(user, "Message for the team ?", "Team Message")
 	if(!message)
 		return
 	for(var/datum/mind/M in members)
-		to_chat(M.current,message, confidential = TRUE)
+		to_chat(M.current,message)
 
 	message_admins("[key_name_admin(usr)] messaged [name] team with : [message]")
 	log_admin("Team Message: [key_name(usr)] -> [name] team : [message]")
@@ -66,7 +66,7 @@
 	if(!GLOB.admin_objective_list)
 		generate_admin_objective_list()
 
-	var/selected_type = input("Select objective type:", "Objective type") as null|anything in GLOB.admin_objective_list
+	var/selected_type = tgui_input_list(usr, "Select objective type:", "Objective type", GLOB.admin_objective_list)
 	selected_type = GLOB.admin_objective_list[selected_type]
 	if (!selected_type)
 		return
@@ -111,7 +111,7 @@
 	for(var/mob/M in GLOB.mob_list)
 		if(M.mind)
 			minds |= M.mind
-	var/datum/mind/value = input("Select new member:", "New team member", null) as null|anything in sort_names(minds)
+	var/datum/mind/value = tgui_input_list(usr, "Select new member:", "New team member", sort_names(minds))
 	if (!value)
 		return
 
@@ -128,7 +128,7 @@
 //After a bit of consideration i block team deletion if there's any members left until unified objective handling is in.
 /datum/team/proc/admin_delete(mob/user)
 	if(members.len > 0)
-		to_chat(user,"Team has members left, remove them first and make sure you know what you're doing.", confidential = TRUE)
+		to_chat(user,"Team has members left, remove them first and make sure you know what you're doing.")
 		return
 	qdel(src)
 

@@ -9,13 +9,11 @@
 #define MAX_ACTIVE_TIME 400
 
 /obj/item/clothing/mask/facehugger
-	name = "alien"
-	desc = "It has some sort of a tube at the end of its tail."
-	icon = 'icons/mob/nonhuman-player/alien.dmi'
+	name = "лицехват"
+	desc = "У него очень цепкие когти, а на конце хвоста какое то отверстие."
+	icon = 'icons/mob/alien.dmi'
 	icon_state = "facehugger"
-	base_icon_state = "facehugger"
 	inhand_icon_state = "facehugger"
-	worn_icon_state = "facehugger"
 	w_class = WEIGHT_CLASS_TINY //note: can be picked up by aliens unlike most other items of w_class below 4
 	clothing_flags = MASKINTERNALS
 	throw_range = 5
@@ -41,24 +39,16 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 	AddElement(/datum/element/atmos_sensitive, mapload)
 
-	RegisterSignal(src, COMSIG_LIVING_TRYING_TO_PULL, PROC_REF(react_to_mob))
-
 /obj/item/clothing/mask/facehugger/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	..()
-	if(atom_integrity < 90)
+	if(obj_integrity < 90)
 		Die()
 
 /obj/item/clothing/mask/facehugger/attackby(obj/item/O, mob/user, params)
-	return O.attack_atom(src, user, params)
-
-/obj/item/clothing/mask/facehugger/proc/react_to_mob(datum/source, mob/user)
-	SIGNAL_HANDLER
-	if((stat == CONSCIOUS && !sterile) && !isalien(user))
-		if(Leap(user))
-			return COMSIG_LIVING_CANCEL_PULL
+	return O.attack_obj(src, user)
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/clothing/mask/facehugger/attack_hand(mob/user, list/modifiers)
+/obj/item/clothing/mask/facehugger/attack_hand(mob/user)
 	if((stat == CONSCIOUS && !sterile) && !isalien(user))
 		if(Leap(user))
 			return
@@ -75,11 +65,11 @@
 		return
 	switch(stat)
 		if(DEAD,UNCONSCIOUS)
-			. += span_boldannounce("[src] is not moving.")
+			. += "<hr><span class='boldannounce'>[capitalize(src.name)] оно не двигается.</span>"
 		if(CONSCIOUS)
-			. += span_boldannounce("[src] seems to be active!")
+			. += "<hr><span class='boldannounce'>[capitalize(src.name)] оно шевелится!</span>"
 	if (sterile)
-		. += span_boldannounce("It looks like the proboscis has been removed.")
+		. += "<hr><span class='boldannounce'>Похоже эта особь стерильна.</span>"
 
 /obj/item/clothing/mask/facehugger/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
 	return (exposed_temperature > 300)
@@ -90,6 +80,9 @@
 /obj/item/clothing/mask/facehugger/equipped(mob/M)
 	. = ..()
 	Attach(M)
+/obj/item/clothing/mask/facehugger/dropped(mob/M)
+	. = ..()
+	REMOVE_TRAIT(M, TRAIT_NOBREATH, "facehugger") //На всякий случай
 
 /obj/item/clothing/mask/facehugger/proc/on_entered(datum/source, atom/target)
 	SIGNAL_HANDLER
@@ -103,73 +96,78 @@
 	if(CanHug(AM) && Adjacent(AM))
 		return Leap(AM)
 
-/obj/item/clothing/mask/facehugger/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, gentle, quickstart = TRUE)
+/obj/item/clothing/mask/facehugger/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, quickstart = TRUE)
 	. = ..()
 	if(!.)
 		return
 	if(stat == CONSCIOUS)
-		icon_state = "[base_icon_state]_thrown"
+		icon_state = "[initial(icon_state)]_thrown"
 		addtimer(CALLBACK(src, PROC_REF(clear_throw_icon_state)), 15)
 
 /obj/item/clothing/mask/facehugger/proc/clear_throw_icon_state()
-	if(icon_state == "[base_icon_state]_thrown")
-		icon_state = "[base_icon_state]"
+	if(icon_state == "[initial(icon_state)]_thrown")
+		icon_state = "[initial(icon_state)]"
 
 /obj/item/clothing/mask/facehugger/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 	if(stat == CONSCIOUS)
-		icon_state = "[base_icon_state]"
+		icon_state = "[initial(icon_state)]"
 		Leap(hit_atom)
 
-/obj/item/clothing/mask/facehugger/proc/valid_to_attach(mob/living/hit_mob)
+/obj/item/clothing/mask/facehugger/proc/valid_to_attach(mob/living/M)
 	// valid targets: carbons except aliens and devils
 	// facehugger state early exit checks
 	if(stat != CONSCIOUS)
 		return FALSE
 	if(attached)
 		return FALSE
-	if(!iscarbon(hit_mob))
-		return FALSE
-	// disallowed carbons
-	if(isalien(hit_mob))
-		return FALSE
-	var/mob/living/carbon/target = hit_mob
-	// gotta have a head to be implanted (no changelings or sentient plants)
-	if(!target.get_bodypart(BODY_ZONE_HEAD))
-		return FALSE
-	// gotta be able to have the xeno implanted
-	if(HAS_TRAIT(hit_mob, TRAIT_XENO_IMMUNE))
-		return FALSE
-	// carbon, has head, not an alien nor has an hivenode or embryo: valid
-	return TRUE
+	if(iscarbon(M))
+		// disallowed carbons
+		if(isalien(M))
+			return FALSE
+		var/mob/living/carbon/target = M
+		// gotta have a head to be implanted (no changelings or sentient plants)
+		if(!target.get_bodypart(BODY_ZONE_HEAD))
+			return FALSE
+		// gotta be able to have the xeno implanted
+		if(HAS_TRAIT(M, TRAIT_XENO_IMMUNE))
+			return FALSE
+//		if(HAS_TRAIT(M, TRAIT_PARASITE_IMMUNE))
+//			return
+		// carbon, has head, not alien or devil, has no hivenode or embryo: valid
+		return TRUE
 
-/obj/item/clothing/mask/facehugger/proc/Leap(mob/living/hit_mob)
-	//check if not carbon/alien/has facehugger already/ect.
-	if(!valid_to_attach(hit_mob))
+	return FALSE
+
+/obj/item/clothing/mask/facehugger/proc/Leap(mob/living/M)
+	if(!valid_to_attach(M))
 		return FALSE
-	var/mob/living/carbon/target = hit_mob
-	if(target.wear_mask && istype(target.wear_mask, /obj/item/clothing/mask/facehugger))
-		return FALSE
+	if(iscarbon(M))
+		var/mob/living/carbon/target = M
+		if(target.wear_mask && istype(target.wear_mask, /obj/item/clothing/mask/facehugger))
+			return FALSE
 	// passed initial checks - time to leap!
-	target.visible_message(span_danger("[src] leaps at [target]'s face!"), \
-						span_userdanger("[src] leaps at your face!"))
+	M.visible_message(span_danger("[capitalize(src.name)] вцепляется в лицо [M]!") , \
+							span_userdanger("[capitalize(src.name)] вцепляется в мое лицо!"))
 
 	// probiscis-blocker handling
-	if(target.is_mouth_covered(ITEM_SLOT_HEAD))
-		target.visible_message(span_danger("[src] smashes against [target]'s [target.head]!"), \
-							span_userdanger("[src] smashes against your [target.head]!"))
-		Die()
-		return FALSE
+	if(iscarbon(M))
+		var/mob/living/carbon/target = M
 
-	if(target.wear_mask)
-		var/obj/item/clothing/worn_mask = target.wear_mask
-		if(target.dropItemToGround(worn_mask))
-			target.visible_message(span_danger("[src] tears [worn_mask] off of [target]'s face!"), \
-								span_userdanger("[src] tears [worn_mask] off of your face!"))
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			if(H.is_mouth_covered(head_only = 1))
+				H.visible_message(span_danger("[capitalize(src.name)] бессильно разбивается о [H.head] [H]!") , \
+									span_userdanger("[capitalize(src.name)] бессильно разбивается о [H.head]!"))
+				Die()
+				return FALSE
 
-	if(!target.equip_to_slot_if_possible(src, ITEM_SLOT_MASK, 0, 1, 1))
-		return FALSE
-	log_combat(target, src, "was facehugged by")
+		if(target.wear_mask)
+			var/obj/item/clothing/W = target.wear_mask
+			if(target.dropItemToGround(W))
+				target.visible_message(span_danger("[capitalize(src.name)] срывает [W] и вцепляется в лицо [target]!") , \
+									span_userdanger("[capitalize(src.name)] срывает [W] и вцепляется в мое лицо!"))
+		target.equip_to_slot_if_possible(src, ITEM_SLOT_MASK, 0, 1, 1)
 	return TRUE // time for a smoke
 
 /obj/item/clothing/mask/facehugger/proc/Attach(mob/living/M)
@@ -184,7 +182,9 @@
 	if(!sterile)
 		M.take_bodypart_damage(strength,0) //done here so that humans in helmets take damage
 		M.Unconscious(MAX_IMPREGNATION_TIME/0.3) //something like 25 ticks = 20 seconds with the default settings
-
+		ADD_TRAIT(M, TRAIT_NOBREATH, "facehugger")
+		M.reagents.add_reagent(/datum/reagent/medicine/leporazine,5)
+		M.reagents.add_reagent(/datum/reagent/medicine/omnizine,5)
 	GoIdle() //so it doesn't jump the people that tear it off
 
 	addtimer(CALLBACK(src, PROC_REF(Impregnate), M), rand(MIN_IMPREGNATION_TIME, MAX_IMPREGNATION_TIME))
@@ -202,40 +202,37 @@
 			return
 
 	if(!sterile)
-		target.visible_message(span_danger("[src] falls limp after violating [target]'s face!"), \
-								span_userdanger("[src] falls limp after violating your face!"))
+		target.visible_message(span_danger("[capitalize(src.name)] безвольно отваливается от лица [target]!") , \
+								span_userdanger("[capitalize(src.name)] безвольно отваливается от моего лица!"))
 
+		REMOVE_TRAIT(target, TRAIT_NOBREATH, "facehugger")
 		Die()
-		icon_state = "[base_icon_state]_impregnated"
-		worn_icon_state = "[base_icon_state]_impregnated"
+		icon_state = "[initial(icon_state)]_impregnated"
 
 		var/obj/item/bodypart/chest/LC = target.get_bodypart(BODY_ZONE_CHEST)
-		if((!LC || IS_ORGANIC_LIMB(LC)) && !target.get_organ_by_type(/obj/item/organ/internal/body_egg/alien_embryo))
-			new /obj/item/organ/internal/body_egg/alien_embryo(target)
-			target.log_message("was impregnated by a facehugger", LOG_GAME)
-			target.log_message("was impregnated by a facehugger", LOG_VICTIM, log_globally = FALSE)
-			if(target.stat != DEAD && istype(target.buckled, /obj/structure/bed/nest)) //Handles toggling the nest sustenance status effect if the user was already buckled to a nest.
-				target.apply_status_effect(/datum/status_effect/nest_sustenance)
+		if((!LC || LC.status != BODYPART_ROBOTIC) && !target.getorgan(/obj/item/organ/body_egg/alien_embryo))
+			if(!HAS_TRAIT(target, TRAIT_PARASITE_IMMUNE))
+				new /obj/item/organ/body_egg/alien_embryo(target)
+				var/turf/T = get_turf(target)
+				log_game("[key_name(target)] был заражен лицехватом [loc_name(T)]")
 
 	else
-		target.visible_message(span_danger("[src] violates [target]'s face!"), \
-								span_userdanger("[src] violates your face!"))
+		target.visible_message(span_danger("[capitalize(src.name)] бестолково тычется в лицо [target]!") , \
+								span_userdanger("[capitalize(src.name)] бестолково тычется в мое лицо!"))
 
 /obj/item/clothing/mask/facehugger/proc/GoActive()
 	if(stat == DEAD || stat == CONSCIOUS)
 		return
 
 	stat = CONSCIOUS
-	icon_state = "[base_icon_state]"
-	worn_icon_state = "[base_icon_state]"
+	icon_state = "[initial(icon_state)]"
 
 /obj/item/clothing/mask/facehugger/proc/GoIdle()
 	if(stat == DEAD || stat == UNCONSCIOUS)
 		return
 
 	stat = UNCONSCIOUS
-	icon_state = "[base_icon_state]_inactive"
-	worn_icon_state = "[base_icon_state]_inactive"
+	icon_state = "[initial(icon_state)]_inactive"
 
 	addtimer(CALLBACK(src, PROC_REF(GoActive)), rand(MIN_ACTIVE_TIME, MAX_ACTIVE_TIME))
 
@@ -243,31 +240,30 @@
 	if(stat == DEAD)
 		return
 
-	icon_state = "[base_icon_state]_dead"
-	worn_icon_state = "[base_icon_state]_dead"
+	icon_state = "[initial(icon_state)]_dead"
 	inhand_icon_state = "facehugger_inactive"
 	stat = DEAD
 
-	visible_message(span_danger("[src] curls up into a ball!"))
+	visible_message(span_danger("[capitalize(src.name)] сворачивается в клубок!"))
 
 /proc/CanHug(mob/living/M)
 	if(!istype(M))
 		return FALSE
 	if(M.stat == DEAD)
 		return FALSE
-	if(M.get_organ_by_type(/obj/item/organ/internal/alien/hivenode))
+	if(M.getorgan(/obj/item/organ/alien/hivenode))
 		return FALSE
 	var/mob/living/carbon/C = M
-	if(ishuman(C) && !(C.dna.species.no_equip_flags & ITEM_SLOT_MASK))
+	if(ishuman(C) && !(ITEM_SLOT_MASK in C.dna.species.no_equip))
 		var/mob/living/carbon/human/H = C
-		if(H.is_mouth_covered(ITEM_SLOT_HEAD))
+		if(H.is_mouth_covered(head_only = 1))
 			return FALSE
 		return TRUE
 	return FALSE
 
 /obj/item/clothing/mask/facehugger/lamarr
-	name = "Lamarr"
-	desc = "The Research Director's pet, a domesticated and debeaked xenomorph facehugger. Friendly, but may still try to couple with your head."
+	name = "Ламарр"
+	desc = "Питомец директора по исследованиям, одомашненный лицехват. И да, попытки совокупится с вашей головой носят исключительно дружелюбный характер."
 	sterile = TRUE
 
 /obj/item/clothing/mask/facehugger/dead
@@ -278,13 +274,13 @@
 
 /obj/item/clothing/mask/facehugger/impregnated
 	icon_state = "facehugger_impregnated"
-	inhand_icon_state = null
+	inhand_icon_state = "facehugger_impregnated"
 	worn_icon_state = "facehugger_impregnated"
 	stat = DEAD
 
 /obj/item/clothing/mask/facehugger/toy
 	inhand_icon_state = "facehugger_inactive"
-	desc = "A toy often used to play pranks on other miners by putting it in their beds. It takes a bit to recharge after latching onto something."
+	desc = "Любимая игрушка-прикол всех шахтеров и рейнджеров. Что может быть лучше чем лицехват в корзине для белья или кровати? Эта шутка никогда не устареет."
 	real = FALSE
 	sterile = TRUE
 	tint = 3 //Makes it feel more authentic when it latches on

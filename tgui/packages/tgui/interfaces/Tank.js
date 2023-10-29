@@ -6,9 +6,9 @@ import { Window } from '../layouts';
 
 const formatPressure = (value) => {
   if (value < 10000) {
-    return toFixed(value) + ' kPa';
+    return toFixed(value) + ' кПа';
   }
-  return formatSiUnit(value * 1000, 1, 'Pa');
+  return formatSiUnit(value * 1000, 1, 'Па');
 };
 
 export const Tank = (props, context) => {
@@ -28,7 +28,7 @@ export const Tank = (props, context) => {
       <Window.Content>
         <Section>
           <LabeledControls>
-            <LabeledControls.Item label="Pressure">
+            <LabeledControls.Item label="Давление">
               <RoundGauge
                 value={tankPressure}
                 minValue={0}
@@ -43,7 +43,7 @@ export const Tank = (props, context) => {
                 size={2}
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="Pressure Regulator">
+            <LabeledControls.Item label="Регулятор давления">
               <Button
                 icon="fast-backward"
                 disabled={data.ReleasePressure === data.minReleasePressure}
@@ -57,7 +57,7 @@ export const Tank = (props, context) => {
                 animated
                 value={parseFloat(data.releasePressure)}
                 width="65px"
-                unit="kPa"
+                unit="кПа"
                 minValue={data.minReleasePressure}
                 maxValue={data.maxReleasePressure}
                 onChange={(e, value) =>

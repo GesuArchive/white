@@ -8,8 +8,6 @@ export type VentProps = {
   refID: string;
   long_name: string;
   power: BooleanLike;
-  overclock: BooleanLike;
-  integrity: number;
   checks: number;
   excheck: BooleanLike;
   incheck: BooleanLike;
@@ -39,8 +37,6 @@ export const Vent = (props: VentProps, context) => {
     refID,
     long_name,
     power,
-    overclock,
-    integrity,
     checks,
     excheck,
     incheck,
@@ -54,45 +50,23 @@ export const Vent = (props: VentProps, context) => {
     <Section
       title={decodeHtmlEntities(long_name)}
       buttons={
-        <>
-          <Button
-            icon={power ? 'power-off' : 'times'}
-            selected={power}
-            disabled={integrity <= 0}
-            content={power ? 'On' : 'Off'}
-            onClick={() =>
-              act('power', {
-                ref: refID,
-                val: Number(!power),
-              })
-            }
-          />
-          <Button
-            icon="gauge-high"
-            color={overclock ? 'green' : 'yellow'}
-            disabled={integrity <= 0}
-            onClick={() =>
-              act('overclock', {
-                ref: refID,
-              })
-            }
-            tooltip={`${overclock ? 'Disable' : 'Enable'} overclocking`}
-          />
-        </>
+        <Button
+          icon={power ? 'power-off' : 'times'}
+          selected={power}
+          content={power ? 'Вкл' : 'Выкл'}
+          onClick={() =>
+            act('power', {
+              ref: refID,
+              val: Number(!power),
+            })
+          }
+        />
       }>
       <LabeledList>
-        <LabeledList.Item label="Integrity">
-          <p
-            title={
-              'Overclocking will allow the vent to overpower extreme pressure conditions. However, it will also cause the vent to become damaged over time and eventually fail. The lower the integrity, the less effective the vent will be when in normal operation.'
-            }>
-            Integrity: {(integrity * 100).toFixed(2)}%
-          </p>
-        </LabeledList.Item>
-        <LabeledList.Item label="Mode">
+        <LabeledList.Item label="Режим">
           <Button
             icon="sign-in-alt"
-            content={direction ? 'Pressurizing' : 'Siphoning'}
+            content={direction ? 'Выдув' : 'Вдув'}
             color={!direction && 'danger'}
             onClick={() =>
               act('direction', {
@@ -102,10 +76,10 @@ export const Vent = (props: VentProps, context) => {
             }
           />
         </LabeledList.Item>
-        <LabeledList.Item label="Pressure Regulator">
+        <LabeledList.Item label="Регулятор давления">
           <Button
             icon="sign-in-alt"
-            content="Internal"
+            content="Внутреннее"
             selected={incheck}
             onClick={() =>
               act('incheck', {
@@ -116,7 +90,7 @@ export const Vent = (props: VentProps, context) => {
           />
           <Button
             icon="sign-out-alt"
-            content="External"
+            content="Внешнее"
             selected={excheck}
             onClick={() =>
               act('excheck', {
@@ -127,10 +101,10 @@ export const Vent = (props: VentProps, context) => {
           />
         </LabeledList.Item>
         {!!incheck && (
-          <LabeledList.Item label="Internal Target">
+          <LabeledList.Item label="Внутреннее целевое">
             <NumberInput
               value={Math.round(internal)}
-              unit="kPa"
+              unit="кПа"
               width="75px"
               minValue={0}
               step={10}
@@ -145,7 +119,7 @@ export const Vent = (props: VentProps, context) => {
             <Button
               icon="undo"
               disabled={intdefault}
-              content="Reset"
+              content="Сброс"
               onClick={() =>
                 act('reset_internal_pressure', {
                   ref: refID,
@@ -155,10 +129,10 @@ export const Vent = (props: VentProps, context) => {
           </LabeledList.Item>
         )}
         {!!excheck && (
-          <LabeledList.Item label="External Target">
+          <LabeledList.Item label="Внешнее целевое">
             <NumberInput
               value={Math.round(external)}
-              unit="kPa"
+              unit="кПа"
               width="75px"
               minValue={0}
               step={10}
@@ -173,7 +147,7 @@ export const Vent = (props: VentProps, context) => {
             <Button
               icon="undo"
               disabled={extdefault}
-              content="Reset"
+              content="Сброс"
               onClick={() =>
                 act('reset_external_pressure', {
                   ref: refID,
@@ -196,7 +170,7 @@ export const Scrubber = (props: ScrubberProps, context) => {
       buttons={
         <Button
           icon={power ? 'power-off' : 'times'}
-          content={power ? 'On' : 'Off'}
+          content={power ? 'Вкл' : 'Выкл'}
           selected={power}
           onClick={() =>
             act('power', {
@@ -211,7 +185,7 @@ export const Scrubber = (props: ScrubberProps, context) => {
           <Button
             icon={scrubbing ? 'filter' : 'sign-in-alt'}
             color={scrubbing || 'danger'}
-            content={scrubbing ? 'Scrubbing' : 'Siphoning'}
+            content={scrubbing ? 'Фильтрация' : 'Выкачивание'}
             onClick={() =>
               act('scrubbing', {
                 ref: refID,
@@ -222,7 +196,7 @@ export const Scrubber = (props: ScrubberProps, context) => {
           <Button
             icon={widenet ? 'expand' : 'compress'}
             selected={widenet}
-            content={widenet ? 'Expanded range' : 'Normal range'}
+            content={widenet ? 'Расширенный радиус' : 'Нормальный радиус'}
             onClick={() =>
               act('widenet', {
                 ref: refID,
@@ -231,7 +205,7 @@ export const Scrubber = (props: ScrubberProps, context) => {
             }
           />
         </LabeledList.Item>
-        <LabeledList.Item label="Filters">
+        <LabeledList.Item label="Фильтры">
           {(scrubbing &&
             filter_types.map((filter) => (
               <Button

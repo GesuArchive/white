@@ -1,0 +1,58 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	scrollbar-face-color: #242424;
+	scrollbar-arrow-color: #242424;
+	scrollbar-track-color: #090909;
+	scrollbar-3dlight-color: #080808;
+	scrollbar-darkshadow-Color: #080808;
+}
+
+body {
+	background: #070707;
+	color: #ff9900;
+	font-family: Tahoma;
+}
+
+th {
+	background: #f90;
+	color: #000;
+	width: 70%;
+	padding: 4px;
+}
+
+td {
+	background: #111;
+	padding: 4px;
+	border: 1px solid #222;
+}
+
+table {
+	table-layout:fixed;
+	width: 100%;
+	text-align: center;
+}
+
+.rhead {
+	width: 128px;
+}
+
+.rreg {
+	width: 128px;
+}
+
+.rping {
+	width: 32px;
+}
+
+.admin {
+	background: #f90;
+	color: #000;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.mentor {
+	color: #f0f
+}

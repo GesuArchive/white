@@ -7,17 +7,14 @@ type FaxData = {
   faxes: FaxInfo[];
   fax_id: string;
   fax_name: string;
-  visible: boolean;
   has_paper: string;
   syndicate_network: boolean;
   fax_history: FaxHistory[];
-  special_faxes: FaxSpecial[];
 };
 
 type FaxInfo = {
   fax_name: string;
   fax_id: string;
-  visible: boolean;
   has_paper: boolean;
   syndicate_network: boolean;
 };
@@ -28,105 +25,65 @@ type FaxHistory = {
   history_time: string;
 };
 
-type FaxSpecial = {
-  fax_name: string;
-  fax_id: string;
-  color: string;
-  emag_needed: boolean;
-};
-
 export const Fax = (props, context) => {
   const { act } = useBackend(context);
   const { data } = useBackend<FaxData>(context);
-  const faxes = data.faxes
-    ? sortBy((sortFax: FaxInfo) => sortFax.fax_name)(
-      data.syndicate_network
-        ? data.faxes.filter((filterFax: FaxInfo) => filterFax.visible)
-        : data.faxes.filter(
-          (filterFax: FaxInfo) =>
-            filterFax.visible && !filterFax.syndicate_network
-        )
-    )
-    : [];
+  const faxes = sortBy((sortFax: FaxInfo) => sortFax.fax_name)(
+    data.syndicate_network
+      ? data.faxes
+      : data.faxes.filter((filterFax: FaxInfo) => !filterFax.syndicate_network)
+  );
   return (
     <Window width={340} height={540}>
       <Window.Content scrollable>
-        <Section title="About Fax">
-          <LabeledList.Item label="Network name">
+        <Section title="Факс">
+          <LabeledList.Item label="Имя сети">
             {data.fax_name}
           </LabeledList.Item>
-          <LabeledList.Item label="Network ID">{data.fax_id}</LabeledList.Item>
-          <LabeledList.Item label="Visible to Network">
-            {data.visible ? true : false}
-          </LabeledList.Item>
+          <LabeledList.Item label="ID сети">{data.fax_id}</LabeledList.Item>
         </Section>
         <Section
-          title="Paper"
+          title="Бумага"
           buttons={
             <Button
               onClick={() => act('remove')}
               disabled={data.has_paper ? false : true}>
-              Remove
+              Изъять
             </Button>
           }>
-          <LabeledList.Item label="Paper">
+          <LabeledList.Item label="Бумага">
             {data.has_paper ? (
-              <Box color="green">Paper in tray</Box>
+              <Box color="green">Бумага в лотке</Box>
             ) : (
-              <Box color="red">No paper</Box>
+              <Box color="red">Нет бумаги</Box>
             )}
           </LabeledList.Item>
         </Section>
-        <Section title="Send">
-          {faxes.length !== 0 ? (
-            <Box mt={0.4}>
-              {(data.syndicate_network
-                ? data.special_faxes
-                : data.special_faxes.filter(
-                  (fax: FaxSpecial) => !fax.emag_needed
-                )
-              ).map((special: FaxSpecial) => (
-                <Button
-                  key={special.fax_id}
-                  title={special.fax_name}
-                  disabled={!data.has_paper}
-                  color={special.color}
-                  onClick={() =>
-                    act('send_special', {
-                      id: special.fax_id,
-                      name: special.fax_name,
-                    })
-                  }>
-                  {special.fax_name}
-                </Button>
-              ))}
-              {faxes.map((fax: FaxInfo) => (
-                <Button
-                  key={fax.fax_id}
-                  title={fax.fax_name}
-                  disabled={!data.has_paper}
-                  color={fax.syndicate_network ? 'red' : 'blue'}
-                  onClick={() =>
-                    act('send', {
-                      id: fax.fax_id,
-                      name: fax.fax_name,
-                    })
-                  }>
-                  {fax.fax_name}
-                </Button>
-              ))}
-            </Box>
-          ) : (
-            "The fax couldn't detect any other faxes on the network."
-          )}
+        <Section title="Отправить">
+          <Box mt={0.4}>
+            {faxes.map((fax: FaxInfo) => (
+              <Button
+                key={fax.fax_id}
+                title={fax.fax_name}
+                disabled={!data.has_paper}
+                color={fax.syndicate_network ? 'red' : 'blue'}
+                onClick={() =>
+                  act('send', {
+                    id: fax.fax_id,
+                  })
+                }>
+                {fax.fax_name}
+              </Button>
+            ))}
+          </Box>
         </Section>
         <Section
-          title="History"
+          title="История"
           buttons={
             <Button
               onClick={() => act('history_clear')}
               disabled={data.fax_history ? false : true}>
-              Clear
+              Очистить
             </Button>
           }>
           <Table>
@@ -137,7 +94,7 @@ export const Fax = (props, context) => {
                     {
                       <Box
                         color={
-                          history.history_type === 'Send' ? 'Green' : 'Red'
+                          history.history_type === 'Отправка' ? 'Green' : 'Red'
                         }>
                         {history.history_type}
                       </Box>

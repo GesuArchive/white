@@ -1,6 +1,6 @@
 /obj/machinery/computer/prisoner/management
-	name = "prisoner management console"
-	desc = "Used to manage tracking implants placed inside criminals."
+	name = "консоль мониторинга заключенных"
+	desc = "Используется для управления отслеживающими имплантатами, имплантированным преступникам."
 	icon_screen = "explosive"
 	icon_keyboard = "security_key"
 	req_access = list(ACCESS_BRIG)
@@ -24,18 +24,18 @@
 	else if(screen == 1)
 		dat += "<H3>Prisoner ID Management</H3>"
 		if(contained_id)
-			dat += "<A href='?src=[REF(src)];id=eject'>[contained_id]</A><br>"
-			dat += "Collected Points: [contained_id.points]. <A href='?src=[REF(src)];id=reset'>Reset.</A><br>"
-			dat += "Card goal: [contained_id.goal].  <A href='?src=[REF(src)];id=setgoal'>Set </A><br>"
-			dat += "Space Law recommends quotas of 100 points per minute they would normally serve in the brig.<BR>"
+			dat += text("<A href='?src=[REF(src)];id=eject'>[contained_id]</A><br>")
+			dat += text("Collected Points: [contained_id.points]. <A href='?src=[REF(src)];id=reset'>Reset.</A><br>")
+			dat += text("Card goal: [contained_id.goal].  <A href='?src=[REF(src)];id=setgoal'>Set </A><br>")
+			dat += text("Space Law recommends quotas of 100 points per minute they would normally serve in the brig.<BR>")
 		else
-			dat += "<A href='?src=[REF(src)];id=insert'>Insert Prisoner ID.</A><br>"
+			dat += text("<A href='?src=[REF(src)];id=insert'>Insert Prisoner ID.</A><br>")
 		dat += "<H3>Prisoner Implant Management</H3>"
 		dat += "<HR>Chemical Implants<BR>"
-		var/turf/current_turf = get_turf(src)
+		var/turf/Tr = null
 		for(var/obj/item/implant/chem/C in GLOB.tracked_chem_implants)
-			var/turf/implant_turf = get_turf(C)
-			if(!is_valid_z_level(current_turf, implant_turf))
+			Tr = get_turf(C)
+			if((Tr) && (Tr.z != src.z))
 				continue//Out of range
 			if(!C.imp_in)
 				continue
@@ -49,13 +49,13 @@
 		for(var/obj/item/implant/tracking/T in GLOB.tracked_implants)
 			if(!isliving(T.imp_in))
 				continue
-			var/turf/implant_turf = get_turf(T)
-			if(!is_valid_z_level(current_turf, implant_turf))
+			Tr = get_turf(T)
+			if((Tr) && (Tr.z != src.z))
 				continue//Out of range
 
 			var/loc_display = "Unknown"
 			var/mob/living/M = T.imp_in
-			if(is_station_level(implant_turf.z) && !isspaceturf(M.loc))
+			if(is_station_level(Tr.z) && !isspaceturf(M.loc))
 				var/turf/mob_loc = get_turf(M)
 				loc_display = mob_loc.loc
 
@@ -69,7 +69,7 @@
 	return
 
 /obj/machinery/computer/prisoner/management/attackby(obj/item/I, mob/user, params)
-	if(isidcard(I))
+	if(istype(I, /obj/item/card/id))
 		if(screen)
 			id_insert(user)
 		else
@@ -89,7 +89,7 @@
 		usr.set_machine(src)
 
 		if(href_list["id"])
-			if(href_list["id"] == "insert" && !contained_id)
+			if(href_list["id"] =="insert" && !contained_id)
 				id_insert(usr)
 			else if(contained_id)
 				switch(href_list["id"])
@@ -98,10 +98,10 @@
 					if("reset")
 						contained_id.points = 0
 					if("setgoal")
-						var/num = tgui_input_text(usr, "Enter the prisoner's goal", "Prisoner Management", 1, 1000, 1)
-						if(isnull(num))
-							return
-						contained_id.goal = round(num)
+						var/num = round(input(usr, "Choose prisoner's goal:", "Input an Integer", null) as num|null)
+						if(num >= 0)
+							num = min(num,1000) //Cap the quota to the equivilent of 10 minutes.
+							contained_id.goal = num
 		else if(href_list["inject1"])
 			var/obj/item/implant/I = locate(href_list["inject1"]) in GLOB.tracked_chem_implants
 			if(I && istype(I))
@@ -123,13 +123,13 @@
 				to_chat(usr, span_danger("Unauthorized access."))
 
 		else if(href_list["warn"])
-			var/warning = tgui_input_text(usr, "Enter your message here", "Messaging")
+			var/warning = stripped_input(usr, "Message:", "Enter your message here!", "", MAX_MESSAGE_LEN)
 			if(!warning)
 				return
 			var/obj/item/implant/I = locate(href_list["warn"]) in GLOB.tracked_implants
 			if(I && istype(I) && I.imp_in)
 				var/mob/living/R = I.imp_in
-				to_chat(R, span_hear("You hear a voice in your head saying: '[warning]'"))
+				to_chat(R, span_hear("Голос в моей голове говорит мне: '[warning]'"))
 				log_directed_talk(usr, R, warning, LOG_SAY, "implant message")
 
 		src.add_fingerprint(usr)

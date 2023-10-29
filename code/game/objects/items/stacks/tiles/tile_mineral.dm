@@ -1,117 +1,90 @@
-/obj/item/stack/tile/mineral
-	/// Determines what stack is gotten out of us when welded.
-	var/mineralType = null
-
-/obj/item/stack/tile/mineral/attackby(obj/item/W, mob/user, params)
-	if(W.tool_behaviour == TOOL_WELDER)
-		if(get_amount() < 4)
-			to_chat(user, span_warning("You need at least four tiles to do this!"))
-			return
-		if(!mineralType)
-			to_chat(user, span_warning("You can not reform this!"))
-			stack_trace("A mineral tile of type [type] doesn't have its' mineralType set.")
-			return
-		if(W.use_tool(src, user, 0, volume=40))
-			var/sheet_type = text2path("/obj/item/stack/sheet/mineral/[mineralType]")
-			var/obj/item/stack/sheet/mineral/new_item = new sheet_type(user.loc)
-			user.visible_message(span_notice("[user] shaped [src] into [new_item] with [W]."), \
-				span_notice("You shaped [src] into [new_item] with [W]."), \
-				span_hear("You hear welding."))
-			var/holding = user.is_holding(src)
-			use(4)
-			if(holding && QDELETED(src))
-				user.put_in_hands(new_item)
-	else
-		return ..()
-
 /obj/item/stack/tile/mineral/plasma
-	name = "plasma tile"
-	singular_name = "plasma floor tile"
-	desc = "A tile made out of highly flammable plasma. This can only end well."
+	name = "плазменная плитка"
+	singular_name = "плазменная напольная плитка"
+	desc = "Плитка сделанная из легковоспламеняющейся плащмы. Что может пойти не так?"
 	icon_state = "tile_plasma"
 	inhand_icon_state = "tile-plasma"
 	turf_type = /turf/open/floor/mineral/plasma
 	mineralType = "plasma"
-	mats_per_unit = list(/datum/material/plasma=SHEET_MATERIAL_AMOUNT*0.25)
+	mats_per_unit = list(/datum/material/plasma=500)
 	merge_type = /obj/item/stack/tile/mineral/plasma
 
 /obj/item/stack/tile/mineral/uranium
-	name = "uranium tile"
-	singular_name = "uranium floor tile"
-	desc = "A tile made out of uranium. You feel a bit woozy."
+	name = "урановая плитка"
+	singular_name = "урановая напольная плитка"
+	desc = "Плитка сделанная из урана. Чувствую небольшое головокружение."
 	icon_state = "tile_uranium"
 	inhand_icon_state = "tile-uranium"
 	turf_type = /turf/open/floor/mineral/uranium
 	mineralType = "uranium"
-	mats_per_unit = list(/datum/material/uranium=SHEET_MATERIAL_AMOUNT*0.25)
+	mats_per_unit = list(/datum/material/uranium=500)
 	merge_type = /obj/item/stack/tile/mineral/uranium
 
 /obj/item/stack/tile/mineral/gold
-	name = "gold tile"
-	singular_name = "gold floor tile"
-	desc = "A tile made out of gold, the swag seems strong here."
+	name = "золотая плитка"
+	singular_name = "золотая напольная плитка"
+	desc = "Плитка сделанная из золота, выглядит богато."
 	icon_state = "tile_gold"
 	inhand_icon_state = "tile-gold"
 	turf_type = /turf/open/floor/mineral/gold
 	mineralType = "gold"
-	mats_per_unit = list(/datum/material/gold=SHEET_MATERIAL_AMOUNT*0.25)
+	mats_per_unit = list(/datum/material/gold=500)
 	merge_type = /obj/item/stack/tile/mineral/gold
 
 /obj/item/stack/tile/mineral/silver
-	name = "silver tile"
-	singular_name = "silver floor tile"
-	desc = "A tile made out of silver, the light shining from it is blinding."
+	name = "серебряная плитка"
+	singular_name = "серебряная напольная плитка"
+	desc = "Плитка из серебра, её сияние ослепляет."
 	icon_state = "tile_silver"
 	inhand_icon_state = "tile-silver"
 	turf_type = /turf/open/floor/mineral/silver
 	mineralType = "silver"
-	mats_per_unit = list(/datum/material/silver=SHEET_MATERIAL_AMOUNT*0.25)
+	mats_per_unit = list(/datum/material/silver=500)
 	merge_type = /obj/item/stack/tile/mineral/silver
 
 /obj/item/stack/tile/mineral/diamond
-	name = "diamond tile"
-	singular_name = "diamond floor tile"
-	desc = "A tile made out of diamond. Wow, just, wow."
+	name = "алмазная плитка"
+	singular_name = "алмазная напольная плитка"
+	desc = "Плитка из алмазов. Офигеть можно."
 	icon_state = "tile_diamond"
 	inhand_icon_state = "tile-diamond"
 	turf_type = /turf/open/floor/mineral/diamond
 	mineralType = "diamond"
-	mats_per_unit = list(/datum/material/diamond=SHEET_MATERIAL_AMOUNT*0.25)
+	mats_per_unit = list(/datum/material/diamond=500)
 	merge_type = /obj/item/stack/tile/mineral/diamond
 
 /obj/item/stack/tile/mineral/bananium
-	name = "bananium tile"
-	singular_name = "bananium floor tile"
-	desc = "A non-slippery tile made out of bananium, HOOOOOOOOONK!"
+	name = "бананиумная плитка"
+	singular_name = "бананиумная напольная плитка"
+	desc = "Плитка из бананиума, ХОООООООООООНК!"
 	icon_state = "tile_bananium"
 	inhand_icon_state = "tile-bananium"
 	turf_type = /turf/open/floor/mineral/bananium
 	mineralType = "bananium"
-	mats_per_unit = list(/datum/material/bananium=SHEET_MATERIAL_AMOUNT*0.25)
-	material_flags = NONE //The slippery comp makes it unpractical for good clown decor. The material tiles should still slip.
+	mats_per_unit = list(/datum/material/bananium=500)
 	merge_type = /obj/item/stack/tile/mineral/bananium
 
 /obj/item/stack/tile/mineral/abductor
-	name = "alien floor tile"
-	singular_name = "alien floor tile"
-	desc = "A tile made out of alien alloy."
-	icon = 'icons/obj/antags/abductor.dmi'
+	name = "инопланетная напольная плитка"
+	singular_name = "инопланетная напольная плитка"
+	desc = "Плитка из инопланнетного сплава."
+	icon = 'icons/obj/abductor.dmi'
 	icon_state = "tile_abductor"
 	inhand_icon_state = "tile-abductor"
-	mats_per_unit = list(/datum/material/alloy/alien=SHEET_MATERIAL_AMOUNT*0.25)
+	mats_per_unit = list(/datum/material/alloy/alien=MINERAL_MATERIAL_AMOUNT*0.25)
 	turf_type = /turf/open/floor/mineral/abductor
 	mineralType = "abductor"
 	merge_type = /obj/item/stack/tile/mineral/abductor
 
 /obj/item/stack/tile/mineral/titanium
-	name = "titanium tile"
-	singular_name = "titanium floor tile"
-	desc = "Sleek titanium tiles, used for shuttles."
-	icon_state = "tile_titanium"
+	name = "титановая плитка"
+	singular_name = "титановая напольная плитка"
+	desc = "Плитка из титана, используется в шаттлах."
+	icon_state = "tile_shuttle"
 	inhand_icon_state = "tile-shuttle"
 	turf_type = /turf/open/floor/mineral/titanium
 	mineralType = "titanium"
-	mats_per_unit = list(/datum/material/titanium=SHEET_MATERIAL_AMOUNT*0.25)
+	mats_per_unit = list(/datum/material/titanium=500)
 	merge_type = /obj/item/stack/tile/mineral/titanium
 	tile_reskin_types = list(
 		/obj/item/stack/tile/mineral/titanium,
@@ -127,106 +100,95 @@
 		)
 
 /obj/item/stack/tile/mineral/titanium/yellow
-	name = "yellow titanium tile"
+	name = "желтая титановая плитка"
 	singular_name = "yellow titanium floor tile"
-	desc = "Sleek yellow titanium tiles, used for shuttles."
+	desc = "Гладкая желтая титановая плитка. Используйте её когда она находится у вас руке, чтобы изменить на тот тип титановой плитки, которую вы хотите."
 	turf_type = /turf/open/floor/mineral/titanium/yellow
 	icon_state = "tile_titanium_yellow"
 	merge_type = /obj/item/stack/tile/mineral/titanium/yellow
 
 /obj/item/stack/tile/mineral/titanium/blue
-	name = "blue titanium tile"
+	name = "синяя титановая плитка"
 	singular_name = "blue titanium floor tile"
-	desc = "Sleek blue titanium tiles, used for shuttles."
+	desc = "Гладкая желтая титановая плитка. Используйте её когда она находится у вас руке, чтобы изменить на тот тип титановой плитки, которую вы хотите."
 	turf_type = /turf/open/floor/mineral/titanium/blue
 	icon_state = "tile_titanium_blue"
 	merge_type = /obj/item/stack/tile/mineral/titanium/blue
 
 /obj/item/stack/tile/mineral/titanium/white
-	name = "white titanium tile"
+	name = "белая титановая плитка"
 	singular_name = "white titanium floor tile"
-	desc = "Sleek white titanium tiles, used for shuttles."
+	desc = "Гладкая желтая титановая плитка. Используйте её когда она находится у вас руке, чтобы изменить на тот тип титановой плитки, которую вы хотите."
 	turf_type = /turf/open/floor/mineral/titanium/white
 	icon_state = "tile_titanium_white"
 	merge_type = /obj/item/stack/tile/mineral/titanium/white
 
 /obj/item/stack/tile/mineral/titanium/purple
-	name = "purple titanium tile"
+	name = "фиолетовая титановая плитка"
 	singular_name = "purple titanium floor tile"
-	desc = "Sleek purple titanium tiles, used for shuttles."
+	desc = "Гладкая желтая титановая плитка. Используйте её когда она находится у вас руке, чтобы изменить на тот тип титановой плитки, которую вы хотите."
 	turf_type = /turf/open/floor/mineral/titanium/purple
 	icon_state = "tile_titanium_purple"
 	merge_type = /obj/item/stack/tile/mineral/titanium/purple
 
 /obj/item/stack/tile/mineral/titanium/tiled
-	name = "tiled titanium tile"
+	name = "кафельная титановая плитка"
 	singular_name = "tiled titanium floor tile"
-	desc = "Titanium floor tiles, used for shuttles."
+	desc = "Напольная плитка из титана. Используйте её когда она находится у вас руке, чтобы изменить на тот тип титановой плитки, которую вы хотите."
 	turf_type = /turf/open/floor/mineral/titanium/tiled
 	icon_state = "tile_titanium_tiled"
 	merge_type = /obj/item/stack/tile/mineral/titanium/tiled
 
 /obj/item/stack/tile/mineral/titanium/tiled/yellow
-	name = "yellow titanium tile"
+	name = "желтая титановая плитка"
 	singular_name = "yellow titanium floor tile"
-	desc = "Yellow titanium floor tiles, used for shuttles."
+	desc = "Желтая титановая плитка. Используйте её когда она находится у вас руке, чтобы изменить на тот тип титановой плитки, которую вы хотите."
 	turf_type = /turf/open/floor/mineral/titanium/tiled/yellow
 	icon_state = "tile_titanium_tiled_yellow"
 	merge_type = /obj/item/stack/tile/mineral/titanium/tiled/yellow
 
 /obj/item/stack/tile/mineral/titanium/tiled/blue
-	name = "blue titanium tile"
+	name = "синяя титановая плитка"
 	singular_name = "blue titanium floor tile"
-	desc = "Blue titanium floor tiles, used for shuttles."
+	desc = "Синяя титановая плитка. Используйте её когда она находится у вас руке, чтобы изменить на тот тип титановой плитки, которую вы хотите."
 	turf_type = /turf/open/floor/mineral/titanium/tiled/blue
 	icon_state = "tile_titanium_tiled_blue"
 	merge_type = /obj/item/stack/tile/mineral/titanium/tiled/blue
 
 /obj/item/stack/tile/mineral/titanium/tiled/white
-	name = "white titanium tile"
+	name = "белая титановая плитка"
 	singular_name = "white titanium floor tile"
-	desc = "White titanium floor tiles, used for shuttles."
+	desc = "Белая титановая плитка. Используйте её когда она находится у вас руке, чтобы изменить на тот тип титановой плитки, которую вы хотите."
 	turf_type = /turf/open/floor/mineral/titanium/tiled/white
 	icon_state = "tile_titanium_tiled_white"
 	merge_type = /obj/item/stack/tile/mineral/titanium/tiled/white
 
 /obj/item/stack/tile/mineral/titanium/tiled/purple
-	name = "purple titanium tile"
+	name = "фиолетовая титановая плитка"
 	singular_name = "purple titanium floor tile"
-	desc = "Purple titanium floor tiles, used for shuttles."
+	desc = "Фиолетовая титановая плитка. Используйте её когда она находится у вас руке, чтобы изменить на тот тип титановой плитки, которую вы хотите."
 	turf_type = /turf/open/floor/mineral/titanium/tiled/purple
 	icon_state = "tile_titanium_tiled_purple"
 	merge_type = /obj/item/stack/tile/mineral/titanium/tiled/purple
 
 /obj/item/stack/tile/mineral/plastitanium
-	name = "plastitanium tile"
-	singular_name = "plastitanium floor tile"
-	desc = "A tile made of plastitanium, used for very evil shuttles."
-	icon_state = "tile_plastitanium"
+	name = "пластитановая плитка"
+	singular_name = "пластитановая напольная плитка"
+	desc = "Плитка из пластитана, используется в очень злобных шаттлах."
+	icon_state = "tile_darkshuttle"
 	inhand_icon_state = "tile-darkshuttle"
 	turf_type = /turf/open/floor/mineral/plastitanium
 	mineralType = "plastitanium"
-	mats_per_unit = list(/datum/material/alloy/plastitanium=SHEET_MATERIAL_AMOUNT*0.25)
+	mats_per_unit = list(/datum/material/alloy/plastitanium=MINERAL_MATERIAL_AMOUNT*0.25)
+	material_flags = MATERIAL_NO_EFFECTS
 	merge_type = /obj/item/stack/tile/mineral/plastitanium
-	tile_reskin_types = list(
-		/obj/item/stack/tile/mineral/plastitanium,
-		/obj/item/stack/tile/mineral/plastitanium/red,
-		)
-
-/obj/item/stack/tile/mineral/plastitanium/red
-	name = "red plastitanium tile"
-	singular_name = "red plastitanium floor tile"
-	desc = "A tile made of plastitanium, used for very red shuttles."
-	turf_type = /turf/open/floor/mineral/plastitanium/red
-	icon_state = "tile_plastitanium_red"
-	merge_type = /obj/item/stack/tile/mineral/plastitanium/red
 
 /obj/item/stack/tile/mineral/snow
-	name = "snow tile"
-	singular_name = "snow tile"
-	desc = "A layer of snow."
+	name = "снежная плитка"
+	singular_name = "снежная плитка"
+	desc = "Слой снега."
 	icon_state = "tile_snow"
 	inhand_icon_state = "tile-silver"
-	turf_type = /turf/open/floor/fake_snow
+	turf_type = /turf/open/floor/grass/snow/safe
 	mineralType = "snow"
 	merge_type = /obj/item/stack/tile/mineral/snow

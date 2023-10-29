@@ -1,15 +1,15 @@
 //does massive brute and burn damage, but can only expand manually
 /datum/blobstrain/reagent/networked_fibers
-	name = "Networked Fibers"
-	description = "will do a high mix of brute and burn damage, and will generate resources quicker, but can only expand manually using the core or nodes."
-	shortdesc = "will do a high mix of brute and burn damage."
-	effectdesc = "will move your core or node when manually expanding near it."
-	analyzerdescdamage = "Does a high mix of brute and burn damage."
-	analyzerdesceffect = "Is mobile and generates resources rapidly."
+	name = "Сетевые волокна"
+	description = "будет наносить большой грубый урон и сжигать и быстрее генерировать ресурсы, но может расширяться только вручную, используя ядро или узлы."
+	shortdesc = "нанесет большой грубый и ожоговый урон."
+	effectdesc = "переместит ядро или узел при ручном расширении рядом с ним."
+	analyzerdescdamage = "Наносит высокий грубый и ожоговый урон."
+	analyzerdesceffect = "Высокая мобильность и быстрое генерирование ресурсов."
 	color = "#4F4441"
 	complementary_color = "#414C4F"
 	reagent = /datum/reagent/blob/networked_fibers
-	core_regen_bonus = 3
+	core_regen_bonus = 5
 
 /datum/blobstrain/reagent/networked_fibers/expand_reaction(obj/structure/blob/spawning_blob, obj/structure/blob/new_blob, turf/chosen_turf, mob/camera/blob/overmind)
 	if(!overmind && new_blob.overmind)
@@ -29,8 +29,9 @@
 
 //does massive brute and burn damage, but can only expand manually
 /datum/reagent/blob/networked_fibers
-	name = "Networked Fibers"
-	taste_description = "efficiency"
+	name = "Сетевые волокна"
+	enname = "Networked Fibers"
+	taste_description = "эффективность"
 	color = "#4F4441"
 
 /datum/reagent/blob/networked_fibers/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/overmind)

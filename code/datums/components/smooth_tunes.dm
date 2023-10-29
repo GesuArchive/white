@@ -68,7 +68,7 @@
 
 	//barticles
 	if(particles_path && ismovable(linked_song.parent))
-		particle_holder = new(linked_song.parent, particles_path, PARTICLE_ATTACH_MOB)
+		particle_holder = new(linked_song.parent, particles_path)
 	//filters
 	linked_song.parent?.add_filter("smooth_tunes_outline", 9, list("type" = "outline", "color" = glow_color))
 
@@ -85,15 +85,10 @@
 	SIGNAL_HANDLER
 	STOP_PROCESSING(SSobj, src)
 	if(viable_for_final_effect)
-		if(finished && linked_songtuner_rite && linked_song)
-			for(var/mob/living/carbon/human/listener in linked_song.hearing_mobs)
-				if(listener == parent || listener.can_block_magic(MAGIC_RESISTANCE_HOLY, charge_cost = 1))
-					continue
-
-				linked_songtuner_rite.finish_effect(listener, parent)
-		else
+		if(!finished)
 			to_chat(parent, span_warning("The song was interrupted, you cannot activate the finishing ability!"))
-
+		else
+			linked_songtuner_rite.finish_effect(parent, linked_song)
 	linked_song.parent?.remove_filter("smooth_tunes_outline")
 	UnregisterSignal(linked_song.parent, list(
 		COMSIG_INSTRUMENT_TEMPO_CHANGE,
@@ -103,13 +98,9 @@
 	linked_song = null
 	qdel(src)
 
-/datum/component/smooth_tunes/process(seconds_per_tick = SSOBJ_DT)
-	if(linked_songtuner_rite && linked_song)
-		for(var/mob/living/carbon/human/listener in linked_song.hearing_mobs)
-			if(listener == parent || listener.can_block_magic(MAGIC_RESISTANCE_HOLY, charge_cost = 0))
-				continue
-
-			linked_songtuner_rite.song_effect(listener, parent)
+/datum/component/smooth_tunes/process(delta_time = SSOBJ_DT)
+	if(linked_songtuner_rite)
+		linked_songtuner_rite.song_effect(parent, linked_song)
 	else
 		stop_singing()
 

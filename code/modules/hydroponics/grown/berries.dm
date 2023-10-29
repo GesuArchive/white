@@ -11,10 +11,10 @@
 	production = 5
 	yield = 2
 	instability = 30
-	growing_icon = 'icons/obj/service/hydroponics/growing_fruits.dmi'
+	growing_icon = 'icons/obj/hydroponics/growing_fruits.dmi'
 	icon_grow = "berry-grow" // Uses one growth icons set for all the subtypes
 	icon_dead = "berry-dead" // Same for the dead icon
-	genes = list(/datum/plant_gene/trait/repeated_harvest)
+	genes = list(/datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/noreact)
 	mutatelist = list(/obj/item/seeds/berry/glow, /obj/item/seeds/berry/poison)
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 
@@ -24,9 +24,10 @@
 	desc = "Nutritious!"
 	icon_state = "berrypile"
 	gender = PLURAL
+	bite_consumption_mod = 2
 	foodtypes = FRUIT
-	juice_typepath = /datum/reagent/consumable/berryjuice
-	tastes = list("berry" = 1)
+	juice_results = list(/datum/reagent/consumable/berryjuice = 0)
+	tastes = list("ягода" = 1)
 	distill_reagent = /datum/reagent/consumable/ethanol/gin
 
 // Poison Berries
@@ -46,9 +47,8 @@
 	name = "bunch of poison-berries"
 	desc = "Taste so good, you might die!"
 	icon_state = "poisonberrypile"
-	bite_consumption_mod = 3
 	foodtypes = FRUIT | TOXIC
-	juice_typepath = /datum/reagent/consumable/poisonberryjuice
+	juice_results = list(/datum/reagent/consumable/poisonberryjuice = 0)
 	tastes = list("poison-berry" = 1)
 	distill_reagent = null
 	wine_power = 35
@@ -63,7 +63,7 @@
 	product = /obj/item/food/grown/berries/death
 	lifespan = 30
 	potency = 50
-	mutatelist = null
+	mutatelist = list()
 	reagents_add = list(/datum/reagent/toxin/coniine = 0.08, /datum/reagent/toxin/staminatoxin = 0.1, /datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	rarity = 30
 
@@ -72,9 +72,7 @@
 	name = "bunch of death-berries"
 	desc = "Taste so good, you will die!"
 	icon_state = "deathberrypile"
-	bite_consumption_mod = 3
 	foodtypes = FRUIT | TOXIC
-	juice_typepath = /datum/reagent/consumable/poisonberryjuice
 	tastes = list("death-berry" = 1)
 	distill_reagent = null
 	wine_power = 50
@@ -89,7 +87,7 @@
 	product = /obj/item/food/grown/berries/glow
 	lifespan = 30
 	endurance = 25
-	mutatelist = null
+	mutatelist = list()
 	genes = list(/datum/plant_gene/trait/glow/white, /datum/plant_gene/trait/repeated_harvest)
 	reagents_add = list(/datum/reagent/uranium = 0.25, /datum/reagent/iodine = 0.2, /datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	rarity = 20
@@ -99,12 +97,93 @@
 	seed = /obj/item/seeds/berry/glow
 	name = "bunch of glow-berries"
 	desc = "Nutritious!"
-	bite_consumption_mod = 3
 	icon_state = "glowberrypile"
 	foodtypes = FRUIT
 	tastes = list("glow-berry" = 1)
 	distill_reagent = null
 	wine_power = 60
+
+// Cherries
+/obj/item/seeds/cherry
+	name = "pack of cherry pits"
+	desc = "Careful not to crack a tooth on one... That'd be the pits."
+	icon_state = "seed-cherry"
+	species = "cherry"
+	plantname = "Cherry Tree"
+	product = /obj/item/food/grown/cherries
+	lifespan = 35
+	endurance = 35
+	maturation = 5
+	production = 5
+	growthstages = 5
+	instability = 15
+	growing_icon = 'icons/obj/hydroponics/growing_fruits.dmi'
+	icon_grow = "cherry-grow"
+	icon_dead = "cherry-dead"
+	icon_harvest = "cherry-harvest"
+	genes = list(/datum/plant_gene/trait/repeated_harvest)
+	mutatelist = list(/obj/item/seeds/cherry/blue, /obj/item/seeds/cherry/bulb)
+	reagents_add = list(/datum/reagent/consumable/nutriment = 0.07, /datum/reagent/consumable/sugar = 0.07)
+
+/obj/item/food/grown/cherries
+	seed = /obj/item/seeds/cherry
+	name = "cherries"
+	desc = "Great for toppings!"
+	icon_state = "cherry"
+	gender = PLURAL
+	bite_consumption_mod = 2
+	foodtypes = FRUIT
+	grind_results = list(/datum/reagent/consumable/cherryjelly = 0)
+	tastes = list("cherry" = 1)
+	wine_power = 30
+
+// Blue Cherries
+/obj/item/seeds/cherry/blue
+	name = "pack of blue cherry pits"
+	desc = "The blue kind of cherries."
+	icon_state = "seed-bluecherry"
+	species = "bluecherry"
+	plantname = "Blue Cherry Tree"
+	product = /obj/item/food/grown/bluecherries
+	mutatelist = list()
+	reagents_add = list(/datum/reagent/consumable/nutriment = 0.07, /datum/reagent/consumable/sugar = 0.07)
+	rarity = 10
+
+/obj/item/food/grown/bluecherries
+	seed = /obj/item/seeds/cherry/blue
+	name = "синий cherries"
+	desc = "They're cherries that are blue."
+	icon_state = "bluecherry"
+	bite_consumption_mod = 2
+	foodtypes = FRUIT
+	grind_results = list(/datum/reagent/consumable/bluecherryjelly = 0)
+	tastes = list("синий cherry" = 1)
+	wine_power = 50
+
+//Cherry Bulbs
+/obj/item/seeds/cherry/bulb
+	name = "pack of cherry bulb pits"
+	desc = "The glowy kind of cherries."
+	icon_state = "seed-cherrybulb"
+	species = "cherrybulb"
+	plantname = "Cherry Bulb Tree"
+	product = /obj/item/food/grown/cherrybulbs
+	genes = list(/datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/glow/pink)
+	mutatelist = list()
+	reagents_add = list(/datum/reagent/consumable/nutriment = 0.07, /datum/reagent/consumable/sugar = 0.07)
+	rarity = 10
+	graft_gene = /datum/plant_gene/trait/glow/pink
+
+/obj/item/food/grown/cherrybulbs
+	seed = /obj/item/seeds/cherry/bulb
+	name = "cherry bulbs"
+	desc = "They're like little Space Christmas lights!"
+	icon_state = "cherry_bulb"
+	bite_consumption_mod = 2
+	foodtypes = FRUIT
+	grind_results = list(/datum/reagent/consumable/cherryjelly = 0)
+	tastes = list("cherry" = 1)
+	wine_power = 50
 
 // Grapes
 /obj/item/seeds/grape
@@ -120,7 +199,7 @@
 	production = 5
 	yield = 4
 	growthstages = 2
-	growing_icon = 'icons/obj/service/hydroponics/growing_fruits.dmi'
+	growing_icon = 'icons/obj/hydroponics/growing_fruits.dmi'
 	icon_grow = "grape-grow"
 	icon_dead = "grape-dead"
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
@@ -134,12 +213,18 @@
 	icon_state = "grapes"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT
-	juice_typepath = /datum/reagent/consumable/grapejuice
-	tastes = list("grape" = 1)
+	juice_results = list(/datum/reagent/consumable/grapejuice = 0)
+	tastes = list("виноград" = 1)
 	distill_reagent = /datum/reagent/consumable/ethanol/wine
 
 /obj/item/food/grown/grapes/make_dryable()
 	AddElement(/datum/element/dryable, /obj/item/food/no_raisin/healthy)
+
+/obj/item/food/grown/grapes/microwave_act(obj/machinery/microwave/M)
+	new /obj/item/stack/sheet/mineral/plasma(drop_location())
+	M.spark()
+	qdel(src)
+
 
 // Green Grapes
 /obj/item/seeds/grape/green
@@ -150,17 +235,14 @@
 	plantname = "Green-Grape Vine"
 	product = /obj/item/food/grown/grapes/green
 	reagents_add = list( /datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1, /datum/reagent/consumable/sugar = 0.1, /datum/reagent/medicine/c2/aiuri = 0.2)
-	mutatelist = null
 
 /obj/item/food/grown/grapes/green
 	seed = /obj/item/seeds/grape/green
 	name = "bunch of green grapes"
 	icon_state = "greengrapes"
-	bite_consumption_mod = 3
-	tastes = list("green grape" = 1)
+	tastes = list("зелёный грейп" = 1)
 	distill_reagent = /datum/reagent/consumable/ethanol/cognac
 
-// Toechtauese Berries
 /obj/item/seeds/toechtauese
 	name = "pack of töchtaüse berry seeds"
 	desc = "These seeds grow into töchtaüse bushes."
@@ -173,11 +255,11 @@
 	production = 5
 	yield = 2
 	instability = 30
-	growing_icon = 'icons/obj/service/hydroponics/growing_fruits.dmi'
+	growing_icon = 'icons/obj/hydroponics/growing_fruits.dmi'
 	icon_grow = "toechtauese-grow"
 	icon_dead = "toechtauese-dead"
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
-	reagents_add = list(/datum/reagent/toxin/itching_powder = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	reagents_add = list(/datum/reagent/consumable/toechtauese_juice = 0.1, /datum/reagent/toxin/itching_powder = 0.04)
 
 /obj/item/food/grown/toechtauese
 	seed = /obj/item/seeds/toechtauese
@@ -185,6 +267,7 @@
 	desc = "A branch with töchtaüse berries on it. They're a favourite on the Mothic Fleet, but not in this form."
 	icon_state = "toechtauese_branch"
 	foodtypes = FRUIT
-	juice_typepath = /datum/reagent/consumable/toechtauese_juice
+	grind_results = list(/datum/reagent/consumable/toechtauese_juice = 0, /datum/reagent/toxin/itching_powder = 0)
+	juice_results = list(/datum/reagent/consumable/toechtauese_juice = 0, /datum/reagent/toxin/itching_powder = 0)
 	tastes = list("fiery itchy pain" = 1)
 	distill_reagent = /datum/reagent/toxin/itching_powder

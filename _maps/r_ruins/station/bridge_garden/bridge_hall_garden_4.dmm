@@ -1,0 +1,923 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"as" = (
+/obj/structure/flora/rock{
+	pixel_x = -13;
+	pixel_y = 3;
+	layer = 2.91
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_y = 15;
+	pixel_x = 6
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"aA" = (
+/obj/structure/flora/biolumi/mine,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"aO" = (
+/obj/structure/flora/ausbushes/pointybush{
+	layer = 2.91
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 4;
+	pixel_y = 16
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"aT" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"bl" = (
+/obj/structure/flora/grass/jungle,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"cx" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central/low_level_centre)
+"cI" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt"
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/hallway/primary/central/low_level_centre)
+"da" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/spawner/random/decoration/meteor{
+	pixel_y = 6
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"dP" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/hallway/primary/central/low_level_centre)
+"ea" = (
+/obj/structure/flora/rock,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/hallway/primary/central/low_level_centre)
+"eb" = (
+/mob/living/simple_animal/hostile/carp/cayenne/ekaterina/belka,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"eq" = (
+/obj/structure/flora/junglebush/b,
+/obj/structure/flora/biolumi/flower{
+	pixel_y = 7;
+	pixel_x = -1;
+	layer = 2.91
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"fc" = (
+/obj/structure/flora/ausbushes/sunnybush{
+	pixel_y = 3;
+	pixel_x = 9
+	},
+/obj/structure/flora/rock/pile{
+	pixel_x = -13
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"fk" = (
+/turf/template_noop,
+/area/template_noop)
+"fr" = (
+/obj/item/kirbyplants/photosynthetic{
+	pixel_x = 2
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 9
+	},
+/turf/template_noop,
+/area/template_noop)
+"fs" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"ga" = (
+/obj/structure/flora/biolumi/mine{
+	layer = 2.91
+	},
+/obj/structure/flora/grass/jungle,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"io" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 9
+	},
+/obj/item/kirbyplants/photosynthetic{
+	pixel_x = 2
+	},
+/turf/template_noop,
+/area/template_noop)
+"jD" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/hallway/primary/central/low_level_centre)
+"kY" = (
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"nA" = (
+/turf/open/floor/plasteel/dark/corner,
+/area/hallway/primary/central/low_level_centre)
+"nX" = (
+/obj/structure/flora/rock/pile{
+	pixel_x = -2
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"of" = (
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/hallway/primary/central/low_level_centre)
+"oO" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 8
+	},
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"pk" = (
+/obj/structure/flora/junglebush/c,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"ql" = (
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"rF" = (
+/mob/living/simple_animal/hostile/carp/cayenne/ekaterina/strelka,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"sB" = (
+/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/west,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/green,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"up" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"uF" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"vi" = (
+/obj/structure/flora/bush{
+	pixel_y = 4
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"xx" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/carp/cayenne/ekaterina,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"xO" = (
+/obj/structure/flora/biolumi/flower{
+	pixel_y = 6;
+	pixel_x = -3;
+	layer = 2.91
+	},
+/obj/structure/flora/junglebush/c{
+	pixel_y = -1
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"yu" = (
+/obj/effect/turf_decal/siding/thinplating/dark,
+/turf/template_noop,
+/area/template_noop)
+"yR" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"zk" = (
+/obj/structure/flora/ausbushes/fernybush{
+	pixel_y = 9
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"Aw" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"AB" = (
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"AO" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"Bx" = (
+/obj/structure/flora/biolumi/flower{
+	pixel_y = 7;
+	pixel_x = -1;
+	layer = 2.91
+	},
+/obj/structure/flora/junglebush,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"Cd" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"Cs" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"CA" = (
+/turf/open/floor/plasteel/dark/corner{
+	dir = 4
+	},
+/area/hallway/primary/central/low_level_centre)
+"CW" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 4
+	},
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"DQ" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"ES" = (
+/obj/effect/spawner/random/decoration/meteor{
+	pixel_y = 6
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"EX" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"FB" = (
+/obj/structure/flora/junglebush/b,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"Hm" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"HQ" = (
+/turf/open/floor/plasteel/dark/corner{
+	dir = 8
+	},
+/area/hallway/primary/central/low_level_centre)
+"IP" = (
+/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/east,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"IS" = (
+/obj/structure/flora/rock/pile{
+	pixel_y = -4;
+	pixel_x = -2
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"Kg" = (
+/turf/closed/mineral/random/high_chance,
+/area/hallway/primary/central/low_level_centre)
+"Kp" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"LA" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"LW" = (
+/obj/structure/flora/junglebush,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"Nj" = (
+/obj/item/kirbyplants/photosynthetic{
+	pixel_y = 6;
+	pixel_x = 2
+	},
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"Ny" = (
+/turf/open/floor/plasteel/monofloor/dark,
+/area/hallway/primary/central/low_level_centre)
+"Ov" = (
+/obj/structure/water_source/puddle{
+	pixel_x = 14;
+	pixel_y = 2
+	},
+/obj/structure/flora/ausbushes/genericbush{
+	pixel_y = 11;
+	pixel_x = -4
+	},
+/obj/structure/flora/ausbushes/sunnybush{
+	pixel_x = 6
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"OF" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner,
+/turf/template_noop,
+/area/template_noop)
+"PL" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central/low_level_centre)
+"QD" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"QR" = (
+/obj/structure/flora/rock/pile,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/hallway/primary/central/low_level_centre)
+"QU" = (
+/obj/machinery/light/floor/directional/north,
+/obj/machinery/light/floor/directional/east,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/green,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"Rw" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/hallway/primary/central/low_level_centre)
+"RO" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"Tp" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt";
+	pixel_y = 5;
+	pixel_x = 8
+	},
+/obj/structure/flora/ausbushes/rospilovo{
+	pixel_y = 13;
+	pixel_x = -5
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"Ty" = (
+/obj/effect/spawner/random/decoration/meteor,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"TS" = (
+/obj/structure/flora/rock/jungle,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"TY" = (
+/obj/structure/flora/ausbushes/fernybush{
+	layer = 2.91
+	},
+/obj/structure/flora/ausbushes{
+	pixel_y = 14;
+	pixel_x = -5
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"Vh" = (
+/obj/machinery/light/floor/directional/north,
+/obj/machinery/light/floor/directional/west,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"VI" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"Wk" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 10
+	},
+/obj/item/kirbyplants/photosynthetic{
+	pixel_y = 6;
+	pixel_x = 2
+	},
+/turf/template_noop,
+/area/template_noop)
+"Wt" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"Ww" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/hallway/primary/central/low_level_centre)
+"YS" = (
+/turf/open/floor/plasteel/dark/corner{
+	dir = 1
+	},
+/area/hallway/primary/central/low_level_centre)
+"Zl" = (
+/obj/structure/flora/biolumi/lamp{
+	pixel_y = 6;
+	layer = 2.91
+	},
+/obj/structure/flora/junglebush,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"ZL" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+
+(1,1,1) = {"
+vi
+AO
+yu
+IS
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+nX
+AO
+yu
+Tp
+"}
+(2,1,1) = {"
+fc
+AO
+ZL
+Wk
+LW
+Ty
+xO
+fr
+EX
+ZL
+Nj
+eq
+Ty
+TS
+io
+EX
+yu
+yR
+"}
+(3,1,1) = {"
+uF
+EX
+fk
+ZL
+uF
+uF
+uF
+EX
+fk
+fk
+ZL
+uF
+uF
+uF
+EX
+fk
+ZL
+uF
+"}
+(4,1,1) = {"
+fs
+LA
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+OF
+fs
+"}
+(5,1,1) = {"
+pk
+AO
+fk
+fk
+fk
+PL
+dP
+YS
+Aw
+Hm
+HQ
+jD
+cx
+fk
+fk
+fk
+yu
+TY
+"}
+(6,1,1) = {"
+Ty
+AO
+fk
+fk
+fk
+dP
+Vh
+Kp
+aT
+xx
+Kp
+sB
+jD
+fk
+fk
+fk
+yu
+Ty
+"}
+(7,1,1) = {"
+Zl
+AO
+fk
+fk
+fk
+YS
+VI
+AB
+QR
+AB
+AB
+kY
+HQ
+fk
+fk
+fk
+yu
+aA
+"}
+(8,1,1) = {"
+uF
+EX
+fk
+fk
+fk
+Cd
+aT
+AB
+Kg
+ea
+AB
+oO
+Hm
+fk
+fk
+fk
+ZL
+uF
+"}
+(9,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+QD
+rF
+of
+Kg
+Kg
+of
+AB
+ql
+fk
+fk
+fk
+fk
+fk
+"}
+(10,1,1) = {"
+fs
+LA
+fk
+fk
+fk
+up
+CW
+QR
+Kg
+Kg
+QR
+Wt
+Cs
+fk
+fk
+fk
+OF
+fs
+"}
+(11,1,1) = {"
+ga
+AO
+fk
+fk
+fk
+CA
+VI
+AB
+cI
+of
+eb
+kY
+nA
+fk
+fk
+fk
+yu
+Bx
+"}
+(12,1,1) = {"
+Ty
+AO
+fk
+fk
+fk
+Rw
+QU
+DQ
+CW
+Wt
+DQ
+IP
+Ww
+fk
+fk
+fk
+yu
+Ty
+"}
+(13,1,1) = {"
+FB
+AO
+fk
+fk
+fk
+Ny
+Rw
+CA
+RO
+Cs
+nA
+Ww
+Ny
+fk
+fk
+fk
+yu
+bl
+"}
+(14,1,1) = {"
+uF
+EX
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+ZL
+uF
+"}
+(15,1,1) = {"
+fs
+LA
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+OF
+fs
+"}
+(16,1,1) = {"
+Ov
+AO
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+yu
+zk
+"}
+(17,1,1) = {"
+aO
+AO
+fk
+da
+fk
+fk
+fk
+da
+fk
+fk
+da
+fk
+fk
+fk
+ES
+fk
+yu
+as
+"}

@@ -5,12 +5,14 @@ import { Window } from '../layouts';
 export const KeycardAuth = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Window width={375} height={145}>
+    <Window width={375} height={155}>
       <Window.Content>
         <Section>
           <Box>
             {data.waiting === 1 && (
-              <span>Waiting for another device to confirm your request...</span>
+              <span>
+                Ожидание подтверждения вашего запроса другим устройством...
+              </span>
             )}
           </Box>
           <Box>
@@ -24,7 +26,7 @@ export const KeycardAuth = (props, context) => {
                     lineHeight="60px"
                     fluid
                     onClick={() => act('auth_swipe')}
-                    content="Authorize"
+                    content="Авторизовать"
                   />
                 )}
                 {data.auth_required === 0 && (
@@ -35,25 +37,25 @@ export const KeycardAuth = (props, context) => {
                       onClick={() => {
                         return act('red_alert');
                       }}
-                      content="Red Alert"
+                      content="Красная тревога"
                     />
                     <Button
                       icon="wrench"
                       fluid
                       onClick={() => act('emergency_maint')}
-                      content="Emergency Maintenance Access"
+                      content="Аварийный доступ к техтоннелям"
                     />
                     <Button
                       icon="meteor"
                       fluid
                       onClick={() => act('bsa_unlock')}
-                      content="Bluespace Artillery Unlock"
+                      content="Разблокировка блюспейс артиллерии"
                     />
                     <Button
-                      icon="key"
+                      icon="circle"
                       fluid
-                      onClick={() => act('give_janitor_access')}
-                      content="Grant Janitor Access"
+                      onClick={() => act('migger_alarm')}
+                      content="Миграционная политика"
                     />
                   </>
                 )}

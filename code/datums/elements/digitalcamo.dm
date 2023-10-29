@@ -10,7 +10,7 @@
 	. = ..()
 	if(!isliving(target) || (target in attached_mobs))
 		return ELEMENT_INCOMPATIBLE
-	RegisterSignal(target, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(target, COMSIG_LIVING_CAN_TRACK, PROC_REF(can_track))
 	var/image/img = image(loc = target)
 	img.override = TRUE
@@ -19,7 +19,7 @@
 
 /datum/element/digitalcamo/Detach(datum/target)
 	. = ..()
-	UnregisterSignal(target, list(COMSIG_ATOM_EXAMINE, COMSIG_LIVING_CAN_TRACK))
+	UnregisterSignal(target, list(COMSIG_PARENT_EXAMINE, COMSIG_LIVING_CAN_TRACK))
 	for(var/mob/living/silicon/ai/AI in GLOB.player_list)
 		AI.client.images -= attached_mobs[target]
 	attached_mobs -= target
@@ -42,9 +42,9 @@
 /datum/element/digitalcamo/proc/on_examine(datum/source, mob/M)
 	SIGNAL_HANDLER
 
-	to_chat(M, span_warning("[source.p_their()] skin seems to be shifting like something is moving below it."))
+	to_chat(M, "<span class = 'warning'>[source.ru_who(TRUE)] двигает своим тело в неестественной и явно нечеловеческой манере.</span>")
 
-/datum/element/digitalcamo/proc/can_track(datum/source, mob/user)
+/datum/element/digitalcamo/proc/can_track(datum/source)
 	SIGNAL_HANDLER
 
 	return COMPONENT_CANT_TRACK

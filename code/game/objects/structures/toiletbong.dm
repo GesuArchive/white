@@ -3,7 +3,7 @@
 	desc = "A repurposed toilet with re-arranged piping and an attached flamethrower. Why would anyone build this?"
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "toiletbong"
-	density = FALSE
+	density = TRUE
 	anchored = TRUE
 	var/emagged = FALSE
 	var/smokeradius = 1
@@ -28,10 +28,10 @@
 /obj/structure/toiletbong/attack_hand(mob/living/carbon/user)
 	. = ..()
 	if (!anchored)
-		user.balloon_alert(user, "secure it first!")
+		user.balloon_alert(user, "Secure it first!")
 		return
 	if (!LAZYLEN(contents))
-		user.balloon_alert(user, "it's empty!")
+		user.balloon_alert(user, "It's empty!")
 		return
 	user.visible_message(span_boldnotice("[user] takes a huge drag on the [src]."))
 	if (do_after(user, 2 SECONDS, target = src))
@@ -47,14 +47,15 @@
 			puff.start()
 			if (prob(5) && !emagged)
 				if(islizard(user))
-					user.balloon_alert(user, "a hidden treat!")
+					to_chat(user, span_boldnotice("A hidden treat in the pipes!"))
+					user.balloon_alert(user, "A hidden treat in the pipes!")
 					user.visible_message(span_danger("[user] fishes a mouse out of the pipes."))
 				else
 					to_chat(user, span_userdanger("There was something disgusting in the pipes!"))
 					user.visible_message(span_danger("[user] spits out a mouse."))
 					user.adjust_disgust(50)
-					user.vomit(VOMIT_CATEGORY_DEFAULT)
-				var/mob/living/spawned_mob = new /mob/living/basic/mouse(get_turf(user))
+					user.vomit(10)
+				var/mob/living/spawned_mob = new /mob/living/simple_animal/mouse(get_turf(user))
 				spawned_mob.faction |= "[REF(user)]"
 				if(prob(50))
 					for(var/j in 1 to rand(1, 3))
@@ -84,7 +85,7 @@
 	new /obj/item/flamethrower(get_turf(src))
 	new /obj/item/stack/sheet/iron(get_turf(src))
 	var/obj/item/tank/internals/plasma/ptank = new /obj/item/tank/internals/plasma(get_turf(src))
-	ptank.air_contents.gases[/datum/gas/plasma][MOLES] = (0)
+	ptank.air_contents.set_moles(GAS_PLASMA, 0)
 	qdel(src)
 	return TRUE
 
@@ -97,15 +98,11 @@
 
 /obj/structure/toiletbong/emag_act(mob/user, obj/item/card/emag/emag_card)
 	playsound(src, 'sound/effects/fish_splash.ogg', 50)
-	user.balloon_alert(user, "whoops!")
+	user.balloon_alert(user, "Whoops!")
 	if(!emagged)
 		emagged = TRUE
 		smokeradius = 2
-		balloon_alert(user, "toilet broke")
-		if (emag_card)
-			to_chat(user, span_boldwarning("The [emag_card] falls into the toilet. You fish it back out. Looks like you broke the toilet."))
-		return TRUE
-	return FALSE
+		to_chat(user, span_boldwarning("The [emag_card.name] falls into the toilet. You fish it back out. Looks like you broke the toilet."))
 
 /obj/structure/toiletbong/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/card/emag))

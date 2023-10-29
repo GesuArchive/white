@@ -1,0 +1,331 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aM" = (
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/machinery/light,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"ca" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/sign/departments/botany/directional/west,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"cA" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"eh" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/leafybush,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"eP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4;
+	icon_state = "warningline"
+	},
+/obj/machinery/vending/hydroseeds{
+	slogan_delay = 700
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"hQ" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"hY" = (
+/obj/structure/table,
+/obj/item/hatchet{
+	pixel_y = 2
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"mj" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin/unpowered)
+"mq" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"qe" = (
+/obj/structure/window/reinforced/spawner/east,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/grassybush,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"sg" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/grassybush,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"sj" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/east,
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/grassybush,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"sP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4;
+	icon_state = "warningline"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"tr" = (
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"vn" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/flora/ausbushes/pointybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"xq" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/east,
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/flora/ausbushes/pointybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/grassybush,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"xu" = (
+/obj/machinery/vending/wardrobe/hydro_wardrobe,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Ay" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4;
+	icon_state = "warningline"
+	},
+/obj/machinery/seed_extractor,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"BO" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Fk" = (
+/obj/effect/abstract/doorway_marker,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Hx" = (
+/obj/structure/window/reinforced/spawner/east,
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/grassybush,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"JN" = (
+/obj/structure/table,
+/obj/item/shovel/spade{
+	pixel_y = 6
+	},
+/obj/item/secateurs{
+	pixel_y = 23
+	},
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Lb" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/leafybush,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"MF" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4;
+	icon_state = "warningline"
+	},
+/obj/machinery/vending/hydronutrients,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"NH" = (
+/turf/template_noop,
+/area/template_noop)
+"NT" = (
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Wq" = (
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/pointybush,
+/obj/structure/flora/ausbushes/sunnybush,
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/sign/departments/botany/directional/west,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"XY" = (
+/obj/structure/closet/secure_closet/hydroponics,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+NH
+NH
+mj
+mj
+mj
+mj
+mj
+NH
+NH
+"}
+(2,1,1) = {"
+NH
+mj
+mj
+qe
+sg
+qe
+mj
+mj
+NH
+"}
+(3,1,1) = {"
+mj
+mj
+cA
+tr
+eh
+tr
+cA
+mj
+mj
+"}
+(4,1,1) = {"
+mj
+ca
+cA
+tr
+vn
+tr
+cA
+Wq
+mj
+"}
+(5,1,1) = {"
+mj
+Lb
+cA
+tr
+eh
+tr
+cA
+aM
+mj
+"}
+(6,1,1) = {"
+mj
+xq
+cA
+tr
+sj
+tr
+cA
+Hx
+mj
+"}
+(7,1,1) = {"
+mj
+eP
+sP
+sP
+Ay
+sP
+sP
+MF
+mj
+"}
+(8,1,1) = {"
+mj
+mq
+NT
+NT
+NT
+NT
+NT
+mq
+mj
+"}
+(9,1,1) = {"
+BO
+NT
+NT
+NT
+NT
+NT
+NT
+NT
+Fk
+"}
+(10,1,1) = {"
+mj
+hY
+JN
+NT
+NT
+NT
+XY
+xu
+mj
+"}
+(11,1,1) = {"
+mj
+mj
+mj
+mj
+hQ
+mj
+mj
+mj
+mj
+"}

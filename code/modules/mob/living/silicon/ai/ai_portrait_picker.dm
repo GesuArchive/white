@@ -1,4 +1,3 @@
-
 /**
  * ## Portrait picker!!
  *
@@ -50,9 +49,6 @@
 /datum/portrait_picker/ui_act(action, params)
 	. = ..()
 	if(.)
-		return
-	if(!isAI(holder.mob))
-		qdel(src)
 		return
 	switch(action)
 		if("search")

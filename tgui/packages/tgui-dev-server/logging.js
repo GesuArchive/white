@@ -47,10 +47,7 @@ const getPrefix = (() => {
       styles.bright,
     ];
   }
-  // prettier-ignore
-  return ns => [
-    `${getTimestamp()} ${ns}`,
-  ];
+  return (ns) => [`${getTimestamp()} ${ns}`];
 })();
 
 /**

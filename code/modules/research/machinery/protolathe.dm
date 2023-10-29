@@ -1,8 +1,24 @@
 /obj/machinery/rnd/production/protolathe
-	name = "protolathe"
-	desc = "Converts raw materials into useful objects."
+	name = "протолат"
+	desc = "Превращает сырье в полезные предметы."
 	icon_state = "protolathe"
 	circuit = /obj/item/circuitboard/machine/protolathe
+	categories = list(
+		"Энергетические разработки",
+		"Медицинские разработки",
+		"Блюспейс разработки",
+		"Запчасти оборудования",
+		"Снаряжение",
+		"Рабочие инструменты",
+		"Шахтёрское оборудование",
+		"Электроника",
+		"Вооружение",
+		"Аммуниция",
+		"Бойки",
+		"Компьютерные запчасти",
+		"Спейсподы и шаттлостроение",
+		"Схемотехника"
+	)
 	production_animation = "protolathe_n"
 	allowed_buildtypes = PROTOLATHE
 
@@ -16,11 +32,3 @@
 		log_game("Protolathe of type [type] constructed by [key_name(usr)] at [get_area_name(src, TRUE)]")
 
 	return ..()
-
-/// Special subtype protolathe for offstation use. Has a more limited available design selection.
-/obj/machinery/rnd/production/protolathe/offstation
-	name = "ancient protolathe"
-	desc = "Converts raw materials into useful objects. Its ancient construction may limit its ability to print all known technology."
-	circuit = /obj/item/circuitboard/machine/protolathe/offstation
-	allowed_buildtypes = AWAY_LATHE
-	charges_tax = FALSE

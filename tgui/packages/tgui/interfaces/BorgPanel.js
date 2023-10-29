@@ -13,65 +13,65 @@ export const BorgPanel = (props, context) => {
   const ais = data.ais || [];
   const laws = data.laws || [];
   return (
-    <Window title="Borg Panel" theme="admin" width={700} height={700}>
+    <Window title="Управление киборгами" theme="admin" width={700} height={700}>
       <Window.Content scrollable>
         <Section
           title={borg.name}
           buttons={
             <Button
               icon="pencil-alt"
-              content="Rename"
+              content="Переименовать"
               onClick={() => act('rename')}
             />
           }>
           <LabeledList>
-            <LabeledList.Item label="Status">
+            <LabeledList.Item label="Статус">
               <Button
                 icon={borg.emagged ? 'check-square-o' : 'square-o'}
-                content="Emagged"
+                content="Взломано"
                 selected={borg.emagged}
                 onClick={() => act('toggle_emagged')}
               />
               <Button
                 icon={borg.lockdown ? 'check-square-o' : 'square-o'}
-                content="Locked Down"
+                content="Заблокировано"
                 selected={borg.lockdown}
                 onClick={() => act('toggle_lockdown')}
               />
               <Button
                 icon={borg.scrambledcodes ? 'check-square-o' : 'square-o'}
-                content="Scrambled Codes"
+                content="Шифрованные коды"
                 selected={borg.scrambledcodes}
                 onClick={() => act('toggle_scrambledcodes')}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Charge">
+            <LabeledList.Item label="Заряд">
               {!cell.missing ? (
                 <ProgressBar value={cellPercent}>
                   {cell.charge + ' / ' + cell.maxcharge}
                 </ProgressBar>
               ) : (
-                <span className="color-bad">No cell installed</span>
+                <span className="color-bad">Нет установленной батарейки</span>
               )}
               <br />
               <Button
                 icon="pencil-alt"
-                content="Set"
+                content="Выставить"
                 onClick={() => act('set_charge')}
               />
               <Button
                 icon="eject"
-                content="Change"
+                content="Изменить"
                 onClick={() => act('change_cell')}
               />
               <Button
                 icon="trash"
-                content="Remove"
+                content="Удалить"
                 color="bad"
                 onClick={() => act('remove_cell')}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Radio Channels">
+            <LabeledList.Item label="Радиоканалы">
               {channels.map((channel) => (
                 <Button
                   key={channel.name}
@@ -86,7 +86,7 @@ export const BorgPanel = (props, context) => {
                 />
               ))}
             </LabeledList.Item>
-            <LabeledList.Item label="Model">
+            <LabeledList.Item label="Модули">
               {modules.map((module) => (
                 <Button
                   key={module.type}
@@ -105,7 +105,7 @@ export const BorgPanel = (props, context) => {
                 />
               ))}
             </LabeledList.Item>
-            <LabeledList.Item label="Upgrades">
+            <LabeledList.Item label="Обновления">
               {upgrades.map((upgrade) => (
                 <Button
                   key={upgrade.type}
@@ -120,7 +120,7 @@ export const BorgPanel = (props, context) => {
                 />
               ))}
             </LabeledList.Item>
-            <LabeledList.Item label="Master AI">
+            <LabeledList.Item label="Мастер ИИ">
               {ais.map((ai) => (
                 <Button
                   key={ai.ref}
@@ -138,11 +138,11 @@ export const BorgPanel = (props, context) => {
           </LabeledList>
         </Section>
         <Section
-          title="Laws"
+          title="Законы"
           buttons={
             <Button
               icon={borg.lawupdate ? 'check-square-o' : 'square-o'}
-              content="Lawsync"
+              content="Синхронизировать"
               selected={borg.lawupdate}
               onClick={() => act('toggle_lawupdate')}
             />

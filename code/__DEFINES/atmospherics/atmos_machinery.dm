@@ -65,9 +65,6 @@
 /// TLV datums will ignore variables set to this.
 #define TLV_VALUE_IGNORE -1
 
-#define CIRCULATOR_HOT 0
-#define CIRCULATOR_COLD 1
-
 ///Default pressure, used in the UI to reset the settings
 #define PUMP_DEFAULT_PRESSURE (ONE_ATMOSPHERE)
 ///Maximum settable pressure

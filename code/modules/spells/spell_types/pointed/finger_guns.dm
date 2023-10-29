@@ -1,12 +1,11 @@
 /datum/action/cooldown/spell/pointed/projectile/finger_guns
-	name = "Finger Guns"
-	desc = "Shoot up to three mimed bullets from your fingers that damage and mute their targets. \
-		Can't be used if you have something in your hands."
+	name = "Ручные пистолеты"
+	desc = "Выпускайте из пальцев до трех имитированных пуль, которые наносят урон целям и заглушают их крики. \
+			Нельзя использовать, если ваши руки заняты."
 	background_icon_state = "bg_mime"
 	overlay_icon_state = "bg_mime_border"
 	button_icon = 'icons/mob/actions/actions_mime.dmi'
-	button_icon_state = "finger_guns"
-	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED|AB_CHECK_INCAPACITATED
+	button_icon_state = "finger_guns0"
 	panel = "Mime"
 	sound = null
 
@@ -15,31 +14,31 @@
 
 	invocation = ""
 	invocation_type = INVOCATION_EMOTE
-	invocation_self_message = span_danger("You fire your finger gun!")
+	invocation_self_message = span_danger("Стреляю из своих пальцев-пистолетов!")
 
 	spell_requirements = SPELL_REQUIRES_HUMAN|SPELL_REQUIRES_MIME_VOW
 	antimagic_flags = NONE
 	spell_max_level = 1
 
-	active_msg = "You draw your fingers!"
-	deactive_msg = "You put your fingers at ease. Another time."
+	active_msg = "Представляю что мои пальцы это пистолеты!"
+	deactive_msg = "Расслабляю свои пальцы. Пока что."
 	cast_range = 20
 	projectile_type = /obj/projectile/bullet/mime
 	projectile_amount = 3
 
-/datum/action/cooldown/spell/pointed/projectile/finger_guns/try_invoke(mob/living/invoker, feedback = TRUE)
+/datum/action/cooldown/spell/pointed/projectile/finger_guns/can_invoke(feedback = TRUE)
 	if(invocation_type == INVOCATION_EMOTE)
-		if(!ishuman(invoker))
+		if(!ishuman(owner))
 			return FALSE
 
-		var/mob/living/carbon/human/human_invoker = invoker
-		if(human_invoker.incapacitated())
+		var/mob/living/carbon/human/human_owner = owner
+		if(human_owner.incapacitated())
 			if(feedback)
-				to_chat(human_invoker, span_warning("You can't properly point your fingers while incapacitated."))
+				to_chat(owner, span_warning("Не могу правильно представить пистолеты, будучи без руки."))
 			return FALSE
-		if(human_invoker.get_active_held_item())
+		if(human_owner.get_active_held_item())
 			if(feedback)
-				to_chat(human_invoker, span_warning("You can't properly fire your finger guns with something in your hand."))
+				to_chat(owner, span_warning("Не могу правильно стрелять из пальцев-пистолетов, держа что-то в руке."))
 			return FALSE
 
 	return ..()

@@ -7,7 +7,15 @@ const CLIENT_ONLINE = 2;
 const CLIENT_AWAY = 1;
 const CLIENT_OFFLINE = 0;
 
+const STATUS2TEXT = {
+  0: 'Offline',
+  1: 'Away',
+  2: 'Online',
+};
+
 const NoChannelDimmer = (props, context) => {
+  const { act, data } = useBackend(context);
+  const { owner } = data;
   return (
     <Dimmer>
       <Stack align="baseline" vertical>
@@ -25,11 +33,10 @@ const NoChannelDimmer = (props, context) => {
           </Stack>
         </Stack.Item>
         <Stack.Item fontSize="18px">
-          Click a channel to start chatting!
+          Нажми на канал для начала общения!
         </Stack.Item>
         <Stack.Item fontSize="15px">
-          (If you&apos;re new, you may want to set your name in the bottom
-          left!)
+          (Если ты новенький, то установи себе имя снизу слева!)
         </Stack.Item>
       </Stack>
     </Dimmer>
@@ -68,13 +75,14 @@ export const NtosNetChat = (props, context) => {
     if (client.operator) {
       return 'green';
     }
-    if (client.online) {
-      return 'white';
-    }
-    if (client.away) {
-      return 'yellow';
-    } else {
-      return 'label';
+    switch (client.status) {
+      case CLIENT_ONLINE:
+        return 'white';
+      case CLIENT_AWAY:
+        return 'yellow';
+      case CLIENT_OFFLINE:
+      default:
+        return 'label';
     }
   };
   // client from this computer!
@@ -138,7 +146,7 @@ export const NtosNetChat = (props, context) => {
             </Section>
           </Stack.Item>
           <Stack.Divider />
-          <Stack.Item grow={4}>
+          <Stack.Item grow={5}>
             <Stack vertical fill>
               <Stack.Item grow>
                 <Section scrollable fill>

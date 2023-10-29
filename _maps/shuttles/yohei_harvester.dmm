@@ -1,0 +1,989 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ak" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/plasteel/tg/dark/textured,
+/area/shuttle/yohei)
+"at" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/structure/chair/sofa/corp{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"bi" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/plasteel/tg/dark/textured_edge{
+	dir = 8
+	},
+/area/shuttle/yohei)
+"bK" = (
+/obj/structure/table/abductor,
+/obj/item/modular_computer/tablet{
+	pixel_y = 19
+	},
+/obj/item/integrated_circuit_printer/upgraded{
+	pixel_x = -3;
+	pixel_y = 1
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"cS" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"cU" = (
+/obj/structure/table/abductor,
+/obj/item/assembly/signaler{
+	pixel_x = 7
+	},
+/obj/item/melee/baseball_bat,
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"dt" = (
+/obj/structure/table/abductor,
+/obj/item/storage/backpack/duffelbag/syndie/surgery,
+/obj/item/stack/medical/gauze/twelve{
+	pixel_x = -3;
+	pixel_y = 8
+	},
+/obj/item/robot_suit/prebuilt,
+/turf/open/floor/plasteel/tg/dark/textured,
+/area/shuttle/yohei)
+"dP" = (
+/obj/item/storage/photo_album/syndicate,
+/obj/structure/table/abductor,
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"eA" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 9
+	},
+/turf/open/floor/plasteel/tg/dark/textured,
+/area/shuttle/yohei)
+"eN" = (
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"fu" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 5
+	},
+/obj/machinery/armament_station/yohei,
+/obj/machinery/light/dim/directional/north,
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"fG" = (
+/obj/machinery/turntable,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"fZ" = (
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"hm" = (
+/obj/machinery/light/directional/south,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 6
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"ic" = (
+/obj/structure/chair/stool/bar/directional/east,
+/turf/open/floor/plasteel/tg/dark/textured,
+/area/shuttle/yohei)
+"iI" = (
+/obj/effect/turf_decal/siding/wideplating/dark/end,
+/turf/open/floor/plasteel/tg/kitchen/diagonal,
+/area/shuttle/yohei)
+"iT" = (
+/obj/structure/railing,
+/obj/structure/fans/tiny/invisible,
+/obj/docking_port/mobile/yohei,
+/obj/structure/cable,
+/obj/effect/mob_spawn/human/donate/yohei,
+/turf/open/floor/plasteel/tg/dark/herringbone,
+/area/shuttle/yohei)
+"iW" = (
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/engine,
+/area/shuttle/yohei)
+"jH" = (
+/obj/structure/railing,
+/obj/structure/fans/tiny/invisible,
+/obj/effect/landmark/yohei_beacon,
+/turf/open/floor/plasteel/tg/dark/herringbone,
+/area/shuttle/yohei)
+"kp" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/structure/table/abductor,
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/plastic/fifty{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/turf/open/floor/plasteel/tg/dark/textured_edge{
+	dir = 8
+	},
+/area/shuttle/yohei)
+"ks" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 10
+	},
+/obj/item/kirbyplants/photosynthetic,
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"lu" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 5
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"lS" = (
+/obj/structure/rack,
+/obj/item/tank/internals/emergency_oxygen/double,
+/obj/item/tank/internals/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/tank/internals/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 9
+	},
+/obj/item/tank/internals/emergency_oxygen/double{
+	pixel_y = -8
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"mQ" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 6
+	},
+/obj/machinery/autolathe/hacked,
+/turf/open/floor/plasteel/tg/dark/textured,
+/area/shuttle/yohei)
+"nA" = (
+/obj/effect/turf_decal/stripes/full,
+/obj/structure/fans/tiny,
+/obj/structure/cable,
+/obj/machinery/door/airlock/yohei{
+	req_access_txt = "220"
+	},
+/turf/open/floor/plasteel/tg/dark/herringbone,
+/area/shuttle/yohei)
+"nM" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tg/dark/textured_corner{
+	dir = 1
+	},
+/area/shuttle/yohei)
+"om" = (
+/obj/effect/turf_decal/stripes/full,
+/obj/machinery/shuttle/engine/advanced/large,
+/turf/open/floor/engine,
+/area/shuttle/yohei)
+"on" = (
+/turf/template_noop,
+/area/template_noop)
+"rB" = (
+/obj/structure/bodycontainer/crematorium{
+	dir = 4;
+	id = "yoheifuckery"
+	},
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"rR" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 6
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"sg" = (
+/turf/closed/indestructible/iridium,
+/area/shuttle/yohei)
+"sx" = (
+/obj/structure/table/abductor,
+/obj/item/camera{
+	pixel_y = 16
+	},
+/obj/item/storage/box/stingbangs,
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"sK" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/structure/table/optable,
+/turf/open/floor/plasteel/tg/dark/textured_edge{
+	dir = 4
+	},
+/area/shuttle/yohei)
+"tg" = (
+/obj/structure/table/abductor,
+/obj/item/paper/monitorkey{
+	pixel_x = -5;
+	pixel_y = 1
+	},
+/obj/item/multitool/tricorder{
+	pixel_x = 11;
+	pixel_y = 6
+	},
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"tr" = (
+/obj/item/kirbyplants/photosynthetic,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"tG" = (
+/obj/structure/table/abductor,
+/obj/machinery/chem_dispenser/drinks/fullupgrade{
+	dir = 8;
+	resistance_flags = 64
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"tS" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/structure/table/abductor,
+/obj/item/storage/box/plumbing,
+/turf/open/floor/plasteel/tg/dark/textured_edge{
+	dir = 8
+	},
+/area/shuttle/yohei)
+"uh" = (
+/obj/machinery/computer/telecomms/monitor,
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"ux" = (
+/obj/structure/table/abductor,
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_x = 5;
+	pixel_y = 16
+	},
+/obj/item/book/yohei_codex{
+	pixel_x = -4
+	},
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"uW" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tg/dark/textured_edge,
+/area/shuttle/yohei)
+"vk" = (
+/obj/structure/table/abductor,
+/obj/item/restraints/handcuffs/cable{
+	pixel_y = 6
+	},
+/obj/item/storage/box/zipties{
+	pixel_x = -5
+	},
+/obj/item/storage/box/zipties{
+	pixel_y = -6;
+	pixel_x = 3
+	},
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"vR" = (
+/obj/effect/turf_decal/siding/wideplating/dark/end{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tg/kitchen/diagonal,
+/area/shuttle/yohei)
+"wH" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"wW" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 10
+	},
+/obj/machinery/sleeper/syndie{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tg/dark/textured,
+/area/shuttle/yohei)
+"wX" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/machinery/computer/operating{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tg/dark/textured_edge{
+	dir = 4
+	},
+/area/shuttle/yohei)
+"xk" = (
+/obj/structure/table/abductor,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 8
+	},
+/obj/machinery/cell_charger,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"xm" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/tg/dark/textured_corner{
+	dir = 8
+	},
+/area/shuttle/yohei)
+"xq" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/structure/chair/sofa/corp/right{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"zL" = (
+/turf/open/floor/plasteel/tg/dark/herringbone,
+/area/shuttle/yohei)
+"zO" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/structure/chair/sofa/corp/left{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"Bq" = (
+/obj/structure/mirror/directional/north,
+/obj/structure/chair/stool/bar/directional/east,
+/turf/open/floor/plasteel/tg/dark/textured,
+/area/shuttle/yohei)
+"Br" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 10
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"BO" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"BR" = (
+/obj/structure/table/abductor,
+/obj/item/clothing/glasses/sunglasses,
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"Cb" = (
+/obj/effect/landmark/exploration_weapon_spawner/left{
+	dir = 1
+	},
+/turf/closed/indestructible/iridium,
+/area/shuttle/yohei)
+"Cu" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"Fb" = (
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"Fc" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/box,
+/obj/machinery/power/port_gen/pacman,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"Fv" = (
+/obj/structure/table/abductor,
+/obj/item/radio/intercom{
+	freerange = 1
+	},
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"GI" = (
+/obj/machinery/computer/weapons,
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"GY" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/structure/table/abductor,
+/obj/item/construction/plumbing{
+	pixel_x = 2
+	},
+/turf/open/floor/plasteel/tg/dark/textured_edge{
+	dir = 8
+	},
+/area/shuttle/yohei)
+"HJ" = (
+/obj/structure/table/abductor,
+/obj/item/multitool,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"HK" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"Ig" = (
+/obj/lab_monitor/yohei{
+	anchored = 1;
+	pixel_y = 32
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 9
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"Ij" = (
+/turf/open/floor/plasteel/tg/dark/textured_large,
+/area/shuttle/yohei)
+"IG" = (
+/obj/structure/table/abductor,
+/obj/item/stack/medical/gauze,
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"II" = (
+/turf/open/floor/plasteel/tg/dark/textured_edge{
+	dir = 8
+	},
+/area/shuttle/yohei)
+"IX" = (
+/obj/machinery/light/directional/west,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 9
+	},
+/obj/structure/chair/noose,
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"Jx" = (
+/obj/machinery/door/airlock/yohei{
+	req_access_txt = "220"
+	},
+/turf/open/floor/plasteel/tg/dark/herringbone,
+/area/shuttle/yohei)
+"JB" = (
+/obj/structure/table/abductor,
+/obj/item/reagent_containers/food/drinks/coffee{
+	pixel_x = 7;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/food/drinks/coffee{
+	pixel_x = 3;
+	pixel_y = -9
+	},
+/obj/item/lighter{
+	pixel_x = -5
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"JD" = (
+/obj/structure/table/abductor,
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/item/kitchen/knife/combat/survival,
+/obj/item/kitchen/knife/combat/survival{
+	pixel_x = -9
+	},
+/obj/item/kitchen/knife/combat/survival{
+	pixel_x = 8
+	},
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"JG" = (
+/obj/structure/table/abductor,
+/obj/item/reagent_containers/food/drinks/coffee{
+	pixel_x = -5;
+	pixel_y = 13
+	},
+/obj/item/storage/fancy/cigarettes/cigpack_syndicate{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"Kb" = (
+/obj/structure/chair/e_chair,
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"KE" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plasteel/tg/dark/textured_edge{
+	dir = 4
+	},
+/area/shuttle/yohei)
+"LB" = (
+/turf/open/floor/plasteel/tg/dark/textured_corner,
+/area/shuttle/yohei)
+"Nr" = (
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"ND" = (
+/obj/machinery/computer/shuttle_flight/yohei,
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"NF" = (
+/obj/machinery/vending/boozeomat/all_access{
+	resistance_flags = 64
+	},
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"NV" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 5
+	},
+/turf/open/floor/plasteel/tg/dark/textured,
+/area/shuttle/yohei)
+"Qg" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tg/dark/textured_edge{
+	dir = 8
+	},
+/area/shuttle/yohei)
+"RT" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tg/dark/textured_corner{
+	dir = 4
+	},
+/area/shuttle/yohei)
+"RW" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plasteel/tg/kitchen/diagonal,
+/area/shuttle/yohei)
+"SD" = (
+/obj/machinery/button/crematorium/indestructible{
+	id = "yoheifuckery";
+	pixel_x = -32
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 10
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"Te" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tg/dark/diagonal,
+/area/shuttle/yohei)
+"Tg" = (
+/obj/machinery/light/directional/west,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"Tl" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/structure/table/abductor,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 8
+	},
+/turf/open/floor/plasteel/tg/dark/textured_edge{
+	dir = 8
+	},
+/area/shuttle/yohei)
+"Uk" = (
+/obj/machinery/computer/message_monitor{
+	dir = 8
+	},
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"UK" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"Wf" = (
+/turf/closed/indestructible/opsglass,
+/area/shuttle/yohei)
+"Wu" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel/tg/dark/herringbone,
+/area/shuttle/yohei)
+"Xc" = (
+/obj/machinery/forge/main,
+/turf/open/floor/plasteel/tg/dark/textured_large,
+/area/shuttle/yohei)
+"XL" = (
+/obj/machinery/chem_dispenser,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 5
+	},
+/turf/open/floor/plasteel/tg/dark/textured,
+/area/shuttle/yohei)
+"YD" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/box,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+"YO" = (
+/obj/structure/table/abductor,
+/obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
+	dir = 8;
+	resistance_flags = 64
+	},
+/turf/open/floor/plasteel/tg/smooth_large,
+/area/shuttle/yohei)
+"YQ" = (
+/obj/structure/table/abductor,
+/obj/item/stack/sheet/mineral/plasma/five,
+/turf/open/floor/plasteel/tg/dark/smooth_large,
+/area/shuttle/yohei)
+
+(1,1,1) = {"
+on
+Cb
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+"}
+(2,1,1) = {"
+sg
+sg
+Ig
+zO
+at
+xq
+ks
+sg
+tr
+Tg
+Fc
+YD
+YD
+Fb
+xk
+sg
+sx
+IX
+SD
+rB
+sg
+iW
+om
+"}
+(3,1,1) = {"
+Wf
+GI
+Te
+JB
+JG
+bK
+HK
+sg
+Fb
+Fb
+Fb
+Fb
+wH
+Fb
+HJ
+sg
+Kb
+Te
+HK
+fZ
+sg
+iW
+iW
+"}
+(4,1,1) = {"
+Wf
+ND
+cS
+Nr
+Nr
+Nr
+HK
+Jx
+zL
+zL
+zL
+zL
+Wu
+Fb
+YQ
+sg
+cU
+lu
+rR
+dP
+sg
+sg
+sg
+"}
+(5,1,1) = {"
+Wf
+uh
+lu
+BO
+BO
+BO
+hm
+sg
+sg
+sg
+sg
+Fb
+Wu
+Fb
+fG
+sg
+sg
+sg
+Jx
+sg
+sg
+zL
+jH
+"}
+(6,1,1) = {"
+sg
+sg
+tg
+Fv
+JD
+vk
+Uk
+sg
+lS
+Br
+sg
+eN
+Wu
+Fb
+Fb
+Fb
+UK
+Fb
+zL
+tr
+sg
+zL
+jH
+"}
+(7,1,1) = {"
+on
+Cb
+sg
+sg
+sg
+sg
+sg
+sg
+fu
+rR
+Jx
+Fb
+Wu
+Wu
+Wu
+Wu
+Wu
+Wu
+Wu
+Wu
+nA
+Wu
+iT
+"}
+(8,1,1) = {"
+sg
+sg
+eA
+KE
+wX
+sK
+dt
+sg
+sg
+sg
+sg
+Fb
+zL
+Fb
+Fb
+Fb
+LB
+II
+II
+II
+sg
+zL
+jH
+"}
+(9,1,1) = {"
+sg
+eA
+nM
+Ij
+Ij
+Ij
+xm
+KE
+KE
+wW
+sg
+Fb
+zL
+Fb
+Fb
+Fb
+sg
+Bq
+ic
+ic
+sg
+zL
+jH
+"}
+(10,1,1) = {"
+sg
+uW
+Xc
+Ij
+Ij
+Ij
+Ij
+Ij
+Ij
+ak
+Jx
+zL
+zL
+Fb
+Fb
+Fb
+sg
+BR
+ux
+IG
+sg
+sg
+sg
+"}
+(11,1,1) = {"
+sg
+NV
+RT
+Ij
+Ij
+Ij
+Ij
+Ij
+Ij
+ak
+sg
+Fb
+zL
+zL
+zL
+zL
+Jx
+vR
+RW
+iI
+sg
+iW
+om
+"}
+(12,1,1) = {"
+sg
+sg
+XL
+Qg
+bi
+tS
+GY
+Tl
+kp
+mQ
+sg
+tr
+Fb
+Cu
+Fb
+tr
+sg
+YO
+tG
+NF
+sg
+iW
+iW
+"}
+(13,1,1) = {"
+on
+Cb
+sg
+sg
+sg
+Wf
+Wf
+Wf
+Wf
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+sg
+"}

@@ -24,7 +24,7 @@
 			continue
 
 		if(spell_name in existing_names)
-			TEST_FAIL("Spell: [spell_name] ([spell_type]) had a name identical to another spell. \
+			Fail("Spell: [spell_name] ([spell_type]) had a name identical to another spell. \
 				This can cause confusion for admins giving out spells, and while debugging. \
 				Consider giving the name an adjective if it's a subtype. (\"Greater\", \"Lesser\", \"Deadly\".)")
 			continue

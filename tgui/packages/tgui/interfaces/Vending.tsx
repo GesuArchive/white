@@ -8,8 +8,6 @@ type VendingData = {
   onstation: boolean;
   department: string;
   jobDiscount: number;
-  displayed_currency_icon: string;
-  displayed_currency_name: string;
   product_records: ProductRecord[];
   coin_records: CoinRecord[];
   hidden_records: HiddenRecord[];
@@ -145,7 +143,7 @@ export const UserDetails = (props, context) => {
 
   if (!user) {
     return (
-      <NoticeBox>No ID detected! Contact the Head of Personnel.</NoticeBox>
+      <NoticeBox>Нет ID-карты! Свяжитесь с местным отделом кадров!</NoticeBox>
     );
   } else {
     return (
@@ -156,9 +154,9 @@ export const UserDetails = (props, context) => {
           </Stack.Item>
           <Stack.Item>
             <LabeledList>
-              <LabeledList.Item label="User">{user.name}</LabeledList.Item>
-              <LabeledList.Item label="Occupation">
-                {user.job || 'Unemployed'}
+              <LabeledList.Item label="Пользователь">{user.name}</LabeledList.Item>
+              <LabeledList.Item label="Должность">
+                {user.job || 'Безработный'}
               </LabeledList.Item>
             </LabeledList>
           </Stack.Item>
@@ -179,26 +177,18 @@ const ProductDisplay = (
 ) => {
   const { data } = useBackend<VendingData>(context);
   const { custom, inventory, selectedCategory } = props;
-  const {
-    stock,
-    onstation,
-    user,
-    displayed_currency_icon,
-    displayed_currency_name,
-  } = data;
+  const { stock, onstation, user } = data;
 
   return (
     <Section
       fill
       scrollable
-      title="Products"
+      title="Товары"
       buttons={
         !!onstation &&
         user && (
           <Box fontSize="16px" color="green">
-            {(user && user.cash) || 0}
-            {displayed_currency_name}{' '}
-            <Icon name={displayed_currency_icon} color="gold" />
+            {(user && user.cash) || 0} кр <Icon name="coins" color="gold" />
           </Box>
         )
       }>
@@ -304,7 +294,7 @@ const ProductColorSelect = (props, context) => {
   return (
     <Button
       icon="palette"
-      tooltip="Change color"
+      tooltip="Изменить цвет"
       disabled={disabled}
       onClick={() => act('select_colors', { ref: product.ref })}
     />
@@ -322,7 +312,7 @@ const ProductStock = (props) => {
         (!custom && remaining <= product.max_amount / 2 && 'average') ||
         'good'
       }>
-      {remaining} left
+      {remaining} осталось
     </Box>
   );
 };
@@ -330,14 +320,14 @@ const ProductStock = (props) => {
 /** The main button to purchase an item. */
 const ProductButton = (props, context) => {
   const { act, data } = useBackend<VendingData>(context);
-  const { access, displayed_currency_name } = data;
+  const { access } = data;
   const { custom, discount, disabled, free, product, redPrice } = props;
-  const customPrice = access ? 'FREE' : product.price;
-  let standardPrice = product.price;
+  const customPrice = access ? 'БЕСПЛАТНО' : product.price + ' кр';
+  let standardPrice = product.price + ' кр';
   if (free) {
-    standardPrice = 'FREE';
+    standardPrice = 'БЕСПЛАТНО';
   } else if (discount) {
-    standardPrice = redPrice;
+    standardPrice = redPrice + ' кр';
   }
   return custom ? (
     <Button
@@ -349,7 +339,6 @@ const ProductButton = (props, context) => {
         })
       }>
       {customPrice}
-      {displayed_currency_name}
     </Button>
   ) : (
     <Button
@@ -361,14 +350,13 @@ const ProductButton = (props, context) => {
         })
       }>
       {standardPrice}
-      {displayed_currency_name}
     </Button>
   );
 };
 
 const CATEGORY_COLORS = {
-  'Contraband': 'red',
-  'Premium': 'yellow',
+  'Контрабанда': 'red',
+  'Премиум': 'yellow',
 };
 
 const CategorySelector = (props: {
@@ -379,21 +367,19 @@ const CategorySelector = (props: {
   const { categories, selectedCategory, onSelect } = props;
 
   return (
-    <Section>
-      <Stack grow>
-        <Stack.Item>
-          {Object.entries(categories).map(([name, category]) => (
-            <Button
-              key={name}
-              selected={name === selectedCategory}
-              color={CATEGORY_COLORS[name]}
-              icon={category.icon}
-              onClick={() => onSelect(name)}>
-              {name}
-            </Button>
-          ))}
-        </Stack.Item>
-      </Stack>
-    </Section>
+    <Stack grow>
+      <Stack.Item>
+        {Object.entries(categories).map(([name, category]) => (
+          <Button
+            key={name}
+            selected={name === selectedCategory}
+            color={CATEGORY_COLORS[name]}
+            icon={category.icon}
+            onClick={() => onSelect(name)}>
+            {name}
+          </Button>
+        ))}
+      </Stack.Item>
+    </Stack>
   );
 };

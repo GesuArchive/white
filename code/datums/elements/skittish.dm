@@ -3,6 +3,7 @@
  */
 
 /datum/element/skittish
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
 /datum/element/skittish/Attach(datum/target)
 	. = ..()
@@ -17,14 +18,13 @@
 
 /datum/element/skittish/proc/Bump(mob/living/scooby, atom/target)
 	SIGNAL_HANDLER
-	if(scooby.stat != CONSCIOUS || scooby.move_intent != MOVE_INTENT_RUN)
+	if(scooby.stat != CONSCIOUS || scooby.m_intent != MOVE_INTENT_RUN)
 		return
 
 	if(!istype(target, /obj/structure/closet))
 		return
 
 	var/obj/structure/closet/closet = target
-
 	if(!closet.divable)
 		// Things like secure crates can blow up under certain circumstances
 		return
@@ -44,7 +44,10 @@
 		scooby.set_resting(TRUE, silent = TRUE)
 
 	scooby.forceMove(closet_turf)
+	INVOKE_ASYNC(src, PROC_REF(async_shit), closet, scooby, target)
 
+/datum/element/skittish/proc/async_shit(obj/structure/closet/closet, mob/living/scooby, atom/target)
+	var/turf/closet_turf = get_turf(closet)
 	if(!closet.close(scooby))
 		to_chat(scooby, span_warning("You can't get [closet] to close!"))
 		if(closet.horizontal)

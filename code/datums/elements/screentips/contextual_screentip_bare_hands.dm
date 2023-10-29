@@ -2,8 +2,8 @@
 /// A "Type B" interaction.
 /// This stacks with other contextual screentip elements, though you may want to register the signal/flag manually at that point for performance.
 /datum/element/contextual_screentip_bare_hands
-	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH_ON_HOST_DESTROY // Detach for turfs
-	argument_hash_start_idx = 2
+	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH_ON_HOST_DESTROY
+	argument_hash_start_idx = 3
 
 	/// If set, the text to show for LMB
 	var/lmb_text
@@ -11,11 +11,11 @@
 	/// If set, the text to show for RMB
 	var/rmb_text
 
-	/// If set, the text to show for LMB when in combat mode. Otherwise, defaults to lmb_text.
-	var/lmb_text_combat_mode
+	/// If set, the text to show for LMB when in harm mode. Otherwise, defaults to lmb_text.
+	var/lmb_text_harm
 
-	/// If set, the text to show for RMB when in combat mode. Otherwise, defaults to rmb_text.
-	var/rmb_text_combat_mode
+	/// If set, the text to show for RMB when in harm mode. Otherwise, defaults to rmb_text.
+	var/rmb_text_harm
 
 // If you're curious about `use_named_parameters`, it's because you should use named parameters!
 // AddElement(/datum/element/contextual_screentip_bare_hands, lmb_text = "Do the thing")
@@ -24,8 +24,8 @@
 	use_named_parameters,
 	lmb_text,
 	rmb_text,
-	lmb_text_combat_mode,
-	rmb_text_combat_mode,
+	lmb_text_harm,
+	rmb_text_harm,
 )
 	. = ..()
 	if (!isatom(target))
@@ -36,8 +36,8 @@
 
 	src.lmb_text = lmb_text
 	src.rmb_text = rmb_text
-	src.lmb_text_combat_mode = lmb_text_combat_mode || lmb_text
-	src.rmb_text_combat_mode = rmb_text_combat_mode || rmb_text
+	src.lmb_text_harm = lmb_text_harm || lmb_text
+	src.rmb_text_harm = rmb_text_harm || rmb_text
 
 	var/atom/atom_target = target
 	atom_target.flags_1 |= HAS_CONTEXTUAL_SCREENTIPS_1
@@ -70,9 +70,9 @@
 	var/mob/living/living_user = user
 
 	if (!isnull(lmb_text))
-		context[SCREENTIP_CONTEXT_LMB] = living_user.combat_mode ? lmb_text_combat_mode : lmb_text
+		context[SCREENTIP_CONTEXT_LMB] = living_user.a_intent == INTENT_HARM ? lmb_text_harm : lmb_text
 
 	if (!isnull(rmb_text))
-		context[SCREENTIP_CONTEXT_RMB] = living_user.combat_mode ? rmb_text_combat_mode : rmb_text
+		context[SCREENTIP_CONTEXT_RMB] = living_user.a_intent == INTENT_HARM ? rmb_text_harm : rmb_text
 
 	return CONTEXTUAL_SCREENTIP_SET

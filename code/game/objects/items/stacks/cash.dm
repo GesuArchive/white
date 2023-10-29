@@ -1,9 +1,8 @@
 /obj/item/stack/spacecash  //Don't use base space cash stacks. Any other space cash stack can merge with them, and could cause potential money duping exploits.
-	name = "space cash"
+	name = "космоденьги"
 	singular_name = "bill"
 	icon = 'icons/obj/economy.dmi'
 	icon_state = null
-	worn_icon_state = "nothing"
 	amount = 1
 	max_amount = INFINITY
 	throwforce = 0
@@ -20,9 +19,9 @@
 	update_desc()
 
 /obj/item/stack/spacecash/update_desc()
-	. = ..()
 	var/total_worth = get_item_credit_value()
-	desc = "It's worth [total_worth] credit[(total_worth > 1) ? "s" : null] in total."
+	desc = "Этот в номинале [total_worth] кредит[get_num_string(total_worth)]."
+	return ..()
 
 /obj/item/stack/spacecash/get_item_credit_value()
 	return (amount*value)
@@ -49,54 +48,54 @@
 
 /obj/item/stack/spacecash/c1
 	icon_state = "spacecash1"
-	singular_name = "one credit bill"
+	singular_name = "один кредит"
 	value = 1
 	merge_type = /obj/item/stack/spacecash/c1
 
 /obj/item/stack/spacecash/c10
 	icon_state = "spacecash10"
-	singular_name = "ten credit bill"
+	singular_name = "десять кредитов"
 	value = 10
 	merge_type = /obj/item/stack/spacecash/c10
 
 /obj/item/stack/spacecash/c20
 	icon_state = "spacecash20"
-	singular_name = "twenty credit bill"
+	singular_name = "двадцать кредитов"
 	value = 20
 	merge_type = /obj/item/stack/spacecash/c20
 
 /obj/item/stack/spacecash/c50
 	icon_state = "spacecash50"
-	singular_name = "fifty credit bill"
+	singular_name = "пятьдесят кредитов"
 	value = 50
 	merge_type = /obj/item/stack/spacecash/c50
 
 /obj/item/stack/spacecash/c100
 	icon_state = "spacecash100"
-	singular_name = "one hundred credit bill"
+	singular_name = "сто кредитов"
 	value = 100
 	merge_type = /obj/item/stack/spacecash/c100
 
 /obj/item/stack/spacecash/c200
 	icon_state = "spacecash200"
-	singular_name = "two hundred credit bill"
+	singular_name = "две сотни кредитов"
 	value = 200
 	merge_type = /obj/item/stack/spacecash/c200
 
 /obj/item/stack/spacecash/c500
 	icon_state = "spacecash500"
-	singular_name = "five hundred credit bill"
+	singular_name = "пять сотен кредитов"
 	value = 500
 	merge_type = /obj/item/stack/spacecash/c500
 
 /obj/item/stack/spacecash/c1000
 	icon_state = "spacecash1000"
-	singular_name = "one thousand credit bill"
+	singular_name = "тысяча кредитов"
 	value = 1000
 	merge_type = /obj/item/stack/spacecash/c1000
 
 /obj/item/stack/spacecash/c10000
 	icon_state = "spacecash10000"
-	singular_name = "ten thousand credit bill"
+	singular_name = "десять тысяч кредитов"
 	value = 10000
 	merge_type = /obj/item/stack/spacecash/c10000

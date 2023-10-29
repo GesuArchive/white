@@ -1,6 +1,6 @@
 /obj/structure/closet/l3closet
-	name = "level 3 biohazard gear closet"
-	desc = "It's a storage unit for level 3 biohazard gear."
+	name = "шкаф с снаряжением для работы с биологической опасностью 3-го уровня"
+	desc = "Хранилище с снаряжением для работы с биологической опасностью 3-го уровня."
 	icon_state = "bio"
 
 /obj/structure/closet/l3closet/PopulateContents()
@@ -46,7 +46,7 @@
 	icon_state = "bio_viro"
 
 /obj/structure/closet/l3closet/scientist/PopulateContents()
-	new /obj/item/storage/bag/xeno(src)
+	new /obj/item/storage/bag/bio(src)
 	new /obj/item/clothing/suit/bio_suit/scientist(src)
 	new /obj/item/clothing/head/bio_hood/scientist(src)
 	new /obj/item/clothing/mask/breath(src)

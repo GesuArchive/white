@@ -1,0 +1,240 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"cw" = (
+/obj/structure/table,
+/obj/item/stack/cable_coil,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"eU" = (
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/flora/ausbushes/leafybush,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"mj" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin/unpowered)
+"nD" = (
+/obj/structure/table/reinforced,
+/obj/item/stock_parts/cell/high,
+/obj/machinery/cell_charger,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"nM" = (
+/obj/effect/spawner/random/structure/crate_abandoned,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"rg" = (
+/obj/structure/table,
+/obj/item/stack/sheet/cardboard/fifty,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"ul" = (
+/obj/structure/table,
+/obj/item/stack/rods{
+	amount = 25
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"vW" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"xd" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"xV" = (
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/grass,
+/area/ruin/unpowered)
+"BO" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"En" = (
+/obj/machinery/vending/coffee,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"HB" = (
+/obj/structure/tank_dispenser/oxygen,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"HR" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Jh" = (
+/obj/structure/table,
+/obj/item/crowbar/large{
+	desc = "Пахнет белыми мечтами.";
+	name = "большой брат ванечки"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Kq" = (
+/obj/machinery/vending/cigarette,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Nm" = (
+/obj/structure/table,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/storage/toolbox/electrical,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"NH" = (
+/turf/template_noop,
+/area/template_noop)
+"NT" = (
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Oa" = (
+/obj/structure/table/reinforced,
+/obj/machinery/vending/wallmed{
+	name = "Emergency NanoMed";
+	pixel_x = -26;
+	use_power = 0
+	},
+/obj/item/storage/toolbox/mechanical,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Qc" = (
+/obj/machinery/vending/assist,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"Tk" = (
+/obj/machinery/vending/autodrobe/all_access,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"VU" = (
+/obj/structure/closet/crate,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"XG" = (
+/obj/machinery/vending/clothing,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+"ZH" = (
+/obj/machinery/vending/sovietsoda,
+/turf/open/floor/plasteel/dark,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+NH
+mj
+mj
+vW
+mj
+mj
+mj
+mj
+mj
+NH
+"}
+(2,1,1) = {"
+mj
+mj
+NT
+NT
+NT
+VU
+nM
+nM
+mj
+mj
+"}
+(3,1,1) = {"
+mj
+XG
+NT
+NT
+NT
+NT
+NT
+NT
+Oa
+mj
+"}
+(4,1,1) = {"
+BO
+NT
+NT
+Nm
+rg
+HB
+NT
+NT
+nD
+mj
+"}
+(5,1,1) = {"
+mj
+Tk
+NT
+ul
+Jh
+cw
+NT
+NT
+HR
+mj
+"}
+(6,1,1) = {"
+mj
+mj
+NT
+NT
+NT
+NT
+NT
+NT
+Qc
+mj
+"}
+(7,1,1) = {"
+NH
+mj
+eU
+xV
+xd
+En
+Kq
+ZH
+mj
+mj
+"}
+(8,1,1) = {"
+NH
+mj
+mj
+mj
+mj
+mj
+mj
+mj
+mj
+NH
+"}

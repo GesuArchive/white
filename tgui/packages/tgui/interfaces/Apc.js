@@ -5,8 +5,8 @@ import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
 
 export const Apc = (props, context) => {
   return (
-    <Window width={450} height={445}>
-      <Window.Content scrollable>
+    <Window width={455} height={430}>
+      <Window.Content>
         <ApcContent />
       </Window.Content>
     </Window>
@@ -16,40 +16,40 @@ export const Apc = (props, context) => {
 const powerStatusMap = {
   2: {
     color: 'good',
-    externalPowerText: 'External Power',
-    chargingText: 'Fully Charged',
+    externalPowerText: 'Внешнее питание',
+    chargingText: 'Полностью заряжен',
   },
   1: {
     color: 'average',
-    externalPowerText: 'Low External Power',
-    chargingText: 'Charging',
+    externalPowerText: 'Малое внешнее питание',
+    chargingText: 'Зарядка',
   },
   0: {
     color: 'bad',
-    externalPowerText: 'No External Power',
-    chargingText: 'Not Charging',
+    externalPowerText: 'Нет внешнего питания',
+    chargingText: 'Не заряжается',
   },
 };
 
 const malfMap = {
   1: {
     icon: 'terminal',
-    content: 'Override Programming',
+    content: 'Переписать программу',
     action: 'hack',
   },
   2: {
     icon: 'caret-square-down',
-    content: 'Shunt Core Process',
+    content: 'Переместить ядро сюда',
     action: 'occupy',
   },
   3: {
     icon: 'caret-square-left',
-    content: 'Return to Main Core',
+    content: 'Вернуться в основное ядро',
     action: 'deoccupy',
   },
   4: {
     icon: 'caret-square-down',
-    content: 'Shunt Core Process',
+    content: 'Переместить ядро сюда',
     action: 'occupy',
   },
 };
@@ -66,21 +66,19 @@ const ApcContent = (props, context) => {
   const adjustedCellChange = data.powerCellStatus / 100;
   if (data.failTime > 0) {
     return (
-      <NoticeBox info textAlign="center" mb={0}>
+      <NoticeBox>
         <b>
-          <h3>SYSTEM FAILURE</h3>
+          <h3>СИСТЕМНАЯ ОШИБКА</h3>
         </b>
-        I/O regulators have malfunctioned! <br />
-        Awaiting system reboot.
+        <i>
+          Обнаружена проблема с регуляторами I/O! Ожидается перезагрузка
+          системы...
+        </i>
         <br />
-        Executing software reboot in {data.failTime} seconds...
-        <br />
-        <br />
+        Автоматическая перезагрузка через {data.failTime} секунд...
         <Button
           icon="sync"
-          content="Reboot Now"
-          tooltip="Force an interface reset."
-          tooltipPosition="bottom"
+          content="Перезагрузить сейчас"
           onClick={() => act('reboot')}
         />
       </NoticeBox>
@@ -88,19 +86,16 @@ const ApcContent = (props, context) => {
   }
   return (
     <>
-      <InterfaceLockNoticeBox
-        siliconUser={data.remoteAccess || data.siliconUser}
-        preventLocking={data.remoteAccess}
-      />
-      <Section title="Power Status">
+      <InterfaceLockNoticeBox />
+      <Section title="Состояние энергии">
         <LabeledList>
           <LabeledList.Item
-            label="Main Breaker"
+            label="Основное питание"
             color={externalPowerStatus.color}
             buttons={
               <Button
                 icon={data.isOperating ? 'power-off' : 'times'}
-                content={data.isOperating ? 'On' : 'Off'}
+                content={data.isOperating ? 'Вкл' : 'Выкл'}
                 selected={data.isOperating && !locked}
                 disabled={locked}
                 onClick={() => act('breaker')}
@@ -108,16 +103,16 @@ const ApcContent = (props, context) => {
             }>
             [ {externalPowerStatus.externalPowerText} ]
           </LabeledList.Item>
-          <LabeledList.Item label="Power Cell">
+          <LabeledList.Item label="Аккумулятор">
             <ProgressBar color="good" value={adjustedCellChange} />
           </LabeledList.Item>
           <LabeledList.Item
-            label="Charge Mode"
+            label="Режим зарядки"
             color={chargingStatus.color}
             buttons={
               <Button
-                icon={data.chargeMode ? 'sync' : 'times'}
-                content={data.chargeMode ? 'Auto' : 'Off'}
+                icon={data.chargeMode ? 'sync' : 'close'}
+                content={data.chargeMode ? 'Авто' : 'Выкл'}
                 disabled={locked}
                 onClick={() => act('charge')}
               />
@@ -126,7 +121,7 @@ const ApcContent = (props, context) => {
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section title="Power Channels">
+      <Section title="Энергоканалы">
         <LabeledList>
           {channelArray.map((channel) => {
             const { topicParams } = channel;
@@ -140,11 +135,11 @@ const ApcContent = (props, context) => {
                       inline
                       mx={2}
                       color={channel.status >= 2 ? 'good' : 'bad'}>
-                      {channel.status >= 2 ? 'On' : 'Off'}
+                      {channel.status >= 2 ? 'Вкл' : 'Выкл'}
                     </Box>
                     <Button
                       icon="sync"
-                      content="Auto"
+                      content="Авто"
                       selected={
                         !locked &&
                         (channel.status === 1 || channel.status === 3)
@@ -154,14 +149,14 @@ const ApcContent = (props, context) => {
                     />
                     <Button
                       icon="power-off"
-                      content="On"
+                      content="Вкл"
                       selected={!locked && channel.status === 2}
                       disabled={locked}
                       onClick={() => act('channel', topicParams.on)}
                     />
                     <Button
                       icon="times"
-                      content="Off"
+                      content="Выкл"
                       selected={!locked && channel.status === 0}
                       disabled={locked}
                       onClick={() => act('channel', topicParams.off)}
@@ -172,13 +167,13 @@ const ApcContent = (props, context) => {
               </LabeledList.Item>
             );
           })}
-          <LabeledList.Item label="Total Load">
+          <LabeledList.Item label="Общая нагрузка">
             <b>{data.totalLoad}</b>
           </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section
-        title="Misc"
+        title="Остальное"
         buttons={
           !!data.siliconUser && (
             <>
@@ -192,7 +187,7 @@ const ApcContent = (props, context) => {
               )}
               <Button
                 icon="lightbulb-o"
-                content="Overload"
+                content="Перегрузить"
                 onClick={() => act('overload')}
               />
             </>
@@ -200,37 +195,33 @@ const ApcContent = (props, context) => {
         }>
         <LabeledList>
           <LabeledList.Item
-            label="Cover Lock"
+            label="Блокировка крышки"
             buttons={
               <Button
-                tooltip="APC cover can be pried open with a crowbar."
                 icon={data.coverLocked ? 'lock' : 'unlock'}
-                content={data.coverLocked ? 'Engaged' : 'Disengaged'}
+                content={data.coverLocked ? 'Включена' : 'Выключена'}
                 disabled={locked}
                 onClick={() => act('cover')}
               />
             }
           />
           <LabeledList.Item
-            label="Emergency Lighting"
+            label="Аварийное освещение"
             buttons={
               <Button
-                tooltip="Lights use internal power cell when there is no power available."
                 icon="lightbulb-o"
-                content={data.emergencyLights ? 'Enabled' : 'Disabled'}
+                content={data.emergencyLights ? 'Включено' : 'Отключено'}
                 disabled={locked}
                 onClick={() => act('emergency_lighting')}
               />
             }
           />
           <LabeledList.Item
-            label="Night Shift Lighting"
+            label="Ночная смена освещения"
             buttons={
               <Button
-                tooltip="Dim lights to reduce power consumption."
                 icon="lightbulb-o"
-                content={data.nightshiftLights ? 'Enabled' : 'Disabled'}
-                disabled={data.disable_nightshift_toggle}
+                content={data.nightshiftLights ? 'Включена' : 'Отключена'}
                 onClick={() => act('toggle_nightshift')}
               />
             }

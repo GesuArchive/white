@@ -1,16 +1,16 @@
 /obj/item/sparring_contract
-	desc = "A contract for setting up sparring matches. Both sparring partners must agree with the terms to begin."
-	icon = 'icons/obj/scrolls.dmi'
-	icon_state = "sparringcontract"
+	desc = "Контракт на организацию спарринг-матчей. Оба спарринг-партнера должны быть согласны, для начала."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "scroll"
 	drop_sound = 'sound/items/handling/paper_drop.ogg'
-	pickup_sound = 'sound/items/handling/paper_pickup.ogg'
+	pickup_sound =  'sound/items/handling/paper_pickup.ogg'
 	throw_range = 1
 	throw_speed = 1
 	w_class = WEIGHT_CLASS_TINY
 	///what weapons will be allowed during the sparring match
 	var/weapons_condition = CONDITION_MELEE_ONLY
 	///what arena the fight will take place in
-	var/arena_condition = /area/station/service/chapel
+	var/arena_condition = /area/service/chapel/main
 	///what stakes the fight will have
 	var/stakes_condition = STAKES_NONE
 	///who has signed this contract. fills itself with WEAKREFS, to prevent hanging references
@@ -18,7 +18,7 @@
 
 /obj/item/sparring_contract/Initialize(mapload)
 	. = ..()
-	name = "[GLOB.deity]'s sparring contract"
+	name = "спарринг-контракт [GLOB.deity]"
 
 /obj/item/sparring_contract/Destroy()
 	QDEL_NULL(signed_by)
@@ -39,7 +39,6 @@
 	data["set_area"] = arena?.name
 	data["set_stakes"] = stakes_condition
 	data["possible_areas"] = get_possible_areas()
-	data["stakes_holy_match"] = STAKES_HOLY_MATCH
 
 	return data
 
@@ -73,7 +72,7 @@
 	var/mob/user = usr
 
 	if(!ishuman(user))
-		to_chat(user, span_warning("This contract refuses to be signed by a lesser creature such as yourself."))
+		to_chat(user, span_warning("Этот контракт отказывается от подписания столь ничтожным существом вроде меня."))
 		return
 
 	var/datum/religion_sect/spar/sect = GLOB.religious_sect
@@ -85,7 +84,7 @@
 			resolved_opponents += resolved
 
 	if(user in resolved_opponents && params["stakes"] == STAKES_HOLY_MATCH)
-		to_chat(user, span_warning("This contract refuses to be signed up for a holy match by a previous holy match loser. Pick a different stake!"))
+		to_chat(user, span_warning("Этот контракт отказывает в подписании на святой матч уже проигравшему в другом святом матче. Нужно выбрать другую ставку!"))
 
 	//any updating of the terms should update the UI to display new terms
 	. = TRUE
@@ -104,7 +103,7 @@
 			if(!left_partner || !right_partner || !left_partner.mind || !right_partner.mind)
 				return
 			if(HAS_TRAIT(left_partner, TRAIT_SPARRING) || HAS_TRAIT(right_partner, TRAIT_SPARRING))
-				to_chat(user, span_warning("One participant is already sparring!"))
+				to_chat(user, span_warning("Участник уже спаррингует!"))
 				return
 			var/chaplain = left_partner.mind.holy_role ? left_partner : right_partner
 			var/opponent = left_partner.mind.holy_role ? right_partner : left_partner
@@ -112,7 +111,7 @@
 			qdel(src)
 		if("sign")
 			if(user == left_partner || user == right_partner)
-				to_chat(user, span_warning("You've already signed one side of the contract."))
+				to_chat(user, span_warning("Вы уже подписали другую сторону контракта."))
 				return
 			var/area/arena_condition_name = GLOB.areas_by_type[arena_condition]
 			arena_condition_name = format_text(arena_condition_name.name)
@@ -137,7 +136,7 @@
 			//if you change the terms you have to get the other person to sign again.
 			if(terms_changed && (left_partner || right_partner))
 				signed_by = list(null, null)//remove weakrefs
-				to_chat(user, span_warning("You will need to get your sparring partner to sign again under these new terms you've set."))
+				to_chat(user, span_warning("Нужно предложить спарринг-партнеру снова подписать контракт на новых условиях, которые вы установили."))
 			//fluff and signing
 			var/datum/weakref/user_ref = WEAKREF(user)
 			if(params["sign_position"] == CONTRACT_LEFT_FIELD)

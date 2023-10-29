@@ -1,0 +1,283 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"c" = (
+/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"d" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/portable_atmospherics/canister/stimulum,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"e" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/bot,
+/obj/machinery/light,
+/obj/machinery/portable_atmospherics/canister/nob,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"i" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"j" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"k" = (
+/obj/vehicle/sealed/mecha/working/ripley/cargo,
+/turf/open/floor/mech_bay_recharge_floor,
+/area/ruin/unpowered)
+"l" = (
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"p" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/bot,
+/obj/machinery/portable_atmospherics/canister/nob,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"q" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/bot,
+/obj/machinery/portable_atmospherics/canister/stimulum,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"r" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"t" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/delivery,
+/obj/machinery/portable_atmospherics/pump,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"v" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/portable_atmospherics/canister/tritium,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"z" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/portable_atmospherics/canister/bz,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"A" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"C" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/portable_atmospherics/canister/freon,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"D" = (
+/obj/machinery/computer/mech_bay_power_console,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"E" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/recharger{
+	pixel_y = 4
+	},
+/obj/structure/table,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"F" = (
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"G" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/corner,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"I" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/portable_atmospherics/scrubber/huge/movable,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"K" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/light,
+/obj/machinery/portable_atmospherics/canister/healium,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"N" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"O" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Q" = (
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"R" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"T" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/bot,
+/obj/machinery/portable_atmospherics/canister/healium,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"U" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/portable_atmospherics/canister/zauker,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+"V" = (
+/turf/closed/wall/r_wall,
+/area/ruin/unpowered)
+"W" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Y" = (
+/obj/machinery/mech_bay_recharge_port{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Z" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/bot,
+/obj/machinery/portable_atmospherics/canister/freon,
+/turf/open/floor/engine,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+V
+V
+V
+V
+V
+V
+V
+V
+V
+"}
+(2,1,1) = {"
+V
+I
+I
+v
+U
+j
+z
+e
+V
+"}
+(3,1,1) = {"
+i
+A
+t
+v
+U
+j
+z
+p
+V
+"}
+(4,1,1) = {"
+V
+a
+O
+O
+O
+O
+O
+O
+V
+"}
+(5,1,1) = {"
+V
+E
+W
+Q
+Q
+Q
+Q
+Q
+V
+"}
+(6,1,1) = {"
+V
+D
+G
+r
+r
+r
+R
+R
+V
+"}
+(7,1,1) = {"
+V
+k
+N
+d
+F
+c
+Z
+T
+V
+"}
+(8,1,1) = {"
+V
+Y
+N
+q
+l
+c
+C
+K
+V
+"}
+(9,1,1) = {"
+V
+V
+V
+V
+V
+V
+V
+V
+V
+"}

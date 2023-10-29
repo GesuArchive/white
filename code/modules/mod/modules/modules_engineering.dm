@@ -2,10 +2,10 @@
 
 ///Welding Protection - Makes the helmet protect from flashes and welding.
 /obj/item/mod/module/welding
-	name = "MOD welding protection module"
-	desc = "A module installed into the visor of the suit, this projects a \
-		polarized, holographic overlay in front of the user's eyes. It's rated high enough for \
-		immunity against extremities such as spot and arc welding, solar eclipses, and handheld flashlights."
+	name = "модуль защиты от вспышек"
+	desc = "Модуль, устанавливаемый в смотровой визор шлема и проецирующий \
+		поляризованное, голографическое изображение перед глазами пользователя. Оно достаточно \
+		устойчиво таким вещам, как точечная и дуговая сварка, солнечные затмения и карманные фонарики."
 	icon_state = "welding"
 	complexity = 1
 	incompatible_modules = list(/obj/item/mod/module/welding, /obj/item/mod/module/armor_booster)
@@ -21,10 +21,10 @@
 
 ///T-Ray Scan - Scans the terrain for undertile objects.
 /obj/item/mod/module/t_ray
-	name = "MOD t-ray scan module"
-	desc = "A module installed into the visor of the suit, allowing the user to use a pulse of terahertz radiation \
-		to essentially echolocate things beneath the floor, mostly cables and pipes. \
-		A staple of atmospherics work, and counter-smuggling work."
+	name = "модуль терагерцового сканера"
+	desc = "Модуль, установленный в смотровой визор скафандра, позволяющий пользователю использовать импульсы терагерцового излучения \
+		для эхолокации объектов под полом, в основном кабелей и труб. \
+		Основное направление работы это создание атмосферы и борьба с контрабандой."
 	icon_state = "tray"
 	module_type = MODULE_TOGGLE
 	complexity = 1
@@ -34,16 +34,16 @@
 	/// T-ray scan range.
 	var/range = 4
 
-/obj/item/mod/module/t_ray/on_active_process(seconds_per_tick)
+/obj/item/mod/module/t_ray/on_active_process(delta_time)
 	t_ray_scan(mod.wearer, 0.8 SECONDS, range)
 
 ///Magnetic Stability - Gives the user a slowdown but makes them negate gravity and be immune to slips.
 /obj/item/mod/module/magboot
-	name = "MOD magnetic stability module"
-	desc = "These are powerful electromagnets fitted into the suit's boots, allowing users both \
-		excellent traction no matter the condition indoors, and to essentially hitch a ride on the exterior of a hull. \
-		However, these basic models do not feature computerized systems to automatically toggle them on and off, \
-		so numerous users report a certain stickiness to their steps."
+	name = "модуль магнитных ботинок"
+	desc = "Это мощные электромагниты, установленные в ботинках костюма, предоставляя пользователям \
+		отличное сцепление с поверхностью вне зависимости от гравитации или скользкости пола. \
+		Однако базовая модель не имеет контролера для своевременного отключения при передвижении, \
+		что вызывает излишнее сцепление с полом и сложности при передвижении."
 	icon_state = "magnet"
 	module_type = MODULE_TOGGLE
 	complexity = 2
@@ -52,47 +52,49 @@
 	cooldown_time = 0.5 SECONDS
 	/// Slowdown added onto the suit.
 	var/slowdown_active = 0.5
-	/// A list of traits to add to the wearer when we're active (see: Magboots)
-	var/list/active_traits = list(TRAIT_NO_SLIP_WATER, TRAIT_NO_SLIP_ICE, TRAIT_NO_SLIP_SLIDE, TRAIT_NEGATES_GRAVITY)
 
 /obj/item/mod/module/magboot/on_activation()
 	. = ..()
 	if(!.)
 		return
-	mod.wearer.add_traits(active_traits, MOD_TRAIT)
+	ADD_TRAIT(mod.wearer, TRAIT_NEGATES_GRAVITY, MOD_TRAIT)
+	ADD_TRAIT(mod.wearer, TRAIT_NOSLIPWATER, MOD_TRAIT)
 	mod.slowdown += slowdown_active
+	mod.wearer.update_gravity(mod.wearer.has_gravity())
 	mod.wearer.update_equipment_speed_mods()
 
 /obj/item/mod/module/magboot/on_deactivation(display_message = TRUE, deleting = FALSE)
 	. = ..()
 	if(!.)
 		return
-	mod.wearer.remove_traits(active_traits, MOD_TRAIT)
+	REMOVE_TRAIT(mod.wearer, TRAIT_NEGATES_GRAVITY, MOD_TRAIT)
+	REMOVE_TRAIT(mod.wearer, TRAIT_NOSLIPWATER, MOD_TRAIT)
 	mod.slowdown -= slowdown_active
+	mod.wearer.update_gravity(mod.wearer.has_gravity())
 	mod.wearer.update_equipment_speed_mods()
 
 /obj/item/mod/module/magboot/advanced
-	name = "MOD advanced magnetic stability module"
+	name = "продвинутый модуль магнитных ботинок"
 	removable = FALSE
 	complexity = 0
 	slowdown_active = 0
 
 ///Emergency Tether - Shoots a grappling hook projectile in 0g that throws the user towards it.
 /obj/item/mod/module/tether
-	name = "MOD emergency tether module"
-	desc = "A custom-built grappling-hook powered by a winch capable of hauling the user. \
-		While some older models of cargo-oriented grapples have capacities of a few tons, \
-		these are only capable of working in zero-gravity environments, a blessing to some Engineers."
+	name = "модуль аварийного троса"
+	desc = "Изготовленный на заказ крюк для захвата, приводимый в действие лебёдкой, способной поднимать пользователя. \
+		Хотя некоторые старые модели грузоориентированных тросов имеют вместимость в несколько тонн, \
+		они способны работать только в условиях нулевой гравитации. Благословение для некоторых инженеров."
 	icon_state = "tether"
 	module_type = MODULE_ACTIVE
-	complexity = 2
+	complexity = 3
 	use_power_cost = DEFAULT_CHARGE_DRAIN
 	incompatible_modules = list(/obj/item/mod/module/tether)
 	cooldown_time = 1.5 SECONDS
 
 /obj/item/mod/module/tether/on_use()
 	if(mod.wearer.has_gravity(get_turf(src)))
-		balloon_alert(mod.wearer, "too much gravity!")
+		balloon_alert(mod.wearer, "Гравитация мешает!")
 		playsound(src, 'sound/weapons/gun/general/dry_fire.ogg', 25, TRUE)
 		return FALSE
 	return ..()
@@ -113,6 +115,7 @@
 	icon_state = "tether_projectile"
 	icon = 'icons/obj/clothing/modsuit/mod_modules.dmi'
 	damage = 0
+	nodamage = TRUE
 	range = 10
 	hitsound = 'sound/weapons/batonextend.ogg'
 	hitsound_wall = 'sound/weapons/batonextend.ogg'
@@ -123,10 +126,10 @@
 
 /obj/projectile/tether/fire(setAngle)
 	if(firer)
-		line = firer.Beam(src, "line", 'icons/obj/clothing/modsuit/mod_modules.dmi', emissive = FALSE)
-	return ..()
+		line = firer.Beam(src, "line", 'icons/obj/clothing/modsuit/mod_modules.dmi')
+	..()
 
-/obj/projectile/tether/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/tether/on_hit(atom/target)
 	. = ..()
 	if(firer)
 		firer.throw_at(target, 10, 1, firer, FALSE, FALSE, null, MOVE_FORCE_NORMAL, TRUE)
@@ -137,52 +140,61 @@
 
 ///Radiation Protection - Protects the user from radiation, gives them a geiger counter and rad info in the panel.
 /obj/item/mod/module/rad_protection
-	name = "MOD radiation protection module"
-	desc = "A module utilizing polymers and reflective shielding to protect the user against ionizing radiation; \
-		a common danger in space. This comes with software to notify the wearer that they're even in a radioactive area, \
-		giving a voice to an otherwise silent killer."
+	name = "модуль радиационной защиты"
+	desc = "Модуль использующий отражающие полимеры для защиты пользователя от ионизирующего излучения, \
+		весьма распространенной угрозы в космическом вакууме. Поставляется с программным обеспечением, чтобы уведомить пользователя, что они находятся в радиоактивной области, \
+		давая голос безмолвному убийце."
 	icon_state = "radshield"
 	complexity = 2
 	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0.3
 	incompatible_modules = list(/obj/item/mod/module/rad_protection)
 	tgui_id = "rad_counter"
-	/// Radiation threat level being perceived.
-	var/perceived_threat_level
+	var/current_tick_amount = 0
+	var/radiation_count = 0
+	var/grace = RAD_GEIGER_GRACE_PERIOD
+	var/datum/looping_sound/geiger/soundloop
 
 /obj/item/mod/module/rad_protection/on_suit_activation()
-	AddComponent(/datum/component/geiger_sound)
-	ADD_TRAIT(mod.wearer, TRAIT_BYPASS_EARLY_IRRADIATED_CHECK, MOD_TRAIT)
-	RegisterSignal(mod.wearer, COMSIG_IN_RANGE_OF_IRRADIATION, PROC_REF(on_pre_potential_irradiation))
+	soundloop = new(src, FALSE, TRUE)
+	soundloop.volume = 5
+	START_PROCESSING(SSobj, src)
 	for(var/obj/item/part in mod.mod_parts)
-		ADD_TRAIT(part, TRAIT_RADIATION_PROTECTED_CLOTHING, MOD_TRAIT)
+		part.armor = part.armor.modifyRating(arglist(list(RAD = 100)))
 
 /obj/item/mod/module/rad_protection/on_suit_deactivation(deleting = FALSE)
-	qdel(GetComponent(/datum/component/geiger_sound))
-	REMOVE_TRAIT(mod.wearer, TRAIT_BYPASS_EARLY_IRRADIATED_CHECK, MOD_TRAIT)
-	UnregisterSignal(mod.wearer, COMSIG_IN_RANGE_OF_IRRADIATION)
+	QDEL_NULL(soundloop)
+	STOP_PROCESSING(SSobj, src)
 	for(var/obj/item/part in mod.mod_parts)
-		REMOVE_TRAIT(part, TRAIT_RADIATION_PROTECTED_CLOTHING, MOD_TRAIT)
+		part.armor = part.armor.modifyRating(arglist(list(RAD = -100)))
+
+/obj/item/mod/module/rad_protection/process(delta_time)
+	radiation_count = LPFILTER(radiation_count, current_tick_amount, delta_time, RAD_GEIGER_RC)
+
+	if(current_tick_amount)
+		grace = RAD_GEIGER_GRACE_PERIOD
+	else
+		grace -= delta_time
+		if(grace <= 0)
+			radiation_count = 0
+
+	current_tick_amount = 0
+
+	soundloop.last_radiation = radiation_count
 
 /obj/item/mod/module/rad_protection/add_ui_data()
 	. = ..()
-	.["is_user_irradiated"] = mod.wearer ? HAS_TRAIT(mod.wearer, TRAIT_IRRADIATED) : FALSE
-	.["background_radiation_level"] = perceived_threat_level
-	.["health_max"] = mod.wearer?.getMaxHealth() || 0
-	.["loss_tox"] = mod.wearer?.getToxLoss() || 0
-
-/obj/item/mod/module/rad_protection/proc/on_pre_potential_irradiation(datum/source, datum/radiation_pulse_information/pulse_information, insulation_to_target)
-	SIGNAL_HANDLER
-
-	perceived_threat_level = get_perceived_radiation_danger(pulse_information, insulation_to_target)
-	addtimer(VARSET_CALLBACK(src, perceived_threat_level, null), TIME_WITHOUT_RADIATION_BEFORE_RESET, TIMER_UNIQUE | TIMER_OVERRIDE)
+	.["userradiated"] = mod.wearer?.radiation || FALSE
+	.["usertoxins"] = mod.wearer?.getToxLoss() || 0
+	.["usermaxtoxins"] = mod.wearer?.getMaxHealth() || 0
+	.["threatlevel"] = radiation_count
 
 ///Constructor - Lets you build quicker and create RCD holograms.
 /obj/item/mod/module/constructor
-	name = "MOD constructor module"
-	desc = "This module entirely occupies the wearer's forearm, notably causing conflict with \
-		advanced arm servos meant to carry crewmembers. However, it functions as an \
-		extremely advanced construction hologram scanner, as well as containing the \
-		latest engineering schematics combined with inbuilt memory to help the user build walls."
+	name = "модуль строительного сканера"
+	desc = "Этот модуль полностью занимает предплечье владельца, особенно вызывая проблемы \
+		при переноской членов экипажа. Однако, он функционирует как \
+		ультрасовременный строительный голографический сканер, содержащий \
+		последние технические схемы в сочетании со встроенной памятью, чтобы ускорить постройку разрушенного окружения ."
 	icon_state = "constructor"
 	module_type = MODULE_USABLE
 	complexity = 2
@@ -206,8 +218,8 @@
 
 ///Mister - Sprays water over an area.
 /obj/item/mod/module/mister
-	name = "MOD water mister module"
-	desc = "A module containing a mister, able to spray it over areas."
+	name = "модуль пульверизатора"
+	desc = "Модуль, содержащий пульверизатор, способный распылять воду в области вокруг."
 	icon_state = "mister"
 	module_type = MODULE_ACTIVE
 	complexity = 2
@@ -224,8 +236,8 @@
 
 ///Resin Mister - Sprays resin over an area.
 /obj/item/mod/module/mister/atmos
-	name = "MOD resin mister module"
-	desc = "An atmospheric resin mister, able to fix up areas quickly."
+	name = "модуль огнеборца"
+	desc = "Распылитель, содержащий специальную противопожарную пену, образующую после застывания твердый биполимер, что стабилизирует температуру в помещении и быстро залатывает пробоины."
 	device = /obj/item/extinguisher/mini/nozzle/mod
 	volume = 250
 
@@ -234,5 +246,5 @@
 	reagents.add_reagent(/datum/reagent/water, volume)
 
 /obj/item/extinguisher/mini/nozzle/mod
-	name = "MOD atmospheric mister"
-	desc = "An atmospheric resin mister with three modes, mounted as a module."
+	name = "пожарный ствол"
+	desc = "Пожарный ствол соединенный рукавом с рюкзаком огнеборца. Имеет 3 режима работы, меняющиеся при нажатии."

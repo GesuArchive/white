@@ -1,25 +1,16 @@
 GLOBAL_LIST_EMPTY(station_turfs)
+GLOBAL_LIST_EMPTY(created_baseturf_lists)
 
 /// Any floor or wall. What makes up the station and the rest of the map.
 /turf
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	vis_flags = VIS_INHERIT_ID // Important for interaction with and visualization of openspace.
 	luminosity = 1
-	light_height = LIGHTING_HEIGHT_FLOOR
-	
-	///what /mob/oranges_ear instance is already assigned to us as there should only ever be one.
-	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
-	var/mob/oranges_ear/assigned_oranges_ear
-
 	/// Turf bitflags, see code/__DEFINES/flags.dm
 	var/turf_flags = NONE
+	var/intact = 1
 
-	/// If there's a tile over a basic floor that can be ripped out
-	var/overfloor_placed = FALSE
-	/// How accessible underfloor pieces such as wires, pipes, etc are on this turf. Can be HIDDEN, VISIBLE, or INTERACTABLE.
-	var/underfloor_accessibility = UNDERFLOOR_HIDDEN
-	/// If there is a lattice underneat this turf. Used for the attempt_lattice_replacement proc to determine if it should place lattice.
-	var/lattice_underneath = TRUE
+	appearance_flags = TILE_BOUND
 
 	// baseturfs can be either a list or a single turf type.
 	// In class definition like here it should always be a single type.
@@ -29,10 +20,9 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	var/list/baseturfs = /turf/baseturf_bottom
 
 	var/temperature = T20C
-	///Used for fire, if a melting temperature was reached, it will be destroyed
-	var/to_be_destroyed = 0
-	///The max temperature of the fire which it was subjected to
-	var/max_fire_temperature_sustained = 0
+	var/initial_temperature = T20C
+	var/to_be_destroyed = 0 //Used for fire, if a melting temperature was reached, it will be destroyed
+	var/max_fire_temperature_sustained = 0 //The max temperature of the fire which it was subjected to
 
 	var/blocks_air = FALSE
 	// If this turf should initialize atmos adjacent turfs or not
@@ -41,9 +31,11 @@ GLOBAL_LIST_EMPTY(station_turfs)
 
 	var/list/image/blueprint_data //for the station blueprints, images of objects eg: pipes
 
+	var/explosion_level = 0	//for preventing explosion dodging
+	var/explosion_id = 0
 	var/list/explosion_throw_details
 
-	var/requires_activation //add to air processing after initialize?
+	var/requires_activation	//add to air processing after initialize?
 	var/changing_turf = FALSE
 
 	var/bullet_bounce_sound = 'sound/weapons/gun/general/mag_bullet_remove.ogg' //sound played when a shell casing is ejected ontop of the turf.
@@ -85,6 +77,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	/// but is now destroyed, this will preserve the value.
 	/// See __DEFINES/construction.dm for RCD_MEMORY_*.
 	var/rcd_memory
+
 	///whether or not this turf forces movables on it to have no gravity (unless they themselves have forced gravity)
 	var/force_no_gravity = FALSE
 
@@ -92,18 +85,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	/// WARNING: Currently to use a density shortcircuiting this does not support dense turfs with special allow through function
 	var/pathing_pass_method = TURF_PATHING_PASS_DENSITY
 
-#if defined(UNIT_TESTS) || defined(SPACEMAN_DMM)
-	/// For the area_contents list unit test
-	/// Allows us to know our area without needing to preassign it
-	/// Sorry for the mess
-	var/area/in_contents_of
-#endif
-	/// How much explosive resistance this turf is providing to itself
-	/// Defaults to -1, interpreted as initial(explosive_resistance)
-	/// This is an optimization to prevent turfs from needing to set these on init
-	/// This would either be expensive, or impossible to manage. Let's just avoid it yes?
-	/// Never directly access this, use get_explosive_block() instead
-	var/inherent_explosive_resistance = -1
+	var/apply_grain = FALSE
 
 /turf/vv_edit_var(var_name, new_value)
 	var/static/list/banned_edits = list(NAMEOF_STATIC(src, x), NAMEOF_STATIC(src, y), NAMEOF_STATIC(src, z))
@@ -131,33 +113,35 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		if(!SSmapping.plane_offset_blacklist["[plane]"])
 			plane = plane - (PLANE_RANGE * SSmapping.z_level_to_plane_offset[z])
 
-		var/turf/T = GET_TURF_ABOVE(src)
+		var/turf/T = SSmapping.get_turf_above(src)
 		if(T)
 			T.multiz_turf_new(src, DOWN)
-		T = GET_TURF_BELOW(src)
+		T = SSmapping.get_turf_below(src)
 		if(T)
 			T.multiz_turf_new(src, UP)
 
-	// by default, vis_contents is inherited from the turf that was here before.
-	// Checking length(vis_contents) in a proc this hot has huge wins for performance.
-	if (length(vis_contents))
-		vis_contents.Cut()
+	// by default, vis_contents is inherited from the turf that was here before
+	vis_contents.Cut()
 
 	assemble_baseturfs()
 
 	levelupdate()
 
-	SETUP_SMOOTHING()
-
+	if (length(smoothing_groups))
+		sortTim(smoothing_groups) //In case it's not properly ordered, let's avoid duplicate entries with the same values.
+		SET_BITFLAG_LIST(smoothing_groups)
+	if (length(canSmoothWith))
+		sortTim(canSmoothWith)
+		if(canSmoothWith[length(canSmoothWith)] > MAX_S_TURF) //If the last element is higher than the maximum turf-only value, then it must scan turf contents for smoothing targets.
+			smoothing_flags |= SMOOTH_OBJ
+		SET_BITFLAG_LIST(canSmoothWith)
 	if (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 		QUEUE_SMOOTH(src)
 
-	for(var/atom/movable/content as anything in src)
-		Entered(content, null)
+	visibilityChanged()
 
-	var/area/our_area = loc
-	if(!our_area.area_has_base_lighting && space_lit) //Only provide your own lighting if the area doesn't for you
-		add_overlay(GLOB.starlight_overlays[GET_TURF_PLANE_OFFSET(src) + 1])
+	for(var/atom/movable/AM in src)
+		Entered(AM)
 
 	if(requires_activation)
 		CALCULATE_ADJACENT_TURFS(src, KILL_EXCITED)
@@ -169,17 +153,23 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		directional_opacity = ALL_CARDINALS
 
 	// apply materials properly from the default custom_materials value
-	if (!length(custom_materials))
-		set_custom_materials(custom_materials)
+	set_custom_materials(custom_materials)
 
-	if(uses_integrity)
-		atom_integrity = max_integrity
+	if(apply_grain)
+		overlays += image('white/valtos/icons/lifeweb/noise.dmi', icon_state = "[rand(1, 9)]")
+
+	ComponentInitialize()
 
 	return INITIALIZE_HINT_NORMAL
 
-/// Initializes our adjacent turfs. If you want to avoid this, do not override it, instead set init_air to FALSE
-/turf/proc/Initalize_Atmos(time)
-	CALCULATE_ADJACENT_TURFS(src, NORMAL_TURF)
+/turf/return_temperature()
+	return temperature
+
+/turf/proc/set_temperature(temp)
+	temperature = temp
+
+/turf/proc/Initalize_Atmos(times_fired)
+	CALCULATE_ADJACENT_TURFS(src, KILL_EXCITED)
 
 /turf/Destroy(force)
 	. = QDEL_HINT_IWILLGC
@@ -187,10 +177,10 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		stack_trace("Incorrect turf deletion")
 	changing_turf = FALSE
 	if(GET_LOWEST_STACK_OFFSET(z))
-		var/turf/T = GET_TURF_ABOVE(src)
+		var/turf/T = SSmapping.get_turf_above(src)
 		if(T)
 			T.multiz_turf_del(src, DOWN)
-		T = GET_TURF_BELOW(src)
+		T = SSmapping.get_turf_below(src)
 		if(T)
 			T.multiz_turf_del(src, UP)
 	if(force)
@@ -199,14 +189,15 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		var/turf/B = new world.turf(src)
 		for(var/A in B.contents)
 			qdel(A)
+		for(var/I in B.vars)
+			B.vars[I] = null
 		return
 	QDEL_LIST(blueprint_data)
 	flags_1 &= ~INITIALIZED_1
 	requires_activation = FALSE
 	..()
 
-	if (length(vis_contents))
-		vis_contents.Cut()
+	vis_contents.Cut()
 
 /// WARNING WARNING
 /// Turfs DO NOT lose their signals when they get replaced, REMEMBER THIS
@@ -215,29 +206,13 @@ GLOBAL_LIST_EMPTY(station_turfs)
 /turf/_clear_signal_refs()
 	return
 
-/turf/attack_hand(mob/user, list/modifiers)
+/turf/attack_hand(mob/user)
 	. = ..()
+	if(SEND_SIGNAL(user, COMSIG_MOB_ATTACK_HAND_TURF, src))
+		. = TRUE
 	if(.)
 		return
 	user.Move_Pulled(src)
-
-/// Call to move a turf from its current area to a new one
-/turf/proc/change_area(area/old_area, area/new_area)
-	//dont waste our time
-	if(old_area == new_area)
-		return
-
-	//move the turf
-	old_area.turfs_to_uncontain += src
-	new_area.contents += src
-	new_area.contained_turfs += src
-
-	//changes to make after turf has moved
-	on_change_area(old_area, new_area)
-
-/// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
-/turf/proc/on_change_area(area/old_area, area/new_area)
-	transfer_area_lighting(old_area, new_area)
 
 /turf/proc/multiz_turf_del(turf/T, dir)
 	SEND_SIGNAL(src, COMSIG_TURF_MULTIZ_DEL, T, dir)
@@ -257,23 +232,15 @@ GLOBAL_LIST_EMPTY(station_turfs)
  * * exclude_mobs - If TRUE, ignores dense mobs on the turf.
  * * source_atom - If this is not null, will check whether any contents on the turf can block this atom specifically. Also ignores itself on the turf.
  * * ignore_atoms - Check will ignore any atoms in this list. Useful to prevent an atom from blocking itself on the turf.
- * * type_list - are we checking for types of atoms to ignore and not physical atoms
  */
-/turf/proc/is_blocked_turf(exclude_mobs = FALSE, source_atom = null, list/ignore_atoms, type_list = FALSE)
+/turf/proc/is_blocked_turf(exclude_mobs = FALSE, source_atom = null, list/ignore_atoms)
 	if(density)
 		return TRUE
 
 	for(var/atom/movable/movable_content as anything in contents)
-		// We don't want to block ourselves
-		if((movable_content == source_atom))
+		// We don't want to block ourselves or consider any ignored atoms.
+		if((movable_content == source_atom) || (movable_content in ignore_atoms))
 			continue
-		// dont consider ignored atoms or their types
-		if(length(ignore_atoms))
-			if(!type_list && (movable_content in ignore_atoms))
-				continue
-			else if(type_list && is_type_in_list(movable_content, ignore_atoms))
-				continue
-
 		// If the thing is dense AND we're including mobs or the thing isn't a mob AND if there's a source atom and
 		// it cannot pass through the thing on the turf,  we consider the turf blocked.
 		if(movable_content.density && (!exclude_mobs || !ismob(movable_content)))
@@ -296,28 +263,27 @@ GLOBAL_LIST_EMPTY(station_turfs)
 			return TRUE
 	return FALSE
 
-//The zpass procs exist to be overriden, not directly called
-//use can_z_pass for that
-///If we'd allow anything to travel into us
-/turf/proc/zPassIn(direction)
+//zPassIn doesn't necessarily pass an atom!
+//direction is direction of travel of air
+/turf/proc/zPassIn(atom/movable/A, direction, turf/source)
 	return FALSE
 
-///If we'd allow anything to travel out of us
-/turf/proc/zPassOut(direction)
+//direction is direction of travel of air
+/turf/proc/zPassOut(atom/movable/A, direction, turf/destination)
 	return FALSE
 
 //direction is direction of travel of air
 /turf/proc/zAirIn(direction, turf/source)
 	return FALSE
 
-//direction is direction of travel
+//direction is direction of travel of air
 /turf/proc/zAirOut(direction, turf/source)
 	return FALSE
 
 /// Precipitates a movable (plus whatever buckled to it) to lower z levels if possible and then calls zImpact()
 /turf/proc/zFall(atom/movable/falling, levels = 1, force = FALSE, falling_from_move = FALSE)
 	var/direction = DOWN
-	if(falling.has_gravity() <= NEGATIVE_GRAVITY)
+	if(falling.has_gravity() == NEGATIVE_GRAVITY)
 		direction = UP
 	var/turf/target = get_step_multiz(src, direction)
 	if(!target)
@@ -344,7 +310,8 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	return TRUE
 
 ///Called each time the target falls down a z level possibly making their trajectory come to a halt. see __DEFINES/movement.dm.
-/turf/proc/zImpact(atom/movable/falling, levels = 1, turf/prev_turf, flags = NONE)
+/turf/proc/zImpact(atom/movable/falling, levels = 1, turf/prev_turf)
+	var/flags = NONE
 	var/list/falling_movables = falling.get_z_move_affected()
 	var/list/falling_mov_names
 	for(var/atom/movable/falling_mov as anything in falling_movables)
@@ -356,7 +323,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 			break
 	if(prev_turf && !(flags & FALL_NO_MESSAGE))
 		for(var/mov_name in falling_mov_names)
-			prev_turf.visible_message(span_danger("[mov_name] falls through [prev_turf]!"))
+			prev_turf.visible_message(span_danger("[mov_name] падает сквозь [prev_turf]!"))
 	if(!(flags & FALL_INTERCEPTED) && zFall(falling, levels + 1))
 		return FALSE
 	for(var/atom/movable/falling_mov as anything in falling_movables)
@@ -401,47 +368,65 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	return FALSE
 
 //There's a lot of QDELETED() calls here if someone can figure out how to optimize this but not runtime when something gets deleted by a Bump/CanPass/Cross call, lemme know or go ahead and fix this mess - kevinz000
-/turf/Enter(atom/movable/mover)
+/turf/Enter(atom/movable/mover, atom/oldloc)
 	// Do not call ..()
 	// Byond's default turf/Enter() doesn't have the behaviour we want with Bump()
 	// By default byond will call Bump() on the first dense object in contents
 	// Here's hoping it doesn't stay like this for years before we finish conversion to step_
-	var/atom/first_bump
-	var/can_pass_self = CanPass(mover, get_dir(src, mover))
-
-	if(can_pass_self)
-		var/atom/mover_loc = mover.loc
-		var/mover_is_phasing = mover.movement_type & PHASING
-		for(var/atom/movable/thing as anything in contents)
-			if(thing == mover || thing == mover_loc) // Multi tile objects and moving out of other objects
+	var/atom/firstbump
+	var/canPassSelf = CanPass(mover, get_dir(src, mover))
+	if(canPassSelf || (mover.movement_type & PHASING))
+		for(var/i in contents)
+			if(QDELETED(mover))
+				return FALSE		//We were deleted, do not attempt to proceed with movement.
+			if(i == mover || i == mover.loc) // Multi tile objects and moving out of other objects
 				continue
+			var/atom/movable/thing = i
 			if(!thing.Cross(mover))
-				if(QDELETED(mover)) //deleted from Cross() (CanPass is pure so it cant delete, Cross shouldnt be doing this either though, but it can happen)
+				if(QDELETED(mover))		//Mover deleted from Cross/CanPass, do not proceed.
 					return FALSE
-				if(mover_is_phasing)
+				if((mover.movement_type & PHASING))
 					mover.Bump(thing)
 					if(QDELETED(mover)) //deleted from Bump()
 						return FALSE
 					continue
 				else
-					if(!first_bump || ((thing.layer > first_bump.layer || thing.flags_1 & ON_BORDER_1) && !(first_bump.flags_1 & ON_BORDER_1)))
-						first_bump = thing
-	if(QDELETED(mover)) //Mover deleted from Cross/CanPass/Bump, do not proceed.
+					if(!firstbump || ((thing.layer > firstbump.layer || thing.flags_1 & ON_BORDER_1) && !(firstbump.flags_1 & ON_BORDER_1)))
+						firstbump = thing
+	if(QDELETED(mover))					//Mover deleted from Cross/CanPass/Bump, do not proceed.
 		return FALSE
-	if(!can_pass_self) //Even if mover is unstoppable they need to bump us.
-		first_bump = src
-	if(first_bump)
-		mover.Bump(first_bump)
+	if(!canPassSelf)	//Even if mover is unstoppable they need to bump us.
+		firstbump = src
+	if(firstbump)
+		mover.Bump(firstbump)
 		return (mover.movement_type & PHASING)
 	return TRUE
 
+/turf/Exit(atom/movable/mover, atom/newloc)
+	. = ..()
+	if(!. || QDELETED(mover))
+		return FALSE
+	for(var/i in contents)
+		if(i == mover)
+			continue
+		if(QDELETED(mover))
+			return FALSE		//We were deleted.
+
+
+/turf/open/Entered(atom/movable/AM)
+	. = ..()
+	//melting
+	if(isobj(AM) && air && air.return_temperature() > T0C)
+		var/obj/O = AM
+		if(O.obj_flags & FROZEN)
+			O.make_unfrozen()
+
 // A proc in case it needs to be recreated or badmins want to change the baseturfs
 /turf/proc/assemble_baseturfs(turf/fake_baseturf_type)
-	var/static/list/created_baseturf_lists = list()
 	var/turf/current_target
 	if(fake_baseturf_type)
 		if(length(fake_baseturf_type)) // We were given a list, just apply it and move on
-			baseturfs = baseturfs_string_list(fake_baseturf_type, src)
+			baseturfs = fake_baseturf_type
 			return
 		current_target = fake_baseturf_type
 	else
@@ -454,19 +439,19 @@ GLOBAL_LIST_EMPTY(station_turfs)
 			current_target = baseturfs
 
 	// If we've made the output before we don't need to regenerate it
-	if(created_baseturf_lists[current_target])
-		var/list/premade_baseturfs = created_baseturf_lists[current_target]
+	if(GLOB.created_baseturf_lists[current_target])
+		var/list/premade_baseturfs = GLOB.created_baseturf_lists[current_target]
 		if(length(premade_baseturfs))
-			baseturfs = baseturfs_string_list(premade_baseturfs.Copy(), src)
+			baseturfs = premade_baseturfs.Copy()
 		else
-			baseturfs = baseturfs_string_list(premade_baseturfs, src)
+			baseturfs = premade_baseturfs
 		return baseturfs
 
 	var/turf/next_target = initial(current_target.baseturfs)
 	//Most things only have 1 baseturf so this loop won't run in most cases
 	if(current_target == next_target)
 		baseturfs = current_target
-		created_baseturf_lists[current_target] = current_target
+		GLOB.created_baseturf_lists[current_target] = current_target
 		return current_target
 	var/list/new_baseturfs = list(current_target)
 	for(var/i=0;current_target != next_target;i++)
@@ -480,14 +465,14 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		current_target = next_target
 		next_target = initial(current_target.baseturfs)
 
-	baseturfs = baseturfs_string_list(new_baseturfs, src)
-	created_baseturf_lists[new_baseturfs[new_baseturfs.len]] = new_baseturfs.Copy()
+	baseturfs = new_baseturfs
+	GLOB.created_baseturf_lists[new_baseturfs[new_baseturfs.len]] = new_baseturfs.Copy()
 	return new_baseturfs
 
 /turf/proc/levelupdate()
 	for(var/obj/O in src)
 		if(O.flags_1 & INITIALIZED_1)
-			SEND_SIGNAL(O, COMSIG_OBJ_HIDE, underfloor_accessibility)
+			SEND_SIGNAL(O, COMSIG_OBJ_HIDE, intact)
 
 // override for space turfs, since they should never hide anything
 /turf/open/space/levelupdate()
@@ -521,10 +506,10 @@ GLOBAL_LIST_EMPTY(station_turfs)
 ////////////////////////////////////////////////////
 
 /turf/singularity_act()
-	if(underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
-		for(var/obj/on_top in contents) //this is for deleting things like wires contained in the turf
-			if(HAS_TRAIT(on_top, TRAIT_T_RAY_VISIBLE))
-				on_top.singularity_act()
+	if(intact)
+		for(var/obj/O in contents) //this is for deleting things like wires contained in the turf
+			if(HAS_TRAIT(O, TRAIT_T_RAY_VISIBLE))
+				O.singularity_act()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 	return(2)
 
@@ -532,15 +517,12 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	return TRUE
 
 /turf/proc/can_lay_cable()
-	return can_have_cabling() && underfloor_accessibility >= UNDERFLOOR_INTERACTABLE
+	return can_have_cabling() & !intact
 
 /turf/proc/visibilityChanged()
 	GLOB.cameranet.updateVisibility(src)
 
 /turf/proc/burn_tile()
-	return
-
-/turf/proc/break_tile()
 	return
 
 /turf/proc/is_shielded()
@@ -550,6 +532,8 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	for(var/thing in contents)
 		var/atom/movable/movable_thing = thing
 		if(QDELETED(movable_thing))
+			continue
+		if(!movable_thing.ex_check(explosion_id))
 			continue
 		switch(severity)
 			if(EXPLODE_DEVASTATE)
@@ -587,9 +571,9 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	LAZYADD(blueprint_data, I)
 
 /turf/proc/add_blueprints_preround(atom/movable/AM)
-	if(!SSicon_smooth.initialized)
-		if(AM.layer == WIRE_LAYER) //wires connect to adjacent positions after its parent init, meaning we need to wait (in this case, until smoothing) to take its image
-			SSicon_smooth.blueprint_queue += AM
+	if(!SSticker.HasRoundStarted())
+		if(AM.layer == WIRE_LAYER)	//wires connect to adjacent positions after its parent init, meaning we need to wait (in this case, until smoothing) to take its image
+			LAZYADD(SSicon_smooth.blueprint_queue, AM)
 		else
 			add_blueprints(AM)
 
@@ -601,24 +585,21 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	if((acidpwr <= 0) || (acid_volume <= 0))
 		return FALSE
 
-	AddComponent(/datum/component/acid, acidpwr, acid_volume, GLOB.acid_overlay)
+	AddComponent(/datum/component/acid, acidpwr, acid_volume)
+	for(var/obj/O in src)
+		if(intact && HAS_TRAIT(O, TRAIT_T_RAY_VISIBLE))
+			continue
+
+		O.acid_act(acidpwr, acid_volume)
 
 	return . || TRUE
 
 /turf/proc/acid_melt()
 	return
 
-/turf/rust_heretic_act()
-	if(turf_flags & NO_RUST)
-		return
-	if(HAS_TRAIT(src, TRAIT_RUSTY))
-		return
-
-	AddElement(/datum/element/rust)
-
 /turf/handle_fall(mob/faller)
 	if(has_gravity(src))
-		playsound(src, SFX_BODYFALL, 50, TRUE)
+		playsound(src, "bodydrop", 50, TRUE)
 	faller.drop_all_held_items()
 
 /turf/proc/photograph(limit=20)
@@ -638,26 +619,34 @@ GLOBAL_LIST_EMPTY(station_turfs)
 /turf/AllowDrop()
 	return TRUE
 
-/turf/proc/add_vomit_floor(mob/living/vomiter, vomit_type = /obj/effect/decal/cleanable/vomit, vomit_flags, purge_ratio = 0.1)
-	var/obj/effect/decal/cleanable/vomit/throw_up = new vomit_type (src, vomiter.get_static_viruses())
+/turf/proc/add_vomit_floor(mob/living/M, toxvomit = NONE, purge_ratio = 0.1)
 
-	// if the vomit combined, apply toxicity and reagents to the old vomit
-	if (QDELETED(throw_up))
-		throw_up = locate() in src
-	if(isnull(throw_up))
+	var/obj/effect/decal/cleanable/vomit/V = new /obj/effect/decal/cleanable/vomit(src, M.get_static_viruses())
+
+
+	//if the vomit combined, apply toxicity and reagents to the old vomit
+	if (QDELETED(V))
+		V = locate() in src
+	if(!V)
 		return
-
-	if(!iscarbon(vomiter) || (purge_ratio == 0))
-		return
-
-	clear_reagents_to_vomit_pool(vomiter, throw_up, purge_ratio)
+	// Apply the proper icon set based on vomit type
+	if(toxvomit == VOMIT_PURPLE)
+		V.icon_state = "vomitpurp_[pick(1,4)]"
+	else if (toxvomit == VOMIT_TOXIC)
+		V.icon_state = "vomittox_[pick(1,4)]"
+	else if (toxvomit == VOMIT_NANITE)
+		V.name = "metallic slurry"
+		V.desc = "A puddle of metallic slurry that looks vaguely like very fine sand. It almost seems like it's moving..."
+		V.icon_state = "vomitnanite_[pick(1,4)]"
+	if (purge_ratio && iscarbon(M))
+		clear_reagents_to_vomit_pool(M, V, purge_ratio)
 
 /proc/clear_reagents_to_vomit_pool(mob/living/carbon/M, obj/effect/decal/cleanable/vomit/V, purge_ratio = 0.1)
-	var/obj/item/organ/internal/stomach/belly = M.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/stomach/belly = M.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(!belly?.reagents.total_volume)
 		return
 	var/chemicals_lost = belly.reagents.total_volume * purge_ratio
-	belly.reagents.trans_to(V, chemicals_lost, transferred_by = M)
+	belly.reagents.trans_to(V, chemicals_lost, transfered_by = M)
 	//clear the stomach of anything even not food
 	for(var/bile in belly.reagents.reagent_list)
 		var/datum/reagent/reagent = bile
@@ -698,59 +687,27 @@ GLOBAL_LIST_EMPTY(station_turfs)
 			continue
 		movable_content.wash(clean_types)
 
-/turf/set_density(new_value)
-	var/old_density = density
-	. = ..()
-	if(old_density == density)
-		return
-
-	if(old_density)
-		explosive_resistance -= get_explosive_block()
-	if(density)
-		explosive_resistance += get_explosive_block()
-
-/// Wrapper around inherent_explosive_resistance
-/// We assume this proc is cold, so we can move the "what is our block" into it
-/turf/proc/get_explosive_block()
-	if(inherent_explosive_resistance != -1)
-		return inherent_explosive_resistance
-	if(explosive_resistance)
-		return initial(explosive_resistance)
-	return 0
-
 /**
  * Returns adjacent turfs to this turf that are reachable, in all cardinal directions
  *
  * Arguments:
  * * caller: The movable, if one exists, being used for mobility checks to see what tiles it can reach
- * * access: A list that decides if we can gain access to doors that would otherwise block a turf
+ * * ID: An ID card that decides if we can gain access to doors that would otherwise block a turf
  * * simulated_only: Do we only worry about turfs with simulated atmos, most notably things that aren't space?
- * * no_id: When true, doors with public access will count as impassible
+ * * check_density: WE CAN PASS OBJECTS, aren't we?
 */
-/turf/proc/reachableAdjacentTurfs(atom/movable/caller, list/access, simulated_only, no_id = FALSE)
+/turf/proc/reachableAdjacentTurfs(atom/movable/caller, ID, simulated_only, bypass_density = FALSE)
 	var/static/space_type_cache = typecacheof(/turf/open/space)
+	var/static/openspace_type_cache = typecacheof(/turf/open/openspace)
 	. = list()
 
-	var/datum/can_pass_info/pass_info = new(caller, access, no_id)
 	for(var/iter_dir in GLOB.cardinals)
 		var/turf/turf_to_check = get_step(src,iter_dir)
-		if(!turf_to_check || (simulated_only && space_type_cache[turf_to_check.type]))
+		if(!turf_to_check || (simulated_only && (space_type_cache[turf_to_check.type] || openspace_type_cache[turf_to_check.type])))
 			continue
-		if(turf_to_check.density || LinkBlockedWithAccess(turf_to_check, pass_info))
+		if(turf_to_check.density || (!bypass_density && LinkBlockedWithAccess(turf_to_check, caller, ID)))
 			continue
 		. += turf_to_check
 
-/turf/proc/GetHeatCapacity()
-	. = heat_capacity
-
-/turf/proc/GetTemperature()
-	. = temperature
-
-/turf/proc/TakeTemperature(temp)
-	temperature += temp
-
-// I'm sorry, this is the only way that both makes sense and is cheap
-/turf/set_explosion_block(explosion_block)
-	explosive_resistance -= get_explosive_block()
-	inherent_explosive_resistance = explosion_block
-	explosive_resistance += get_explosive_block()
+/turf/proc/break_tile()
+	return

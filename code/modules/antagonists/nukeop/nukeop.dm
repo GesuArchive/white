@@ -1,55 +1,32 @@
 /datum/antagonist/nukeop
-	name = ROLE_NUCLEAR_OPERATIVE
+	name = "Оперативник Синдиката"
 	roundend_category = "syndicate operatives" //just in case
-	antagpanel_category = ANTAG_GROUP_SYNDICATE
+	antagpanel_category = "NukeOp"
 	job_rank = ROLE_OPERATIVE
 	antag_hud_name = "synd"
 	antag_moodlet = /datum/mood_event/focused
 	show_to_ghosts = TRUE
 	hijack_speed = 2 //If you can't take out the station, take the shuttle instead.
-	suicide_cry = "FOR THE SYNDICATE!!"
-	/// Which nukie team are we on?
 	var/datum/team/nuclear/nuke_team
-	/// If not assigned a team by default ops will try to join existing ones, set this to TRUE to always create new team.
-	var/always_new_team = FALSE
-	/// Should the user be moved to default spawnpoint after being granted this datum.
-	var/send_to_spawnpoint = TRUE
-	/// The DEFAULT outfit we will give to players granted this datum
+	var/always_new_team = FALSE //If not assigned a team by default ops will try to join existing ones, set this to TRUE to always create new team.
+	var/send_to_spawnpoint = TRUE //Should the user be moved to default spawnpoint.
 	var/nukeop_outfit = /datum/outfit/syndicate
+	greentext_reward = 10
 
-	preview_outfit = /datum/outfit/nuclear_operative_elite
-
-	/// In the preview icon, the nukies who are behind the leader
-	var/preview_outfit_behind = /datum/outfit/nuclear_operative
-	/// In the preview icon, a nuclear fission explosive device, only appearing if there's an icon state for it.
-	var/nuke_icon_state = "nuclearbomb_base"
-
-	/// The amount of discounts that the team get
-	var/discount_team_amount = 5
-	/// The amount of limited discounts that the team get
-	var/discount_limited_amount = 10
 
 /datum/antagonist/nukeop/proc/equip_op()
 	if(!ishuman(owner.current))
 		return
+	var/mob/living/carbon/human/H = owner.current
 
-	var/mob/living/carbon/human/operative = owner.current
-	ADD_TRAIT(operative, TRAIT_NOFEAR_HOLDUPS, INNATE_TRAIT)
+	H.set_species(/datum/species/human) //Plasamen burn up otherwise, and lizards are vulnerable to asimov AIs
 
-	if(!nukeop_outfit) // this variable is null in instances where an antagonist datum is granted via enslaving the mind (/datum/mind/proc/enslave_mind_to_creator), like in golems.
-		return
-
-	// If our nuke_ops_species pref is set to TRUE, (or we have no client) make us a human
-	if(isnull(operative.client) || operative.client.prefs.read_preference(/datum/preference/toggle/nuke_ops_species))
-		operative.set_species(/datum/species/human)
-
-	operative.equip_species_outfit(nukeop_outfit)
-
+	H.equipOutfit(nukeop_outfit)
 	return TRUE
 
 /datum/antagonist/nukeop/greet()
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ops.ogg',100,0, use_reverb = FALSE)
-	to_chat(owner, span_big("You are a [nuke_team ? nuke_team.syndicate_name : "syndicate"] agent!"))
+	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ops.ogg', 100, 0, use_reverb = FALSE)
+	to_chat(owner, span_notice("Да я же оперативник Синдиката!"))
 	owner.announce_objectives()
 
 /datum/antagonist/nukeop/on_gain()
@@ -61,45 +38,33 @@
 		move_to_spawnpoint()
 		// grant extra TC for the people who start in the nukie base ie. not the lone op
 		var/extra_tc = CEILING(GLOB.joined_player_list.len/5, 5)
-		var/datum/component/uplink/uplink = owner.find_syndicate_uplink()
-		if (uplink)
-			uplink.add_telecrystals(extra_tc)
-
-	var/datum/component/uplink/uplink = owner.find_syndicate_uplink()
-	if(uplink)
-		var/datum/team/nuclear/nuke_team = get_team()
-		if(!nuke_team.team_discounts)
-			var/list/uplink_items = list()
-			for(var/datum/uplink_item/item as anything in SStraitor.uplink_items)
-				if(item.item && !item.cant_discount && (item.purchasable_from & uplink.uplink_handler.uplink_flag) && item.cost > 1)
-					uplink_items += item
-			nuke_team.team_discounts = list()
-			nuke_team.team_discounts += create_uplink_sales(discount_team_amount, /datum/uplink_category/discount_team_gear, -1, uplink_items)
-			nuke_team.team_discounts += create_uplink_sales(discount_limited_amount, /datum/uplink_category/limited_discount_team_gear, 1, uplink_items)
-		uplink.uplink_handler.extra_purchasable += nuke_team.team_discounts
-
+		var/datum/component/uplink/U = owner.find_syndicate_uplink()
+		if (U)
+			U.telecrystals += extra_tc
 	memorize_code()
+
+
 
 /datum/antagonist/nukeop/get_team()
 	return nuke_team
 
 /datum/antagonist/nukeop/apply_innate_effects(mob/living/mob_override)
-	add_team_hud(mob_override || owner.current, /datum/antagonist/nukeop)
+	add_team_hud(mob_override || owner.current)
 
 /datum/antagonist/nukeop/proc/assign_nuke()
 	if(nuke_team && !nuke_team.tracked_nuke)
 		nuke_team.memorized_code = random_nukecode()
-		var/obj/machinery/nuclearbomb/syndicate/nuke = locate() in SSmachines.get_machines_by_type(/obj/machinery/nuclearbomb/syndicate)
+		var/obj/machinery/nuclearbomb/syndicate/nuke = locate() in GLOB.nuke_list
 		if(nuke)
 			nuke_team.tracked_nuke = nuke
-			if(nuke.r_code == NUKE_CODE_UNSET)
+			if(nuke.r_code == "ADMIN")
 				nuke.r_code = nuke_team.memorized_code
 			else //Already set by admins/something else?
 				nuke_team.memorized_code = nuke.r_code
-			for(var/obj/machinery/nuclearbomb/beer/beernuke as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/nuclearbomb/beer))
+			for(var/obj/machinery/nuclearbomb/beer/beernuke in GLOB.nuke_list)
 				beernuke.r_code = nuke_team.memorized_code
 		else
-			stack_trace("Syndicate nuke not found during nuke team creation.")
+			stack_trace("Не нашли бомбу синдиката в ходе создании команды оперов. Пиздато.")
 			nuke_team.memorized_code = null
 
 /datum/antagonist/nukeop/proc/give_alias()
@@ -111,47 +76,36 @@
 		else
 			var/number = 1
 			number = nuke_team.members.Find(owner)
-			owner.current.real_name = "[nuke_team.syndicate_name] Operative #[number]"
+			owner.current.real_name = "[nuke_team.syndicate_name] Оперативник #[number]"
+
+
 
 /datum/antagonist/nukeop/proc/memorize_code()
 	if(nuke_team && nuke_team.tracked_nuke && nuke_team.memorized_code)
-		antag_memory += "<B>[nuke_team.tracked_nuke] Code</B>: [nuke_team.memorized_code]<br>"
-		owner.add_memory(/datum/memory/key/nuke_code, nuclear_code = nuke_team.memorized_code)
-		to_chat(owner, "The nuclear authorization code is: <B>[nuke_team.memorized_code]</B>")
+		antag_memory += "<B>[nuke_team.tracked_nuke] Код</B>: [nuke_team.memorized_code]<br>"
+		to_chat(owner, "Код авторизации ядерного устройства: <B>[nuke_team.memorized_code]</B>")
 	else
-		to_chat(owner, "Unfortunately the syndicate was unable to provide you with nuclear authorization code.")
+		to_chat(owner, "<img src='https://media.discordapp.net/attachments/669610129548640257/828761933812334632/negrpng.png'")
 
-/datum/antagonist/nukeop/forge_objectives()
+/datum/antagonist/nukeop/proc/forge_objectives()
 	if(nuke_team)
 		objectives |= nuke_team.objectives
 
-/// Actually moves our nukie to where they should be
 /datum/antagonist/nukeop/proc/move_to_spawnpoint()
-	// Ensure that the nukiebase is loaded, and wait for it if required
-	SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_NUKIEBASE)
-	var/turf/destination = get_spawnpoint()
-	owner.current.forceMove(destination)
-	if(!owner.current.onSyndieBase())
-		message_admins("[ADMIN_LOOKUPFLW(owner.current)] is a NUKE OP and move_to_spawnpoint put them somewhere that isn't the syndie base, help please.")
-		stack_trace("Nuke op move_to_spawnpoint resulted in a location not on the syndicate base. (Was moved to: [destination])")
-
-/// Gets the position we spawn at
-/datum/antagonist/nukeop/proc/get_spawnpoint()
 	var/team_number = 1
 	if(nuke_team)
 		team_number = nuke_team.members.Find(owner)
+	owner.current.forceMove(GLOB.nukeop_start[((team_number - 1) % GLOB.nukeop_start.len) + 1])
 
-	return GLOB.nukeop_start[((team_number - 1) % GLOB.nukeop_start.len) + 1]
-
-/datum/antagonist/nukeop/leader/get_spawnpoint()
-	return pick(GLOB.nukeop_leader_start)
+/datum/antagonist/nukeop/leader/move_to_spawnpoint()
+	owner.current.forceMove(pick(GLOB.nukeop_leader_start))
 
 /datum/antagonist/nukeop/create_team(datum/team/nuclear/new_team)
 	if(!new_team)
 		if(!always_new_team)
 			for(var/datum/antagonist/nukeop/N in GLOB.antagonists)
 				if(!N.owner)
-					stack_trace("Antagonist datum without owner in GLOB.antagonists: [N]")
+					stack_trace("Датум антагониста создался без носителя в GLOB.antagonists: [N]")
 					continue
 				if(N.nuke_team)
 					nuke_team = N.nuke_team
@@ -161,127 +115,66 @@
 		assign_nuke() //This is bit ugly
 		return
 	if(!istype(new_team))
-		stack_trace("Wrong team type passed to [type] initialization.")
+		stack_trace("Команда проебалась где-то из-за [type] инициализации.")
 	nuke_team = new_team
 
 /datum/antagonist/nukeop/admin_add(datum/mind/new_owner,mob/admin)
-	new_owner.set_assigned_role(SSjob.GetJobType(/datum/job/nuclear_operative))
+	new_owner.assigned_role = ROLE_SYNDICATE
 	new_owner.add_antag_datum(src)
 	message_admins("[key_name_admin(admin)] has nuke op'ed [key_name_admin(new_owner)].")
 	log_admin("[key_name(admin)] has nuke op'ed [key_name(new_owner)].")
 
 /datum/antagonist/nukeop/get_admin_commands()
 	. = ..()
-	.["Send to base"] = CALLBACK(src, PROC_REF(admin_send_to_base))
-	.["Tell code"] = CALLBACK(src, PROC_REF(admin_tell_code))
+	.["Отправить на базу"] = CALLBACK(src, PROC_REF(admin_send_to_base))
+	.["Сказать код"] = CALLBACK(src, PROC_REF(admin_tell_code))
 
 /datum/antagonist/nukeop/proc/admin_send_to_base(mob/admin)
 	owner.current.forceMove(pick(GLOB.nukeop_start))
 
 /datum/antagonist/nukeop/proc/admin_tell_code(mob/admin)
 	var/code
-	for (var/obj/machinery/nuclearbomb/bombue as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/nuclearbomb))
+	for (var/obj/machinery/nuclearbomb/bombue in GLOB.machines)
 		if (length(bombue.r_code) <= 5 && bombue.r_code != initial(bombue.r_code))
 			code = bombue.r_code
 			break
 	if (code)
-		antag_memory += "<B>Syndicate Nuclear Bomb Code</B>: [code]<br>"
-		to_chat(owner.current, "The nuclear authorization code is: <B>[code]</B>")
+		antag_memory += "<B>Код от ядерной бомбы</B>: [code]<br>"
+		to_chat(owner.current, "Код авторизации ядерного устройства: <B>[code]</B>")
 	else
-		to_chat(admin, span_danger("No valid nuke found!"))
-
-/datum/antagonist/nukeop/get_preview_icon()
-	if (!preview_outfit)
-		return null
-
-	var/icon/final_icon = render_preview_outfit(preview_outfit)
-
-	if (!isnull(preview_outfit_behind))
-		var/icon/teammate = render_preview_outfit(preview_outfit_behind)
-		teammate.Blend(rgb(128, 128, 128, 128), ICON_MULTIPLY)
-
-		final_icon.Blend(teammate, ICON_UNDERLAY, -world.icon_size / 4, 0)
-		final_icon.Blend(teammate, ICON_UNDERLAY, world.icon_size / 4, 0)
-
-	if (!isnull(nuke_icon_state))
-		var/icon/nuke = icon('icons/obj/machines/nuke.dmi', nuke_icon_state)
-		nuke.Shift(SOUTH, 6)
-		final_icon.Blend(nuke, ICON_OVERLAY)
-
-	return finish_preview_icon(final_icon)
-
-/datum/outfit/nuclear_operative
-	name = "Nuclear Operative (Preview only)"
-
-	back = /obj/item/mod/control/pre_equipped/empty/syndicate
-	uniform = /obj/item/clothing/under/syndicate
-
-/datum/outfit/nuclear_operative/post_equip(mob/living/carbon/human/H, visualsOnly)
-	var/obj/item/mod/module/armor_booster/booster = locate() in H.back
-	booster.active = TRUE
-	H.update_worn_back()
-
-/datum/outfit/nuclear_operative_elite
-	name = "Nuclear Operative (Elite, Preview only)"
-
-	back = /obj/item/mod/control/pre_equipped/empty/elite
-	uniform = /obj/item/clothing/under/syndicate
-	l_hand = /obj/item/modular_computer/pda/nukeops
-	r_hand = /obj/item/shield/energy
-
-/datum/outfit/nuclear_operative_elite/post_equip(mob/living/carbon/human/H, visualsOnly)
-	var/obj/item/mod/module/armor_booster/booster = locate() in H.back
-	booster.active = TRUE
-	H.update_worn_back()
-	var/obj/item/shield/energy/shield = locate() in H.held_items
-	shield.icon_state = "[shield.base_icon_state]1"
-	H.update_held_items()
+		to_chat(admin, span_danger("БОМБЫ НЕТ!"))
 
 /datum/antagonist/nukeop/leader
-	name = "Nuclear Operative Leader"
+	name = "Лидер Оперативников"
 	nukeop_outfit = /datum/outfit/syndicate/leader
 	always_new_team = TRUE
-	/// Randomly chosen honorific, for distinction
 	var/title
-	/// The nuclear challenge remote we will spawn this player with.
 	var/challengeitem = /obj/item/nuclear_challenge
-
-/datum/antagonist/nukeop/leader/memorize_code()
-	..()
-	if(nuke_team?.memorized_code)
-		var/obj/item/paper/nuke_code_paper = new
-		nuke_code_paper.add_raw_text("The nuclear authorization code is: <b>[nuke_team.memorized_code]</b>")
-		nuke_code_paper.name = "nuclear bomb code"
-		var/mob/living/carbon/human/H = owner.current
-		if(!istype(H))
-			nuke_code_paper.forceMove(get_turf(H))
-		else
-			H.put_in_hands(nuke_code_paper, TRUE)
-			H.update_icons()
+	greentext_reward = 15
 
 /datum/antagonist/nukeop/leader/give_alias()
-	title = pick("Czar", "Boss", "Commander", "Chief", "Kingpin", "Director", "Overlord")
+	title = pick("Царь", "Босс", "Коммандор", "Шеф", "Главарь", "Директор", "Оверлорд")
 	if(nuke_team?.syndicate_name)
 		owner.current.real_name = "[nuke_team.syndicate_name] [title]"
 	else
-		owner.current.real_name = "Syndicate [title]"
+		owner.current.real_name = "Синдикатовец [title]"
 
 /datum/antagonist/nukeop/leader/greet()
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ops.ogg',100,0, use_reverb = FALSE)
-	to_chat(owner, "<span class='warningplain'><B>You are the Syndicate [title] for this mission. You are responsible for guiding the team and your ID is the only one who can open the launch bay doors.</B></span>")
-	to_chat(owner, "<span class='warningplain'><B>If you feel you are not up to this task, give your ID and radio to another operative.</B></span>")
+	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ops.ogg', 100,0, use_reverb = FALSE)
+	to_chat(owner, "<B>Вы - лидер оперативников Синдиката. Вы отвечаете за руководство операцией, а так же лишь ваша ID-карточка способна открыть двери к вашему шаттлу.</B>")
+	to_chat(owner, "<B>Если вы считаете, что вы не являетесь идеальным кандидатом в качестве лидера - выдайте свою карту другому оперативнику.</B>")
 	if(!CONFIG_GET(flag/disable_warops))
-		to_chat(owner, "<span class='warningplain'><B>In your hand you will find a special item capable of triggering a greater challenge for your team. Examine it carefully and consult with your fellow operatives before activating it.</B></span>")
+		to_chat(owner, "<B>В вашей руке есть специальное устройство, которое может объявить станции войну, в обмен на бонусные телекристаллы. Внимательно осмотрите его и проконсультируйтесь с другими оперативниками, прежде чем активировать это.</B>")
+		var/obj/item/dukinuki = new challengeitem
+		var/mob/living/carbon/human/H = owner.current
+		if(!istype(H))
+			dukinuki.forceMove(H.drop_location())
+		else
+			H.put_in_hands(dukinuki, TRUE)
+		nuke_team.war_button_ref = WEAKREF(dukinuki)
 	owner.announce_objectives()
-
-/datum/antagonist/nukeop/leader/on_gain()
-	. = ..()
-	if(!CONFIG_GET(flag/disable_warops))
-		var/mob/living/carbon/human/leader = owner.current
-		var/obj/item/war_declaration = new challengeitem(leader.drop_location())
-		leader.put_in_hands(war_declaration)
-		nuke_team.war_button_ref = WEAKREF(war_declaration)
 	addtimer(CALLBACK(src, PROC_REF(nuketeam_name_assign)), 1)
+
 
 /datum/antagonist/nukeop/leader/proc/nuketeam_name_assign()
 	if(!nuke_team)
@@ -290,7 +183,7 @@
 
 /datum/team/nuclear/proc/rename_team(new_name)
 	syndicate_name = new_name
-	name = "[syndicate_name] Team"
+	name = "[syndicate_name] Команда"
 	for(var/I in members)
 		var/datum/mind/synd_mind = I
 		var/mob/living/carbon/human/H = synd_mind.current
@@ -301,7 +194,7 @@
 
 /datum/antagonist/nukeop/leader/proc/ask_name()
 	var/randomname = pick(GLOB.last_names)
-	var/newname = tgui_input_text(owner.current, "You are the nuclear operative [title]. Please choose a last name for your family.", "Name change", randomname, MAX_NAME_LEN)
+	var/newname = stripped_input(owner.current,"Я [title]. Необходимо выбрать фамилию для нашей команды.", "Смена имени",randomname)
 	if (!newname)
 		newname = randomname
 	else
@@ -312,32 +205,28 @@
 	return capitalize(newname)
 
 /datum/antagonist/nukeop/lone
-	name = "Lone Operative"
+	name = "Одинокий Оперативник"
 	always_new_team = TRUE
 	send_to_spawnpoint = FALSE //Handled by event
 	nukeop_outfit = /datum/outfit/syndicate/full
-	preview_outfit = /datum/outfit/nuclear_operative
-	preview_outfit_behind = null
-	nuke_icon_state = null
 
 /datum/antagonist/nukeop/lone/assign_nuke()
 	if(nuke_team && !nuke_team.tracked_nuke)
 		nuke_team.memorized_code = random_nukecode()
-		var/obj/machinery/nuclearbomb/selfdestruct/nuke = locate() in SSmachines.get_machines_by_type(/obj/machinery/nuclearbomb/selfdestruct)
+		var/obj/machinery/nuclearbomb/selfdestruct/nuke = locate() in GLOB.nuke_list
 		if(nuke)
 			nuke_team.tracked_nuke = nuke
-			if(nuke.r_code == NUKE_CODE_UNSET)
+			if(nuke.r_code == "ADMIN")
 				nuke.r_code = nuke_team.memorized_code
 			else //Already set by admins/something else?
 				nuke_team.memorized_code = nuke.r_code
 		else
-			stack_trace("Station self-destruct not found during lone op team creation.")
+			stack_trace("Бомба самоуничтожения не была обнаружена в ходе создания лон-опера. Ебите маппера этой хуйни.")
 			nuke_team.memorized_code = null
 
 /datum/antagonist/nukeop/reinforcement
-	show_in_antagpanel = FALSE
 	send_to_spawnpoint = FALSE
-	nukeop_outfit = /datum/outfit/syndicate/reinforcement
+	nukeop_outfit = /datum/outfit/syndicate/no_crystals
 
 /datum/team/nuclear
 	var/syndicate_name
@@ -357,129 +246,99 @@
 		O.team = src
 		objectives += O
 
-/datum/team/nuclear/proc/is_disk_rescued()
-	for(var/obj/item/disk/nuclear/nuke_disk in SSpoints_of_interest.real_nuclear_disks)
+/datum/team/nuclear/proc/disk_rescued()
+	for(var/obj/item/disk/nuclear/D in SSpoints_of_interest.real_nuclear_disks)
 		//If emergency shuttle is in transit disk is only safe on it
 		if(SSshuttle.emergency.mode == SHUTTLE_ESCAPE)
-			if(!SSshuttle.emergency.is_in_shuttle_bounds(nuke_disk))
+			if(!SSshuttle.emergency.is_in_shuttle_bounds(D))
 				return FALSE
 		//If shuttle escaped check if it's on centcom side
 		else if(SSshuttle.emergency.mode == SHUTTLE_ENDGAME)
-			if(!nuke_disk.onCentCom())
+			if(!D.onCentCom())
 				return FALSE
 		else //Otherwise disk is safe when on station
-			var/turf/disk_turf = get_turf(nuke_disk)
-			if(!disk_turf || !is_station_level(disk_turf.z))
+			var/turf/T = get_turf(D)
+			if(!T || !is_station_level(T.z))
 				return FALSE
 	return TRUE
 
-/datum/team/nuclear/proc/are_all_operatives_dead()
-	for(var/datum/mind/operative_mind as anything in members)
+/datum/team/nuclear/proc/operatives_dead()
+	for(var/I in members)
+		var/datum/mind/operative_mind = I
 		if(ishuman(operative_mind.current) && (operative_mind.current.stat != DEAD))
 			return FALSE
 	return TRUE
 
+/datum/team/nuclear/proc/syndies_escaped()
+	var/obj/docking_port/mobile/S = SSshuttle.getShuttle("syndicate")
+	var/obj/docking_port/stationary/transit/T = locate() in S.loc
+	return S && (is_centcom_level(S.z) || T)
+
 /datum/team/nuclear/proc/get_result()
-	var/shuttle_evacuated = EMERGENCY_ESCAPED_OR_ENDGAMED
-	var/shuttle_landed_base = SSshuttle.emergency.is_hijacked()
-	var/disk_rescued = is_disk_rescued()
-	var/syndies_didnt_escape = !is_infiltrator_docked_at_syndiebase()
-	var/team_is_dead = are_all_operatives_dead()
-	var/station_was_nuked = GLOB.station_was_nuked
-	var/station_nuke_source = GLOB.station_nuke_source
+	var/evacuation = EMERGENCY_ESCAPED_OR_ENDGAMED
+	var/disk_rescued = disk_rescued()
+	var/syndies_didnt_escape = !syndies_escaped()
+	var/station_was_nuked = SSticker.mode.station_was_nuked
+	var/nuke_off_station = SSticker.mode.nuke_off_station
 
-	// The nuke detonated on the syndicate base
-	if(station_nuke_source == DETONATION_HIT_SYNDIE_BASE)
+	if(nuke_off_station == NUKE_SYNDICATE_BASE)
 		return NUKE_RESULT_FLUKE
-
-	// The station was nuked
-	if(station_was_nuked)
-		// The station was nuked and the infiltrator failed to escape
-		if(syndies_didnt_escape)
-			return NUKE_RESULT_NOSURVIVORS
-		// The station was nuked and the infiltrator escaped, and the nuke ops won
-		else
-			return NUKE_RESULT_NUKE_WIN
-
-	// The station was not nuked, but something was
-	else if(station_nuke_source && !disk_rescued)
-		// The station was not nuked, but something was, and the syndicates didn't escape it
-		if(syndies_didnt_escape)
-			return NUKE_RESULT_WRONG_STATION_DEAD
-		// The station was not nuked, but something was, and the syndicates returned to their base
-		else
-			return NUKE_RESULT_WRONG_STATION
-
-	// Nuke didn't blow, but nukies somehow hijacked the emergency shuttle to land at the base anyways.
-	else if(shuttle_landed_base)
-		if(disk_rescued)
-			return NUKE_RESULT_HIJACK_DISK
-		else
-			return NUKE_RESULT_HIJACK_NO_DISK
-
-	// No nuke went off, the station rescued the disk
-	else if(disk_rescued)
-		// No nuke went off, the shuttle left, and the team is dead
-		if(shuttle_evacuated && team_is_dead)
-			return NUKE_RESULT_CREW_WIN_SYNDIES_DEAD
-		// No nuke went off, but the nuke ops survived
-		else
-			return NUKE_RESULT_CREW_WIN
-
-	// No nuke went off, but the disk was left behind
+	else if(station_was_nuked && !syndies_didnt_escape)
+		return NUKE_RESULT_NUKE_WIN
+	else if (station_was_nuked && syndies_didnt_escape)
+		return NUKE_RESULT_NOSURVIVORS
+	else if (!disk_rescued && !station_was_nuked && nuke_off_station && !syndies_didnt_escape)
+		return NUKE_RESULT_WRONG_STATION
+	else if (!disk_rescued && !station_was_nuked && nuke_off_station && syndies_didnt_escape)
+		return NUKE_RESULT_WRONG_STATION_DEAD
+	else if ((disk_rescued && evacuation) && operatives_dead())
+		return NUKE_RESULT_CREW_WIN_SYNDIES_DEAD
+	else if (disk_rescued)
+		return NUKE_RESULT_CREW_WIN
+	else if (!disk_rescued && operatives_dead())
+		return NUKE_RESULT_DISK_LOST
+	else if (!disk_rescued && evacuation)
+		return NUKE_RESULT_DISK_STOLEN
 	else
-		// No nuke went off, the disk was left, but all the ops are dead
-		if(team_is_dead)
-			return NUKE_RESULT_DISK_LOST
-		// No nuke went off, the disk was left, there are living ops, but the shuttle left successfully
-		else if(shuttle_evacuated)
-			return NUKE_RESULT_DISK_STOLEN
-
-	CRASH("[type] - got an undefined / unexpected result.")
+		return	//Undefined result
 
 /datum/team/nuclear/roundend_report()
 	var/list/parts = list()
-	parts += "<span class='header'>[syndicate_name] Operatives:</span>"
+	parts += span_header("[syndicate_name] Оперативники:")
 
 	switch(get_result())
 		if(NUKE_RESULT_FLUKE)
-			parts += "<span class='redtext big'>Humiliating Syndicate Defeat</span>"
-			parts += "<B>The crew of [station_name()] gave [syndicate_name] operatives back their bomb! The syndicate base was destroyed!</B> Next time, don't lose the nuke!"
+			parts += "<span class='redtext big'>Унизительное Уничтожение Синдиката</span>"
+			parts += "<B>Экипаж станции [station_name()] вернули оперативникам их собственную бомбу! База Синдиката была уничтожена!</B> Не теряйте ядерную бомбу!"
 		if(NUKE_RESULT_NUKE_WIN)
 			parts += "<span class='greentext big'>Syndicate Major Victory!</span>"
-			parts += "<B>[syndicate_name] operatives have destroyed [station_name()]!</B>"
+			parts += "<B>Оперативники Синдиката успешно уничтожили [station_name()]!</B>"
 		if(NUKE_RESULT_NOSURVIVORS)
-			parts += "<span class='neutraltext big'>Total Annihilation!</span>"
-			parts += "<B>[syndicate_name] operatives destroyed [station_name()] but did not leave the area in time and got caught in the explosion.</B> Next time, don't lose the disk!"
+			parts += "<span class='neutraltext big'>Тотальная Аннигиляция</span>"
+			parts +=  "<B>Оперативники Синдиката уничтожили [station_name()], но не покинули зону поражения вовремя и были аннигилированы.</B> Не теряйте диск!"
 		if(NUKE_RESULT_WRONG_STATION)
-			parts += "<span class='redtext big'>Crew Minor Victory!</span>"
-			parts += "<B>[syndicate_name] operatives secured the authentication disk but blew up something that wasn't [station_name()].</B> Next time, don't do that!"
+			parts += "<span class='redtext big'>Crew Minor Victory</span>"
+			parts += "<B>Оперативники Синдиката сохранили диск, но взорвали то, что не является станцией [station_name()].</B> Не делайте так!"
 		if(NUKE_RESULT_WRONG_STATION_DEAD)
-			parts += "<span class='redtext big'>[syndicate_name] operatives have earned Darwin Award!</span>"
-			parts += "<B>[syndicate_name] operatives blew up something that wasn't [station_name()] and got caught in the explosion.</B> Next time, don't do that!"
-		if(NUKE_RESULT_HIJACK_DISK)
-			parts += "<span class='greentext big'>Syndicate Miniscule Victory!</span>"
-			parts += "<B>[syndicate_name] operatives failed to destroy [station_name()], but they managed to secure the disk and hijack the emergency shuttle, causing it to land on the syndicate base. Good job?</B>"
-		if(NUKE_RESULT_HIJACK_NO_DISK)
-			parts += "<span class='greentext big'>Syndicate Insignificant Victory!</span>"
-			parts += "<B>[syndicate_name] operatives failed to destroy [station_name()] or secure the disk, but they managed to hijack the emergency shuttle, causing it to land on the syndicate base. Good job?</B>"
+			parts += "<span class='redtext big'>Оперативники Синдиката получили Премию Дарвина!</span>"
+			parts += "<B>Оперативники Синдиката взорвали что-то, что не является станцией [station_name()] и были уничтожены взрывом.</B> Не делайте так!"
 		if(NUKE_RESULT_CREW_WIN_SYNDIES_DEAD)
 			parts += "<span class='redtext big'>Crew Major Victory!</span>"
-			parts += "<B>The Research Staff has saved the disk and killed the [syndicate_name] Operatives</B>"
+			parts += "<B>Экипаж станции сохранил диск и успешно уничтожил всех оперативников!</B>"
 		if(NUKE_RESULT_CREW_WIN)
-			parts += "<span class='redtext big'>Crew Major Victory!</span>"
-			parts += "<B>The Research Staff has saved the disk and stopped the [syndicate_name] Operatives!</B>"
+			parts += "<span class='redtext big'>Crew Major Victory</span>"
+			parts += "<B>Экипаж станции сохранил диск и остановил оперативников!</B>"
 		if(NUKE_RESULT_DISK_LOST)
-			parts += "<span class='neutraltext big'>Neutral Victory!</span>"
-			parts += "<B>The Research Staff failed to secure the authentication disk but did manage to kill most of the [syndicate_name] Operatives!</B>"
+			parts += "<span class='neutraltext big'>Нейтральная победа!</span>"
+			parts += "<B>Экипаж станции потерял диск, но смог уничтожить всех оперативников Синдиката!</B>"
 		if(NUKE_RESULT_DISK_STOLEN)
 			parts += "<span class='greentext big'>Syndicate Minor Victory!</span>"
-			parts += "<B>[syndicate_name] operatives survived the assault but did not achieve the destruction of [station_name()].</B> Next time, don't lose the disk!"
+			parts += "<B>Оперативники Синдиката смогли выжить в штурме, но не взорвали станцию [station_name()].</B> Не теряйте диск!"
 		else
-			parts += "<span class='neutraltext big'>Neutral Victory</span>"
-			parts += "<B>Mission aborted!</B>"
+			parts += "<span class='neutraltext big'>Ничья!</span>"
+			parts += "<B>Операция прервана!</B>"
 
-	var/text = "<br><span class='header'>The syndicate operatives were:</span>"
+	var/text = "<br><span class='header'>Оперативниками были:</span>"
 	var/purchases = ""
 	var/TC_uses = 0
 	LAZYINITLIST(GLOB.uplink_purchase_logs_by_key)
@@ -491,9 +350,9 @@
 			purchases += H.generate_render(show_key = FALSE)
 	text += printplayerlist(members)
 	text += "<br>"
-	text += "(Syndicates used [TC_uses] TC) [purchases]"
-	if(TC_uses == 0 && GLOB.station_was_nuked && !are_all_operatives_dead())
-		text += "<BIG>[icon2html('icons/ui_icons/antags/badass.dmi', world, "badass")]</BIG>"
+	text += "(Команда оперативников использовало [TC_uses] ТК) [purchases]"
+	if(TC_uses == 0 && SSticker.mode.station_was_nuked && !operatives_dead())
+		text += "<BIG>[icon2html('icons/badass.dmi', world, "badass")]</BIG>"
 
 	parts += text
 
@@ -528,16 +387,5 @@
 		challenge_report += "<b>War not declared.</b> <a href='?_src_=holder;[HrefToken()];force_war=[REF(war_button)]'>\[Force war\]</a>"
 	return common_part + disk_report + challenge_report
 
-/// Returns whether or not syndicate operatives escaped.
-/proc/is_infiltrator_docked_at_syndiebase()
-	var/obj/docking_port/mobile/infiltrator/infiltrator_port = SSshuttle.getShuttle("syndicate")
-
-	var/datum/lazy_template/nukie_base/nukie_template = GLOB.lazy_templates[LAZY_TEMPLATE_KEY_NUKIEBASE]
-	if(!nukie_template)
-		return FALSE // if its not even loaded, cant be docked
-
-	for(var/datum/turf_reservation/loaded_area as anything in nukie_template.reservations)
-		var/infiltrator_turf = get_turf(infiltrator_port)
-		if(infiltrator_turf in loaded_area.reserved_turfs)
-			return TRUE
-	return FALSE
+/datum/team/nuclear/is_gamemode_hero()
+	return SSticker.mode.name == "nuclear emergency"

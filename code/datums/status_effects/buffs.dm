@@ -3,12 +3,12 @@
 /datum/status_effect/his_grace
 	id = "his_grace"
 	duration = -1
-	tick_interval = 0.4 SECONDS
+	tick_interval = 4
 	alert_type = /atom/movable/screen/alert/status_effect/his_grace
 	var/bloodlust = 0
 
 /atom/movable/screen/alert/status_effect/his_grace
-	name = "His Grace"
+	name = "Его Величество"
 	desc = "His Grace hungers, and you must feed Him."
 	icon_state = "his_grace"
 	alerttooltipstyle = "hisgrace"
@@ -19,20 +19,14 @@
 	desc += "<br><font size=3><b>Current Bloodthirst: [HG.bloodlust]</b></font>\
 	<br>Becomes undroppable at <b>[HIS_GRACE_FAMISHED]</b>\
 	<br>Will consume you at <b>[HIS_GRACE_CONSUME_OWNER]</b>"
-	return ..()
+	..()
 
 /datum/status_effect/his_grace/on_apply()
-	owner.add_stun_absorption(
-		source = id,
-		priority = 3,
-		self_message = span_boldwarning("His Grace protects you from the stun!"),
-	)
+	owner.log_message("gained His Grace's stun immunity", LOG_ATTACK)
+	owner.add_stun_absorption("hisgrace", INFINITY, 3, null, "His Grace protects you from the stun!")
 	return ..()
 
-/datum/status_effect/his_grace/on_remove()
-	owner.remove_stun_absorption(id)
-
-/datum/status_effect/his_grace/tick(seconds_between_ticks)
+/datum/status_effect/his_grace/tick()
 	bloodlust = 0
 	var/graces = 0
 	for(var/obj/item/his_grace/HG in owner.held_items)
@@ -41,18 +35,21 @@
 		if(HG.awakened)
 			graces++
 	if(!graces)
-		owner.apply_status_effect(/datum/status_effect/his_wrath)
+		owner.apply_status_effect(STATUS_EFFECT_HISWRATH)
 		qdel(src)
 		return
-	var/grace_heal = bloodlust * 0.02
-	var/need_mob_update = FALSE
-	need_mob_update += owner.adjustBruteLoss(-grace_heal * seconds_between_ticks, updating_health = FALSE, forced = TRUE)
-	need_mob_update += owner.adjustFireLoss(-grace_heal * seconds_between_ticks, updating_health = FALSE, forced = TRUE)
-	need_mob_update += owner.adjustToxLoss(-grace_heal * seconds_between_ticks, forced = TRUE)
-	need_mob_update += owner.adjustOxyLoss(-(grace_heal * 2) * seconds_between_ticks, updating_health = FALSE, forced = TRUE)
-	need_mob_update += owner.adjustCloneLoss(-grace_heal * seconds_between_ticks, updating_health = FALSE, forced = TRUE)
-	if(need_mob_update)
-		owner.updatehealth()
+	var/grace_heal = bloodlust * 0.05
+	owner.adjustBruteLoss(-grace_heal)
+	owner.adjustFireLoss(-grace_heal)
+	owner.adjustToxLoss(-grace_heal, TRUE, TRUE)
+	owner.adjustOxyLoss(-(grace_heal * 2))
+	owner.adjustCloneLoss(-grace_heal)
+
+/datum/status_effect/his_grace/on_remove()
+	owner.log_message("lost His Grace's stun immunity", LOG_ATTACK)
+	if(islist(owner.stun_absorption) && owner.stun_absorption["hisgrace"])
+		owner.stun_absorption -= "hisgrace"
+
 
 /datum/status_effect/wish_granters_gift //Fully revives after ten seconds.
 	id = "wish_granters_gift"
@@ -63,9 +60,10 @@
 	to_chat(owner, span_notice("Death is not your end! The Wish Granter's energy suffuses you, and you begin to rise..."))
 	return ..()
 
+
 /datum/status_effect/wish_granters_gift/on_remove()
-	owner.revive(ADMIN_HEAL_ALL)
-	owner.visible_message(span_warning("[owner] appears to wake from the dead, having healed all wounds!"), span_notice("You have regenerated."))
+	owner.revive(full_heal = TRUE, admin_revive = TRUE)
+	owner.visible_message(span_warning("[owner] appears to wake from the dead, having healed all wounds!") , span_notice("You have regenerated."))
 
 
 /atom/movable/screen/alert/status_effect/wish_granters_gift
@@ -73,10 +71,39 @@
 	desc = "You are being resurrected!"
 	icon_state = "wish_granter"
 
+/datum/status_effect/cult_master
+	id = "The Cult Master"
+	duration = -1
+	alert_type = null
+	on_remove_on_mob_delete = TRUE
+	var/alive = TRUE
+
+/datum/status_effect/cult_master/proc/deathrattle()
+	if(!QDELETED(GLOB.cult_narsie))
+		return //if Nar'Sie is alive, don't even worry about it
+	var/area/A = get_area(owner)
+	for(var/datum/mind/B in SSticker.mode.cult)
+		if(isliving(B.current))
+			var/mob/living/M = B.current
+			SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
+			to_chat(M, span_cultlarge("The Cult's Master, [owner], has fallen in [A]!"))
+
+/datum/status_effect/cult_master/tick()
+	if(owner.stat != DEAD && !alive)
+		alive = TRUE
+		return
+	if(owner.stat == DEAD && alive)
+		alive = FALSE
+		deathrattle()
+
+/datum/status_effect/cult_master/on_remove()
+	deathrattle()
+	. = ..()
+
 /datum/status_effect/blooddrunk
 	id = "blooddrunk"
 	duration = 10
-	tick_interval = -1
+	tick_interval = 0
 	alert_type = /atom/movable/screen/alert/status_effect/blooddrunk
 
 /atom/movable/screen/alert/status_effect/blooddrunk
@@ -85,78 +112,86 @@
 	icon_state = "blooddrunk"
 
 /datum/status_effect/blooddrunk/on_apply()
-	ADD_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, BLOODDRUNK_TRAIT)
-	if(ishuman(owner))
-		var/mob/living/carbon/human/human_owner = owner
-		human_owner.physiology.brute_mod *= 0.1
-		human_owner.physiology.burn_mod *= 0.1
-		human_owner.physiology.tox_mod *= 0.1
-		human_owner.physiology.oxy_mod *= 0.1
-		human_owner.physiology.clone_mod *= 0.1
-		human_owner.physiology.stamina_mod *= 0.1
-	owner.add_stun_absorption(source = id, priority = 4)
-	owner.playsound_local(get_turf(owner), 'sound/effects/singlebeat.ogg', 40, 1, use_reverb = FALSE)
-	return TRUE
+	. = ..()
+	if(.)
+		ADD_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, "blooddrunk")
+		if(ishuman(owner))
+			var/mob/living/carbon/human/H = owner
+			H.physiology.brute_mod *= 0.1
+			H.physiology.burn_mod *= 0.1
+			H.physiology.tox_mod *= 0.1
+			H.physiology.oxy_mod *= 0.1
+			H.physiology.clone_mod *= 0.1
+			H.physiology.stamina_mod *= 0.1
+		owner.log_message("gained blood-drunk stun immunity", LOG_ATTACK)
+		owner.add_stun_absorption("blooddrunk", INFINITY, 4)
+		owner.playsound_local(get_turf(owner), 'sound/effects/singlebeat.ogg', 40, 1, use_reverb = FALSE)
 
 /datum/status_effect/blooddrunk/on_remove()
 	if(ishuman(owner))
-		var/mob/living/carbon/human/human_owner = owner
-		human_owner.physiology.brute_mod *= 10
-		human_owner.physiology.burn_mod *= 10
-		human_owner.physiology.tox_mod *= 10
-		human_owner.physiology.oxy_mod *= 10
-		human_owner.physiology.clone_mod *= 10
-		human_owner.physiology.stamina_mod *= 10
-	REMOVE_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, BLOODDRUNK_TRAIT)
-	owner.remove_stun_absorption(id)
+		var/mob/living/carbon/human/H = owner
+		H.physiology.brute_mod *= 10
+		H.physiology.burn_mod *= 10
+		H.physiology.tox_mod *= 10
+		H.physiology.oxy_mod *= 10
+		H.physiology.clone_mod *= 10
+		H.physiology.stamina_mod *= 10
+	owner.log_message("lost blood-drunk stun immunity", LOG_ATTACK)
+	REMOVE_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, "blooddrunk");
+	if(islist(owner.stun_absorption) && owner.stun_absorption["blooddrunk"])
+		owner.stun_absorption -= "blooddrunk"
+
+/datum/status_effect/sword_spin
+	id = "Bastard Sword Spin"
+	duration = 50
+	tick_interval = 8
+	alert_type = null
+
+
+/datum/status_effect/sword_spin/on_apply()
+	owner.visible_message(span_danger("[owner] begins swinging the sword with inhuman strength!"))
+	var/oldcolor = owner.color
+	owner.color = "#ff0000"
+	owner.add_stun_absorption("bloody bastard sword", duration, 2, "doesn't even flinch as the sword's power courses through them!", "You shrug off the stun!", " glowing with a blazing red aura!")
+	owner.spin(duration,1)
+	animate(owner, color = oldcolor, time = duration, easing = EASE_IN)
+	addtimer(CALLBACK(owner, /atom/proc/update_atom_colour), duration)
+	playsound(owner, 'sound/weapons/fwoosh.ogg', 75, FALSE)
+	return ..()
+
+
+/datum/status_effect/sword_spin/tick()
+	playsound(owner, 'sound/weapons/fwoosh.ogg', 75, FALSE)
+	var/obj/item/slashy
+	slashy = owner.get_active_held_item()
+	for(var/mob/living/M in orange(1,owner))
+		slashy.attack(M, owner)
+
+/datum/status_effect/sword_spin/on_remove()
+	owner.visible_message(span_warning("[owner] inhuman strength dissipates and the sword's runes grow cold!"))
+
 
 //Used by changelings to rapidly heal
 //Heals 10 brute and oxygen damage every second, and 5 fire
 //Being on fire will suppress this healing
 /datum/status_effect/fleshmend
 	id = "fleshmend"
-	duration = 10 SECONDS
+	duration = 100
 	alert_type = /atom/movable/screen/alert/status_effect/fleshmend
 
-/datum/status_effect/fleshmend/on_apply()
-	. = ..()
-	if(iscarbon(owner))
-		var/mob/living/carbon/carbon_owner = owner
-		QDEL_LAZYLIST(carbon_owner.all_scars)
-
-	RegisterSignal(owner, COMSIG_LIVING_IGNITED, PROC_REF(on_ignited))
-	RegisterSignal(owner, COMSIG_LIVING_EXTINGUISHED, PROC_REF(on_extinguished))
-
-/datum/status_effect/fleshmend/on_creation(mob/living/new_owner, ...)
-	. = ..()
-	if(!. || !owner || !linked_alert)
-		return
+/datum/status_effect/fleshmend/tick()
 	if(owner.on_fire)
 		linked_alert.icon_state = "fleshmend_fire"
-
-/datum/status_effect/fleshmend/on_remove()
-	UnregisterSignal(owner, list(COMSIG_LIVING_IGNITED, COMSIG_LIVING_EXTINGUISHED))
-
-/datum/status_effect/fleshmend/tick(seconds_between_ticks)
-	if(owner.on_fire)
 		return
-
-	var/need_mob_update = FALSE
-	need_mob_update += owner.adjustBruteLoss(-4 * seconds_between_ticks, updating_health = FALSE)
-	need_mob_update += owner.adjustFireLoss(-2 * seconds_between_ticks, updating_health = FALSE)
-	need_mob_update += owner.adjustOxyLoss(-4 * seconds_between_ticks, updating_health = FALSE)
-	if(need_mob_update)
-		owner.updatehealth()
-
-/datum/status_effect/fleshmend/proc/on_ignited(datum/source)
-	SIGNAL_HANDLER
-
-	linked_alert?.icon_state = "fleshmend_fire"
-
-/datum/status_effect/fleshmend/proc/on_extinguished(datum/source)
-	SIGNAL_HANDLER
-
-	linked_alert?.icon_state = "fleshmend"
+	else
+		linked_alert.icon_state = "fleshmend"
+	owner.adjustBruteLoss(-10, FALSE)
+	owner.adjustFireLoss(-5, FALSE)
+	owner.adjustOxyLoss(-10)
+	if(!iscarbon(owner))
+		return
+	var/mob/living/carbon/C = owner
+	QDEL_LIST(C.all_scars)
 
 /atom/movable/screen/alert/status_effect/fleshmend
 	name = "Fleshmend"
@@ -165,80 +200,17 @@
 
 /datum/status_effect/exercised
 	id = "Exercised"
-	duration = 30 SECONDS
-	status_type = STATUS_EFFECT_REFRESH // New effects will add to total duration
+	duration = 1200
 	alert_type = null
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
-	alert_type = /atom/movable/screen/alert/status_effect/exercised
-	/// Having any of these reagents in your system extends the duration
-	var/static/list/supplementary_reagents_bonus = list(
-		/datum/reagent/consumable/ethanol/protein_blend = 30 SECONDS, // protein shakes are very robust
-		/datum/reagent/consumable/eggwhite = 20 SECONDS,
-		/datum/reagent/consumable/eggyolk = 15 SECONDS,
-		/datum/reagent/consumable/nutriment/protein = 15 SECONDS,
-		/datum/reagent/consumable/nutriment/vitamin = 10 SECONDS,
-		/datum/reagent/consumable/rice = 10 SECONDS,
-		/datum/reagent/consumable/milk = 10 SECONDS,
-		/datum/reagent/consumable/soymilk = 5 SECONDS, // darn vegans!
-		/datum/reagent/consumable/nutraslop = 5 SECONDS, // prison food to bulk up with
-		// time for the bad stuff
-		/datum/reagent/consumable/sugar = -5 SECONDS,
-		/datum/reagent/consumable/monkey_energy = -5 SECONDS,
-		/datum/reagent/consumable/nutriment/fat = -5 SECONDS,
-	)
-
-/datum/status_effect/exercised/proc/workout_duration(mob/living/new_owner, bonus_time)
-	if(!bonus_time || !new_owner.mind)
-		return 0 SECONDS
-
-	var/modifier = 1
-	if(HAS_TRAIT(new_owner, TRAIT_HULK))
-		modifier += 0.5
-
-	if(HAS_TRAIT(new_owner, TRAIT_FAT)) // less xp until you get into shape
-		modifier -= 0.5
-
-	if(new_owner.reagents.has_reagent(/datum/reagent/drug/pumpup)) // steriods? yes please!
-		modifier += 3
-
-	var/food_boost = 0
-	for(var/datum/reagent/workout_reagent in supplementary_reagents_bonus)
-		if(new_owner.reagents.has_reagent(workout_reagent))
-			food_boost += supplementary_reagents_bonus[workout_reagent]
-
-	var/skill_level_boost = (new_owner.mind.get_skill_level(/datum/skill/fitness) - 1) * 5 SECONDS
-	bonus_time = (bonus_time + food_boost + skill_level_boost) * modifier
-
-	var/exhaustion_limit = new_owner.mind.get_skill_modifier(/datum/skill/fitness, SKILL_VALUE_MODIFIER) + world.time
-	if(duration + bonus_time >= exhaustion_limit)
-		duration = exhaustion_limit
-		to_chat(new_owner, span_userdanger("Your muscles are exhausted! Might be a good idea to sleep..."))
-		new_owner.emote("scream")
-		return // exhaustion_limit
-
-	return bonus_time
-
-/datum/status_effect/exercised/tick(seconds_between_ticks)
-	owner.reagents.metabolize(owner, seconds_between_ticks * SSMOBS_DT, 0) // doubles the metabolization rate
-
-/datum/status_effect/exercised/on_creation(mob/living/new_owner, bonus_time)
-	duration += workout_duration(new_owner, bonus_time)
-	return ..()
-
-/datum/status_effect/exercised/refresh(mob/living/new_owner, bonus_time)
-	duration += workout_duration(new_owner, bonus_time)
-
-/atom/movable/screen/alert/status_effect/exercised
-	name = "Exercise"
-	desc = "You feel well exercised! Sleeping will improve your fitness."
-	icon_state = "exercised"
 
 //Hippocratic Oath: Applied when the Rod of Asclepius is activated.
 /datum/status_effect/hippocratic_oath
 	id = "Hippocratic Oath"
 	status_type = STATUS_EFFECT_UNIQUE
 	duration = -1
-	tick_interval = 2.5 SECONDS
+	tick_interval = 25
+	examine_text = span_notice("They seem to have an aura of healing and helpfulness about them.")
 	alert_type = null
 
 	var/datum/component/aura_healing/aura_healing
@@ -263,23 +235,19 @@
 		organ_healing = organ_healing, \
 		healing_color = "#375637", \
 	)
-
 	//Makes the user passive, it's in their oath not to harm!
-	ADD_TRAIT(owner, TRAIT_PACIFISM, HIPPOCRATIC_OATH_TRAIT)
-	var/datum/atom_hud/med_hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
-	med_hud.show_to(owner)
+	ADD_TRAIT(owner, TRAIT_PACIFISM, "hippocraticOath")
+	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
+	H.show_to(owner)
 	return ..()
 
 /datum/status_effect/hippocratic_oath/on_remove()
 	QDEL_NULL(aura_healing)
-	REMOVE_TRAIT(owner, TRAIT_PACIFISM, HIPPOCRATIC_OATH_TRAIT)
-	var/datum/atom_hud/med_hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
-	med_hud.hide_from(owner)
+	REMOVE_TRAIT(owner, TRAIT_PACIFISM, "hippocraticOath")
+	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
+	H.hide_from(owner)
 
-/datum/status_effect/hippocratic_oath/get_examine_text()
-	return span_notice("[owner.p_They()] seem[owner.p_s()] to have an aura of healing and helpfulness about [owner.p_them()].")
-
-/datum/status_effect/hippocratic_oath/tick(seconds_between_ticks)
+/datum/status_effect/hippocratic_oath/tick()
 	if(owner.stat == DEAD)
 		if(deathTick < 4)
 			deathTick += 1
@@ -296,9 +264,7 @@
 					//If user does not have the corresponding hand anymore, give them one and return the rod to their hand
 					if(((hand % 2) == 0))
 						var/obj/item/bodypart/L = itemUser.newBodyPart(BODY_ZONE_R_ARM, FALSE, FALSE)
-						if(L.try_attach_limb(itemUser))
-							L.update_limb(is_creating = TRUE)
-							itemUser.update_body_parts()
+						if(L.attach_limb(itemUser))
 							itemUser.put_in_hand(newRod, hand, forced = TRUE)
 						else
 							qdel(L)
@@ -306,44 +272,41 @@
 							return
 					else
 						var/obj/item/bodypart/L = itemUser.newBodyPart(BODY_ZONE_L_ARM, FALSE, FALSE)
-						if(L.try_attach_limb(itemUser))
-							L.update_limb(is_creating = TRUE)
-							itemUser.update_body_parts()
+						if(L.attach_limb(itemUser))
 							itemUser.put_in_hand(newRod, hand, forced = TRUE)
 						else
 							qdel(L)
 							consume_owner() //see above comment
 							return
-					to_chat(itemUser, span_notice("Your arm suddenly grows back with the Rod of Asclepius still attached!"))
+					to_chat(itemUser, span_notice("Моя рука мгновенно отрастает и в ней появляется жезл Асклепия!"))
 				else
 					//Otherwise get rid of whatever else is in their hand and return the rod to said hand
 					itemUser.put_in_hand(newRod, hand, forced = TRUE)
-					to_chat(itemUser, span_notice("The Rod of Asclepius suddenly grows back out of your arm!"))
+					to_chat(itemUser, span_notice("Посох Асклепия возвращается в мою руку!"))
 			//Because a servant of medicines stops at nothing to help others, lets keep them on their toes and give them an additional boost.
 			if(itemUser.health < itemUser.maxHealth)
 				new /obj/effect/temp_visual/heal(get_turf(itemUser), "#375637")
-			var/need_mob_update = FALSE
-			need_mob_update += itemUser.adjustBruteLoss(-0.6 * seconds_between_ticks, updating_health = FALSE, forced = TRUE)
-			need_mob_update += itemUser.adjustFireLoss(-0.6 * seconds_between_ticks, updating_health = FALSE, forced = TRUE)
-			need_mob_update += itemUser.adjustToxLoss(-0.6 * seconds_between_ticks, updating_health = FALSE, forced = TRUE) //Because Slime People are people too
-			need_mob_update += itemUser.adjustOxyLoss(-0.6 * seconds_between_ticks, updating_health = FALSE, forced = TRUE)
-			need_mob_update += itemUser.adjustStaminaLoss(-0.6 * seconds_between_ticks, updating_stamina = FALSE, forced = TRUE)
-			need_mob_update += itemUser.adjustOrganLoss(ORGAN_SLOT_BRAIN, -0.6 * seconds_between_ticks)
-			need_mob_update += itemUser.adjustCloneLoss(-0.2 * seconds_between_ticks, updating_health = FALSE, forced = TRUE) //Because apparently clone damage is the bastion of all health
-			if(need_mob_update)
-				itemUser.updatehealth()
+			itemUser.adjustBruteLoss(-1.5)
+			itemUser.adjustFireLoss(-1.5)
+			itemUser.adjustToxLoss(-1.5, forced = TRUE) //Because Slime People are people too
+			itemUser.adjustOxyLoss(-1.5)
+			itemUser.adjustStaminaLoss(-1.5)
+			itemUser.adjustOrganLoss(ORGAN_SLOT_BRAIN, -1.5)
+			itemUser.adjustCloneLoss(-0.5) //Becasue apparently clone damage is the bastion of all health
 
 /datum/status_effect/hippocratic_oath/proc/consume_owner()
-	owner.visible_message(span_notice("[owner]'s soul is absorbed into the rod, relieving the previous snake of its duty."))
-	var/list/chems = list(/datum/reagent/medicine/sal_acid, /datum/reagent/medicine/c2/convermol, /datum/reagent/medicine/oxandrolone)
-	var/mob/living/basic/snake/spawned = new(owner.loc, pick(chems))
-	spawned.name = "Asclepius's Snake"
-	spawned.real_name = "Asclepius's Snake"
-	spawned.desc = "A mystical snake previously trapped upon the Rod of Asclepius, now freed of its burden. Unlike the average snake, its bites contain chemicals with minor healing properties."
+	owner.visible_message(span_notice("[owner] soul is absorbed into the rod, relieving the previous snake of its duty."))
+	var/mob/living/simple_animal/hostile/retaliate/poison/snake/healSnake = new(owner.loc)
+	var/list/chems = list(/datum/reagent/medicine/sal_acid, /datum/reagent/medicine/salbutamol, /datum/reagent/medicine/oxandrolone)
+	healSnake.poison_type = pick(chems)
+	healSnake.name = "Змея Асклепия"
+	healSnake.real_name = "Змея Асклепия"
+	healSnake.maxHealth = 200
+	healSnake.desc = "Мистическая змея обвивавшая до этого жезл Асклепия. В отличии от обычных змей при укусе она вводит лекарственные вещества."
 	new /obj/effect/decal/cleanable/ash(owner.loc)
 	new /obj/item/rod_of_asclepius(owner.loc)
-	owner.investigate_log("has been consumed by the Rod of Asclepius.", INVESTIGATE_DEATHS)
 	qdel(owner)
+
 
 /datum/status_effect/good_music
 	id = "Good Music"
@@ -352,16 +315,16 @@
 	tick_interval = 1 SECONDS
 	status_type = STATUS_EFFECT_REFRESH
 
-/datum/status_effect/good_music/tick(seconds_between_ticks)
+/datum/status_effect/good_music/tick()
 	if(owner.can_hear())
-		owner.adjust_dizzy(-4 SECONDS)
-		owner.adjust_jitter(-4 SECONDS)
-		owner.adjust_confusion(-1 SECONDS)
-		owner.add_mood_event("goodmusic", /datum/mood_event/goodmusic)
+		owner.dizziness = max(0, owner.dizziness - 2)
+		owner.jitteriness = max(0, owner.jitteriness - 2)
+		owner.set_confusion(max(0, owner.get_confusion() - 1))
+		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "goodmusic", /datum/mood_event/goodmusic)
 
 /atom/movable/screen/alert/status_effect/regenerative_core
-	name = "Regenerative Core Tendrils"
-	desc = "You can move faster than your broken body could normally handle!"
+	name = "Регенеративное ядро"
+	desc = "Я могу двигаться быстрее, чем обычно может выдержать мое бренное тело!"
 	icon_state = "regenerative_core"
 
 /datum/status_effect/regenerative_core
@@ -371,18 +334,295 @@
 	alert_type = /atom/movable/screen/alert/status_effect/regenerative_core
 
 /datum/status_effect/regenerative_core/on_apply()
-	ADD_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, STATUS_EFFECT_TRAIT)
+	ADD_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, id)
 	owner.adjustBruteLoss(-25)
 	owner.adjustFireLoss(-25)
-	owner.fully_heal(HEAL_CC_STATUS)
+	owner.remove_CC()
 	owner.bodytemperature = owner.get_body_temp_normal()
-	if(ishuman(owner))
+	if(istype(owner, /mob/living/carbon/human))
 		var/mob/living/carbon/human/humi = owner
-		humi.set_coretemperature(humi.get_body_temp_normal())
+		humi.coretemperature = humi.get_body_temp_normal()
 	return TRUE
 
 /datum/status_effect/regenerative_core/on_remove()
-	REMOVE_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, STATUS_EFFECT_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, id)
+
+//  Таблетка спасателя у Рейджеров
+/atom/movable/screen/alert/status_effect/saver
+	name = "Спасатель"
+	desc = "Я могу не опасаться угрозы заражения ксенопаразитами, а так же быть в тонусе даже если меня ранят! Никто кроме нас!"
+	icon_state = "saver"
+
+/datum/status_effect/saver
+	id = "Спасатель"
+	duration = 10 MINUTES
+	status_type = STATUS_EFFECT_REPLACE
+	alert_type = /atom/movable/screen/alert/status_effect/saver
+
+/datum/status_effect/saver/on_apply()
+	ADD_TRAIT(owner, TRAIT_PARASITE_IMMUNE, id)
+	ADD_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, id)
+	owner.remove_CC()
+	owner.bodytemperature = owner.get_body_temp_normal()
+	if(istype(owner, /mob/living/carbon/human))
+		var/mob/living/carbon/human/humi = owner
+		humi.coretemperature = humi.get_body_temp_normal()
+	return TRUE
+
+/datum/status_effect/saver/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_PARASITE_IMMUNE, id)
+	REMOVE_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, id)
+
+/datum/status_effect/antimagic
+	id = "antimagic"
+	status_type = STATUS_EFFECT_REFRESH
+	duration = 10 SECONDS
+	examine_text = span_notice("They seem to be covered in a dull, grey aura.")
+
+/datum/status_effect/antimagic/on_creation(mob/living/new_owner, duration = 10 SECONDS)
+	src.duration = duration
+	return ..()
+
+/datum/status_effect/antimagic/refresh(effect, duration = 10 SECONDS)
+	if(duration == -1)
+		return
+	duration = world.time + duration
+
+/datum/status_effect/antimagic/on_apply()
+	owner.visible_message(span_notice("[owner] is coated with a dull aura!"))
+	ADD_TRAIT(owner, TRAIT_ANTIMAGIC, MAGIC_TRAIT)
+	//glowing wings overlay
+	playsound(owner, 'sound/weapons/fwoosh.ogg', 75, FALSE)
+	return ..()
+
+/datum/status_effect/antimagic/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_ANTIMAGIC, MAGIC_TRAIT)
+	owner.visible_message(span_warning("[owner] dull aura fades away..."))
+
+/datum/status_effect/crucible_soul
+	id = "Blessing of Crucible Soul"
+	status_type = STATUS_EFFECT_REFRESH
+	duration = 15 SECONDS
+	examine_text = span_notice("They don't seem to be all here.")
+	alert_type = /atom/movable/screen/alert/status_effect/crucible_soul
+	var/turf/location
+
+/datum/status_effect/crucible_soul/on_apply()
+	. = ..()
+	to_chat(owner,span_notice("You phase through reality, nothing is out of bounds!"))
+	owner.alpha = 180
+	owner.pass_flags |= PASSCLOSEDTURF | PASSGLASS | PASSGRILLE | PASSMACHINE | PASSSTRUCTURE | PASSTABLE | PASSMOB | PASSDOORS
+	location = get_turf(owner)
+
+/datum/status_effect/crucible_soul/on_remove()
+	to_chat(owner,span_notice("You regain your physicality, returning you to your original location..."))
+	owner.alpha = initial(owner.alpha)
+	owner.pass_flags &= ~(PASSCLOSEDTURF | PASSGLASS | PASSGRILLE | PASSMACHINE | PASSSTRUCTURE | PASSTABLE | PASSMOB | PASSDOORS)
+	owner.forceMove(location)
+	location = null
+	return ..()
+
+/datum/status_effect/duskndawn
+	id = "Blessing of Dusk and Dawn"
+	status_type = STATUS_EFFECT_REFRESH
+	duration = 60 SECONDS
+	alert_type =/atom/movable/screen/alert/status_effect/duskndawn
+
+/datum/status_effect/duskndawn/on_apply()
+	. = ..()
+	ADD_TRAIT(owner,TRAIT_XRAY_VISION,type)
+	owner.update_sight()
+
+/datum/status_effect/duskndawn/on_remove()
+	REMOVE_TRAIT(owner,TRAIT_XRAY_VISION,type)
+	owner.update_sight()
+	return ..()
+
+/datum/status_effect/marshal
+	id = "Blessing of Wounded Soldier"
+	status_type = STATUS_EFFECT_REFRESH
+	duration = 60 SECONDS
+	tick_interval = 1 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/marshal
+
+/datum/status_effect/marshal/on_apply()
+	. = ..()
+	ADD_TRAIT(owner,TRAIT_IGNOREDAMAGESLOWDOWN,type)
+
+/datum/status_effect/marshal/on_remove()
+	. = ..()
+	REMOVE_TRAIT(owner,TRAIT_IGNOREDAMAGESLOWDOWN,type)
+
+/datum/status_effect/marshal/tick()
+	. = ..()
+	if(!iscarbon(owner))
+		return
+	var/mob/living/carbon/carbie = owner
+
+	for(var/BP in carbie.bodyparts)
+		var/obj/item/bodypart/part = BP
+		for(var/W in part.wounds)
+			var/datum/wound/wound = W
+			var/heal_amt = 0
+
+			switch(wound.severity)
+				if(WOUND_SEVERITY_MODERATE)
+					heal_amt = 1
+				if(WOUND_SEVERITY_SEVERE)
+					heal_amt = 3
+				if(WOUND_SEVERITY_CRITICAL)
+					heal_amt = 6
+			if(wound.wound_type == WOUND_BURN)
+				carbie.adjustFireLoss(-heal_amt)
+			else
+				carbie.adjustBruteLoss(-heal_amt)
+				carbie.blood_volume += carbie.blood_volume >= BLOOD_VOLUME_NORMAL ? 0 : heal_amt*3
+
+/// Summons multiple foating knives around the owner.
+/// Each knife will block an attack straight up.
+/datum/status_effect/protective_blades
+	id = "Silver Knives"
+	alert_type = null
+	status_type = STATUS_EFFECT_MULTIPLE
+	tick_interval = -1
+	/// The number of blades we summon up to.
+	var/max_num_blades = 4
+	/// The radius of the blade's orbit.
+	var/blade_orbit_radius = 20
+	/// The time between spawning blades.
+	var/time_between_initial_blades = 0.25 SECONDS
+	/// If TRUE, we self-delete our status effect after all the blades are deleted.
+	var/delete_on_blades_gone = TRUE
+	/// A list of blade effects orbiting / protecting our owner
+	var/list/obj/effect/floating_blade/blades = list()
+
+/datum/status_effect/protective_blades/on_creation(
+	mob/living/new_owner,
+	new_duration = -1,
+	max_num_blades = 4,
+	blade_orbit_radius = 20,
+	time_between_initial_blades = 0.25 SECONDS,
+)
+
+	src.duration = new_duration
+	src.max_num_blades = max_num_blades
+	src.blade_orbit_radius = blade_orbit_radius
+	src.time_between_initial_blades = time_between_initial_blades
+	return ..()
+
+/datum/status_effect/protective_blades/on_apply()
+	RegisterSignal(owner, COMSIG_HUMAN_CHECK_SHIELDS, PROC_REF(on_shield_reaction))
+	for(var/blade_num in 1 to max_num_blades)
+		var/time_until_created = (blade_num - 1) * time_between_initial_blades
+		if(time_until_created <= 0)
+			create_blade()
+		else
+			addtimer(CALLBACK(src, PROC_REF(create_blade)), time_until_created)
+
+	return TRUE
+
+/datum/status_effect/protective_blades/on_remove()
+	UnregisterSignal(owner, COMSIG_HUMAN_CHECK_SHIELDS)
+	QDEL_LIST(blades)
+
+	return ..()
+
+/// Creates a floating blade, adds it to our blade list, and makes it orbit our owner.
+/datum/status_effect/protective_blades/proc/create_blade()
+	if(QDELETED(src) || QDELETED(owner))
+		return
+
+	var/obj/effect/floating_blade/blade = new(get_turf(owner))
+	blades += blade
+	blade.orbit(owner, blade_orbit_radius)
+	RegisterSignal(blade, COMSIG_PARENT_QDELETING, PROC_REF(remove_blade))
+	playsound(get_turf(owner), 'sound/items/unsheath.ogg', 33, TRUE)
+
+/// Signal proc for [COMSIG_HUMAN_CHECK_SHIELDS].
+/// If we have a blade in our list, consume it and block the incoming attack (shield it)
+/datum/status_effect/protective_blades/proc/on_shield_reaction(
+	mob/living/carbon/human/source,
+	atom/movable/hitby,
+	damage = 0,
+	attack_text = "the attack",
+	attack_type = MELEE_ATTACK,
+	armour_penetration = 0,
+)
+	SIGNAL_HANDLER
+
+	if(!length(blades))
+		return
+
+	var/obj/effect/floating_blade/to_remove = blades[1]
+
+	playsound(get_turf(source), 'sound/weapons/parry.ogg', 100, TRUE)
+	source.visible_message(
+		span_warning("[to_remove] orbiting [source] snaps in front of [attack_text], blocking it before vanishing!"),
+		span_warning("[to_remove] orbiting you snaps in front of [attack_text], blocking it before vanishing!"),
+		span_hear("You hear a clink."),
+	)
+
+	qdel(to_remove)
+
+	return SHIELD_BLOCK
+
+/// Remove deleted blades from our blades list properly.
+/datum/status_effect/protective_blades/proc/remove_blade(obj/effect/floating_blade/to_remove)
+	SIGNAL_HANDLER
+
+	if(!(to_remove in blades))
+		CRASH("[type] called remove_blade() with a blade that was not in its blades list.")
+
+	to_remove.stop_orbit(owner.orbiters)
+	blades -= to_remove
+
+	if(!length(blades) && !QDELETED(src) && delete_on_blades_gone)
+		qdel(src)
+
+	return TRUE
+
+/// A subtype that doesn't self-delete / disappear when all blades are gone
+/// It instead regenerates over time back to the max after blades are consumed
+/datum/status_effect/protective_blades/recharging
+	delete_on_blades_gone = FALSE
+	/// The amount of time it takes for a blade to recharge
+	var/blade_recharge_time = 1 MINUTES
+
+/datum/status_effect/protective_blades/recharging/on_creation(
+	mob/living/new_owner,
+	new_duration = -1,
+	max_num_blades = 4,
+	blade_orbit_radius = 20,
+	time_between_initial_blades = 0.25 SECONDS,
+	blade_recharge_time = 1 MINUTES,
+)
+
+	src.blade_recharge_time = blade_recharge_time
+	return ..()
+
+/datum/status_effect/protective_blades/recharging/remove_blade(obj/effect/floating_blade/to_remove)
+	. = ..()
+	if(!.)
+		return
+
+	addtimer(CALLBACK(src, PROC_REF(create_blade)), blade_recharge_time)
+
+/atom/movable/screen/alert/status_effect/crucible_soul
+	name = "Blessing of Crucible Soul"
+	desc = "You phased through the reality, you are halfway to your final destination..."
+	icon_state = "crucible"
+
+/atom/movable/screen/alert/status_effect/duskndawn
+	name = "Blessing of Dusk and Dawn"
+	desc = "Many things hide beyond the horizon, with Owl's help i managed to slip past sun's guard and moon's watch."
+	icon_state = "duskndawn"
+
+/atom/movable/screen/alert/status_effect/marshal
+	name = "Blessing of Wounded Soldier"
+	desc = "Some people seek power through redemption, one thing many people don't know is that battle is the ultimate redemption and wounds let you bask in eternal glory."
+	icon_state = "wounded_soldier"
+
+
 
 /datum/status_effect/lightningorb
 	id = "Lightning Orb"
@@ -414,31 +654,17 @@
 	. = ..()
 	to_chat(owner, "<span class='reallybig redtext'>RIP AND TEAR</span>")
 	SEND_SOUND(owner, sound('sound/hallucinations/veryfar_noise.ogg'))
-	owner.cause_hallucination( \
-		/datum/hallucination/delusion/preset/demon, \
-		"[id] status effect", \
-		duration = duration, \
-		affects_us = FALSE, \
-		affects_others = TRUE, \
-		skip_nearby = FALSE, \
-		play_wabbajack = FALSE, \
-	)
-
-	owner.drop_all_held_items()
-
-	if(iscarbon(owner))
-		chainsaw = new(get_turf(owner))
-		ADD_TRAIT(chainsaw, TRAIT_NODROP, CHAINSAW_FRENZY_TRAIT)
-		owner.put_in_hands(chainsaw, forced = TRUE)
-		chainsaw.attack_self(owner)
-		owner.reagents.add_reagent(/datum/reagent/medicine/adminordrazine, 25)
-
+	new /datum/hallucination/delusion(owner, forced = TRUE, force_kind = "demon", duration = duration, skip_nearby = FALSE)
+	chainsaw = new(get_turf(owner))
 	owner.log_message("entered a blood frenzy", LOG_ATTACK)
+	ADD_TRAIT(chainsaw, TRAIT_NODROP, CHAINSAW_FRENZY_TRAIT)
+	owner.drop_all_held_items()
+	owner.put_in_hands(chainsaw, forced = TRUE)
+	chainsaw.attack_self(owner)
+	owner.reagents.add_reagent(/datum/reagent/medicine/adminordrazine,25)
 	to_chat(owner, span_warning("KILL, KILL, KILL! YOU HAVE NO ALLIES ANYMORE, KILL THEM ALL!"))
-
 	var/datum/client_colour/colour = owner.add_client_colour(/datum/client_colour/bloodlust)
 	QDEL_IN(colour, 1.1 SECONDS)
-	return TRUE
 
 /datum/status_effect/mayhem/on_remove()
 	. = ..()
@@ -466,126 +692,3 @@
 /datum/movespeed_modifier/status_speed_boost
 	multiplicative_slowdown = -1
 
-///this buff provides a max health buff and a heal.
-/datum/status_effect/limited_buff/health_buff
-	id = "health_buff"
-	alert_type = null
-	///This var stores the mobs max health when the buff was first applied, and determines the size of future buffs.database.database.
-	var/historic_max_health
-	///This var determines how large the health buff will be. health_buff_modifier * historic_max_health * stacks
-	var/health_buff_modifier = 0.1 //translate to a 10% buff over historic health per stack
-	///This modifier multiplies the healing by the effect.
-	var/healing_modifier = 2
-	///If the mob has a low max health, we instead use this flat value to increase max health and calculate any heal.
-	var/fragile_mob_health_buff = 10
-
-/datum/status_effect/limited_buff/health_buff/on_creation(mob/living/new_owner)
-	historic_max_health = new_owner.maxHealth
-	. = ..()
-
-/datum/status_effect/limited_buff/health_buff/on_apply()
-	. = ..()
-	var/health_increase = round(max(fragile_mob_health_buff, historic_max_health * health_buff_modifier))
-	owner.maxHealth += health_increase
-	owner.balloon_alert_to_viewers("health buffed")
-	to_chat(owner, span_nicegreen("You feel healthy, like if your body is little stronger than it was a moment ago."))
-
-	if(isanimal(owner))	//dumb animals have their own proc for healing.
-		var/mob/living/simple_animal/healthy_animal = owner
-		healthy_animal.adjustHealth(-(health_increase * healing_modifier))
-	else
-		owner.adjustBruteLoss(-(health_increase * healing_modifier))
-
-/datum/status_effect/limited_buff/health_buff/maxed_out()
-	. = ..()
-	to_chat(owner, span_warning("You don't feel any healthier."))
-
-/datum/status_effect/nest_sustenance
-	id = "nest_sustenance"
-	duration = -1
-	tick_interval = 0.4 SECONDS
-	alert_type = /atom/movable/screen/alert/status_effect/nest_sustenance
-
-/datum/status_effect/nest_sustenance/tick(seconds_between_ticks)
-	. = ..()
-
-	if(owner.stat == DEAD) //If the victim has died due to complications in the nest
-		qdel(src)
-		return
-
-	var/need_mob_update = FALSE
-	need_mob_update += owner.adjustBruteLoss(-2 * seconds_between_ticks, updating_health = FALSE)
-	need_mob_update += owner.adjustFireLoss(-2 * seconds_between_ticks, updating_health = FALSE)
-	need_mob_update += owner.adjustOxyLoss(-4 * seconds_between_ticks, updating_health = FALSE)
-	need_mob_update += owner.adjustStaminaLoss(-4 * seconds_between_ticks, updating_stamina = FALSE)
-	if(need_mob_update)
-		owner.updatehealth()
-	owner.adjust_bodytemperature(BODYTEMP_NORMAL, 0, BODYTEMP_NORMAL) //Won't save you from the void of space, but it will stop you from freezing or suffocating in low pressure
-
-
-/atom/movable/screen/alert/status_effect/nest_sustenance
-	name = "Nest Vitalization"
-	desc = "The resin seems to pulsate around you. It seems to be sustaining your vital functions. You feel ill..."
-	icon_state = "nest_life"
-
-/**
- * Granted to wizards upon satisfying the cheese sacrifice during grand rituals.
- * Halves incoming damage and makes the owner stun immune, damage slow immune, levitating(even in space and hyperspace!) and glowing.
- */
-/datum/status_effect/blessing_of_insanity
-	id = "blessing_of_insanity"
-	duration = -1
-	tick_interval = -1
-	alert_type = /atom/movable/screen/alert/status_effect/blessing_of_insanity
-
-/atom/movable/screen/alert/status_effect/blessing_of_insanity
-	name = "Blessing of Insanity"
-	desc = "Your devotion to madness has improved your resilience to all damage and you gain the power to levitate!"
-	//no screen alert - the gravity already throws one
-
-/datum/status_effect/blessing_of_insanity/on_apply()
-	if(ishuman(owner))
-		var/mob/living/carbon/human/human_owner = owner
-		var/datum/physiology/owner_physiology = human_owner.physiology
-		owner_physiology.brute_mod *= 0.5
-		owner_physiology.burn_mod *= 0.5
-		owner_physiology.tox_mod *= 0.5
-		owner_physiology.oxy_mod *= 0.5
-		owner_physiology.clone_mod *= 0.5
-		owner_physiology.stamina_mod *= 0.5
-	owner.add_filter("mad_glow", 2, list("type" = "outline", "color" = "#eed811c9", "size" = 2))
-	owner.AddElement(/datum/element/forced_gravity, 0)
-	owner.AddElement(/datum/element/simple_flying)
-	owner.add_stun_absorption(source = id, priority = 4)
-	add_traits(list(TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_FREE_HYPERSPACE_MOVEMENT), MAD_WIZARD_TRAIT)
-	owner.playsound_local(get_turf(owner), 'sound/chemistry/ahaha.ogg', vol = 100, vary = TRUE, use_reverb = TRUE)
-	return TRUE
-
-/datum/status_effect/blessing_of_insanity/on_remove()
-	if(ishuman(owner))
-		var/mob/living/carbon/human/human_owner = owner
-		var/datum/physiology/owner_physiology = human_owner.physiology
-		owner_physiology.brute_mod *= 2
-		owner_physiology.burn_mod *= 2
-		owner_physiology.tox_mod *= 2
-		owner_physiology.oxy_mod *= 2
-		owner_physiology.clone_mod *= 2
-		owner_physiology.stamina_mod *= 2
-	owner.remove_filter("mad_glow")
-	owner.RemoveElement(/datum/element/forced_gravity, 0)
-	owner.RemoveElement(/datum/element/simple_flying)
-	owner.remove_stun_absorption(id)
-	remove_traits(list(TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_FREE_HYPERSPACE_MOVEMENT), MAD_WIZARD_TRAIT)
-
-/// Gives you a brief period of anti-gravity
-/datum/status_effect/jump_jet
-	id = "jump_jet"
-	alert_type = null
-	duration = 5 SECONDS
-
-/datum/status_effect/jump_jet/on_apply()
-	owner.AddElement(/datum/element/forced_gravity, 0)
-	return TRUE
-
-/datum/status_effect/jump_jet/on_remove()
-	owner.RemoveElement(/datum/element/forced_gravity, 0)

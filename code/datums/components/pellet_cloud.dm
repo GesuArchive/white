@@ -10,7 +10,7 @@
 	*
 	* Pellet cloud currently works on two classes of sources: directed (ammo casings), and circular (grenades, landmines).
 	* -Directed: This means you're shooting multiple pellets, like buckshot. If an ammo casing is defined as having multiple pellets, it will automatically create a pellet cloud
-	* and call COMSIG_FIRE_CASING (see [/obj/item/ammo_casing/proc/fire_casing]). Thus, the only projectiles fired will be the ones fired here.
+	* and call COMSIG_PELLET_CLOUD_INIT (see [/obj/item/ammo_casing/proc/fire_casing]). Thus, the only projectiles fired will be the ones fired here.
 	* The magnitude var controls how many pellets are created.
 	* -Circular: This results in a big spray of shrapnel flying all around the detonation point when the grenade fires COMSIG_GRENADE_DETONATE or landmine triggers COMSIG_MINE_TRIGGERED.
 	* The magnitude var controls how big the detonation radius is (the bigger the magnitude, the more shrapnel is created). Grenades can be covered with bodies to reduce shrapnel output.
@@ -55,7 +55,7 @@
 
 
 /datum/component/pellet_cloud/Initialize(projectile_type=/obj/item/shrapnel, magnitude=5)
-	if(!isammocasing(parent) && !isgrenade(parent) && !islandmine(parent) && !issupplypod(parent))
+	if(!isammocasing(parent) && !isgrenade(parent) && !islandmine(parent) && !issupplypod(parent) && !istype(parent, /obj/item/extinguisher))
 		return COMPONENT_INCOMPATIBLE
 
 	if(magnitude < 1)
@@ -66,7 +66,7 @@
 
 	if(isammocasing(parent))
 		num_pellets = magnitude
-	else if(isgrenade(parent) || islandmine(parent) || issupplypod(parent))
+	else if(isgrenade(parent) || islandmine(parent) || issupplypod(parent) || istype(parent, /obj/item/extinguisher))
 		radius = magnitude
 
 /datum/component/pellet_cloud/Destroy(force, silent)
@@ -78,9 +78,9 @@
 	return ..()
 
 /datum/component/pellet_cloud/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_PREQDELETED, PROC_REF(nullspace_parent))
+	RegisterSignal(parent, COMSIG_PARENT_PREQDELETED, PROC_REF(nullspace_parent))
 	if(isammocasing(parent))
-		RegisterSignal(parent, COMSIG_FIRE_CASING, PROC_REF(create_casing_pellets))
+		RegisterSignal(parent, COMSIG_PELLET_CLOUD_INIT, PROC_REF(create_casing_pellets))
 	else if(isgrenade(parent))
 		RegisterSignal(parent, COMSIG_GRENADE_ARMED, PROC_REF(grenade_armed))
 		RegisterSignal(parent, COMSIG_GRENADE_DETONATE, PROC_REF(create_blast_pellets))
@@ -88,17 +88,19 @@
 		RegisterSignal(parent, COMSIG_MINE_TRIGGERED, PROC_REF(create_blast_pellets))
 	else if(issupplypod(parent))
 		RegisterSignal(parent, COMSIG_SUPPLYPOD_LANDED, PROC_REF(create_blast_pellets))
+	else if(istype(parent, /obj/item/extinguisher))
+		RegisterSignal(parent, COMSIG_EXTINGUISHER_BOOM, PROC_REF(create_blast_pellets))
 
 /datum/component/pellet_cloud/UnregisterFromParent()
-	UnregisterSignal(parent, list(COMSIG_PREQDELETED, COMSIG_FIRE_CASING, COMSIG_GRENADE_DETONATE, COMSIG_GRENADE_ARMED, COMSIG_MOVABLE_MOVED, COMSIG_MINE_TRIGGERED, COMSIG_ITEM_DROPPED))
+	UnregisterSignal(parent, list(COMSIG_PARENT_PREQDELETED, COMSIG_PELLET_CLOUD_INIT, COMSIG_GRENADE_DETONATE, COMSIG_GRENADE_ARMED, COMSIG_MOVABLE_MOVED, COMSIG_MINE_TRIGGERED, COMSIG_ITEM_DROPPED))
 
 /**
  * create_casing_pellets() is for directed pellet clouds for ammo casings that have multiple pellets (buckshot and scatter lasers for instance)
  *
  * Honestly this is mostly just a rehash of [/obj/item/ammo_casing/proc/fire_casing] for pellet counts > 1, except this lets us tamper with the pellets and hook onto them for tracking purposes.
- * The arguments really don't matter, while this proc is triggered by COMSIG_FIRE_CASING, it's just a big mess of the state vars we need for doing the stuff over here.
+ * The arguments really don't matter, this proc is triggered by COMSIG_PELLET_CLOUD_INIT which is only for this really, it's just a big mess of the state vars we need for doing the stuff over here.
  */
-/datum/component/pellet_cloud/proc/create_casing_pellets(obj/item/ammo_casing/shell, atom/target, mob/living/user, fired_from, randomspread, spread, zone_override, params, distro, obj/projectile/proj)
+/datum/component/pellet_cloud/proc/create_casing_pellets(obj/item/ammo_casing/shell, atom/target, mob/living/user, fired_from, randomspread, spread, zone_override, params, distro)
 	SIGNAL_HANDLER
 
 	shooter = user
@@ -117,18 +119,18 @@
 			if(randomspread)
 				spread = round((rand() - 0.5) * distro)
 			else //Smart spread
-				spread = round((i / num_pellets - 0.5) * distro)
+				spread = round((i / num_pellets - (num_pellets/2 + 0.5)/num_pellets) * distro)
 
 		RegisterSignal(shell.loaded_projectile, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(pellet_hit))
-		RegisterSignals(shell.loaded_projectile, list(COMSIG_PROJECTILE_RANGE_OUT, COMSIG_QDELETING), PROC_REF(pellet_range))
+		RegisterSignals(shell.loaded_projectile, list(COMSIG_PROJECTILE_RANGE_OUT, COMSIG_PARENT_QDELETING), PROC_REF(pellet_range))
 		shell.loaded_projectile.damage = original_damage
 		shell.loaded_projectile.wound_bonus = original_wb
 		shell.loaded_projectile.bare_wound_bonus = original_bwb
 		pellets += shell.loaded_projectile
-		var/turf/current_loc = get_turf(fired_from)
+		var/turf/current_loc = get_turf(user)
 		if (!istype(target_loc) || !istype(current_loc) || !(shell.loaded_projectile))
 			return
-		INVOKE_ASYNC(shell, TYPE_PROC_REF(/obj/item/ammo_casing, throw_proj), target, target_loc, shooter, params, spread, fired_from)
+		INVOKE_ASYNC(shell, TYPE_PROC_REF(/obj/item/ammo_casing, throw_proj), target, target_loc, shooter, params, spread)
 
 		if(i != num_pellets)
 			shell.newshot()
@@ -200,13 +202,13 @@
 	for(var/M in martyrs)
 		var/mob/living/martyr = M
 		if(radius > 4)
-			martyr.visible_message("<b>[span_danger("[martyr] heroically covers \the [parent] with [martyr.p_their()] body, absorbing a load of the shrapnel!")]</b>", span_userdanger("You heroically cover \the [parent] with your body, absorbing a load of the shrapnel!"))
+			martyr.visible_message("<b>[span_danger("[martyr] heroically covers <b>[parent]</b> with [martyr.p_their()] body, absorbing a load of the shrapnel!")]</b>", span_userdanger("You heroically cover <b>[parent]</b> with your body, absorbing a load of the shrapnel!"))
 			magnitude_absorbed += round(radius * 0.5)
 		else if(radius >= 2)
-			martyr.visible_message("<b>[span_danger("[martyr] heroically covers \the [parent] with [martyr.p_their()] body, absorbing some of the shrapnel!")]</b>", span_userdanger("You heroically cover \the [parent] with your body, absorbing some of the shrapnel!"))
+			martyr.visible_message("<b>[span_danger("[martyr] heroically covers <b>[parent]</b> with [martyr.p_their()] body, absorbing some of the shrapnel!")]</b>", span_userdanger("You heroically cover <b>[parent]</b> with your body, absorbing some of the shrapnel!"))
 			magnitude_absorbed += 2
 		else
-			martyr.visible_message("<b>[span_danger("[martyr] heroically covers \the [parent] with [martyr.p_their()] body, snuffing out the shrapnel!")]</b>", span_userdanger("You heroically cover \the [parent] with your body, snuffing out the shrapnel!"))
+			martyr.visible_message("<b>[span_danger("[martyr] heroically covers <b>[parent]</b> with [martyr.p_their()] body, snuffing out the shrapnel!")]</b>", span_userdanger("You heroically cover <b>[parent]</b> with your body, snuffing out the shrapnel!"))
 			magnitude_absorbed = radius
 
 		var/pellets_absorbed = (radius ** 2) - ((radius - magnitude_absorbed - 1) ** 2)
@@ -215,7 +217,7 @@
 
 		if(martyr.stat != DEAD && martyr.client)
 			LAZYADD(purple_hearts, martyr)
-			RegisterSignal(martyr, COMSIG_QDELETING, PROC_REF(on_target_qdel), override=TRUE)
+			RegisterSignal(martyr, COMSIG_PARENT_QDELETING, PROC_REF(on_target_qdel), override=TRUE)
 
 		for(var/i in 1 to round(pellets_absorbed * 0.5))
 			pew(martyr)
@@ -231,7 +233,7 @@
 	terminated++
 	hits++
 	var/obj/item/bodypart/hit_part
-	var/damage = TRUE
+	var/no_damage = FALSE
 	if(iscarbon(target) && hit_zone)
 		var/mob/living/carbon/hit_carbon = target
 		hit_part = hit_carbon.get_bodypart(hit_zone)
@@ -249,13 +251,13 @@
 	else if(isobj(target))
 		var/obj/hit_object = target
 		if(hit_object.damage_deflection > P.damage || !P.damage)
-			damage = FALSE
+			no_damage = TRUE
 
 	LAZYADDASSOC(targets_hit[target], "hits", 1)
-	LAZYSET(targets_hit[target], "damage", damage)
+	LAZYSET(targets_hit[target], "no damage", no_damage)
 	if(targets_hit[target]["hits"] == 1)
-		RegisterSignal(target, COMSIG_QDELETING, PROC_REF(on_target_qdel), override=TRUE)
-	UnregisterSignal(P, list(COMSIG_QDELETING, COMSIG_PROJECTILE_RANGE_OUT, COMSIG_PROJECTILE_SELF_ON_HIT))
+		RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(on_target_qdel), override=TRUE)
+	UnregisterSignal(P, list(COMSIG_PARENT_QDELETING, COMSIG_PROJECTILE_RANGE_OUT, COMSIG_PROJECTILE_SELF_ON_HIT))
 	if(terminated == num_pellets)
 		finalize()
 
@@ -264,7 +266,7 @@
 	SIGNAL_HANDLER
 	pellets -= P
 	terminated++
-	UnregisterSignal(P, list(COMSIG_QDELETING, COMSIG_PROJECTILE_RANGE_OUT, COMSIG_PROJECTILE_SELF_ON_HIT))
+	UnregisterSignal(P, list(COMSIG_PARENT_QDELETING, COMSIG_PROJECTILE_RANGE_OUT, COMSIG_PROJECTILE_SELF_ON_HIT))
 	if(terminated == num_pellets)
 		finalize()
 
@@ -281,7 +283,7 @@
 	P.suppressed = SUPPRESSED_VERY // set the projectiles to make no message so we can do our own aggregate message
 	P.preparePixelProjectile(target, parent)
 	RegisterSignal(P, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(pellet_hit))
-	RegisterSignals(P, list(COMSIG_PROJECTILE_RANGE_OUT, COMSIG_QDELETING), PROC_REF(pellet_range))
+	RegisterSignals(P, list(COMSIG_PROJECTILE_RANGE_OUT, COMSIG_PARENT_QDELETING), PROC_REF(pellet_range))
 	pellets += P
 	P.fire()
 	if(landmine_victim)
@@ -294,50 +296,30 @@
 
 	for(var/atom/target in targets_hit)
 		var/num_hits = targets_hit[target]["hits"]
-		var/damage = targets_hit[target]["damage"]
-		UnregisterSignal(target, COMSIG_QDELETING)
+		var/did_damage = targets_hit[target]["no damage"]
+		UnregisterSignal(target, COMSIG_PARENT_QDELETING)
 		var/obj/item/bodypart/hit_part
 		if(isbodypart(target))
 			hit_part = target
-			if(!hit_part.owner) //only bother doing the thing if it was a limb just laying on the ground lol.
-				hit_part = null //so the visible_message later on doesn't generate extra text.
-			else
-				target = hit_part.owner
-				if(wound_info_by_part[hit_part] && (initial(P.damage_type) == BRUTE || initial(P.damage_type) == BURN)) // so a cloud of disablers that deal stamina don't inadvertently end up causing burn wounds)
-					var/damage_dealt = wound_info_by_part[hit_part][CLOUD_POSITION_DAMAGE]
-					var/w_bonus = wound_info_by_part[hit_part][CLOUD_POSITION_W_BONUS]
-					var/bw_bonus = wound_info_by_part[hit_part][CLOUD_POSITION_BW_BONUS]
-					var/wounding_type = (initial(P.damage_type) == BRUTE) ? WOUND_BLUNT : WOUND_BURN // sharpness is handled in the wound rolling
-					wound_info_by_part -= hit_part
-
-					// technically this only checks armor worn the moment that all the pellets resolve rather than as each one hits you,
-					// but this isn't important enough to warrant all the extra loops of mostly redundant armor checks
-					var/mob/living/carbon/hit_carbon = target
-					var/armor_factor = hit_carbon.getarmor(hit_part, initial(P.armor_flag))
-					armor_factor = min(ARMOR_MAX_BLOCK, armor_factor) //cap damage reduction at 90%
-					if(armor_factor > 0)
-						if(initial(P.weak_against_armour) && armor_factor >= 0)
-							armor_factor *= ARMOR_WEAKENED_MULTIPLIER
-						damage_dealt *= max(0, 1 - armor_factor*0.01)
-
-					hit_part.painless_wound_roll(wounding_type, damage_dealt, w_bonus, bw_bonus, initial(P.sharpness))
-
-		var/limb_hit_text = ""
-		if(hit_part)
-			limb_hit_text = " in the [hit_part.plaintext_zone]"
+			target = hit_part.owner
+			if(wound_info_by_part[hit_part] && (initial(P.damage_type) == BRUTE || initial(P.damage_type) == BURN)) // so a cloud of disablers that deal stamina don't inadvertently end up causing burn wounds)
+				var/damage_dealt = wound_info_by_part[hit_part][CLOUD_POSITION_DAMAGE]
+				var/w_bonus = wound_info_by_part[hit_part][CLOUD_POSITION_W_BONUS]
+				var/bw_bonus = wound_info_by_part[hit_part][CLOUD_POSITION_BW_BONUS]
+				var/wound_type = (initial(P.damage_type) == BRUTE) ? WOUND_BLUNT : WOUND_BURN // sharpness is handled in the wound rolling
+				wound_info_by_part -= hit_part
+				hit_part.painless_wound_roll(wound_type, damage_dealt, w_bonus, bw_bonus, initial(P.sharpness))
 
 		if(num_hits > 1)
-			target.visible_message(span_danger("[target] is hit by [num_hits] [proj_name][plural_s(proj_name)][limb_hit_text][damage ? "" : ", without leaving a mark"]!"), null, null, COMBAT_MESSAGE_RANGE, target)
-			to_chat(target, span_userdanger("You're hit by [num_hits] [proj_name]s[limb_hit_text]!"))
+			target.visible_message(span_danger("В[hit_part ? " [ru_parse_zone(hit_part.name)]" : ""] <b>[target]</b> попадают [num_hits] [proj_name][did_damage ? ", но не оставляют даже царапины" : ""]!"), span_userdanger("В[hit_part ? " [ru_parse_zone(hit_part.name)]" : ""] попадают [num_hits] [proj_name]!"), null, COMBAT_MESSAGE_RANGE, visible_message_flags = SPAM_MESSAGE)
 		else
-			target.visible_message(span_danger("[target] is hit by a [proj_name][limb_hit_text][damage ? "" : ", without leaving a mark"]!"), null, null, COMBAT_MESSAGE_RANGE, target)
-			to_chat(target, span_userdanger("You're hit by a [proj_name][limb_hit_text]!"))
+			target.visible_message(span_danger("В[hit_part ? " [ru_parse_zone(hit_part.name)]" : ""] <b>[target]</b> попадает [proj_name][did_damage ? ", но не оставляет даже царапины" : ""]!"), span_userdanger("В[hit_part ? " [ru_parse_zone(hit_part.name)]" : ""] попадает [proj_name]!"), null, COMBAT_MESSAGE_RANGE, visible_message_flags = SPAM_MESSAGE)
 
 	for(var/M in purple_hearts)
 		var/mob/living/martyr = M
 		if(martyr.stat == DEAD && martyr.client)
 			martyr.client.give_award(/datum/award/achievement/misc/lookoutsir, martyr)
-	UnregisterSignal(parent, COMSIG_PREQDELETED)
+	UnregisterSignal(parent, COMSIG_PARENT_PREQDELETED)
 	if(queued_delete)
 		qdel(parent)
 	qdel(src)
@@ -352,7 +334,7 @@
 	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(grenade_dropped))
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(grenade_moved))
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_EXITED = PROC_REF(grenade_uncrossed),
+		COMSIG_ATOM_EXITED =PROC_REF(grenade_uncrossed),
 	)
 	AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
 
@@ -369,14 +351,15 @@
 
 	LAZYCLEARLIST(bodies)
 	for(var/mob/living/L in get_turf(parent))
-		RegisterSignal(L, COMSIG_QDELETING, PROC_REF(on_target_qdel), override=TRUE)
+		RegisterSignal(L, COMSIG_PARENT_QDELETING, PROC_REF(on_target_qdel), override=TRUE)
 		bodies += L
 
 /// Someone who was originally "under" the grenade has moved off the tile and is now eligible for being a martyr and "covering" it
 /datum/component/pellet_cloud/proc/grenade_uncrossed(datum/source, atom/movable/gone, direction)
 	SIGNAL_HANDLER
 
-	bodies -= gone
+	if(!isnull(bodies))
+		bodies -= gone
 
 /// Our grenade or landmine or caseless shell or whatever tried deleting itself, so we intervene and nullspace it until we're done here
 /datum/component/pellet_cloud/proc/nullspace_parent()
@@ -391,7 +374,7 @@
 /datum/component/pellet_cloud/proc/on_target_qdel(atom/target)
 	SIGNAL_HANDLER
 
-	UnregisterSignal(target, COMSIG_QDELETING)
+	UnregisterSignal(target, COMSIG_PARENT_QDELETING)
 	targets_hit -= target
 	LAZYREMOVE(bodies, target)
 	LAZYREMOVE(purple_hearts, target)

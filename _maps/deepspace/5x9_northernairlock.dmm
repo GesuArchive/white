@@ -1,0 +1,99 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/template_noop)
+"j" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
+"q" = (
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
+/area/ruin/unpowered)
+"s" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
+"E" = (
+/turf/open/floor/plating,
+/area/ruin/unpowered)
+"M" = (
+/turf/template_noop,
+/area/template_noop)
+"O" = (
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"S" = (
+/obj/effect/abstract/open_area_marker,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"T" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/ruin/unpowered)
+"V" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+M
+M
+j
+j
+j
+V
+V
+V
+V
+"}
+(2,1,1) = {"
+M
+b
+j
+q
+q
+q
+O
+O
+O
+"}
+(3,1,1) = {"
+M
+M
+j
+T
+E
+s
+O
+O
+S
+"}
+(4,1,1) = {"
+M
+b
+j
+q
+q
+q
+O
+O
+O
+"}
+(5,1,1) = {"
+M
+M
+j
+j
+j
+V
+V
+V
+V
+"}

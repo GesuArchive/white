@@ -40,9 +40,7 @@
 		return
 	if(mapload)
 		for (var/i in 1 to range)
-			var/turf/my_turf = get_turf(src)
-			if(!isgroundlessturf(my_turf) || GET_TURF_BELOW(my_turf))
-				new /obj/effect/decal/cleanable/xenoblood/xsplatter(my_turf)
+			new /obj/effect/decal/cleanable/xenoblood/xsplatter(loc)
 			if (!step_to(src, get_step(src, direction), 0))
 				break
 		return
@@ -52,8 +50,6 @@
 
 /obj/effect/decal/cleanable/xenoblood/xgibs/proc/spread_movement_effects(datum/move_loop/has_target/source)
 	SIGNAL_HANDLER
-	if(NeverShouldHaveComeHere(loc))
-		return
 	new /obj/effect/decal/cleanable/xenoblood/xsplatter(loc)
 
 /obj/effect/decal/cleanable/xenoblood/xgibs/proc/on_pipe_eject(atom/source, direction)
@@ -68,7 +64,7 @@
 	streak(dirs)
 
 /obj/effect/decal/cleanable/xenoblood/xgibs/ex_act()
-	return FALSE
+	return
 
 /obj/effect/decal/cleanable/xenoblood/xgibs/up
 	icon_state = "xgibup1"

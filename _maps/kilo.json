@@ -1,0 +1,23 @@
+{
+	"version": 1,
+	"map_name": "Kilo",
+	"map_path": "stations",
+	"map_file": "kilo.dmm",
+	"space_ruin_levels": 4,
+	"shuttles": {
+		"emergency": "emergency_kilo",
+		"ferry": "ferry_kilo",
+		"cargo": "cargo_kilo",
+		"whiteship": "whiteship_kilo"
+	},
+	"job_changes": {
+		"cook": {
+			"additional_cqc_areas": [
+				"/area/service/bar/atrium"
+			]
+		},
+		"captain": {
+			"special_charter": "asteroid"
+		}
+	}
+}

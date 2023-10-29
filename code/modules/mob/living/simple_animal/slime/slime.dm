@@ -1,55 +1,45 @@
 #define SLIME_CARES_ABOUT(to_check) (to_check && (to_check == Target || to_check == Leader || (to_check in Friends)))
 /mob/living/simple_animal/slime
 	name = "grey baby slime (123)"
-	icon = 'icons/mob/simple/slimes.dmi'
+	icon = 'icons/mob/slimes.dmi'
 	icon_state = "grey baby slime"
 	pass_flags = PASSTABLE | PASSGRILLE
 	gender = NEUTER
-	faction = list(FACTION_SLIME, FACTION_NEUTRAL)
+	var/is_adult = 0
+	var/docile = 0
+	faction = list("slime","neutral")
 
 	harm_intent_damage = 5
 	icon_living = "grey baby slime"
 	icon_dead = "grey baby slime dead"
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "shoos"
-	response_disarm_simple = "shoo"
-	response_harm_continuous = "stomps on"
-	response_harm_simple = "stomp on"
-	emote_see = list("jiggles", "bounces in place")
-	speak_emote = list("blorbles")
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
+	response_disarm_continuous = "прогоняет"
+	response_disarm_simple = "прогоняет"
+	response_harm_continuous = "давит"
+	response_harm_simple = "давит"
+	emote_see = list("трясётся", "подпрыгивает")
+	speak_emote = list("слизнявит")
 	bubble_icon = "slime"
 	initial_language_holder = /datum/language_holder/slime
 
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 
 	maxHealth = 150
 	health = 150
-	mob_biotypes = MOB_SLIME
+	healable = 0
 	melee_damage_lower = 5
 	melee_damage_upper = 25
+	see_in_dark = 8
 
-	verb_say = "blorbles"
-	verb_ask = "inquisitively blorbles"
-	verb_exclaim = "loudly blorbles"
-	verb_yell = "loudly blorbles"
+	verb_say = "слизнявит"
+	verb_ask = "вопросительно слизнявит"
+	verb_exclaim = "громко слизнявит"
+	verb_yell = "громко слизнявит"
 
 	// canstun and canknockdown don't affect slimes because they ignore stun and knockdown variables
 	// for the sake of cleanliness, though, here they are.
 	status_flags = CANUNCONSCIOUS|CANPUSH
-
-	footstep_type = FOOTSTEP_MOB_SLIME
-
-	///The current mood of the slime, set randomly or through emotes (if sentient).
-	var/current_mood
-
-	var/AIproc = 0 // determines if the AI loop is activated
-	var/Atkcool = 0 // attack cooldown
-	var/Discipline = 0 // if a slime has been hit with a freeze gun, or wrestled/attacked off a human, they become disciplined and don't attack anymore for a while
-	var/SStun = 0 // stun variable
-
-	var/is_adult = 0
-	var/docile = 0
 
 	var/cores = 1 // the number of /obj/item/slime_extract's the slime has left inside
 	var/mutation_chance = 30 // Chance of mutating, should be between 25 and 35
@@ -71,71 +61,28 @@
 
 	var/list/speech_buffer = list() // Last phrase said near it and person who said it
 
+	var/mood = "" // To show its face
 	var/mutator_used = FALSE //So you can't shove a dozen mutators into a single slime
 	var/force_stasis = FALSE
 
 	var/static/regex/slime_name_regex = new("\\w+ (baby|adult) slime \\(\\d+\\)")
 	///////////TIME FOR SUBSPECIES
 
-	var/colour = SLIME_TYPE_GREY
+	var/colour = "grey"
 	var/coretype = /obj/item/slime_extract/grey
 	var/list/slime_mutation[4]
 
-	var/static/list/slime_colours = list(
-		SLIME_TYPE_ADAMANTINE,
-		SLIME_TYPE_BLACK,
-		SLIME_TYPE_BLUE,
-		SLIME_TYPE_BLUESPACE,
-		SLIME_TYPE_CERULEAN,
-		SLIME_TYPE_DARK_BLUE,
-		SLIME_TYPE_DARK_PURPLE,
-		SLIME_TYPE_GOLD,
-		SLIME_TYPE_GREEN,
-		SLIME_TYPE_GREY,
-		SLIME_TYPE_LIGHT_PINK,
-		SLIME_TYPE_METAL,
-		SLIME_TYPE_OIL,
-		SLIME_TYPE_ORANGE,
-		SLIME_TYPE_PINK,
-		SLIME_TYPE_PURPLE,
-		SLIME_TYPE_PYRITE,
-		SLIME_TYPE_RAINBOW,
-		SLIME_TYPE_RED,
-		SLIME_TYPE_SEPIA,
-		SLIME_TYPE_SILVER,
-		SLIME_TYPE_YELLOW,
-	)
-
-	var/static/list/slime_colours_to_rgb = list(
-		SLIME_TYPE_ADAMANTINE = COLOR_SLIME_ADAMANTINE,
-		SLIME_TYPE_BLACK = COLOR_SLIME_BLACK,
-		SLIME_TYPE_BLUE = COLOR_SLIME_BLUE,
-		SLIME_TYPE_BLUESPACE = COLOR_SLIME_BLUESPACE,
-		SLIME_TYPE_CERULEAN = COLOR_SLIME_CERULEAN,
-		SLIME_TYPE_DARK_BLUE = COLOR_SLIME_DARK_BLUE,
-		SLIME_TYPE_DARK_PURPLE = COLOR_SLIME_DARK_PURPLE,
-		SLIME_TYPE_GOLD = COLOR_SLIME_GOLD,
-		SLIME_TYPE_GREEN = COLOR_SLIME_GREEN,
-		SLIME_TYPE_GREY = COLOR_SLIME_GREY,
-		SLIME_TYPE_LIGHT_PINK = COLOR_SLIME_LIGHT_PINK,
-		SLIME_TYPE_METAL = COLOR_SLIME_METAL,
-		SLIME_TYPE_OIL = COLOR_SLIME_OIL,
-		SLIME_TYPE_ORANGE = COLOR_SLIME_ORANGE,
-		SLIME_TYPE_PINK = COLOR_SLIME_PINK,
-		SLIME_TYPE_PURPLE = COLOR_SLIME_PURPLE,
-		SLIME_TYPE_PYRITE = COLOR_SLIME_PYRITE,
-		SLIME_TYPE_RAINBOW = COLOR_SLIME_RAINBOW,
-		SLIME_TYPE_RED = COLOR_SLIME_RED,
-		SLIME_TYPE_SEPIA = COLOR_SLIME_SEPIA,
-		SLIME_TYPE_SILVER = COLOR_SLIME_SILVER,
-		SLIME_TYPE_YELLOW = COLOR_SLIME_YELLOW,
-	)
+	var/static/list/slime_colours = list("rainbow", "grey", "purple", "metal", "orange",
+	"blue", "dark blue", "dark purple", "yellow", "silver", "pink", "red",
+	"gold", "green", "adamantine", "oil", "light pink", "bluespace",
+	"cerulean", "sepia", "black", "pyrite")
 
 	///////////CORE-CROSSING CODE
 
 	var/effectmod //What core modification is being used.
 	var/applied = 0 //How many extracts of the modtype have been applied.
 
+	discovery_points = 1000
 
 /mob/living/simple_animal/slime/Initialize(mapload, new_colour=colour, new_is_adult=FALSE)
 	var/datum/action/innate/slime/feed/F = new
@@ -156,10 +103,10 @@
 	set_colour(new_colour)
 	. = ..()
 	set_nutrition(700)
+	AddElement(/datum/element/footstep, FOOTSTEP_MOB_SLIME, 0)
 	add_cell_sample()
-
-	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 	AddElement(/datum/element/soft_landing)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/slime/Destroy()
 	for (var/A in actions)
@@ -173,12 +120,12 @@
 /mob/living/simple_animal/slime/create_reagents(max_vol, flags)
 	. = ..()
 	RegisterSignals(reagents, list(COMSIG_REAGENTS_NEW_REAGENT, COMSIG_REAGENTS_DEL_REAGENT), PROC_REF(on_reagent_change))
-	RegisterSignal(reagents, COMSIG_QDELETING, PROC_REF(on_reagents_del))
+	RegisterSignal(reagents, COMSIG_PARENT_QDELETING, PROC_REF(on_reagents_del))
 
 /// Handles removing signal hooks incase someone is crazy enough to reset the reagents datum.
 /mob/living/simple_animal/slime/proc/on_reagents_del(datum/reagents/reagents)
 	SIGNAL_HANDLER
-	UnregisterSignal(reagents, list(COMSIG_REAGENTS_NEW_REAGENT, COMSIG_REAGENTS_DEL_REAGENT, COMSIG_QDELETING))
+	UnregisterSignal(reagents, list(COMSIG_REAGENTS_NEW_REAGENT, COMSIG_REAGENTS_DEL_REAGENT, COMSIG_PARENT_QDELETING))
 	return NONE
 
 /mob/living/simple_animal/slime/proc/set_colour(new_colour)
@@ -205,8 +152,8 @@
 	icon_dead = "[icon_text] dead"
 	if(stat != DEAD)
 		icon_state = icon_text
-		if(current_mood && !stat)
-			add_overlay("aslime-[current_mood]")
+		if(mood && !stat)
+			add_overlay("aslime-[mood]")
 	else
 		icon_state = icon_dead
 	..()
@@ -243,7 +190,7 @@
 	. = ..()
 	var/mod = 0
 	if(bodytemperature >= 330.23) // 135 F or 57.08 C
-		mod = -1 // slimes become supercharged at high temperatures
+		mod = -1	// slimes become supercharged at high temperatures
 	else if(bodytemperature < 283.222)
 		mod = ((283.222 - bodytemperature) / 10) * 1.75
 	if(mod)
@@ -293,10 +240,19 @@
 			. += "Power Level: [powerlevel]"
 
 
-/mob/living/simple_animal/slime/adjustFireLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
+/mob/living/simple_animal/slime/adjustFireLoss(amount, updating_health = TRUE, forced = FALSE)
 	if(!forced)
 		amount = -abs(amount)
 	return ..() //Heals them
+
+/mob/living/simple_animal/slime/bullet_act(obj/projectile/Proj, def_zone, piercing_hit = FALSE)
+	attacked += 10
+	if((Proj.damage_type == BURN))
+		adjustBruteLoss(-abs(Proj.damage)) //fire projectiles heals slimes.
+		Proj.on_hit(src, 0, piercing_hit)
+	else
+		. = ..(Proj)
+	. = . || BULLET_ACT_BLOCK
 
 /mob/living/simple_animal/slime/emp_act(severity)
 	. = ..()
@@ -317,16 +273,16 @@
 /mob/living/simple_animal/slime/start_pulling(atom/movable/AM, state, force = move_force, supress_message = FALSE)
 	return
 
-/mob/living/simple_animal/slime/attack_ui(slot, params)
+/mob/living/simple_animal/slime/attack_ui(slot)
 	return
 
-/mob/living/simple_animal/slime/attack_slime(mob/living/simple_animal/slime/M, list/modifiers)
+/mob/living/simple_animal/slime/attack_slime(mob/living/simple_animal/slime/M)
 	if(..()) //successful slime attack
 		if(M == src)
 			return
 		if(buckled)
 			Feedstop(silent = TRUE)
-			visible_message(span_danger("[M] pulls [src] off!"), \
+			visible_message(span_danger("[M] pulls [src] off!") , \
 				span_danger("You pull [src] off!"))
 			return
 		attacked += 5
@@ -337,17 +293,17 @@
 			M.adjustBruteLoss(-10 + (-10 * M.is_adult))
 			M.updatehealth()
 
-/mob/living/simple_animal/slime/attack_animal(mob/living/simple_animal/user, list/modifiers)
+/mob/living/simple_animal/slime/attack_animal(mob/living/simple_animal/M)
 	. = ..()
 	if(.)
 		attacked += 10
 
 
-/mob/living/simple_animal/slime/attack_paw(mob/living/carbon/human/user, list/modifiers)
+/mob/living/simple_animal/slime/attack_paw(mob/living/carbon/human/M)
 	if(..()) //successful monkey bite.
 		attacked += 10
 
-/mob/living/simple_animal/slime/attack_larva(mob/living/carbon/alien/larva/L, list/modifiers)
+/mob/living/simple_animal/slime/attack_larva(mob/living/carbon/alien/larva/L)
 	if(..()) //successful larva bite.
 		attacked += 10
 
@@ -357,59 +313,58 @@
 		return
 	discipline_slime(user)
 
-/mob/living/simple_animal/slime/attack_hand(mob/living/carbon/human/user, list/modifiers)
+/mob/living/simple_animal/slime/attack_hand(mob/living/carbon/human/M)
 	if(buckled)
-		user.do_attack_animation(src, ATTACK_EFFECT_DISARM)
-		if(buckled == user)
+		M.do_attack_animation(src, ATTACK_EFFECT_DISARM)
+		if(buckled == M)
 			if(prob(60))
-				user.visible_message(span_warning("[user] attempts to wrestle \the [name] off!"), \
-					span_danger("You attempt to wrestle \the [name] off!"))
+				M.visible_message(span_warning("[M] пытается скинуть [name]!") , \
+					span_danger("Пытаюсь скинуть [name]!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				user.visible_message(span_warning("[user] manages to wrestle \the [name] off!"), \
-					span_notice("You manage to wrestle \the [name] off!"))
+				M.visible_message(span_warning("[M] удаётся побороть [name]!") , \
+					span_notice("Мне удаётся побороть [name]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
-				discipline_slime(user)
+				discipline_slime(M)
 
 		else
 			if(prob(30))
-				buckled.visible_message(span_warning("[user] attempts to wrestle \the [name] off of [buckled]!"), \
-					span_warning("[user] attempts to wrestle \the [name] off of you!"))
+				buckled.visible_message(span_warning("[M] пытается побороть [name] [buckled]!") , \
+					span_warning("[M] пытается побороть мой [name]!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				buckled.visible_message(span_warning("[user] manages to wrestle \the [name] off of [buckled]!"), \
-					span_notice("[user] manage to wrestle \the [name] off of you!"))
+				buckled.visible_message(span_warning("[M] удаётся побороть [name] [buckled]!") , \
+					span_notice("[M] удаётся побороть мой [name]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
-				discipline_slime(user)
+				discipline_slime(M)
 	else
 		if(stat == DEAD && surgeries.len)
-			if(!user.combat_mode || LAZYACCESS(modifiers, RIGHT_CLICK))
-				for(var/datum/surgery/operations as anything in surgeries)
-					if(operations.next_step(user, modifiers))
-						return TRUE
+			if(M.a_intent == INTENT_HELP || M.a_intent == INTENT_DISARM)
+				for(var/datum/surgery/S in surgeries)
+					if(S.next_step(M,M.a_intent))
+						return 1
 		if(..()) //successful attack
 			attacked += 10
 
-/mob/living/simple_animal/slime/attack_alien(mob/living/carbon/alien/adult/user, list/modifiers)
+/mob/living/simple_animal/slime/attack_alien(mob/living/carbon/alien/humanoid/M)
 	if(..()) //if harm or disarm intent.
 		attacked += 10
-		discipline_slime(user)
+		discipline_slime(M)
 
 
 /mob/living/simple_animal/slime/attackby(obj/item/W, mob/living/user, params)
 	if(stat == DEAD && surgeries.len)
-		var/list/modifiers = params2list(params)
-		if(!user.combat_mode || (LAZYACCESS(modifiers, RIGHT_CLICK)))
-			for(var/datum/surgery/operations as anything in surgeries)
-				if(operations.next_step(user, modifiers))
-					return TRUE
+		if(user.a_intent == INTENT_HELP || user.a_intent == INTENT_DISARM)
+			for(var/datum/surgery/S in surgeries)
+				if(S.next_step(user,user.a_intent))
+					return 1
 	if(istype(W, /obj/item/stack/sheet/mineral/plasma) && !stat) //Let's you feed slimes plasma.
 		add_friendship(user, 1)
-		to_chat(user, span_notice("You feed the slime the plasma. It chirps happily."))
+		to_chat(user, span_notice("Кормлю слизь плазмой. Он весело верещит."))
 		var/obj/item/stack/sheet/mineral/plasma/S = W
 		S.use(1)
 		return
@@ -418,7 +373,7 @@
 		if(prob(25))
 			user.do_attack_animation(src)
 			user.changeNext_move(CLICK_CD_MELEE)
-			to_chat(user, span_danger("[W] passes right through [src]!"))
+			to_chat(user, span_danger("[W] проходит сквозь [src]!"))
 			return
 		if(Discipline && prob(50)) // wow, buddy, why am I getting attacked??
 			Discipline = 0
@@ -428,10 +383,10 @@
 			force_effect = round(W.force/2)
 		if(prob(10 + force_effect))
 			discipline_slime(user)
-	if(istype(W, /obj/item/storage/bag/xeno))
+	if(istype(W, /obj/item/storage/bag/bio))
 		var/obj/item/storage/P = W
 		if(!effectmod)
-			to_chat(user, span_warning("The slime is not currently being mutated."))
+			to_chat(user, span_warning("Слайм в настоящее время не мутирует."))
 			return
 		var/hasOutput = FALSE //Have we outputted text?
 		var/hasFound = FALSE //Have we found an extract to be added?
@@ -442,23 +397,23 @@
 				applied++
 				hasFound = TRUE
 			if(applied >= SLIME_EXTRACT_CROSSING_REQUIRED)
-				to_chat(user, span_notice("You feed the slime as many of the extracts from the bag as you can, and it mutates!"))
+				to_chat(user, span_notice("Кормлю слайма как можно большим количеством экстрактов из мешка, и он мутирует!"))
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 				spawn_corecross()
 				hasOutput = TRUE
 				break
 		if(!hasOutput)
 			if(!hasFound)
-				to_chat(user, span_warning("There are no extracts in the bag that this slime will accept!"))
+				to_chat(user, span_warning("В сумке нет экстрактов, которые примет этот слайм!"))
 			else
-				to_chat(user, span_notice("You feed the slime some extracts from the bag."))
+				to_chat(user, span_notice("Кормлю слайма экстрактами из мешка."))
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 		return
 	..()
 
 /mob/living/simple_animal/slime/proc/spawn_corecross()
 	var/static/list/crossbreeds = subtypesof(/obj/item/slimecross)
-	visible_message(span_danger("[src] shudders, its mutated core consuming the rest of its body!"))
+	visible_message(span_danger("[capitalize(src.name)] вздрагивает, его мутировавшее ядро поглощает остальную часть его тела!"))
 	playsound(src, 'sound/magic/smoke.ogg', 50, TRUE)
 	var/crosspath
 	for(var/X in crossbreeds)
@@ -469,7 +424,7 @@
 	if(crosspath)
 		new crosspath(loc)
 	else
-		visible_message(span_warning("The mutated core shudders, and collapses into a puddle, unable to maintain its form."))
+		visible_message(span_warning("Мутировавшее ядро вздрагивает и падает в лужу, не в силах сохранить свою форму."))
 	qdel(src)
 
 /mob/living/simple_animal/slime/proc/apply_water()
@@ -481,32 +436,32 @@
 	return
 
 /mob/living/simple_animal/slime/examine(mob/user)
-	. = list("<span class='info'>This is [icon2html(src, user)] \a <EM>[src]</EM>!")
+	. = list("<span class='info'>Это же [icon2html(src, user)] <EM>[src]</EM>!<hr>")
 	if (stat == DEAD)
-		. += span_deadsay("It is limp and unresponsive.")
+		. += "<span class='deadsay'>Он лежит неподвижно.</span>\n"
 	else
 		if (stat == UNCONSCIOUS || stat == HARD_CRIT) // Slime stasis
-			. += span_deadsay("It appears to be alive but unresponsive.")
+			. += "<span class='deadsay'>Он лежит и елё шевелится.</span>\n"
 		if (getBruteLoss())
 			. += "<span class='warning'>"
 			if (getBruteLoss() < 40)
-				. += "It has some punctures in its flesh!"
+				. += "Имеет небольшие отверстия в его теле!\n"
 			else
-				. += "<B>It has severe punctures and tears in its flesh!</B>"
+				. += "<B>Его оболочка жутко разорвана!</B>\n"
 			. += "</span>\n"
 
 		switch(powerlevel)
 			if(2 to 3)
-				. += "It is flickering gently with a little electrical activity."
+				. += "Он слегка искрится.\n"
 
 			if(4 to 5)
-				. += "It is glowing gently with moderate levels of electrical activity."
+				. += "Он искрится.\n"
 
 			if(6 to 9)
-				. += span_warning("It is glowing brightly with high levels of electrical activity.")
+				. += "<span class='warning'>Он ярко искрится.</span>\n"
 
 			if(10)
-				. += span_warning("<B>It is radiating with massive levels of electrical activity!</B>")
+				. += "<span class='warning'><B>Он очень сильно искрится, будто сейчас взорвётся!</B></span>\n"
 
 	. += "</span>"
 
@@ -556,34 +511,34 @@
 	var/old_target = Target
 	Target = new_target
 	if(old_target && !SLIME_CARES_ABOUT(old_target))
-		UnregisterSignal(old_target, COMSIG_QDELETING)
+		UnregisterSignal(old_target, COMSIG_PARENT_QDELETING)
 	if(Target)
-		RegisterSignal(Target, COMSIG_QDELETING, PROC_REF(clear_memories_of), override = TRUE)
+		RegisterSignal(Target, COMSIG_PARENT_QDELETING, PROC_REF(clear_memories_of), override = TRUE)
 
 /mob/living/simple_animal/slime/proc/set_leader(new_leader)
 	var/old_leader = Leader
 	Leader = new_leader
 	if(old_leader && !SLIME_CARES_ABOUT(old_leader))
-		UnregisterSignal(old_leader, COMSIG_QDELETING)
+		UnregisterSignal(old_leader, COMSIG_PARENT_QDELETING)
 	if(Leader)
-		RegisterSignal(Leader, COMSIG_QDELETING, PROC_REF(clear_memories_of), override = TRUE)
+		RegisterSignal(Leader, COMSIG_PARENT_QDELETING, PROC_REF(clear_memories_of), override = TRUE)
 
 /mob/living/simple_animal/slime/proc/add_friendship(new_friend, amount = 1)
 	if(!Friends[new_friend])
 		Friends[new_friend] = 0
 	Friends[new_friend] += amount
 	if(new_friend)
-		RegisterSignal(new_friend, COMSIG_QDELETING, PROC_REF(clear_memories_of), override = TRUE)
+		RegisterSignal(new_friend, COMSIG_PARENT_QDELETING, PROC_REF(clear_memories_of), override = TRUE)
 
 /mob/living/simple_animal/slime/proc/set_friendship(new_friend, amount = 1)
 	Friends[new_friend] = amount
 	if(new_friend)
-		RegisterSignal(new_friend, COMSIG_QDELETING, PROC_REF(clear_memories_of), override = TRUE)
+		RegisterSignal(new_friend, COMSIG_PARENT_QDELETING, PROC_REF(clear_memories_of), override = TRUE)
 
 /mob/living/simple_animal/slime/proc/remove_friend(friend)
 	Friends -= friend
 	if(friend && !SLIME_CARES_ABOUT(friend))
-		UnregisterSignal(friend, COMSIG_QDELETING)
+		UnregisterSignal(friend, COMSIG_PARENT_QDELETING)
 
 /mob/living/simple_animal/slime/proc/set_friends(new_buds)
 	clear_friends()

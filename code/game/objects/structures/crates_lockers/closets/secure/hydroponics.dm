@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/hydroponics
-	name = "botanist's locker"
+	name = "шкафчик ботаника"
 	req_access = list(ACCESS_HYDROPONICS)
 	icon_state = "hydro"
 
@@ -11,3 +11,4 @@
 	new /obj/item/cultivator(src)
 	new /obj/item/hatchet(src)
 	new /obj/item/secateurs(src)
+	new /obj/item/storage/box/disks_plantgene(src)

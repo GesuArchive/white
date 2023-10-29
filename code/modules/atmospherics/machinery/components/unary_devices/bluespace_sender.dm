@@ -7,7 +7,7 @@
 
 	density = TRUE
 	max_integrity = 300
-	armor_type = /datum/armor/unary_bluespace_sender
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
 	layer = OBJ_LAYER
 	circuit = /obj/item/circuitboard/machine/bluespace_sender
 	move_resist = MOVE_RESIST_DEFAULT
@@ -27,11 +27,6 @@
 
 /// All bluespace gas senders
 GLOBAL_LIST_EMPTY_TYPED(bluespace_senders, /obj/machinery/atmospherics/components/unary/bluespace_sender)
-
-/datum/armor/unary_bluespace_sender
-	energy = 100
-	fire = 80
-	acid = 30
 
 /obj/machinery/atmospherics/components/unary/bluespace_sender/Initialize(mapload)
 	. = ..()
@@ -122,8 +117,8 @@ GLOBAL_LIST_EMPTY_TYPED(bluespace_senders, /obj/machinery/atmospherics/component
 
 /obj/machinery/atmospherics/components/unary/bluespace_sender/multitool_act(mob/living/user, obj/item/item)
 	var/obj/item/multitool/multitool = item
-	multitool.set_buffer(src)
-	balloon_alert(user, "saved to multitool buffer")
+	multitool.buffer = src
+	to_chat(user, span_notice("You store linkage information in [item]'s buffer."))
 	return TRUE
 
 /obj/machinery/atmospherics/components/unary/bluespace_sender/wrench_act(mob/living/user, obj/item/tool)

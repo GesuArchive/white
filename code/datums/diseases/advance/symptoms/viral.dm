@@ -1,32 +1,45 @@
-/*Viral adaptation
- * Greatly increases stealth
- * Tremendous buff for resistance
- * Greatly decreases stage speed
- * No effect to transmissibility
- *
- * Bonus: Buffs resistance & stealth. Extremely useful for buffing viruses
+/*
+//////////////////////////////////////
+Viral adaptation
+
+	Moderate stealth boost.
+	Major Increases to resistance.
+	Reduces stage speed.
+	No change to transmission
+	Critical Level.
+
+BONUS
+	Extremely useful for buffing viruses
+
+//////////////////////////////////////
 */
 /datum/symptom/viraladaptation
-	name = "Viral self-adaptation"
-	desc = "The virus mimics the function of normal body cells, becoming harder to spot and to eradicate, but reducing its speed."
+	name = "Вирусная самоадаптация"
+	desc = "Вирус имитирует функцию нормальных клеток организма, его становится труднее обнаружить и уничтожить, но его скорость замедляется."
 	stealth = 3
 	resistance = 5
 	stage_speed = -3
 	transmittable = 0
 	level = 3
 
-/*Viral evolution
- * Reduces stealth
- * Greatly reduces resistance
- * Tremendous buff for stage speed
- * Greatly increases transmissibility
- *
- * Bonus: Buffs transmission and speed. Extremely useful for buffing viruse*
+/*
+//////////////////////////////////////
+Viral evolution
+
+	Moderate stealth reductopn.
+	Major decreases to resistance.
+	increases stage speed.
+	increase to transmission
+	Critical Level.
+
+BONUS
+	Extremely useful for buffing viruses
+
+//////////////////////////////////////
 */
 /datum/symptom/viralevolution
-	name = "Viral evolutionary acceleration"
-	desc = "The virus quickly adapts to spread as fast as possible both outside and inside a host. \
-	This, however, makes the virus easier to spot, and less able to fight off a cure."
+	name = "Ускорение вирусной эволюции"
+	desc = "Вирус быстро приспосабливается к максимально быстрому распространению как снаружи, так и внутри хозяина. Это, однако, облегчает обнаружение вируса и снижает его способность бороться с лекарством."
 	stealth = -2
 	resistance = -3
 	stage_speed = 5

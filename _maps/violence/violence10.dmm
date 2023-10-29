@@ -1,0 +1,649 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/indestructible/black,
+/area/violence)
+"b" = (
+/obj/effect/turf_decal/pool{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/multi_tile/two_tile_ver{
+	resistance_flags = 115
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"c" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"f" = (
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"g" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/turf/open/indestructible/pool,
+/area/violence)
+"j" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"k" = (
+/obj/effect/turf_decal/box/red/corners,
+/turf/open/indestructible/pool,
+/area/violence)
+"m" = (
+/obj/effect/turf_decal/pool{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/multi_tile/two_tile_ver{
+	resistance_flags = 115
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"q" = (
+/turf/closed/wall/bathhouse,
+/area/violence)
+"r" = (
+/obj/effect/turf_decal/pool{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/multi_tile/three_tile_ver{
+	resistance_flags = 115
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"s" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
+/turf/open/indestructible/pool,
+/area/violence)
+"u" = (
+/obj/effect/turf_decal/pool{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/multi_tile/three_tile_ver{
+	resistance_flags = 115
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"v" = (
+/turf/open/indestructible/pool,
+/area/violence)
+"w" = (
+/obj/effect/landmark/bomb_plant_location,
+/obj/effect/turf_decal/box/red,
+/turf/open/indestructible/pool,
+/area/violence)
+"z" = (
+/obj/effect/landmark/start/combatant/blue,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"B" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"E" = (
+/obj/effect/turf_decal/pool{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"G" = (
+/obj/item/pool/pool_noodle,
+/obj/structure/rack,
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"I" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"J" = (
+/obj/item/pool/pool_noodle,
+/obj/structure/rack,
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"L" = (
+/obj/item/pool/pool_noodle,
+/obj/structure/rack,
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"M" = (
+/obj/effect/landmark/start/combatant/red,
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"P" = (
+/obj/effect/baseturf_helper/dune,
+/turf/closed/indestructible/black,
+/area/violence)
+"Q" = (
+/obj/item/pool/rubber_ring,
+/turf/open/indestructible/pool,
+/area/violence)
+"U" = (
+/obj/effect/turf_decal/pool{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+"V" = (
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/turf/open/indestructible/pool,
+/area/violence)
+"W" = (
+/obj/machinery/door/poddoor/multi_tile/two_tile_hor{
+	resistance_flags = 115
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/violence)
+
+(1,1,1) = {"
+P
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+a
+"}
+(3,1,1) = {"
+a
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+a
+"}
+(4,1,1) = {"
+a
+B
+B
+B
+q
+U
+b
+U
+U
+r
+U
+b
+q
+B
+B
+B
+a
+"}
+(5,1,1) = {"
+a
+c
+c
+J
+q
+v
+v
+v
+v
+v
+v
+v
+q
+J
+c
+c
+a
+"}
+(6,1,1) = {"
+a
+f
+f
+L
+q
+v
+v
+v
+v
+v
+v
+v
+q
+L
+f
+f
+a
+"}
+(7,1,1) = {"
+a
+f
+f
+L
+q
+v
+v
+v
+v
+v
+v
+v
+q
+L
+f
+f
+a
+"}
+(8,1,1) = {"
+a
+f
+f
+q
+q
+v
+v
+v
+v
+v
+v
+v
+q
+q
+f
+f
+a
+"}
+(9,1,1) = {"
+a
+f
+f
+f
+W
+v
+v
+v
+Q
+v
+v
+v
+W
+f
+f
+f
+a
+"}
+(10,1,1) = {"
+a
+f
+f
+f
+f
+v
+v
+k
+v
+g
+v
+v
+f
+f
+f
+f
+a
+"}
+(11,1,1) = {"
+a
+q
+q
+q
+q
+v
+Q
+v
+w
+v
+Q
+v
+q
+q
+q
+q
+a
+"}
+(12,1,1) = {"
+a
+f
+f
+f
+W
+v
+v
+V
+v
+s
+v
+v
+W
+f
+f
+f
+a
+"}
+(13,1,1) = {"
+a
+f
+f
+f
+f
+v
+v
+v
+Q
+v
+v
+v
+f
+f
+f
+f
+a
+"}
+(14,1,1) = {"
+a
+f
+f
+q
+q
+v
+v
+v
+v
+v
+v
+v
+q
+q
+f
+f
+a
+"}
+(15,1,1) = {"
+a
+f
+f
+L
+q
+v
+v
+v
+v
+v
+v
+v
+q
+L
+f
+f
+a
+"}
+(16,1,1) = {"
+a
+f
+f
+L
+q
+v
+v
+v
+v
+v
+v
+v
+q
+L
+f
+f
+a
+"}
+(17,1,1) = {"
+a
+I
+I
+G
+q
+v
+v
+v
+v
+v
+v
+v
+q
+G
+I
+I
+a
+"}
+(18,1,1) = {"
+a
+j
+j
+j
+q
+E
+m
+E
+E
+u
+E
+m
+q
+j
+j
+j
+a
+"}
+(19,1,1) = {"
+a
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+a
+"}
+(20,1,1) = {"
+a
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+a
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

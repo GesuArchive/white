@@ -48,3 +48,7 @@
 #define PUNISHMENT_LIGHTNING "lightningbolt"
 ///brands the sinner
 #define PUNISHMENT_BRAND "brand"
+
+/// Whether we have succesfully hidden out blood level
+#define BLOODSUCKER_HIDE_BLOOD "hide_blood_volume"
+

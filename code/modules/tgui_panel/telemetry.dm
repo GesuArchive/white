@@ -12,7 +12,7 @@
 /**
  * Maximum time allocated for sending a telemetry packet.
  */
-#define TGUI_TELEMETRY_RESPONSE_WINDOW (30 SECONDS)
+#define TGUI_TELEMETRY_RESPONSE_WINDOW 30 SECONDS
 
 /// Time of telemetry request
 /datum/tgui_panel/var/telemetry_requested_at
@@ -108,9 +108,7 @@
 	if(found)
 		var/msg = "[key_name(client)] has a banned account in connection history! (Matched: [found["ckey"]], [found["address"]], [found["computer_id"]])"
 		message_admins(msg)
-		send2tgs_adminless_only("Banned-user", msg)
 		log_admin_private(msg)
-		log_suspicious_login(msg, access_log_mirror = FALSE)
 
 	// Only log them all at the end, since it's not as important as reporting an evader
 	for (var/list/one_query as anything in query_data)
@@ -139,6 +137,3 @@
 		))
 		query.Execute()
 		qdel(query)
-
-#undef TGUI_TELEMETRY_MAX_CONNECTIONS
-#undef TGUI_TELEMETRY_RESPONSE_WINDOW

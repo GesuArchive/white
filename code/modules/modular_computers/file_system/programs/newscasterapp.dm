@@ -1,10 +1,10 @@
 /datum/computer_file/program/newscaster
 	filename = "newscasterapp"
-	filedesc = "Newscaster"
-	transfer_access = list(ACCESS_LIBRARY)
+	filedesc = "Новостник"
+	required_access = list(ACCESS_LIBRARY)
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "bountyboard"
-	extended_desc = "This program allows any user to access the Newscaster network from anywhere."
+	extended_desc = "Эта программа позволяет любому пользователю получить доступ к сети вещателей новостей из любой точки мира."
 	size = 2
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
@@ -22,10 +22,16 @@
 	return ..()
 
 /datum/computer_file/program/newscaster/ui_data(mob/user)
-	return newscaster_ui.ui_data(user)
+	var/list/data = get_header_data()
+	data += newscaster_ui.ui_data(user)
+	return data
 
 /datum/computer_file/program/newscaster/ui_static_data(mob/user)
-	return newscaster_ui.ui_static_data(user)
+	var/list/data = newscaster_ui.ui_static_data(user)
+	return data
 
-/datum/computer_file/program/newscaster/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
-	return newscaster_ui.ui_act(action, params, ui, state)
+/datum/computer_file/program/newscaster/ui_act(action, params, datum/tgui/ui)
+	. = ..()
+	if(.)
+		return
+	return newscaster_ui.ui_act(action, params, ui)

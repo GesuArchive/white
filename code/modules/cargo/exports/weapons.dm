@@ -5,78 +5,70 @@
 
 /datum/export/weapon/baton
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "stun baton"
-	export_types = list(/obj/item/melee/baton/security)
-	exclude_types = list(/obj/item/melee/baton/security/cattleprod)
+	unit_name = "Электрошоковая дубинка"
+	export_types = list(/obj/item/melee/baton)
+	exclude_types = list(/obj/item/melee/baton/cattleprod)
 	include_subtypes = TRUE
 
 /datum/export/weapon/knife
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "combat knife"
-	export_types = list(/obj/item/knife/combat)
+	unit_name = "Боевой нож"
+	export_types = list(/obj/item/kitchen/knife/combat)
 
 
 /datum/export/weapon/taser
 	cost = CARGO_CRATE_VALUE
-	unit_name = "advanced taser"
+	unit_name = "Гибридный тазер"
 	export_types = list(/obj/item/gun/energy/e_gun/advtaser)
 
 /datum/export/weapon/laser
 	cost = CARGO_CRATE_VALUE
-	unit_name = "laser gun"
+	unit_name = "Лазерная винтовка"
 	export_types = list(/obj/item/gun/energy/laser)
 
 /datum/export/weapon/disabler
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "disabler"
+	unit_name = "Усмиритель"
 	export_types = list(/obj/item/gun/energy/disabler)
 
 /datum/export/weapon/energy_gun
 	cost = CARGO_CRATE_VALUE * 1.5
-	unit_name = "energy gun"
+	unit_name = "Е-Ган"
 	export_types = list(/obj/item/gun/energy/e_gun)
 
 /datum/export/weapon/inferno
 	cost = CARGO_CRATE_VALUE * 1.5
-	unit_name = "inferno pistol"
+	unit_name = "Пиролучевой пистолет"
 	export_types = list(/obj/item/gun/energy/laser/thermal/inferno)
 
 /datum/export/weapon/cryo
 	cost = CARGO_CRATE_VALUE * 1.5
-	unit_name = "cryo pistol"
+	unit_name = "Криолучевой пистолет"
 	export_types = list(/obj/item/gun/energy/laser/thermal/cryo)
 
 /datum/export/weapon/shotgun
 	cost = CARGO_CRATE_VALUE * 1.5
-	unit_name = "combat shotgun"
+	unit_name = "Боевой дробовик"
 	export_types = list(/obj/item/gun/ballistic/shotgun/automatic/combat)
-
 
 /datum/export/weapon/flashbang
 	cost = CARGO_CRATE_VALUE * 0.025
-	unit_name = "flashbang grenade"
+	unit_name = "Светошумовая граната"
 	export_types = list(/obj/item/grenade/flashbang)
 
 /datum/export/weapon/teargas
 	cost = CARGO_CRATE_VALUE * 0.025
-	unit_name = "tear gas grenade"
+	unit_name = "Слезоточивая граната"
 	export_types = list(/obj/item/grenade/chem_grenade/teargas)
 
 
 /datum/export/weapon/flash
 	cost = CARGO_CRATE_VALUE * 0.025
-	unit_name = "handheld flash"
+	unit_name = "Вспышка"
 	export_types = list(/obj/item/assembly/flash)
 	include_subtypes = TRUE
 
 /datum/export/weapon/handcuffs
 	cost = CARGO_CRATE_VALUE * 0.015
-	unit_name = "pair"
-	message = "of handcuffs"
+	unit_name = "Наручники"
 	export_types = list(/obj/item/restraints/handcuffs)
-
-/datum/export/weapon/wt550
-	cost = CARGO_CRATE_VALUE * 1.5
-	unit_name = "WT-550 automatic rifle"
-	export_types = list(/obj/item/gun/ballistic/automatic/wt550)
-	

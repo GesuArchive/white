@@ -2,8 +2,8 @@
  * Clipboard
  */
 /obj/item/clipboard
-	name = "clipboard"
-	icon = 'icons/obj/service/bureaucracy.dmi'
+	name = "планшет"
+	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "clipboard"
 	inhand_icon_state = "clipboard"
 	worn_icon_state = "clipboard"
@@ -15,8 +15,6 @@
 	resistance_flags = FLAMMABLE
 	/// The stored pen
 	var/obj/item/pen/pen
-	/// Is the pen integrated?
-	var/integrated_pen = FALSE
 	/**
 	 * Weakref of the topmost piece of paper
 	 *
@@ -26,12 +24,19 @@
 	 */
 	var/datum/weakref/toppaper_ref
 
+/obj/item/clipboard/examine(mob/user)
+	if(prob(5))
+		name = "планшет"
+	. = ..()
+	name = initial(src.name)
+
+
 /obj/item/clipboard/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins putting [user.p_their()] head into the clip of \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
-	return BRUTELOSS //The clipboard's clip is very strong. Industrial duty. Can kill a man easily.
+	user.visible_message(span_suicide("[user] начинает класть [user.ru_ego()] засовывать голову в зажим <b>[src.name]</b>! Судя по всему, [user.p_theyre()] пытается совершить суицид!"))
+	return BRUTELOSS//the clipboard's clip is very strong. industrial duty. can kill a man easily.
 
 /obj/item/clipboard/Initialize(mapload)
-	update_appearance()
+	update_icon()
 	. = ..()
 
 /obj/item/clipboard/Destroy()
@@ -40,11 +45,11 @@
 
 /obj/item/clipboard/examine()
 	. = ..()
-	if(!integrated_pen && pen)
-		. += span_notice("Alt-click to remove [pen].")
+	if(pen)
+		. += span_notice("\nAlt-клик для изъятия [pen].")
 	var/obj/item/paper/toppaper = toppaper_ref?.resolve()
 	if(toppaper)
-		. += span_notice("Right-click to remove [toppaper].")
+		. += span_notice("\nПКМ для изъятия [toppaper].")
 
 /// Take out the topmost paper
 /obj/item/clipboard/proc/remove_paper(obj/item/paper/paper, mob/user)
@@ -52,10 +57,9 @@
 		return
 	paper.forceMove(user.loc)
 	user.put_in_hands(paper)
-	to_chat(user, span_notice("You remove [paper] from [src]."))
+	to_chat(user, span_notice("Достаю [paper] из [src]."))
 	var/obj/item/paper/toppaper = toppaper_ref?.resolve()
 	if(paper == toppaper)
-		UnregisterSignal(toppaper, COMSIG_ATOM_UPDATED_ICON)
 		toppaper_ref = null
 		var/obj/item/paper/newtop = locate(/obj/item/paper) in src
 		if(newtop && (newtop != paper))
@@ -67,17 +71,15 @@
 /obj/item/clipboard/proc/remove_pen(mob/user)
 	pen.forceMove(user.loc)
 	user.put_in_hands(pen)
-	to_chat(user, span_notice("You remove [pen] from [src]."))
+	to_chat(user, span_notice("Достаю [pen] из [src]."))
 	pen = null
 	update_icon()
 
 /obj/item/clipboard/AltClick(mob/user)
 	..()
 	if(pen)
-		if(integrated_pen)
-			to_chat(user, span_warning("You can't seem to find a way to remove [src]'s [pen]."))
-		else
-			remove_pen(user)
+		remove_pen(user)
+
 
 /obj/item/clipboard/update_overlays()
 	. = ..()
@@ -102,20 +104,18 @@
 		//Add paper into the clipboard
 		if(!user.transferItemToLoc(weapon, src))
 			return
-		if(toppaper)
-			UnregisterSignal(toppaper, COMSIG_ATOM_UPDATED_ICON)
-		RegisterSignal(weapon, COMSIG_ATOM_UPDATED_ICON, PROC_REF(on_top_paper_change))
 		toppaper_ref = WEAKREF(weapon)
-		to_chat(user, span_notice("You clip [weapon] onto [src]."))
+		to_chat(user, span_notice("Укладываю [weapon] на [src]."))
 	else if(istype(weapon, /obj/item/pen) && !pen)
 		//Add a pen into the clipboard, attack (write) if there is already one
 		if(!usr.transferItemToLoc(weapon, src))
 			return
 		pen = weapon
-		to_chat(usr, span_notice("You slot [weapon] into [src]."))
+		to_chat(user, span_notice("Вставляю [weapon] в <b>[src.name]</b>."))
 	else if(toppaper)
 		toppaper.attackby(user.get_active_held_item(), user)
-	update_appearance()
+	update_icon()
+
 
 /obj/item/clipboard/attack_self(mob/user)
 	add_fingerprint(usr)
@@ -132,7 +132,6 @@
 	// prepare data for TGUI
 	var/list/data = list()
 	data["pen"] = "[pen]"
-	data["integrated_pen"] = integrated_pen
 
 	var/obj/item/paper/toppaper = toppaper_ref?.resolve()
 	data["top_paper"] = "[toppaper]"
@@ -160,10 +159,7 @@
 		// Take the pen out
 		if("remove_pen")
 			if(pen)
-				if(!integrated_pen)
-					remove_pen(usr)
-				else
-					to_chat(usr, span_warning("You can't seem to find a way to remove [src]'s [pen]."))
+				remove_pen(usr)
 				. = TRUE
 		// Take paper out
 		if("remove_paper")
@@ -183,7 +179,7 @@
 			var/obj/item/paper/paper = locate(params["ref"]) in src
 			if(istype(paper))
 				toppaper_ref = WEAKREF(paper)
-				to_chat(usr, span_notice("You move [paper] to the top."))
+				to_chat(usr, span_notice("Перемещаю [paper] на самый верх."))
 				update_icon()
 				. = TRUE
 		// Rename the paper (it's a verb)
@@ -193,10 +189,3 @@
 				paper.rename()
 				update_icon()
 				. = TRUE
-
-/**
- * This is a simple proc to handle calling update_icon() upon receiving the top paper's `COMSIG_ATOM_UPDATE_APPEARANCE`.
- */
-/obj/item/clipboard/proc/on_top_paper_change()
-	SIGNAL_HANDLER
-	update_appearance()

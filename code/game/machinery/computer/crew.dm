@@ -1,11 +1,11 @@
 /// How often the sensor data is updated
-#define SENSORS_UPDATE_PERIOD (10 SECONDS) //How often the sensor data updates.
+#define SENSORS_UPDATE_PERIOD	10 SECONDS //How often the sensor data updates.
 /// The job sorting ID associated with otherwise unknown jobs
-#define UNKNOWN_JOB_ID 81
+#define UNKNOWN_JOB_ID			81
 
 /obj/machinery/computer/crew
-	name = "crew monitoring console"
-	desc = "Used to monitor active health sensors built into most of the crew's uniforms."
+	name = "консоль мониторинга за экипажем"
+	desc = "Используется для контроля активных датчиков здоровья, встроенных в большую часть формы экипажа."
 	icon_screen = "crew"
 	icon_keyboard = "med_key"
 	circuit = /obj/item/circuitboard/computer/crew
@@ -53,7 +53,6 @@
 		"health",
 	))
 
-
 /obj/item/circuit_component/medical_console_data/input_received(datum/port/input/port)
 
 	if(!attached_console || !GLOB.crewmonitor)
@@ -100,34 +99,40 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_HEAD_OF_SECURITY = 10,
 		JOB_WARDEN = 11,
 		JOB_SECURITY_OFFICER = 12,
-		JOB_SECURITY_OFFICER_MEDICAL = 13,
-		JOB_SECURITY_OFFICER_ENGINEERING = 14,
-		JOB_SECURITY_OFFICER_SCIENCE = 15,
-		JOB_SECURITY_OFFICER_SUPPLY = 16,
-		JOB_DETECTIVE = 17,
+		JOB_SECURITY_OFFICER_SUPPLY = 12.1,
+		JOB_SECURITY_OFFICER_ENGINEERING = 12.2,
+		JOB_SECURITY_OFFICER_MEDICAL = 12.3,
+		JOB_SECURITY_OFFICER_SCIENCE = 12.4,
+		JOB_DETECTIVE = 13,
+		JOB_RUSSIAN_OFFICER = 14,
+		JOB_VETERAN = 15,
+		JOB_FIELD_MEDIC = 16,
+		JOB_SPECIALIST = 17,
 		// 20-29: Medbay
 		JOB_CHIEF_MEDICAL_OFFICER = 20,
 		JOB_CHEMIST = 21,
 		JOB_VIROLOGIST = 22,
 		JOB_MEDICAL_DOCTOR = 23,
 		JOB_PARAMEDIC = 24,
-		JOB_CORONER = 25,
 		// 30-39: Science
 		JOB_RESEARCH_DIRECTOR = 30,
 		JOB_SCIENTIST = 31,
 		JOB_ROBOTICIST = 32,
 		JOB_GENETICIST = 33,
+		JOB_HACKER = 34,
 		// 40-49: Engineering
 		JOB_CHIEF_ENGINEER = 40,
 		JOB_STATION_ENGINEER = 41,
 		JOB_ATMOSPHERIC_TECHNICIAN = 42,
+		JOB_MECHANIC = 43,
 		// 50-59: Cargo
-		JOB_QUARTERMASTER = 50,
-		JOB_SHAFT_MINER = 51,
-		JOB_CARGO_TECHNICIAN = 52,
-		JOB_BITRUNNER = 53,
+		JOB_HEAD_OF_PERSONNEL = 50,
+		JOB_QUARTERMASTER = 51,
+		JOB_SHAFT_MINER = 52,
+		JOB_CARGO_TECHNICIAN = 53,
+		JOB_TRADER = 54,
+		JOB_HUNTER = 55,
 		// 60+: Civilian/other
-		JOB_HEAD_OF_PERSONNEL = 60,
 		JOB_BARTENDER = 61,
 		JOB_COOK = 62,
 		JOB_BOTANIST = 63,
@@ -138,26 +143,22 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_JANITOR = 68,
 		JOB_LAWYER = 69,
 		JOB_PSYCHOLOGIST = 71,
+		JOB_FREELANCER = 75,
+		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
+		JOB_INTERN = 997,
+		JOB_BOMJ = 998,
+		JOB_ASSISTANT = 999,
+
 		// 200-229: Centcom
 		JOB_CENTCOM_ADMIRAL = 200,
-		JOB_CENTCOM = 201,
-		JOB_CENTCOM_OFFICIAL = 210,
-		JOB_CENTCOM_COMMANDER = 211,
-		JOB_CENTCOM_BARTENDER = 212,
-		JOB_CENTCOM_CUSTODIAN = 213,
-		JOB_CENTCOM_MEDICAL_DOCTOR = 214,
-		JOB_CENTCOM_RESEARCH_OFFICER = 215,
+		JOB_CENTCOM_COMMANDER = 210,
+		JOB_CENTCOM_CUSTODIAN = 211,
+		JOB_CENTCOM_MEDICAL_DOCTOR = 212,
+		JOB_CENTCOM_RESEARCH_OFFICER = 213,
 		JOB_ERT_COMMANDER = 220,
 		JOB_ERT_OFFICER = 221,
 		JOB_ERT_ENGINEER = 222,
-		JOB_ERT_MEDICAL_DOCTOR = 223,
-		JOB_ERT_CLOWN = 224,
-		JOB_ERT_CHAPLAIN = 225,
-		JOB_ERT_JANITOR = 226,
-		JOB_ERT_DEATHSQUAD = 227,
-
-		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
-		JOB_ASSISTANT = 999,
+		JOB_ERT_MEDICAL_DOCTOR = 223
 	)
 
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
@@ -189,7 +190,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		return data_by_z["[z]"]
 
 	var/list/results = list()
-	for(var/tracked_mob in GLOB.suit_sensors_list)
+	for(var/tracked_mob in GLOB.suit_sensors_list | GLOB.nanite_sensors_list | GLOB.implant_sensors_list)
 		if(!tracked_mob)
 			stack_trace("Null entry in suit sensors list.")
 			continue
@@ -205,28 +206,43 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			continue
 
 		// Machinery and the target should be on the same level or different levels of the same station
-		if(pos.z != z && (!is_station_level(pos.z) || !is_station_level(z)) && !HAS_TRAIT(tracked_living_mob, TRAIT_MULTIZ_SUIT_SENSORS))
+		if(pos.z != z && (!is_station_level(pos.z) || !is_station_level(z)))
 			continue
 
 		var/mob/living/carbon/human/tracked_human = tracked_living_mob
 
+		var/nanite_sensors = (tracked_human in GLOB.nanite_sensors_list)
+		var/implant_sensors = (tracked_human in GLOB.implant_sensors_list)
+
+		var/obj/item/clothing/under/uniform
+
 		// Check their humanity.
-		if(!ishuman(tracked_human))
-			stack_trace("Non-human mob is in suit_sensors_list: [tracked_living_mob] ([tracked_living_mob.type])")
-			continue
+		if(!nanite_sensors && !implant_sensors)
+			if(!ishuman(tracked_human))
+				stack_trace("Non-human mob is in suit_sensors_list: [tracked_living_mob] ([tracked_living_mob.type])")
+				continue
 
-		// Check they have a uniform
-		var/obj/item/clothing/under/uniform = tracked_human.w_uniform
-		if (!istype(uniform))
-			stack_trace("Human without a suit sensors compatible uniform is in suit_sensors_list: [tracked_human] ([tracked_human.type]) ([uniform?.type])")
-			continue
+			// Check they have a uniform
+			uniform = tracked_human.w_uniform
+			if (!istype(uniform))
+				stack_trace("Human without a suit sensors compatible uniform is in suit_sensors_list: [tracked_human] ([tracked_human.type]) ([uniform?.type])")
+				continue
 
-		// Check if their uniform is in a compatible mode.
-		if((uniform.has_sensor <= NO_SENSORS) || !uniform.sensor_mode)
-			stack_trace("Human without active suit sensors is in suit_sensors_list: [tracked_human] ([tracked_human.type]) ([uniform.type])")
-			continue
+			// Check if their uniform is in a compatible mode.
+			if(((uniform.has_sensor <= NO_SENSORS) || !uniform?.sensor_mode))
+				stack_trace("Цель без активных датчиков жизни в списке датчиков жизни: [tracked_human] ([tracked_human.type]) ([uniform.type]). Попытка исправить.")
+				tracked_human.update_sensor_list() // должно удалять, но возможно это не решение проблемы
+				continue
 
-		var/sensor_mode = uniform.sensor_mode
+//		var/sensor_mode = nanite_sensors ? SENSOR_COORDS : uniform?.sensor_mode
+
+		var/sensor_mode
+		if(nanite_sensors || implant_sensors)
+			sensor_mode = SENSOR_COORDS
+		else
+			if(uniform)
+				if(uniform.has_sensor >= NO_SENSORS)
+					sensor_mode = uniform.sensor_mode
 
 		// The entry for this human
 		var/list/entry = list(
@@ -238,15 +254,20 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		// ID and id-related data
 		var/obj/item/card/id/id_card = tracked_living_mob.get_idcard(hand_first = FALSE)
 		if (id_card)
-			entry["name"] = id_card.registered_name
+			if(nanite_sensors || implant_sensors)
+				entry["name"] = tracked_living_mob.real_name
+			else
+				entry["name"] = id_card.registered_name
 			entry["assignment"] = id_card.assignment
 			var/trim_assignment = id_card.get_trim_assignment()
 			if (jobs[trim_assignment] != null)
 				entry["ijob"] = jobs[trim_assignment]
-
-		// Current status
+		else
+			if(nanite_sensors || implant_sensors)
+				entry["name"] = tracked_living_mob.real_name
+		// Binary living/dead status
 		if (sensor_mode >= SENSOR_LIVING)
-			entry["life_status"] = tracked_living_mob.stat
+			entry["life_status"] = (tracked_living_mob.stat != DEAD)
 
 		// Damage
 		if (sensor_mode >= SENSOR_VITALS)
@@ -273,7 +294,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 
 	return results
 
-/datum/crewmonitor/ui_act(action, params)
+/datum/crewmonitor/ui_act(action,params)
 	. = ..()
 	if(.)
 		return
@@ -282,7 +303,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			var/mob/living/silicon/ai/AI = usr
 			if(!istype(AI))
 				return
-			AI.ai_tracking_tool.set_tracked_mob(AI, params["name"])
+			AI.ai_camera_track(params["name"])
 
 #undef SENSORS_UPDATE_PERIOD
 #undef UNKNOWN_JOB_ID

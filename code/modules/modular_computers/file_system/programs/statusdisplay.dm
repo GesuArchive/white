@@ -1,12 +1,12 @@
 /datum/computer_file/program/status
 	filename = "statusdisplay"
-	filedesc = "Status Display"
+	filedesc = "Система оповещений"
 	program_icon = "signal"
 	program_icon_state = "generic"
 	requires_ntnet = TRUE
 	size = 1
 
-	extended_desc = "An app used to change the message on the station status displays."
+	extended_desc = "Это приложение позволяет отправить сообщение на мониторы станции для оповещения о её состоянии."
 	tgui_id = "NtosStatus"
 
 	usage_flags = PROGRAM_ALL
@@ -45,7 +45,6 @@
  */
 /datum/computer_file/program/status/proc/post_message(upper, lower)
 	post_status("message", upper, lower)
-	log_game("[key_name(usr)] has changed the station status display message to \"[upper] [lower]\" [loc_name(usr)]")
 
 /**
  * Post a picture to status displays
@@ -58,22 +57,13 @@
 	if(picture in GLOB.status_display_state_pictures)
 		post_status(picture)
 	else
-		if(picture == "currentalert") // You cannot set Code Blue display during Code Red and similiar
-			switch(SSsecurity_level.get_current_level_as_number())
-				if(SEC_LEVEL_DELTA)
-					post_status("alert", "deltaalert")
-				if(SEC_LEVEL_RED)
-					post_status("alert", "redalert")
-				if(SEC_LEVEL_BLUE)
-					post_status("alert", "bluealert")
-				if(SEC_LEVEL_GREEN)
-					post_status("alert", "greenalert")
-		else
-			post_status("alert", picture)
-
-	log_game("[key_name(usr)] has changed the station status display message to \"[picture]\" [loc_name(usr)]")
+		post_status("alert", picture)
 
 /datum/computer_file/program/status/ui_act(action, list/params, datum/tgui/ui)
+	. = ..()
+	if(.)
+		return
+
 	switch(action)
 		if("setStatusMessage")
 			upper_text = reject_bad_text(params["upperText"] || "", MAX_STATUS_LINE_LENGTH)
@@ -86,10 +76,11 @@
 /datum/computer_file/program/status/ui_static_data(mob/user)
 	var/list/data = list()
 	data["maxStatusLineLength"] = MAX_STATUS_LINE_LENGTH
+
 	return data
 
 /datum/computer_file/program/status/ui_data(mob/user)
-	var/list/data = list()
+	var/list/data = get_header_data()
 
 	data["upperText"] = upper_text
 	data["lowerText"] = lower_text

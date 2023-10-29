@@ -73,4 +73,3 @@
 		new_literal[key_handler.convert_value(port, key_ports[index].value)] = value_to_add
 
 	list_output.set_output(new_literal)
-

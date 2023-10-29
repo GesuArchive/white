@@ -11,7 +11,7 @@
 
 /datum/component/crate_carrier/Initialize(crate_limit = 3, list/carriable_types)
 	. = ..()
-	if(!isanimal_or_basicmob(parent))
+	if(!isanimal(parent))
 		return COMPONENT_INCOMPATIBLE
 
 	src.crate_limit = crate_limit
@@ -28,26 +28,26 @@
 	return ..()
 
 /datum/component/crate_carrier/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(parent, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_unarm_attack))
 	RegisterSignal(parent, COMSIG_LIVING_DEATH, PROC_REF(on_death))
 
 /datum/component/crate_carrier/UnregisterFromParent()
-	UnregisterSignal(parent, list(COMSIG_LIVING_UNARMED_ATTACK, COMSIG_LIVING_DEATH, COMSIG_ATOM_EXAMINE))
+	UnregisterSignal(parent, list(COMSIG_LIVING_UNARMED_ATTACK, COMSIG_LIVING_DEATH, COMSIG_PARENT_EXAMINE))
 
-/// Signal proc for [COMSIG_ATOM_EXAMINE] to show when we're carrying crates
+/// Signal proc for [COMSIG_PARENT_EXAMINE] to show when we're carrying crates
 /datum/component/crate_carrier/proc/on_examine(mob/living/source, mob/examiner, list/examine_list)
 	SIGNAL_HANDLER
 
 	var/num_crates = LAZYLEN(crates_in_hand)
 	if(num_crates > 0)
-		examine_list += span_notice("[source.p_Theyre()] carrying [num_crates == 1 ? "a crate":"[num_crates] crates"].")
+		examine_list += span_notice("[source.p_theyre(TRUE)] carrying [num_crates == 1 ? "a crate":"[num_crates] crates"].")
 
 /// Signal proc for [COMSIG_LIVING_UNARMED_ATTACK] to allow mobs to pick up or drop crates
 /datum/component/crate_carrier/proc/on_unarm_attack(mob/living/source, atom/target, proximity, modifiers)
 	SIGNAL_HANDLER
 
-	if(source.combat_mode)
+	if(source.a_intent == INTENT_HARM)
 		return
 
 	if(is_type_in_typecache(target, carriable_cache))

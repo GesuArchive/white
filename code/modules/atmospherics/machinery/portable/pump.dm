@@ -1,5 +1,5 @@
 /obj/machinery/portable_atmospherics/pump
-	name = "portable air pump"
+	name = "портативный воздушный насос"
 	icon_state = "siphon"
 	density = TRUE
 	max_integrity = 250

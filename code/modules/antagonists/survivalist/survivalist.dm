@@ -1,11 +1,11 @@
 /datum/antagonist/survivalist
-	name = "\improper Survivalist"
+	name = "Выживальщик"
 	show_in_antagpanel = FALSE
 	show_name_in_check_antagonists = TRUE
-	suicide_cry = "FOR MYSELF!!"
 	var/greet_message = ""
+	greentext_reward = 5
 
-/datum/antagonist/survivalist/forge_objectives()
+/datum/antagonist/survivalist/proc/forge_objectives()
 	var/datum/objective/survive/survive = new
 	survive.owner = owner
 	objectives += survive
@@ -16,39 +16,28 @@
 	. = ..()
 
 /datum/antagonist/survivalist/greet()
-	. = ..()
-	to_chat(owner, "<B>[greet_message]</B>")
+	to_chat(owner, "<B>Вы — выживальщик![greet_message]</B>")
 	owner.announce_objectives()
 
 /datum/antagonist/survivalist/guns
-	greet_message = "Your own safety matters above all else, and the only way to ensure your safety is to stockpile weapons! Grab as many guns as possible, by any means necessary. Kill anyone who gets in your way."
-	hardcore_random_bonus = TRUE
+	greet_message = "Ваша собственная безопасность стоит превыше всего остального и есть лишь один способ её укрепить — запасаться оружием! Любыми средствами раздобудьте как можно больше оружия. Убейте любого, кто решит помешать."
 
 /datum/antagonist/survivalist/guns/forge_objectives()
-	var/datum/objective/steal_n_of_type/summon_guns/guns = new
+	var/datum/objective/steal_five_of_type/summon_guns/guns = new
 	guns.owner = owner
 	objectives += guns
 	..()
 
 /datum/antagonist/survivalist/magic
-	name = "Amateur Magician"
-	greet_message = "Grow your newfound talent! Grab as many magical artefacts as possible, by any means necessary. Kill anyone who gets in your way."
-	hardcore_random_bonus = TRUE
+	name = "Начинающий Волшебник"
+	greet_message = "Развивайте свой новообретённый талант! Любыми средствами раздобудьте как можно больше магических артефактов. Убейте любого, кто решит помешать."
 
 /datum/antagonist/survivalist/magic/greet()
-	. = ..()
-	to_chat(owner, span_notice("As a wonderful magician, you should remember that spellbooks don't mean anything if they are used up."))
+	..()
+	to_chat(owner, span_notice("Будучи волшебником, требуется помнить о том, что книги заклинаний ничего не стоят, если они были использованы.."))
 
 /datum/antagonist/survivalist/magic/forge_objectives()
-	var/datum/objective/steal_n_of_type/summon_magic/magic = new
+	var/datum/objective/steal_five_of_type/summon_magic/magic = new
 	magic.owner = owner
 	objectives += magic
 	..()
-
-/datum/antagonist/survivalist/magic/on_gain()
-	. = ..()
-	ADD_TRAIT(owner, TRAIT_MAGICALLY_GIFTED, REF(src))
-
-/datum/antagonist/survivalist/magic/on_removal()
-	REMOVE_TRAIT(owner, TRAIT_MAGICALLY_GIFTED, REF(src))
-	return..()

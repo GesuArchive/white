@@ -4,8 +4,9 @@
  * Immobile (but not dense) shells that can interact with world.
  */
 /obj/structure/bot
-	name = "bot"
-	icon = 'icons/obj/science/circuits.dmi'
+	name = "бот"
+	desc = "Неподвижная оболочка, которая хранит другие компоненты. Имеет USB-порт для подключения к компьютерам и машинам. Срабатывает, когда кто-то взаимодействует с ботом."
+	icon = 'icons/obj/wiremod.dmi'
 	icon_state = "setup_medium_box"
 
 	density = FALSE
@@ -22,8 +23,8 @@
 	)
 
 /obj/item/circuit_component/bot
-	display_name = "Bot"
-	desc = "Triggers when someone interacts with the bot."
+	display_name = "бот"
+	desc = "Неподвижная оболочка, которая хранит другие компоненты. Имеет USB-порт для подключения к компьютерам и машинам. Срабатывает, когда кто-то взаимодействует с ботом."
 
 	/// Called when attack_hand is called on the shell.
 	var/datum/port/output/signal
@@ -43,7 +44,7 @@
 /obj/item/circuit_component/bot/proc/on_attack_hand(atom/source, mob/user)
 	SIGNAL_HANDLER
 	source.balloon_alert(user, "pushed button")
-	playsound(source, get_sfx(SFX_TERMINAL_TYPE), 25, FALSE)
+	playsound(source, get_sfx("terminal_type"), 25, FALSE)
 	entity.set_output(user)
 	signal.set_output(COMPONENT_SIGNAL)
 

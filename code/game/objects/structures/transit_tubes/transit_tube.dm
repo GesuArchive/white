@@ -1,7 +1,7 @@
 
 /obj/structure/transit_tube
 	name = "transit tube"
-	icon = 'icons/obj/pipes_n_cables/transit_tube.dmi'
+	icon = 'icons/obj/atmospherics/pipes/transit_tube.dmi'
 	icon_state = "straight"
 	desc = "A transit tube for moving things around."
 	density = TRUE
@@ -37,7 +37,7 @@
 			for(var/obj/structure/transit_tube_pod/pod in src.loc)
 				to_chat(user, span_warning("Remove the pod first!"))
 				return
-			user.visible_message(span_notice("[user] starts to detach \the [src]."), span_notice("You start to detach the [name]..."))
+			user.visible_message(span_notice("[user] starts to detach <b>[src.name]</b>.") , span_notice("You start to detach the [name]..."))
 			if(W.use_tool(src, user, 2 SECONDS, volume=50))
 				to_chat(user, span_notice("You detach the [name]."))
 				var/obj/structure/c_transit_tube/R = new tube_construction(loc)
@@ -61,7 +61,7 @@
 
 
 /obj/structure/transit_tube/proc/has_entrance(from_dir)
-	from_dir = REVERSE_DIR(from_dir)
+	from_dir = turn(from_dir, 180)
 
 	for(var/direction in tube_dirs)
 		if(direction == from_dir)
@@ -123,6 +123,7 @@
 		if(WEST)
 			tube_dirs = list(EAST, WEST)
 
+
 /obj/structure/transit_tube/update_overlays()
 	. = ..()
 	for(var/direction in tube_dirs)
@@ -137,6 +138,7 @@
 			. += create_tube_overlay(direction ^ 12, EAST)
 		else
 			. += create_tube_overlay(direction ^ 12, WEST)
+
 
 /obj/structure/transit_tube/proc/create_tube_overlay(direction, shift_dir)
 	// We use image() because a mutable appearance will have its dir mirror the parent which sort of fucks up what we're doing here

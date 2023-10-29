@@ -1,37 +1,83 @@
 /obj/item/clothing/under/pants
 	gender = PLURAL
 	body_parts_covered = GROIN|LEGS
-	female_sprite_flags = NO_FEMALE_UNIFORM
+	fitted = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
-	custom_price = PAYCHECK_CREW
-	icon = 'icons/obj/clothing/under/shorts_pants_shirts.dmi'
-	worn_icon = 'icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	custom_price = PAYCHECK_EASY
+	icon = 'icons/obj/clothing/under/shorts_pants.dmi'
+	worn_icon = 'icons/mob/clothing/under/shorts_pants.dmi'
 	species_exception = list(/datum/species/golem)
+
+/obj/item/clothing/under/pants/classicjeans
+	name = "классические джинсы"
+	desc = "Теперь ты смотришься круто."
+	icon_state = "jeansclassic"
+
+/obj/item/clothing/under/pants/mustangjeans
+	name = "джинсы Must Hang"
+	desc = "Сделаны на лучшей джинсовой фабрике части Альфа Центавры."
+	icon_state = "jeansmustang"
+	custom_price = PAYCHECK_EASY * 3
+
+/obj/item/clothing/under/pants/blackjeans
+	name = "чёрные джинсы"
+	desc = "Only for those who can pull it off."
+	icon_state = "jeansblack"
+
+/obj/item/clothing/under/pants/youngfolksjeans
+	name = "джинсы"
+	desc = "Для тех, кому надоели старые джинсы. Оживи страсть своей молодостью!"
+	icon_state = "jeansyoungfolks"
+
+/obj/item/clothing/under/pants/white
+	name = "белые штаны"
+	desc = "Простые белые штаны. Скукотень."
+	icon_state = "whitepants"
+
+/obj/item/clothing/under/pants/red
+	name = "красные штаны"
+	desc = "Яркие красные штаны подчеркивают вас."
+	icon_state = "redpants"
+
+/obj/item/clothing/under/pants/black
+	name = "чёрные штаны"
+	desc = "Черны, как твоя душа."
+	icon_state = "blackpants"
+
+/obj/item/clothing/under/pants/tan
+	name = "коричневые штаны"
+	desc = "Стильные коричневые штанишки."
+	icon_state = "tanpants"
+
+/obj/item/clothing/under/pants/track
+	name = "спортивные штаны"
+	desc = "Спортивные штаны для местных атлетов."
+	icon_state = "trackpants"
 
 /obj/item/clothing/under/pants/slacks
 	name = "slacks"
 	desc = "A pair of comfy slacks."
 	icon_state = "slacks"
 	greyscale_config = /datum/greyscale_config/slacks
-	greyscale_config_worn = /datum/greyscale_config/slacks/worn
+	greyscale_config_worn = /datum/greyscale_config/slacks_worn
 	greyscale_colors = "#575757#3E3E3E#75634F"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/pants/jeans
-	name = "jeans"
-	desc = "A nondescript pair of tough jeans."
+	name = "джинсы"
+	desc = "Слегка потертые временем джинсы."
 	icon_state = "jeans"
 	greyscale_config = /datum/greyscale_config/jeans
-	greyscale_config_worn = /datum/greyscale_config/jeans/worn
+	greyscale_config_worn = /datum/greyscale_config/jeans_worn
 	greyscale_colors = "#787878#723E0E#4D7EAC"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/under/pants/track
-	name = "track pants"
-	desc = "A pair of track pants, for the athletic."
-	icon_state = "trackpants"
+/obj/item/clothing/under/pants/khaki
+	name = "камуфляжные штаны"
+	desc = "Подчеркивают ваш боевой настрой."
+	icon_state = "khaki"
 
 /obj/item/clothing/under/pants/camo
-	name = "camo pants"
-	desc = "A pair of woodland camouflage pants. Probably not the best choice for a space station."
+	name = "камуфляжные штаны"
+	desc = "Рисунок древесный. На станции наверняка есть деревья."
 	icon_state = "camopants"

@@ -5,48 +5,48 @@
 /mob/living/silicon/get_ear_protection()//no ears
 	return 2
 
-/mob/living/silicon/attack_alien(mob/living/carbon/alien/adult/user, list/modifiers)
+/mob/living/silicon/attack_alien(mob/living/carbon/alien/humanoid/M)
 	if(..()) //if harm or disarm intent
-		var/damage = rand(user.melee_damage_lower, user.melee_damage_upper)
+		var/damage = rand(M.melee_damage_lower, M.melee_damage_upper)
 		if (prob(90))
-			log_combat(user, src, "attacked")
+			log_combat(M, src, "атакует")
 			playsound(loc, 'sound/weapons/slash.ogg', 25, TRUE, -1)
-			visible_message(span_danger("[user] slashes at [src]!"), \
-							span_userdanger("[user] slashes at you!"), null, null, user)
-			to_chat(user, span_danger("You slash at [src]!"))
+			visible_message(span_danger("[M] slashes at [src]!") , \
+							span_userdanger("[M] slashes at you!") , null, null, M)
+			to_chat(M, span_danger("You slash at [src]!"))
 			if(prob(8))
 				flash_act(affect_silicon = 1)
-			log_combat(user, src, "attacked")
+			log_combat(M, src, "атакует")
 			adjustBruteLoss(damage)
 			updatehealth()
 		else
 			playsound(loc, 'sound/weapons/slashmiss.ogg', 25, TRUE, -1)
-			visible_message(span_danger("[user]'s swipe misses [src]!"), \
-							span_danger("You avoid [user]'s swipe!"), null, null, user)
-			to_chat(user, span_warning("Your swipe misses [src]!"))
+			visible_message(span_danger("[M] swipe misses [src]!") , \
+							span_danger("You avoid [M] swipe!") , null, null, M)
+			to_chat(M, span_warning("Your swipe misses [src]!"))
 
-/mob/living/silicon/attack_animal(mob/living/simple_animal/user, list/modifiers)
+/mob/living/silicon/attack_animal(mob/living/simple_animal/M)
 	. = ..()
 	if(.)
-		var/damage = rand(user.melee_damage_lower, user.melee_damage_upper)
+		var/damage = rand(M.melee_damage_lower, M.melee_damage_upper)
 		if(prob(damage))
-			for(var/mob/living/buckled in buckled_mobs)
-				buckled.Paralyze(20)
-				unbuckle_mob(buckled)
-				buckled.visible_message(span_danger("[buckled] is knocked off of [src] by [user]!"), \
-								span_userdanger("You're knocked off of [src] by [user]!"), null, null, user)
-				to_chat(user, span_danger("You knock [buckled] off of [src]!"))
-		switch(user.melee_damage_type)
+			for(var/mob/living/N in buckled_mobs)
+				N.Paralyze(20)
+				unbuckle_mob(N)
+				N.visible_message(span_danger("[N] is knocked off of [src] by [M]!") , \
+								span_userdanger("You're knocked off of [src] by [M]!") , null, null, M)
+				to_chat(M, span_danger("You knock [N] off of [src]!"))
+		switch(M.melee_damage_type)
 			if(BRUTE)
 				adjustBruteLoss(damage)
 			if(BURN)
 				adjustFireLoss(damage)
 
-/mob/living/silicon/attack_paw(mob/living/user, list/modifiers)
-	return attack_hand(user, modifiers)
+/mob/living/silicon/attack_paw(mob/living/user)
+	return attack_hand(user)
 
-/mob/living/silicon/attack_larva(mob/living/carbon/alien/larva/L, list/modifiers)
-	if(!L.combat_mode)
+/mob/living/silicon/attack_larva(mob/living/carbon/alien/larva/L)
+	if(L.a_intent == INTENT_HELP)
 		visible_message(span_notice("[L.name] rubs its head against [src]."))
 
 /mob/living/silicon/attack_hulk(mob/living/carbon/human/user)
@@ -54,53 +54,47 @@
 	if(!.)
 		return
 	adjustBruteLoss(rand(10, 15))
-	playsound(loc, SFX_PUNCH, 25, TRUE, -1)
-	visible_message(span_danger("[user] punches [src]!"), \
-					span_userdanger("[user] punches you!"), null, COMBAT_MESSAGE_RANGE, user)
+	playsound(loc, "punch", 25, TRUE, -1)
+	visible_message(span_danger("[user] punches [src]!") , \
+					span_userdanger("[user] punches you!") , null, COMBAT_MESSAGE_RANGE, user)
 	to_chat(user, span_danger("You punch [src]!"))
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/mob/living/silicon/attack_hand(mob/living/carbon/human/user, list/modifiers)
+/mob/living/silicon/attack_hand(mob/living/carbon/human/M)
 	. = FALSE
-	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, M) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		. = TRUE
-	if(has_buckled_mobs() && !user.combat_mode)
-		user_unbuckle_mob(buckled_mobs[1], user)
-	else
-		if(user.combat_mode)
-			user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
-			playsound(src.loc, 'sound/effects/bang.ogg', 10, TRUE)
-			visible_message(span_danger("[user] punches [src], but doesn't leave a dent!"), \
-							span_warning("[user] punches you, but doesn't leave a dent!"), null, COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, span_danger("You punch [src], but don't leave a dent!"))
+	switch(M.a_intent)
+		if (INTENT_HELP)
+			visible_message(span_notice("[M] pets [src].") , \
+							span_notice("[M] pets you.") , null, null, M)
+			to_chat(M, span_notice("You pet [src]."))
+			SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT_RND, "pet_borg", /datum/mood_event/pet_borg)
+		if(INTENT_GRAB)
+			grabbedby(M)
 		else
-			visible_message(span_notice("[user] pets [src]."), \
-							span_notice("[user] pets you."), null, null, user)
-			to_chat(user, span_notice("You pet [src]."))
-			user.add_mood_event("pet_borg", /datum/mood_event/pet_borg)
+			M.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
+			playsound(src.loc, 'sound/effects/bang.ogg', 10, TRUE)
+			visible_message(span_danger("[M] punches [src], but doesn't leave a dent!") , \
+							span_warning("[M] punches you, but doesn't leave a dent!") , null, COMBAT_MESSAGE_RANGE, M)
+			to_chat(M, span_danger("You punch [src], but don't leave a dent!"))
 
-
-/mob/living/silicon/attack_drone(mob/living/basic/drone/user)
-	if(user.combat_mode)
+/mob/living/silicon/attack_drone(mob/living/simple_animal/drone/M)
+	if(M.a_intent == INTENT_HARM)
 		return
-	return ..()
-
-/mob/living/silicon/attack_drone_secondary(mob/living/basic/drone/user)
-	if(user.combat_mode)
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
 /mob/living/silicon/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
 	if(buckled_mobs)
 		for(var/mob/living/M in buckled_mobs)
 			unbuckle_mob(M)
-			M.electrocute_act(shock_damage/100, source, siemens_coeff, flags) //Hard metal shell conducts!
+			M.electrocute_act(shock_damage/100, source, siemens_coeff, flags)	//Hard metal shell conducts!
 	return 0 //So borgs they don't die trying to fix wiring
 
 /mob/living/silicon/emp_act(severity)
 	. = ..()
 	to_chat(src, span_danger("Warning: Electromagnetic pulse detected."))
-	if(. & EMP_PROTECT_SELF || QDELETED(src))
+	if(. & EMP_PROTECT_SELF)
 		return
 	switch(severity)
 		if(1)
@@ -115,22 +109,21 @@
 			M.visible_message(span_boldwarning("[M] is thrown off of [src]!"))
 	flash_act(affect_silicon = 1)
 
-/mob/living/silicon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
-	. = ..()
-	if(. != BULLET_ACT_HIT)
-		return .
-
-	var/prob_of_knocking_dudes_off = 0
-	if(hitting_projectile.damage_type == BRUTE || hitting_projectile.damage_type == BURN)
-		prob_of_knocking_dudes_off = hitting_projectile.damage * 1.5
-	if(hitting_projectile.stun || hitting_projectile.knockdown || hitting_projectile.paralyze)
-		prob_of_knocking_dudes_off = 100
-
-	if(prob(prob_of_knocking_dudes_off))
-		for(var/mob/living/buckled in buckled_mobs)
-			buckled.visible_message(span_boldwarning("[buckled] is knocked off of [src] by [hitting_projectile]!"))
-			unbuckle_mob(buckled)
-			buckled.Paralyze(4 SECONDS)
+/mob/living/silicon/bullet_act(obj/projectile/Proj, def_zone, piercing_hit = FALSE)
+	SEND_SIGNAL(src, COMSIG_ATOM_BULLET_ACT, Proj, def_zone)
+	if((Proj.damage_type == BRUTE || Proj.damage_type == BURN))
+		adjustBruteLoss(Proj.damage)
+		if(prob(Proj.damage*1.5))
+			for(var/mob/living/M in buckled_mobs)
+				M.visible_message(span_boldwarning("[M] is knocked off of [src]!"))
+				unbuckle_mob(M)
+				M.Paralyze(40)
+	if(Proj.stun || Proj.knockdown || Proj.paralyze)
+		for(var/mob/living/M in buckled_mobs)
+			unbuckle_mob(M)
+			M.visible_message(span_boldwarning("[M] is knocked off of [src] by the [Proj]!"))
+	Proj.on_hit(src, 0, piercing_hit)
+	return BULLET_ACT_HIT
 
 /mob/living/silicon/flash_act(intensity = 1, override_blindness_check = 0, affect_silicon = 0, visual = 0, type = /atom/movable/screen/fullscreen/flash/static, length = 25)
 	if(affect_silicon)

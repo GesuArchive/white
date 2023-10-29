@@ -1,11 +1,19 @@
-/// A list of all of the `/obj/machinery/telecomms` (and subtypes) machines
-/// that exist in the world currently.
+
+/*
+	Hello, friends, this is Doohl from sexylands. You may be wondering what this
+	monstrous code file is. Sit down, boys and girls, while I tell you the tale.
+
+
+	The telecom machines were designed to be compatible with any radio
+	signals, provided they use subspace transmission. Currently they are only used for
+	headsets, but they can eventually be outfitted for real COMPUTER networks. This
+	is just a skeleton, ladies and gentlemen.
+
+	Look at radio.dm for the prequel to this code.
+*/
+
 GLOBAL_LIST_EMPTY(telecomms_list)
 
-/**
- * The basic telecomms machinery type, implementing all of the logic that's
- * shared between all of the telecomms machinery.
- */
 /obj/machinery/telecomms
 	icon = 'icons/obj/machines/telecomms.dmi'
 	critical_machine = TRUE
@@ -32,20 +40,20 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 	// list of frequencies to tune into: if none, will listen to all
 	var/list/freq_listening = list()
 
-	/// Is it actually active or not?
 	var/on = TRUE
-	/// Is it toggled on, so is it /meant/ to be active?
+	/// Is it toggled on
 	var/toggled = TRUE
 	/// Can you link it across Z levels or on the otherside of the map? (Relay & Hub)
 	var/long_range_link = FALSE
 	/// Is it a hidden machine?
 	var/hide = FALSE
 
-	/// Looping sounds for any servers
+	///Looping sounds for any servers
 	var/datum/looping_sound/server/soundloop
 
-/// relay signal to all linked machinery that are of type [filter]. If signal has been sent [amount] times, stop sending
 /obj/machinery/telecomms/proc/relay_information(datum/signal/subspace/signal, filter, copysig, amount = 20)
+	// relay signal to all linked machinery that are of type [filter]. If signal has been sent [amount] times, stop sending
+
 	if(!on)
 		return
 
@@ -60,7 +68,6 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 		signal.data["slow"] = netlag
 
 	// Loop through all linked machines and send the signal or copy.
-
 	for(var/obj/machinery/telecomms/filtered_machine in links_by_telecomms_type?[filter])
 		if(!filtered_machine.on)
 			continue
@@ -83,85 +90,89 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 
 	return send_count
 
-/// Sends a signal directly to a machine.
 /obj/machinery/telecomms/proc/relay_direct_information(datum/signal/signal, obj/machinery/telecomms/machine)
+	// send signal directly to a machine
 	machine.receive_information(signal, src)
 
-/// Receive information from linked machinery
 /obj/machinery/telecomms/proc/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
 	return
 
-/**
- * Checks whether the machinery is listening to that signal.
- *
- * Returns `TRUE` if found, `FALSE` if not.
- */
 /obj/machinery/telecomms/proc/is_freq_listening(datum/signal/signal)
+	// return TRUE if found, FALSE if not found
 	return signal && (!length(freq_listening) || (signal.frequency in freq_listening))
 
 /obj/machinery/telecomms/Initialize(mapload)
 	. = ..()
+	soundloop = new(src, on)
 	GLOB.telecomms_list += src
 	if(mapload && autolinkers.len)
 		return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/telecomms/LateInitialize()
 	..()
-
-	for(var/obj/machinery/telecomms/telecomms_machine in GLOB.telecomms_list)
-		if (long_range_link || IN_GIVEN_RANGE(src, telecomms_machine, 20))
-			add_automatic_link(telecomms_machine)
+	for(var/obj/machinery/telecomms/T in (long_range_link ? GLOB.telecomms_list : urange(20, src, 1)))
+		add_automatic_link(T)
 
 /obj/machinery/telecomms/Destroy()
 	GLOB.telecomms_list -= src
+	QDEL_NULL(soundloop)
 	for(var/obj/machinery/telecomms/comm in GLOB.telecomms_list)
 		remove_link(comm)
 	links = list()
 	return ..()
 
-/// Handles the automatic linking of another machine to this one.
-/obj/machinery/telecomms/proc/add_automatic_link(obj/machinery/telecomms/machine_to_link)
+/// Used in auto linking
+/obj/machinery/telecomms/proc/add_automatic_link(obj/machinery/telecomms/T)
 	var/turf/position = get_turf(src)
-	var/turf/T_position = get_turf(machine_to_link)
-	if((position.z != T_position.z) && !(long_range_link && machine_to_link.long_range_link))
-		return
-	if(src == machine_to_link)
+	var/turf/T_position = get_turf(T)
+	if(T_position)
+		if((position.z != T_position.z) && !(long_range_link && T.long_range_link))
+			return
+	if(src == T)
 		return
 	for(var/autolinker_id in autolinkers)
-		if(autolinker_id in machine_to_link.autolinkers)
-			add_new_link(machine_to_link)
+		if(autolinker_id in T.autolinkers)
+			add_new_link(T)
 			return
 
+
 /obj/machinery/telecomms/update_icon_state()
-	icon_state = "[initial(icon_state)][panel_open ? "_o" : null][on ? null : "_off"]"
-	return ..()
+	. = ..()
+	if(on)
+		if(panel_open)
+			icon_state = "[initial(icon_state)]_o"
+		else
+			icon_state = initial(icon_state)
+	else
+		if(panel_open)
+			icon_state = "[initial(icon_state)]_o_off"
+		else
+			icon_state = "[initial(icon_state)]_off"
 
 /obj/machinery/telecomms/on_set_panel_open(old_value)
 	update_appearance()
 	return ..()
 
-/**
- * Handles updating the power state of the machine, modifying its `on`
- * variable based on if it's `toggled` and if it's either broken, has no power
- * or it's EMP'd. Handles updating appearance based on that power change.
- */
 /obj/machinery/telecomms/proc/update_power()
 	var/old_on = on
 	if(toggled)
 		if(machine_stat & (BROKEN|NOPOWER|EMPED)) // if powered, on. if not powered, off. if too damaged, off
 			on = FALSE
+			soundloop.stop()
 		else
 			on = TRUE
+			soundloop.start()
 	else
 		on = FALSE
+		soundloop.stop()
 	if(old_on != on)
 		update_appearance()
 
-/obj/machinery/telecomms/process(seconds_per_tick)
+/obj/machinery/telecomms/process(delta_time)
 	update_power()
 
 	if(traffic > 0)
-		traffic -= netspeed * seconds_per_tick
+		traffic -= netspeed * delta_time
 
 /obj/machinery/telecomms/emp_act(severity)
 	. = ..()
@@ -169,9 +180,8 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 		return
 	if(prob(100/severity) && !(machine_stat & EMPED))
 		set_machine_stat(machine_stat | EMPED)
-		var/duration = (300 SECONDS)/severity
-		addtimer(CALLBACK(src, PROC_REF(de_emp)), rand(duration - 2 SECONDS, duration + 2 SECONDS))
+		var/duration = (300 * 10)/severity
+		addtimer(CALLBACK(src, PROC_REF(de_emp)), rand(duration - 20, duration + 20))
 
-/// Handles the machine stopping being affected by an EMP.
 /obj/machinery/telecomms/proc/de_emp()
 	set_machine_stat(machine_stat & ~EMPED)

@@ -1,6 +1,6 @@
 import { BooleanLike } from 'common/react';
 
-export type PaiData = {
+export type Data = {
   available: ReadonlyArray<{ name: string; value: number }>;
   directives: string;
   door_jack: string | null;

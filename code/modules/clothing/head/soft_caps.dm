@@ -1,24 +1,21 @@
 /obj/item/clothing/head/soft
-	name = "cargo cap"
-	desc = "It's a baseball hat in a tasteful brown colour."
-	icon = 'icons/obj/clothing/head/hats.dmi'
-	worn_icon = 'icons/mob/clothing/head/hats.dmi'
+	name = "кепка грузчика"
+	desc = "Бейсбольная кепка безвкусного желтого цвета."
 	icon_state = "cargosoft"
-	inhand_icon_state = "greyscale_softcap" //todo wip
+	inhand_icon_state = "helmet"
 	var/soft_type = "cargo"
-	var/soft_suffix = "soft"
 
 	dog_fashion = /datum/dog_fashion/head/cargo_tech
 
 	var/flipped = FALSE
 
 /obj/item/clothing/head/soft/dropped()
-	icon_state = "[soft_type][soft_suffix]"
+	icon_state = "[soft_type]soft"
 	flipped = FALSE
 	..()
 
 /obj/item/clothing/head/soft/verb/flipcap()
-	set category = "Object"
+	set category = "Объект"
 	set name = "Flip cap"
 
 	flip(usr)
@@ -26,7 +23,7 @@
 
 /obj/item/clothing/head/soft/AltClick(mob/user)
 	..()
-	if(user.can_perform_action(src, NEED_DEXTERITY))
+	if(user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		flip(user)
 
 
@@ -34,130 +31,107 @@
 	if(!user.incapacitated())
 		flipped = !flipped
 		if(flipped)
-			icon_state = "[soft_type][soft_suffix]_flipped"
-			to_chat(user, span_notice("You flip the hat backwards."))
+			icon_state = "[soft_type]soft_flipped"
+			to_chat(user, span_notice("Переворачиваю козырёк кепки назад."))
 		else
-			icon_state = "[soft_type][soft_suffix]"
-			to_chat(user, span_notice("You flip the hat back in normal position."))
-		usr.update_worn_head() //so our mob-overlays update
+			icon_state = "[soft_type]soft"
+			to_chat(user, span_notice("Возвращаю кепку обратно на место."))
+		usr.update_inv_head()	//so our mob-overlays update
 
 /obj/item/clothing/head/soft/examine(mob/user)
 	. = ..()
-	. += span_notice("Alt-click the cap to flip it [flipped ? "forwards" : "backwards"].")
+	. += "<hr>"
+	. += span_notice("ПКМ, чтобы повернуть козырёк кепки [flipped ? "вперёд" : "назад"].")
 
 /obj/item/clothing/head/soft/red
-	name = "red cap"
-	desc = "It's a baseball hat in a tasteless red colour."
+	name = "красная кепка"
+	desc = "Бейсбольная кепка безвкусного красного цвета."
 	icon_state = "redsoft"
 	soft_type = "red"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/blue
-	name = "blue cap"
-	desc = "It's a baseball hat in a tasteless blue colour."
+	name = "синяя кепка"
+	desc = "Бейсбольная кепка безвкусного синего цвета."
 	icon_state = "bluesoft"
 	soft_type = "blue"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/green
-	name = "green cap"
-	desc = "It's a baseball hat in a tasteless green colour."
+	name = "зелёная кепка"
+	desc = "Бейсбольная кепка безвкусного зелёного цвета."
 	icon_state = "greensoft"
 	soft_type = "green"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/yellow
-	name = "yellow cap"
-	desc = "It's a baseball hat in a tasteless yellow colour."
+	name = "жёлтая кепка"
+	desc = "Бейсбольная кепка безвкусного жёлтого цвета."
 	icon_state = "yellowsoft"
 	soft_type = "yellow"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/grey
-	name = "grey cap"
-	desc = "It's a baseball hat in a tasteful grey colour."
+	name = "серая кепка"
+	desc = "Бейсбольная кепка безвкусного серого цвета."
 	icon_state = "greysoft"
 	soft_type = "grey"
 	dog_fashion = null
 
-/* A grey baseball cap that grants TRAIT_JOLLY when it's on your head.
- * Used for testing that gaining and losing the JOLLY trait behaves properly.
- * Also a perfectly valid weird admin reward.
- */
-/obj/item/clothing/head/soft/grey/jolly
-	name = "jolly grey cap"
-	desc = "It's a baseball hat in a sublime grey colour. Why, wearing this alone would boost a person's spirits!"
-	clothing_traits = list(TRAIT_JOLLY)
-
 /obj/item/clothing/head/soft/orange
-	name = "orange cap"
-	desc = "It's a baseball hat in a tasteless orange colour."
+	name = "оранжевая кепка"
+	desc = "Бейсбольная кепка безвкусного оранжевого цвета."
 	icon_state = "orangesoft"
 	soft_type = "orange"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/mime
-	name = "white cap"
-	desc = "It's a baseball hat in a tasteless white colour."
+	name = "белая кепка"
+	desc = "Бейсбольная кепка безвкусного белого цвета."
 	icon_state = "mimesoft"
 	soft_type = "mime"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/purple
-	name = "purple cap"
-	desc = "It's a baseball hat in a tasteless purple colour."
+	name = "фиолетовая кепка"
+	desc = "Бейсбольная кепка безвкусного фиолетового цвета."
 	icon_state = "purplesoft"
 	soft_type = "purple"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/black
-	name = "black cap"
-	desc = "It's a baseball hat in a tasteless black colour."
+	name = "чёрная кепка"
+	desc = "Бейсбольная кепка безвкусного чёрного цвета."
 	icon_state = "blacksoft"
 	soft_type = "black"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/rainbow
-	name = "rainbow cap"
-	desc = "It's a baseball hat in a bright rainbow of colors."
+	name = "радужная кепка"
+	desc = "Бейсболка в яркой радуге цветов."
 	icon_state = "rainbowsoft"
-	inhand_icon_state = "rainbow_softcap"
 	soft_type = "rainbow"
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/sec
-	name = "security cap"
-	desc = "It's a robust baseball hat in tasteful red colour."
+	name = "кепка офицера"
+	desc = "Прочная бейсбольная шапка красного цвета."
 	icon_state = "secsoft"
 	soft_type = "sec"
-	armor_type = /datum/armor/cosmetic_sec
+	armor = list(MELEE = 30, BULLET = 25, LASER = 25, ENERGY = 35, BOMB = 25, BIO = 0, RAD = 0, FIRE = 20, ACID = 50)
 	strip_delay = 60
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/paramedic
-	name = "paramedic cap"
-	desc = "It's a baseball hat with a dark turquoise color and a reflective cross on the top."
+	name = "кепка парамедика"
+	desc = "Бейсбольная кепка темно-бирюзового цвета и светоотражающим крестом сверху."
 	icon_state = "paramedicsoft"
 	soft_type = "paramedic"
 	dog_fashion = null
 
-/obj/item/clothing/head/soft/fishing_hat
-	name = "legendary fishing hat"
-	desc = "An ancient relic of a bygone era of bountiful catches and endless rivers. Printed on the front is a poem:<i>\n\
-		Women Fear Me\n\
-		Fish Fear Me\n\
-		Men Turn Their Eyes Away From Me\n\
-		As I Walk No Beast Dares Make A Sound In My Presence\n\
-		I Am Alone On This Barren Earth.</i>"
-	icon_state = "fishing_hat"
-	soft_type = "fishing_hat"
-	inhand_icon_state = "fishing_hat"
-	soft_suffix = null
-	worn_y_offset = 5
-	clothing_flags = SNUG_FIT
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE
+/obj/item/clothing/head/soft/vkusna_and_tochkahat
+	name = "кепка сотрудника общепита"
+	icon_state = "vkusnasoft"
+	soft_type = "vkusna"
+	desc = "С этого дня я повелитель сахарного диабета и холестерина!"
 	dog_fashion = null
-
-/obj/item/clothing/head/soft/fishing_hat/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/skill_reward, /datum/skill/fishing)

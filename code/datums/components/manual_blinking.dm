@@ -1,7 +1,7 @@
 /datum/component/manual_blinking
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
-	var/obj/item/organ/internal/eyes/E
+	var/obj/item/organ/eyes/E
 	var/warn_grace = FALSE
 	var/warn_dying = FALSE
 	var/last_blink
@@ -10,7 +10,7 @@
 	var/damage_rate = 1 // organ damage taken per tick
 	var/list/valid_emotes = list(/datum/emote/living/carbon/blink, /datum/emote/living/carbon/blink_r)
 
-/datum/component/manual_blinking/Initialize()
+/datum/component/manual_blinking/Initialize(mapload)
 	if(!iscarbon(parent))
 		return COMPONENT_INCOMPATIBLE
 
@@ -60,7 +60,7 @@
 			to_chat(C, span_userdanger("Your eyes begin to wither, you need to blink!"))
 			warn_dying = TRUE
 
-		E.apply_organ_damage(damage_rate)
+		E.applyOrganDamage(damage_rate)
 	else if(world.time > (last_blink + check_every))
 		if(!warn_grace)
 			to_chat(C, span_danger("You feel a need to blink!"))
@@ -69,18 +69,18 @@
 /datum/component/manual_blinking/proc/check_added_organ(mob/who_cares, obj/item/organ/O)
 	SIGNAL_HANDLER
 
-	var/obj/item/organ/internal/eyes/new_eyes = O
+	var/obj/item/organ/eyes/new_eyes = O
 
-	if(istype(new_eyes,/obj/item/organ/internal/eyes))
+	if(istype(new_eyes,/obj/item/organ/eyes))
 		E = new_eyes
 		START_PROCESSING(SSdcs, src)
 
 /datum/component/manual_blinking/proc/check_removed_organ(mob/who_cares, obj/item/organ/O)
 	SIGNAL_HANDLER
 
-	var/obj/item/organ/internal/eyes/bye_beyes = O // oh come on, that's pretty good
+	var/obj/item/organ/eyes/bye_beyes = O // oh come on, that's pretty good
 
-	if(istype(bye_beyes, /obj/item/organ/internal/eyes))
+	if(istype(bye_beyes, /obj/item/organ/eyes))
 		E = null
 		STOP_PROCESSING(SSdcs, src)
 

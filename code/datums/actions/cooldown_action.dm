@@ -17,10 +17,8 @@
 	var/next_melee_use_time = 0
 	/// Whether or not you want the cooldown for the ability to display in text form
 	var/text_cooldown = TRUE
-	/// Significant figures to round cooldown to
-	var/cooldown_rounding = 0.1
 	/// Shares cooldowns with other abiliies, bitflag
-	var/shared_cooldown = NONE
+	var/shared_cooldown
 	/// List of prerequisite actions that are used in this sequenced ability, you cannot put other sequenced abilities in this
 	var/list/sequence_actions
 	/// List of prerequisite actions that have been initialized
@@ -66,10 +64,10 @@
 /datum/action/cooldown/create_button()
 	var/atom/movable/screen/movable/action_button/button = ..()
 	button.maptext = ""
-	button.maptext_x = 4
+	button.maptext_x = 6
 	button.maptext_y = 2
-	button.maptext_width = 32
-	button.maptext_height = 16
+	button.maptext_width = 24
+	button.maptext_height = 12
 	return button
 
 /datum/action/cooldown/update_button_status(atom/movable/screen/movable/action_button/button, force = FALSE)
@@ -78,10 +76,7 @@
 	if(!text_cooldown || !owner || time_left == 0 || time_left >= COOLDOWN_NO_DISPLAY_TIME)
 		button.maptext = ""
 	else
-		if (cooldown_rounding > 0)
-			button.maptext = MAPTEXT_TINY_UNICODE("[round(time_left/10, cooldown_rounding)]")
-		else
-			button.maptext = MAPTEXT_TINY_UNICODE("[round(time_left/10)]")
+		button.maptext = MAPTEXT("<b>[round(time_left/10, 0.1)]</b>")
 
 	if(!IsAvailable() || !is_action_active(button))
 		return
@@ -154,7 +149,7 @@
 /datum/action/cooldown/proc/StartCooldown(override_cooldown_time, override_melee_cooldown_time)
 	// "Shared cooldowns" covers actions which are not the same type,
 	// but have the same cooldown group and are on the same mob
-	if(shared_cooldown != NONE)
+	if(shared_cooldown)
 		StartCooldownOthers(override_cooldown_time)
 
 	StartCooldownSelf(override_cooldown_time)
@@ -221,7 +216,7 @@
 
 /// Intercepts client owner clicks to activate the ability
 /datum/action/cooldown/proc/InterceptClickOn(mob/living/caller, params, atom/target)
-	if(!IsAvailable(feedback = TRUE))
+	if(!IsAvailable())
 		return FALSE
 	if(!target)
 		return FALSE
@@ -238,7 +233,7 @@
 
 /// For signal calling
 /datum/action/cooldown/proc/PreActivate(atom/target)
-	if(SEND_SIGNAL(owner, COMSIG_MOB_ABILITY_STARTED, src, target) & COMPONENT_BLOCK_ABILITY_START)
+	if(SEND_SIGNAL(owner, COMSIG_MOB_ABILITY_STARTED, src) & COMPONENT_BLOCK_ABILITY_START)
 		return
 	// Note, that PreActivate handles no cooldowns at all by default.
 	// Be sure to call StartCooldown() in Activate() where necessary.
@@ -322,18 +317,16 @@
 
 	// It's a toggle-active ability, show if it's active
 	else if(click_to_activate && owner.click_intercept == src)
-		stat_panel_data[PANEL_DISPLAY_STATUS] = "ACTIVE"
+		stat_panel_data[PANEL_DISPLAY_STATUS] = "АКТИВНО"
 
 	// It's on cooldown, show the cooldown
 	else if(time_remaining_in_seconds > 0)
-		stat_panel_data[PANEL_DISPLAY_STATUS] = "CD - [time_remaining_in_seconds]s / [cooldown_time_in_seconds]s"
+		stat_panel_data[PANEL_DISPLAY_STATUS] = "ПЕРЕЗАРЯДКА - [time_remaining_in_seconds]с / [cooldown_time_in_seconds]с"
 
 	// It's not on cooldown, show that it is ready
 	else
-		stat_panel_data[PANEL_DISPLAY_STATUS] = "READY"
+		stat_panel_data[PANEL_DISPLAY_STATUS] = "ГОТОВО"
 
 	SEND_SIGNAL(src, COMSIG_ACTION_SET_STATPANEL, stat_panel_data)
 
 	return stat_panel_data
-
-#undef COOLDOWN_NO_DISPLAY_TIME

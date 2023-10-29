@@ -1,41 +1,53 @@
 /obj/machinery/vending/assist
-	name = "\improper Part-Mart"
-	desc = "All the finest of miscellaneous electronics one could ever need! Not responsible for any injuries caused by reckless misuse of parts."
+	name = "Амперка"
+	desc = "Вся самая лучшая электроника, которая только может понадобиться! Не несет ответственности за любые травмы, вызванные неосторожным использованием деталей."
 	icon_state = "parts"
 	icon_deny = "parts-deny"
-	panel_type = "panel10"
 	products = list(
-		/obj/item/assembly/igniter = 3,
 		/obj/item/assembly/prox_sensor = 5,
-		/obj/item/assembly/signaler = 4,
+		/obj/item/assembly/igniter = 5,
+		/obj/item/assembly/signaler = 10,
+		/obj/item/wirecutters = 5,
+		/obj/item/crowbar = 5,
+		/obj/item/screwdriver = 5,
+		/obj/item/weldingtool = 5,
+		/obj/item/wrench = 5,
+		/obj/item/multitool =5,
 		/obj/item/computer_disk/ordnance = 4,
-		/obj/item/stock_parts/capacitor = 3,
-		/obj/item/stock_parts/servo = 3,
-		/obj/item/stock_parts/matter_bin = 3,
-		/obj/item/stock_parts/micro_laser = 3,
-		/obj/item/stock_parts/scanning_module = 3,
-		/obj/item/wirecutters = 1,
+		/obj/item/stock_parts/matter_bin/adv = 30,
+		/obj/item/stock_parts/manipulator/nano = 30,
+		/obj/item/stock_parts/micro_laser/high = 30,
+		/obj/item/stock_parts/scanning_module/adv = 30,
+		/obj/item/stock_parts/capacitor/adv = 30,
+		/obj/item/assembly/timer = 20,
+		/obj/item/assembly/voice = 20,
+		/obj/item/assembly/health = 20,
+		/obj/item/stock_parts/cell/high = 10,
+		/obj/item/storage/belt/utility = 2
 	)
 	contraband = list(
-		/obj/item/assembly/health = 2,
-		/obj/item/assembly/timer = 2,
-		/obj/item/assembly/voice = 2,
-		/obj/item/stock_parts/cell/high = 1,
+		/obj/item/stock_parts/capacitor/super = 10,
+		/obj/item/stock_parts/scanning_module/phasic = 10,
+		/obj/item/stock_parts/manipulator/pico = 10,
+		/obj/item/stock_parts/micro_laser/ultra = 10,
+		/obj/item/stock_parts/matter_bin/super = 10,
 	)
 	premium = list(
-		/obj/item/assembly/igniter/condenser = 2,
-		/obj/item/circuitboard/machine/vendor = 3,
-		/obj/item/universal_scanner = 3,
+		/obj/item/price_tagger = 3,
 		/obj/item/vending_refill/custom = 3,
+		/obj/item/circuitboard/machine/vendor = 3,
+		/obj/item/assembly/igniter/condenser = 2,
+		/obj/item/screwdriver/power/orange = 1,
+		/obj/item/multitool/tricorder = 1
 	)
 
 	refill_canister = /obj/item/vending_refill/assist
-	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
-	default_price = PAYCHECK_CREW * 0.7 //Default of 35.
-	extra_price = PAYCHECK_CREW
+	product_ads = "Только лучшее!;Купи инструменты.;Самое надежное оборудование.;Лучшие штуки во всём космосе!"
+	default_price = PAYCHECK_ASSISTANT * 0.1
+	extra_price = PAYCHECK_EASY
 	payment_department = NO_FREEBIES
-	light_mask = "parts-light-mask"
+	light_mask = "generic-light-mask"
 
 /obj/item/vending_refill/assist
-	machine_name = "Part-Mart"
-	icon_state = "refill_parts"
+	machine_name = "Амперка"
+	icon_state = "refill_engi"

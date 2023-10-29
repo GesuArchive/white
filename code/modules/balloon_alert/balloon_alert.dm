@@ -8,17 +8,11 @@
 /// The amount of characters needed before this increase takes into effect
 #define BALLOON_TEXT_CHAR_LIFETIME_INCREASE_MIN 10
 
-/**
- * Creates text that will float from the atom upwards to the viewer.
- *
- * Args:
- * * mob/viewer: The mob the text will be shown to. Nullable (But only in the form of it won't runtime).
- * * text: The text to be shown to viewer. Must not be null.
- */
+/// Creates text that will float from the atom upwards to the viewer.
 /atom/proc/balloon_alert(mob/viewer, text)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	INVOKE_ASYNC(src, PROC_REF(balloon_alert_perform), viewer, text)
+	INVOKE_ASYNC(src, PROC_REF(balloon_alert_perform), viewer, replacetext(text, "the ", ""))
 
 /// Create balloon alerts (text that floats up) to everything within range.
 /// Will only display to people who can see.
@@ -39,8 +33,7 @@
 // I would've made the maptext_height update on its own, but I don't know
 // if this would look bad on laggy clients.
 /atom/proc/balloon_alert_perform(mob/viewer, text)
-
-	var/client/viewer_client = viewer?.client
+	var/client/viewer_client = viewer.client
 	if (isnull(viewer_client))
 		return
 
@@ -60,12 +53,16 @@
 
 	viewer_client?.images += balloon_alert
 
-	var/length_mult = 1 + max(0, length(strip_html_full(text)) - BALLOON_TEXT_CHAR_LIFETIME_INCREASE_MIN) * BALLOON_TEXT_CHAR_LIFETIME_INCREASE_MULT
+	var/duration_mult = 1
+	var/duration_length = length(text) - BALLOON_TEXT_CHAR_LIFETIME_INCREASE_MIN
+
+	if(duration_length > 0)
+		duration_mult += duration_length*BALLOON_TEXT_CHAR_LIFETIME_INCREASE_MULT
 
 	animate(
 		balloon_alert,
 		pixel_y = world.icon_size * 1.2,
-		time = BALLOON_TEXT_TOTAL_LIFETIME(length_mult),
+		time = BALLOON_TEXT_TOTAL_LIFETIME(1),
 		easing = SINE_EASING | EASE_OUT,
 	)
 
@@ -78,7 +75,7 @@
 
 	animate(
 		alpha = 0,
-		time = BALLOON_TEXT_FULLY_VISIBLE_TIME * length_mult,
+		time = BALLOON_TEXT_FULLY_VISIBLE_TIME*duration_mult,
 		easing = CUBIC_EASING | EASE_IN,
 	)
 
@@ -86,8 +83,8 @@
 	// These two timers are not the same
 	// One manages the relation to the atom that spawned us, the other to the client we're displaying to
 	// We could lose our loc, and still need to talk to our client, so they are done seperately
-	addtimer(CALLBACK(balloon_alert.loc, PROC_REF(forget_balloon_alert), balloon_alert), BALLOON_TEXT_TOTAL_LIFETIME(length_mult))
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_image_from_client), balloon_alert, viewer_client), BALLOON_TEXT_TOTAL_LIFETIME(length_mult))
+	addtimer(CALLBACK(balloon_alert.loc, PROC_REF(forget_balloon_alert), balloon_alert), BALLOON_TEXT_TOTAL_LIFETIME(duration_mult))
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_image_from_client), balloon_alert, viewer_client), BALLOON_TEXT_TOTAL_LIFETIME(duration_mult))
 
 /atom/proc/forget_balloon_alert(image/balloon_alert)
 	LAZYREMOVE(update_on_z, balloon_alert)

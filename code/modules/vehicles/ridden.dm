@@ -10,9 +10,9 @@
 	. = ..()
 	if(key_type)
 		if(!inserted_key)
-			. += span_notice("Put a key inside it by clicking it with the key.")
+			. += "<hr><span class='notice'>Put a key inside it by clicking it with the key.</span>"
 		else
-			. += span_notice("Alt-click [src] to remove the key.")
+			. += "<hr><span class='notice'>ПКМ [src] to remove the key.</span>"
 
 /obj/vehicle/ridden/generate_action_type(actiontype)
 	var/datum/action/vehicle/ridden/A = ..()
@@ -34,21 +34,23 @@
 	if(!user.transferItemToLoc(I, src))
 		to_chat(user, span_warning("[I] seems to be stuck to your hand!"))
 		return
-	to_chat(user, span_notice("You insert \the [I] into \the [src]."))
-	if(inserted_key) //just in case there's an invalid key
+	to_chat(user, span_notice("You insert [I] into <b>[src.name]</b>."))
+	if(inserted_key)	//just in case there's an invalid key
 		inserted_key.forceMove(drop_location())
 	inserted_key = I
+	key_inserted()
 
 /obj/vehicle/ridden/AltClick(mob/user)
-	if(!inserted_key || !user.can_perform_action(src, NEED_DEXTERITY))
+	if(!inserted_key || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !issilicon(user)))
 		return ..()
 	if(!is_occupant(user))
-		to_chat(user, span_warning("You must be riding the [src] to remove [src]'s key!"))
+		to_chat(user, span_warning("You must be riding the [src] to remove [src] key!"))
 		return
-	to_chat(user, span_notice("You remove \the [inserted_key] from \the [src]."))
+	to_chat(user, span_notice("You remove [inserted_key] from <b>[src.name]</b>."))
 	inserted_key.forceMove(drop_location())
 	user.put_in_hands(inserted_key)
 	inserted_key = null
+	key_removed()
 
 /obj/vehicle/ridden/user_buckle_mob(mob/living/M, mob/user, check_loc = TRUE)
 	if(!in_range(user, src) || !in_range(M, src))
@@ -68,3 +70,9 @@
 /obj/vehicle/ridden/zap_act(power, zap_flags)
 	zap_buckle_check(power)
 	return ..()
+
+/obj/vehicle/ridden/proc/key_inserted()
+	return
+
+/obj/vehicle/ridden/proc/key_removed()
+	return

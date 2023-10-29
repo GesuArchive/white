@@ -1,11 +1,12 @@
 
+
 /*****BRUTE*****/
 //oops no theme - standard reactions with no whistles
 
 /datum/chemical_reaction/medicine/helbital
 	results = list(/datum/reagent/medicine/c2/helbital = 3)
 	required_reagents = list(/datum/reagent/consumable/sugar = 1, /datum/reagent/fluorine = 1, /datum/reagent/carbon = 1)
-	mix_message = "The mixture turns into a thick, yellow powder."
+	mix_message = "Смесь превращается в густой желтый порошок."
 	//FermiChem vars:
 	required_temp = 250
 	optimal_temp = 1000
@@ -33,7 +34,7 @@
 			new /obj/effect/hotspot(holder.my_atom.loc)
 			holder.remove_reagent(/datum/reagent/medicine/c2/helbital, 2)
 			holder.chem_temp += 5
-			holder.my_atom.audible_message(span_notice("[icon2html(holder.my_atom, viewers(DEFAULT_MESSAGE_RANGE, src))] The impurity of the reacting helbital is too great causing [holder.my_atom] to let out a hearty burst of flame, evaporating part of the product!"))
+			holder.my_atom.audible_message(span_notice("[icon2html(holder.my_atom, viewers(DEFAULT_MESSAGE_RANGE, src))] The impurity of the reacting helbital is too great causing the [src] to let out a hearty burst of flame, evaporating part of the product!"))
 
 /datum/chemical_reaction/medicine/helbital/overheated(datum/reagents/holder, datum/equilibrium/equilibrium, step_volume_added)
 	. = ..()//drains product
@@ -129,7 +130,7 @@
 	. = ..()
 	for(var/mob/living/living_mob in orange(3, get_turf(holder.my_atom)))
 		if(living_mob.flash_act(1, length = 5))
-			living_mob.set_eye_blur(20 SECONDS)
+			living_mob.set_blurriness(10)
 	holder.my_atom.audible_message(span_notice("[icon2html(holder.my_atom, viewers(DEFAULT_MESSAGE_RANGE, src))] The [holder.my_atom] lets out a loud bang!"))
 	playsound(holder.my_atom, 'sound/effects/explosion1.ogg', 50, 1)
 
@@ -167,7 +168,7 @@
 	results = list(/datum/reagent/medicine/c2/convermol = 3)
 	required_reagents = list(/datum/reagent/hydrogen = 1, /datum/reagent/fluorine = 1, /datum/reagent/fuel/oil = 1)
 	required_temp = 370
-	mix_message = "The mixture rapidly turns into a dense pink liquid."
+	mix_message = "Смесь быстро превращается в густо-розовую жидкость."
 	optimal_temp = 420
 	overheat_temp = 570 //Ash will be created before this - so it's pretty rare that overheat is actually triggered
 	optimal_ph_min = 3.045 //Rigged to blow once without oxygen
@@ -178,7 +179,7 @@
 	thermic_constant = 15
 	H_ion_release = -1
 	rate_up_lim = 50
-	purity_min = 0.25
+	purity_min = 0.4
 	reaction_flags = REACTION_PH_VOL_CONSTANT
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_HEALING | REACTION_TAG_OXY
 
@@ -200,10 +201,7 @@
 /datum/chemical_reaction/medicine/convermol/overly_impure(datum/reagents/holder, datum/equilibrium/equilibrium, step_volume_added)
 	. = ..()
 	overheated(holder, equilibrium, impure = TRUE)
-	if(holder.has_reagent(/datum/reagent/oxygen))
-		clear_reactants(holder, step_volume_added*2)
-	else
-		clear_reactants(holder)
+	clear_reactants(holder, step_volume_added*2)
 
 
 /datum/chemical_reaction/medicine/tirimol
@@ -272,22 +270,29 @@
 	reaction_flags = REACTION_PH_VOL_CONSTANT | REACTION_CLEAR_INVERSE
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_HEALING | REACTION_TAG_TOXIN
 
+/datum/chemical_reaction/medicine/seiver/overly_impure(datum/reagents/holder, datum/equilibrium/equilibrium, step_volume_added)
+	if(off_cooldown(holder, equilibrium, 1, "seiver_rads"))
+		return
+	var/modifier = max((100 - holder.chem_temp)*0.025, 0)*step_volume_added //0 - 5 * volume based off temperature(colder is more)
+	radiation_pulse(holder.my_atom, modifier, 0.5, can_contaminate=FALSE) //Please advise on this, I don't have a good handle on the numbers
+
 /datum/chemical_reaction/medicine/multiver
 	results = list(/datum/reagent/medicine/c2/multiver = 2)
 	required_reagents = list(/datum/reagent/ash = 1, /datum/reagent/consumable/salt = 1)
-	mix_message = "The mixture yields a fine black powder."
+	mix_message = "Смесь превращается в мелкий черный порошок."
 	required_temp = 380
 	optimal_temp = 400
 	overheat_temp = 410
-	optimal_ph_min = 5
-	optimal_ph_max = 9.5
+	optimal_ph_min = 2.5
+	optimal_ph_max = 7
 	determin_ph_range = 4
-	temp_exponent_factor = 0.1
+	temp_exponent_factor = 0.5
 	ph_exponent_factor = 1
 	thermic_constant = 0
-	H_ion_release = 0.015
-	rate_up_lim = 10
+	H_ion_release = 0
+	rate_up_lim = 25
 	purity_min = 0.1 //Fire is our worry for now
+	reaction_flags = REACTION_REAL_TIME_SPLIT | REACTION_PH_VOL_CONSTANT
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_HEALING | REACTION_TAG_PLANT | REACTION_TAG_TOXIN
 
 //You get nothing! I'm serious about staying under the heating requirements!

@@ -1,0 +1,896 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aT" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"bl" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 1
+	},
+/obj/structure/flora/rock/pile{
+	pixel_y = -9;
+	pixel_x = -8
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"cd" = (
+/obj/structure/flora/junglebush/large,
+/obj/structure/flora/rock/pile/largejungle,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"cx" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central/low_level_centre)
+"dg" = (
+/obj/structure/flora/grass/jungle{
+	pixel_y = 17;
+	pixel_x = 10
+	},
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"dP" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 9
+	},
+/area/hallway/primary/central/low_level_centre)
+"ea" = (
+/obj/structure/flora/ausbushes/sparsegrass{
+	pixel_y = 8
+	},
+/obj/effect/overlay/palmtree_l{
+	pixel_x = 12;
+	pixel_y = -2
+	},
+/obj/effect/turf_decal/weather/sand{
+	dir = 6
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"fk" = (
+/turf/template_noop,
+/area/template_noop)
+"fl" = (
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new,
+/obj/structure/flora/tree/jungle/small,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"hf" = (
+/obj/structure/flora/junglebush/b{
+	pixel_y = 6;
+	pixel_x = 7
+	},
+/obj/structure/flora/rock/jungle{
+	pixel_y = -16;
+	pixel_x = -10
+	},
+/obj/effect/turf_decal/weather/sand{
+	dir = 6
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"io" = (
+/obj/item/kirbyplants{
+	icon_state = "plant-21"
+	},
+/turf/template_noop,
+/area/template_noop)
+"jD" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 10
+	},
+/area/hallway/primary/central/low_level_centre)
+"kY" = (
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new,
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"lm" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/ausbushes/palebush{
+	pixel_y = -8;
+	pixel_x = 6
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"nA" = (
+/obj/structure/fluff/hedge,
+/turf/open/floor/plasteel/dark/corner,
+/area/hallway/primary/central/low_level_centre)
+"nS" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/flora/junglebush/c{
+	pixel_y = 10;
+	pixel_x = 5
+	},
+/obj/effect/turf_decal/weather/sand{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 10
+	},
+/obj/structure/window/reinforced,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"of" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"ou" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/ywflowers{
+	pixel_y = -9;
+	pixel_x = 7
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"oO" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"ql" = (
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"rZ" = (
+/obj/item/kirbyplants{
+	icon_state = "plant-21"
+	},
+/obj/effect/turf_decal/tile/blue,
+/turf/template_noop,
+/area/template_noop)
+"sn" = (
+/obj/structure/flora/grass/brown,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"sB" = (
+/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/west,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 10
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"td" = (
+/mob/living/simple_animal/crab{
+	name = "Eddie"
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"up" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/flora/grass/jungle{
+	pixel_y = -8;
+	pixel_x = -5
+	},
+/obj/effect/turf_decal/weather/sand{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 5
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"xp" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/reedbush,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"xD" = (
+/obj/item/kirbyplants{
+	icon_state = "plant-21"
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"Aw" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 9
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"AK" = (
+/obj/structure/flora/tree/palm{
+	pixel_y = 3;
+	pixel_x = -21
+	},
+/obj/effect/overlay/coconut{
+	pixel_x = -22
+	},
+/obj/structure/flora/ausbushes/brflowers,
+/obj/effect/turf_decal/weather/sand{
+	dir = 9
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"Bl" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/fullgrass{
+	pixel_y = 19;
+	pixel_x = 13
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/turf_decal/weather/sand{
+	dir = 1
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"Bx" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner,
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"Cd" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 9
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"Cs" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 6
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"CA" = (
+/obj/structure/fluff/hedge,
+/turf/open/floor/plasteel/dark/corner{
+	dir = 4
+	},
+/area/hallway/primary/central/low_level_centre)
+"DQ" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 4
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"DX" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/obj/structure/flora/grass/jungle{
+	pixel_y = -21;
+	pixel_x = 28
+	},
+/mob/living/simple_animal/crab{
+	name = "Eddie"
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"Hm" = (
+/obj/structure/window/reinforced,
+/obj/structure/flora/rock{
+	pixel_x = 4;
+	pixel_y = 22
+	},
+/obj/structure/flora/ausbushes/sunnybush{
+	pixel_y = 6;
+	pixel_x = 9
+	},
+/obj/effect/turf_decal/weather/sand{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 10
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"HQ" = (
+/obj/structure/fluff/hedge,
+/turf/open/floor/plasteel/dark/corner{
+	dir = 8
+	},
+/area/hallway/primary/central/low_level_centre)
+"IP" = (
+/obj/machinery/light/floor,
+/obj/machinery/light/floor/directional/east,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 6
+	},
+/obj/structure/flora/rock/pile{
+	pixel_y = 12;
+	pixel_x = -10
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"Kg" = (
+/obj/structure/flora/rock/jungle,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"Km" = (
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"Kp" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 8
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"LW" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/pointybush{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/obj/effect/turf_decal/weather/sand,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"Nu" = (
+/obj/structure/flora/junglebush{
+	pixel_y = -9;
+	pixel_x = 13
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"Ny" = (
+/turf/open/floor/plasteel/monofloor/dark,
+/area/hallway/primary/central/low_level_centre)
+"PL" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central/low_level_centre)
+"PY" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 4
+	},
+/obj/structure/flora/rock/jungle,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"QD" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/obj/structure/flora/rock/jungle{
+	pixel_y = -16;
+	pixel_x = 5
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"QP" = (
+/obj/effect/turf_decal/weather/sand{
+	dir = 9
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"QU" = (
+/obj/machinery/light/floor/directional/north,
+/obj/machinery/light/floor/directional/east,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 5
+	},
+/obj/structure/flora/ausbushes/brflowers{
+	pixel_y = -11;
+	pixel_x = -17
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"Rw" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
+/area/hallway/primary/central/low_level_centre)
+"RO" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 5
+	},
+/obj/structure/flora/rock/pile{
+	pixel_y = -27;
+	pixel_x = -16
+	},
+/obj/structure/flora/ausbushes/leafybush,
+/obj/effect/turf_decal/weather/sand,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"Tp" = (
+/obj/structure/fluff/hedge,
+/turf/template_noop,
+/area/template_noop)
+"UB" = (
+/obj/structure/flora/tree/jungle,
+/obj/effect/landmark/observer_start,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"Vh" = (
+/obj/machinery/light/floor/directional/north,
+/obj/machinery/light/floor/directional/west,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 9
+	},
+/obj/item/toy/seashell{
+	pixel_y = -7;
+	pixel_x = 12
+	},
+/turf/open/floor/plating/beach/sand,
+/area/hallway/primary/central/low_level_centre)
+"VF" = (
+/obj/structure/flora/junglebush/b{
+	pixel_x = 15
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"VI" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"Wt" = (
+/obj/structure/flora/grass/jungle{
+	pixel_y = 1;
+	pixel_x = 5
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_y = 6;
+	pixel_x = -14
+	},
+/obj/effect/turf_decal/weather/sand{
+	dir = 6
+	},
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"Ww" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/hallway/primary/central/low_level_centre)
+"WA" = (
+/obj/structure/flora/ausbushes/grassybush,
+/turf/open/floor/grass,
+/area/hallway/primary/central/low_level_centre)
+"YS" = (
+/obj/structure/fluff/hedge,
+/turf/open/floor/plasteel/dark/corner{
+	dir = 1
+	},
+/area/hallway/primary/central/low_level_centre)
+
+(1,1,1) = {"
+Tp
+fk
+fk
+Tp
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+Tp
+fk
+fk
+Tp
+"}
+(2,1,1) = {"
+Tp
+fk
+fk
+io
+Tp
+Tp
+Tp
+rZ
+fk
+fk
+xD
+Tp
+Tp
+Tp
+io
+fk
+fk
+Tp
+"}
+(3,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+"}
+(4,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+"}
+(5,1,1) = {"
+Tp
+fk
+fk
+fk
+fk
+PL
+dP
+YS
+Aw
+Hm
+HQ
+jD
+cx
+fk
+fk
+fk
+fk
+Tp
+"}
+(6,1,1) = {"
+Tp
+fk
+fk
+fk
+fk
+dP
+Vh
+Kp
+bl
+Bl
+ou
+sB
+jD
+fk
+fk
+fk
+fk
+Tp
+"}
+(7,1,1) = {"
+Tp
+fk
+fk
+fk
+fk
+YS
+DX
+Nu
+AK
+Km
+Km
+fl
+HQ
+fk
+fk
+fk
+fk
+Tp
+"}
+(8,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+Cd
+aT
+QP
+WA
+VF
+of
+oO
+nS
+fk
+fk
+fk
+fk
+fk
+"}
+(9,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+QD
+QP
+Km
+Km
+UB
+dg
+Wt
+ql
+fk
+fk
+fk
+fk
+fk
+"}
+(10,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+up
+PY
+Km
+lm
+sn
+hf
+Bx
+Cs
+fk
+fk
+fk
+fk
+fk
+"}
+(11,1,1) = {"
+Tp
+fk
+fk
+fk
+fk
+CA
+VI
+cd
+Kg
+ea
+td
+kY
+nA
+fk
+fk
+fk
+fk
+Tp
+"}
+(12,1,1) = {"
+Tp
+fk
+fk
+fk
+fk
+Rw
+QU
+xp
+LW
+Bx
+DQ
+IP
+Ww
+fk
+fk
+fk
+fk
+Tp
+"}
+(13,1,1) = {"
+Tp
+fk
+fk
+fk
+fk
+Ny
+Rw
+CA
+RO
+Cs
+nA
+Ww
+Ny
+fk
+fk
+fk
+fk
+Tp
+"}
+(14,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+"}
+(15,1,1) = {"
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+"}
+(16,1,1) = {"
+Tp
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+fk
+Tp
+"}
+(17,1,1) = {"
+Tp
+fk
+fk
+Tp
+fk
+fk
+fk
+Tp
+fk
+fk
+Tp
+fk
+fk
+fk
+Tp
+fk
+fk
+Tp
+"}

@@ -1,13 +1,13 @@
-#define PAINTINGS_DATA_FORMAT_VERSION 3
+#define PAINTINGS_DATA_FORMAT_VERSION 2
 
 // Patronage thresholds for paintings. Different cosmetic frames become available as more credits are spent on the patronage.
-#define PATRONAGE_OK_FRAME (PAYCHECK_CREW * 3) // 150 credits, as of march 2022
-#define PATRONAGE_NICE_FRAME (PATRONAGE_OK_FRAME * 2.5)
-#define PATRONAGE_GREAT_FRAME (PATRONAGE_NICE_FRAME * 2)
-#define PATRONAGE_EXCELLENT_FRAME (PATRONAGE_GREAT_FRAME * 2)
-#define PATRONAGE_AMAZING_FRAME (PATRONAGE_EXCELLENT_FRAME * 2)
-#define PATRONAGE_SUPERB_FRAME (PATRONAGE_AMAZING_FRAME * 2)
-#define PATRONAGE_LEGENDARY_FRAME (PATRONAGE_SUPERB_FRAME * 2)
+#define PATRONAGE_OK_FRAME PAYCHECK_ASSISTANT * 3 // 150 credits, as of early 2022
+#define PATRONAGE_NICE_FRAME PATRONAGE_OK_FRAME * 2.5
+#define PATRONAGE_GREAT_FRAME PATRONAGE_NICE_FRAME * 2
+#define PATRONAGE_EXCELLENT_FRAME PATRONAGE_GREAT_FRAME * 2
+#define PATRONAGE_AMAZING_FRAME PATRONAGE_EXCELLENT_FRAME * 2
+#define PATRONAGE_SUPERB_FRAME PATRONAGE_AMAZING_FRAME * 2
+#define PATRONAGE_LEGENDARY_FRAME PATRONAGE_SUPERB_FRAME * 2
 
 /*
 {
@@ -196,11 +196,6 @@ SUBSYSTEM_DEF(persistent_paintings)
 		current_data =  migrate_to_version_1(current_data)
 	if(version < 2) //Makes sure old paintings get a cosmetic frame type from their patronage tiers.
 		current_data =  migrate_to_version_2(current_data)
-	if(version < 3) //Reduces the allowed length of titles from 1000 characters circa to 42.
-		current_data["version"] = 3
-		var/old_title = current_data["title"]
-		var/new_title = reject_bad_name(old_title, allow_numbers = TRUE, ascii_only = FALSE, strict = TRUE, cap_after_symbols = FALSE)
-		current_data["title"] = new_title || "Illegibly Titled Artwork"
 
 	return current_data
 
@@ -310,7 +305,6 @@ SUBSYSTEM_DEF(persistent_paintings)
 	fdel(json_file)
 	WRITE_FILE(json_file, payload)
 
-#undef PAINTINGS_DATA_FORMAT_VERSION
 #undef PATRONAGE_OK_FRAME
 #undef PATRONAGE_NICE_FRAME
 #undef PATRONAGE_GREAT_FRAME
@@ -318,4 +312,3 @@ SUBSYSTEM_DEF(persistent_paintings)
 #undef PATRONAGE_AMAZING_FRAME
 #undef PATRONAGE_SUPERB_FRAME
 #undef PATRONAGE_LEGENDARY_FRAME
-

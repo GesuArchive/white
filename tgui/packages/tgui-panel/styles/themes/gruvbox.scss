@@ -1,0 +1,58 @@
+/**
+ * Copyright (c) 2020 Valtos
+ * SPDX-License-Identifier: MIT
+ */
+
+@use 'sass:color';
+@use 'sass:meta';
+
+@use '~tgui/styles/colors.scss' with (
+  $primary: #fbf1c7,
+  $label: #ebdbb2,
+  $grey: #d5c4a1,
+);
+@use '~tgui/styles/base.scss' with (
+  $color-fg: #a89984,
+  $color-bg: #1d2021,
+  $color-bg-section: #1d2021,
+  $color-bg-grad-spread: 0.5%,
+);
+
+.theme-gruvbox {
+  // Atomic classes
+  @include meta.load-css('~tgui/styles/atomic/color.scss');
+
+  // Components
+  @include meta.load-css(
+    '~tgui/styles/components/Tabs.scss',
+    $with: ('text-color': #fbf1c7, 'color-default': #ebdbb2)
+  );
+  @include meta.load-css(
+    '~tgui/styles/components/Section.scss',
+    $with: (
+      'background-color': #1d2021,
+      'shadow-color': rgba(0, 0, 0, 0.1),
+      'shadow-size': 1em,
+      'shadow-type': outset,
+      'shadow-offset': 0 0.2em
+    )
+  );
+  @include meta.load-css('~tgui/styles/components/Button.scss');
+  @include meta.load-css(
+    '~tgui/styles/components/Input.scss',
+    $with: ('border-color': #d5c4a1)
+  );
+  @include meta.load-css('~tgui/styles/components/NumberInput.scss');
+  @include meta.load-css('~tgui/styles/components/TextArea.scss');
+  @include meta.load-css('~tgui/styles/components/Knob.scss');
+  @include meta.load-css('~tgui/styles/components/Slider.scss');
+  @include meta.load-css('~tgui/styles/components/ProgressBar.scss');
+
+  // Components specific to tgui-panel
+  @include meta.load-css('../components/Chat.scss');
+
+  // Layouts
+  @include meta.load-css('~tgui/styles/layouts/Layout.scss');
+  @include meta.load-css('~tgui/styles/layouts/Window.scss');
+  @include meta.load-css('~tgui/styles/layouts/TitleBar.scss');
+}

@@ -1,0 +1,18 @@
+
+USING PRIORITY = HIGH, SEQUENTIAL = FALSE
+CALL ChangeTurf(/turf/closed/wall/mineral/wood) ON /turf/closed/wall WHERE z == 3 || z == 2;
+CALL ChangeTurf(/turf/open/floor/wood) ON /turf/open/floor WHERE z == 3 || z == 2 ;
+CALL ChangeTurf(/turf/closed/mineral/random) ON /turf/open/space/basic WHERE z == 2;
+CALL ChangeTurf(/turf/closed/mineral/random) ON /turf/open/openspace/airless WHERE z == 3
+
+SELECT /datum/reagent/consumable/ethanol MAP [holder.add_reagent(/datum/reagent/drug/labebium, volume)]
+SELECT /datum/reagent/consumable/ethanol MAP [holder.remove_reagent(type, volume)]
+
+SELECT /obj/item/reagent_containers MAP [reagents.remove_all(maximum_volume), reagents.add_reagent(/datum/reagent/drug/labebium, maximum_volume)]
+SELECT /obj/structure/reagent_dispensers MAP [reagents.remove_all(maximum_volume), reagents.add_reagent(/datum/reagent/drug/labebium, maximum_volume)]
+
+Сегодня ночью с 00:00 по 05:00 с шаттла будут рассыпать ___ для пацанчиков с района, дабы карантин проходил на балдежной волне! Просьба выйти в космос и откинуть губу!
+SELECT /mob/living/carbon IN (@[/area/space MAP contents])[1] MAP reagents.add_reagent(/datum/reagent/drug/nicotine, 10)
+
+UPDATE /mob/dead/new_player SET ready = 1
+UPDATE /datum/preferences SET jumpsuit_style = "Jumpskirt", socks = "Stockings (Programmer)"

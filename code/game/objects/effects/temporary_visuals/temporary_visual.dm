@@ -1,4 +1,4 @@
-///temporary visual effects
+//temporary visual effects
 /obj/effect/temp_visual
 	icon_state = "nothing"
 	anchored = TRUE
@@ -17,7 +17,12 @@
 	if(randomdir)
 		setDir(pick(GLOB.cardinals))
 
-	timerid = QDEL_IN_STOPPABLE(src, duration)
+	timerid = QDEL_IN(src, duration)
+
+/obj/effect/temp_visual/proc/reset_timer(time)
+	deltimer(timerid)
+	duration = isnull(time) ? initial(duration) : time
+	timerid = QDEL_IN(src, duration)
 
 /obj/effect/temp_visual/Destroy()
 	. = ..()

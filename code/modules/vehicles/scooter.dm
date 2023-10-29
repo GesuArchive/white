@@ -1,6 +1,6 @@
 /obj/vehicle/ridden/scooter
-	name = "scooter"
-	desc = "A fun way to get around."
+	name = "скутер"
+	desc = "Интересный способ передвижения."
 	icon_state = "scooter"
 	are_legs_exposed = TRUE
 
@@ -72,7 +72,6 @@
 /obj/vehicle/ridden/scooter/skateboard/generate_actions()
 	. = ..()
 	initialize_controller_action_type(/datum/action/vehicle/ridden/scooter/skateboard/ollie, VEHICLE_CONTROL_DRIVE)
-	initialize_controller_action_type(/datum/action/vehicle/ridden/scooter/skateboard/kickflip, VEHICLE_CONTROL_DRIVE)
 
 /obj/vehicle/ridden/scooter/skateboard/post_buckle_mob(mob/living/M)//allows skateboards to be non-dense but still allows 2 skateboarders to collide with each other
 	set_density(TRUE)
@@ -83,39 +82,27 @@
 		set_density(FALSE)
 	return ..()
 
-/obj/vehicle/ridden/scooter/skateboard/Bump(atom/bumped_thing)
+/obj/vehicle/ridden/scooter/skateboard/Bump(atom/A)
 	. = ..()
-	if(!bumped_thing.density || !has_buckled_mobs() || world.time < next_crash)
+	if(!A.density || !has_buckled_mobs() || world.time < next_crash)
 		return
 
 	next_crash = world.time + 10
 	var/mob/living/rider = buckled_mobs[1]
 	rider.adjustStaminaLoss(instability*6)
 	playsound(src, 'sound/effects/bang.ogg', 40, TRUE)
-	if(!iscarbon(rider) || rider.getStaminaLoss() >= 100 || grinding || iscarbon(bumped_thing))
+	if(!iscarbon(rider) || rider.getStaminaLoss() >= 100 || grinding)
 		var/atom/throw_target = get_edge_target_turf(rider, pick(GLOB.cardinals))
 		unbuckle_mob(rider)
-		if((istype(bumped_thing, /obj/machinery/disposal/bin)))
-			rider.Paralyze(8 SECONDS)
-			rider.forceMove(bumped_thing)
-			forceMove(bumped_thing)
-			visible_message(span_danger("[src] crashes into [bumped_thing], and gets dumped straight into it!"))
-			return
 		rider.throw_at(throw_target, 3, 2)
 		var/head_slot = rider.get_item_by_slot(ITEM_SLOT_HEAD)
-		if(!head_slot || !(istype(head_slot,/obj/item/clothing/head/helmet) || istype(head_slot,/obj/item/clothing/head/utility/hardhat)))
+		if(!head_slot || !(istype(head_slot,/obj/item/clothing/head/helmet) || istype(head_slot,/obj/item/clothing/head/hardhat)))
 			rider.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)
 			rider.updatehealth()
-		visible_message(span_danger("[src] crashes into [bumped_thing], sending [rider] flying!"))
-		rider.Paralyze(8 SECONDS)
-		if(iscarbon(bumped_thing))
-			var/mob/living/carbon/victim = bumped_thing
-			var/grinding_mulitipler = 1
-			if(grinding)
-				grinding_mulitipler = 2
-			victim.Knockdown(4 * grinding_mulitipler SECONDS)
+		visible_message(span_danger("[src] врезается в [A], отправляя [rider] полетать!"))
+		rider.Paralyze(80)
 	else
-		var/backdir = REVERSE_DIR(dir)
+		var/backdir = turn(dir, 180)
 		step(src, backdir)
 		rider.spin(4, 1)
 
@@ -129,32 +116,24 @@
 		return
 
 	var/mob/living/skater = buckled_mobs[1]
-	skater.adjustStaminaLoss(instability*0.3)
-	if(skater.getStaminaLoss() >= 100)
+	skater.adjustStaminaLoss(instability*0.5)
+	if (skater.getStaminaLoss() >= 100)
 		obj_flags = CAN_BE_HIT
 		playsound(src, 'sound/effects/bang.ogg', 20, TRUE)
 		unbuckle_mob(skater)
 		var/atom/throw_target = get_edge_target_turf(src, pick(GLOB.cardinals))
 		skater.throw_at(throw_target, 2, 2)
 		visible_message(span_danger("[skater] loses [skater.p_their()] footing and slams on the ground!"))
-		skater.Paralyze(4 SECONDS)
+		skater.Paralyze(40)
 		grinding = FALSE
 		icon_state = "[initial(icon_state)]"
 		return
 	playsound(src, 'sound/vehicles/skateboard_roll.ogg', 50, TRUE)
-	var/turf/location = get_turf(src)
-
-	if(location)
-		if(prob(25))
+	if(prob(25))
+		var/turf/location = get_turf(src)
+		if(location)
 			location.hotspot_expose(1000,1000)
-			sparks.start() //the most radical way to start plasma fires
-	for(var/mob/living/carbon/victim in location)
-		if(victim.body_position == LYING_DOWN)
-			playsound(location, 'sound/items/trayhit2.ogg', 40)
-			victim.apply_damage(damage = 25, damagetype = BRUTE, def_zone = victim.get_random_valid_zone(even_weights = TRUE), wound_bonus = 20)
-			victim.Paralyze(1.5 SECONDS)
-			skater.adjustStaminaLoss(instability)
-			victim.visible_message(span_danger("[victim] straight up gets grinded into the ground by [skater]'s [src]! Radical!"))
+		sparks.start() //the most radical way to start plasma fires
 	addtimer(CALLBACK(src, PROC_REF(grind)), 1)
 
 /obj/vehicle/ridden/scooter/skateboard/MouseDrop(atom/over_object)
@@ -307,7 +286,7 @@
 
 /obj/vehicle/ridden/scooter/skateboard/wheelys/skishoes
 	name = "ski shoes"
-	desc = "A pair of shoes equipped with foldable skis! Very handy to move in snowy environments unimpeded."
+	desc = "Uses patented retractable wheel technology. Never sacrifice speed for style - not that this provides much of either."
 	instability = 8
 	wheel_name = "skis"
 	component_type = /datum/component/riding/vehicle/scooter/skateboard/wheelys/skishoes

@@ -1,8 +1,8 @@
-GLOBAL_LIST(uplink_purchase_logs_by_key) //assoc key = /datum/uplink_purchase_log
+GLOBAL_LIST(uplink_purchase_logs_by_key)	//assoc key = /datum/uplink_purchase_log
 
 /datum/uplink_purchase_log
 	var/owner
-	var/list/purchase_log //assoc path-of-item = /datum/uplink_purchase_entry
+	var/list/purchase_log				//assoc path-of-item = /datum/uplink_purchase_entry
 	var/total_spent = 0
 
 /datum/uplink_purchase_log/New(_owner, datum/component/uplink/_parent)
@@ -43,7 +43,7 @@ GLOBAL_LIST(uplink_purchase_logs_by_key) //assoc key = /datum/uplink_purchase_lo
 	. = ""
 	for(var/hash in purchase_log)
 		var/datum/uplink_purchase_entry/UPE = purchase_log[hash]
-		. += "<span class='tooltip_container'>\[[UPE.icon_b64][show_key?"([owner])":""]<span class='tooltip_hover'><b>[UPE.name]</b><br>[UPE.spent_cost ? "[UPE.spent_cost] TC" : "[UPE.base_cost] TC<br>(Surplus)"]<br>[UPE.desc]</span>[(UPE.amount_purchased > 1) ? "x[UPE.amount_purchased]" : ""]\]</span>"
+		. += span_tooltip_container("\[[UPE.icon_b64][show_key?"([owner])":""]<span class='tooltip_hover'><b>[UPE.name]</b><br>[UPE.spent_cost ? "[UPE.spent_cost] TC" : "[UPE.base_cost] TC<br>(Surplus)"]<br>[UPE.desc]</span>[(UPE.amount_purchased > 1) ? "x[UPE.amount_purchased]" : ""]\]")
 
 /datum/uplink_purchase_log/proc/LogPurchase(atom/A, datum/uplink_item/uplink_item, spent_cost)
 	var/datum/uplink_purchase_entry/UPE

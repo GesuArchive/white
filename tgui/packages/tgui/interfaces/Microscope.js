@@ -11,10 +11,10 @@ export const Microscope = (props, context) => {
       <Window.Content scrollable>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Dish Sample">
+            <LabeledList.Item label="Образец">
               <Button
                 icon="eject"
-                content="Eject"
+                content="Изъять"
                 disabled={!has_dish}
                 onClick={() => act('eject_petridish')}
               />
@@ -27,14 +27,14 @@ export const Microscope = (props, context) => {
             lineHeight="23px"
             selected={tab === 1}
             onClick={() => setTab(1)}>
-            Micro-Organisms ({cell_lines.length})
+            Микро-организмы ({cell_lines.length})
           </Tabs.Tab>
           <Tabs.Tab
             icon="microscope"
             lineHeight="23px"
             selected={tab === 2}
             onClick={() => setTab(2)}>
-            Viruses ({viruses.length})
+            Вирусы ({viruses.length})
           </Tabs.Tab>
         </Tabs>
         {tab === 1 && <Organisms cell_lines={cell_lines} />}
@@ -48,25 +48,25 @@ const Organisms = (props, context) => {
   const { cell_lines } = props;
   const { act, data } = useBackend(context);
   if (!cell_lines.length) {
-    return <NoticeBox>No micro-organisms found</NoticeBox>;
+    return <NoticeBox>Не обнаружено микро-организмов</NoticeBox>;
   }
   return cell_lines.map((cell_line) => {
     return (
       <Section key={cell_line.desc} title={cell_line.desc}>
         <LabeledList>
-          <LabeledList.Item label="Growth Rate">
+          <LabeledList.Item label="Скорость роста">
             {cell_line.growth_rate}
           </LabeledList.Item>
-          <LabeledList.Item label="Virus Suspectibility">
+          <LabeledList.Item label="Подозрительность">
             {cell_line.suspectibility}
           </LabeledList.Item>
-          <LabeledList.Item label="Required Reagents">
+          <LabeledList.Item label="Требуемые реагенты">
             {cell_line.requireds}
           </LabeledList.Item>
-          <LabeledList.Item label="Supplementary Reagents">
+          <LabeledList.Item label="Дополнительные реагенты">
             {cell_line.supplementaries}
           </LabeledList.Item>
-          <LabeledList.Item label="Suppresive reagents">
+          <LabeledList.Item label="Подавляющие реагенты">
             {cell_line.suppressives}
           </LabeledList.Item>
         </LabeledList>
@@ -79,7 +79,7 @@ const Viruses = (props, context) => {
   const { viruses } = props;
   const { act } = useBackend(context);
   if (!viruses.length) {
-    return <NoticeBox>No viruses found</NoticeBox>;
+    return <NoticeBox>Не обнаружено вирусов</NoticeBox>;
   }
   return viruses.map((virus) => {
     return <Section key={virus.desc} title={virus.desc} />;

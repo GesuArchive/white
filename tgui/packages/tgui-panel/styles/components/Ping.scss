@@ -9,7 +9,7 @@ $border-color: rgba(140, 140, 140, 0.5) !default;
 
 .Ping {
   position: relative;
-  padding: 0.125em 0.25em;
+  padding: 0.25em 0.25em;
   border: math.div(1em, 12) solid $border-color;
   border-radius: 0.25em;
   width: 3.75em;
@@ -19,10 +19,10 @@ $border-color: rgba(140, 140, 140, 0.5) !default;
 .Ping__indicator {
   content: '';
   position: absolute;
-  top: 0.5em;
+  top: 0.45em;
   left: 0.5em;
-  width: 0.5em;
-  height: 0.5em;
+  width: 0.75em;
+  height: 0.75em;
   background-color: #888;
-  border-radius: 0.25em;
+  border-radius: 0.75em;
 }

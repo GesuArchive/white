@@ -4,7 +4,7 @@
 //Hierophant: Hierophant Club
 
 #define HIEROPHANT_BLINK_RANGE 5
-#define HIEROPHANT_BLINK_COOLDOWN (15 SECONDS)
+#define HIEROPHANT_BLINK_COOLDOWN 15 SECONDS
 
 /datum/action/innate/dash/hierophant
 	current_charges = 1
@@ -16,37 +16,44 @@
 	// It's a simple purple beam, works well enough for the purple hiero effects.
 	beam_effect = "plasmabeam"
 
-/datum/action/innate/dash/hierophant/teleport(mob/user, atom/target)
+/datum/action/innate/dash/hierophant/Teleport(mob/user, atom/target)
 	var/dist = get_dist(user, target)
 	if(dist > HIEROPHANT_BLINK_RANGE)
-		user.balloon_alert(user, "destination out of range!")
-		return FALSE
+		to_chat(user, span_hierophant_warning("Blink destination out of range."))
+		return
 	var/turf/target_turf = get_turf(target)
 	if(target_turf.is_blocked_turf_ignore_climbable())
-		user.balloon_alert(user, "destination blocked!")
-		return FALSE
-
-	. = ..()
-	var/obj/item/hierophant_club/club = target
-	if(!istype(club))
+		to_chat(user, span_hierophant_warning("Blink destination blocked."))
 		return
-
-	club.update_appearance(UPDATE_ICON_STATE)
+	. = ..()
+	if(!current_charges)
+		var/obj/item/hierophant_club/club = src.target
+		if(istype(club))
+			club.blink_charged = FALSE
+			club.update_appearance()
 
 /datum/action/innate/dash/hierophant/charge()
-	. = ..()
 	var/obj/item/hierophant_club/club = target
-	if(!istype(club))
-		return
+	if(istype(club))
+		club.blink_charged = TRUE
+		club.update_appearance()
 
-	club.update_appearance(UPDATE_ICON_STATE)
+	current_charges = clamp(current_charges + 1, 0, max_charges)
+
+	if(recharge_sound)
+		playsound(dashing_item, recharge_sound, 50, TRUE)
+
+	if(!owner)
+		return
+	owner.update_mob_action_buttons()
+	to_chat(owner, span_notice("[src] now has [current_charges]/[max_charges] charges."))
 
 /obj/item/hierophant_club
 	name = "hierophant club"
 	desc = "The strange technology of this large club allows various nigh-magical teleportation feats. It used to beat you, but now you can set the beat."
 	icon_state = "hierophant_club_ready_beacon"
 	inhand_icon_state = "hierophant_club_ready_beacon"
-	icon = 'icons/obj/mining_zones/artefacts.dmi'
+	icon = 'icons/obj/lavaland/artefacts.dmi'
 	lefthand_file = 'icons/mob/inhands/64x64_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/64x64_righthand.dmi'
 	inhand_x_dimension = 64
@@ -67,15 +74,20 @@
 	var/datum/action/innate/dash/hierophant/blink
 	/// Whether the blink ability is activated. IF TRUE, left clicking a location will blink to it. If FALSE, this is disabled.
 	var/blink_activated = TRUE
+	/// Whether the blink is charged. Set and unset by the blink action. Used as part of setting the appropriate icon states.
+	var/blink_charged = TRUE
 
 /obj/item/hierophant_club/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob)
 	blink = new(src)
 
 /obj/item/hierophant_club/Destroy()
+	. = ..()
 	QDEL_NULL(blink)
-	return ..()
+
+/obj/item/hierophant_club/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
 
 /obj/item/hierophant_club/examine(mob/user)
 	. = ..()
@@ -87,11 +99,11 @@
 	new/obj/effect/temp_visual/hierophant/telegraph(get_turf(user))
 	playsound(user,'sound/machines/airlockopen.ogg', 75, TRUE)
 	user.visible_message(span_hierophant_warning("[user] fades out, leaving [user.p_their()] belongings behind!"))
-	for(var/obj/item/user_item in user)
-		if(user_item != src)
-			user.dropItemToGround(user_item)
-	for(var/turf/blast_turf in RANGE_TURFS(1, user))
-		new /obj/effect/temp_visual/hierophant/blast/visual(blast_turf, user, TRUE)
+	for(var/obj/item/I in user)
+		if(I != src)
+			user.dropItemToGround(I)
+	for(var/turf/T in RANGE_TURFS(1, user))
+		new /obj/effect/temp_visual/hierophant/blast/visual(T, user, TRUE)
 	user.dropItemToGround(src) //Drop us last, so it goes on top of their stuff
 	qdel(user)
 
@@ -101,15 +113,14 @@
 
 /obj/item/hierophant_club/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
-	. |= AFTERATTACK_PROCESSED_ITEM
 	// If our target is the beacon and the hierostaff is next to the beacon, we're trying to pick it up.
 	if((target == beacon) && target.Adjacent(src))
 		return
 	if(blink_activated)
-		blink.teleport(user, target)
+		blink.Teleport(user, target)
 
 /obj/item/hierophant_club/update_icon_state()
-	icon_state = inhand_icon_state = "hierophant_club[blink?.current_charges > 0 ? "_ready":""][(!QDELETED(beacon)) ? "":"_beacon"]"
+	icon_state = inhand_icon_state = "hierophant_club[blink_charged ? "_ready":""][(!QDELETED(beacon)) ? "":"_beacon"]"
 	return ..()
 
 /obj/item/hierophant_club/ui_action_click(mob/user, action)
@@ -121,15 +132,14 @@
 			user.visible_message(span_hierophant_warning("[user] starts fiddling with [src]'s pommel..."), \
 			span_notice("You start detaching the hierophant beacon..."))
 			if(do_after(user, 50, target = user) && !beacon)
-				var/turf/user_turf = get_turf(user)
-				playsound(user_turf,'sound/magic/blind.ogg', 200, TRUE, -4)
-				new /obj/effect/temp_visual/hierophant/telegraph/teleport(user_turf, user)
-				beacon = new/obj/effect/hierophant(user_turf)
+				var/turf/T = get_turf(user)
+				playsound(T,'sound/magic/blind.ogg', 200, TRUE, -4)
+				new /obj/effect/temp_visual/hierophant/telegraph/teleport(T, user)
+				beacon = new/obj/effect/hierophant(T)
 				user.update_mob_action_buttons()
 				user.visible_message(span_hierophant_warning("[user] places a strange machine beneath [user.p_their()] feet!"), \
 				"[span_hierophant("You detach the hierophant beacon, allowing you to teleport yourself and any allies to it at any time!")]\n\
 				[span_notice("You can remove the beacon to place it again by striking it with the club.")]")
-				update_appearance(UPDATE_ICON_STATE)
 		else
 			to_chat(user, span_warning("You need to be on solid ground to detach the beacon!"))
 		return
@@ -147,20 +157,20 @@
 	user.update_mob_action_buttons()
 	user.visible_message(span_hierophant_warning("[user] starts to glow faintly..."))
 	beacon.icon_state = "hierophant_tele_on"
-	var/obj/effect/temp_visual/hierophant/telegraph/edge/user_telegraph = new /obj/effect/temp_visual/hierophant/telegraph/edge(user.loc)
-	var/obj/effect/temp_visual/hierophant/telegraph/edge/beacon_telegraph = new /obj/effect/temp_visual/hierophant/telegraph/edge(beacon.loc)
+	var/obj/effect/temp_visual/hierophant/telegraph/edge/TE1 = new /obj/effect/temp_visual/hierophant/telegraph/edge(user.loc)
+	var/obj/effect/temp_visual/hierophant/telegraph/edge/TE2 = new /obj/effect/temp_visual/hierophant/telegraph/edge(beacon.loc)
 	if(do_after(user, 40, target = user) && user && beacon)
-		var/turf/destination = get_turf(beacon)
+		var/turf/T = get_turf(beacon)
 		var/turf/source = get_turf(user)
-		if(destination.is_blocked_turf(TRUE))
+		if(T.is_blocked_turf(TRUE))
 			teleporting = FALSE
 			to_chat(user, span_warning("The beacon is blocked by something, preventing teleportation!"))
 			user.update_mob_action_buttons()
 			beacon.icon_state = "hierophant_tele_off"
 			return
-		new /obj/effect/temp_visual/hierophant/telegraph(destination, user)
+		new /obj/effect/temp_visual/hierophant/telegraph(T, user)
 		new /obj/effect/temp_visual/hierophant/telegraph(source, user)
-		playsound(destination,'sound/magic/wand_teleport.ogg', 200, TRUE)
+		playsound(T,'sound/magic/wand_teleport.ogg', 200, TRUE)
 		playsound(source,'sound/machines/airlockopen.ogg', 200, TRUE)
 		if(!do_after(user, 3, target = user) || !user || !beacon || QDELETED(beacon)) //no walking away shitlord
 			teleporting = FALSE
@@ -169,27 +179,27 @@
 			if(beacon)
 				beacon.icon_state = "hierophant_tele_off"
 			return
-		if(destination.is_blocked_turf(TRUE))
+		if(T.is_blocked_turf(TRUE))
 			teleporting = FALSE
 			to_chat(user, span_warning("The beacon is blocked by something, preventing teleportation!"))
 			user.update_mob_action_buttons()
 			beacon.icon_state = "hierophant_tele_off"
 			return
-		user.log_message("teleported self from [AREACOORD(source)] to [beacon].", LOG_GAME)
-		new /obj/effect/temp_visual/hierophant/telegraph/teleport(destination, user)
+		user.log_message("teleported self from [AREACOORD(source)] to [beacon]", LOG_GAME)
+		new /obj/effect/temp_visual/hierophant/telegraph/teleport(T, user)
 		new /obj/effect/temp_visual/hierophant/telegraph/teleport(source, user)
-		for(var/turf_near_beacon in RANGE_TURFS(1, destination))
-			new /obj/effect/temp_visual/hierophant/blast/visual(turf_near_beacon, user, TRUE)
-		for(var/turf_near_source in RANGE_TURFS(1, source))
-			new /obj/effect/temp_visual/hierophant/blast/visual(turf_near_source, user, TRUE)
-		for(var/mob/living/mob_to_teleport in range(1, source))
-			INVOKE_ASYNC(src, PROC_REF(teleport_mob), source, mob_to_teleport, destination, user)
-		sleep(0.6 SECONDS) //at this point the blasts detonate
+		for(var/t in RANGE_TURFS(1, T))
+			new /obj/effect/temp_visual/hierophant/blast/visual(t, user, TRUE)
+		for(var/t in RANGE_TURFS(1, source))
+			new /obj/effect/temp_visual/hierophant/blast/visual(t, user, TRUE)
+		for(var/mob/living/L in range(1, source))
+			INVOKE_ASYNC(src, PROC_REF(teleport_mob), source, L, T, user)
+		sleep(6) //at this point the blasts detonate
 		if(beacon)
 			beacon.icon_state = "hierophant_tele_off"
 	else
-		qdel(user_telegraph)
-		qdel(beacon_telegraph)
+		qdel(TE1)
+		qdel(TE2)
 	if(beacon)
 		beacon.icon_state = "hierophant_tele_off"
 	teleporting = FALSE
@@ -201,26 +211,26 @@
 	if(!turf_to_teleport_to || turf_to_teleport_to.is_blocked_turf(TRUE))
 		return
 	animate(teleporting, alpha = 0, time = 2, easing = EASE_OUT) //fade out
-	sleep(0.1 SECONDS)
+	sleep(1)
 	if(!teleporting)
 		return
 	teleporting.visible_message(span_hierophant_warning("[teleporting] fades out!"))
-	sleep(0.2 SECONDS)
+	sleep(2)
 	if(!teleporting)
 		return
 	var/success = do_teleport(teleporting, turf_to_teleport_to, no_effects = TRUE, channel = TELEPORT_CHANNEL_MAGIC)
-	sleep(0.1 SECONDS)
+	sleep(1)
 	if(!teleporting)
 		return
 	animate(teleporting, alpha = 255, time = 2, easing = EASE_IN) //fade IN
-	sleep(0.1 SECONDS)
+	sleep(1)
 	if(!teleporting)
 		return
 	teleporting.visible_message(span_hierophant_warning("[teleporting] fades in!"))
 	if(user != teleporting && success)
 		log_combat(user, teleporting, "teleported", null, "from [AREACOORD(source)]")
 
-/obj/item/hierophant_club/equipped(mob/user)
+/obj/item/hierophant_club/pickup(mob/living/user)
 	. = ..()
 	blink.Grant(user, src)
 	user.update_icons()
@@ -238,107 +248,86 @@
 /obj/item/mayhem
 	name = "mayhem in a bottle"
 	desc = "A magically infused bottle of blood, the scent of which will drive anyone nearby into a murderous frenzy."
-	icon = 'icons/obj/mining_zones/artefacts.dmi'
+	icon = 'icons/obj/wizard.dmi'
 	icon_state = "vial"
 
 /obj/item/mayhem/attack_self(mob/user)
 	for(var/mob/living/carbon/human/target in range(7,user))
-		target.apply_status_effect(/datum/status_effect/mayhem)
+		target.apply_status_effect(STATUS_EFFECT_MAYHEM)
 	to_chat(user, span_notice("You shatter the bottle!"))
 	playsound(user.loc, 'sound/effects/glassbr1.ogg', 100, TRUE)
 	message_admins(span_adminnotice("[ADMIN_LOOKUPFLW(user)] has activated a bottle of mayhem!"))
 	user.log_message("activated a bottle of mayhem", LOG_ATTACK)
 	qdel(src)
 
-/obj/item/clothing/suit/hooded/hostile_environment
+/obj/item/clothing/suit/space/hardsuit/hostile_environment
 	name = "H.E.C.K. suit"
 	desc = "Hostile Environment Cross-Kinetic Suit: A suit designed to withstand the wide variety of hazards from Lavaland. It wasn't enough for its last owner."
 	icon_state = "hostile_env"
-	hoodtype = /obj/item/clothing/head/hooded/hostile_environment
-	armor_type = /datum/armor/hooded_hostile_environment
-	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	inhand_icon_state = "hostile_env"
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
-	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	clothing_flags = THICKMATERIAL
-	resistance_flags = FIRE_PROOF|LAVA_PROOF|ACID_PROOF
-	transparent_protection = HIDESUITSTORAGE|HIDEJUMPSUIT
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/recharge/kinetic_accelerator, /obj/item/pickaxe)
+	resistance_flags = FIRE_PROOF | LAVA_PROOF | ACID_PROOF
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/hostile_environment
+	slowdown = 0
+	armor = list(MELEE = 70, BULLET = 40, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/tank/jetpack, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/kinetic_accelerator, /obj/item/pickaxe)
 	greyscale_colors = "#4d4d4d#808080"
 	greyscale_config = /datum/greyscale_config/heck_suit
 	greyscale_config_worn = /datum/greyscale_config/heck_suit/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/datum/armor/hooded_hostile_environment
-	melee = 70
-	bullet = 40
-	laser = 10
-	energy = 20
-	bomb = 50
-	fire = 100
-	acid = 100
-
-/obj/item/clothing/suit/hooded/hostile_environment/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/radiation_protected_clothing)
-	AddElement(/datum/element/gags_recolorable)
-
-/obj/item/clothing/suit/hooded/hostile_environment/process(seconds_per_tick)
+/obj/item/clothing/suit/space/hardsuit/hostile_environment/process(delta_time)
 	. = ..()
 	var/mob/living/carbon/wearer = loc
-	if(istype(wearer) && SPT_PROB(1, seconds_per_tick)) //cursed by bubblegum
-		if(prob(7.5))
-			wearer.cause_hallucination(/datum/hallucination/oh_yeah, "H.E.C.K suit", haunt_them = TRUE)
+	if(istype(wearer) && DT_PROB(1, delta_time)) //cursed by bubblegum
+		if(DT_PROB(7.5, delta_time))
+			new /datum/hallucination/oh_yeah(wearer)
+			to_chat(wearer, span_colossus("<b>[pick("I AM IMMORTAL.","I SHALL TAKE BACK WHAT'S MINE.","I SEE YOU.","YOU CANNOT ESCAPE ME FOREVER.","DEATH CANNOT HOLD ME.")]</b>"))
 		else
 			to_chat(wearer, span_warning("[pick("You hear faint whispers.","You smell ash.","You feel hot.","You hear a roar in the distance.")]"))
 
-/obj/item/clothing/head/hooded/hostile_environment
+/obj/item/clothing/head/helmet/space/hardsuit/hostile_environment
 	name = "H.E.C.K. helmet"
-	icon = 'icons/obj/clothing/head/helmet.dmi'
-	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
-	desc = "Hostile Environment Cross-Kinetic Helmet: A helmet designed to withstand the wide variety of hazards from Lavaland. It wasn't enough for its last owner."
+	desc = "Hostile Environiment Cross-Kinetic Helmet: A helmet designed to withstand the wide variety of hazards from Lavaland. It wasn't enough for its last owner."
 	icon_state = "hostile_env"
+	inhand_icon_state = "hostile_env"
+	hardsuit_type = "heck"
 	w_class = WEIGHT_CLASS_NORMAL
-	armor_type = /datum/armor/hooded_hostile_environment
-	cold_protection = HEAD
-	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
-	clothing_flags = SNUG_FIT|THICKMATERIAL
-	resistance_flags = FIRE_PROOF|LAVA_PROOF|ACID_PROOF
-	flags_inv = HIDEMASK|HIDEEARS|HIDEFACE|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
-	flags_cover = HEADCOVERSMOUTH
+	armor = list(MELEE = 70, BULLET = 40, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
+	resistance_flags = FIRE_PROOF | LAVA_PROOF | ACID_PROOF
 	actions_types = list()
 	greyscale_colors = "#4d4d4d#808080#ff3300"
 	greyscale_config = /datum/greyscale_config/heck_helmet
 	greyscale_config_worn = /datum/greyscale_config/heck_helmet/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/head/hooded/hostile_environment/Initialize(mapload)
+/obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/Initialize(mapload)
 	. = ..()
 	update_appearance()
-	AddComponent(/datum/component/butchering/wearable, \
-	speed = 0.5 SECONDS, \
-	effectiveness = 150, \
-	bonus_modifier = 0, \
-	butcher_sound = null, \
-	disabled = null, \
-	can_be_blunt = TRUE, \
-	butcher_callback = CALLBACK(src, PROC_REF(consume)), \
-	)
-	AddElement(/datum/element/radiation_protected_clothing)
-	AddElement(/datum/element/gags_recolorable)
+	AddComponent(/datum/component/butchering, 5, 150, null, null, null, TRUE, CALLBACK(src, PROC_REF(consume)))
 
-/obj/item/clothing/head/hooded/hostile_environment/equipped(mob/user, slot, initial = FALSE)
+/obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/equipped(mob/user, slot, initial = FALSE)
 	. = ..()
+	RegisterSignal(user, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, PROC_REF(butcher_target))
+	var/datum/component/butchering/butchering = GetComponent(/datum/component/butchering)
+	butchering.butchering_enabled = TRUE
 	to_chat(user, span_notice("You feel a bloodlust. You can now butcher corpses with your bare arms."))
 
-/obj/item/clothing/head/hooded/hostile_environment/dropped(mob/user, silent = FALSE)
+/obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/dropped(mob/user, silent = FALSE)
 	. = ..()
+	UnregisterSignal(user, COMSIG_HUMAN_EARLY_UNARMED_ATTACK)
+	var/datum/component/butchering/butchering = GetComponent(/datum/component/butchering)
+	butchering.butchering_enabled = FALSE
 	to_chat(user, span_notice("You lose your bloodlust."))
 
-/obj/item/clothing/head/hooded/hostile_environment/proc/consume(mob/living/user, mob/living/butchered)
+/obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/proc/butcher_target(mob/user, atom/target, proximity)
+	SIGNAL_HANDLER
+	if(!isliving(target))
+		return
+	return SEND_SIGNAL(src, COMSIG_ITEM_ATTACK, target, user)
+
+/obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/proc/consume(mob/living/user, mob/living/butchered)
 	if(butchered.mob_biotypes & (MOB_ROBOTIC | MOB_SPIRIT))
 		return
 	var/health_consumed = butchered.maxHealth * 0.1
@@ -347,19 +336,31 @@
 	var/datum/client_colour/color = user.add_client_colour(/datum/client_colour/bloodlust)
 	QDEL_IN(color, 1 SECONDS)
 
+/obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/update_overlays()
+	. = ..()
+	var/mutable_appearance/glass_overlay = mutable_appearance(icon, "hostile_env_glass")
+	glass_overlay.appearance_flags = RESET_COLOR
+	. += glass_overlay
+
+/obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/worn_overlays(mutable_appearance/standing, isinhands)
+	. = ..()
+	if(!isinhands)
+		var/mutable_appearance/glass_overlay = mutable_appearance('icons/mob/clothing/head.dmi', "hostile_env_glass")
+		glass_overlay.appearance_flags = RESET_COLOR
+		. += glass_overlay
+
 #define MAX_BLOOD_LEVEL 100
 
 /obj/item/soulscythe
 	name = "soulscythe"
 	desc = "An old relic of hell created by devils to establish themselves as the leadership of hell over the demons. It grows stronger while it possesses a powerful soul."
-	icon = 'icons/obj/mining_zones/artefacts.dmi'
+	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "soulscythe"
-	inhand_icon_state = "soulscythe"
 	lefthand_file = 'icons/mob/inhands/64x64_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/64x64_righthand.dmi'
 	attack_verb_continuous = list("chops", "slices", "cuts", "reaps")
 	attack_verb_simple = list("chop", "slice", "cut", "reap")
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	force = 20
@@ -386,8 +387,7 @@
 	RegisterSignal(soul, COMSIG_LIVING_RESIST, PROC_REF(on_resist))
 	RegisterSignal(soul, COMSIG_MOB_ATTACK_RANGED, PROC_REF(on_attack))
 	RegisterSignal(soul, COMSIG_MOB_ATTACK_RANGED_SECONDARY, PROC_REF(on_secondary_attack))
-	RegisterSignal(src, COMSIG_ATOM_INTEGRITY_CHANGED, PROC_REF(on_integrity_change))
-	AddElement(/datum/element/bane, mob_biotypes = MOB_PLANT, damage_multiplier = 0.5, requires_combat_mode = FALSE)
+	RegisterSignal(src, COMSIG_OBJ_INTEGRITY_CHANGED, PROC_REF(on_integrity_change))
 
 /obj/item/soulscythe/examine(mob/user)
 	. = ..()
@@ -399,7 +399,7 @@
 		give_blood(10)
 
 /obj/item/soulscythe/attack_hand(mob/user, list/modifiers)
-	if(soul.ckey && !soul.faction_check_atom(user))
+	if(soul.ckey && !soul.faction_check_mob(user))
 		to_chat(user, span_warning("You can't pick up [src]!"))
 		return
 	return ..()
@@ -423,31 +423,20 @@
 	using = TRUE
 	balloon_alert(user, "you hold the scythe up...")
 	ADD_TRAIT(src, TRAIT_NODROP, type)
-
-	var/datum/callback/to_call = CALLBACK(src, PROC_REF(on_poll_concluded), user)
-	AddComponent(/datum/component/orbit_poll, \
-		ignore_key = POLL_IGNORE_POSSESSED_BLADE, \
-		job_bans = ROLE_PAI, \
-		to_call = to_call, \
-	)
-
-/// Ghost poll has concluded and a candidate has been chosen.
-/obj/item/soulscythe/proc/on_poll_concluded(mob/living/master, mob/dead/observer/ghost)
-	if(isnull(ghost))
-		balloon_alert(master, "the scythe is dormant!")
-		REMOVE_TRAIT(src, TRAIT_NODROP, type)
-		using = FALSE
-		return
-
-	soul.ckey = ghost.ckey
-	soul.copy_languages(master, LANGUAGE_MASTER) //Make sure the sword can understand and communicate with the master.
-	soul.faction = list("[REF(master)]")
-	balloon_alert(master, "the scythe glows")
-	add_overlay("soulscythe_gem")
-	density = TRUE
-	if(!ismob(loc))
-		reset_spin()
-
+	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Do you want to play as [user.real_name]'s soulscythe?", ROLE_PAI, FALSE, 100, POLL_IGNORE_POSSESSED_BLADE)
+	if(LAZYLEN(candidates))
+		var/mob/dead/observer/picked_ghost = pick(candidates)
+		soul.ckey = picked_ghost.ckey
+		soul.copy_languages(user, LANGUAGE_MASTER) //Make sure the sword can understand and communicate with the user.
+		soul.update_atom_languages()
+		soul.faction = list("[REF(user)]")
+		balloon_alert(user, "the scythe glows up")
+		add_overlay("soulscythe_gem")
+		density = TRUE
+		if(!ismob(loc))
+			reset_spin()
+	else
+		balloon_alert(user, "the scythe is dormant!")
 	REMOVE_TRAIT(src, TRAIT_NODROP, type)
 	using = FALSE
 
@@ -462,7 +451,7 @@
 		return
 	if(pixel_x != base_pixel_x || pixel_y != base_pixel_y)
 		animate(src, 0.2 SECONDS, pixel_x = base_pixel_y, pixel_y = base_pixel_y, flags = ANIMATION_PARALLEL)
-	try_step_multiz(direction)
+	Move(get_step(src, direction), direction)
 	COOLDOWN_START(src, move_cooldown, (direction in GLOB.cardinals) ? 0.1 SECONDS : 0.2 SECONDS)
 
 /obj/item/soulscythe/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
@@ -474,7 +463,7 @@
 	reset_spin()
 	if(ismineralturf(hit_atom))
 		var/turf/closed/mineral/hit_rock = hit_atom
-		hit_rock.gets_drilled()
+		hit_rock.attempt_drill()
 	if(isliving(hit_atom))
 		var/mob/living/hit_mob = hit_atom
 		if(hit_mob.stat != DEAD)
@@ -564,7 +553,7 @@
 	SpinAnimation(5)
 	addtimer(CALLBACK(src, PROC_REF(reset_spin)), 1 SECONDS)
 	visible_message(span_danger("[src] slashes [attacked_atom]!"), span_notice("You slash [attacked_atom]!"))
-	playsound(src, 'sound/weapons/bladeslice.ogg', 50, TRUE)
+	playsound(src, 'sound/weapons/sword_kill_slash_02.ogg', 50, TRUE)
 	do_attack_animation(attacked_atom, ATTACK_EFFECT_SLASH)
 
 /obj/item/soulscythe/proc/charge_target(atom/attacked_atom)
@@ -596,7 +585,6 @@
 	gender = NEUTER
 	mob_biotypes = MOB_SPIRIT
 	faction = list()
-	weather_immunities = list(TRAIT_ASHSTORM_IMMUNE, TRAIT_SNOWSTORM_IMMUNE)
 	/// Blood level, used for movement and abilities in a soulscythe
 	var/blood_level = MAX_BLOOD_LEVEL
 
@@ -604,21 +592,21 @@
 	. = ..()
 	. += "Blood: [blood_level]/[MAX_BLOOD_LEVEL]"
 
-/mob/living/simple_animal/soulscythe/Life(seconds_per_tick, times_fired)
+/mob/living/simple_animal/soulscythe/Life(delta_time, times_fired)
 	. = ..()
 	if(!stat)
-		blood_level = min(MAX_BLOOD_LEVEL, blood_level + round(1 * seconds_per_tick))
+		blood_level = min(MAX_BLOOD_LEVEL, blood_level + round(1 * delta_time))
 
 /obj/projectile/soulscythe
 	name = "soulslash"
 	icon_state = "soulslash"
-	armor_flag = MELEE //jokair
+	flag = MELEE //jokair
 	damage = 15
 	light_range = 1
 	light_power = 1
 	light_color = LIGHT_COLOR_BLOOD_MAGIC
 
-/obj/projectile/soulscythe/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/soulscythe/on_hit(atom/target, blocked = FALSE)
 	if(ishostile(target))
 		damage *= 2
 	return ..()
@@ -630,7 +618,6 @@
 /obj/item/melee/ghost_sword
 	name = "\improper spectral blade"
 	desc = "A rusted and dulled blade. It doesn't look like it'd do much damage. It glows weakly."
-	icon = 'icons/obj/weapons/sword.dmi'
 	icon_state = "spectral"
 	inhand_icon_state = "spectral"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
@@ -641,7 +628,6 @@
 	force = 1
 	throwforce = 1
 	hitsound = 'sound/effects/ghost2.ogg'
-	block_sound = 'sound/weapons/parry.ogg'
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "rends")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "rend")
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
@@ -653,15 +639,11 @@
 	spirits = list()
 	START_PROCESSING(SSobj, src)
 	SSpoints_of_interest.make_point_of_interest(src)
-	AddComponent(\
-		/datum/component/butchering, \
-		speed = 15 SECONDS, \
-		effectiveness = 90, \
-	)
+	AddComponent(/datum/component/butchering, 150, 90)
 
 /obj/item/melee/ghost_sword/Destroy()
 	for(var/mob/dead/observer/G in spirits)
-		G.RemoveInvisibility(type)
+		G.invisibility = GLOB.observer_default_invisibility
 	spirits.Cut()
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
@@ -700,10 +682,10 @@
 			continue
 		var/mob/dead/observer/G = i
 		ghost_counter++
-		G.SetInvisibility(INVISIBILITY_NONE, id=type, priority=INVISIBILITY_PRIORITY_BASIC_ANTI_INVISIBILITY)
+		G.invisibility = 0
 		current_spirits |= G
 	for(var/mob/dead/observer/G in spirits - current_spirits)
-		G.RemoveInvisibility(type)
+		G.invisibility = GLOB.observer_default_invisibility
 	spirits = current_spirits
 	return ghost_counter
 
@@ -714,7 +696,7 @@
 	user.visible_message(span_danger("[user] strikes with the force of [ghost_counter] vengeful spirits!"))
 	..()
 
-/obj/item/melee/ghost_sword/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
+/obj/item/melee/ghost_sword/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	var/ghost_counter = ghost_check()
 	final_block_chance += clamp((ghost_counter * 5), 0, 75)
 	owner.visible_message(span_danger("[owner] is protected by a ring of [ghost_counter] ghosts!"))
@@ -723,7 +705,7 @@
 /obj/item/dragons_blood
 	name = "bottle of dragons blood"
 	desc = "You're not actually going to drink this, are you?"
-	icon = 'icons/obj/mining_zones/artefacts.dmi'
+	icon = 'icons/obj/wizard.dmi'
 	icon_state = "vial"
 
 /obj/item/dragons_blood/attack_self(mob/living/carbon/human/user)
@@ -736,22 +718,10 @@
 	switch(random)
 		if(1)
 			to_chat(user, span_danger("Your appearance morphs to that of a very small humanoid ash dragon! You get to look like a freak without the cool abilities."))
-			consumer.dna.features = list(
-				"mcolor" = "#A02720",
-				"tail_lizard" = "Dark Tiger",
-				"tail_human" = "None",
-				"snout" = "Sharp",
-				"horns" = "Curled",
-				"ears" = "None",
-				"wings" = "None",
-				"frills" = "None",
-				"spines" = "Long",
-				"body_markings" = "Dark Tiger Body",
-				"legs" = DIGITIGRADE_LEGS,
-			)
-			consumer.eye_color_left = "#FEE5A3"
-			consumer.eye_color_right = "#FEE5A3"
-			consumer.set_species(/datum/species/lizard)
+			consumer.dna.features = list("mcolor" = "A02720", "tail_lizard" = "Dark Tiger", "tail_human" = "None", "snout" = "Sharp", "horns" = "Drake", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "Long", "body_markings" = "Dark Tiger Body", "legs" = "Digitigrade Legs")
+			consumer.eye_color_left = "fee5a3"
+			consumer.eye_color_right = "fee5a3"
+			consumer.set_species(/datum/species/lizard/draconid)
 		if(2)
 			to_chat(user, span_danger("Your flesh begins to melt! Miraculously, you seem fine otherwise."))
 			consumer.set_species(/datum/species/skeleton)
@@ -770,10 +740,9 @@
 	name = "staff of lava"
 	desc = "The ability to fill the emergency shuttle with lava. What more could you want out of life?"
 	icon_state = "lavastaff"
-	inhand_icon_state = "lavastaff"
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
-	icon = 'icons/obj/weapons/guns/magic.dmi'
+	icon = 'icons/obj/guns/magic.dmi'
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 18
@@ -784,26 +753,25 @@
 	hitsound = 'sound/weapons/sear.ogg'
 	var/turf_type = /turf/open/lava/smooth/weak
 	var/transform_string = "lava"
-	var/reset_turf_type = /turf/open/misc/asteroid/basalt
+	var/reset_turf_type = /turf/open/floor/plating/asteroid/basalt
 	var/reset_string = "basalt"
 	var/create_cooldown = 10 SECONDS
 	var/create_delay = 3 SECONDS
 	var/reset_cooldown = 5 SECONDS
 	var/timer = 0
-	var/static/list/banned_turfs = typecacheof(list(/turf/open/space, /turf/closed))
+	var/static/list/banned_turfs = typecacheof(list(/turf/open/space/transit, /turf/closed))
 
 /obj/item/lava_staff/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
 	if(timer > world.time)
 		return
-	. |= AFTERATTACK_PROCESSED_ITEM
 	if(is_type_in_typecache(target, banned_turfs))
 		return
 	if(target in view(user.client.view, get_turf(user)))
 		var/turf/open/T = get_turf(target)
 		if(!istype(T))
 			return
-		if(!islava(T))
+		if(!istype(T, /turf/open/lava))
 			var/obj/effect/temp_visual/lavastaff/L = new /obj/effect/temp_visual/lavastaff(T)
 			L.alpha = 0
 			animate(L, alpha = 255, time = create_delay)
@@ -812,9 +780,9 @@
 			if(do_after(user, create_delay, target = T))
 				var/old_name = T.name
 				if(T.TerraformTurf(turf_type, flags = CHANGETURF_INHERIT_AIR))
-					user.visible_message(span_danger("[user] turns \the [old_name] into [transform_string]!"))
+					user.visible_message(span_danger("[user] turns <b>[old_name]</b> into [transform_string]!"))
 					message_admins("[ADMIN_LOOKUPFLW(user)] fired the lava staff at [ADMIN_VERBOSEJMP(T)]")
-					user.log_message("fired the lava staff at [AREACOORD(T)].", LOG_ATTACK)
+					log_game("[key_name(user)] fired the lava staff at [AREACOORD(T)].")
 					timer = world.time + create_cooldown
 					playsound(T,'sound/magic/fireball.ogg', 200, TRUE)
 			else
@@ -823,7 +791,7 @@
 		else
 			var/old_name = T.name
 			if(T.TerraformTurf(reset_turf_type, flags = CHANGETURF_INHERIT_AIR))
-				user.visible_message(span_danger("[user] turns \the [old_name] into [reset_string]!"))
+				user.visible_message(span_danger("[user] turns <b>[old_name]</b> into [reset_string]!"))
 				timer = world.time + reset_cooldown
 				playsound(T,'sound/magic/fireball.ogg', 200, TRUE)
 
@@ -838,15 +806,13 @@
 
 //Blood-Drunk Miner: Cleaving Saw
 
-
 /obj/item/melee/cleaving_saw
 	name = "cleaving saw"
 	desc = "This saw, effective at drawing the blood of beasts, transforms into a long cleaver that makes use of centrifugal force."
-	icon = 'icons/obj/mining_zones/artefacts.dmi'
+	icon = 'icons/obj/lavaland/artefacts.dmi'
 	lefthand_file = 'icons/mob/inhands/64x64_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/64x64_righthand.dmi'
 	icon_state = "cleaving_saw"
-	inhand_icon_state = "cleaving_saw"
 	worn_icon_state = "cleaving_saw"
 	attack_verb_continuous = list("attacks", "saws", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "saw", "slice", "tear", "lacerate", "rip", "dice", "cut")
@@ -855,11 +821,13 @@
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	slot_flags = ITEM_SLOT_BELT
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_EDGED
+	/// Whether the saw is open or not
+	var/is_open = FALSE
 	/// List of factions we deal bonus damage to
-	var/list/nemesis_factions = list(FACTION_MINING, FACTION_BOSS)
+	var/list/nemesis_factions = list("mining", "boss")
 	/// Amount of damage we deal to the above factions
 	var/faction_bonus_force = 30
 	/// Whether the cleaver is actively AoE swiping something.
@@ -873,8 +841,7 @@
 
 /obj/item/melee/cleaving_saw/Initialize(mapload)
 	. = ..()
-	AddComponent( \
-		/datum/component/transforming, \
+	AddComponent(/datum/component/transforming, \
 		transform_cooldown_time = (CLICK_CD_MELEE * 0.25), \
 		force_on = open_force, \
 		throwforce_on = open_throwforce, \
@@ -882,28 +849,26 @@
 		hitsound_on = hitsound, \
 		w_class_on = w_class, \
 		attack_verb_continuous_on = list("cleaves", "swipes", "slashes", "chops"), \
-		attack_verb_simple_on = list("cleave", "swipe", "slash", "chop"), \
-	)
+		attack_verb_simple_on = list("cleave", "swipe", "slash", "chop"))
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
 /obj/item/melee/cleaving_saw/examine(mob/user)
 	. = ..()
-	. += span_notice("It is [HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE) ? "open, will cleave enemies in a wide arc and deal additional damage to fauna":"closed, and can be used for rapid consecutive attacks that cause fauna to bleed"].")
+	. += span_notice("It is [is_open ? "open, will cleave enemies in a wide arc and deal additional damage to fauna":"closed, and can be used for rapid consecutive attacks that cause fauna to bleed"].")
 	. += span_notice("Both modes will build up existing bleed effects, doing a burst of high damage if the bleed is built up high enough.")
 	. += span_notice("Transforming it immediately after an attack causes the next attack to come out faster.")
 
-/obj/item/melee/cleaving_saw/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is [HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE) ? "closing [src] on [user.p_their()] neck" : "opening [src] into [user.p_their()] chest"]! It looks like [user.p_theyre()] trying to commit suicide!"))
+/obj/item/melee/cleaving_saw/suicide_act(mob/user)
+	user.visible_message(span_suicide("[user] is [is_open ? "closing [src] on [user.p_their()] neck" : "opening [src] into [user.p_their()] chest"]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	attack_self(user)
 	return BRUTELOSS
 
 /obj/item/melee/cleaving_saw/melee_attack_chain(mob/user, atom/target, params)
 	. = ..()
-	if(!HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
+	if(!is_open)
 		user.changeNext_move(CLICK_CD_MELEE * 0.5) //when closed, it attacks very rapidly
 
 /obj/item/melee/cleaving_saw/attack(mob/living/target, mob/living/carbon/human/user)
-	var/is_open = HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE)
 	if(!is_open || swiping || !target.density || get_turf(target) == get_turf(user))
 		if(!is_open)
 			faction_bonus_force = 0
@@ -940,11 +905,11 @@
 /obj/item/melee/cleaving_saw/proc/nemesis_effects(mob/living/user, mob/living/target)
 	if(istype(target, /mob/living/simple_animal/hostile/asteroid/elite))
 		return
-	var/datum/status_effect/stacking/saw_bleed/existing_bleed = target.has_status_effect(/datum/status_effect/stacking/saw_bleed)
+	var/datum/status_effect/stacking/saw_bleed/existing_bleed = target.has_status_effect(STATUS_EFFECT_SAWBLEED)
 	if(existing_bleed)
 		existing_bleed.add_stacks(bleed_stacks_per_hit)
 	else
-		target.apply_status_effect(/datum/status_effect/stacking/saw_bleed, bleed_stacks_per_hit)
+		target.apply_status_effect(STATUS_EFFECT_SAWBLEED, bleed_stacks_per_hit)
 
 /*
  * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
@@ -954,10 +919,11 @@
 /obj/item/melee/cleaving_saw/proc/on_transform(obj/item/source, mob/user, active)
 	SIGNAL_HANDLER
 
+	is_open = active
 	user.changeNext_move(CLICK_CD_MELEE * 0.25)
-	if(user)
-		balloon_alert(user, "[active ? "opened" : "closed"] [src]")
-	playsound(src, 'sound/magic/clockwork/fellowship_armory.ogg', 35, TRUE, frequency = 90000 - (active * 30000))
+
+	balloon_alert(user, "[active ? "opened":"closed"] [src]")
+	playsound(user ? user : src, 'sound/magic/clockwork/fellowship_armory.ogg', 35, TRUE, frequency = 90000 - (is_open * 30000))
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 //Legion: Staff of Storms
@@ -966,8 +932,7 @@
 	name = "staff of storms"
 	desc = "An ancient staff retrieved from the remains of Legion. The wind stirs as you move it."
 	icon_state = "staffofstorms"
-	inhand_icon_state = "staffofstorms"
-	icon = 'icons/obj/weapons/guns/magic.dmi'
+	icon = 'icons/obj/guns/magic.dmi'
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
 	slot_flags = ITEM_SLOT_BACK
@@ -1023,11 +988,10 @@
 	user.transform *= 1.2
 	animate(user, color = old_color, transform = old_transform, time = 1 SECONDS)
 	affected_weather.wind_down()
-	user.log_message("has dispelled a storm at [AREACOORD(user_turf)].", LOG_GAME)
+	log_game("[user] ([key_name(user)]) has dispelled a storm at [AREACOORD(user_turf)]")
 
 /obj/item/storm_staff/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
-	. |= AFTERATTACK_PROCESSED_ITEM
 	if(!thunder_charges)
 		balloon_alert(user, "needs to charge!")
 		return
@@ -1056,7 +1020,7 @@
 	addtimer(CALLBACK(src, PROC_REF(throw_thunderbolt), target_turf, power_boosted), 1.5 SECONDS)
 	thunder_charges--
 	addtimer(CALLBACK(src, PROC_REF(recharge)), thunder_charge_time)
-	user.log_message("fired the staff of storms at [AREACOORD(target_turf)].", LOG_ATTACK)
+	log_game("[key_name(user)] fired the staff of storms at [AREACOORD(target_turf)].")
 
 /obj/item/storm_staff/proc/recharge(mob/user)
 	thunder_charges = min(thunder_charges + 1, max_thunder_charges)
@@ -1076,8 +1040,7 @@
 		new /obj/effect/temp_visual/electricity(turf)
 		for(var/mob/living/hit_mob in turf)
 			to_chat(hit_mob, span_userdanger("You've been struck by lightning!"))
-			hit_mob.electrocute_act(15 * (isanimal_or_basicmob(hit_mob) ? 3 : 1) * (turf == target ? 2 : 1) * (boosted ? 2 : 1), src, flags = SHOCK_TESLA|SHOCK_NOSTUN)
-
+			hit_mob.electrocute_act(15 * (isanimal(hit_mob) ? 3 : 1) * (turf == target ? 2 : 1) * (boosted ? 2 : 1), src, flags = SHOCK_TESLA|SHOCK_NOSTUN)
 		for(var/obj/hit_thing in turf)
 			hit_thing.take_damage(20, BURN, ENERGY, FALSE)
 	playsound(target, 'sound/magic/lightningbolt.ogg', 100, TRUE)

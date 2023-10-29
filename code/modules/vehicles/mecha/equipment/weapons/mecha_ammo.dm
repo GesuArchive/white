@@ -2,36 +2,30 @@
 	name = "generic ammo box"
 	desc = "A box of ammo for an unknown weapon."
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/mob/mecha_ammo.dmi'
+	icon = 'icons/mecha/mecha_ammo.dmi'
 	icon_state = "empty"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	var/rounds = 0
+	var/round_term = "патрон"
 	var/direct_load //For weapons where we re-load the weapon itself rather than adding to the ammo storage.
 	var/load_audio = 'sound/weapons/gun/general/mag_bullet_insert.ogg'
 	var/ammo_type
-	/// whether to qdel this mecha_ammo when it becomes empty
-	var/qdel_on_empty = FALSE
 
 /obj/item/mecha_ammo/update_name()
-	. = ..()
-	name = "[rounds ? null : "empty "][initial(name)]"
-
-/obj/item/mecha_ammo/update_desc()
-	. = ..()
-	desc = rounds ? initial(desc) : "An exosuit ammuniton box that has since been emptied. It can be safely folded for recycling."
-
-/obj/item/mecha_ammo/update_icon_state()
-	icon_state = rounds ? initial(icon_state) : "[initial(icon_state)]_e"
+	if(!rounds)
+		name = "Пустой цинк из-под боеприпасов"
+		desc = "Коробка с боеприпасами для экзокостюма, которая была опустошена. Пожалуйста, отправьте на переработку."
+		icon_state = "empty"
 	return ..()
 
 /obj/item/mecha_ammo/attack_self(mob/user)
 	..()
 	if(rounds)
-		to_chat(user, span_warning("You cannot flatten the ammo box until it's empty!"))
+		to_chat(user, span_warning("Вы не можете расплющить коробку с боеприпасами, пока она не опустеет!"))
 		return
 
-	to_chat(user, span_notice("You fold [src] flat."))
+	to_chat(user, span_notice("Вы расплющиваете [src]."))
 	var/trash = new /obj/item/stack/sheet/iron(user.loc)
 	qdel(src)
 	user.put_in_hands(trash)
@@ -39,69 +33,70 @@
 /obj/item/mecha_ammo/examine(mob/user)
 	. = ..()
 	if(rounds)
-		. += "There [rounds > 1?"are":"is"] [rounds] [ammo_type][rounds > 1?"s":""] left."
-	else
-		. += span_notice("Use in-hand to fold it into a sheet of iron.")
+		. += "<hr>Внутри [rounds] [round_term][rounds > 1?"":"а"]."
 
 /obj/item/mecha_ammo/incendiary
-	name = "incendiary ammo box"
-	desc = "A box of incendiary ammunition for use with exosuit weapons."
+	name = "Зажигательные боеприпасы к БК-БЗ \"Аид\""
+	desc = "Коробка зажигательных боеприпасов для использования в карабинах для экзокостюмов."
 	icon_state = "incendiary"
-	custom_materials = list(/datum/material/iron= SHEET_MATERIAL_AMOUNT*3)
 	rounds = 24
-	ammo_type = MECHA_AMMO_INCENDIARY
+	ammo_type = "incendiary"
 
 /obj/item/mecha_ammo/scattershot
-	name = "scattershot ammo box"
-	desc = "A box of scaled-up buckshot, for use in exosuit shotguns."
+	name = "Картечные боеприпасы к \"Дуплету\""
+	desc = "Коробка крупной картечи для использования в дробовиках для экзокостюмов."
 	icon_state = "scattershot"
-	custom_materials = list(/datum/material/iron= SHEET_MATERIAL_AMOUNT*3)
 	rounds = 40
-	ammo_type = MECHA_AMMO_BUCKSHOT
+	ammo_type = "scattershot"
 
 /obj/item/mecha_ammo/lmg
-	name = "machine gun ammo box"
-	desc = "A box of linked ammunition, designed for the Ultra AC 2 exosuit weapon."
+	name = "Пулеметные боеприпасы к Ультра АК-2"
+	desc = "Коробка ленточных боеприпасов, предназначенная для пулемета в экзокостюмах."
 	icon_state = "lmg"
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*2)
 	rounds = 300
-	ammo_type = MECHA_AMMO_LMG
+	ammo_type = "lmg"
 
-/// Missile Ammo
-/// SRM-8 Missile type - Used by Nuclear Operatives
-/obj/item/mecha_ammo/missiles_srm
-	name = "short range missiles"
-	desc = "A box of large missiles, ready for loading into an SRM-8 exosuit missile rack."
+/obj/item/mecha_ammo/missiles_br
+	name = "Ракеты РСЗО \"Пробой-6\""
+	desc = "Коробка с ракетами, готовая к загрузке в ракетную систему экзокостюма."
+	icon_state = "missile_br"
+	rounds = 6
+	round_term = "ракет"
+	direct_load = TRUE
+	load_audio = 'sound/weapons/gun/general/mag_bullet_insert.ogg'
+	ammo_type = "missiles_br"
+
+/obj/item/mecha_ammo/bfg
+	name = "Энергоячейски к \"РПГ\""
+	desc = "Коробка энергоячеек к Радиоактивной пушке Грейз."
+	icon_state = "bfg"
+	rounds = 5
+	ammo_type = "bfg"
+
+/obj/item/mecha_ammo/missiles_he
+	name = "Ракеты РСЗО \"Шторм-8\""
+	desc = "Коробка с ракетами, готовая к загрузке в ракетную систему экзокостюма."
 	icon_state = "missile_he"
 	rounds = 8
+	round_term = "ракет"
 	direct_load = TRUE
 	load_audio = 'sound/weapons/gun/general/mag_bullet_insert.ogg'
-	ammo_type = MECHA_AMMO_MISSILE_SRM
+	ammo_type = "missiles_he"
 
-/// PEP-6 Missile type - Used by Robotics
-/obj/item/mecha_ammo/missiles_pep
-	name = "precision explosive missiles"
-	desc = "A box of large missiles, ready for loading into a PEP-6 exosuit missile rack."
-	icon_state = "missile_br"
-	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*4,/datum/material/gold=SMALL_MATERIAL_AMOUNT*5)
-	rounds = 6
-	direct_load = TRUE
-	load_audio = 'sound/weapons/gun/general/mag_bullet_insert.ogg'
-	ammo_type = MECHA_AMMO_MISSILE_PEP
 
 /obj/item/mecha_ammo/flashbang
-	name = "launchable flashbangs"
-	desc = "A box of smooth flashbangs, for use with a large exosuit launcher. Cannot be primed by hand."
+	name = "Светошумовые граната к АГС \"Заря\""
+	desc = "Коробка гранат для использования в АГС экзокостюма. Оснащены электрическим детонатором и немогут быть использованы вне АГЦ."
 	icon_state = "flashbang"
-	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*2,/datum/material/gold=SMALL_MATERIAL_AMOUNT*5)
 	rounds = 6
-	ammo_type = MECHA_AMMO_FLASHBANG
+	round_term = "гранат"
+	ammo_type = "flashbang"
 
 /obj/item/mecha_ammo/clusterbang
-	name = "launchable flashbang clusters"
-	desc = "A box of clustered flashbangs, for use with a specialized exosuit cluster launcher. Cannot be primed by hand."
+	name = "Светошумовые граната к АГС \"Матрёшка\""
+	desc = "Коробка кластерных гранат для использования в АГС экзокостюма. Оснащены электрическим детонатором и немогут быть использованы вне АГЦ."
 	icon_state = "clusterbang"
-	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*3,/datum/material/gold=HALF_SHEET_MATERIAL_AMOUNT * 1.5,/datum/material/uranium=HALF_SHEET_MATERIAL_AMOUNT * 1.5)
 	rounds = 3
+	round_term = "кластер"
 	direct_load = TRUE
-	ammo_type = MECHA_AMMO_CLUSTERBANG
+	ammo_type = "clusterbang"

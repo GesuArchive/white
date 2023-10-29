@@ -1,9 +1,81 @@
+/datum/bounty/item/science/boh
+	name = "Блюспейс сумка"
+	description = "НТ пригодились бы рюкзаки большой вместимости. Если у вас есть, пожалуйста, отправьте их."
+	reward = CARGO_CRATE_VALUE * 50
+	wanted_types = list(/obj/item/storage/backpack/holding)
+
+/datum/bounty/item/science/tboh
+	name = "Блюспейс мешок для мусора"
+	description = "НТ хотели бы использовать мешки для мусора большой емкости. Если у вас есть, пожалуйста, отправьте их."
+	reward = CARGO_CRATE_VALUE * 50
+	wanted_types = list(/obj/item/storage/bag/trash/bluespace)
+
+/datum/bounty/item/science/bluespace_syringe
+	name = "Блюспейс шприц"
+	description = "НТ хочет использовать шприцы большой емкости. Если у вас есть, пожалуйста, отправьте их."
+	reward = CARGO_CRATE_VALUE * 50
+	wanted_types = list(/obj/item/reagent_containers/syringe/bluespace)
+
+/datum/bounty/item/science/bluespace_body_bag
+	name = "Блюспейс мешок для трупов"
+	description = "НТ хочет использовать сумки для тела большой емкости. Если у вас есть, пожалуйста, отправьте их."
+	reward = CARGO_CRATE_VALUE * 50
+	wanted_types = list(/obj/item/bodybag/bluespace)
+
+/datum/bounty/item/science/nightvision_goggles
+	name = "Очки ночного видения"
+	description = "Электромагнитный шторм сломал все лампы на ЦК. Пока руководство ожидает замены, можете отправить несколько очков ночного видения?"
+	reward = CARGO_CRATE_VALUE * 50
+	wanted_types = list(/obj/item/clothing/glasses/night, /obj/item/clothing/glasses/meson/night, /obj/item/clothing/glasses/hud/health/night, /obj/item/clothing/glasses/hud/security/night, /obj/item/clothing/glasses/hud/diagnostic/night)
+
+/datum/bounty/item/science/experimental_welding_tool
+	name = "Экспериментальный сварочный инструмент"
+	description = "Недавняя авария привела к взрыву большинства сварочных инструментов ЦК. Отправители будут вознаграждены."
+	reward = CARGO_CRATE_VALUE * 50
+	required_count = 3
+	wanted_types = list(/obj/item/weldingtool/experimental)
+
+/datum/bounty/item/science/cryostasis_beaker
+	name = "Крио-стакан"
+	description = "Химики ЦК обнаружили новый химикат, который можно хранить только в стаканах с криостазом. Единственная проблема в том, что у них их нет! Исправьте это, чтобы получить оплату."
+	reward = CARGO_CRATE_VALUE * 50
+	wanted_types = list(/obj/item/reagent_containers/glass/beaker/noreact)
+
+/datum/bounty/item/science/diamond_drill
+	name = "Алмазный шахтёрский бур."
+	description = "Центральное командование готово выплатить трехмесячную зарплату в обмен на один алмазный бур."
+	reward = CARGO_CRATE_VALUE * 50
+	wanted_types = list(/obj/item/pickaxe/drill/diamonddrill, /obj/item/mecha_parts/mecha_equipment/drill/diamonddrill)
+
+/datum/bounty/item/science/floor_buffer
+	name = "Улучшение напольного буфера"
+	description = "Один из уборщиков ЦК сделал небольшое состояние, делая ставки на скачках карпа. Теперь они хотели бы заказать улучшение напольного буфера."
+	reward = CARGO_CRATE_VALUE * 50
+	wanted_types = list(/obj/item/janiupgrade)
+
+/datum/bounty/item/science/advanced_mop
+	name = "Продвинутая Швабра"
+	description = "Прошу прощения. Я хотел бы попросить 17 кр за переделку метлой. Или это, или продвинутая швабра."
+	reward = CARGO_CRATE_VALUE * 50
+	wanted_types = list(/obj/item/mop/advanced)
+
+/datum/bounty/item/science/advanced_egun
+	name = "Продвинутый е-ган"
+	description = "С ростом цен на зарядные устройства, высшее руководство заинтересовано в покупке оружия с автоматическим питанием. Если вы отправите один, они заплатят."
+	reward = CARGO_CRATE_VALUE * 50
+	wanted_types = list(/obj/item/gun/energy/e_gun/nuclear)
+
+/datum/bounty/item/science/bepis_disc
+	name = "Переформатированный технический диск"
+	description = "Оказывается, дискеты, на которых BEPIS печатает экспериментальные узлы, чрезвычайно экономят пространство. Когда закончите, пришлите нам один из дисков."
+	reward = CARGO_CRATE_VALUE * 40
+	wanted_types = list(/obj/item/disk/tech_disk/major)
 
 /datum/bounty/item/science/relic
 	name = "E.X.P.E.R.I-MENTORially Discovered Devices"
 	description = "Psst, hey. Don't tell the assistants, but we're undercutting them on the value of those 'strange objects' they've been finding. Fish one up and send us a discovered one by using the E.X.P.E.R.I-MENTOR."
-	reward = CARGO_CRATE_VALUE * 8
-	wanted_types = list(/obj/item/relic = TRUE)
+	reward = CARGO_CRATE_VALUE * 800
+	wanted_types = list(/obj/item/relic)
 
 /datum/bounty/item/science/relic/applies_to(obj/O)
 	if(!..())
@@ -16,17 +88,14 @@
 /datum/bounty/item/science/bepis_disc
 	name = "Reformatted Tech Disk"
 	description = "It turns out the diskettes the BEPIS prints experimental nodes on are extremely space-efficient. Send us one of your spares when you're done with it."
-	reward = CARGO_CRATE_VALUE * 8
-	wanted_types = list(
-		/obj/item/disk/design_disk/bepis/remove_tech = TRUE,
-		/obj/item/disk/design_disk/bepis = TRUE,
-	)
+	reward = CARGO_CRATE_VALUE * 800
+	wanted_types = list(/obj/item/disk/tech_disk/major, /obj/item/disk/tech_disk/spaceloot)
 
 /datum/bounty/item/science/genetics
 	name = "Genetics Disability Mutator"
 	description = "Understanding the humanoid genome is the first step to curing many spaceborn genetic defects, and exceeding our basest limits."
-	reward = CARGO_CRATE_VALUE * 2
-	wanted_types = list(/obj/item/dnainjector = TRUE)
+	reward = CARGO_CRATE_VALUE * 200
+	wanted_types = list(/obj/item/dnainjector)
 	///What's the instability
 	var/desired_instability = 0
 
@@ -53,91 +122,37 @@
 	return FALSE
 
 //******Modular Computer Bounties******
-/datum/bounty/item/science/ntnet
+/datum/bounty/item/science/NTNet
 	name = "Modular Tablets"
-	description = "Turns out that NTNet wasn't actually a fad afterall, who knew. Send some fully functional PDAs to help get us up to speed on the latest technology."
-	reward = CARGO_CRATE_VALUE * 6
-	required_count = 4
-	wanted_types = list(/obj/item/modular_computer/pda = TRUE)
-	var/require_powered = TRUE
-
-/datum/bounty/item/science/ntnet/applies_to(obj/O)
-	if(!..())
-		return FALSE
-	if(require_powered)
-		var/obj/item/modular_computer/computer = O
-		if(!istype(computer) || !computer.enabled)
-			return FALSE
-	return TRUE
-
-/datum/bounty/item/science/ntnet/laptops
-	name = "Modular Laptops"
-	description = "Central command brass need something more powerful than a tablet, but more portable than a console. Help these old fogeys out by shipping us some working laptops. Send them turned on."
-	reward = CARGO_CRATE_VALUE * 3
-	required_count = 2
-	wanted_types = list(/obj/item/modular_computer/laptop = TRUE)
-
-/datum/bounty/item/science/ntnet/console
-	name = "Modular Computer Console"
-	description = "Our big data division needs more powerful hardware to play 'Outbomb Cuban Pe-', err, to closely monitor threats in your sector. Send us a working modular computer console."
-	reward = CARGO_CRATE_VALUE * 6
-	required_count = 1
-	wanted_types = list(/obj/machinery/modular_computer = TRUE)
-	require_powered = FALSE
-
-/datum/bounty/item/science/ntnet/console/applies_to(obj/O)
-	if(!..())
-		return FALSE
-	var/obj/machinery/modular_computer/computer = O
-	if(!istype(computer) || !computer.cpu)
-		return FALSE
-	return TRUE
-
-
-//******Anomaly Cores******
-/datum/bounty/item/science/ref_anomaly
-	name = "Refined Bluespace Core"
-	description = "We need a bluespace core to fit in a Phazon. Ship us one, please."
+	description = "Turns out that NTNet wasn't actually a fad afterall, who knew. Ship us some fully constructed tablets and send it turned on."
 	reward = CARGO_CRATE_VALUE * 20
-	wanted_types = list(/obj/item/assembly/signaler/anomaly/bluespace = TRUE)
+	required_count = 4
+	wanted_types = list(/obj/item/modular_computer/tablet)
 
-/datum/bounty/item/science/ref_anomaly/can_get(obj/O)
-	var/anomaly_type = wanted_types[1]
-	if(SSresearch.created_anomaly_types[anomaly_type] >= SSresearch.anomaly_hard_limit_by_type[anomaly_type])
-		return FALSE
+/datum/bounty/item/science/NTNet/laptops
+	name = "Modular Laptops"
+	description = "Central command brass need something more powerful than a tablet, but more portable than a console. Help these old fogeys out by shipping us some working laptops. Send it turned on."
+	reward = CARGO_CRATE_VALUE * 20
+	required_count = 2
+	wanted_types = list(/obj/item/modular_computer/laptop)
+
+/datum/bounty/item/science/NTNet/console
+	name = "Modular Computer Console"
+	description = "Our big data devision needs more powerful hardware to play 'Outbomb Cuban Pe-', err, to closely monitor threats in your sector. Send us a working modular computer console."
+	reward = CARGO_CRATE_VALUE * 20
+	required_count = 1
+	wanted_types = list(/obj/machinery/modular_computer/console)
+
+/datum/bounty/item/science/NTnet/applies_to(obj/O)
+	. = ..()
+	var/obj/item/modular_computer/computer = O
+	if(computer.enabled)
+		return TRUE
 	return TRUE
 
-/datum/bounty/item/science/ref_anomaly/flux
-	name = "Refined Flux Core"
-	description = "We're trying to make a tesla cannon to handle some moths. Ship us a flux core, please."
-	wanted_types = list(/obj/item/assembly/signaler/anomaly/flux = TRUE)
+/datum/bounty/item/science/NTnet/console/applies_to(obj/O)
+	var/obj/machinery/modular_computer/console/computer = O
+	if(computer.cpu)
+		return TRUE
+	return FALSE
 
-/datum/bounty/item/science/ref_anomaly/pyro
-	name = "Refined Pyroclastic Core"
-	description = "We need to study a refined pyroclastic core, please send one."
-	wanted_types = list(/obj/item/assembly/signaler/anomaly/pyro = TRUE)
-
-/datum/bounty/item/science/ref_anomaly/grav
-	name = "Refined Gravitational Core"
-	description = "Central R&D is trying to discover a way to make mechs float, send over a gravitational core."
-	wanted_types = list(/obj/item/assembly/signaler/anomaly/grav = TRUE)
-
-/datum/bounty/item/science/ref_anomaly/vortex
-	name = "Refined Vortex Core"
-	description = "We're going to throw a vortex core into a wormhole to see what happens. Send one."
-	wanted_types = list(/obj/item/assembly/signaler/anomaly/vortex = TRUE)
-
-/datum/bounty/item/science/ref_anomaly/hallucination
-	name = "Refined Hallucination Core"
-	description = "We're making a better version of space drugs, send us a core to help us replicate its effects."
-	wanted_types = list(/obj/item/assembly/signaler/anomaly/hallucination = TRUE)
-
-/datum/bounty/item/science/ref_anomaly/bioscrambler
-	name = "Refined Bioscrambler Core"
-	description = "Our janitor lizard lost all their limbs, send us a bioscrambler core to replace them."
-	wanted_types = list(/obj/item/assembly/signaler/anomaly/bioscrambler = TRUE)
-
-/datum/bounty/item/science/ref_anomaly/dimensional
-	name = "Refined Dimensional Core"
-	description = "We're trying to save money on our annual renovations at CentCom. Send us a dimensional core."
-	wanted_types = list(/obj/item/assembly/signaler/anomaly/dimensional = TRUE)

@@ -1,3 +1,4 @@
+
 #define ASSET_CROSS_ROUND_CACHE_DIRECTORY "tmp/assets"
 
 //These datums are used to populate the asset cache, the proc "register()" does this.
@@ -62,13 +63,6 @@ GLOBAL_LIST_EMPTY(asset_datums)
 /datum/asset/proc/should_refresh()
 	return !cross_round_cachable || !CONFIG_GET(flag/cache_assets)
 
-/// Simply takes any generated file and saves it to the round-specific /logs folder. Useful for debugging potential issues with spritesheet generation/display.
-/// Only called when the SAVE_SPRITESHEETS config option is uncommented.
-/datum/asset/proc/save_to_logs(file_name, file_location)
-	var/asset_path = "[GLOB.log_directory]/generated_assets/[file_name]"
-	fdel(asset_path) // just in case, sadly we can't use rust_g stuff here.
-	fcopy(file_location, asset_path)
-
 /// If you don't need anything complicated.
 /datum/asset/simple
 	_abstract = /datum/asset/simple
@@ -101,6 +95,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 	. = list()
 	for (var/asset_name in assets)
 		.[asset_name] = SSassets.transport.get_asset_url(asset_name, assets[asset_name])
+
 
 // For registering or sending multiple others at once
 /datum/asset/group
@@ -153,7 +148,6 @@ GLOBAL_LIST_EMPTY(asset_datums)
 	return load_immediately
 #endif
 
-
 /datum/asset/spritesheet/should_refresh()
 	if (..())
 		return TRUE
@@ -201,16 +195,12 @@ GLOBAL_LIST_EMPTY(asset_datums)
 	for(var/size_id in sizes)
 		var/size = sizes[size_id]
 		SSassets.transport.register_asset("[name]_[size_id].png", size[SPRSZ_STRIPPED])
-	var/css_name = "spritesheet_[name].css"
-	var/file_directory = "data/spritesheets/[css_name]"
-	fdel(file_directory)
-	text2file(generate_css(), file_directory)
-	SSassets.transport.register_asset(css_name, fcopy_rsc(file_directory))
-
-	if(CONFIG_GET(flag/save_spritesheets))
-		save_to_logs(file_name = css_name, file_location = file_directory)
-
-	fdel(file_directory)
+	var/res_name = "spritesheet_[name].css"
+	var/fname = "data/spritesheets/[res_name]"
+	fdel(fname)
+	text2file(generate_css(), fname)
+	SSassets.transport.register_asset(res_name, fcopy_rsc(fname))
+	fdel(fname)
 
 	if (CONFIG_GET(flag/cache_assets) && cross_round_cachable)
 		write_to_cache()
@@ -256,19 +246,13 @@ GLOBAL_LIST_EMPTY(asset_datums)
 			continue
 
 		// save flattened version
-		var/png_name = "[name]_[size_id].png"
-		var/file_directory = "data/spritesheets/[png_name]"
-		fcopy(size[SPRSZ_ICON], file_directory)
-		var/error = rustg_dmi_strip_metadata(file_directory)
+		var/fname = "data/spritesheets/[name]_[size_id].png"
+		fcopy(size[SPRSZ_ICON], fname)
+		var/error = rustg_dmi_strip_metadata(fname)
 		if(length(error))
-			stack_trace("Failed to strip [png_name]: [error]")
-		size[SPRSZ_STRIPPED] = icon(file_directory)
-
-		// this is useful here for determining if weird sprite issues (like having a white background) are a cause of what we're doing DM-side or not since we can see the full flattened thing at-a-glance.
-		if(CONFIG_GET(flag/save_spritesheets))
-			save_to_logs(file_name = png_name, file_location = file_directory)
-
-		fdel(file_directory)
+			stack_trace("Failed to strip [name]_[size_id].png: [error]")
+		size[SPRSZ_STRIPPED] = icon(fname)
+		fdel(fname)
 
 /datum/asset/spritesheet/proc/generate_css()
 	var/list/out = list()
@@ -305,13 +289,9 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		replaced_css = replacetext(replaced_css, find_background_urls.match, "background:url('[asset_url]')")
 		LAZYADD(cached_spritesheets_needed, asset_id)
 
-	var/finalized_name = "spritesheet_[name].css"
-	var/replaced_css_filename = "data/spritesheets/[finalized_name]"
+	var/replaced_css_filename = "data/spritesheets/spritesheet_[name].css"
 	rustg_file_write(replaced_css, replaced_css_filename)
-	SSassets.transport.register_asset(finalized_name, replaced_css_filename)
-
-	if(CONFIG_GET(flag/save_spritesheets))
-		save_to_logs(file_name = finalized_name, file_location = replaced_css_filename)
+	SSassets.transport.register_asset("spritesheet_[name].css", replaced_css_filename)
 
 	fdel(replaced_css_filename)
 
@@ -450,25 +430,6 @@ GLOBAL_LIST_EMPTY(asset_datums)
 #undef SPRSZ_COUNT
 #undef SPRSZ_ICON
 #undef SPRSZ_STRIPPED
-
-
-/datum/asset/changelog_item
-	_abstract = /datum/asset/changelog_item
-	var/item_filename
-
-/datum/asset/changelog_item/New(date)
-	item_filename = SANITIZE_FILENAME("[date].yml")
-	SSassets.transport.register_asset(item_filename, file("html/changelogs/archive/" + item_filename))
-
-/datum/asset/changelog_item/send(client)
-	if (!item_filename)
-		return
-	. = SSassets.transport.send_assets(client, item_filename)
-
-/datum/asset/changelog_item/get_url_mappings()
-	if (!item_filename)
-		return
-	. = list("[item_filename]" = SSassets.transport.get_asset_url(item_filename))
 
 /datum/asset/spritesheet/simple
 	_abstract = /datum/asset/spritesheet/simple

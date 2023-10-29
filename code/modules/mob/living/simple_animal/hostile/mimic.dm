@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/mimic
 	name = "crate"
 	desc = "A rectangular steel crate."
-	icon = 'icons/obj/storage/crates.dmi'
+	icon = 'icons/obj/crates.dmi'
 	icon_state = "crate"
 	icon_living = "crate"
 
@@ -21,13 +21,13 @@
 	melee_damage_upper = 12
 	attack_sound = 'sound/weapons/punch1.ogg'
 	emote_taunt = list("growls")
-	speak_emote = list("creaks")
+	speak_emote = list("скрипит")
 	taunt_chance = 30
 
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 
-	faction = list(FACTION_MIMIC)
+	faction = list("mimic")
 	move_to_delay = 9
 	del_on_death = 1
 	///A cap for items in the mimic. Prevents the mimic from eating enough stuff to cause lag when opened.
@@ -35,11 +35,13 @@
 	///A cap for mobs. Mobs count towards the item cap. Same purpose as above.
 	var/mob_storage_capacity = 10
 
+	discovery_points = 4000
+
 // Aggro when you try to open them. Will also pickup loot when spawns and drop it when dies.
 /mob/living/simple_animal/hostile/mimic/crate
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
-	speak_emote = list("clatters")
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
+	speak_emote = list("гремит")
 	stop_automated_movement = 1
 	wander = 0
 	var/attempt_open = FALSE
@@ -47,7 +49,7 @@
 // Pickup loot
 /mob/living/simple_animal/hostile/mimic/crate/Initialize(mapload)
 	. = ..()
-	if(mapload) //eat shit
+	if(mapload)	//eat shit
 		for(var/obj/item/I in loc)
 			I.forceMove(src)
 
@@ -68,19 +70,19 @@
 	if(.)
 		trigger()
 
-/mob/living/simple_animal/hostile/mimic/crate/AttackingTarget(atom/attacked_target)
+/mob/living/simple_animal/hostile/mimic/crate/AttackingTarget()
 	. = ..()
 	if(.)
 		icon_state = initial(icon_state)
 		if(prob(15) && iscarbon(target))
 			var/mob/living/carbon/C = target
 			C.Paralyze(40)
-			C.visible_message(span_danger("\The [src] knocks down \the [C]!"), \
-					span_userdanger("\The [src] knocks you down!"))
+			C.visible_message(span_danger("<b>[capitalize(src)]</b> knocks down [C]!") , \
+					span_userdanger("<b>[capitalize(src)]</b> knocks you down!"))
 
 /mob/living/simple_animal/hostile/mimic/crate/proc/trigger()
 	if(!attempt_open)
-		visible_message("<b>[src]</b> starts to move!")
+		visible_message("<b>[capitalize(src.name)]</b> starts to move!")
 		attempt_open = TRUE
 
 /mob/living/simple_animal/hostile/mimic/crate/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
@@ -98,31 +100,28 @@
 		O.forceMove(C)
 	..()
 
-/// Mimics can't be made out of these objects
-GLOBAL_LIST_INIT(animatable_blacklist, list(/obj/structure/table, /obj/structure/cable, /obj/structure/window, /obj/structure/blob))
+GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/cable, /obj/structure/window))
 
 /mob/living/simple_animal/hostile/mimic/copy
 	health = 100
 	maxHealth = 100
-	mob_biotypes = MOB_SPECIAL
 	var/mob/living/creator = null // the creator
 	var/destroy_objects = 0
 	var/knockdown_people = 0
-	var/static/mutable_appearance/googly_eyes = mutable_appearance('icons/mob/simple/mob.dmi', "googly_eyes")
+	var/static/mutable_appearance/googly_eyes = mutable_appearance('icons/mob/mob.dmi', "googly_eyes")
 	var/overlay_googly_eyes = TRUE
 	var/idledamage = TRUE
 
 /mob/living/simple_animal/hostile/mimic/copy/Initialize(mapload, obj/copy, mob/living/creator, destroy_original = 0, no_googlies = FALSE)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_PERMANENTLY_MORTAL, INNATE_TRAIT) // They won't remember their original contents upon ressurection and would just be floating eyes
 	if (no_googlies)
 		overlay_googly_eyes = FALSE
 	CopyObject(copy, creator, destroy_original)
 
-/mob/living/simple_animal/hostile/mimic/copy/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/hostile/mimic/copy/Life(delta_time = SSMOBS_DT, times_fired)
 	..()
 	if(idledamage && !target && !ckey) //Objects eventually revert to normal if no one is around to terrorize
-		adjustBruteLoss(0.5 * seconds_per_tick)
+		adjustBruteLoss(0.5 * delta_time)
 	for(var/mob/living/M in contents) //a fix for animated statues from the flesh to stone spell
 		death()
 
@@ -135,9 +134,6 @@ GLOBAL_LIST_INIT(animatable_blacklist, list(/obj/structure/table, /obj/structure
 	. = ..()
 	return . - creator
 
-/mob/living/simple_animal/hostile/mimic/copy/wabbajack(what_to_randomize, change_flags = WABBAJACK)
-	visible_message(span_warning("[src] resists polymorphing into a new creature!"))
-
 /mob/living/simple_animal/hostile/mimic/copy/proc/ChangeOwner(mob/owner)
 	if(owner != creator)
 		LoseTarget()
@@ -145,7 +141,7 @@ GLOBAL_LIST_INIT(animatable_blacklist, list(/obj/structure/table, /obj/structure
 		faction |= "[REF(owner)]"
 
 /mob/living/simple_animal/hostile/mimic/copy/proc/CheckObject(obj/O)
-	if((isitem(O) || isstructure(O)) && !is_type_in_list(O, GLOB.animatable_blacklist))
+	if((isitem(O) || isstructure(O)) && !is_type_in_list(O, GLOB.protected_objects))
 		return TRUE
 	return FALSE
 
@@ -185,13 +181,13 @@ GLOBAL_LIST_INIT(animatable_blacklist, list(/obj/structure/table, /obj/structure
 	if(destroy_objects)
 		..()
 
-/mob/living/simple_animal/hostile/mimic/copy/AttackingTarget(atom/attacked_target)
+/mob/living/simple_animal/hostile/mimic/copy/AttackingTarget()
 	. = ..()
 	if(knockdown_people && . && prob(15) && iscarbon(target))
 		var/mob/living/carbon/C = target
 		C.Paralyze(40)
-		C.visible_message(span_danger("\The [src] knocks down \the [C]!"), \
-				span_userdanger("\The [src] knocks you down!"))
+		C.visible_message(span_danger("<b>[capitalize(src)]</b> knocks down [C]!") , \
+				span_userdanger("<b>[capitalize(src)]</b> knocks you down!"))
 
 /mob/living/simple_animal/hostile/mimic/copy/machine
 	speak = list(
@@ -235,7 +231,7 @@ GLOBAL_LIST_INIT(animatable_blacklist, list(/obj/structure/table, /obj/structure
 			projectiletype = initial(M.projectile_type)
 		if(istype(G, /obj/item/gun/ballistic))
 			Pewgun = G
-			var/obj/item/ammo_box/magazine/M = Pewgun.spawn_magazine_type
+			var/obj/item/ammo_box/magazine/M = Pewgun.mag_type
 			casingtype = initial(M.ammo_type)
 		if(istype(G, /obj/item/gun/energy))
 			Zapgun = G
@@ -249,19 +245,19 @@ GLOBAL_LIST_INIT(animatable_blacklist, list(/obj/structure/table, /obj/structure
 			var/obj/item/ammo_casing/energy/shot = Zapgun.ammo_type[Zapgun.select]
 			if(Zapgun.cell.charge >= shot.e_cost)
 				Zapgun.cell.use(shot.e_cost)
-				Zapgun.update_appearance()
+				Zapgun.update_icon()
 				..()
 	else if(Zapstick)
 		if(Zapstick.charges)
 			Zapstick.charges--
-			Zapstick.update_appearance()
+			Zapstick.update_icon()
 			..()
 	else if(Pewgun)
 		if(Pewgun.chambered)
 			if(Pewgun.chambered.loaded_projectile)
 				qdel(Pewgun.chambered.loaded_projectile)
 				Pewgun.chambered.loaded_projectile = null //because qdel takes too long, ensures icon update
-				Pewgun.chambered.update_appearance()
+				Pewgun.chambered.update_icon()
 				..()
 			else
 				visible_message(span_danger("The <b>[src]</b> clears a jam!"))
@@ -270,7 +266,7 @@ GLOBAL_LIST_INIT(animatable_blacklist, list(/obj/structure/table, /obj/structure
 			if(Pewgun.magazine && Pewgun.magazine.stored_ammo.len)
 				Pewgun.chambered = Pewgun.magazine.get_round(0)
 				Pewgun.chambered.forceMove(Pewgun)
-			Pewgun.update_appearance()
+			Pewgun.update_icon()
 		else if(Pewgun.magazine && Pewgun.magazine.stored_ammo.len) //only true for pumpguns i think
 			Pewgun.chambered = Pewgun.magazine.get_round(0)
 			Pewgun.chambered.forceMove(Pewgun)
@@ -286,9 +282,9 @@ GLOBAL_LIST_INIT(animatable_blacklist, list(/obj/structure/table, /obj/structure
 /mob/living/simple_animal/hostile/mimic/xenobio
 	health = 210
 	maxHealth = 210
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
-	speak_emote = list("clatters")
+	attack_verb_continuous = "кусает"
+	attack_verb_simple = "кусает"
+	speak_emote = list("гремит")
 	gold_core_spawnable = HOSTILE_SPAWN
 	var/opened = FALSE
 	var/open_sound = 'sound/machines/crate_open.ogg'
@@ -304,15 +300,15 @@ GLOBAL_LIST_INIT(animatable_blacklist, list(/obj/structure/table, /obj/structure
 	lock = new
 	lock.Grant(src)
 
-/mob/living/simple_animal/hostile/mimic/xenobio/AttackingTarget(atom/attacked_target)
+/mob/living/simple_animal/hostile/mimic/xenobio/AttackingTarget()
 	if(src == target)
 		toggle_open()
 		return
 	return ..()
 
-/mob/living/simple_animal/hostile/mimic/xenobio/attack_hand(mob/living/carbon/human/user, list/modifiers)
+/mob/living/simple_animal/hostile/mimic/xenobio/attack_hand(mob/living/carbon/human/M)
 	. = ..()
-	if(user.combat_mode)
+	if(M.a_intent != INTENT_HELP)
 		return
 	toggle_open()
 
@@ -383,8 +379,7 @@ GLOBAL_LIST_INIT(animatable_blacklist, list(/obj/structure/table, /obj/structure
 				return FALSE
 			var/mobs_stored = 0
 			for(var/mob/living/M in contents)
-				mobs_stored++
-				if(mobs_stored >= mob_storage_capacity)
+				if(++mobs_stored >= mob_storage_capacity)
 					return FALSE
 		L.stop_pulling()
 

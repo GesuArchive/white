@@ -60,12 +60,12 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		DYE_MIME = /obj/item/clothing/gloves/color/white,
 		DYE_CLOWN = /obj/item/clothing/gloves/color/rainbow,
 		DYE_QM = /obj/item/clothing/gloves/color/brown,
-		DYE_CAPTAIN = /obj/item/clothing/gloves/captain,
+		DYE_CAPTAIN = /obj/item/clothing/gloves/color/captain,
 		DYE_HOP = /obj/item/clothing/gloves/color/grey,
 		DYE_HOS = /obj/item/clothing/gloves/color/black,
-		DYE_CE = /obj/item/clothing/gloves/chief_engineer,
+		DYE_CE = /obj/item/clothing/gloves/color/chief_engineer,
 		DYE_RD = /obj/item/clothing/gloves/color/grey,
-		DYE_CMO = /obj/item/clothing/gloves/latex/nitrile,
+		DYE_CMO = /obj/item/clothing/gloves/color/latex/nitrile,
 		DYE_REDCOAT = /obj/item/clothing/gloves/color/white,
 		DYE_SYNDICATE = /obj/item/clothing/gloves/combat,
 		DYE_CENTCOM = /obj/item/clothing/gloves/combat
@@ -78,7 +78,9 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		DYE_BLUE = /obj/item/clothing/mask/bandana/blue,
 		DYE_PURPLE = /obj/item/clothing/mask/bandana/purple,
 		DYE_BLACK = /obj/item/clothing/mask/bandana/black,
-		DYE_WHITE = /obj/item/clothing/mask/bandana/white
+		DYE_WHITE = /obj/item/clothing/mask/bandana/white,
+		DYE_MIME = /obj/item/clothing/mask/bandana/striped/black,
+		DYE_SYNDICATE = /obj/item/clothing/mask/bandana/skull/black
 	),
 	DYE_REGISTRY_SNEAKERS = list(
 		DYE_RED = /obj/item/clothing/shoes/sneakers/red,
@@ -165,11 +167,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	DYE_LAWYER_SPECIAL = list(
 		DYE_COSMIC = /obj/item/clothing/under/rank/civilian/lawyer/galaxy,
 		DYE_SYNDICATE = /obj/item/clothing/under/rank/civilian/lawyer/galaxy/red
-	),
-	DYE_LAWYER_SPECIAL_SKIRT = list(
-		DYE_COSMIC = /obj/item/clothing/under/rank/civilian/lawyer/galaxy/skirt,
-		DYE_SYNDICATE = /obj/item/clothing/under/rank/civilian/lawyer/galaxy/red/skirt
-	),
+	)
 ))
 
 /obj/machinery/washing_machine
@@ -187,20 +185,41 @@ GLOBAL_LIST_INIT(dye_registry, list(
 /obj/machinery/washing_machine/examine(mob/user)
 	. = ..()
 	if(!busy)
-		. += span_notice("<b>Right-click</b> with an empty hand to start a wash cycle.")
+		. += "<hr><span class='notice'><b>ПКМ</b> it to start a wash cycle.</span>"
 
-/obj/machinery/washing_machine/process(seconds_per_tick)
+/obj/machinery/washing_machine/attack_hand_secondary(mob/user, modifiers)
+	if(!user.canUseTopic(src, !issilicon(user)))
+		return
+	if(busy)
+		return
+	if(state_open)
+		to_chat(user, span_warning("Close the door first!"))
+		return
+	if(bloody_mess)
+		to_chat(user, span_warning("[capitalize(src.name)] must be cleaned up first!"))
+		return
+	busy = TRUE
+	update_icon()
+	addtimer(CALLBACK(src, PROC_REF(wash_cycle)), 60)
+	playsound(get_turf(src), 'white/valtos/sounds/wm.ogg', 80, TRUE)
+	START_PROCESSING(SSfastprocess, src)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/machinery/washing_machine/attack_ai_secondary(mob/user, modifiers)
+	return attack_hand_secondary(user, modifiers)
+
+/obj/machinery/washing_machine/process(delta_time)
 	if(!busy)
 		animate(src, transform=matrix(), time=2)
 		return PROCESS_KILL
 	if(anchored)
-		if(SPT_PROB(2.5, seconds_per_tick))
+		if(DT_PROB(2.5, delta_time))
 			var/matrix/M = new
 			M.Translate(rand(-1, 1), rand(0, 1))
 			animate(src, transform=M, time=1)
 			animate(transform=matrix(), time=1)
 	else
-		if(SPT_PROB(0.5, seconds_per_tick))
+		if(DT_PROB(0.5, delta_time))
 			step(src, pick(GLOB.cardinals))
 		var/matrix/M = new
 		M.Translate(rand(-3, 3), rand(-1, 3))
@@ -210,7 +229,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	. = ..()
 	if(!busy && bloody_mess && (clean_types & CLEAN_TYPE_BLOOD))
 		bloody_mess = FALSE
-		update_appearance()
+		update_icon()
 		. = TRUE
 
 /obj/machinery/washing_machine/proc/wash_cycle()
@@ -219,13 +238,11 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		AM.wash(CLEAN_WASH)
 		AM.machine_wash(src)
 
-	//if we had the ability to brainwash, remove that now
-	REMOVE_TRAIT(src, TRAIT_BRAINWASHING, SKILLCHIP_TRAIT)
 	busy = FALSE
 	if(color_source)
 		qdel(color_source)
 		color_source = null
-	update_appearance()
+	update_icon()
 	use_power(active_power_usage)
 
 /obj/item/proc/dye_item(dye_color, dye_key_override)
@@ -264,45 +281,48 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	return target_type //successfully "appearance copy" dyed something; returns the target type as a hacky way of extending
 
 //what happens to this object when washed inside a washing machine
-/atom/movable/proc/machine_wash(obj/machinery/washing_machine/washer)
+/atom/movable/proc/machine_wash(obj/machinery/washing_machine/WM)
 	return
 
-/obj/item/stack/sheet/hairlesshide/machine_wash(obj/machinery/washing_machine/washer)
+/obj/item/stack/sheet/hairlesshide/machine_wash(obj/machinery/washing_machine/WM)
 	new /obj/item/stack/sheet/wethide(drop_location(), amount)
 	qdel(src)
 
-/obj/item/clothing/suit/hooded/ian_costume/machine_wash(obj/machinery/washing_machine/washer)
+/obj/item/clothing/suit/hooded/ian_costume/machine_wash(obj/machinery/washing_machine/WM)
 	new /obj/item/food/meat/slab/corgi(loc)
 	qdel(src)
 
-/mob/living/simple_animal/pet/machine_wash(obj/machinery/washing_machine/washer)
-	washer.bloody_mess = TRUE
-	investigate_log("has been gibbed by a washing machine.", INVESTIGATE_DEATHS)
+/mob/living/simple_animal/pet/machine_wash(obj/machinery/washing_machine/WM)
+	WM.bloody_mess = TRUE
 	gib()
 
-/mob/living/basic/pet/machine_wash(obj/machinery/washing_machine/washer)
-	washer.bloody_mess = TRUE
-	gib()
-
-/obj/item/machine_wash(obj/machinery/washing_machine/washer)
-	if(washer.color_source)
-		dye_item(washer.color_source.dye_color)
+/obj/item/machine_wash(obj/machinery/washing_machine/WM)
+	if(WM.color_source)
+		dye_item(WM.color_source.dye_color)
 
 /obj/item/clothing/under/dye_item(dye_color, dye_key)
 	. = ..()
 	if(.)
 		var/obj/item/clothing/under/U = .
 		can_adjust = initial(U.can_adjust)
-		if(!can_adjust && adjusted == ALT_STYLE) //we deadjust the uniform if it's now unadjustable
+		if(!can_adjust && adjusted) //we deadjust the uniform if it's now unadjustable
 			toggle_jumpsuit_adjust()
 
-/obj/item/clothing/head/mob_holder/machine_wash(obj/machinery/washing_machine/washer)
+/obj/item/clothing/under/machine_wash(obj/machinery/washing_machine/WM)
+	freshly_laundered = TRUE
+	addtimer(VARSET_CALLBACK(src, freshly_laundered, FALSE), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
 	..()
-	held_mob.machine_wash(washer)
 
-/obj/item/clothing/shoes/sneakers/orange/machine_wash(obj/machinery/washing_machine/washer)
-	attached_cuffs?.forceMove(loc)
-	return ..()
+/obj/item/clothing/head/mob_holder/machine_wash(obj/machinery/washing_machine/WM)
+	..()
+	held_mob.machine_wash(WM)
+
+/obj/item/clothing/shoes/sneakers/machine_wash(obj/machinery/washing_machine/WM)
+	if(chained)
+		chained = FALSE
+		slowdown = SHOES_SLOWDOWN
+		new /obj/item/restraints/handcuffs(loc)
+	..()
 
 /obj/machinery/washing_machine/relaymove(mob/living/user, direction)
 	container_resist_act(user)
@@ -313,41 +333,35 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		open_machine()
 
 /obj/machinery/washing_machine/update_icon_state()
+	. = ..()
 	if(busy)
 		icon_state = "wm_running_[bloody_mess]"
-		return ..()
-	if(bloody_mess)
+	else if(bloody_mess)
 		icon_state = "wm_[state_open]_blood"
-		return ..()
-
-	var/full = contents.len ? 1 : 0
-	icon_state = "wm_[state_open]_[full]"
-	return ..()
+	else
+		var/full = contents.len ? 1 : 0
+		icon_state = "wm_[state_open]_[full]"
 
 /obj/machinery/washing_machine/update_overlays()
 	. = ..()
 	if(panel_open)
 		. += "wm_panel"
 
-/obj/machinery/washing_machine/wrench_act(mob/living/user, obj/item/tool)
-	. = ..()
-	if(!panel_open || busy)
-		return FALSE
-	default_unfasten_wrench(user, tool)
-	return TOOL_ACT_TOOLTYPE_SUCCESS
-
-/obj/machinery/washing_machine/attackby(obj/item/W, mob/living/user, params)
-	if(default_deconstruction_screwdriver(user, null, null, W))
-		update_appearance()
+/obj/machinery/washing_machine/attackby(obj/item/W, mob/user, params)
+	if(panel_open && !busy && default_unfasten_wrench(user, W))
 		return
 
-	else if(!user.combat_mode)
+	if(default_deconstruction_screwdriver(user, null, null, W))
+		update_icon()
+		return
+
+	else if(user.a_intent != INTENT_HARM)
 		if (!state_open)
 			to_chat(user, span_warning("Open the door first!"))
 			return TRUE
 
 		if(bloody_mess)
-			to_chat(user, span_warning("[src] must be cleaned up first!"))
+			to_chat(user, span_warning("[capitalize(src.name)] must be cleaned up first!"))
 			return TRUE
 
 		if(contents.len >= max_wash_capacity)
@@ -355,72 +369,45 @@ GLOBAL_LIST_INIT(dye_registry, list(
 			return TRUE
 
 		if(!user.transferItemToLoc(W, src))
-			to_chat(user, span_warning("\The [W] is stuck to your hand, you cannot put it in the washing machine!"))
+			to_chat(user, span_warning("<b>[capitalize(W)]</b> is stuck to your hand, you cannot put it in the washing machine!"))
 			return TRUE
 		if(W.dye_color)
 			color_source = W
-		update_appearance()
+		update_icon()
 
 	else
 		return ..()
 
-/obj/machinery/washing_machine/attack_hand(mob/living/user, list/modifiers)
+/obj/machinery/washing_machine/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
 	if(busy)
-		to_chat(user, span_warning("[src] is busy!"))
+		to_chat(user, span_warning("[capitalize(src.name)] is busy!"))
 		return
 
-	if(user.pulling && isliving(user.pulling))
+	if(user.pulling && user.a_intent == INTENT_GRAB && isliving(user.pulling))
 		var/mob/living/L = user.pulling
 		if(L.buckled || L.has_buckled_mobs())
 			return
 		if(state_open)
-			if(istype(L, /mob/living/simple_animal/pet) || istype(L, /mob/living/basic/pet))
+			if(istype(L, /mob/living/simple_animal/pet))
 				L.forceMove(src)
-				update_appearance()
+				update_icon()
 		return
 
 	if(!state_open)
 		open_machine()
 	else
 		state_open = FALSE //close the door
-		update_appearance()
-
-/obj/machinery/washing_machine/attack_hand_secondary(mob/user, modifiers)
-	. = ..()
-	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
-		return
-
-	if(!user.can_perform_action(src, ALLOW_SILICON_REACH))
-		return SECONDARY_ATTACK_CONTINUE_CHAIN
-	if(busy)
-		to_chat(user, span_warning("[src] is busy!"))
-		return SECONDARY_ATTACK_CONTINUE_CHAIN
-	if(state_open)
-		to_chat(user, span_warning("Close the door first!"))
-		return SECONDARY_ATTACK_CONTINUE_CHAIN
-	if(bloody_mess)
-		to_chat(user, span_warning("[src] must be cleaned up first!"))
-		return SECONDARY_ATTACK_CONTINUE_CHAIN
-	busy = TRUE
-	if(HAS_TRAIT(user, TRAIT_BRAINWASHING))
-		ADD_TRAIT(src, TRAIT_BRAINWASHING, SKILLCHIP_TRAIT)
-	update_appearance()
-	addtimer(CALLBACK(src, PROC_REF(wash_cycle)), 20 SECONDS)
-	START_PROCESSING(SSfastprocess, src)
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
-/obj/machinery/washing_machine/attack_ai_secondary(mob/user, modifiers)
-	return attack_hand_secondary(user, modifiers)
+		update_icon()
 
 /obj/machinery/washing_machine/deconstruct(disassembled = TRUE)
 	if (!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/stack/sheet/iron(drop_location(), 2)
 	qdel(src)
 
-/obj/machinery/washing_machine/open_machine(drop = TRUE, density_to_set = FALSE)
-	. = ..()
+/obj/machinery/washing_machine/open_machine(drop = 1)
+	..()
 	set_density(TRUE) //because machinery/open_machine() sets it to FALSE
 	color_source = null

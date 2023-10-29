@@ -2,17 +2,17 @@
  * Photo album
  */
 /obj/item/storage/photo_album
-	name = "photo album"
-	desc = "A big book used to store photos and mementos."
-	icon = 'icons/obj/art/camera.dmi'
+	name = "фотоальбом"
+	desc = "Большая книга для хранения ваших воспоминаний."
+	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "album"
 	inhand_icon_state = "album"
-	lefthand_file = 'icons/mob/inhands/items/books_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/items/books_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/misc/books_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/books_righthand.dmi'
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_SMALL
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
-	var/persistence_id
+	var/persistence_id = "piss"
 
 /obj/item/storage/photo_album/Initialize(mapload)
 	. = ..()
@@ -41,7 +41,7 @@
 
 //Manual loading, DO NOT USE FOR HARDCODED/MAPPED IN ALBUMS. This is for if an album needs to be loaded mid-round from an ID.
 /obj/item/storage/photo_album/proc/persistence_load()
-	var/list/data = SSpersistence.get_photo_albums()
+	var/list/data = SSpersistence.GetPhotoAlbums()
 	if(data[persistence_id])
 		populate_from_id_list(data[persistence_id])
 
@@ -56,74 +56,64 @@
 				qdel(P)
 
 /obj/item/storage/photo_album/hos
-	name = "photo album (Head of Security)"
+	name = "фотоальбом начальника охраны"
 	icon_state = "album_blue"
 	persistence_id = "HoS"
 
 /obj/item/storage/photo_album/rd
-	name = "photo album (Research Director)"
+	name = "фотоальбом научного руководителя"
 	icon_state = "album_blue"
 	persistence_id = "RD"
 
 /obj/item/storage/photo_album/hop
-	name = "photo album (Head of Personnel)"
+	name = "фотоальбом главы персонала"
 	icon_state = "album_blue"
 	persistence_id = "HoP"
 
 /obj/item/storage/photo_album/captain
-	name = "photo album (Captain)"
+	name = "фотоальбом капитана"
 	icon_state = "album_blue"
-	persistence_id = "Captain"
+	persistence_id = JOB_CAPTAIN
 
 /obj/item/storage/photo_album/cmo
-	name = "photo album (Chief Medical Officer)"
+	name = "фотоальбом главного врача"
 	icon_state = "album_blue"
 	persistence_id = "CMO"
 
 /obj/item/storage/photo_album/qm
-	name = "photo album (Quartermaster)"
+	name = "фотоальбом завхоза"
 	icon_state = "album_blue"
 	persistence_id = "QM"
 
 /obj/item/storage/photo_album/ce
-	name = "photo album (Chief Engineer)"
+	name = "фотоальбом старшего инженера"
 	icon_state = "album_blue"
 	persistence_id = "CE"
 
 /obj/item/storage/photo_album/bar
-	name = "photo album (Bar)"
+	name = "фотоальбом бара"
 	icon_state = "album_blue"
 	persistence_id = "bar"
 
 /obj/item/storage/photo_album/syndicate
-	name = "photo album (Syndicate)"
+	name = "фотоальбом синдиката"
 	icon_state = "album_red"
 	persistence_id = "syndicate"
 
 /obj/item/storage/photo_album/library
-	name = "photo album (Library)"
+	name = "фотоальбом библиотеки"
 	icon_state = "album_blue"
 	persistence_id = "library"
 
 /obj/item/storage/photo_album/chapel
-	name = "photo album (Chapel)"
+	name = "фотоальбом церкви"
 	icon_state = "album_blue"
 	persistence_id = "chapel"
 
-/obj/item/storage/photo_album/listeningstation
-	name = "photo album (Listening Station)"
-	icon_state = "album_red"
-	persistence_id = "listeningstation"
-
 /obj/item/storage/photo_album/prison
-	name = "photo album (Prison)"
+	name = "фотоальбом тюрьмы"
 	icon_state = "album_blue"
 	persistence_id = "prison"
 
 /obj/item/storage/photo_album/personal
 	icon_state = "album_green"
-
-/obj/item/storage/photo_album/hall_of_fame
-	name = "photo album (Hall of Fame)"
-	icon_state = "album_red"
-	persistence_id = "hall_of_fame"

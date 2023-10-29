@@ -6,6 +6,12 @@
 
 // The default UI style is the first one in the list
 GLOBAL_LIST_INIT(available_ui_styles, list(
+	"Oxide" = 'icons/hud/screen_oxide.dmi',
+	"Rexide" = 'icons/hud/screen_rexide.dmi',
+	"Glory" = 'icons/hud/screen_glory.dmi',
+	"Cyberspess" = 'icons/hud/screen_cyberspess.dmi',
+	"Tetramon" = 'icons/hud/screen_tetramon.dmi',
+	"Bassboosted" = 'icons/hud/screen_bassboosted.dmi',
 	"Midnight" = 'icons/hud/screen_midnight.dmi',
 	"Retro" = 'icons/hud/screen_retro.dmi',
 	"Plasmafire" = 'icons/hud/screen_plasmafire.dmi',
@@ -14,11 +20,12 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	"Clockwork" = 'icons/hud/screen_clockwork.dmi',
 	"Glass" = 'icons/hud/screen_glass.dmi',
 	"Trasen-Knox" = 'icons/hud/screen_trasenknox.dmi',
-	"Detective" = 'icons/hud/screen_detective.dmi',
+	"Syndiekats" = 'icons/hud/screen_syndiekats.dmi',
+	"Neoscreen" = 'icons/hud/neoscreen.dmi'
 ))
 
 /proc/ui_style2icon(ui_style)
-	return GLOB.available_ui_styles[ui_style] || GLOB.available_ui_styles[GLOB.available_ui_styles[1]]
+	return GLOB.available_ui_styles[ui_style] || GLOB.available_ui_styles[GLOB.available_ui_styles["Neoscreen"]]
 
 /datum/hud
 	var/mob/mymob
@@ -28,15 +35,28 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/inventory_shown = FALSE //Equipped item inventory
 	var/hotkey_ui_hidden = FALSE //This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
 
+	var/atom/movable/screen/ling/chems/lingchemdisplay
+	var/atom/movable/screen/ling/sting/lingstingdisplay
+
+	var/atom/movable/screen/bloodsucker/blood_counter/blood_display
+	var/atom/movable/screen/bloodsucker/rank_counter/vamprank_display
+	var/atom/movable/screen/bloodsucker/sunlight_counter/sunlight_display
+
+	var/atom/movable/screen/ammo_counter
+
 	var/atom/movable/screen/blobpwrdisplay
+
+	var/atom/movable/screen/keeper_magic_display
 
 	var/atom/movable/screen/alien_plasma_display
 	var/atom/movable/screen/alien_queen_finder
 
 	var/atom/movable/screen/combo/combo_display
 
+	var/atom/movable/screen/fixeye/fixeye
+
 	var/atom/movable/screen/action_intent
-	var/atom/movable/screen/zone_select
+	var/atom/movable/screen/zone_sel/zone_select
 	var/atom/movable/screen/pull_icon
 	var/atom/movable/screen/rest_icon
 	var/atom/movable/screen/throw_icon
@@ -63,109 +83,105 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	/// Goes from 0 to the max (z level stack size - 1)
 	var/current_plane_offset = 0
 
-	///UI for screentips that appear when you mouse over things
-	var/atom/movable/screen/screentip/screentip_text
-
-	/// Whether or not screentips are enabled.
-	/// This is updated by the preference for cheaper reads than would be
-	/// had with a proc call, especially on one of the hottest procs in the
-	/// game (MouseEntered).
-	var/screentips_enabled = SCREENTIP_PREFERENCE_ENABLED
-	/// Whether to use text or images for click hints.
-	/// Same behavior as `screentips_enabled`--very hot, updated when the preference is updated.
-	var/screentip_images = TRUE
 	/// If this client is being shown atmos debug overlays or not
 	var/atmos_debug_overlays = FALSE
 
-	/// The color to use for the screentips.
-	/// This is updated by the preference for cheaper reads than would be
-	/// had with a proc call, especially on one of the hottest procs in the
-	/// game (MouseEntered).
-	var/screentip_color
+	var/atom/movable/screen/movable/action_button/hide_toggle/hide_actions_toggle
+	var/action_buttons_hidden = FALSE
 
-	var/atom/movable/screen/button_palette/toggle_palette
-	var/atom/movable/screen/palette_scroll/down/palette_down
-	var/atom/movable/screen/palette_scroll/up/palette_up
-
-	var/datum/action_group/palette/palette_actions
 	var/datum/action_group/listed/listed_actions
 	var/list/floating_actions
+
+	var/atom/movable/screen/weather
 
 	var/atom/movable/screen/healths
 	var/atom/movable/screen/stamina
 	var/atom/movable/screen/healthdoll
+	var/atom/movable/screen/tooltip/tooltip
+	var/atom/movable/screen/timelimit/timelimit
+	var/atom/movable/screen/wanted/wanted_lvl
 	var/atom/movable/screen/spacesuit
+	var/atom/movable/screen/station_height/station_height
+	var/atom/movable/screen/station_height_bg/station_height_bg
+	var/atom/movable/screen/typer/typer
+
+	var/atom/movable/screen/human/equip/equip_hud
+
 	// subtypes can override this to force a specific UI style
 	var/ui_style
-
-	// List of weakrefs to objects that we add to our screen that we don't expect to DO anything
-	// They typically use * in their render target. They exist solely so we can reuse them,
-	// and avoid needing to make changes to all idk 300 consumers if we want to change the appearance
-	var/list/asset_refs_for_reuse = list()
+	var/retro_hud = FALSE
 
 /datum/hud/New(mob/owner)
 	mymob = owner
 
+	if(mymob?.client?.prefs?.retro_hud && !isovermind(owner)) // ебал костылём
+		retro_hud = TRUE
+		add_multiz_buttons(owner)
+		INVOKE_ASYNC(mymob?.client, .client/verb/fit_viewport)
+
 	if (!ui_style)
 		// will fall back to the default if any of these are null
-		ui_style = ui_style2icon(owner.client?.prefs?.read_preference(/datum/preference/choiced/ui_style))
-
-	toggle_palette = new()
-	toggle_palette.set_hud(src)
-	palette_down = new()
-	palette_down.set_hud(src)
-	palette_up = new()
-	palette_up.set_hud(src)
+		ui_style = ui_style2icon(owner?.client?.prefs?.UI_style)
 
 	hand_slots = list()
 
 	var/datum/plane_master_group/main/main_group = new(PLANE_GROUP_MAIN)
 	main_group.attach_to(src)
 
-	var/datum/preferences/preferences = owner?.client?.prefs
-	screentip_color = preferences?.read_preference(/datum/preference/color/screentip_color)
-	screentips_enabled = preferences?.read_preference(/datum/preference/choiced/enable_screentips)
-	screentip_images = preferences?.read_preference(/datum/preference/toggle/screentip_images)
-	screentip_text = new(null, src)
-	static_inventory += screentip_text
+	tooltip = new /atom/movable/screen/tooltip()
+	tooltip?.hud = src
+	if (owner?.client?.prefs?.w_toggles & TOOLTIP_USER_POS)
+		tooltip?.screen_loc = "BOTTOM+2,LEFT"
+	infodisplay += tooltip
+
+	if(SSviolence.active)
+		timelimit = new /atom/movable/screen/timelimit()
+		timelimit?.hud = src
+		infodisplay += timelimit
 
 	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
-		var/atom/movable/plane_master_controller/controller_instance = new mytype(null,src)
+		var/atom/movable/plane_master_controller/controller_instance = new mytype(null, src)
 		plane_master_controllers[controller_instance.name] = controller_instance
 
 	owner.overlay_fullscreen("see_through_darkness", /atom/movable/screen/fullscreen/see_through_darkness)
 
-	// Register onto the global spacelight appearances
-	// So they can be render targeted by anything in the world
-	for(var/obj/starlight_appearance/starlight as anything in GLOB.starlight_objects)
-		register_reuse(starlight)
-
+	AddComponent(/datum/component/zparallax, owner.client)
 	RegisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE, PROC_REF(on_plane_increase))
 	RegisterSignal(mymob, COMSIG_MOB_LOGIN, PROC_REF(client_refresh))
 	RegisterSignal(mymob, COMSIG_MOB_LOGOUT, PROC_REF(clear_client))
 	RegisterSignal(mymob, COMSIG_MOB_SIGHT_CHANGE, PROC_REF(update_sightflags))
-	RegisterSignal(mymob, COMSIG_VIEWDATA_UPDATE, PROC_REF(on_viewdata_update))
 	update_sightflags(mymob, mymob.sight, NONE)
 
+	if(!isnewplayer(mymob) && !retro_hud)
+
+		add_multiz_buttons(owner)
+
+		var/atom/movable/screen/side_background
+		var/atom/movable/screen/side_background_thing
+		var/atom/movable/screen/bottom_background
+
+		side_background = new /atom/movable/screen/side_background()
+		side_background.hud = src
+		infodisplay += side_background
+
+		bottom_background = new /atom/movable/screen/bottom_background()
+		bottom_background.hud = src
+		infodisplay += bottom_background
+
+		side_background_thing = new /atom/movable/screen/side_background/thing()
+		side_background_thing.hud = src
+		infodisplay += side_background_thing
+
 /datum/hud/proc/client_refresh(datum/source)
-	SIGNAL_HANDLER
-	RegisterSignal(mymob.canon_client, COMSIG_CLIENT_SET_EYE, PROC_REF(on_eye_change))
-	on_eye_change(null, null, mymob.canon_client.eye)
+	RegisterSignal(mymob.client, COMSIG_CLIENT_SET_EYE, PROC_REF(on_eye_change))
+	on_eye_change(null, null, mymob.client.eye)
 
 /datum/hud/proc/clear_client(datum/source)
-	SIGNAL_HANDLER
 	if(mymob.canon_client)
 		UnregisterSignal(mymob.canon_client, COMSIG_CLIENT_SET_EYE)
 
-/datum/hud/proc/on_viewdata_update(datum/source, view)
-	SIGNAL_HANDLER
-
-	view_audit_buttons()
-
 /datum/hud/proc/on_eye_change(datum/source, atom/old_eye, atom/new_eye)
 	SIGNAL_HANDLER
-	SEND_SIGNAL(src, COMSIG_HUD_EYE_CHANGED, old_eye, new_eye)
-
 	if(old_eye)
 		UnregisterSignal(old_eye, COMSIG_MOVABLE_Z_CHANGED)
 	if(new_eye)
@@ -176,7 +192,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	eye_z_changed(new_eye)
 
 /datum/hud/proc/update_sightflags(datum/source, new_sight, old_sight)
-	SIGNAL_HANDLER
 	// If neither the old and new flags can see turfs but not objects, don't transform the turfs
 	// This is to ensure parallax works when you can't see holder objects
 	if(should_sight_scale(new_sight) == should_sight_scale(old_sight))
@@ -194,7 +209,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 /datum/hud/proc/eye_z_changed(atom/eye)
 	SIGNAL_HANDLER
-	update_parallax_pref() // If your eye changes z level, so should your parallax prefs
 	var/turf/eye_turf = get_turf(eye)
 	var/new_offset = GET_TURF_PLANE_OFFSET(eye_turf)
 	if(current_plane_offset == new_offset)
@@ -212,17 +226,12 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	if(mymob.hud_used == src)
 		mymob.hud_used = null
 
-	QDEL_NULL(toggle_palette)
-	QDEL_NULL(palette_down)
-	QDEL_NULL(palette_up)
-	QDEL_NULL(palette_actions)
 	QDEL_NULL(listed_actions)
 	QDEL_LIST(floating_actions)
-
 	QDEL_NULL(module_store_icon)
 	QDEL_LIST(static_inventory)
+	QDEL_NULL(fixeye)
 
-	// all already deleted by static inventory clear
 	inv_slots.Cut()
 	action_intent = null
 	zone_select = null
@@ -235,11 +244,16 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	throw_icon = null
 	QDEL_LIST(infodisplay)
 
+	weather = null
 	healths = null
 	stamina = null
 	healthdoll = null
+	wanted_lvl = null
 	spacesuit = null
+	lingchemdisplay = null
+	lingstingdisplay = null
 	blobpwrdisplay = null
+	keeper_magic_display = null
 	alien_plasma_display = null
 	alien_queen_finder = null
 	combo_display = null
@@ -249,14 +263,10 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	QDEL_LIST(always_visible_inventory)
 	mymob = null
 
-	QDEL_NULL(screentip_text)
-
 	return ..()
 
 /datum/hud/proc/on_plane_increase(datum/source, old_max_offset, new_max_offset)
 	SIGNAL_HANDLER
-	for(var/i in old_max_offset + 1 to new_max_offset)
-		register_reuse(GLOB.starlight_objects[i + 1])
 	build_plane_groups(old_max_offset + 1, new_max_offset)
 
 /// Creates the required plane masters to fill out new z layers (because each "level" of multiz gets its own plane master set)
@@ -269,7 +279,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 /datum/hud/proc/get_plane_master(plane, group_key = PLANE_GROUP_MAIN)
 	var/plane_key = "[plane]"
 	var/datum/plane_master_group/group = master_groups[group_key]
-	return group.plane_masters[plane_key]
+	return group?.plane_masters[plane_key]
 
 /// Returns a list of all plane masters that match the input true plane, drawn from the passed in group (ignores z layer offsets)
 /datum/hud/proc/get_true_plane_masters(true_plane, group_key = PLANE_GROUP_MAIN)
@@ -322,6 +332,9 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		display_hud_version = hud_version + 1
 	if(display_hud_version > HUD_VERSIONS) //If the requested version number is greater than the available versions, reset back to the first version
 		display_hud_version = 1
+	if(!retro_hud)
+		screenmob.hud_used.inventory_shown = TRUE
+		display_hud_version = HUD_STYLE_STANDARD
 
 	switch(display_hud_version)
 		if(HUD_STYLE_STANDARD) //Default HUD
@@ -336,11 +349,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 				screenmob.client.screen += infodisplay
 			if(always_visible_inventory.len)
 				screenmob.client.screen += always_visible_inventory
-
-			screenmob.client.screen += toggle_palette
-
-			if(action_intent)
-				action_intent.screen_loc = initial(action_intent.screen_loc) //Restore intent selection to the original position
 
 		if(HUD_STYLE_REDUCED) //Reduced HUD
 			hud_shown = FALSE //Governs behavior of other procs
@@ -360,9 +368,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 				var/atom/movable/screen/hand = hand_slots[h]
 				if(hand)
 					screenmob.client.screen += hand
-			if(action_intent)
-				screenmob.client.screen += action_intent //we want the intent switcher visible
-				action_intent.screen_loc = ui_acti_alt //move this to the alternative position, where zone_select usually is.
 
 		if(HUD_STYLE_NOHUD) //No HUD
 			hud_shown = FALSE //Governs behavior of other procs
@@ -385,7 +390,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	reorganize_alerts(screenmob)
 	screenmob.reload_fullscreen()
 	update_parallax_pref(screenmob)
-	update_reuse(screenmob)
 
 	// ensure observers get an accurate and up-to-date view
 	if (!viewmob)
@@ -395,6 +399,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	else if (viewmob.hud_used)
 		viewmob.hud_used.plane_masters_update()
 		viewmob.show_other_mob_action_buttons(mymob)
+
+	INVOKE_ASYNC(screenmob?.client, .client/verb/fit_viewport)
 
 	SEND_SIGNAL(screenmob, COMSIG_MOB_HUD_REFRESHED, src)
 	return TRUE
@@ -430,28 +436,15 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	if (initial(ui_style) || ui_style == new_ui_style)
 		return
 
+	if(!retro_hud)
+		new_ui_style = GLOB.available_ui_styles["Neoscreen"]
+
 	for(var/atom/item in static_inventory + toggleable_inventory + hotkeybuttons + infodisplay + always_visible_inventory + inv_slots)
 		if (item.icon == ui_style)
 			item.icon = new_ui_style
 
 	ui_style = new_ui_style
-	build_hand_slots()
-
-/datum/hud/proc/register_reuse(atom/movable/screen/reuse)
-	asset_refs_for_reuse += WEAKREF(reuse)
-	mymob?.client?.screen += reuse
-
-/datum/hud/proc/unregister_reuse(atom/movable/screen/reuse)
-	asset_refs_for_reuse -= WEAKREF(reuse)
-	mymob?.client?.screen -= reuse
-
-/datum/hud/proc/update_reuse(mob/show_to)
-	for(var/datum/weakref/screen_ref as anything in asset_refs_for_reuse)
-		var/atom/movable/screen/reuse = screen_ref.resolve()
-		if(isnull(reuse))
-			asset_refs_for_reuse -= screen_ref
-			continue
-		show_to.client?.screen += reuse
+	build_hand_slots(TRUE)
 
 //Triggered when F12 is pressed (Unless someone changed something in the DMF)
 /mob/verb/button_pressed_F12()
@@ -468,7 +461,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 //(re)builds the hand ui slots, throwing away old ones
 //not really worth jugglying existing ones so we just scrap+rebuild
 //9/10 this is only called once per mob and only for 2 hands
-/datum/hud/proc/build_hand_slots()
+/datum/hud/proc/build_hand_slots(not_bottom = FALSE)
 	for(var/h in hand_slots)
 		var/atom/movable/screen/inventory/hand/H = hand_slots[h]
 		if(H)
@@ -476,22 +469,23 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	hand_slots = list()
 	var/atom/movable/screen/inventory/hand/hand_box
 	for(var/i in 1 to mymob.held_items.len)
-		hand_box = new /atom/movable/screen/inventory/hand(null, src)
+		hand_box = new /atom/movable/screen/inventory/hand()
 		hand_box.name = mymob.get_held_index_name(i)
 		hand_box.icon = ui_style
 		hand_box.icon_state = "hand_[mymob.held_index_to_dir(i)]"
-		hand_box.screen_loc = ui_hand_position(i)
+		hand_box.screen_loc = ui_hand_position(i, not_bottom)
 		hand_box.held_index = i
 		hand_slots["[i]"] = hand_box
+		hand_box.hud = src
 		static_inventory += hand_box
 		hand_box.update_appearance()
 
 	var/i = 1
 	for(var/atom/movable/screen/swap_hand/SH in static_inventory)
-		SH.screen_loc = ui_swaphand_position(mymob,!(i % 2) ? 2: 1)
+		SH.screen_loc = ui_swaphand_position(mymob, !(i % 2) ? 2 : 1, not_bottom)
 		i++
 	for(var/atom/movable/screen/human/equip/E in static_inventory)
-		E.screen_loc = ui_equip_position(mymob)
+		E.screen_loc = ui_equip_position(mymob, not_bottom)
 
 	if(ismob(mymob) && mymob.hud_used == src)
 		show_hud(hud_version)
@@ -514,8 +508,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 			return
 		if(SCRN_OBJ_IN_LIST)
 			listed_actions.insert_action(button)
-		if(SCRN_OBJ_IN_PALETTE)
-			palette_actions.insert_action(button)
 		if(SCRN_OBJ_INSERT_FIRST)
 			listed_actions.insert_action(button, index = 1)
 			position = SCRN_OBJ_IN_LIST
@@ -532,11 +524,9 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	switch(relative_to.location)
 		if(SCRN_OBJ_IN_LIST)
 			listed_actions.insert_action(button, listed_actions.index_of(relative_to))
-		if(SCRN_OBJ_IN_PALETTE)
-			palette_actions.insert_action(button, palette_actions.index_of(relative_to))
 		if(SCRN_OBJ_FLOATING) // If we don't have it as a define, this is a screen_loc, and we should be floating
 			floating_actions += button
-			var/client/our_client = mymob.canon_client
+			var/client/our_client = mymob.client
 			if(!our_client)
 				position_action(button, button.linked_action.default_button_position)
 				return
@@ -553,44 +543,23 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 			floating_actions -= button
 		if(SCRN_OBJ_IN_LIST)
 			listed_actions.remove_action(button)
-		if(SCRN_OBJ_IN_PALETTE)
-			palette_actions.remove_action(button)
 	button.screen_loc = null
 
 /// Generates visual landings for all groups that the button is not a memeber of
 /datum/hud/proc/generate_landings(atom/movable/screen/movable/action_button/button)
 	listed_actions.generate_landing()
-	palette_actions.generate_landing()
 
 /// Clears all currently visible landings
 /datum/hud/proc/hide_landings()
 	listed_actions.clear_landing()
-	palette_actions.clear_landing()
 
 // Updates any existing "owned" visuals, ensures they continue to be visible
 /datum/hud/proc/update_our_owner()
-	toggle_palette.refresh_owner()
-	palette_down.refresh_owner()
-	palette_up.refresh_owner()
 	listed_actions.update_landing()
-	palette_actions.update_landing()
-
-/// Ensures all of our buttons are properly within the bounds of our client's view, moves them if they're not
-/datum/hud/proc/view_audit_buttons()
-	var/our_view = mymob?.canon_client?.view
-	if(!our_view)
-		return
-	listed_actions.check_against_view()
-	palette_actions.check_against_view()
-	for(var/atom/movable/screen/movable/action_button/floating_button as anything in floating_actions)
-		var/list/current_offsets = screen_loc_to_offset(floating_button.screen_loc)
-		// We set the view arg here, so the output will be properly hemm'd in by our new view
-		floating_button.screen_loc = offset_to_screen_loc(current_offsets[1], current_offsets[2], view = our_view)
 
 /// Generates and fills new action groups with our mob's current actions
 /datum/hud/proc/build_action_groups()
 	listed_actions = new(src)
-	palette_actions = new(src)
 	floating_actions = list()
 	for(var/datum/action/action as anything in mymob.actions)
 		var/atom/movable/screen/movable/action_button/button = action.viewers[src]
@@ -604,10 +573,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/datum/hud/owner
 	/// The actions we're managing
 	var/list/atom/movable/screen/movable/action_button/actions
-	/// The initial vertical offset of our action buttons
-	var/north_offset = 0
-	/// The pixel vertical offset of our action buttons
-	var/pixel_north_offset = 0
 	/// Max amount of buttons we can have per row
 	/// Indexes at 1
 	var/column_max = 0
@@ -669,52 +634,16 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 /// Accepts a number represeting our position in the group, indexes at 0 to make the math nicer
 /datum/action_group/proc/ButtonNumberToScreenCoords(number, landing = FALSE)
 	var/row = round(number / column_max)
-	row -= row_offset // If you're less then 0, you don't get to render, this lets us "scroll" rows ya feel?
+	row -= row_offset
+
 	if(row < 0)
 		return null
 
-	// Could use >= here, but I think it's worth noting that the two start at different places, since row is based on number here
 	if(row > max_rows - 1)
-		if(!landing) // If you're not a landing, go away please. thx
-			return null
-		// We always want to render landings, even if their action button can't be displayed.
-		// So we set a row equal to the max amount of rows + 1. Willing to overrun that max slightly to properly display the landing spot
-		row = max_rows // Remembering that max_rows indexes at 1, and row indexes at 0
-
-		// We're going to need to set our column to match the first item in the last row, so let's set number properly now
+		row = max_rows
 		number = row * column_max
 
-	var/visual_row = row + north_offset
-	var/coord_row = visual_row ? "-[visual_row]" : "+0"
-
-	var/visual_column = number % column_max
-	var/coord_col = "+[visual_column]"
-	var/coord_col_offset = 4 + 2 * (visual_column + 1)
-	return "WEST[coord_col]:[coord_col_offset],NORTH[coord_row]:-[pixel_north_offset]"
-
-/datum/action_group/proc/check_against_view()
-	var/owner_view = owner?.mymob?.canon_client?.view
-	if(!owner_view)
-		return
-	// Unlikey as it is, we may have been changed. Want to start from our target position and fail down
-	column_max = initial(column_max)
-	// Convert our viewer's view var into a workable offset
-	var/list/view_size = view_to_pixels(owner_view)
-
-	// We're primarially concerned about width here, if someone makes us 1x2000 I wish them a swift and watery death
-	var/furthest_screen_loc = ButtonNumberToScreenCoords(column_max - 1)
-	var/list/offsets = screen_loc_to_offset(furthest_screen_loc, owner_view)
-	if(offsets[1] > world.icon_size && offsets[1] < view_size[1] && offsets[2] > world.icon_size && offsets[2] < view_size[2]) // We're all good
-		return
-
-	for(column_max in column_max - 1 to 1 step -1) // Yes I could do this by unwrapping ButtonNumberToScreenCoords, but I don't feel like it
-		var/tested_screen_loc = ButtonNumberToScreenCoords(column_max)
-		offsets = screen_loc_to_offset(tested_screen_loc, owner_view)
-		// We've found a valid max length, pack it in
-		if(offsets[1] > world.icon_size && offsets[1] < view_size[1] && offsets[2] > world.icon_size && offsets[2] < view_size[2])
-			break
-	// Use our newly resized column max
-	refresh_actions()
+	return "WEST+[(number - column_max * row)]:4,NORTH-[row]:-4"
 
 /// Returns the amount of objects we're storing at the moment
 /datum/action_group/proc/size()
@@ -747,65 +676,28 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	row_offset += amount
 	refresh_actions()
 
-/datum/action_group/palette
-	north_offset = 2
-	column_max = 3
-	max_rows = 3
-	location = SCRN_OBJ_IN_PALETTE
-
-/datum/action_group/palette/insert_action(atom/movable/screen/action, index)
-	. = ..()
-	var/atom/movable/screen/button_palette/palette = owner.toggle_palette
-	palette.play_item_added()
-
-/datum/action_group/palette/remove_action(atom/movable/screen/action)
-	. = ..()
-	var/atom/movable/screen/button_palette/palette = owner.toggle_palette
-	palette.play_item_removed()
-	if(!length(actions))
-		palette.set_expanded(FALSE)
-
-/datum/action_group/palette/refresh_actions()
-	var/atom/movable/screen/button_palette/palette = owner.toggle_palette
-	var/atom/movable/screen/palette_scroll/scroll_down = owner.palette_down
-	var/atom/movable/screen/palette_scroll/scroll_up = owner.palette_up
-
-	var/actions_above = round((owner.listed_actions.size() - 1) / owner.listed_actions.column_max)
-	north_offset = initial(north_offset) + actions_above
-
-	palette.screen_loc = ui_action_palette_offset(actions_above)
-	var/action_count = length(owner?.mymob?.actions)
-	var/our_row_count = round((length(actions) - 1) / column_max)
-	if(!action_count)
-		palette.screen_loc = null
-
-	if(palette.expanded && action_count && our_row_count >= max_rows)
-		scroll_down.screen_loc = ui_palette_scroll_offset(actions_above)
-		scroll_up.screen_loc = ui_palette_scroll_offset(actions_above)
-	else
-		scroll_down.screen_loc = null
-		scroll_up.screen_loc = null
-
-	return ..()
-
-/datum/action_group/palette/ButtonNumberToScreenCoords(number, landing)
-	var/atom/movable/screen/button_palette/palette = owner.toggle_palette
-	if(palette.expanded)
-		return ..()
-
-	if(!landing)
-		return null
-
-	// We only render the landing in this case, so we force it to be the second item displayed (Second rather then first since it looks nicer)
-	// Remember the number var indexes at 0
-	return ..(1 + (row_offset * column_max), landing)
-
-
 /datum/action_group/listed
-	pixel_north_offset = 6
-	column_max = 10
+	column_max = 16
 	location = SCRN_OBJ_IN_LIST
 
-/datum/action_group/listed/refresh_actions()
-	. = ..()
-	owner.palette_actions.refresh_actions() // We effect them, so we gotta refresh em
+/client/proc/debug_hud_icon()
+	set name = "Debug Hud Icon"
+	set category = "Дбг.Интерфейс"
+
+	if(!check_rights(R_DEBUG))
+		return
+
+	var/datum/hud/our_hud = mob.hud_used
+	var/list/all_the_huds = our_hud.infodisplay + our_hud.static_inventory + our_hud.toggleable_inventory + our_hud.hotkeybuttons
+	var/icon/new_icon = input("New Hud Icon?", "Balls") as null|icon
+
+	var/list/icon_list = list()
+
+	for(var/atom/movable/screen/S in all_the_huds)
+		icon_list |= S.icon
+
+	var/right_icon = tgui_input_list(usr, "balls", "pens", icon_list)
+
+	for(var/atom/movable/screen/S in all_the_huds)
+		if(S.icon == right_icon)
+			S.icon = new_icon

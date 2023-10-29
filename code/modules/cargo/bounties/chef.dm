@@ -1,166 +1,144 @@
 /datum/bounty/item/chef/birthday_cake
-	name = "Birthday Cake"
-	description = "Nanotrasen's birthday is coming up! Ship Central Command a birthday cake to celebrate!"
-	reward = CARGO_CRATE_VALUE * 8
-	wanted_types = list(
-		/obj/item/food/cake/birthday = TRUE,
-		/obj/item/food/cakeslice/birthday = TRUE
-	)
+	name = "Праздничный торт"
+	description = "Скоро День рождения NanoTrasen! Отправьте им праздничный торт на день рождения!"
+	reward = CARGO_CRATE_VALUE * 150
+	wanted_types = list(/obj/item/food/cake/birthday, /obj/item/food/cakeslice/birthday)
 
-/datum/bounty/reagent/chef/soup
-	name = "Soup"
-	description = "To quell the homeless uprising, Nanotrasen will be serving soup to all underpaid workers."
-
-/datum/bounty/reagent/chef/soup/New()
-	. = ..()
-	required_volume = pick(10, 15, 20, 25)
-	wanted_reagent = pick(subtypesof(/datum/reagent/consumable/nutriment/soup))
-	reward = CARGO_CRATE_VALUE * round(required_volume / 3)
-	// In the future there could be tiers of soup bounty corresponding to soup difficulty
-	// (IE, stew is harder to make than tomato soup, so it should reward more)
-	description += " Send us [required_volume] units of [initial(wanted_reagent.name)]."
+/datum/bounty/item/chef/soup
+	name = "Суп"
+	description = "Чтобы подавить восстание бездомных, NanoTrasen будет разносить суп всем работникам с недостаточной оплатой. Отправьте им любой вид супа."
+	reward = CARGO_CRATE_VALUE * 50
+	required_count = 3
+	wanted_types = list(/obj/item/food/soup)
 
 /datum/bounty/item/chef/popcorn
-	name = "Popcorn Bags"
-	description = "Upper management wants to host a movie night. Ship bags of popcorn for the occasion."
-	reward = CARGO_CRATE_VALUE * 6
+	name = "Попкорн"
+	description = "Высшее руководство хочет провести вечер в кино. Отправьте им попкорном по этому случаю."
+	reward = CARGO_CRATE_VALUE * 50
 	required_count = 3
-	wanted_types = list(/obj/item/food/popcorn = TRUE)
+	wanted_types = list(/obj/item/food/popcorn)
 
 /datum/bounty/item/chef/onionrings
-	name = "Onion Rings"
-	description = "Nanotrasen is remembering Saturn day. Ship onion rings to show the station's support."
-	reward = CARGO_CRATE_VALUE * 6
+	name = "Луковые кольца"
+	description = "НТ вспоминает день Сатурна. Отправьте кольца лука, чтобы показать поддержку станции."
+	reward = CARGO_CRATE_VALUE * 60
 	required_count = 3
-	wanted_types = list(/obj/item/food/onionrings = TRUE)
+	wanted_types = list(/obj/item/food/onionrings)
 
 /datum/bounty/item/chef/icecreamsandwich
-	name = "Ice Cream Sandwiches"
-	description = "Upper management has been screaming non-stop for ice cream sandwiches. Please send some."
-	reward = CARGO_CRATE_VALUE * 8
+	name = "Бутерброды с мороженым" // бутерброд это кринж полнейший // ебало свое завали пидрила - teqsun
+	description = "Высшее руководство безостановочно нуждается в мороженом. Пожалуйста, пришлите им немного."
+	reward = CARGO_CRATE_VALUE * 100
 	required_count = 3
-	wanted_types = list(/obj/item/food/icecreamsandwich = TRUE)
+	wanted_types = list(/obj/item/food/icecreamsandwich)
 
 /datum/bounty/item/chef/strawberryicecreamsandwich
-	name = "Strawberry Ice Cream Sandwiches"
-	description = "Upper management has been screaming non-stop for more flavourful ice cream sandwiches. Please send some."
-	reward = CARGO_CRATE_VALUE * 10
+	name = "Бутерброд с клубничным мороженым"
+	description = "Высшее руководство безостановочно кричит о более ароматном мороженом. Пожалуйста, пришлите немного."
+	reward = CARGO_CRATE_VALUE * 115
 	required_count = 3
-	wanted_types = list(/obj/item/food/strawberryicecreamsandwich = TRUE)
+	wanted_types = list(/obj/item/food/strawberryicecreamsandwich)
 
 /datum/bounty/item/chef/bread
-	name = "Bread"
-	description = "Problems with central planning have led to bread prices skyrocketing. Ship some bread to ease tensions."
-	reward = CARGO_CRATE_VALUE * 2
-	wanted_types = list(
-		/obj/item/food/bread = TRUE,
-		/obj/item/food/breadslice = TRUE,
-		/obj/item/food/bun = TRUE,
-		/obj/item/food/pizzabread = TRUE,
-		/obj/item/food/rawpastrybase = TRUE,
-	)
+	name = "Хлебушек"
+	description = "Проблемы с центральным планированием привели к резкому росту цен на хлеб. Отправьте немного хлеба, чтобы ослабить напряженность."
+	reward = CARGO_CRATE_VALUE * 90
+	wanted_types = list(/obj/item/food/bread, /obj/item/food/breadslice, /obj/item/food/bun, /obj/item/food/pizzabread, /obj/item/food/rawpastrybase)
 
 /datum/bounty/item/chef/pie
-	name = "Pie"
-	description = "3.14159? No! CentCom management wants edible pie! Ship a whole one."
-	reward = 3142 //Screw it I'll do this one by hand
-	wanted_types = list(/obj/item/food/pie = TRUE)
+	name = "Пирог"
+	description = "3,14159? Нет! Руководство ЦК хочет съесть пирог! Отправьте им целый пирог."
+	reward = CARGO_CRATE_VALUE * 314
+	wanted_types = list(/obj/item/food/pie)
 
 /datum/bounty/item/chef/salad
-	name = "Salad or Rice Bowls"
-	description = "CentCom management is going on a health binge. Your order is to ship salad or rice bowls."
-	reward = CARGO_CRATE_VALUE * 6
+	name = "Салат или рисовые миски"
+	description = "ЦК переживает негодование. Ваш заказ состоит в том, чтобы отправить салат или рисовые миски."
+	reward = CARGO_CRATE_VALUE * 50
 	required_count = 3
-	wanted_types = list(/obj/item/food/salad = TRUE)
+	wanted_types = list(/obj/item/food/salad)
 
 /datum/bounty/item/chef/carrotfries
-	name = "Carrot Fries"
-	description = "Night sight can mean life or death! A shipment of carrot fries is the order."
-	reward = CARGO_CRATE_VALUE * 7
+	name = "Морковка-Фри" // картошка-фри? Блять... как же сложно быть украинцем когда ты в душе хз как это звучит на русском... // ПОТОМУ ЧТО ТЫ ДОЛБАЕБ
+	description = "Ночное зрение может означать жизнь или смерть! Поставка морковки-фри является заказом."
+	reward = CARGO_CRATE_VALUE * 70
 	required_count = 3
-	wanted_types = list(/obj/item/food/carrotfries = TRUE)
+	wanted_types = list(/obj/item/food/carrotfries)
 
 /datum/bounty/item/chef/superbite
-	name = "Super Bite Burger"
-	description = "Commander Tubbs thinks he can set a competitive eating world record. All he needs is a super bite burger shipped to him."
-	reward = CARGO_CRATE_VALUE * 24
-	wanted_types = list(/obj/item/food/burger/superbite = TRUE)
+	name = "Супер-бургер"
+	description = "Командующий Таббс считает, что он может установить конкурентоспособный мировой рекорд в еде. Все, что ему нужно, это супер-бургер, отправленный ему."
+	reward = CARGO_CRATE_VALUE * 150
+	wanted_types = list(/obj/item/food/burger/superbite)
 
 /datum/bounty/item/chef/poppypretzel
-	name = "Poppy Pretzel"
-	description = "Central Command needs a reason to fire their HR head. Send over a poppy pretzel to force a failed drug test."
-	reward = CARGO_CRATE_VALUE * 6
-	wanted_types = list(/obj/item/food/poppypretzel = TRUE)
+	name = "Крендель с маком"
+	description = "ЦК нужна причина, чтобы уволить их HR-руководителя. Отправьте крендель с маком, чтобы устроить проваленный тест на наркотики."
+	reward = CARGO_CRATE_VALUE * 140
+	wanted_types = list(/obj/item/food/poppypretzel)
 
 /datum/bounty/item/chef/cubancarp
-	name = "Cuban Carp"
-	description = "To celebrate the birth of Castro XXVII, ship one cuban carp to CentCom."
-	reward = CARGO_CRATE_VALUE * 16
-	wanted_types = list(/obj/item/food/cubancarp = TRUE)
+	name = "Кубинский карп"
+	description = "Чтобы отпраздновать рождение Кастро XXVII, отправьте одного кубинского карпа на ЦК."
+	reward = CARGO_CRATE_VALUE * 200
+	wanted_types = list(/obj/item/food/cubancarp)
 
 /datum/bounty/item/chef/hotdog
-	name = "Hot Dog"
-	description = "Nanotrasen is conducting taste tests to determine the best hot dog recipe. Ship your station's version to participate."
-	reward = CARGO_CRATE_VALUE * 16
-	wanted_types = list(/obj/item/food/hotdog = TRUE)
+	name = "Хот-Дог"
+	description = "НТ проводит вкусовые тесты, чтобы определить лучший рецепт хот-дога. Отправьте версию своего хот-дога станции для участия."
+	reward = CARGO_CRATE_VALUE * 90
+	wanted_types = list(/obj/item/food/hotdog)
 
 /datum/bounty/item/chef/eggplantparm
-	name = "Eggplant Parmigianas"
-	description = "A famous singer will be arriving at CentCom, and their contract demands that they only be served Eggplant Parmigiana. Ship some, please!"
-	reward = CARGO_CRATE_VALUE * 7
+	name = "Пармиджано"
+	description = "Знаменитая певица скоро прибудет на ЦК, и их контракт требует, чтобы их обслуживали только баклажанами пармиджано. Отправьте их на ЦК!"
+	reward = CARGO_CRATE_VALUE * 60
 	required_count = 3
-	wanted_types = list(/obj/item/food/eggplantparm = TRUE)
+	wanted_types = list(/obj/item/food/eggplantparm)
 
 /datum/bounty/item/chef/muffin
-	name = "Muffins"
-	description = "The Muffin Man is visiting CentCom, but he's forgotten his muffins! Your order is to rectify this."
-	reward = CARGO_CRATE_VALUE * 6
+	name = "Кексы"
+	description = "Человек-Кекс посещает ЦК, но он забыл свои кексы! Ваш заказ должен исправить это!"
+	reward = CARGO_CRATE_VALUE * 100
 	required_count = 3
-	wanted_types = list(/obj/item/food/muffin = TRUE)
+	wanted_types = list(/obj/item/food/muffin)
 
 /datum/bounty/item/chef/chawanmushi
-	name = "Chawanmushi"
-	description = "Nanotrasen wants to improve relations with its sister company, Japanotrasen. Ship Chawanmushi immediately."
-	reward = CARGO_CRATE_VALUE * 16
-	wanted_types = list(/obj/item/food/chawanmushi = TRUE)
+	name = "Тяван-муси"
+	description = "НТ хочет улучшить отношения со своей дочерней компанией Japan'o'Trasen. Отправьте тяван-муси немедленно."
+	reward = CARGO_CRATE_VALUE * 60
+	wanted_types = list(/obj/item/food/chawanmushi)
 
 /datum/bounty/item/chef/kebab
-	name = "Kebabs"
-	description = "Remove all kebab from station you are best food. Ship to CentCom to remove from the premises."
-	reward = CARGO_CRATE_VALUE * 7
-	required_count = 3
-	wanted_types = list(/obj/item/food/kebab = TRUE)
+	name = "Кебаб"
+	description = "Султан турецкого филиала NanoTrasen запросил кебаб. Отправьте ему десять кебабов, чтобы утолить его голод."
+	reward = CARGO_CRATE_VALUE * 70
+	required_count = 10
+	wanted_types = list(/obj/item/food/kebab)
 
 /datum/bounty/item/chef/soylentgreen
-	name = "Soylent Green"
-	description = "CentCom has heard wonderful things about the product 'Soylent Green', and would love to try some. If you indulge them, expect a pleasant bonus."
-	reward = CARGO_CRATE_VALUE * 10
-	wanted_types = list(/obj/item/food/soylentgreen = TRUE)
+	name = "Зелёный сойлент"
+	description = "ЦК слышали замечательные вещи о продукте «Зелёный сойлент» и хотели бы попробовать его. Если вы их отправили, ожидайте приятного бонуса."
+	reward = CARGO_CRATE_VALUE * 100
+	wanted_types = list(/obj/item/food/soylentgreen)
 
 /datum/bounty/item/chef/pancakes
-	name = "Pancakes"
-	description = "Here at Nanotrasen we consider employees to be family. And you know what families love? Pancakes. Ship a baker's dozen."
-	reward = CARGO_CRATE_VALUE * 10
+	name = "Панкейки"
+	description = "Один из инженеров ЦК, отвечающий за целостность экспериментального устройства в виде большой лампы, которое генерирует бесконечный свет, празднует свой день рождения. Отправьте ему тринадцать блинов, чтобы поднять его настроение."
+	reward = CARGO_CRATE_VALUE * 60
 	required_count = 13
-	wanted_types = list(/obj/item/food/pancakes = TRUE)
+	wanted_types = list(/obj/item/food/pancakes)
 
 /datum/bounty/item/chef/nuggies
-	name = "Chicken Nuggets"
-	description = "The vice president's son won't shut up about chicken nuggies. Would you mind shipping some?"
-	reward = CARGO_CRATE_VALUE * 8
+	name = "Куриные наггетсы"
+	description = "Один из руководителей организации, которая борется за права чернокожих, не перестаёт говорить про куриные наггетсы. Не могли бы вы отправить ему немного?"
+	reward = CARGO_CRATE_VALUE * 100
 	required_count = 6
-	wanted_types = list(/obj/item/food/nugget = TRUE)
+	wanted_types = list(/obj/item/food/nugget)
 
 /datum/bounty/item/chef/corgifarming //Butchering is a chef's job.
-	name = "Corgi Hides"
-	description = "Admiral Weinstein's space yacht needs new upholstery. A dozen Corgi furs should do just fine."
-	reward = CARGO_CRATE_VALUE * 60 //that's a lot of dead dogs
+	name = "Шкура Корги"
+	description = "Космической яхте адмирала Вайнштейна нужна новая обивка. Дюжина меха корги подойдет."
+	reward = CARGO_CRATE_VALUE * 345
 	required_count = 12
-	wanted_types = list(/obj/item/stack/sheet/animalhide/corgi = TRUE)
-
-/datum/bounty/item/chef/pickles
-	name = "Pickles"
-	description = "The food control department lacks enough pickles to properly evaluate some of the different types of hard liquor."
-	reward = CARGO_CRATE_VALUE * 10
-	required_count = 7
-	wanted_types = list(/obj/item/food/pickle = TRUE)
+	wanted_types = list(/obj/item/stack/sheet/animalhide/corgi)

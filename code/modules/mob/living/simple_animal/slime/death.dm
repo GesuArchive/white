@@ -13,7 +13,7 @@
 				R.Remove(src)
 			var/datum/action/innate/slime/evolve/E = new
 			E.Grant(src)
-			revive(HEAL_ALL)
+			revive(full_heal = TRUE, admin_revive = FALSE)
 			regenerate_icons()
 			update_name()
 			return
@@ -21,6 +21,7 @@
 	if(buckled)
 		Feedstop(silent = TRUE) //releases ourselves from the mob we fed on.
 
+	set_stat(DEAD)
 	cut_overlays()
 
 	return ..(gibbed)

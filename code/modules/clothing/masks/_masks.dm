@@ -1,8 +1,6 @@
 /obj/item/clothing/mask
-	name = "mask"
+	name = "маска"
 	icon = 'icons/obj/clothing/masks.dmi'
-	lefthand_file = 'icons/mob/inhands/clothing/masks_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/clothing/masks_righthand.dmi'
 	body_parts_covered = HEAD
 	slot_flags = ITEM_SLOT_MASK
 	strip_delay = 40
@@ -12,22 +10,16 @@
 	var/adjusted_flags = null
 	///Did we install a filtering cloth?
 	var/has_filter = FALSE
-	/// If defined, what voice should we override with if TTS is active?
-	var/voice_override
-	/// If set to true, activates the radio effect on TTS. Used for sec hailers, but other masks can utilize it for their own vocal effect.
-	var/use_radio_beeps_tts = FALSE
-	/// The unique sound effect of dying while wearing this
-	var/unique_death
 
 /obj/item/clothing/mask/attack_self(mob/user)
 	if((clothing_flags & VOICEBOX_TOGGLABLE))
 		clothing_flags ^= (VOICEBOX_DISABLED)
 		var/status = !(clothing_flags & VOICEBOX_DISABLED)
-		to_chat(user, span_notice("You turn the voice box in [src] [status ? "on" : "off"]."))
+		to_chat(user, span_notice("Переключение маски в режим [status ? "работы. Голос изменён" : "отключения."]."))
 
 /obj/item/clothing/mask/equipped(mob/M, slot)
 	. = ..()
-	if ((slot & ITEM_SLOT_MASK) && modifies_speech)
+	if (slot == ITEM_SLOT_MASK && modifies_speech)
 		RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	else
 		UnregisterSignal(M, COMSIG_MOB_SAY)
@@ -50,51 +42,46 @@
 /obj/item/clothing/mask/proc/handle_speech()
 	SIGNAL_HANDLER
 
-/obj/item/clothing/mask/worn_overlays(mutable_appearance/standing, isinhands = FALSE)
+/obj/item/clothing/mask/worn_overlays(mutable_appearance/standing, isinhands = TRUE, icon_file)
 	. = ..()
-	if(isinhands)
-		return
-
-	if(body_parts_covered & HEAD)
-		if(damaged_clothes)
-			. += mutable_appearance('icons/effects/item_damage.dmi', "damagedmask")
-		if(GET_ATOM_BLOOD_DNA_LENGTH(src))
-			. += mutable_appearance('icons/effects/blood.dmi', "maskblood")
+	if(!isinhands)
+		if(body_parts_covered & HEAD)
+			if(damaged_clothes)
+				. += mutable_appearance('icons/effects/item_damage.dmi', "damagedmask")
+			if(GET_ATOM_BLOOD_DNA_LENGTH(src))
+				. += mutable_appearance('icons/effects/blood.dmi', "maskblood")
 
 /obj/item/clothing/mask/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
 	..()
 	if(ismob(loc))
 		var/mob/M = loc
-		M.update_worn_mask()
+		M.update_inv_wear_mask()
 
 //Proc that moves gas/breath masks out of the way, disabling them and allowing pill/food consumption
-/obj/item/clothing/mask/proc/adjustmask(mob/living/carbon/user)
+/obj/item/clothing/mask/proc/adjustmask(mob/living/user)
 	if(user?.incapacitated())
 		return
 	mask_adjusted = !mask_adjusted
 	if(!mask_adjusted)
-		icon_state = initial(icon_state)
+		src.icon_state = initial(icon_state)
+		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		clothing_flags |= visor_flags
 		flags_inv |= visor_flags_inv
 		flags_cover |= visor_flags_cover
-		to_chat(user, span_notice("You push \the [src] back into place."))
+		to_chat(user, span_notice("Натягиваю [src.name] на лицо."))
 		slot_flags = initial(slot_flags)
 	else
 		icon_state += "_up"
-		to_chat(user, span_notice("You push \the [src] out of the way."))
+		to_chat(user, span_notice("Поднимаю [src.name] открывая лицо."))
+		gas_transfer_coefficient = null
 		clothing_flags &= ~visor_flags
 		flags_inv &= ~visor_flags_inv
 		flags_cover &= ~visor_flags_cover
 		if(adjusted_flags)
 			slot_flags = adjusted_flags
-	if(!istype(user))
-		return
-	// Update the mob if it's wearing the mask.
-	if(user.wear_mask == src)
+	if(user)
 		user.wear_mask_update(src, toggle_off = mask_adjusted)
-	if(loc == user)
-		// Update action button icon for adjusted mask, if someone is holding it.
-		user.update_mob_action_buttons()
+		user.update_mob_action_buttons() //when mask is adjusted out, we update all buttons icon so the user's potential internal tank correctly shows as off.
 
 /**
  * Proc called in lungs.dm to act if wearing a mask with filters, used to reduce the filters durability, return a changed gas mixture depending on the filter status

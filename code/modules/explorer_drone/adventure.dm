@@ -8,7 +8,6 @@
 #define ADVENTURE_DEEP_SCAN_DESCRIPTION "deep_scan_description"
 #define ADVENTURE_NODES_FIELD "nodes"
 #define ADVENTURE_TRIGGERS_FIELD "triggers"
-#define ADVENTURE_VERSION_FIELD "version"
 
 #define NODE_NAME_FIELD "name"
 #define NODE_DESCRIPTION_FIELD "description"
@@ -42,83 +41,25 @@
 #define REQ_VALUE_FIELD "value"
 #define REQ_OPERATOR_FIELD "operator"
 
-#define CURRENT_ADVENTURE_VERSION 1
-#define ADVENTURE_LOOK_PATH "strings/exoadventures/"
+GLOBAL_LIST_EMPTY(explorer_drone_adventures)
 
-/// All possible adventures in raw form
-GLOBAL_LIST_EMPTY(explorer_drone_adventure_db_entries)
 
-/// Loads all adventures from DB
 /proc/load_adventures()
 	. = list()
-	for(var/filename in flist(ADVENTURE_LOOK_PATH))
-		var/raw_json = file2text(ADVENTURE_LOOK_PATH + filename)
-		var/list/json_decoded = json_decode(raw_json)
-		var/datum/adventure_db_entry/entry = new()
-		entry.filename = filename
-		entry.raw_json = raw_json
-		entry.uploader = json_decoded["author"]
-		entry.extract_metadata()
-		. += entry
-	GLOB.explorer_drone_adventure_db_entries = .
+	for(var/filename in flist(ADVENTURE_DIR))
+		var/datum/adventure/adventure = try_loading_adventure(filename)
+		if(adventure)
+			. += adventure
 
-/datum/adventure_db_entry
-	/// filename of the adventure
-	var/filename
-	/// actual adventure json string
-	var/raw_json
-	/// Unapproved adventures won't be used for exploration sites.
-	var/approved = FALSE
-	/// Was the adventure used for exploration site this round.
-	var/placed = FALSE
-
-	//Variables below are extracted from the JSON
-
-	/// whoever made the json
-	var/uploader
-	/// json version
-	var/version
-	/// adventure name
-	var/name
-	/// required site traits to use this adventure
-	var/list/required_site_traits
-
-/// Check if the adventure usable for given exploration site traits
-/datum/adventure_db_entry/proc/valid_for_use(list/site_traits)
-	if(!raw_json || version != CURRENT_ADVENTURE_VERSION || placed)
-		return FALSE
-	if(required_site_traits && length(required_site_traits - site_traits) != 0)
-		return FALSE
-	return TRUE
-
-/// Extracts fields that are used by adventure browser / generation before instantiating
-/datum/adventure_db_entry/proc/extract_metadata()
-	if(!raw_json)
-		CRASH("Trying to extract metadata from empty adventure")
-	var/list/json_data = json_decode(raw_json)
+/proc/try_loading_adventure(filename)
+	var/list/json_data = json_load(ADVENTURE_DIR+filename)
 	if(!islist(json_data))
-		CRASH("Invalid JSON for adventure with at path:[filename]")
-	version = json_data[ADVENTURE_VERSION_FIELD] || 0
-	name = json_data[ADVENTURE_NAME_FIELD]
-	required_site_traits = json_data[ADVENTURE_REQUIRED_SITE_TRAITS_FIELD]
-
-/// Creates new adventure instance
-/datum/adventure_db_entry/proc/create_adventure()
-	if(version != CURRENT_ADVENTURE_VERSION)
-		CRASH("Trying to instance outdated adventure version")
-	return try_loading_adventure()
-
-/// Parses adventure JSON and returns /datum/adventure instance on success
-/datum/adventure_db_entry/proc/try_loading_adventure()
-	var/list/json_data = json_decode(raw_json)
-	if(!islist(json_data))
-		CRASH("Invalid JSON in adventure with path:[filename], name:[name]")
-
+		CRASH("Invalid JSON in adventure file [filename]")
 	//Basic validation of required fields, don't even bother loading if they are missing.
 	var/static/list/required_fields = list(ADVENTURE_NAME_FIELD,ADVENTURE_STARTING_NODE_FIELD,ADVENTURE_NODES_FIELD)
 	for(var/field in required_fields)
 		if(!json_data[field])
-			CRASH("Adventure path:[filename], name:[name] missing [field] value")
+			CRASH("Adventure file [filename] missing [field] value")
 
 	var/datum/adventure/loaded_adventure = new
 	//load properties
@@ -131,19 +72,19 @@ GLOBAL_LIST_EMPTY(explorer_drone_adventure_db_entries)
 	loaded_adventure.deep_scan_description = json_data[ADVENTURE_DEEP_SCAN_DESCRIPTION]
 
 	for(var/list/node_data in json_data[ADVENTURE_NODES_FIELD])
-		var/datum/adventure_node/node = try_loading_node(node_data)
+		var/datum/adventure_node/node = try_loading_node(node_data,filename)
 		if(node)
 			if(loaded_adventure.nodes[node.id])
-				CRASH("Duplicate [node.id] node in path:[filename], name:[name] adventure")
+				CRASH("Duplicate [node.id] node in [filename] adventure")
 			loaded_adventure.nodes[node.id] = node
 	loaded_adventure.triggers = json_data[ADVENTURE_TRIGGERS_FIELD]
 	if(!loaded_adventure.validate())
-		CRASH("Validation failed for path:[filename], name:[name] adventure")
+		CRASH("Validation failed for [filename] adventure")
 	return loaded_adventure
 
-/datum/adventure_db_entry/proc/try_loading_node(node_data)
+/proc/try_loading_node(node_data,adventure_filename)
 	if(!islist(node_data))
-		CRASH("Invalid adventure node data in path:[filename], name:[name] adventure.")
+		CRASH("Invalid adventure node data in [adventure_filename] adventure.")
 	var/datum/adventure_node/fresh_node = new
 	fresh_node.id = node_data[NODE_NAME_FIELD]
 	fresh_node.description = node_data[NODE_DESCRIPTION_FIELD]
@@ -155,7 +96,6 @@ GLOBAL_LIST_EMPTY(explorer_drone_adventure_db_entries)
 	fresh_node.on_enter_effects = node_data[NODE_ON_ENTER_EFFECTS_FIELD]
 	fresh_node.on_exit_effects = node_data[NODE_ON_EXIT_EFFECTS_FIELD]
 	return fresh_node
-
 /// text adventure instance, holds data about nodes/choices/etc and of current play state.
 /datum/adventure
 	/// Adventure name, this organization only, not visible to users
@@ -186,8 +126,8 @@ GLOBAL_LIST_EMPTY(explorer_drone_adventure_db_entries)
 	var/previous_node_id
 	/// Assoc list of quality name = value
 	var/list/qualities
-	/// Delayed state properties. If not null, means adventure is in delayed action state and will contain list(delay_time,delay_message)
-	var/list/delayed_action
+	/// Was this adventure placed on generated exploration site already.
+	var/placed = FALSE
 
 /// Basic sanity checks to ensure broken adventures are not used.
 /datum/adventure/proc/validate()
@@ -210,6 +150,9 @@ GLOBAL_LIST_EMPTY(explorer_drone_adventure_db_entries)
 /datum/adventure/proc/initialize_qualities()
 	qualities = starting_qualities || list()
 	SEND_SIGNAL(src,COMSIG_ADVENTURE_QUALITY_INIT,qualities)
+
+/datum/adventure/proc/end_delay()
+	return
 
 /datum/adventure/proc/navigate_to_node(node_id)
 	if(current_node)
@@ -245,6 +188,8 @@ GLOBAL_LIST_EMPTY(explorer_drone_adventure_db_entries)
 		else
 			return FALSE
 
+
+
 /datum/adventure/proc/select_choice(choice_id)
 	if(!current_node || !islist(current_node.choices[choice_id]))
 		return
@@ -263,13 +208,11 @@ GLOBAL_LIST_EMPTY(explorer_drone_adventure_db_entries)
 		if(!isnum(delay_time))
 			CRASH("Invalid delay in adventure [name]")
 		SEND_SIGNAL(src,COMSIG_ADVENTURE_DELAY_START,delay_time,delay_message)
-		delayed_action = list(delay_time,delay_message)
-		addtimer(CALLBACK(src, PROC_REF(finish_delay),exit_id),delay_time)
+		addtimer(CALLBACK(src,PROC_REF(finish_delay),exit_id),delay_time)
 		return
 	navigate_to_node(exit_id)
 
 /datum/adventure/proc/finish_delay(exit_id)
-	delayed_action = null
 	navigate_to_node(exit_id)
 	SEND_SIGNAL(src,COMSIG_ADVENTURE_DELAY_END)
 
@@ -435,10 +378,6 @@ GLOBAL_LIST_EMPTY(explorer_drone_adventure_db_entries)
 			return qualities[qkey] < qval
 		if("exists")
 			return qkey in qualities
-
-#undef ADVENTURE_LOOK_PATH
-#undef ADVENTURE_VERSION_FIELD
-#undef CURRENT_ADVENTURE_VERSION
 
 #undef ADVENTURE_NAME_FIELD
 #undef ADVENTURE_STARTING_NODE_FIELD
