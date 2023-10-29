@@ -1,4 +1,4 @@
-#define CREDIT_ROLL_SPEED 115
+#define CREDIT_ROLL_SPEED 125
 #define CREDIT_SPAWN_SPEED 10
 #define CREDIT_ANIMATE_HEIGHT (14 * world.icon_size)
 #define CREDIT_EASE_DURATION 22
@@ -14,11 +14,11 @@
 	add_verb(src, /client/proc/ClearCredits)
 	var/static/list/credit_order_for_this_round
 	if(isnull(credit_order_for_this_round))
-		credit_order_for_this_round = list("Спасибо за игру!") + shuffle(icon_states(credits_icon)) + list("Aleph 2023")
+		credit_order_for_this_round = list("Thanks for playing!") + (shuffle(icon_states(credits_icon)) - "Thanks for playing!")
 	for(var/I in credit_order_for_this_round)
 		if(!credits)
 			return
-		_credits += new /atom/movable/screen/credit(null, I, src, credits_icon)
+		_credits += new /atom/movable/screen/credit(null, null, I, src, credits_icon)
 		sleep(CREDIT_SPAWN_SPEED)
 	sleep(CREDIT_ROLL_SPEED - CREDIT_SPAWN_SPEED)
 	remove_verb(src, /client/proc/ClearCredits)
@@ -34,17 +34,17 @@
 /atom/movable/screen/credit
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 0
-	screen_loc = "3,1"
-	layer = LOBBY_BACKGROUND_LAYER
+	screen_loc = "12,1"
+	plane = SPLASHSCREEN_PLANE
 	var/client/parent
 	var/matrix/target
 
-/atom/movable/screen/credit/Initialize(mapload, credited, client/P, icon/I)
+/atom/movable/screen/credit/Initialize(mapload, datum/hud/hud_owner, credited, client/P, icon/I)
 	. = ..()
 	icon = I
 	parent = P
 	icon_state = credited
-	maptext = MAPTEXT(credited)
+	maptext = MAPTEXT_PIXELLARI(credited)
 	maptext_x = world.icon_size + 8
 	maptext_y = (world.icon_size / 2) - 4
 	maptext_width = world.icon_size * 3
@@ -68,3 +68,9 @@
 
 /atom/movable/screen/credit/proc/FadeOut()
 	animate(src, alpha = 0, transform = target, time = CREDIT_EASE_DURATION)
+
+#undef CREDIT_ANIMATE_HEIGHT
+#undef CREDIT_EASE_DURATION
+#undef CREDIT_ROLL_SPEED
+#undef CREDIT_SPAWN_SPEED
+#undef CREDITS_PATH

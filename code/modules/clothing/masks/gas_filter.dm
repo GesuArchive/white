@@ -12,10 +12,11 @@
 #define FILTERS_CONSTANT_WEAR 0.05
 
 /obj/item/gas_filter
-	name = "фильтр противогаза"
-	desc = "Кусок многослойной фильтрационной ткани для использования в противогазах."
+	name = "atmospheric gas filter"
+	desc = "A piece of filtering cloth to be used with atmospheric gas masks and emergency gas masks."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "gas_atmos_filter"
+	w_class = WEIGHT_CLASS_TINY
 	///Amount of filtering points available
 	var/filter_status = 100
 	///strength of the filter against high filtering gases
@@ -29,24 +30,29 @@
 
 	///List of gases with high filter priority
 	var/list/high_filtering_gases = list(
-		GAS_PLASMA,
-		GAS_CO2,
-		GAS_N2O
+		/datum/gas/plasma,
+		/datum/gas/carbon_dioxide,
+		/datum/gas/nitrous_oxide
 		)
 	///List of gases with medium filter priority
 	var/list/mid_filtering_gases = list(
-		GAS_NITRIUM,
-		GAS_HYPER_NOBLIUM,
-		GAS_BZ
+		/datum/gas/nitrium,
+		/datum/gas/freon,
+		/datum/gas/hypernoblium,
+		/datum/gas/bz
 		)
 	///List of gases with low filter priority
 	var/list/low_filtering_gases = list(
-		GAS_TRITIUM,
+		/datum/gas/healium,
+		/datum/gas/proto_nitrate,
+		/datum/gas/halon,
+		/datum/gas/tritium,
+		/datum/gas/zauker
 		)
 
 /obj/item/gas_filter/examine(mob/user)
 	. = ..()
-	. += span_notice("[src] is at <b>[filter_status]%</b> durability.")
+	. += "<span class='notice'>[src] is at <b>[filter_status]%</b> durability.</span>"
 
 /**
  * called by the gas mask where the filter is installed, lower the filter_status depending on the breath gas composition and by the strength of the filter
@@ -60,29 +66,29 @@
 
 	var/danger_points = 0
 
-	for(var/gas_id in breath.get_gases())
+	for(var/gas_id in breath.gases)
 		if(gas_id in high_filtering_gases)
-			if(breath.get_moles(gas_id) > HIGH_FILTERING_MOLES)
-				breath.set_moles(gas_id, max(breath.get_moles(gas_id) - filter_strength_high * filter_efficiency * HIGH_FILTERING_RATIO, 0))
+			if(breath.gases[gas_id][MOLES] > HIGH_FILTERING_MOLES)
+				breath.gases[gas_id][MOLES] = max(breath.gases[gas_id][MOLES] - filter_strength_high * filter_efficiency * HIGH_FILTERING_RATIO, 0)
 				danger_points += 0.5
 				continue
-			breath.set_moles(gas_id, max(breath.get_moles(gas_id) - filter_strength_high * filter_efficiency * LOW_FILTERING_RATIO, 0))
+			breath.gases[gas_id][MOLES] = max(breath.gases[gas_id][MOLES] - filter_strength_high * filter_efficiency * LOW_FILTERING_RATIO, 0)
 			danger_points += 0.05
 			continue
 		if(gas_id in mid_filtering_gases)
-			if(breath.get_moles(gas_id) > MID_FILTERING_MOLES)
-				breath.set_moles(gas_id, max(breath.get_moles(gas_id) - filter_strength_mid * filter_efficiency * HIGH_FILTERING_RATIO, 0))
+			if(breath.gases[gas_id][MOLES] > MID_FILTERING_MOLES)
+				breath.gases[gas_id][MOLES] = max(breath.gases[gas_id][MOLES] - filter_strength_mid * filter_efficiency * HIGH_FILTERING_RATIO, 0)
 				danger_points += 0.75
 				continue
-			breath.set_moles(gas_id, max(breath.get_moles(gas_id) - filter_strength_mid * filter_efficiency * LOW_FILTERING_RATIO, 0))
+			breath.gases[gas_id][MOLES] = max(breath.gases[gas_id][MOLES] - filter_strength_mid * filter_efficiency * LOW_FILTERING_RATIO, 0)
 			danger_points += 0.15
 			continue
 		if(gas_id in low_filtering_gases)
-			if(breath.get_moles(gas_id) > LOW_FILTERING_MOLES)
-				breath.set_moles(gas_id, max(breath.get_moles(gas_id) - filter_strength_low * filter_efficiency * HIGH_FILTERING_RATIO, 0))
+			if(breath.gases[gas_id][MOLES] > LOW_FILTERING_MOLES)
+				breath.gases[gas_id][MOLES] = max(breath.gases[gas_id][MOLES] - filter_strength_low * filter_efficiency * HIGH_FILTERING_RATIO, 0)
 				danger_points += 1
 				continue
-			breath.set_moles(gas_id, max(breath.get_moles(gas_id) - filter_strength_low * filter_efficiency * LOW_FILTERING_RATIO, 0))
+			breath.gases[gas_id][MOLES] = max(breath.gases[gas_id][MOLES] - filter_strength_low * filter_efficiency * LOW_FILTERING_RATIO, 0)
 			danger_points += 0.5
 			continue
 
@@ -90,8 +96,8 @@
 	return breath
 
 /obj/item/gas_filter/damaged
-	name = "поврежденный фильтр противогаза"
-	desc = "Кусок многослойной фильтрационной ткани для использования в противогазах. Кажется он поврежден."
+	name = "damaged gas filter"
+	desc = "A piece of filtering cloth to be used with atmospheric gas masks and emergency gas masks, it seems damaged."
 	filter_status = 50 //override on initialize
 
 /obj/item/gas_filter/damaged/Initialize(mapload)
@@ -99,10 +105,16 @@
 	filter_status = rand(35, 65)
 
 /obj/item/gas_filter/plasmaman
-	name = "фильтр противогаза плазмена"
-	desc = "Кусок многослойной фильтрационной ткани для использования в противогазах."
+	name = "plasmaman atmospheric gas filter"
 	high_filtering_gases = list(
-		GAS_O2,
-		GAS_CO2,
-		GAS_NITRIUM
+		/datum/gas/oxygen,
+		/datum/gas/carbon_dioxide,
+		/datum/gas/nitrous_oxide
 		)
+
+#undef HIGH_FILTERING_MOLES
+#undef HIGH_FILTERING_RATIO
+#undef LOW_FILTERING_MOLES
+#undef LOW_FILTERING_RATIO
+#undef MID_FILTERING_MOLES
+#undef FILTERS_CONSTANT_WEAR

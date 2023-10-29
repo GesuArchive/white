@@ -13,14 +13,8 @@ const HEALTH_COLOR_BY_LEVEL = [
   '#801308',
 ];
 
-const HEALTH_ICON_BY_LEVEL = [
-  'heart',
-  'heart',
-  'heart',
-  'heart',
-  'heartbeat',
-  'skull',
-];
+const STAT_LIVING = 0;
+const STAT_DEAD = 4;
 
 const jobIsHead = (jobId) => jobId % 10 === 0;
 
@@ -49,6 +43,16 @@ const jobToColor = (jobId) => {
   return COLORS.department.other;
 };
 
+const statToIcon = (life_status) => {
+  switch (life_status) {
+    case STAT_LIVING:
+      return 'heart';
+    case STAT_DEAD:
+      return 'skull';
+  }
+  return 'heartbeat';
+};
+
 const healthToAttribute = (oxy, tox, burn, brute, attributeList) => {
   const healthSum = oxy + tox + burn + brute;
   const level = Math.min(Math.max(Math.ceil(healthSum / 25), 0), 5);
@@ -66,7 +70,7 @@ const HealthStat = (props) => {
 
 export const CrewConsole = () => {
   return (
-    <Window title="Мониторинг персонала" width={700} height={600}>
+    <Window title="Crew Monitor" width={600} height={600}>
       <Window.Content scrollable>
         <Section minHeight="540px">
           <CrewTable />
@@ -82,17 +86,17 @@ const CrewTable = (props, context) => {
   return (
     <Table>
       <Table.Row>
-        <Table.Cell bold>Имя</Table.Cell>
+        <Table.Cell bold>Name</Table.Cell>
         <Table.Cell bold collapsing />
         <Table.Cell bold collapsing textAlign="center">
-          Состояние
+          Vitals
         </Table.Cell>
         <Table.Cell bold textAlign="center">
-          Местоположение
+          Position
         </Table.Cell>
         {!!data.link_allowed && (
           <Table.Cell bold collapsing textAlign="center">
-            Слежка
+            Tracking
           </Table.Cell>
         )}
       </Table.Row>
@@ -129,13 +133,7 @@ const CrewTableEntry = (props, context) => {
       <Table.Cell collapsing textAlign="center">
         {oxydam !== undefined ? (
           <Icon
-            name={healthToAttribute(
-              oxydam,
-              toxdam,
-              burndam,
-              brutedam,
-              HEALTH_ICON_BY_LEVEL
-            )}
+            name={statToIcon(life_status)}
             color={healthToAttribute(
               oxydam,
               toxdam,
@@ -145,7 +143,7 @@ const CrewTableEntry = (props, context) => {
             )}
             size={1}
           />
-        ) : life_status ? (
+        ) : life_status !== STAT_DEAD ? (
           <Icon name="heart" color="#17d568" size={1} />
         ) : (
           <Icon name="skull" color="#801308" size={1} />
@@ -162,10 +160,10 @@ const CrewTableEntry = (props, context) => {
             {'/'}
             <HealthStat type="brute" value={brutedam} />
           </Box>
-        ) : life_status ? (
-          'Жив'
+        ) : life_status !== STAT_DEAD ? (
+          'Alive'
         ) : (
-          'Мёртв'
+          'Dead'
         )}
       </Table.Cell>
       <Table.Cell>
@@ -178,7 +176,7 @@ const CrewTableEntry = (props, context) => {
       {!!link_allowed && (
         <Table.Cell collapsing>
           <Button
-            content="Отслеживать"
+            content="Track"
             disabled={!can_track}
             onClick={() =>
               act('select_person', {

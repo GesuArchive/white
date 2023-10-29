@@ -83,7 +83,7 @@ export const NuclearBomb = (props, context) => {
                 <Button
                   fluid
                   bold
-                  content="СТАРТ"
+                  content="ARM"
                   textAlign="center"
                   fontSize="28px"
                   lineHeight={1.1}
@@ -94,7 +94,7 @@ export const NuclearBomb = (props, context) => {
                 <Button
                   fluid
                   bold
-                  content="ЯКОРЬ"
+                  content="ANCHOR"
                   textAlign="center"
                   fontSize="28px"
                   lineHeight={1.1}

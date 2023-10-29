@@ -2,7 +2,7 @@
 	if(!check_rights())
 		return
 	log_admin("[key_name(usr)] checked the player panel.")
-	var/dat = "<html><head><meta charset=\"utf-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><title>Player Panel</title></head>"
+	var/dat = "<html><head><meta http-equiv='X-UA-Compatible' content='IE=edge' charset='UTF-8'/><title>Player Panel</title></head>"
 
 	//javascript, the part that does most of the work~
 	dat += {"
@@ -85,7 +85,7 @@
 					body += "<a href='?_src_=vars;[HrefToken()];Vars="+ref+"'>VV</a> - "
 					body += "<a href='?_src_=vars;[HrefToken()];skill="+ref+"'>SP</a> - "
 					body += "<a href='?_src_=holder;[HrefToken()];traitor="+ref+"'>TP</a> - "
-					if (job == "cyborg")
+					if (job == "Cyborg")
 						body += "<a href='?_src_=holder;[HrefToken()];borgpanel="+ref+"'>BP</a> - "
 					body += "<a href='?priv_msg="+ckey+"'>PM</a> - "
 					body += "<a href='?_src_=holder;[HrefToken()];subtlemessage="+ref+"'>SM</a> - "
@@ -107,13 +107,13 @@
 
 						var id = span.getAttribute("id");
 
-						if(!id || !(id.indexOf("item")==0))
+						if(!id || !(id.indexOf("item") == 0))
 							continue;
 
 						var pass = 1;
 
 						for(var j = 0; j < locked_tabs.length; j++){
-							if(locked_tabs\[j\]==id){
+							if(locked_tabs\[j\] == id){
 								pass = 0;
 								break;
 							}
@@ -142,7 +142,7 @@
 
 					var pass = 1;
 					for(var j = 0; j < locked_tabs.length; j++){
-						if(locked_tabs\[j\]==id){
+						if(locked_tabs\[j\] == id){
 							pass = 0;
 							break;
 						}
@@ -163,7 +163,7 @@
 					var index = 0;
 					var pass = 0;
 					for(var j = 0; j < locked_tabs.length; j++){
-						if(locked_tabs\[j\]==id){
+						if(locked_tabs\[j\] == id){
 							pass = 1;
 							index = j;
 							break;
@@ -224,7 +224,7 @@
 			var/color = "#e6e6e6"
 			if(i%2 == 0)
 				color = "#f2f2f2"
-			var/is_antagonist = is_special_character(M)
+			var/is_antagonist = is_special_character(M, allow_fake_antags = TRUE)
 
 			var/M_job = ""
 
@@ -245,15 +245,15 @@
 
 				else if(issilicon(M)) //silicon
 					if(isAI(M))
-						M_job = JOB_AI
+						M_job = "AI"
 					else if(ispAI(M))
 						M_job = ROLE_PAI
 					else if(iscyborg(M))
-						M_job = JOB_CYBORG
+						M_job = "Cyborg"
 					else
 						M_job = "Silicon-based"
 
-				else if(isanimal(M)) //simple animals
+				else if(isanimal_or_basicmob(M)) //simple animals
 					if(iscorgi(M))
 						M_job = "Corgi"
 					else if(isslime(M))
@@ -276,6 +276,9 @@
 
 			var/M_name = html_encode(M.name)
 			var/M_rname = html_encode(M.real_name)
+			var/M_rname_as_key = html_encode(ckey(M.real_name)) // so you can ignore punctuation
+			if(M_rname == M_rname_as_key)
+				M_rname_as_key = null
 			var/M_key = html_encode(M.key)
 			var/previous_names = ""
 			if(M_key)
@@ -294,10 +297,11 @@
 						onmouseover='expand("data[i]","item[i]")'
 						>
 						<b id='search[i]'>[M_name] - [M_rname] - [M_key] ([M_job])</b>
-						<span hidden class='filter_data'>[M_name] [M_rname] [M_key] [M_job] [previous_names]</span>
+						<span hidden class='filter_data'>[M_name] [M_rname] [M_rname_as_key] [M_key] [M_job] [previous_names]</span>
 						<span hidden id="data[i]_name">[M_name]</span>
 						<span hidden id="data[i]_job">[M_job]</span>
 						<span hidden id="data[i]_rname">[M_rname]</span>
+						<span hidden id="data[i]_rname_as_key">[M_rname_as_key]</span>
 						<span hidden id="data[i]_prevnames">[previous_names]</span>
 						<span hidden id="data[i]_key">[M_key]</span>
 						<span hidden id="data[i]_lastip">[M.lastKnownIP]</span>

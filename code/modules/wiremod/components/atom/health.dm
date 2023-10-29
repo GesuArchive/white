@@ -4,8 +4,9 @@
  * Return the health of a mob
  */
 /obj/item/circuit_component/health
-	display_name = "Мед сканер"
-	desc = "Компонент, сканирующий показатели здоровья организму и возвращающий это значение."
+	display_name = "Get Health"
+	desc = "A component that returns the health of an organism."
+	category = "Entity"
 
 	/// The input port
 	var/datum/port/input/input_port

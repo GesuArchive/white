@@ -31,12 +31,11 @@
 	explanation_text = "Capture"
 
 /datum/objective/abductee/capture/New()
-	var/list/jobs = SSjob.occupations.Copy()
-	for(var/X in jobs)
-		var/datum/job/J = X
-		if(J.current_positions < 1)
-			jobs -= J
-	if(jobs.len > 0)
+	var/list/jobs = SSjob.joinable_occupations.Copy()
+	for(var/datum/job/job as anything in jobs)
+		if(job.current_positions < 1)
+			jobs -= job
+	if(length(jobs) > 0)
 		var/datum/job/target = pick(jobs)
 		explanation_text += " a [target.title]."
 	else
@@ -45,7 +44,7 @@
 /datum/objective/abductee/calling/New()
 	var/mob/dead/D = pick(GLOB.dead_mob_list)
 	if(D)
-		explanation_text = "You know that [D] has perished. Hold a seance to call [D.ru_na()] from the spirit realm."
+		explanation_text = "You know that [D] has perished. Hold a seance to call [D.p_them()] from the spirit realm."
 
 /datum/objective/abductee/forbiddennumber
 

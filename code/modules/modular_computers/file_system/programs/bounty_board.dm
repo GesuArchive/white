@@ -1,9 +1,9 @@
 /datum/computer_file/program/bounty_board
 	filename = "bountyboard"
-	filedesc = "Доска объявлений"
+	filedesc = "Bounty Board Request Network"
 	category = PROGRAM_CATEGORY_SUPL
 	program_icon_state = "bountyboard"
-	extended_desc = "Мультиплатформенное приложение для размещения заявок и объявлений в корпоративной сети станции, с функций бесконтактной оплаты..."
+	extended_desc = "A multi-platform network for placing requests across the station, with payment across the network being possible.."
 	requires_ntnet = TRUE
 	size = 10
 	tgui_id = "NtosBountyBoard"
@@ -19,10 +19,9 @@
 	var/networked = FALSE
 
 /datum/computer_file/program/bounty_board/ui_data(mob/user)
-	var/list/data = get_header_data()
+	var/list/data = list()
 	var/list/formatted_requests = list()
 	var/list/formatted_applicants = list()
-	var/obj/item/computer_hardware/card_slot/card_slot = computer.all_components[MC_CARD]
 	if(current_user)
 		data["user"] = list()
 		data["user"]["name"] = current_user.account_holder
@@ -30,8 +29,8 @@
 			data["user"]["job"] = current_user.account_job.title
 			data["user"]["department"] = current_user.account_job.paycheck_department
 		else
-			data["user"]["job"] = "Безработный"
-			data["user"]["department"] = "No Department"
+			data["user"]["job"] = "No Job"
+			data["user"]["department"] = DEPARTMENT_UNASSIGNED
 	else
 		data["user"] = list()
 		data["user"]["name"] = user.name
@@ -40,8 +39,8 @@
 	if(!networked)
 		GLOB.allbountyboards += computer
 		networked = TRUE
-	if(card_slot && card_slot.stored_card && card_slot.stored_card.registered_account)
-		current_user = card_slot.stored_card.registered_account
+	if(computer.computer_id_slot)
+		current_user = computer.computer_id_slot?.registered_account
 	for(var/i in GLOB.request_list)
 		if(!i)
 			continue
@@ -59,9 +58,6 @@
 	return data
 
 /datum/computer_file/program/bounty_board/ui_act(action, list/params)
-	. = ..()
-	if(.)
-		return
 	var/current_ref_num = params["request"]
 	var/current_app_num = params["applicant"]
 	var/datum/bank_account/request_target
@@ -78,12 +74,12 @@
 	switch(action)
 		if("createBounty")
 			if(!current_user || !bounty_text)
-				playsound(src, 'white/valtos/sounds/error1.ogg', 20, TRUE)
+				playsound(src, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
 				return TRUE
 			for(var/datum/station_request/i in GLOB.request_list)
 				if("[i.req_number]" == "[current_user.account_id]")
-					computer.say("Аккаунт уже имеет активный заказ.")
-					return
+					computer.say("Account already has active bounty.")
+					return TRUE
 			var/datum/station_request/curr_request = new /datum/station_request(current_user.account_holder, bounty_value,bounty_text,current_user.account_id, current_user)
 			GLOB.request_list += list(curr_request)
 			for(var/obj/i in GLOB.allbountyboards)
@@ -92,33 +88,33 @@
 			return TRUE
 		if("apply")
 			if(!current_user)
-				computer.say("Пожалуйста, предъявите ID карту!")
+				computer.say("Please swipe a valid ID first.")
 				return TRUE
 			if(current_user.account_holder == active_request.owner)
-				playsound(computer, 'white/valtos/sounds/error1.ogg', 20, TRUE)
+				playsound(computer, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
 				return TRUE
 			active_request.applicants += list(current_user)
 		if("payApplicant")
 			if(!current_user)
 				return
 			if(!current_user.has_money(active_request.value) || (current_user.account_holder != active_request.owner))
-				playsound(computer, 'white/valtos/sounds/error1.ogg', 30, TRUE)
+				playsound(computer, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 				return
-			request_target.transfer_money(current_user, active_request.value)
-			computer.say("Выплачено [active_request.value] кредитов.")
+			request_target.transfer_money(current_user, active_request.value, "Bounties: Request Completed")
+			computer.say("Paid out [active_request.value] credits.")
 			GLOB.request_list.Remove(active_request)
 			return TRUE
 		if("clear")
 			if(current_user)
 				current_user = null
-				computer.say("Сброс аккаунта.")
+				computer.say("Account Reset.")
 				return TRUE
 		if("deleteRequest")
 			if(!current_user)
-				playsound(computer, 'white/valtos/sounds/error1.ogg', 20, TRUE)
+				playsound(computer, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
 				return TRUE
 			if(active_request.owner != current_user.account_holder)
-				playsound(computer, 'white/valtos/sounds/error1.ogg', 20, TRUE)
+				playsound(computer, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
 				return TRUE
 			computer.say("Deleted current request.")
 			GLOB.request_list.Remove(active_request)
@@ -127,10 +123,7 @@
 			bounty_value = text2num(params["bountyval"])
 			if(!bounty_value)
 				bounty_value = 1
+			return TRUE
 		if("bountyText")
 			bounty_text = (params["bountytext"])
-	. = TRUE
-
-/datum/computer_file/program/bounty_board/Destroy()
-	GLOB.allbountyboards -= computer
-	. = ..()
+	return TRUE

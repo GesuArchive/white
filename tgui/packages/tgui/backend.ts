@@ -14,8 +14,8 @@
 import { perf } from 'common/perf';
 import { createAction } from 'common/redux';
 import { setupDrag } from './drag';
-import { focusMap } from './focus';
 import { globalEvents } from './events';
+import { focusMap } from './focus';
 import { createLogger } from './logging';
 import { resumeRenderer, suspendRenderer } from './renderer';
 
@@ -134,7 +134,7 @@ export const backendMiddleware = (store) => {
     }
 
     if (type === 'ping') {
-      Byond.sendMessage('pingReply');
+      Byond.sendMessage('ping/reply');
       return;
     }
 
@@ -144,6 +144,14 @@ export const backendMiddleware = (store) => {
 
     if (type === 'byond/mouseup') {
       globalEvents.emit('byond/mouseup');
+    }
+
+    if (type === 'byond/ctrldown') {
+      globalEvents.emit('byond/ctrldown');
+    }
+
+    if (type === 'byond/ctrlup') {
+      globalEvents.emit('byond/ctrlup');
     }
 
     if (type === 'backend/suspendStart' && !suspendInterval) {
@@ -222,8 +230,10 @@ export const backendMiddleware = (store) => {
  */
 export const sendAct = (action: string, payload: object = {}) => {
   // Validate that payload is an object
-  const isObject =
-    typeof payload === 'object' && payload !== null && !Array.isArray(payload);
+  // prettier-ignore
+  const isObject = typeof payload === 'object'
+    && payload !== null
+    && !Array.isArray(payload);
   if (!isObject) {
     logger.error(`Payload for act() must be an object, got this:`, payload);
     return;
@@ -236,6 +246,7 @@ type BackendState<TData> = {
     title: string;
     status: number;
     interface: string;
+    refreshing: boolean;
     window: {
       key: string;
       size: [number, number];
@@ -265,12 +276,9 @@ export const selectBackend = <TData>(state: any): BackendState<TData> =>
   state.backend || {};
 
 /**
- * A React hook (sort of) for getting tgui state and related functions.
+ * Get data from tgui backend.
  *
- * This is supposed to be replaced with a real React Hook, which can only
- * be used in functional components.
- *
- * You can make
+ * Includes the `act` function for performing DM actions.
  */
 export const useBackend = <TData>(context: any) => {
   const { store } = context;
@@ -350,13 +358,15 @@ export const useSharedState = <T>(
   return [
     sharedState,
     (nextState) => {
+      // prettier-ignore
       Byond.sendMessage({
         type: 'setSharedState',
         key,
-        value:
-          JSON.stringify(
-            typeof nextState === 'function' ? nextState(sharedState) : nextState
-          ) || '',
+        value: JSON.stringify(
+          typeof nextState === 'function'
+            ? nextState(sharedState)
+            : nextState
+        ) || '',
       });
     },
   ];

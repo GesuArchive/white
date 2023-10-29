@@ -1,9 +1,8 @@
 /obj/item/implant/chem
-	name = "микроимплант - 'Химическая мина'"
+	name = "chem implant"
 	desc = "Injects things."
 	icon_state = "reagents"
-	implant_color = "or"
-	activated = FALSE
+	actions_types = null
 
 /obj/item/implant/chem/get_data()
 	var/dat = {"<b>Implant Specifications:</b><BR>
@@ -30,11 +29,19 @@
 	GLOB.tracked_chem_implants -= src
 	return ..()
 
-/obj/item/implant/chem/trigger(emote, mob/living/source)
-	if(emote == "deathgasp")
-		if(istype(source) && !(source.stat == DEAD))
-			return
-		activate(reagents.total_volume)
+/obj/item/implant/chem/implant(mob/living/target, mob/user, silent = FALSE, force = FALSE)
+	. = ..()
+	if(.)
+		RegisterSignal(target, COMSIG_LIVING_DEATH, PROC_REF(on_death))
+
+/obj/item/implant/chem/removed(mob/target, silent = FALSE, special = FALSE)
+	. = ..()
+	if(.)
+		UnregisterSignal(target, COMSIG_LIVING_DEATH)
+
+/obj/item/implant/chem/proc/on_death(mob/living/source)
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/item/implant/chem, activate), reagents.total_volume)
 
 /obj/item/implant/chem/activate(cause)
 	. = ..()
@@ -54,8 +61,8 @@
 
 
 /obj/item/implantcase/chem
-	name = "микроимплант - 'Химическая мина'"
-	desc = "По команде вводит содержащиеся в нем химические вещества носителю."
+	name = "implant case - 'Remote Chemical'"
+	desc = "A glass case containing a remote chemical implant."
 	imp_type = /obj/item/implant/chem
 
 /obj/item/implantcase/chem/attackby(obj/item/W, mob/user, params)

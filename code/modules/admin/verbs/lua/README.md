@@ -105,6 +105,18 @@ A weak reference to DM's `usr`. As a rule of thumb, this is a reference to the m
 
 ---
 
+## Execution Limit
+
+In order to prevent freezing the server with infinite loops, auxlua enforces an execution limit, defaulting to 100ms. When a single lua state has been executing for longer than this limit, it will eventually stop and produce an error.
+
+To avoid exceeding the execution limit, call `sleep()` or `coroutine.yield()` before the execution limit is reached.
+
+### over_exec_usage(fraction = 0.95)
+
+This function returns whether the current run of the Lua VM has executed for longer than the specified fraction of the execution limit. You can use this function to branch to a call to `sleep()` or `coroutine.yield()` to maximize the amount of work done in a single run of the Lua VM. If nil, `fraction` will default to 0.95, otherwise, it will be clamped to the range \[0, 1\].
+
+---
+
 ## Task management
 The Lua Scripting subsystem manages the execution of tasks for each Lua state. A single fire of the subsystem behaves as follows:
 - All tasks that slept since the last fire are resumed in the order they slept.
@@ -126,6 +138,12 @@ The `SS13` package contains various helper functions that use code specific to t
 ### SS13.state
 A reference to the state datum (`/datum/lua_state`) handling this Lua state.
 
+### SS13.get_runner_ckey()
+The ckey of the user who ran the lua script in the current context. Can be unreliable if accessed after sleeping.
+
+### SS13.get_runner_client()
+Returns the client of the user who ran the lua script in the current context. Can be unreliable if accessed after sleeping.
+
 ### SS13.global_proc
 A wrapper for the magic string used to tell `WrapAdminProcCall` to call a global proc.
 For instance, `/datum/callback` must be instantiated with `SS13.global_proc` as its first argument to specify that it will be invoking a global proc.
@@ -143,6 +161,30 @@ The following example spawns a singularity at the caller's current turf:
 ```lua
 SS13.new("/obj/singularity", dm.global_proc("_get_step", dm.usr, 0))
 ```
+
+### SS13.new_untracked(type, ...)
+Works exactly like SS13.new but it does not store the value to the lua state's `references` list variable. This means that the variable could end up deleted if nothing holds a reference to it. 
+
+### SS13.is_valid(datum)
+Can be used to determine if the datum passed is not nil, not undefined and not qdel'd all in one. A helper function that allows you to check the validity from only one function.
+Example usage:
+```lua
+local datum = SS13.new("/datum")
+dm.global_proc("qdel", datum)
+print(SS13.is_valid(datum)) -- false
+
+local null = nil
+print(SS13.is_valid(null)) -- false
+
+local datum = SS13.new("/datum")
+print(SS13.is_valid(datum)) -- true
+```
+
+### SS13.type(string)
+Converts a string into a type. Equivalent to doing `dm.global_proc("_text2path", "/path/to/type")`
+
+### SS13.qdel(datum)
+Deletes a datum. You shouldn't try to reference it after calling this function. Equivalent to doing `dm.global_proc("qdel", datum)`
 
 ### SS13.await(thing_to_call, proc_to_call, ...)
 Calls `proc_to_call` on `thing_to_call`, with `...` as its arguments, and sleeps until that proc returns.
@@ -187,6 +229,45 @@ SS13.set_timeout(5, function()
 	dm.global_proc("to_chat", dm.world, "Hello World!")
 end)
 ```
+
+### SS13.start_loop(time, amount, func)
+Creates a timer which will execute `func` after `time` **seconds**. `func` should not expect to be passed any arguments, as it will not be passed any. Works exactly the same as `SS13.set_timeout` except it will loop the timer `amount` times. If `amount` is set to -1, it will loop indefinitely. Returns a number value, which represents the timer's id. Can be stopped with `SS13.end_loop`
+Returns a number, the timer id, which is needed to stop indefinite timers.
+The following example will output a message to chat every 5 seconds, repeating 10 times:
+```lua
+SS13.start_loop(5, 10, function()
+	dm.global_proc("to_chat", dm.world, "Hello World!")
+end)
+```
+The following example will output a message to chat every 5 seconds, until `SS13.end_loop(timerid)` is called:
+```lua
+local timerid = SS13.start_loop(5, -1, function()
+	dm.global_proc("to_chat", dm.world, "Hello World!")
+end)
+```
+
+### SS13.end_loop(id)
+Prematurely ends a loop that hasn't ended yet, created with `SS13.start_loop`. Silently fails if there is no started loop with the specified id.
+The following example will output a message to chat every 5 seconds and delete it after it has repeated 20 times:
+```lua
+local repeated_amount = 0
+-- timerid won't be in the looping function's scope if declared before the function is declared.
+local timerid
+timerid = SS13.start_loop(5, -1, function()
+	dm.global_proc("to_chat", dm.world, "Hello World!")
+	repeated_amount += 1
+	if repeated_amount >= 20 then
+		SS13.end_loop(timerid)
+	end
+end)
+```
+
+### SS13.stop_all_loops()
+Stops all current running loops that haven't ended yet.
+Useful in case you accidentally left a indefinite loop running without storing the id anywhere.
+
+### SS13.stop_tracking(datum)
+Stops tracking a datum that was created via `SS13.new` so that it can be garbage collected and deleted without having to qdel. Should be used for things like callbacks and other such datums where the reference to the variable is no longer needed.
 
 ---
 

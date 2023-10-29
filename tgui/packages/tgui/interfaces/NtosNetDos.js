@@ -23,7 +23,7 @@ export const NtosNetDosContent = (props, context) => {
         <NoticeBox>{error}</NoticeBox>
         <Button
           fluid
-          content="Сбросить"
+          content="Reset"
           textAlign="center"
           onClick={() => act('PRG_reset')}
         />
@@ -49,7 +49,7 @@ export const NtosNetDosContent = (props, context) => {
   if (target) {
     return (
       <Section fontFamily="monospace" textAlign="center">
-        <Box>ТЕКУЩАЯ СКОРОСТЬ: {speed} GQ/с</Box>
+        <Box>CURRENT SPEED: {speed} GQ/s</Box>
         <Box>
           {/* I don't care anymore */}
           {generate10String(lineLength)}
@@ -65,7 +65,7 @@ export const NtosNetDosContent = (props, context) => {
   return (
     <Section>
       <LabeledList>
-        <LabeledList.Item label="Цель">
+        <LabeledList.Item label="Target">
           {relays.map((relay) => (
             <Button
               key={relay.id}
@@ -83,7 +83,7 @@ export const NtosNetDosContent = (props, context) => {
       <Button
         fluid
         bold
-        content="ЗАПУСТИТЬ"
+        content="EXECUTE"
         color="bad"
         textAlign="center"
         disabled={!focus}

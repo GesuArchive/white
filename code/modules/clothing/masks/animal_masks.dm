@@ -4,13 +4,13 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 		/obj/item/clothing/mask/animal/frog/cursed,
 		/obj/item/clothing/mask/animal/cowmask/cursed,
 		/obj/item/clothing/mask/animal/horsehead/cursed,
-		/obj/item/clothing/mask/animal/rat/cursed,
-		/obj/item/clothing/mask/animal/rat/fox/cursed,
-		/obj/item/clothing/mask/animal/rat/bee/cursed,
-		/obj/item/clothing/mask/animal/rat/bear/cursed,
-		/obj/item/clothing/mask/animal/rat/bat/cursed,
-		/obj/item/clothing/mask/animal/rat/raven/cursed,
-		/obj/item/clothing/mask/animal/rat/jackal/cursed
+		/obj/item/clothing/mask/animal/small/rat/cursed,
+		/obj/item/clothing/mask/animal/small/fox/cursed,
+		/obj/item/clothing/mask/animal/small/bee/cursed,
+		/obj/item/clothing/mask/animal/small/bear/cursed,
+		/obj/item/clothing/mask/animal/small/bat/cursed,
+		/obj/item/clothing/mask/animal/small/raven/cursed,
+		/obj/item/clothing/mask/animal/small/jackal/cursed
 	))
 
 /obj/item/clothing/mask/animal
@@ -44,21 +44,21 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 /obj/item/clothing/mask/animal/examine(mob/user)
 	. = ..()
 	if(clothing_flags & VOICEBOX_TOGGLABLE)
-		. += span_notice("Its voicebox is currently [clothing_flags & VOICEBOX_DISABLED ? "disabled" : "enabled"]. <b>ПКМ</b> to toggle it.")
+		. += span_notice("Its voicebox is currently [clothing_flags & VOICEBOX_DISABLED ? "disabled" : "enabled"]. <b>Alt-click</b> to toggle it.")
 
 /obj/item/clothing/mask/animal/AltClick(mob/user)
 	. = ..()
 	if(clothing_flags & VOICEBOX_TOGGLABLE)
 		clothing_flags ^= VOICEBOX_DISABLED
-		to_chat(user, span_notice("You [clothing_flags & VOICEBOX_DISABLED ? "disabled" : "enabled"] [src] voicebox."))
+		to_chat(user, span_notice("You [clothing_flags & VOICEBOX_DISABLED ? "disabled" : "enabled"] [src]'s voicebox."))
 
 /obj/item/clothing/mask/animal/proc/make_cursed() //apply cursed effects.
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_MASK_TRAIT)
 	clothing_flags = NONE //force animal sounds to always on.
 	if(flags_inv == initial(flags_inv))
 		flags_inv = HIDEFACIALHAIR
-	name = "Морда [animal_type] "
-	desc = "Оно выглядит как маска [animal_type], но если приглядеться получше, то видно, что оно вплавилось в лицо этого человека!"
+	name = "[animal_type] face"
+	desc = "It looks like a [animal_type] mask, but closer inspection reveals it's melded onto this person's face!"
 	if(curse_spawn_sound)
 		playsound(src, curse_spawn_sound, 50, TRUE)
 	var/update_speech_mod = !modifies_speech && LAZYLEN(animal_sounds)
@@ -69,8 +69,8 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 		if(M.get_item_by_slot(ITEM_SLOT_MASK) == src)
 			if(update_speech_mod)
 				RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(handle_speech))
-			to_chat(M, span_userdanger("[capitalize(src.name)] был проклят!"))
-			M.update_inv_wear_mask()
+			to_chat(M, span_userdanger("[src] was cursed!"))
+			M.update_worn_mask()
 
 /obj/item/clothing/mask/animal/proc/clear_curse()
 	REMOVE_TRAIT(src, TRAIT_NODROP, CURSED_MASK_TRAIT)
@@ -84,10 +84,10 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	if(ismob(loc))
 		var/mob/M = loc
 		if(M.get_item_by_slot(ITEM_SLOT_MASK) == src)
-			to_chat(M, span_notice("Проклятье было снято с [capitalize(src.name)]!"))
+			to_chat(M, span_notice("[src]'s curse has been lifted!"))
 			if(update_speech_mod)
 				UnregisterSignal(M, COMSIG_MOB_SAY)
-			M.update_inv_wear_mask()
+			M.update_worn_mask()
 
 /obj/item/clothing/mask/animal/handle_speech(datum/source, list/speech_args)
 	if(clothing_flags & VOICEBOX_DISABLED)
@@ -99,17 +99,17 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 /obj/item/clothing/mask/animal/equipped(mob/user, slot)
 	if(!iscarbon(user))
 		return ..()
-	if(slot == ITEM_SLOT_MASK && HAS_TRAIT_FROM(src, TRAIT_NODROP, CURSED_MASK_TRAIT))
-		to_chat(user, span_userdanger("[capitalize(src.name)] был проклят!"))
+	if((slot & ITEM_SLOT_MASK) && HAS_TRAIT_FROM(src, TRAIT_NODROP, CURSED_MASK_TRAIT))
+		to_chat(user, span_userdanger("[src] was cursed!"))
 	return ..()
 
 
 /obj/item/clothing/mask/animal/pig
-	name = "маска свиньи"
-	desc = "Резиновая маска свиньи со встроенным модулятором голоса."
+	name = "pig mask"
+	desc = "A rubber pig mask with a built-in voice modulator."
 	animal_type = "pig"
 	icon_state = "pig"
-	inhand_icon_state = "pig"
+	inhand_icon_state = null
 	animal_sounds = list("Oink!","Squeeeeeeee!","Oink Oink!")
 	curse_spawn_sound = 'sound/magic/pighead_curse.ogg'
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
@@ -119,10 +119,10 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 
 ///frog mask - reeee!!
 /obj/item/clothing/mask/animal/frog
-	name = "маска лягушки"
-	desc = "Древняя маска выполненная в форме лягушачьей головы. <br> Безумие, оно, как гравитация — нужно всего-лишь слегка подтолкнуть."
+	name = "frog mask"
+	desc = "An ancient mask carved in the shape of a frog.<br> Sanity is like gravity, all it needs is a push."
 	icon_state = "frog"
-	inhand_icon_state = "frog"
+	inhand_icon_state = null
 	animal_sounds = list("Ree!!", "Reee!!","REEE!!","REEEEE!!")
 	animal_sounds_alt_probability = 5
 	animal_sounds_alt = list("HUUUUU!!","SMOOOOOKIN'!!","Hello my baby, hello my honey, hello my rag-time gal.", "Feels bad, man.", "GIT DIS GUY OFF ME!!" ,"SOMEBODY STOP ME!!", "NORMIES, GET OUT!!")
@@ -132,9 +132,9 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	cursed = TRUE
 
 /obj/item/clothing/mask/animal/cowmask
-	name = "коровья маска"
+	name = "cow mask"
 	icon_state = "cowmask"
-	inhand_icon_state = "cowmask"
+	inhand_icon_state = null
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	curse_spawn_sound = 'sound/magic/cowhead_curse.ogg'
 	animal_sounds = list("Moooooooo!","Moo!","Moooo!")
@@ -143,11 +143,11 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	cursed = TRUE
 
 /obj/item/clothing/mask/animal/horsehead
-	name = "маска в виде лошадиной головы"
-	desc = "Маска из мягкого винила и латекса в виде лошадиной головы."
+	name = "horse mask"
+	desc = "A mask made of soft vinyl and latex, representing the head of a horse."
 	animal_type = "horse"
 	icon_state = "horsehead"
-	inhand_icon_state = "horsehead"
+	inhand_icon_state = null
 	animal_sounds = list("NEEIIGGGHHHH!", "NEEEIIIIGHH!", "NEIIIGGHH!", "HAAWWWWW!", "HAAAWWW!")
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDEEYES|HIDEEARS|HIDESNOUT
 	curse_spawn_sound = 'sound/magic/horsehead_curse.ogg'
@@ -155,100 +155,103 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 /obj/item/clothing/mask/animal/horsehead/cursed
 	cursed = TRUE
 
-/obj/item/clothing/mask/animal/rat
-	name = "маска крысы"
-	desc = "Маска из мягкого винила и латекса в виде крысиной головы."
-	animal_type = "rat"
-	icon_state = "rat"
-	inhand_icon_state = "rat"
+/obj/item/clothing/mask/animal/small
+	name = "A small animal mask"
+	desc = "If you're seeing this, yell at a coder."
 	flags_inv = HIDEFACE|HIDESNOUT
-	modifies_speech = FALSE
-	animal_sounds = list("Skree!","SKREEE!","Squeak!")
 
-/obj/item/clothing/mask/animal/rat/make_cursed()
+/obj/item/clothing/mask/animal/small/make_cursed()
 	flags_inv = NONE
 	return ..()
 
-/obj/item/clothing/mask/animal/rat/cursed
+/obj/item/clothing/mask/animal/small/rat
+	name = "rat mask"
+	desc = "A mask made of soft vinyl and latex, representing the head of a rat."
+	animal_type = "rat"
+	icon_state = "rat"
+	inhand_icon_state = null
+	animal_sounds = list("Skree!","SKREEE!","Squeak!")
+
+/obj/item/clothing/mask/animal/small/rat/cursed
 	cursed = TRUE
 
-/obj/item/clothing/mask/animal/rat/fox
-	name = "маска лисы"
-	desc = "Маска из мягкого винила и латекса в виде лисьей головы."
+/obj/item/clothing/mask/animal/small/fox
+	name = "fox mask"
+	desc = "A mask made of soft vinyl and latex, representing the head of a fox."
 	animal_type = "fox"
 	icon_state = "fox"
-	inhand_icon_state = "fox"
+	inhand_icon_state = null
 	animal_sounds = list("Ack-Ack!","Ack-Ack-Ack-Ackawoooo!","Geckers!","AWOO!","TCHOFF!")
 
-/obj/item/clothing/mask/animal/rat/fox/cursed
+/obj/item/clothing/mask/animal/small/fox/cursed
 	cursed = TRUE
 
-/obj/item/clothing/mask/animal/rat/bee
-	name = "маска пчелы"
-	desc = "Маска из мягкого винила и латекса в виде пчелиной головы."
+/obj/item/clothing/mask/animal/small/bee
+	name = "bee mask"
+	desc = "A mask made of soft vinyl and latex, representing the head of a bee."
 	animal_type = "bee"
 	icon_state = "bee"
-	inhand_icon_state = "bee"
+	inhand_icon_state = null
 	animal_sounds = list("BZZT!", "BUZZZ!", "B-zzzz!", "Bzzzzzzttttt!")
 
-/obj/item/clothing/mask/animal/rat/bee/cursed
+/obj/item/clothing/mask/animal/small/bee/cursed
 	cursed = TRUE
 
-/obj/item/clothing/mask/animal/rat/bear
-	name = "маска медведя"
-	desc = "Маска из мягкого винила и латекса в виде медвежьей головы."
+/obj/item/clothing/mask/animal/small/bear
+	name = "bear mask"
+	desc = "A mask made of soft vinyl and latex, representing the head of a bear."
 	animal_type = "bear"
 	icon_state = "bear"
-	inhand_icon_state = "bear"
+	inhand_icon_state = null
 	animal_sounds = list("RAWR!","Rawr!","GRR!","Growl!")
 
-/obj/item/clothing/mask/animal/rat/bear/cursed
+/obj/item/clothing/mask/animal/small/bear/cursed
 	cursed = TRUE
 
-/obj/item/clothing/mask/animal/rat/bat
-	name = "маска летучей мыши"
-	desc = "Маска из мягкого винила и латекса в виде головы летучей мыши."
+/obj/item/clothing/mask/animal/small/bat
+	name = "bat mask"
+	desc = "A mask made of soft vinyl and latex, representing the head of a bat."
 	animal_type = "bat"
 	icon_state = "bat"
-	inhand_icon_state = "bat"
+	inhand_icon_state = null
 
-/obj/item/clothing/mask/animal/rat/bat/cursed
+/obj/item/clothing/mask/animal/small/bat/cursed
 	cursed = TRUE
 
 
-/obj/item/clothing/mask/animal/rat/raven
-	name = "маска ворона"
-	desc = "Маска из мягкого винила и латекса в виде вороньей головы."
+/obj/item/clothing/mask/animal/small/raven
+	name = "raven mask"
+	desc = "A mask made of soft vinyl and latex, representing the head of a raven."
 	icon_state = "raven"
-	inhand_icon_state = "raven"
+	inhand_icon_state = null
 	animal_type = "raven"
 	animal_sounds = list("CAW!", "C-CAWW!", "Squawk!")
 	animal_sounds_alt = list("Nevermore...")
 	animal_sounds_alt_probability = 1
 
-/obj/item/clothing/mask/animal/rat/raven/cursed
+/obj/item/clothing/mask/animal/small/raven/cursed
 	cursed = TRUE
 
-/obj/item/clothing/mask/animal/rat/jackal
-	name = "маска шакала"
-	desc = "Маска из мягкого винила и латекса в виде шакальей головы."
+/obj/item/clothing/mask/animal/small/jackal
+	name = "jackal mask"
+	desc = "A mask made of soft vinyl and latex, representing the head of a jackal."
 	animal_type = "jackal"
 	icon_state = "jackal"
-	inhand_icon_state = "jackal"
+	inhand_icon_state = null
 	animal_sounds = list("YAP!", "Woof!", "Bark!", "AUUUUUU!")
 
-/obj/item/clothing/mask/animal/rat/jackal/cursed
+/obj/item/clothing/mask/animal/small/jackal/cursed
 	cursed = TRUE
 
-/obj/item/clothing/mask/animal/rat/tribal
-	name = "маска племени"
-	desc = "Маска вырезанная из дерева с тщательной ручной детализацией."
+/obj/item/clothing/mask/animal/small/tribal
+	name = "tribal mask"
+	desc = "A mask carved out of wood, detailed carefully by hand."
 	animal_type = "tribal" //honk.
 	icon_state = "bumba"
-	inhand_icon_state = "bumba"
+	inhand_icon_state = null
 	animal_sounds = list("Bad juju, mon!", "Da Iwa be praised!", "Sum bad mojo, dat!", "You do da voodoo, mon!")
 	animal_sounds_alt = list("Eekum-bokum!", "Oomenacka!", "In mah head..... Zombi.... Zombi!")
 	animal_sounds_alt_probability = 5
 
-/obj/item/clothing/mask/animal/rat/tribal/cursed //adminspawn only.
+/obj/item/clothing/mask/animal/small/tribal/cursed //adminspawn only.
 	cursed = TRUE

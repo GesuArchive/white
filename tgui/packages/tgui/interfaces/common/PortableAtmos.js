@@ -3,36 +3,55 @@ import { AnimatedNumber, Box, Button, LabeledList, Section } from '../../compone
 
 export const PortableBasicInfo = (props, context) => {
   const { act, data } = useBackend(context);
-  const { connected, holding, on, pressure } = data;
+  const {
+    connected,
+    holding,
+    on,
+    pressure,
+    hasHypernobCrystal,
+    reactionSuppressionEnabled,
+  } = data;
   return (
     <>
       <Section
-        title="Статус"
+        title="Status"
         buttons={
           <Button
             icon={on ? 'power-off' : 'times'}
-            content={on ? 'Вкл' : 'Выкл'}
+            content={on ? 'On' : 'Off'}
             selected={on}
             onClick={() => act('power')}
           />
         }>
         <LabeledList>
-          <LabeledList.Item label="Давление">
+          <LabeledList.Item label="Pressure">
             <AnimatedNumber value={pressure} />
-            {' кПа'}
+            {' kPa'}
           </LabeledList.Item>
-          <LabeledList.Item label="Порт" color={connected ? 'good' : 'average'}>
-            {connected ? 'Подключено' : 'Не подключено'}
+          <LabeledList.Item label="Port" color={connected ? 'good' : 'average'}>
+            {connected ? 'Connected' : 'Not Connected'}
           </LabeledList.Item>
+          {!!hasHypernobCrystal && (
+            <LabeledList.Item label="Reaction Suppression">
+              <Button
+                icon={data.reactionSuppressionEnabled ? 'snowflake' : 'times'}
+                content={
+                  data.reactionSuppressionEnabled ? 'Enabled' : 'Disabled'
+                }
+                selected={data.reactionSuppressionEnabled}
+                onClick={() => act('reaction_suppression')}
+              />
+            </LabeledList.Item>
+          )}
         </LabeledList>
       </Section>
       <Section
-        title="Бак внутри"
+        title="Holding Tank"
         minHeight="82px"
         buttons={
           <Button
             icon="eject"
-            content="Изъять"
+            content="Eject"
             disabled={!holding}
             onClick={() => act('eject')}
           />
@@ -40,13 +59,13 @@ export const PortableBasicInfo = (props, context) => {
         {holding ? (
           <LabeledList>
             <LabeledList.Item label="Label">{holding.name}</LabeledList.Item>
-            <LabeledList.Item label="Давление">
+            <LabeledList.Item label="Pressure">
               <AnimatedNumber value={holding.pressure} />
-              {' кПа'}
+              {' kPa'}
             </LabeledList.Item>
           </LabeledList>
         ) : (
-          <Box color="average">Внутри нет бака</Box>
+          <Box color="average">No holding tank</Box>
         )}
       </Section>
     </>

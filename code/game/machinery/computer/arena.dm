@@ -20,7 +20,7 @@
 
 /// Controller for admin event arenas
 /obj/machinery/computer/arena
-	name = "контроллер арены"
+	name = "arena controller"
 	/// Arena ID
 	var/arena_id = ARENA_DEFAULT_ID
 	/// Enables/disables spawning
@@ -32,7 +32,7 @@
 	/// Name of currently loaded template
 	var/current_arena_template = "None"
 	// What turf arena clears to
-	var/empty_turf_type = /turf/open/indestructible/boss/air
+	var/empty_turf_type = /turf/open/indestructible
 	// List of team ids
 	var/list/teams = list(ARENA_RED_TEAM,ARENA_GREEN_TEAM)
 	/// List of hud instances indedxed by team id
@@ -87,7 +87,7 @@
 /obj/machinery/computer/arena/proc/get_load_point()
 	var/turf/A = get_landmark_turf(ARENA_CORNER_A)
 	var/turf/B = get_landmark_turf(ARENA_CORNER_B)
-	return locate(min(A.x,B.x), min(A.y,B.y),A.z)
+	return locate(min(A.x,B.x),min(A.y,B.y),A.z)
 
 /obj/machinery/computer/arena/proc/get_arena_turfs()
 	var/lp = get_load_point()
@@ -98,7 +98,7 @@
 
 /obj/machinery/computer/arena/proc/clear_arena()
 	for(var/turf/T in get_arena_turfs())
-		T.empty(turf_type = empty_turf_type)
+		T.empty(turf_type = /turf/open/indestructible)
 	current_arena_template = "None"
 
 /obj/machinery/computer/arena/proc/load_arena(arena_template,mob/user)
@@ -106,7 +106,7 @@
 		return
 	var/datum/map_template/M = arena_templates[arena_template]
 	if(!M)
-		to_chat(user,span_warning("Нет арены?"))
+		to_chat(user,span_warning("No such arena"))
 		return
 	clear_arena() //Clear current arena
 	var/turf/A = get_landmark_turf(ARENA_CORNER_A)
@@ -114,7 +114,7 @@
 	var/wh = abs(A.x - B.x) + 1
 	var/hz = abs(A.y - B.y) + 1
 	if(M.width > wh || M.height > hz)
-		to_chat(user,span_warning("Слишком большая арена!"))
+		to_chat(user,span_warning("Arena template is too big for the current arena!"))
 		return
 	loading = TRUE
 	var/bd = M.load(get_load_point())
@@ -124,6 +124,8 @@
 
 	message_admins("[key_name_admin(user)] loaded [arena_template] event arena for [arena_id] arena.")
 	log_admin("[key_name(user)] loaded [arena_template] event arena for [arena_id] arena.")
+
+
 
 /obj/machinery/computer/arena/proc/add_new_arena_template(user,fname,friendly_name)
 	if(!fname)
@@ -135,7 +137,7 @@
 
 	var/datum/map_template/T = new(fname,friendly_name,TRUE)
 	if(!T.cached_map || T.cached_map.check_for_errors())
-		to_chat(user,"АРЕНА СЛОМАНА.")
+		to_chat(user,"Map failed to parse check for errors.")
 		return
 
 	arena_templates[T.name] = T
@@ -143,8 +145,10 @@
 	log_admin("[key_name(user)] uploaded new event arena: [friendly_name].")
 
 /obj/machinery/computer/arena/proc/load_team(user,team)
-	var/rawteam = stripped_multiline_input(user,"Список команды (сикеи с новой строки)")
-	for(var/i in splittext(rawteam,"\n"))
+	var/rawteam = tgui_input_text(user, "Enter team member list (ckeys separated by comma)", "Team List", multiline = TRUE)
+	if(isnull(rawteam))
+		return
+	for(var/i in splittext(rawteam, ","))
 		var/key = ckey(i)
 		if(!i)
 			continue
@@ -155,27 +159,27 @@
 		var/list/keys = list()
 		for(var/mob/M in GLOB.player_list)
 			keys += M.client
-		var/client/selection = tgui_input_list(usr, "Выберем игрока!", "Мембер", sortKey(keys))
+		var/client/selection = tgui_input_list(user, "Select a player", "Team member", sort_key(keys))
 		//Could be freeform if you want to add disconnected i guess
-		if(!selection)
+		if(isnull(selection))
 			return
 		key = selection.ckey
 	if(!team_keys[team])
 		team_keys[team] = list(key)
 	else
 		team_keys[team] |= key
-	to_chat(user,"[key] добавлен в [team].")
+	to_chat(user,"[key] added to [team] team.")
 
 /obj/machinery/computer/arena/proc/remove_member(mob/user,ckey,team)
 	team_keys[team] -= ckey
-	to_chat(user,"[ckey] удалён из [team].")
+	to_chat(user,"[ckey] removed from [team] team.")
 
 /obj/machinery/computer/arena/proc/spawn_member(obj/machinery/arena_spawn/spawnpoint,ckey,team)
 	var/mob/oldbody = get_mob_by_key(ckey)
 	if(!isobserver(oldbody))
 		return
 	var/mob/living/carbon/human/M = new/mob/living/carbon/human(get_turf(spawnpoint))
-	oldbody.client.prefs.copy_to(M)
+	oldbody.client.prefs.safe_transfer_prefs_to(M, is_antag = TRUE)
 	M.set_species(/datum/species/human) // Could use setting per team
 	M.equipOutfit(outfits[team] ? outfits[team] : default_outfit)
 	M.faction += team //In case anyone wants to add team based stuff to arena special effects
@@ -186,12 +190,12 @@
 
 /obj/machinery/computer/arena/proc/toggle_spawn(mob/user)
 	ready_to_spawn = !ready_to_spawn
-	to_chat(user,"[ready_to_spawn ? "Включаю" : "Выключаю"] спаунеры.")
+	to_chat(user,"You [ready_to_spawn ? "enable" : "disable"] the spawners.")
 	log_admin("[key_name(user)] toggled event arena spawning for [arena_id] arena.")
-	// Could use update_icon on spawnpoints here to show they're on
+	// Could use update_appearance on spawnpoints here to show they're on
 	if(ready_to_spawn)
 		for(var/mob/M in all_contestants())
-			to_chat(M,span_userdanger("Арена ещё не готова!"))
+			to_chat(M,span_userdanger("Arena you're signed up for is ready!"))
 
 /obj/machinery/computer/arena/proc/all_contestants()
 	. = list()
@@ -206,18 +210,18 @@
 	set_doors(closed = TRUE)
 
 /obj/machinery/computer/arena/proc/get_spawn(team)
-	for(var/obj/machinery/arena_spawn/A in GLOB.machines)
+	for(var/obj/machinery/arena_spawn/A as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/arena_spawn))
 		if(A.arena_id == arena_id && A.team == team)
 			return A
 
 /obj/machinery/computer/arena/proc/start_match(mob/user)
 	//TODO: Check if everyone is spawned in, if not ask for confirmation.
 	var/timetext = DisplayTimeText(start_delay)
-	to_chat(user,span_notice("Матч начнётся через [timetext]."))
+	to_chat(user,span_notice("The match will start in [timetext]."))
 	for(var/mob/M in all_contestants())
-		to_chat(M,span_userdanger("Врата откроются через [timetext]!"))
+		to_chat(M,span_userdanger("The gates will open in [timetext]!"))
 	start_time = world.time + start_delay
-	addtimer(CALLBACK(src,PROC_REF(begin)),start_delay)
+	addtimer(CALLBACK(src, PROC_REF(begin)),start_delay)
 	for(var/team in teams)
 		var/obj/machinery/arena_spawn/team_spawn = get_spawn(team)
 		var/obj/effect/countdown/arena/A = new(team_spawn)
@@ -232,7 +236,7 @@
 			var/obj/machinery/arena_spawn/A = get_spawn(team)
 			playsound(A,start_sound, start_sound_volume)
 	for(var/mob/M in all_contestants())
-		to_chat(M,span_userdanger("В БОЙ!"))
+		to_chat(M,span_userdanger("START!"))
 	//Clean up the countdowns
 	QDEL_LIST(countdowns)
 	start_time = null
@@ -240,7 +244,7 @@
 
 
 /obj/machinery/computer/arena/proc/set_doors(closed = FALSE)
-	for(var/obj/machinery/door/poddoor/D in GLOB.machines) //I really dislike pathing of these
+	for(var/obj/machinery/door/poddoor/D as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/door/poddoor))
 		if(D.id != arena_id)
 			continue
 		if(closed)
@@ -264,6 +268,10 @@
 		toggle_spawn(user)
 	if(href_list["start"])
 		start_match(user)
+	if(href_list["follow"])
+		var/mob/observed_team_member = locate(href_list["follow"]) in GLOB.mob_list
+		if(observed_team_member)
+			user.client?.admin_follow(observed_team_member)
 	if(href_list["team_action"])
 		var/team = href_list["team"]
 		switch(href_list["team_action"])
@@ -294,7 +302,7 @@
 
 /obj/machinery/computer/arena/proc/load_random_arena(mob/user)
 	if(!length(arena_templates))
-		to_chat(user,span_warning("Нет арен"))
+		to_chat(user,span_warning("No arenas present"))
 		return
 	var/picked = pick(arena_templates)
 	load_arena(picked,user)
@@ -303,13 +311,13 @@
 	var/arena_turfs = get_arena_turfs()
 	for(var/mob/living/L in GLOB.mob_living_list)
 		if(L.stat != DEAD && (get_turf(L) in arena_turfs))
-			var/obj/item/reagent_containers/food/drinks/trophy/gold_cup/G = new(get_turf(L))
-			G.name = "трофей [L.real_name]"
+			var/obj/item/reagent_containers/cup/glass/trophy/gold_cup/G = new(get_turf(L))
+			G.name = "[L.real_name]'s Trophy"
 
 /obj/machinery/computer/arena/ui_interact(mob/user)
 	. = ..()
 	var/list/dat = list()
-	dat += "<div>Spawning is currently [ready_to_spawn ? span_good("enabled")  : span_bad("disabled") ] <a href='?src=[REF(src)];toggle_spawn=1'>Toggle</a></div>"
+	dat += "<div>Spawning is currently [ready_to_spawn ? "<span class='good'>enabled</span>" : "<span class='bad'>disabled</span>"] <a href='?src=[REF(src)];toggle_spawn=1'>Toggle</a></div>"
 	dat += "<div><a href='?src=[REF(src)];start=1'>[start_time ? "Stop countdown" : "Start!"]</a></div>"
 	for(var/team in teams)
 		dat += "<h2>[capitalize(team)] team:</h2>"
@@ -324,7 +332,7 @@
 				else
 					player_status = M.stat == DEAD ? "Dead" : "Alive"
 				dat += "<li>[ckey] - [player_status] - "
-				dat += "<a href='?_src_=holder;[HrefToken(TRUE)];adminplayerobservefollow=[REF(M)]'>FLW</a>"
+				dat += "<a href='?src=[REF(src)];follow=[REF(M)]'>FLW</a>"
 				dat += "<a href='?src=[REF(src)];member_action=remove;team=[team];ckey=[ckey]'>Remove</a>"
 				//Add more per player features here
 				dat += "</li>"
@@ -337,7 +345,7 @@
 
 	dat += "Current arena: [current_arena_template]"
 	dat += "<h2>Arena List:</h2>"
-	for(var/A in sort_list(arena_templates))
+	for(var/A in arena_templates)
 		dat += "<a href='?src=[REF(src)];change_arena=[url_encode(A)]'>[A]</a><br>"
 	dat += "<hr>"
 	dat += "<a href='?src=[REF(src)];upload=1'>Upload new arena</a><br>"
@@ -365,19 +373,19 @@
 	var/obj/machinery/computer/arena/_controller
 
 /obj/machinery/arena_spawn/red
-	name = "Красная команда"
+	name = "Red Team Spawnpoint"
 	color = "red"
 	team = ARENA_RED_TEAM
 
 /obj/machinery/arena_spawn/green
-	name = "Зелёная команда"
+	name = "Green Team Spawnpoint"
 	color = "green"
 	team = ARENA_GREEN_TEAM
 
 /obj/machinery/arena_spawn/proc/get_controller()
 	if(_controller && !QDELETED(_controller) && _controller.arena_id == arena_id)
 		return _controller
-	for(var/obj/machinery/computer/arena/A in GLOB.machines)
+	for(var/obj/machinery/computer/arena/A as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/computer/arena))
 		if(A.arena_id == arena_id)
 			_controller = A
 			return _controller
@@ -389,7 +397,7 @@
 	if(C.ready_to_spawn)
 		var/list/allowed_keys = C.team_keys[team]
 		if(!(user.ckey in allowed_keys))
-			to_chat(user,span_warning("Тебя нет в списке."))
+			to_chat(user,span_warning("You're not on the team list."))
 			return
 		C.spawn_member(src,user.ckey,team)
 

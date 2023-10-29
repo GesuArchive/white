@@ -1,5 +1,5 @@
-import { useBackend, useSharedState } from '../backend';
-import { Box, Button, Dropdown, Input, NoticeBox, NumberInput, Section, Stack, Tabs } from '../components';
+import { useBackend } from '../backend';
+import { Box, Button, Dropdown, Input, NumberInput, Section, Stack } from '../components';
 import { NtosWindow } from '../layouts';
 import { AccessList } from './common/AccessList';
 
@@ -20,44 +20,32 @@ export const NtosCardContent = (props, context) => {
     regions = [],
     access_on_card = [],
     has_id,
-    have_id_slot,
     wildcardSlots,
     wildcardFlags,
     trimAccess,
     accessFlags,
     accessFlagNames,
     showBasic,
+    templates = {},
   } = data;
-
-  const { templates } = data || {};
-
-  if (!have_id_slot) {
-    return <NoticeBox>Эта программа требует слот для ID-карты</NoticeBox>;
-  }
-
-  const [selectedTab] = useSharedState(context, 'selectedTab', 'login');
 
   return (
     <>
       <Stack>
-        <Stack.Item>
-          <IDCardTabs />
-        </Stack.Item>
         <Stack.Item width="100%">
-          {(selectedTab === 'login' && <IDCardLogin />) ||
-            (selectedTab === 'modify' && <IDCardTarget />)}
+          <IdCardPage />
         </Stack.Item>
       </Stack>
       {!!has_id && !!authenticatedUser && (
         <Section
-          title="Шаблоны"
+          title="Templates"
           mt={1}
           buttons={
             <Button
               icon="question-circle"
               tooltip={
-                'Попробовать применить все доступы по шаблону к ID-карте.\n' +
-                'Не использует особый доступ, если шаблон не предусматривает это.'
+                'Will attempt to apply all access for the template to the ID card.\n' +
+                'Does not use wildcards unless the template specifies them.'
               }
               tooltipPosition="left"
             />
@@ -80,8 +68,8 @@ export const NtosCardContent = (props, context) => {
                 showBasic={!!showBasic}
                 extraButtons={
                   <Button.Confirm
-                    content="Терминация контракта"
-                    confirmContent="Уволить?"
+                    content="Terminate Employment"
+                    confirmContent="Fire Employee?"
                     color="bad"
                     onClick={() => act('PRG_terminate')}
                   />
@@ -101,53 +89,32 @@ export const NtosCardContent = (props, context) => {
   );
 };
 
-const IDCardTabs = (props, context) => {
-  const [selectedTab, setSelectedTab] = useSharedState(
-    context,
-    'selectedTab',
-    'login'
-  );
-
-  return (
-    <Tabs vertical fill>
-      <Tabs.Tab
-        minWidth={'100%'}
-        altSelection
-        selected={'login' === selectedTab}
-        color={'login' === selectedTab ? 'green' : 'default'}
-        onClick={() => setSelectedTab('login')}>
-        ID-аутентификации
-      </Tabs.Tab>
-      <Tabs.Tab
-        minWidth={'100%'}
-        altSelection
-        selected={'modify' === selectedTab}
-        color={'modify' === selectedTab ? 'green' : 'default'}
-        onClick={() => setSelectedTab('modify')}>
-        Целевое ID
-      </Tabs.Tab>
-    </Tabs>
-  );
-};
-
-export const IDCardLogin = (props, context) => {
+const IdCardPage = (props, context) => {
   const { act, data } = useBackend(context);
-  const { authenticatedUser, has_id, have_printer, authIDName } = data;
+  const {
+    authenticatedUser,
+    id_rank,
+    id_owner,
+    has_id,
+    id_name,
+    id_age,
+    authIDName,
+  } = data;
 
   return (
     <Section
-      title="Вход"
+      title={authenticatedUser ? 'Modify ID' : 'Login'}
       buttons={
         <>
           <Button
             icon="print"
-            content="Печать"
-            disabled={!have_printer || !has_id}
+            content="Print"
+            disabled={!has_id}
             onClick={() => act('PRG_print')}
           />
           <Button
             icon={authenticatedUser ? 'sign-out-alt' : 'sign-in-alt'}
-            content={authenticatedUser ? 'Выйти' : 'Войти'}
+            content={authenticatedUser ? 'Log Out' : 'Log In'}
             color={authenticatedUser ? 'bad' : 'good'}
             onClick={() => {
               act(authenticatedUser ? 'PRG_logout' : 'PRG_authenticate');
@@ -162,35 +129,17 @@ export const IDCardLogin = (props, context) => {
             ellipsis
             icon="eject"
             content={authIDName}
-            onClick={() => act('PRG_ejectauthid')}
+            onClick={() => act('PRG_eject_id')}
           />
         </Stack.Item>
         <Stack.Item width="100%" mt={1} ml={0}>
-          Логин: {authenticatedUser || '-----'}
+          Login: {authenticatedUser || '-----'}
         </Stack.Item>
       </Stack>
-    </Section>
-  );
-};
-
-const IDCardTarget = (props, context) => {
-  const { act, data } = useBackend(context);
-  const { authenticatedUser, id_rank, id_owner, has_id, id_name, id_age } =
-    data;
-
-  return (
-    <Section title="Модификация ID">
-      <Button
-        width="100%"
-        ellipsis
-        icon="eject"
-        content={id_name}
-        onClick={() => act('PRG_ejectmodid')}
-      />
       {!!(has_id && authenticatedUser) && (
         <>
           <Stack mt={1}>
-            <Stack.Item align="center">Детали:</Stack.Item>
+            <Stack.Item align="center">Details:</Stack.Item>
             <Stack.Item grow={1} mr={1} ml={1}>
               <Input
                 width="100%"
@@ -205,7 +154,7 @@ const IDCardTarget = (props, context) => {
             <Stack.Item>
               <NumberInput
                 value={id_age || 0}
-                unit="Возраст"
+                unit="Years"
                 minValue={17}
                 maxValue={85}
                 onChange={(e, value) => {
@@ -217,7 +166,7 @@ const IDCardTarget = (props, context) => {
             </Stack.Item>
           </Stack>
           <Stack>
-            <Stack.Item align="center">Должность:</Stack.Item>
+            <Stack.Item align="center">Assignment:</Stack.Item>
             <Stack.Item grow={1} ml={1}>
               <Input
                 fluid
@@ -252,7 +201,7 @@ const TemplateDropdown = (props, context) => {
       <Stack.Item grow>
         <Dropdown
           width="100%"
-          displayText={'Выберите шаблон...'}
+          displayText={'Select a template...'}
           options={templateKeys.map((path) => {
             return templates[path];
           })}

@@ -14,7 +14,7 @@ export const LanguageMenu = (props, context) => {
   return (
     <Window title="Language Menu" width={700} height={600}>
       <Window.Content scrollable>
-        <Section title="Известные языки">
+        <Section title="Known Languages">
           <LabeledList>
             {languages.map((language) => (
               <LabeledList.Item
@@ -26,8 +26,8 @@ export const LanguageMenu = (props, context) => {
                       <Button
                         content={
                           language.is_default
-                            ? 'Стандартный язык'
-                            : 'Выбрать как стандартный'
+                            ? 'Default Language'
+                            : 'Select as Default'
                         }
                         disabled={!language.can_speak}
                         selected={language.is_default}
@@ -41,7 +41,7 @@ export const LanguageMenu = (props, context) => {
                     {!!admin_mode && (
                       <>
                         <Button
-                          content="Получить"
+                          content="Grant"
                           onClick={() =>
                             act('grant_language', {
                               language_name: language.name,
@@ -49,7 +49,7 @@ export const LanguageMenu = (props, context) => {
                           }
                         />
                         <Button
-                          content="Убрать"
+                          content="Remove"
                           onClick={() =>
                             act('remove_language', {
                               language_name: language.name,
@@ -61,18 +61,20 @@ export const LanguageMenu = (props, context) => {
                   </>
                 }>
                 {language.desc} Key: ,{language.key}{' '}
-                {language.can_understand ? 'Понимаю.' : 'Не понимаю.'}{' '}
-                {language.can_speak ? 'Могу говорить.' : 'Не могу говорить.'}
+                {language.can_understand
+                  ? 'Can understand.'
+                  : 'Cannot understand.'}{' '}
+                {language.can_speak ? 'Can speak.' : 'Cannot speak.'}
               </LabeledList.Item>
             ))}
           </LabeledList>
         </Section>
         {!!admin_mode && (
           <Section
-            title="Неизвестные языки"
+            title="Unknown Languages"
             buttons={
               <Button
-                content={'Омниязык ' + (omnitongue ? 'Включен' : 'Выключен')}
+                content={'Omnitongue ' + (omnitongue ? 'Enabled' : 'Disabled')}
                 selected={omnitongue}
                 onClick={() => act('toggle_omnitongue')}
               />
@@ -84,7 +86,7 @@ export const LanguageMenu = (props, context) => {
                   label={language.name}
                   buttons={
                     <Button
-                      content="Выдать"
+                      content="Grant"
                       onClick={() =>
                         act('grant_language', {
                           language_name: language.name,
@@ -93,8 +95,8 @@ export const LanguageMenu = (props, context) => {
                     />
                   }>
                   {language.desc} Key: ,{language.key}{' '}
-                  {!!language.shadow && '(получено от существа)'}{' '}
-                  {language.can_speak ? 'Могу говорить.' : 'Не могу говорить.'}
+                  {!!language.shadow && '(gained from mob)'}{' '}
+                  {language.can_speak ? 'Can speak.' : 'Cannot speak.'}
                 </LabeledList.Item>
               ))}
             </LabeledList>

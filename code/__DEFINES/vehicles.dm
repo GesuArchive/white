@@ -19,7 +19,7 @@
 /// Does our vehicle require arms to operate? Also used for piggybacking on humans to reserve arms on the rider
 #define RIDER_NEEDS_ARMS   (1<<0)
 // As above but only used for riding cyborgs, and only reserves 1 arm instead of 2
-#define RIDER_NEEDS_ARM   	(1<<1)
+#define RIDER_NEEDS_ARM (1<<1)
 /// Do we need legs to ride this (checks against TRAIT_FLOORED)
 #define RIDER_NEEDS_LEGS   (1<<2)
 /// If the rider is disabled or loses their needed limbs, do they fall off?
@@ -37,6 +37,9 @@
 
 //Vim defines
 ///cooldown between uses of the sound maker
-#define VIM_SOUND_COOLDOWN 1 SECONDS
+#define VIM_SOUND_COOLDOWN (1 SECONDS)
 ///how much vim heals per weld
 #define VIM_HEAL_AMOUNT 20
+
+/// The vehicle being ridden requires pixel offsets for all directions
+#define RIDING_OFFSET_ALL "ALL"

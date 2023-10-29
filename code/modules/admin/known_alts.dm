@@ -21,11 +21,11 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 
 	switch (href_list["action"])
 		if ("add")
-			var/ckey1 = tgui_input_text(usr, "Введите основной CKEY")
+			var/ckey1 = input(usr, "Put in the name of the main ckey") as null|text
 			if (!ckey1)
 				return
 
-			var/ckey2 = tgui_input_text(usr, "Введите CKEY мультиаккаунта")
+			var/ckey2 = input(usr, "Put in the name of their alt") as null|text
 			if (!ckey2)
 				return
 
@@ -51,7 +51,7 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 			qdel(query_already_exists)
 
 			if (already_exists_row)
-				alert(usr, "Эти уже есть в списке!")
+				alert(usr, "Those two are already in the list of known alts!")
 				return
 
 			var/datum/db_query/query_add_known_alt = SSdbcore.NewQuery({"
@@ -64,7 +64,7 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 			))
 
 			if (query_add_known_alt.warn_execute())
-				var/message = "[key_name(usr)] добавляет новую связку мультиакков [ckey1] и [ckey2]."
+				var/message = "[key_name(usr)] has added a new known alt connection between [ckey1] and [ckey2]."
 				message_admins(message)
 				log_admin_private(message)
 
@@ -75,8 +75,8 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 			show_panel(usr.client)
 
 			if (!is_banned_from(ckey2, "Server"))
-				var/ban_choice = alert("[ckey2] не имеет банов на сервере. Откроем банпанель?",,"Да", "Нет")
-				if (ban_choice == "Да")
+				var/ban_choice = alert("[ckey2] is not banned from the server. Do you want to open up the ban panel as well?",,"Yes", "No")
+				if (ban_choice == "Yes")
 					holder.ban_panel(ckey2, role = "Server", duration = BAN_PANEL_PERMANENT)
 		if ("delete")
 			var/id = text2num(href_list["id"])
@@ -96,14 +96,14 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 				return
 
 			if (!query_known_alt_info.NextRow())
-				alert("Не могу найти по данному айди: [id]")
+				alert("Couldn't find the known alt with the ID [id]")
 				qdel(query_known_alt_info)
 				return
 
 			var/list/result = query_known_alt_info.item
 			qdel(query_known_alt_info)
 
-			if (alert("ТОЧНО БЛЯТЬ УДАЛЯЕМ СвЯЗЬ МЕЖДУ [result[1]] И [result[2]]?",,"ХУЯРЬ", "Нет") != "ХУЯРЬ")
+			if (alert("Are you sure you want to delete the alt connection between [result[1]] and [result[2]]?",,"Yes", "No") != "Yes")
 				return
 
 			var/datum/db_query/query_delete_known_alt = SSdbcore.NewQuery({"
@@ -114,7 +114,7 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 			))
 
 			if (query_delete_known_alt.warn_execute())
-				var/message = "[key_name(usr)] удаляет связь между мультиакками [result[1]] и [result[2]]."
+				var/message = "[key_name(usr)] has deleted the known alt connection between [result[1]] and [result[2]]."
 				message_admins(message)
 				log_admin_private(message)
 
@@ -168,18 +168,18 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 	var/list/known_alts_html = list()
 
 	for (var/known_alt in load_known_alts())
-		known_alts_html += "<a href='?src=[REF(src)];[HrefToken()];action=delete;id=[known_alt[4]]'>\[-\] Удалить</a> <b>[known_alt[1]]</b> мультиакк <b>[known_alt[2]]</b> (добавлен <b>[known_alt[3]]</b>)."
+		known_alts_html += "<a href='?src=[REF(src)];[HrefToken()];action=delete;id=[known_alt[4]]'>\[-\] Delete</a> <b>[known_alt[1]]</b> is an alt of <b>[known_alt[2]]</b> (added by <b>[known_alt[3]]</b>)."
 
 	var/html = {"
 		<head>
-			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-			<title>Мультиакки</title>
+			<title>Known Alts</title>
 		</head>
 
 		<body>
-			<p>Не стоит доверять этой информации...</p>
+			<p>Any two ckeys in this panel will not show in "banned connection history".</p>
+			<p>Sometimes players switch account, and it's customary to perma-ban the old one.</p>
 
-			<h2>Мультиакки:</h2> <a href='?src=[REF(src)];[HrefToken()];action=add'>\[+\] Добавить</a><hr>
+			<h2>All Known Alts:</h2> <a href='?src=[REF(src)];[HrefToken()];action=add'>\[+\] Add</a><hr>
 
 			[known_alts_html.Join("<br />")]
 		</body>
@@ -188,7 +188,7 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 	client << browse(html, "window=known_alts;size=700x400")
 
 /datum/admins/proc/known_alts_panel()
-	set name = "Мультиакки"
-	set category = "Адм"
+	set name = "Known Alts Panel"
+	set category = "Admin"
 
 	GLOB.known_alts.show_panel(usr.client)

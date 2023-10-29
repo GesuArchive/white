@@ -52,11 +52,12 @@
 		ADD_TRAIT(cast_on, TRAIT_NO_SOUL, MAGIC_TRAIT)
 
 		cast_on.visible_message(span_danger("[cast_on] suddenly dies!"), ignored_mobs = cast_on)
+		cast_on.investigate_log("has been killed by soul tap.", INVESTIGATE_DEATHS)
 		cast_on.death()
 
 	// If the next tap will kill us, give us a heads-up
 	else if(cast_on.maxHealth - tap_health_taken <= 0)
-		to_chat(cast_on, span_danger("Your body feels incredibly drained, and the burning is hard to ignore!"))
+		to_chat(cast_on, span_bolddanger("Your body feels incredibly drained, and the burning is hard to ignore!"))
 
 	// Otherwise just give them some feedback
 	else

@@ -155,7 +155,7 @@ export const RouletteBetTable = (props, context) => {
 
   let { BetType } = data;
 
-  if (BetType?.startsWith('s')) {
+  if (BetType.startsWith('s')) {
     BetType = BetType.substring(1, BetType.length);
   }
 

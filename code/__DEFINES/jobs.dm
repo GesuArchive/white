@@ -4,98 +4,27 @@
 #define JOB_UNAVAILABLE_PLAYTIME 3
 #define JOB_UNAVAILABLE_ACCOUNTAGE 4
 #define JOB_UNAVAILABLE_SLOTFULL 5
-#define JOB_UNAVAILABLE_UNBUYED 6
-#define JOB_UNAVAILABLE_LOCKED 7
-#define JOB_UNAVAILABLE_WHITELIST 8
-//#define JOB_UNAVAILABLE_ACCOUNT_OLD 9
+/// Job unavailable due to incompatibility with an antag role.
+#define JOB_UNAVAILABLE_ANTAG_INCOMPAT 6
+/// Checks for character age.
+#define JOB_UNAVAILABLE_AGE 7
+
+/// Used when the `get_job_unavailable_error_message` proc can't make sense of a given code.
+#define GENERIC_JOB_UNAVAILABLE_ERROR "Error: Unknown job availability."
 
 #define DEFAULT_RELIGION "Christianity"
 #define DEFAULT_DEITY "Space Jesus"
 #define DEFAULT_BIBLE "Default Bible Name"
+#define DEFAULT_BIBLE_REPLACE(religion) "The Holy Book of [religion]"
 
 #define JOB_DISPLAY_ORDER_DEFAULT 0
 
-#define JOB_DISPLAY_ORDER_ASSISTANT 1
-#define JOB_DISPLAY_ORDER_CAPTAIN 2
-#define JOB_DISPLAY_ORDER_HEAD_OF_PERSONNEL 3
-#define JOB_DISPLAY_ORDER_QUARTERMASTER 4
-#define JOB_DISPLAY_ORDER_CARGO_TECHNICIAN 5
-#define JOB_DISPLAY_ORDER_SHAFT_MINER 6
-#define JOB_DISPLAY_ORDER_BARTENDER 7
-#define JOB_DISPLAY_ORDER_COOK 8
-#define JOB_DISPLAY_ORDER_BOTANIST 9
-#define JOB_DISPLAY_ORDER_JANITOR 10
-#define JOB_DISPLAY_ORDER_CLOWN 11
-#define JOB_DISPLAY_ORDER_MIME 12
-#define JOB_DISPLAY_ORDER_CURATOR 13
-#define JOB_DISPLAY_ORDER_LAWYER 14
-#define JOB_DISPLAY_ORDER_CHAPLAIN 15
-#define JOB_DISPLAY_ORDER_AI 16
-#define JOB_DISPLAY_ORDER_CYBORG 17
-#define JOB_DISPLAY_ORDER_CHIEF_ENGINEER 18
-#define JOB_DISPLAY_ORDER_STATION_ENGINEER 19
-#define JOB_DISPLAY_ORDER_ATMOSPHERIC_TECHNICIAN 20
-#define JOB_DISPLAY_ORDER_CHIEF_MEDICAL_OFFICER 21
-#define JOB_DISPLAY_ORDER_MEDICAL_DOCTOR 22
-#define JOB_DISPLAY_ORDER_PARAMEDIC 23
-#define JOB_DISPLAY_ORDER_CHEMIST 24
-#define JOB_DISPLAY_ORDER_VIROLOGIST 25
-#define JOB_DISPLAY_ORDER_PSYCHOLOGIST 26
-#define JOB_DISPLAY_ORDER_RESEARCH_DIRECTOR 27
-#define JOB_DISPLAY_ORDER_SCIENTIST 28
-#define JOB_DISPLAY_ORDER_ROBOTICIST 29
-#define JOB_DISPLAY_ORDER_GENETICIST 30
-#define JOB_DISPLAY_ORDER_HEAD_OF_SECURITY 31
-#define JOB_DISPLAY_ORDER_WARDEN 32
-#define JOB_DISPLAY_ORDER_DETECTIVE 33
-#define JOB_DISPLAY_ORDER_SECURITY_OFFICER 34
-#define JOB_DISPLAY_ORDER_PRISONER 35
-#define JOB_DISPLAY_ORDER_SPECIAL 36
-
-
-#define DEPARTMENT_UNASSIGNED "No department assigned"
-#define DEPARTMENT_BITFLAG_SECURITY (1<<0)
-#define DEPARTMENT_SECURITY "Security"
-#define DEPARTMENT_BITFLAG_COMMAND (1<<1)
-#define DEPARTMENT_COMMAND "Command"
-#define DEPARTMENT_BITFLAG_SERVICE (1<<2)
-#define DEPARTMENT_SERVICE "Service"
-#define DEPARTMENT_BITFLAG_CARGO (1<<3)
-#define DEPARTMENT_CARGO "Cargo"
-#define DEPARTMENT_BITFLAG_ENGINEERING (1<<4)
-#define DEPARTMENT_ENGINEERING "Engineering"
-#define DEPARTMENT_BITFLAG_SCIENCE (1<<5)
-#define DEPARTMENT_SCIENCE "Science"
-#define DEPARTMENT_BITFLAG_MEDICAL (1<<6)
-#define DEPARTMENT_MEDICAL "Medical"
-#define DEPARTMENT_BITFLAG_SILICON (1<<7)
-#define DEPARTMENT_SILICON "Silicon"
-#define DEPARTMENT_BITFLAG_ASSISTANT (1<<8)
-#define DEPARTMENT_ASSISTANT JOB_ASSISTANT
-#define DEPARTMENT_BITFLAG_CAPTAIN (1<<9)
-#define DEPARTMENT_CAPTAIN JOB_CAPTAIN
-
-/* Job datum job_flags */
-/// Whether the mob is announced on arrival.
-#define JOB_ANNOUNCE_ARRIVAL (1<<0)
-/// Whether the mob is added to the crew manifest.
-#define JOB_CREW_MANIFEST (1<<1)
-/// Whether the mob is equipped through SSjob.EquipRank() on spawn.
-#define JOB_EQUIP_RANK (1<<2)
-/// Whether the job is considered a regular crew member of the station. Equipment such as AI and cyborgs not included.
-#define JOB_CREW_MEMBER (1<<3)
-/// Whether this job can be joined through the new_player menu.
-#define JOB_NEW_PLAYER_JOINABLE (1<<4)
-/// Whether this job appears in bold in the job menu.
-#define JOB_BOLD_SELECT_TEXT (1<<5)
-/// Reopens this position if we lose the player at roundstart.
-#define JOB_REOPEN_ON_ROUNDSTART_LOSS (1<<6)
-/// If the player with this job can have quirks assigned to him or not. Relevant for new player joinable jobs and roundstart antags.
-#define JOB_ASSIGN_QUIRKS (1<<7)
-
-
-#define FACTION_NONE "None"
-#define FACTION_STATION "Station"
+// Keys for jobconfig.toml
+#define JOB_CONFIG_PLAYTIME_REQUIREMENTS "Playtime Requirements"
+#define JOB_CONFIG_REQUIRED_ACCOUNT_AGE "Required Account Age"
+#define JOB_CONFIG_REQUIRED_CHARACTER_AGE "Required Character Age"
+#define JOB_CONFIG_SPAWN_POSITIONS "Spawn Positions"
+#define JOB_CONFIG_TOTAL_POSITIONS "Total Positions"
 
 /**
  * =======================
@@ -111,13 +40,7 @@
 
 //No department
 #define JOB_ASSISTANT "Assistant"
-#define JOB_INTERN "Intern"
 #define JOB_PRISONER "Prisoner"
-#define JOB_BOMJ "Bomj"
-#define JOB_COMBATANT_RED "Combantant: Red"
-#define JOB_COMBATANT_BLUE "Combantant: Blue"
-#define JOB_FREELANCER "Freelancer"
-#define JOB_RUST_ENJOYER "Rust Survivor"
 //Command
 #define JOB_CAPTAIN "Captain"
 #define JOB_HEAD_OF_PERSONNEL "Head of Personnel"
@@ -132,10 +55,6 @@
 //Security
 #define JOB_WARDEN "Warden"
 #define JOB_DETECTIVE "Detective"
-#define JOB_FIELD_MEDIC "Field Medic"
-#define JOB_SPECIALIST "Specialist"
-#define JOB_RUSSIAN_OFFICER "Russian Officer"
-#define JOB_VETERAN "Veteran"
 #define JOB_SECURITY_OFFICER "Security Officer"
 #define JOB_SECURITY_OFFICER_MEDICAL "Security Officer (Medical)"
 #define JOB_SECURITY_OFFICER_ENGINEERING "Security Officer (Engineering)"
@@ -144,8 +63,8 @@
 //Engineering
 #define JOB_STATION_ENGINEER "Station Engineer"
 #define JOB_ATMOSPHERIC_TECHNICIAN "Atmospheric Technician"
-#define JOB_MECHANIC "Mechanic"
 //Medical
+#define JOB_CORONER "Coroner"
 #define JOB_MEDICAL_DOCTOR "Medical Doctor"
 #define JOB_PARAMEDIC "Paramedic"
 #define JOB_CHEMIST "Chemist"
@@ -154,14 +73,11 @@
 #define JOB_SCIENTIST "Scientist"
 #define JOB_ROBOTICIST "Roboticist"
 #define JOB_GENETICIST "Geneticist"
-#define JOB_HACKER "Hacker"
 //Supply
 #define JOB_QUARTERMASTER "Quartermaster"
 #define JOB_CARGO_TECHNICIAN "Cargo Technician"
 #define JOB_SHAFT_MINER "Shaft Miner"
-#define JOB_RANGER "Exploration Crew"
-#define JOB_HUNTER "Hunter"
-#define JOB_TRADER "Trader"
+#define JOB_BITRUNNER "Bitrunner"
 //Service
 #define JOB_BARTENDER "Bartender"
 #define JOB_BOTANIST "Botanist"
@@ -195,3 +111,107 @@
 #define JOB_CENTCOM_RESEARCH_OFFICER "Research Officer"
 #define JOB_CENTCOM_SPECIAL_OFFICER "Special Ops Officer"
 #define JOB_CENTCOM_PRIVATE_SECURITY "Private Security Force"
+
+#define JOB_GROUP_ENGINEERS list( \
+	JOB_STATION_ENGINEER, \
+	JOB_ATMOSPHERIC_TECHNICIAN, \
+)
+
+
+#define JOB_DISPLAY_ORDER_ASSISTANT 1
+#define JOB_DISPLAY_ORDER_CAPTAIN 2
+#define JOB_DISPLAY_ORDER_HEAD_OF_PERSONNEL 3
+#define JOB_DISPLAY_ORDER_BARTENDER 4
+#define JOB_DISPLAY_ORDER_BOTANIST 5
+#define JOB_DISPLAY_ORDER_COOK 6
+#define JOB_DISPLAY_ORDER_JANITOR 7
+#define JOB_DISPLAY_ORDER_CLOWN 8
+#define JOB_DISPLAY_ORDER_MIME 9
+#define JOB_DISPLAY_ORDER_CURATOR 10
+#define JOB_DISPLAY_ORDER_LAWYER 11
+#define JOB_DISPLAY_ORDER_CHAPLAIN 12
+#define JOB_DISPLAY_ORDER_PSYCHOLOGIST 13
+#define JOB_DISPLAY_ORDER_AI 14
+#define JOB_DISPLAY_ORDER_CYBORG 15
+#define JOB_DISPLAY_ORDER_CHIEF_ENGINEER 16
+#define JOB_DISPLAY_ORDER_STATION_ENGINEER 17
+#define JOB_DISPLAY_ORDER_ATMOSPHERIC_TECHNICIAN 18
+#define JOB_DISPLAY_ORDER_QUARTERMASTER 19
+#define JOB_DISPLAY_ORDER_CARGO_TECHNICIAN 20
+#define JOB_DISPLAY_ORDER_SHAFT_MINER 21
+#define JOB_DISPLAY_ORDER_BITRUNNER 22
+#define JOB_DISPLAY_ORDER_CHIEF_MEDICAL_OFFICER 23
+#define JOB_DISPLAY_ORDER_MEDICAL_DOCTOR 24
+#define JOB_DISPLAY_ORDER_PARAMEDIC 25
+#define JOB_DISPLAY_ORDER_CHEMIST 26
+#define JOB_DISPLAY_ORDER_VIROLOGIST 27
+#define JOB_DISPLAY_ORDER_CORONER 28
+#define JOB_DISPLAY_ORDER_RESEARCH_DIRECTOR 29
+#define JOB_DISPLAY_ORDER_SCIENTIST 30
+#define JOB_DISPLAY_ORDER_ROBOTICIST 31
+#define JOB_DISPLAY_ORDER_GENETICIST 32
+#define JOB_DISPLAY_ORDER_HEAD_OF_SECURITY 33
+#define JOB_DISPLAY_ORDER_WARDEN 34
+#define JOB_DISPLAY_ORDER_DETECTIVE 35
+#define JOB_DISPLAY_ORDER_SECURITY_OFFICER 36
+#define JOB_DISPLAY_ORDER_PRISONER 37
+
+#define DEPARTMENT_UNASSIGNED "No Department"
+
+#define DEPARTMENT_BITFLAG_SECURITY (1<<0)
+#define DEPARTMENT_SECURITY "Security"
+#define DEPARTMENT_BITFLAG_COMMAND (1<<1)
+#define DEPARTMENT_COMMAND "Command"
+#define DEPARTMENT_BITFLAG_SERVICE (1<<2)
+#define DEPARTMENT_SERVICE "Service"
+#define DEPARTMENT_BITFLAG_CARGO (1<<3)
+#define DEPARTMENT_CARGO "Cargo"
+#define DEPARTMENT_BITFLAG_ENGINEERING (1<<4)
+#define DEPARTMENT_ENGINEERING "Engineering"
+#define DEPARTMENT_BITFLAG_SCIENCE (1<<5)
+#define DEPARTMENT_SCIENCE "Science"
+#define DEPARTMENT_BITFLAG_MEDICAL (1<<6)
+#define DEPARTMENT_MEDICAL "Medical"
+#define DEPARTMENT_BITFLAG_SILICON (1<<7)
+#define DEPARTMENT_SILICON "Silicon"
+#define DEPARTMENT_BITFLAG_ASSISTANT (1<<8)
+#define DEPARTMENT_ASSISTANT "Assistant"
+#define DEPARTMENT_BITFLAG_CAPTAIN (1<<9)
+#define DEPARTMENT_CAPTAIN "Captain"
+
+/* Job datum job_flags */
+/// Whether the mob is announced on arrival.
+#define JOB_ANNOUNCE_ARRIVAL (1<<0)
+/// Whether the mob is added to the crew manifest.
+#define JOB_CREW_MANIFEST (1<<1)
+/// Whether the mob is equipped through SSjob.EquipRank() on spawn.
+#define JOB_EQUIP_RANK (1<<2)
+/// Whether the job is considered a regular crew member of the station. Equipment such as AI and cyborgs not included.
+#define JOB_CREW_MEMBER (1<<3)
+/// Whether this job can be joined through the new_player menu.
+#define JOB_NEW_PLAYER_JOINABLE (1<<4)
+/// Whether this job appears in bold in the job menu.
+#define JOB_BOLD_SELECT_TEXT (1<<5)
+/// Reopens this position if we lose the player at roundstart.
+#define JOB_REOPEN_ON_ROUNDSTART_LOSS (1<<6)
+/// If the player with this job can have quirks assigned to him or not. Relevant for new player joinable jobs and roundstart antags.
+#define JOB_ASSIGN_QUIRKS (1<<7)
+/// Whether this job can be an intern.
+#define JOB_CAN_BE_INTERN (1<<8)
+/// This job cannot have more slots opened by the Head of Personnel (but admins or other random events can still do this).
+#define JOB_CANNOT_OPEN_SLOTS (1<<9)
+
+/// Combination flag for jobs which are considered regular crew members of the station.
+#define STATION_JOB_FLAGS (JOB_ANNOUNCE_ARRIVAL|JOB_CREW_MANIFEST|JOB_EQUIP_RANK|JOB_CREW_MEMBER|JOB_NEW_PLAYER_JOINABLE|JOB_REOPEN_ON_ROUNDSTART_LOSS|JOB_ASSIGN_QUIRKS|JOB_CAN_BE_INTERN)
+
+#define FACTION_NONE "None"
+#define FACTION_STATION "Station"
+
+// Variable macros used to declare who is the supervisor for a given job, announced to the player when they join as any given job.
+#define SUPERVISOR_CAPTAIN "the Captain"
+#define SUPERVISOR_CE "the Chief Engineer"
+#define SUPERVISOR_CMO "the Chief Medical Officer"
+#define SUPERVISOR_HOP "the Head of Personnel"
+#define SUPERVISOR_HOS "the Head of Security"
+#define SUPERVISOR_QM "the Quartermaster"
+#define SUPERVISOR_RD "the Research Director"

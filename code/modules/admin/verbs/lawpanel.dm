@@ -1,11 +1,13 @@
 /client/proc/cmd_admin_law_panel()
-	set category = "Адм.События"
+	set category = "Admin.Events"
 	set name = "Law Panel"
 
 	if(!check_rights(R_ADMIN))
 		return
+	if(!isobserver(usr) && SSticker.HasRoundStarted())
+		message_admins("[key_name_admin(usr)] checked AI laws via the Law Panel.")
 
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Law Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Law Panel") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 	var/datum/law_panel/tgui = new()
 	tgui.ui_interact(usr)
 
@@ -25,10 +27,10 @@
 
 /datum/law_panel/proc/add_law_helper(mob/living/user, mob/living/silicon/borgo)
 	var/list/lawtypes = list(LAW_ZEROTH, LAW_HACKED, LAW_ION, LAW_INHERENT, LAW_SUPPLIED) // in order of priority
-	var/lawtype = tgui_input_list(user, "Выберите тип закона", "Тип Закона", lawtypes)
+	var/lawtype = tgui_input_list(user, "Select law type", "Law type", lawtypes)
 	if(isnull(lawtype))
 		return FALSE
-	var/lawtext = tgui_input_text(user, "Введите текст закона", "Текст Закона")
+	var/lawtext = tgui_input_text(user, "Input law text", "Law text")
 	if(!lawtext)
 		return FALSE
 	if(QDELETED(src) || QDELETED(borgo))
@@ -37,9 +39,9 @@
 	switch(lawtype)
 		if(LAW_ZEROTH)
 			if(borgo.laws.zeroth || borgo.laws.zeroth_borg)
-				var/zero_override_alert = tgui_alert(user, "В этом юните уже действует нулевой закон, \
-					это отменит существующее. Уверен?", "Перезапись нулевого закона", list("Да", "Нет"))
-				if(zero_override_alert != "Да" || QDELETED(src) || QDELETED(borgo))
+				var/zero_override_alert = tgui_alert(user, "This silicon already has a zeroth law, \
+					this will override their existing one. Are you sure?", "Zeroth law override", list("Yes", "No"))
+				if(zero_override_alert != "Yes" || QDELETED(src) || QDELETED(borgo))
 					return FALSE
 
 			borgo.laws.set_zeroth_law(lawtext)
@@ -59,19 +61,19 @@
 	var/list/relevant_laws = borgo.laws.inherent
 	var/lawindex = relevant_laws.Find(law)
 	if(!lawindex)
-		to_chat(user, span_danger("Что-то пошло не так, мы не смогли переместить этот закон."))
+		to_chat(user, span_danger("Something went wrong, we couldn't move that law."))
 		return FALSE
 
 	switch(direction)
 		if("up")
 			if(lawindex == length(relevant_laws)) // Already at the top? Sanity
-				to_chat(user, span_danger("Что-то пошло не так, мы не смогли переместить этот закон."))
+				to_chat(user, span_danger("Something went wrong, we couldn't move that law."))
 				return FALSE
 
 			relevant_laws.Swap(lawindex + 1, lawindex)
 		if("down")
 			if(lawindex == 1) // Already at the bottom? Sanity
-				to_chat(user, span_danger("Что-то пошло не так, мы не смогли переместить этот закон."))
+				to_chat(user, span_danger("Something went wrong, we couldn't move that law."))
 				return FALSE
 
 			relevant_laws.Swap(lawindex - 1, lawindex)
@@ -80,7 +82,7 @@
 	return TRUE
 
 /datum/law_panel/proc/edit_law_text_helper(mob/living/user, mob/living/silicon/borgo, lawtype, oldlaw)
-	var/newlaw = tgui_input_text(user, "Редактировать текст закона.", "Редактировать Закон", oldlaw)
+	var/newlaw = tgui_input_text(user, "Edit this law's text.", "Edit law", oldlaw)
 	if(!newlaw || QDELETED(src) || QDELETED(borgo))
 		return FALSE
 
@@ -104,7 +106,7 @@
 
 	var/lawindex = relevant_laws.Find(oldlaw)
 	if(!lawindex)
-		to_chat(user, span_danger("Что-то пошло не так, мы не смогли отредактировать этот закон."))
+		to_chat(user, span_danger("Something went wrong, we couldn't edit that law."))
 		return FALSE
 
 	relevant_laws[lawindex] = newlaw
@@ -113,16 +115,16 @@
 /datum/law_panel/proc/edit_law_priority_helper(mob/living/user, mob/living/silicon/borgo, law)
 	var/old_prio = borgo.laws.supplied.Find(law)
 	if(!old_prio)
-		to_chat(user, span_danger("Что-то пошло не так, мы не смогли отредактировать этот закон."))
+		to_chat(user, span_danger("Something went wrong, we couldn't edit that law."))
 		return FALSE
 
-	var/new_prio = tgui_input_number(user, "Введите новый приоритет.", "Изменение приоритета", old_prio, 50, 0)
+	var/new_prio = tgui_input_number(user, "Enter a new priority.", "Edit priority", old_prio, 50, 0)
 	if(!new_prio || QDELETED(src) || QDELETED(borgo))
 		return FALSE
 
 	// Sanity
 	if(old_prio != borgo.laws.supplied.Find(law))
-		to_chat(user, span_danger("Законы [borgo] могут измениться с момента редактирования приоритета, пожалуйста, повторите попытку."))
+		to_chat(user, span_danger("[borgo]'s laws may have changed since you have edited priority, please re-try."))
 		return FALSE
 
 	// If it's far beyond any existing values, just re-add it normally
@@ -134,28 +136,28 @@
 	// Handle collisions
 	var/existing_law = borgo.laws.supplied[new_prio]
 	if(existing_law)
-		var/list/options = list("ПОМЕНЯТЬ МЕСТАМИ", "ВВЕРХ", "ВНИЗ", "ЗАМЕНИТЬ", "ОТМЕНА")
+		var/list/options = list("Swap", "Move up", "Move down", "Replace", "Cancel")
 		if(new_prio == 1)
 			// Nowhere to go from here
-			options -= "ВНИЗ"
+			options -= "Move down"
 
-		var/swap_or_remove = tgui_alert(user, "Закон такого уровня приоритета уже есть. Что с ним нужно сделать?", "Существующий закон", options)
-		if(swap_or_remove == "ОТМЕНА  " || !swap_or_remove || QDELETED(src) || QDELETED(borgo))
+		var/swap_or_remove = tgui_alert(user, "There's already a law at that priority level. What should be done to it?", "Existing law", options)
+		if(swap_or_remove == "Cancel" || !swap_or_remove || QDELETED(src) || QDELETED(borgo))
 			return FALSE
 		// Sanity
 		if(law != borgo.laws.supplied[old_prio] || existing_law != borgo.laws.supplied[new_prio])
-			to_chat(user, span_danger("Законы [borgo] могут измениться с момента редактирования приоритета, пожалуйста, повторите попытку."))
+			to_chat(user, span_danger("[borgo]'s laws have changed since you have edited priority, please re-try."))
 			return FALSE
 
-		if(swap_or_remove == "ПОМЕНЯТЬ МЕСТАМИ")
+		if(swap_or_remove == "Swap")
 			borgo.laws.supplied.Swap(old_prio, new_prio)
 			return TRUE
-		if(swap_or_remove == "ЗАМЕНИТЬ")
+		if(swap_or_remove == "Replace")
 			borgo.laws.remove_supplied_law_by_num(new_prio, law)
 			borgo.laws.add_supplied_law(new_prio, law)
 			return TRUE
 
-		var/new_prio_for_old_law = new_prio + (swap_or_remove == "ВВЕРХ" ? 1 : -1)
+		var/new_prio_for_old_law = new_prio + (swap_or_remove == "Move up" ? 1 : -1)
 
 		borgo.laws.remove_supplied_law_by_num(old_prio)
 		borgo.laws.remove_supplied_law_by_num(new_prio)
@@ -165,7 +167,7 @@
 
 	// Sanity
 	if(old_prio != borgo.laws.supplied.Find(law))
-		to_chat(user, span_danger("Законы [borgo] могут измениться с момента редактирования приоритета, пожалуйста, повторите попытку."))
+		to_chat(user, span_danger("[borgo]'s may laws have changed since you have edited priority, please re-try."))
 		return FALSE
 
 	// At this point the slot is free, insert it as normal
@@ -204,7 +206,7 @@
 	if(params["ref"])
 		borgo = locate(params["ref"]) in GLOB.silicon_mobs
 		if(QDELETED(borgo))
-			to_chat(usr, span_danger("Этого юнита уже не существует."))
+			to_chat(usr, span_danger("That cyborg is invalid."))
 			return TRUE
 
 	switch(action)
@@ -283,7 +285,11 @@
 		borg_information["ref"] = REF(borgo)
 
 		var/datum/ai_laws/lawset = borgo.laws
-		if(!isnull(lawset))
+		if(isnull(lawset))
+			// Whoopsie something wrong wrong this isn't supposed to happen
+			borg_information["laws"] = null
+
+		else
 			var/list/borg_laws = list()
 			// zeroth law on top
 			if(lawset.zeroth || lawset.zeroth_borg)

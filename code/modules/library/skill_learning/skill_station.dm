@@ -1,11 +1,11 @@
-#define SKILLCHIP_IMPLANT_TIME 1 MINUTES
-#define SKILLCHIP_REMOVAL_TIME 30 SECONDS
+#define SKILLCHIP_IMPLANT_TIME (15 SECONDS)
+#define SKILLCHIP_REMOVAL_TIME (15 SECONDS)
 
 /obj/machinery/skill_station
-	name = "Камера имплантации чипов навыков"
-	desc = "Осваивайте навыки с всего лишь мизерными шансами на повреждение головного мозга!"
+	name = "\improper Skillsoft station"
+	desc = "Learn skills with only minimal chance for brain damage."
 
-	icon = 'icons/obj/machines/implantchair.dmi'
+	icon = 'icons/obj/machines/implant_chair.dmi'
 	icon_state = "implantchair"
 	occupant_typecache = list(/mob/living/carbon) //todo make occupant_typecache per type
 	state_open = TRUE
@@ -20,7 +20,7 @@
 
 /obj/machinery/skill_station/Initialize(mapload)
 	. = ..()
-	update_icon()
+	update_appearance()
 
 //Only usable by the person inside
 /obj/machinery/skill_station/ui_state(mob/user)
@@ -33,12 +33,12 @@
 		ui.open()
 
 /obj/machinery/skill_station/update_icon_state()
-	. = ..()
 	icon_state = initial(icon_state)
 	if(state_open)
 		icon_state += "_open"
 	if(occupant)
 		icon_state += "_occupied"
+	return ..()
 
 /obj/machinery/skill_station/update_overlays()
 	. = ..()
@@ -48,13 +48,13 @@
 /obj/machinery/skill_station/relaymove(mob/living/user, direction)
 	open_machine()
 
-/obj/machinery/skill_station/open_machine()
+/obj/machinery/skill_station/open_machine(drop = TRUE, density_to_set = FALSE)
 	. = ..()
 	interrupt_operation()
 
-/obj/machinery/skill_station/Exited(atom/movable/AM, atom/newloc)
+/obj/machinery/skill_station/Exited(atom/movable/gone, direction)
 	. = ..()
-	if(AM == inserted_skillchip)
+	if(gone == inserted_skillchip)
 		inserted_skillchip = null
 		interrupt_operation()
 
@@ -63,7 +63,7 @@
 	if(working)
 		interrupt_operation()
 
-/obj/machinery/skill_station/close_machine(atom/movable/target)
+/obj/machinery/skill_station/close_machine(atom/movable/target, density_to_set = TRUE)
 	. = ..()
 	if(occupant)
 		ui_interact(occupant)
@@ -73,7 +73,7 @@
 	if(work_timer)
 		deltimer(work_timer)
 		work_timer = null
-	update_icon()
+	update_appearance()
 
 /obj/machinery/skill_station/interact(mob/user)
 	. = ..()
@@ -100,8 +100,7 @@
 /obj/machinery/skill_station/dump_inventory_contents(list/subset = null)
 	// Don't drop the skillchip, it's directly inserted into the machine.
 	// dump_contents() will drop everything including the skillchip as an alternative to this.
-	subset = contents - inserted_skillchip
-	return ..()
+	return ..(contents - inserted_skillchip)
 
 /obj/machinery/skill_station/proc/toggle_open(mob/user)
 	state_open ? close_machine() : open_machine()
@@ -115,8 +114,8 @@
 		CRASH("Unusual error - [usr] attempted to start implanting of [inserted_skillchip] when the interface state should not have allowed it.")
 
 	working = TRUE
-	work_timer = addtimer(CALLBACK(src,PROC_REF(implant)),SKILLCHIP_IMPLANT_TIME,TIMER_STOPPABLE)
-	update_icon()
+	work_timer = addtimer(CALLBACK(src, PROC_REF(implant)),SKILLCHIP_IMPLANT_TIME,TIMER_STOPPABLE)
+	update_appearance()
 
 /// Finish implanting.
 /obj/machinery/skill_station/proc/implant()
@@ -130,7 +129,7 @@
 		to_chat(carbon_occupant,span_notice("Operation complete!"))
 		inserted_skillchip = null
 
-	update_icon()
+	update_appearance()
 
 /// Start removal.
 /obj/machinery/skill_station/proc/start_removal(obj/item/skillchip/to_be_removed)
@@ -142,14 +141,14 @@
 		CRASH("Unusual error - [usr] attempted to start removal of [to_be_removed] when the interface state should not have allowed it.")
 
 	working = TRUE
-	work_timer = addtimer(CALLBACK(src,PROC_REF(remove_skillchip),to_be_removed),SKILLCHIP_REMOVAL_TIME,TIMER_STOPPABLE)
-	update_icon()
+	work_timer = addtimer(CALLBACK(src, PROC_REF(remove_skillchip),to_be_removed),SKILLCHIP_REMOVAL_TIME,TIMER_STOPPABLE)
+	update_appearance()
 
 /// Finish removal.
 /obj/machinery/skill_station/proc/remove_skillchip(obj/item/skillchip/to_be_removed)
 	working = FALSE
 	work_timer = null
-	update_icon()
+	update_appearance()
 
 	var/mob/living/carbon/carbon_occupant = occupant
 
@@ -229,7 +228,7 @@
 		.["slots_max"] = null
 		return
 
-	var/obj/item/organ/brain/occupant_brain = carbon_occupant.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/internal/brain/occupant_brain = carbon_occupant.get_organ_slot(ORGAN_SLOT_BRAIN)
 
 	// If there's no brain, we don't need to worry either.
 	if(QDELETED(occupant_brain))
@@ -272,7 +271,7 @@
 				return TRUE
 			var/chipref = params["ref"]
 			var/mob/living/carbon/carbon_occupant = occupant
-			var/obj/item/organ/brain/occupant_brain = carbon_occupant.get_organ_slot(ORGAN_SLOT_BRAIN)
+			var/obj/item/organ/internal/brain/occupant_brain = carbon_occupant.get_organ_slot(ORGAN_SLOT_BRAIN)
 			if(QDELETED(carbon_occupant) || QDELETED(occupant_brain))
 				return TRUE
 			var/obj/item/skillchip/to_be_removed = locate(chipref) in occupant_brain.skillchips
@@ -297,7 +296,7 @@
 				stack_trace("[usr] tried to toggle skillchip activation when [src] was in an invalid state.")
 				return TRUE
 			var/mob/living/carbon/carbon_occupant = occupant
-			var/obj/item/organ/brain/occupant_brain = carbon_occupant.get_organ_slot(ORGAN_SLOT_BRAIN)
+			var/obj/item/organ/internal/brain/occupant_brain = carbon_occupant.get_organ_slot(ORGAN_SLOT_BRAIN)
 			if(QDELETED(carbon_occupant) || QDELETED(occupant_brain))
 				return TRUE
 			var/obj/item/skillchip/to_be_removed = locate(chipref) in occupant_brain.skillchips
@@ -306,3 +305,5 @@
 			toggle_chip_active(to_be_removed)
 			return TRUE
 
+#undef SKILLCHIP_IMPLANT_TIME
+#undef SKILLCHIP_REMOVAL_TIME

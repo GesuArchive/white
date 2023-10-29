@@ -1,5 +1,5 @@
 /obj/effect/shield
-	name = "поле"
+	name = "shield"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "wave2"
 	layer = ABOVE_NORMAL_TURF_LAYER
@@ -16,7 +16,7 @@
 /obj/effect/shield/Destroy()
 	var/turf/location = get_turf(src)
 	location.heat_capacity=old_heat_capacity
-	..()
+	return ..()
 
 /obj/effect/shield/singularity_act()
 	return

@@ -2,30 +2,31 @@
 /mob/living/simple_animal/hostile/asteroid/gutlunch
 	name = "gutlunch"
 	desc = "A scavenger that eats raw meat, often found alongside ash walkers. Produces a thick, nutritious milk."
-	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
+	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
 	icon_state = "gutlunch"
 	icon_living = "gutlunch"
 	icon_dead = "gutlunch"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	speak_emote = list("поёт", "трясётся")
-	emote_hear = list("издаёт трели.")
-	emote_see = list("нюхает.", "отрыгивает.")
-	weather_immunities = list(WEATHER_LAVA, WEATHER_ASH)
-	faction = list("mining", "ashwalker")
+	speak_emote = list("warbles", "quavers")
+	emote_hear = list("trills.")
+	emote_see = list("sniffs.", "burps.")
+	weather_immunities = list(TRAIT_LAVA_IMMUNE, TRAIT_ASHSTORM_IMMUNE)
+	faction = list(FACTION_MINING, FACTION_ASHWALKER)
 	density = FALSE
 	speak_chance = 1
 	turns_per_move = 8
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	move_to_delay = 15
-	response_help_continuous = "гладит"
-	response_help_simple = "гладит"
-	response_disarm_continuous = "аккуратно отталкивает"
-	response_disarm_simple = "аккуратно отталкивает"
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	response_disarm_continuous = "gently pushes aside"
+	response_disarm_simple = "gently push aside"
 	response_harm_continuous = "squishes"
 	response_harm_simple = "squish"
 	friendly_verb_continuous = "pinches"
 	friendly_verb_simple = "pinch"
+	combat_mode = FALSE
 	gold_core_spawnable = FRIENDLY_SPAWN
 	stat_attack = HARD_CRIT
 	gender = NEUTER
@@ -46,11 +47,11 @@
 /mob/living/simple_animal/hostile/asteroid/gutlunch/Initialize(mapload)
 	. = ..()
 	if(wanted_objects.len)
-		AddComponent(/datum/component/udder, /obj/item/udder/gutlunch, TYPE_PROC_REF(/mob, regenerate_icons), TYPE_PROC_REF(/mob, regenerate_icons))
+		AddComponent(/datum/component/udder, /obj/item/udder/gutlunch, CALLBACK(src, PROC_REF(regenerate_icons)), CALLBACK(src, PROC_REF(regenerate_icons)))
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/asteroid/gutlunch/CanAttack(atom/the_target) // Gutlunch-specific version of CanAttack to handle stupid stat_exclusive = true crap so we don't have to do it for literally every single simple_animal/hostile except the two that spawn in lavaland
-	if(isturf(the_target) || !the_target) // bail out on invalids
+	if(!the_target || !isturf(the_target.loc)) // bail out on invalids
 		return FALSE
 
 	if(see_invisible < the_target.invisibility)//Target's invisible to us, forget it
@@ -59,7 +60,7 @@
 	if(isliving(the_target))
 		var/mob/living/L = the_target
 
-		if(faction_check_mob(L) && !attack_same)
+		if(faction_check_atom(L) && !attack_same)
 			return FALSE
 		if(L.stat > stat_attack || L.stat != stat_attack && stat_exclusive)
 			return FALSE
@@ -88,8 +89,7 @@
 /mob/living/simple_animal/hostile/asteroid/gutlunch/gubbuck/Initialize(mapload)
 	. = ..()
 	add_atom_colour(pick("#E39FBB", "#D97D64", "#CF8C4A"), FIXED_COLOUR_PRIORITY)
-	resize = 0.85
-	update_transform()
+	update_transform(0.85)
 
 //Lady gutlunch. They make the babby.
 /mob/living/simple_animal/hostile/asteroid/gutlunch/guthen
@@ -106,10 +106,9 @@
 /mob/living/simple_animal/hostile/asteroid/gutlunch/grublunch/Initialize(mapload)
 	. = ..()
 	add_atom_colour("#9E9E9E", FIXED_COLOUR_PRIORITY) //Somewhat hidden
-	resize = 0.45
-	update_transform()
+	update_transform(0.45)
 
-/mob/living/simple_animal/hostile/asteroid/gutlunch/grublunch/Life(delta_time = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/hostile/asteroid/gutlunch/grublunch/Life(seconds_per_tick = SSMOBS_DT, times_fired)
 	..()
 	growth++
 	if(growth > 50) //originally used a timer for this but it was more of a problem than it was worth.

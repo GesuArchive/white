@@ -1,9 +1,9 @@
 // see code/module/crafting/table.dm
 
-////////////////////////////////////////////////КЕБАБЫ////////////////////////////////////////////////
+////////////////////////////////////////////////KEBABS////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/humankebab
-	name = "Кебаб из человечины"
+	name = "Human kebab"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/meat/steak/plain/human = 2
@@ -12,7 +12,7 @@
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/kebab
-	name = "Кебаб"
+	name = "Kebab"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/meat/steak = 2
@@ -21,7 +21,7 @@
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/tofukebab
-	name = "Кебаб с тофу"
+	name = "Tofu kebab"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/tofu = 2
@@ -30,16 +30,16 @@
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/tailkebab
-	name = "Кебаб из хвоста ящерицы"
+	name = "Lizard tail kebab"
 	reqs = list(
 		/obj/item/stack/rods = 1,
-		/obj/item/organ/tail/lizard = 1
+		/obj/item/organ/external/tail/lizard = 1
 	)
 	result = /obj/item/food/kebab/tail
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/fiestaskewer
-	name = "Шпажка \"Фиеста\""
+	name = "Fiesta Skewer"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/grown/chili = 1,
@@ -50,61 +50,10 @@
 	result = /obj/item/food/kebab/fiesta
 	category = CAT_MEAT
 
-////////////////////////////////////////////////МОРЕПРОДУКТЫ////////////////////////////////////////////////
-
-/datum/crafting_recipe/food/cubancarp
-	name = "Кубинский карп"
-	reqs = list(
-		/datum/reagent/consumable/flour = 5,
-		/obj/item/food/grown/chili = 1,
-		/obj/item/food/fishmeat = 1
-	)
-	result = /obj/item/food/cubancarp
-	category = CAT_MEAT
-
-/datum/crafting_recipe/food/fishandchips
-	name = "Рыба и картофель фри"
-	reqs = list(
-		/obj/item/food/fries = 1,
-		/obj/item/food/fishmeat = 1
-	)
-	result = /obj/item/food/fishandchips
-	category = CAT_MEAT
-
-/datum/crafting_recipe/food/fishfingers
-	name = "Рыбные палочки"
-	reqs = list(
-		/datum/reagent/consumable/flour = 5,
-		/obj/item/food/bun = 1,
-		/obj/item/food/fishmeat = 1
-	)
-	result = /obj/item/food/fishfingers
-	category = CAT_MEAT
-
-/datum/crafting_recipe/food/fishfry
-	name = "Жаркое из рыбы"
-	reqs = list(
-		/obj/item/food/grown/corn = 1,
-		/obj/item/food/grown/peas = 1,
-		/obj/item/food/fishmeat = 1
-	)
-	result = /obj/item/food/fishfry
-	category = CAT_MEAT
-
-/datum/crafting_recipe/food/sashimi
-	name = "Сашими"
-	reqs = list(
-		/datum/reagent/consumable/soysauce = 5,
-		/obj/item/food/spidereggs = 1,
-		/obj/item/food/fishmeat = 1
-	)
-	result = /obj/item/food/sashimi
-	category = CAT_MEAT
-
 ////////////////////////////////////////////////MR SPIDER////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/spidereggsham
-	name = "Ветчина из паучих яиц"
+	name = "Spider eggs ham"
 	reqs = list(
 		/datum/reagent/consumable/salt = 1,
 		/obj/item/food/spidereggs = 1,
@@ -115,8 +64,17 @@
 
 ////////////////////////////////////////////////MISC RECIPE's////////////////////////////////////////////////
 
+/datum/crafting_recipe/food/tempehstarter
+	name = "Tempeh starter"
+	reqs = list(
+		/obj/item/food/grown/soybeans = 5,
+		/obj/item/seeds/plump = 1
+	)
+	result = /obj/item/food/tempehstarter
+	category = CAT_MEAT
+
 /datum/crafting_recipe/food/cornedbeef
-	name = "Солонина с капустой"
+	name = "Corned beef"
 	reqs = list(
 		/datum/reagent/consumable/salt = 5,
 		/obj/item/food/meat/steak = 1,
@@ -126,7 +84,7 @@
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/bearsteak
-	name = "Филе Мигравр"
+	name = "Filet migrawr"
 	reqs = list(
 		/datum/reagent/consumable/ethanol/manly_dorf = 5,
 		/obj/item/food/meat/steak/bear = 1,
@@ -135,18 +93,8 @@
 	result = /obj/item/food/bearsteak
 	category = CAT_MEAT
 
-/datum/crafting_recipe/food/enchiladas
-	name = "Энчилада"
-	reqs = list(
-		/obj/item/food/meat/cutlet = 2,
-		/obj/item/food/grown/chili = 2,
-		/obj/item/food/tortilla = 2
-	)
-	result = /obj/item/food/enchiladas
-	category = CAT_MEAT
-
 /datum/crafting_recipe/food/stewedsoymeat
-	name = "Тушеное соевое мясо"
+	name = "Stewed soymeat"
 	reqs = list(
 		/obj/item/food/soydope = 2,
 		/obj/item/food/grown/carrot = 1,
@@ -156,7 +104,7 @@
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/sausage
-	name = "Сырая сосиска"
+	name = "Raw sausage"
 	reqs = list(
 		/obj/item/food/raw_meatball = 1,
 		/obj/item/food/meat/rawcutlet = 2
@@ -165,7 +113,7 @@
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/nugget
-	name = "Куриные наггетсы"
+	name = "Chicken nugget"
 	reqs = list(
 		/obj/item/food/meat/cutlet = 1
 	)
@@ -173,27 +121,38 @@
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/rawkhinkali
-	name = "Сырое хинкали"
+	name = "Raw Khinkali"
 	reqs = list(
 		/obj/item/food/doughslice = 1,
 		/obj/item/food/grown/garlic = 1,
 		/obj/item/food/meatball = 1
 	)
-	result =  /obj/item/food/rawkhinkali
+	result = /obj/item/food/rawkhinkali
+	category = CAT_MEAT
+
+/datum/crafting_recipe/food/meatbun
+	name = "Meat bun"
+	reqs = list(
+		/datum/reagent/consumable/soysauce = 5,
+		/obj/item/food/bun = 1,
+		/obj/item/food/meatball = 1,
+		/obj/item/food/grown/cabbage = 1
+	)
+	result = /obj/item/food/meatbun
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/pigblanket
-	name = "Сосиска в тесте"
+	name = "Pig in a Blanket"
 	reqs = list(
 		/obj/item/food/bun = 1,
-		/obj/item/food/butter = 1,
+		/obj/item/food/butterslice = 1,
 		/obj/item/food/meat/cutlet = 1
 	)
 	result = /obj/item/food/pigblanket
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/ratkebab
-	name = "Мышиный кебаб"
+	name = "Rat Kebab"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/deadmouse = 1
@@ -202,7 +161,7 @@
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/doubleratkebab
-	name = "Двойной мышиный кебаб"
+	name = "Double Rat Kebab"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/deadmouse = 2
@@ -211,35 +170,60 @@
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/ricepork
-	name = "Рис и свинина"
+	name = "Rice and Pork"
 	reqs = list(
-		/obj/item/food/salad/boiledrice = 1,
+		/obj/item/reagent_containers/cup/bowl = 1,
+		/obj/item/food/boiledrice = 1,
 		/obj/item/food/meat/cutlet = 2
 	)
 	result = /obj/item/food/salad/ricepork
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/ribs
-	name = "Ребрышки барбекю"
+	name = "BBQ Ribs"
 	reqs = list(
 		/datum/reagent/consumable/bbqsauce = 5,
-		/obj/item/food/meat/steak/plain = 2,
+		/obj/item/food/meat/steak = 2,
 		/obj/item/stack/rods = 2
 	)
 	result = /obj/item/food/bbqribs
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/meatclown
-	name = "Мясной клоун"
+	name = "Meat Clown"
 	reqs = list(
-		/obj/item/food/meat/steak/plain = 1,
+		/obj/item/food/meat/steak = 1,
 		/obj/item/food/grown/banana = 1
 	)
 	result = /obj/item/food/meatclown
 	category = CAT_MEAT
 
+/datum/crafting_recipe/food/lasagna
+	name = "Lasagna"
+	reqs = list(
+		/obj/item/food/meat/cutlet = 2,
+		/obj/item/food/grown/tomato = 1,
+		/obj/item/food/cheese/wedge = 2,
+		/obj/item/food/spaghetti/raw = 1
+	)
+	result = /obj/item/food/lasagna
+	category = CAT_MEAT
+
+/datum/crafting_recipe/food/gumbo
+	name = "Black eyed gumbo"
+	reqs = list(
+		/obj/item/reagent_containers/cup/bowl = 1,
+		/obj/item/food/boiledrice = 1,
+		/obj/item/food/grown/peas = 1,
+		/obj/item/food/grown/chili = 1,
+		/obj/item/food/meat/cutlet = 1
+	)
+	result = /obj/item/food/salad/gumbo
+	category = CAT_MEAT
+
+
 /datum/crafting_recipe/food/fried_chicken
-	name = "Жареная курица"
+	name = "Fried Chicken"
 	reqs = list(
 		/obj/item/food/meat/slab/chicken = 1,
 		/datum/reagent/consumable/flour = 5,
@@ -249,16 +233,86 @@
 	category = CAT_MEAT
 
 /datum/crafting_recipe/food/beef_stroganoff
-	name = "Бефстроганов"
+	name = "Beef Stroganoff"
 	reqs = list(
 		/datum/reagent/consumable/flour = 5,
 		/datum/reagent/consumable/milk = 5,
-		/datum/reagent/consumable/salt = 5,
-		/datum/reagent/consumable/blackpepper = 5,
+		/datum/reagent/consumable/salt = 2,
+		/datum/reagent/consumable/blackpepper = 2,
 		/obj/item/food/grown/mushroom = 2,
 		/obj/item/food/grown/onion = 1,
 		/obj/item/food/grown/tomato = 1,
 		/obj/item/food/meat/steak = 1,
 	)
 	result = /obj/item/food/beef_stroganoff
+	category = CAT_MEAT
+
+/datum/crafting_recipe/food/beef_wellington
+	name = "Beef Wellington"
+	reqs = list(
+		/obj/item/food/meat/steak = 1,
+		/obj/item/food/grown/mushroom = 1,
+		/obj/item/food/grown/garlic = 1,
+		/obj/item/food/meat/bacon = 1,
+		/obj/item/food/flatdough = 1,
+		/datum/reagent/consumable/cream = 5,
+		/datum/reagent/consumable/salt = 2,
+		/datum/reagent/consumable/blackpepper = 2
+	)
+	result = /obj/item/food/beef_wellington
+	category = CAT_MEAT
+
+/datum/crafting_recipe/food/full_english
+	name = "Full English Breakfast"
+	reqs = list(
+		/obj/item/food/sausage = 1,
+		/obj/item/food/friedegg = 2,
+		/obj/item/food/meat/bacon = 1,
+		/obj/item/food/grown/mushroom = 1,
+		/obj/item/food/grown/tomato = 1,
+		/obj/item/food/canned/beans = 1,
+		/obj/item/food/butteredtoast = 1
+	)
+	result = /obj/item/food/full_english
+	category = CAT_MEAT
+
+/datum/crafting_recipe/food/envirochow
+	name = "Envirochow"
+	reqs = list(
+		/obj/item/food/meat/slab/corgi = 2,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+	)
+	result = /obj/item/food/canned/envirochow
+	category = CAT_MEAT
+
+/datum/crafting_recipe/food/meatloaf
+	name = "Meatloaf"
+	reqs = list(
+		/obj/item/food/meat/slab = 2,
+		/obj/item/food/grown/onion = 1,
+		/obj/item/food/grown/garlic = 1,
+		/datum/reagent/consumable/ketchup = 10,
+	)
+	result = /obj/item/food/raw_meatloaf
+	category = CAT_MEAT
+
+/datum/crafting_recipe/food/sweet_and_sour_meatballs
+	name = "Sweet and sour meatballs"
+	reqs = list(
+		/obj/item/food/meatball = 3,
+		/obj/item/food/pineappleslice = 1,
+		/obj/item/food/grown/bell_pepper = 1,
+		/datum/reagent/consumable/sugar = 5,
+	)
+	result = /obj/item/food/sweet_and_sour_meatballs
+	category = CAT_MEAT
+
+/datum/crafting_recipe/food/pineapple_skewer
+	name = "Pineapple skewer"
+	reqs = list(
+		/obj/item/stack/rods = 1,
+		/obj/item/food/pineappleslice = 2,
+		/obj/item/food/meat/cutlet = 2,
+	)
+	result = /obj/item/food/kebab/pineapple_skewer
 	category = CAT_MEAT

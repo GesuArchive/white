@@ -1,42 +1,38 @@
-// Modular Computer - device that runs various programs and operates with hardware
-// DO NOT SPAWN THIS TYPE. Use /laptop/ or /console/ instead.
+// Modular Computer - A machinery that is mostly just a host to the Modular Computer item.
 /obj/machinery/modular_computer
-	name = "Модульный компьютер"
-	desc = "Усовершенствованный компьютер"
-
-	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
-	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently
-	// If you create a program which is limited to Laptops and Consoles you don't have to add it's icon_state overlay for Tablets too, for example.
-	icon = 'icons/obj/modular_console.dmi'
-	icon_state = null
-
+	name = "modular computer"
+	desc = "You shouldn't see this. If you do, report it." //they should be examining the processor instead
+	icon = 'icons/obj/machines/modular_console.dmi'
+	icon_state = "console"
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.05
+	density = TRUE
+	max_integrity = 300
+	integrity_failure = 0.5
+
+	///The power cell, null by default as we use the APC we're in
+	var/internal_cell = null
 	///A flag that describes this device type
-	var/hardware_flag = NONE
-	///Power usage during last tick
-	var/last_power_usage = 0
+	var/hardware_flag = PROGRAM_CONSOLE
 	/// Amount of programs that can be ran at once
 	var/max_idle_programs = 4
 
 
 	///Icon state when the computer is turned off.
-	var/icon_state_unpowered = null
+	var/icon_state_unpowered = "console-off"
 	///Icon state when the computer is turned on.
-	var/icon_state_powered = null
+	var/icon_state_powered = "console"
 	///Icon state overlay when the computer is turned on, but no program is loaded that would override the screen.
 	var/screen_icon_state_menu = "menu"
 	///Icon state overlay when the computer is powered, but not 'switched on'.
 	var/screen_icon_screensaver = "standby"
-	///Maximal hardware size. Currently, tablets have 1, laptops 2 and consoles 3. Limits what hardware types can be installed.
-	var/max_hardware_size = 0
 	///Amount of steel sheets refunded when disassembling an empty frame of this computer.
 	var/steel_sheet_cost = 10
 	///Light luminosity when turned on
-	var/light_strength = 0
-	///Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
-	var/base_active_power_usage = 100
+	var/light_strength = 2
+	///Power usage when the computer is open (screen is active) and can be interacted with.
+	var/base_active_power_usage = 500
 	///Power usage when the computer is idle and screen is off (currently only applies to laptops)
-	var/base_idle_power_usage = 10
+	var/base_idle_power_usage = 100
 
 	///CPU that handles most logic while this type only handles power and other specific things.
 	var/obj/item/modular_computer/processor/cpu
@@ -44,7 +40,8 @@
 /obj/machinery/modular_computer/Initialize(mapload)
 	. = ..()
 	cpu = new(src)
-	cpu.physical = src
+	cpu.screen_on = TRUE
+	update_appearance()
 
 /obj/machinery/modular_computer/Destroy()
 	QDEL_NULL(cpu)
@@ -62,9 +59,9 @@
 	if(cpu)
 		cpu.attack_ghost(user)
 
-/obj/machinery/modular_computer/emag_act(mob/user)
+/obj/machinery/modular_computer/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(!cpu)
-		to_chat(user, span_warning("Сначала мне следует включить [src]."))
+		balloon_alert(user, "turn it on first!")
 		return FALSE
 	return cpu.emag_act(user)
 
@@ -73,7 +70,7 @@
 	set_light(cpu?.enabled ? light_strength : 0)
 
 /obj/machinery/modular_computer/update_icon_state()
-	if(!cpu || !cpu.enabled || !cpu.use_power() || (machine_stat & NOPOWER))
+	if(!cpu || !cpu.enabled || (machine_stat & NOPOWER))
 		icon_state = icon_state_unpowered
 	else
 		icon_state = icon_state_powered
@@ -84,7 +81,7 @@
 	if(!cpu)
 		return .
 
-	if(cpu.enabled && cpu.use_power())
+	if(cpu.enabled)
 		. += cpu.active_program?.program_icon_state || screen_icon_state_menu
 	else if(!(machine_stat & NOPOWER))
 		. += screen_icon_screensaver
@@ -126,9 +123,9 @@
 		return cpu.screwdriver_act(user, tool)
 	return ..()
 
-/obj/machinery/modular_computer/wrench_act(mob/user, obj/item/tool)
+/obj/machinery/modular_computer/wrench_act_secondary(mob/user, obj/item/tool)
 	if(cpu)
-		return cpu.wrench_act(user, tool)
+		return cpu.wrench_act_secondary(user, tool)
 	return ..()
 
 /obj/machinery/modular_computer/welder_act(mob/user, obj/item/tool)
@@ -137,7 +134,7 @@
 	return ..()
 
 /obj/machinery/modular_computer/attackby(obj/item/W as obj, mob/living/user)
-	if (user.a_intent != INTENT_HARM && cpu && !(flags_1 & NODECONSTRUCT_1))
+	if (cpu && !user.combat_mode && !(flags_1 & NODECONSTRUCT_1))
 		return cpu.attackby(W, user)
 	return ..()
 

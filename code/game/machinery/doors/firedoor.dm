@@ -1,11 +1,11 @@
 #define CONSTRUCTION_PANEL_OPEN 1 //Maintenance panel is open, still functioning
 #define CONSTRUCTION_NO_CIRCUIT 2 //Circuit board removed, can safely weld apart
 #define DEFAULT_STEP_TIME 20 /// default time for each step
-#define REACTIVATION_DELAY 3 SECONDS // Delay on reactivation, used to prevent dumb crowbar things. Just trust me
+#define REACTIVATION_DELAY (3 SECONDS) // Delay on reactivation, used to prevent dumb crowbar things. Just trust me
 
 /obj/machinery/door/firedoor
-	name = "пожарный шлюз"
-	desc = "Используй ломик!"
+	name = "firelock"
+	desc = "Apply crowbar."
 	icon = 'icons/obj/doors/doorfireglass.dmi'
 	icon_state = "door_open"
 	opacity = FALSE
@@ -19,8 +19,7 @@
 	safe = FALSE
 	layer = BELOW_OPEN_DOOR_LAYER
 	closingLayer = CLOSED_FIREDOOR_LAYER
-	assemblytype = /obj/structure/firelock_frame
-	armor = list(MELEE = 10, BULLET = 30, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 100, FIRE = 95, ACID = 70)
+	armor_type = /datum/armor/door_firedoor
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON | INTERACT_MACHINE_REQUIRES_SILICON | INTERACT_MACHINE_OPEN
 
 	COOLDOWN_DECLARE(activation_cooldown)
@@ -32,6 +31,9 @@
 	///Y offset for the overlay lights, so that they line up with the thin border firelocks
 	var/light_yoffset = 0
 
+
+	///The type of door frame to drop during deconstruction
+	var/assemblytype = /obj/structure/firelock_frame
 	var/boltslocked = TRUE
 	///List of areas we handle. See CalculateAffectingAreas()
 	var/list/affecting_areas
@@ -54,12 +56,27 @@
 	///Overlay object for the warning lights. This and some plane settings allows the lights to glow in the dark.
 	var/mutable_appearance/warn_lights
 
+	///looping sound datum for our fire alarm siren.
+	var/datum/looping_sound/firealarm/soundloop
+	///Keeps track of if we're playing the alarm sound loop (as only one firelock per group should be). Used during power changes.
+	var/is_playing_alarm = FALSE
+
 	var/knock_sound = 'sound/effects/glassknock.ogg'
 	var/bash_sound = 'sound/effects/glassbash.ogg'
 
 
+/datum/armor/door_firedoor
+	melee = 10
+	bullet = 30
+	laser = 20
+	energy = 20
+	bomb = 30
+	fire = 95
+	acid = 70
+
 /obj/machinery/door/firedoor/Initialize(mapload)
 	. = ..()
+	soundloop = new(src, FALSE)
 	CalculateAffectingAreas()
 	my_area = get_area(src)
 	if(!merger_typecache)
@@ -67,8 +84,10 @@
 
 	if(prob(0.004) && icon == 'icons/obj/doors/doorfireglass.dmi')
 		base_icon_state = "sus"
-		desc += " Выглядит немного подозрительно..."
+		desc += " This one looks a bit sus..."
 
+	RegisterSignal(src, COMSIG_MACHINERY_POWER_RESTORED, PROC_REF(on_power_restore))
+	RegisterSignal(src, COMSIG_MACHINERY_POWER_LOST, PROC_REF(on_power_loss))
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/door/firedoor/LateInitialize()
@@ -91,19 +110,77 @@
 
 /obj/machinery/door/firedoor/Destroy()
 	remove_from_areas()
+	unregister_adjacent_turfs(loc)
+	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/machinery/door/firedoor/examine(mob/user)
 	. = ..()
-	. += "<hr>"
 	if(!density)
-		. += span_notice("<span class='notice'>Он открыт, но может быть закрыт <b>ломиком</b>.\n")
+		. += span_notice("It is open, but could be <b>pried</b> closed.")
 	else if(!welded)
-		. += span_notice("<span class='notice'>Он закрыт, но может быть открыт <i>ломиком</i>. Для разбора придётся <b>заварить</b> его намертво.\n")
+		. += span_notice("It is closed, but could be <b>pried</b> open.")
+		. += span_notice("Hold the firelock temporarily open by prying it with <i>left-click</i> and standing next to it.")
+		. += span_notice("Prying by <i>right-clicking</i> the firelock will open it permanently.")
+		. += span_notice("Deconstruction would require it to be <b>welded</b> shut.")
 	else if(boltslocked)
-		. += span_notice("Он <i>заварен</i> намертво. Осталось <b>отвинтить</b> от пола.\n")
+		. += span_notice("It is <i>welded</i> shut. The floor bolts have been locked by <b>screws</b>.")
 	else
-		. += span_notice("Он <i>отвинчен</i>, но сами винты <b>прикручены</b> к полу.")
+		. += span_notice("The bolt locks have been <i>unscrewed</i>, but the bolts themselves are still <b>wrenched</b> to the floor.")
+
+/obj/machinery/door/firedoor/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+
+	if(!isliving(user))
+		return .
+
+	var/mob/living/living_user = user
+
+	if (isnull(held_item))
+		if(density)
+			if(isalienadult(living_user) || issilicon(living_user))
+				context[SCREENTIP_CONTEXT_LMB] = "Open"
+				return CONTEXTUAL_SCREENTIP_SET
+			if(!living_user.combat_mode)
+				if(ishuman(living_user))
+					context[SCREENTIP_CONTEXT_LMB] = "Knock"
+					return CONTEXTUAL_SCREENTIP_SET
+			else
+				if(ismonkey(living_user))
+					context[SCREENTIP_CONTEXT_LMB] = "Attack"
+					return CONTEXTUAL_SCREENTIP_SET
+				if(ishuman(living_user))
+					context[SCREENTIP_CONTEXT_LMB] = "Bash"
+					return CONTEXTUAL_SCREENTIP_SET
+		else if(issilicon(living_user))
+			context[SCREENTIP_CONTEXT_LMB] = "Close"
+			return CONTEXTUAL_SCREENTIP_SET
+		return .
+
+	if(!Adjacent(src, living_user))
+		return .
+
+	switch (held_item.tool_behaviour)
+		if (TOOL_CROWBAR)
+			if (!density)
+				context[SCREENTIP_CONTEXT_LMB] = "Close"
+			else if (!welded)
+				context[SCREENTIP_CONTEXT_LMB] = "Hold open"
+				context[SCREENTIP_CONTEXT_RMB] = "Open permanently"
+			return CONTEXTUAL_SCREENTIP_SET
+		if (TOOL_WELDER)
+			context[SCREENTIP_CONTEXT_RMB] = welded ? "Unweld shut" : "Weld shut"
+			return CONTEXTUAL_SCREENTIP_SET
+		if (TOOL_WRENCH)
+			if (welded && !boltslocked)
+				context[SCREENTIP_CONTEXT_LMB] = "Unfasten bolts"
+				return CONTEXTUAL_SCREENTIP_SET
+		if (TOOL_SCREWDRIVER)
+			if (welded)
+				context[SCREENTIP_CONTEXT_LMB] = "Unlock bolts"
+				return CONTEXTUAL_SCREENTIP_SET
+
+	return .
 
 /**
  * Calculates what areas we should worry about.
@@ -167,6 +244,7 @@
 
 		if(!checked_turf)
 			continue
+
 		RegisterSignal(checked_turf, COMSIG_TURF_CHANGE, PROC_REF(adjacent_change))
 		RegisterSignal(checked_turf, COMSIG_TURF_EXPOSE, PROC_REF(process_results))
 		if(!isopenturf(checked_turf))
@@ -199,24 +277,21 @@
 		stack_trace("We tried to check a gas_mixture that doesn't exist for its firetype, what are you DOING")
 		return
 
-	if(environment.return_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+	if(environment.temperature >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		return FIRELOCK_ALARM_TYPE_HOT
-	if(environment.return_temperature() <= BODYTEMP_COLD_DAMAGE_LIMIT)
+	if(environment.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT)
 		return FIRELOCK_ALARM_TYPE_COLD
 	return
 
-/obj/machinery/door/firedoor/proc/process_results(turf/location, datum/gas_mixture/environment, exposed_temperature)
+/obj/machinery/door/firedoor/proc/process_results(datum/source)
 	SIGNAL_HANDLER
 
 	for(var/area/place in affecting_areas)
 		if(!place.fire_detect) //if any area is set to disable detection
 			return
 
-	var/turf/checked_turf = location
+	var/turf/checked_turf = source
 	var/result = check_atmos(checked_turf)
-
-	if(checked_turf == get_turf(src))
-		return
 
 	if(result && TURF_SHARES(checked_turf))
 		issue_turfs |= checked_turf
@@ -234,6 +309,7 @@
 		if(!ignore_alarms)
 			start_deactivation_process()
 
+
 /**
  * Begins activation process of us and our neighbors.
  *
@@ -241,15 +317,16 @@
  * in the merge group datum. Returns without doing anything if we're already active, cause of course
  *
  * Arguments:
- * code should be one of three defined alarm types, or can be not supplied. Will dictate the color of the fire alarm lights, and defults to "firelock_alarm_type_generic"
+ * code should be one of three defined alarm types, or can be not supplied. Will dictate the color of the fire alarm lights, and defaults to "firelock_alarm_type_generic"
  */
 /obj/machinery/door/firedoor/proc/start_activation_process(code = FIRELOCK_ALARM_TYPE_GENERIC)
 	if(active)
 		return //We're already active
+	soundloop.start()
+	is_playing_alarm = TRUE
 	var/datum/merger/merge_group = GetMergeGroup(merger_id, merger_typecache)
-	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group?.members)
+	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group.members)
 		buddylock.activate(code)
-
 /**
  * Begins deactivation process of us and our neighbors.
  *
@@ -257,8 +334,10 @@
  * in the merge group datum. sets our alarm type to null, signifying no alarm.
  */
 /obj/machinery/door/firedoor/proc/start_deactivation_process()
+	soundloop.stop()
+	is_playing_alarm = FALSE
 	var/datum/merger/merge_group = GetMergeGroup(merger_id, merger_typecache)
-	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group?.members)
+	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group.members)
 		buddylock.reset()
 
 /**
@@ -308,7 +387,9 @@
 	alarm_type = null
 	active = FALSE
 	remove_as_source()
-	update_icon() //Sets the door lights even if the door doesn't move.
+	soundloop.stop()
+	is_playing_alarm = FALSE
+	update_appearance(UPDATE_ICON) //Sets the door lights even if the door doesn't move.
 	correct_state()
 
 /**
@@ -320,9 +401,13 @@
 /obj/machinery/door/firedoor/proc/crack_open(delay)
 	active = FALSE
 	ignore_alarms = TRUE
-	alarm_type = null
+	if(!length(issue_turfs)) // Generic alarms get out
+		alarm_type = null
+
+	soundloop.stop()
+	is_playing_alarm = FALSE
 	remove_as_source()
-	update_icon() //Sets the door lights even if the door doesn't move.
+	update_appearance(UPDATE_ICON) //Sets the door lights even if the door doesn't move.
 	correct_state()
 
 	/// Please be called 3 seconds after the LAST open, rather then 3 seconds after the first
@@ -351,25 +436,19 @@
 		if(place == my_area)
 			place.alarm_manager.clear_alarm(ALARM_FIRE, place)
 
-/obj/machinery/door/firedoor/emag_act(mob/user, obj/item/card/emag/doorjack/digital_crowbar)
+/obj/machinery/door/firedoor/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
-		return
-	if(!isAI(user)) //Skip doorjack-specific code
-		if(!user || digital_crowbar.charges < 1)
-			return
+		return FALSE
+	if(istype(emag_card, /obj/item/card/emag/doorjack)) //Skip doorjack-specific code
+		var/obj/item/card/emag/doorjack/digital_crowbar = emag_card
 		digital_crowbar.use_charge(user)
 	obj_flags |= EMAGGED
 	INVOKE_ASYNC(src, PROC_REF(open))
+	return TRUE
 
 /obj/machinery/door/firedoor/Bumped(atom/movable/AM)
 	if(panel_open || operating)
 		return
-	if(ismob(AM))
-		var/mob/user = AM
-		if(allow_hand_open(user))
-			add_fingerprint(user)
-			open()
-			return TRUE
 	if(!density)
 		return ..()
 	return FALSE
@@ -377,14 +456,19 @@
 /obj/machinery/door/firedoor/bumpopen(mob/living/user)
 	return FALSE //No bumping to open, not even in mechs
 
-/obj/machinery/door/firedoor/power_change()
-	. = ..()
-	update_icon()
+/obj/machinery/door/firedoor/proc/on_power_loss()
+	SIGNAL_HANDLER
 
-	if(machine_stat & NOPOWER)
-		return
+	soundloop.stop()
+
+/obj/machinery/door/firedoor/proc/on_power_restore()
+	SIGNAL_HANDLER
 
 	correct_state()
+
+	if(is_playing_alarm)
+		soundloop.start()
+
 
 /obj/machinery/door/firedoor/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
@@ -394,13 +478,13 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 
-	if(!user.a_intent == INTENT_HARM)
-		user.visible_message(span_notice("[user] бьётся в [src]."), \
-			span_notice("Бьюсь в [src]."))
+	if(!user.combat_mode)
+		user.visible_message(span_notice("[user] knocks on [src]."), \
+			span_notice("You knock on [src]."))
 		playsound(src, knock_sound, 50, TRUE)
 	else
-		user.visible_message(span_warning("[user] лупит по [src]!"), \
-			span_warning("Луплю [src]!"))
+		user.visible_message(span_warning("[user] bashes [src]!"), \
+			span_warning("You bash [src]!"))
 		playsound(src, bash_sound, 100, TRUE)
 
 /obj/machinery/door/firedoor/wrench_act(mob/living/user, obj/item/tool)
@@ -409,24 +493,24 @@
 		return FALSE
 
 	if(boltslocked)
-		to_chat(user, span_notice("Есть винты, фиксирующие болты на месте!"))
+		to_chat(user, span_notice("There are screws locking the bolts in place!"))
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	tool.play_tool_sound(src)
-	user.visible_message(span_notice("[user] начинает откручивать болты [src]..."), \
-		span_notice("Начинаю откручивать болты [src]..."))
+	user.visible_message(span_notice("[user] starts undoing [src]'s bolts..."), \
+		span_notice("You start unfastening [src]'s floor bolts..."))
 	if(!tool.use_tool(src, user, DEFAULT_STEP_TIME))
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
-	user.visible_message(span_notice("[user] откручивает болты [src]."), \
-		span_notice("Откручиваю болты [src]."))
+	user.visible_message(span_notice("[user] unfastens [src]'s bolts."), \
+		span_notice("You undo [src]'s floor bolts."))
 	deconstruct(TRUE)
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/machinery/door/firedoor/screwdriver_act(mob/living/user, obj/item/tool)
 	if(operating || !welded)
 		return FALSE
-	user.visible_message(span_notice("[user] [boltslocked ? "разблокирует" : "блокирует"] болты [src]."), \
-				span_notice("[boltslocked ? "Разблокирую" : "Блокирую"] болты [src]."))
+	user.visible_message(span_notice("[user] [boltslocked ? "unlocks" : "locks"] [src]'s bolts."), \
+				span_notice("You [boltslocked ? "unlock" : "lock"] [src]'s floor bolts."))
 	tool.play_tool_sound(src)
 	boltslocked = !boltslocked
 	return TOOL_ACT_TOOLTYPE_SUCCESS
@@ -434,14 +518,14 @@
 /obj/machinery/door/firedoor/try_to_activate_door(mob/user, access_bypass = FALSE)
 	return
 
-/obj/machinery/door/firedoor/try_to_weld(obj/item/weldingtool/W, mob/user)
-	if(!W.tool_start_check(user, amount=0))
+/obj/machinery/door/firedoor/try_to_weld_secondary(obj/item/weldingtool/W, mob/user)
+	if(!W.tool_start_check(user, amount=1))
 		return
-	user.visible_message(span_notice("[user] начинает [welded ? "разваривать" : "заваривать"] [src].") , span_notice("Начинаю оперировать сваркой над [src]."))
+	user.visible_message(span_notice("[user] starts [welded ? "unwelding" : "welding"] [src]."), span_notice("You start welding [src]."))
 	if(W.use_tool(src, user, DEFAULT_STEP_TIME, volume=50))
 		welded = !welded
-		to_chat(user, span_danger("[user] [welded?"заваривает":"разваривает"] [src].") , span_notice("[welded ? "Завариваю" : "Развариваю"] [src]."))
-		log_game("[key_name(user)] [welded ? "welded":"unwelded"] firedoor [src] with [W] at [AREACOORD(src)]")
+		user.visible_message(span_danger("[user] [welded?"welds":"unwelds"] [src]."), span_notice("You [welded ? "weld" : "unweld"] [src]."))
+		user.log_message("[welded ? "welded":"unwelded"] firedoor [src] with [W].", LOG_GAME)
 		update_appearance()
 		correct_state()
 
@@ -452,7 +536,7 @@
 
 	if(density)
 		being_held_open = TRUE
-		user.balloon_alert_to_viewers("держит [src] открытым", "держу [src] открытым")
+		user.balloon_alert_to_viewers("holding [src] open", "holding [src] open")
 		COOLDOWN_START(src, activation_cooldown, REACTIVATION_DELAY)
 		open()
 		if(QDELETED(user))
@@ -460,25 +544,22 @@
 			return
 		RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(handle_held_open_adjacency))
 		RegisterSignal(user, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(handle_held_open_adjacency))
-		RegisterSignal(user, COMSIG_PARENT_QDELETING, PROC_REF(handle_held_open_adjacency))
+		RegisterSignal(user, COMSIG_QDELETING, PROC_REF(handle_held_open_adjacency))
 		handle_held_open_adjacency(user)
 	else
 		close()
 
 /// A simple toggle for firedoors between on and off
-/obj/machinery/door/firedoor/attackby_secondary(obj/item/I, mob/user, params)
-	if(I.tool_behaviour == TOOL_CROWBAR)
-		if(welded || operating)
-			return
+/obj/machinery/door/firedoor/try_to_crowbar_secondary(obj/item/acting_object, mob/user)
+	if(welded || operating)
+		return
 
-		if(density)
-			open()
-			if(active)
-				addtimer(CALLBACK(src, PROC_REF(correct_state)), 2 SECONDS, TIMER_UNIQUE)
-		else
-			close()
+	if(density)
+		open()
+		if(active)
+			addtimer(CALLBACK(src, PROC_REF(correct_state)), 2 SECONDS, TIMER_UNIQUE)
 	else
-		. = ..()
+		close()
 
 /obj/machinery/door/firedoor/proc/handle_held_open_adjacency(mob/user)
 	SIGNAL_HANDLER
@@ -490,9 +571,9 @@
 	correct_state()
 	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(user, COMSIG_LIVING_SET_BODY_POSITION)
-	UnregisterSignal(user, COMSIG_PARENT_QDELETING)
+	UnregisterSignal(user, COMSIG_QDELETING)
 	if(user)
-		user.balloon_alert_to_viewers("отпускает [src]", "отпускаю [src]")
+		user.balloon_alert_to_viewers("released [src]", "released [src]")
 
 /obj/machinery/door/firedoor/attack_ai(mob/user)
 	add_fingerprint(user)
@@ -512,7 +593,7 @@
 /obj/machinery/door/firedoor/attack_alien(mob/user, list/modifiers)
 	add_fingerprint(user)
 	if(welded)
-		to_chat(user, span_warning("[src] не поддаётся!"))
+		to_chat(user, span_warning("[src] refuses to budge!"))
 		return
 	open()
 	if(active)
@@ -565,7 +646,6 @@
 /obj/machinery/door/firedoor/open()
 	if(welded)
 		return
-	playsound(src, 'white/valtos/sounds/firelock.ogg', 25)
 	var/old_activity = active
 	. = ..()
 	if(old_activity != active) //Something changed while we were sleeping
@@ -574,19 +654,10 @@
 /obj/machinery/door/firedoor/close()
 	if(HAS_TRAIT(loc, TRAIT_FIREDOOR_STOP))
 		return
-	playsound(src, 'white/valtos/sounds/firelock.ogg', 25)
 	var/old_activity = active
 	. = ..()
 	if(old_activity != active) //Something changed while we were sleeping
 		correct_state() //So we should re-evaluate our state
-
-/obj/machinery/door/firedoor/proc/emergency_pressure_stop()
-	set waitfor = 0
-	if(density || operating || welded)
-		return
-	alarm_type = FIRELOCK_ALARM_TYPE_GENERIC
-	start_activation_process()
-	close()
 
 /obj/machinery/door/firedoor/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -626,12 +697,12 @@
 
 /obj/machinery/door/firedoor/border_only/Initialize(mapload)
 	. = ..()
+	adjust_lights_starting_offset()
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)
 
 	AddElement(/datum/element/connect_loc, loc_connections)
-	adjust_lights_starting_offset()
 
 /obj/machinery/door/firedoor/border_only/adjust_lights_starting_offset()
 	light_xoffset = 0
@@ -645,7 +716,7 @@
 			light_xoffset = 2
 		if(WEST)
 			light_xoffset = -2
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/door/firedoor/border_only/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
@@ -656,7 +727,7 @@
 	if(!(border_dir == dir)) //Make sure looking at appropriate border
 		return TRUE
 
-/obj/machinery/door/firedoor/border_only/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/caller, no_id)
+/obj/machinery/door/firedoor/border_only/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
 	return !density || (dir != to_dir)
 
 /obj/machinery/door/firedoor/border_only/proc/on_exit(datum/source, atom/movable/leaving, direction)
@@ -670,28 +741,29 @@
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
-/obj/machinery/door/firedoor/border_only/can_atmos_pass(turf/T)
+/obj/machinery/door/firedoor/border_only/can_atmos_pass(turf/T, vertical = FALSE)
 	if(get_dir(loc, T) == dir)
 		return !density
 	else
 		return TRUE
 
 /obj/machinery/door/firedoor/heavy
-	name = "тяжёлый пожарный шлюз"
+	name = "heavy firelock"
 	icon = 'icons/obj/doors/Doorfire.dmi'
 	glass = FALSE
 	explosion_block = 2
 	assemblytype = /obj/structure/firelock_frame/heavy
 	max_integrity = 550
 
+
 /obj/item/electronics/firelock
-	name = "микросхема пожарного шлюза"
-	desc = "Печатная плата, используемая в конструкции пожарных шлюзов."
+	name = "firelock circuitry"
+	desc = "A circuit board used in construction of firelocks."
 	icon_state = "mainboard"
 
 /obj/structure/firelock_frame
-	name = "рама пожарного шлюза"
-	desc = "Почти готовый пожарный шлюз."
+	name = "firelock frame"
+	desc = "A partially completed firelock."
 	icon = 'icons/obj/doors/Doorfire.dmi'
 	icon_state = "frame1"
 	base_icon_state = "frame"
@@ -702,14 +774,13 @@
 
 /obj/structure/firelock_frame/examine(mob/user)
 	. = ..()
-	. += "<hr>"
 	switch(constructionStep)
 		if(CONSTRUCTION_PANEL_OPEN)
-			. += span_notice("Он <i>откручен</i> от пола. Микросхема может быть изъята <b>ломиком</b>.")
+			. += span_notice("It is <i>unbolted</i> from the floor. The circuit could be removed with a <b>crowbar</b>.")
 			if(!reinforced)
-				. += span_notice("\nОн может быть укреплён пласталью.")
+				. += span_notice("It could be reinforced with plasteel.")
 		if(CONSTRUCTION_NO_CIRCUIT)
-			. += span_notice("Здесь нет <i>микросхемы</i> внутри. Рама может быть <b>разварена</b> на части.")
+			. += span_notice("There are no <i>firelock electronics</i> in the frame. The frame could be <b>welded</b> apart .")
 
 /obj/structure/firelock_frame/update_icon_state()
 	icon_state = "[base_icon_state][constructionStep]"
@@ -720,32 +791,32 @@
 		if(CONSTRUCTION_PANEL_OPEN)
 			if(attacking_object.tool_behaviour == TOOL_CROWBAR)
 				attacking_object.play_tool_sound(src)
-				user.visible_message(span_notice("[user] начинает извлекать микросхему из [src]...") , \
-					span_notice("Начинаю извлекать микросхему из [src]..."))
+				user.visible_message(span_notice("[user] begins removing the circuit board from [src]..."), \
+					span_notice("You begin prying out the circuit board from [src]..."))
 				if(!attacking_object.use_tool(src, user, DEFAULT_STEP_TIME))
 					return
 				if(constructionStep != CONSTRUCTION_PANEL_OPEN)
 					return
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
-				user.visible_message(span_notice("[user] извлекает плату из [src].") , \
-					span_notice("Извлекаю плату из [src]."))
+				user.visible_message(span_notice("[user] removes [src]'s circuit board."), \
+					span_notice("You remove the circuit board from [src]."))
 				new /obj/item/electronics/firelock(drop_location())
 				constructionStep = CONSTRUCTION_NO_CIRCUIT
 				update_appearance()
 				return
 			if(attacking_object.tool_behaviour == TOOL_WRENCH)
 				if(locate(/obj/machinery/door/firedoor) in get_turf(src))
-					to_chat(user, span_warning("Здесь уже есть пожарный шлюз."))
+					to_chat(user, span_warning("There's already a firelock there."))
 					return
 				attacking_object.play_tool_sound(src)
-				user.visible_message(span_notice("[user] начинает прикручивать [src]...") , \
-					span_notice("Начинаю прикручивать [src]..."))
+				user.visible_message(span_notice("[user] starts bolting down [src]..."), \
+					span_notice("You begin bolting [src]..."))
 				if(!attacking_object.use_tool(src, user, DEFAULT_STEP_TIME))
 					return
 				if(locate(/obj/machinery/door/firedoor) in get_turf(src))
 					return
-				user.visible_message(span_notice("[user] заканчивает пожарный шлюз.") , \
-					span_notice("Заканчиваю пожарный шлюз."))
+				user.visible_message(span_notice("[user] finishes the firelock."), \
+					span_notice("You finish the firelock."))
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(reinforced)
 					new /obj/machinery/door/firedoor/heavy(get_turf(src))
@@ -756,60 +827,61 @@
 			if(istype(attacking_object, /obj/item/stack/sheet/plasteel))
 				var/obj/item/stack/sheet/plasteel/plasteel_sheet = attacking_object
 				if(reinforced)
-					to_chat(user, span_warning("[capitalize(src.name)] уже укреплён."))
+					to_chat(user, span_warning("[src] is already reinforced."))
 					return
 				if(plasteel_sheet.get_amount() < 2)
-					to_chat(user, span_warning("Мне потребуется чуть больше пластали для [src]."))
+					to_chat(user, span_warning("You need more plasteel to reinforce [src]."))
 					return
-				user.visible_message(span_notice("[user] начинает укреплять [src]...") , \
-					span_notice("Начинаю укреплять [src]..."))
+				user.visible_message(span_notice("[user] begins reinforcing [src]..."), \
+					span_notice("You begin reinforcing [src]..."))
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(do_after(user, DEFAULT_STEP_TIME, target = src))
 					if(constructionStep != CONSTRUCTION_PANEL_OPEN || reinforced || plasteel_sheet.get_amount() < 2 || !plasteel_sheet)
 						return
-					user.visible_message(span_notice("[user] укрепляет [src].") , \
-						span_notice("Укрепляю [src]."))
+					user.visible_message(span_notice("[user] reinforces [src]."), \
+						span_notice("You reinforce [src]."))
 					playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 					plasteel_sheet.use(2)
 					reinforced = 1
 				return
 		if(CONSTRUCTION_NO_CIRCUIT)
 			if(istype(attacking_object, /obj/item/electronics/firelock))
-				user.visible_message(span_notice("[user] начинает устанавливает [attacking_object] к [src]...") , \
-					span_notice("Начинаю вставлять плату в [src]..."))
+				user.visible_message(span_notice("[user] starts adding [attacking_object] to [src]..."), \
+					span_notice("You begin adding a circuit board to [src]..."))
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(!do_after(user, DEFAULT_STEP_TIME, target = src))
 					return
 				if(constructionStep != CONSTRUCTION_NO_CIRCUIT)
 					return
 				qdel(attacking_object)
-				user.visible_message(span_notice("[user] устанавливает плату в [src].") , \
-					span_notice("Вставляю плату в [attacking_object]."))
+				user.visible_message(span_notice("[user] adds a circuit to [src]."), \
+					span_notice("You insert and secure [attacking_object]."))
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				constructionStep = CONSTRUCTION_PANEL_OPEN
 				return
 			if(attacking_object.tool_behaviour == TOOL_WELDER)
 				if(!attacking_object.tool_start_check(user, amount=1))
 					return
-				user.visible_message(span_notice("[user] начинает разваривать [src]...") , \
-					span_notice("Начинаю разваривать [src] на куски..."))
-				if(attacking_object.use_tool(src, user, DEFAULT_STEP_TIME, volume=50, amount=1))
+				user.visible_message(span_notice("[user] begins cutting apart [src]'s frame..."), \
+					span_notice("You begin slicing [src] apart..."))
+
+				if(attacking_object.use_tool(src, user, DEFAULT_STEP_TIME, volume=50))
 					if(constructionStep != CONSTRUCTION_NO_CIRCUIT)
 						return
-					user.visible_message(span_notice("[user] разваривает на куски [src]!") , \
-						span_notice("Развариваю [src] в метал."))
-					var/turf/T = get_turf(src)
-					new /obj/item/stack/sheet/iron(T, 3)
+					user.visible_message(span_notice("[user] cuts apart [src]!"), \
+						span_notice("You cut [src] into metal."))
+					var/turf/tagetloc = get_turf(src)
+					new /obj/item/stack/sheet/iron(tagetloc, 3)
 					if(reinforced)
-						new /obj/item/stack/sheet/plasteel(T, 2)
+						new /obj/item/stack/sheet/plasteel(tagetloc, 2)
 					qdel(src)
 				return
 			if(istype(attacking_object, /obj/item/electroadaptive_pseudocircuit))
 				var/obj/item/electroadaptive_pseudocircuit/raspberrypi = attacking_object
 				if(!raspberrypi.adapt_circuit(user, DEFAULT_STEP_TIME * 0.5))
 					return
-				user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в [src].") , \
-					span_notice("Адаптирую микросхему и вставляю в пожарный шлюз."))
+				user.visible_message(span_notice("[user] fabricates a circuit and places it into [src]."), \
+				span_notice("You adapt a firelock circuit and slot it into the assembly."))
 				constructionStep = CONSTRUCTION_PANEL_OPEN
 				update_appearance()
 				return
@@ -817,63 +889,28 @@
 
 /obj/structure/firelock_frame/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	if(the_rcd.mode == RCD_DECONSTRUCT)
-		return list("mode" = RCD_DECONSTRUCT, "delay" = 50, "cost" = 16)
+		return list("delay" = 5 SECONDS, "cost" = 16)
 	else if((constructionStep == CONSTRUCTION_NO_CIRCUIT) && (the_rcd.upgrade & RCD_UPGRADE_SIMPLE_CIRCUITS))
-		return list("mode" = RCD_UPGRADE_SIMPLE_CIRCUITS, "delay" = 20, "cost" = 1)
+		return list("delay" = 2 SECONDS, "cost" = 1)
 	return FALSE
 
-/obj/structure/firelock_frame/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
-	switch(passed_mode)
+/obj/structure/firelock_frame/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, list/rcd_data)
+	switch(rcd_data["[RCD_DESIGN_MODE]"])
 		if(RCD_UPGRADE_SIMPLE_CIRCUITS)
-			user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в [src].") , \
-			span_notice("Адаптирую микросхему и вставляю в пожарный шлюз."))
+			user.balloon_alert(user, "circuit installed")
 			constructionStep = CONSTRUCTION_PANEL_OPEN
 			update_appearance()
 			return TRUE
 		if(RCD_DECONSTRUCT)
-			to_chat(user, span_notice("Разбираю [src]."))
 			qdel(src)
 			return TRUE
 	return FALSE
 
 /obj/structure/firelock_frame/heavy
-	name = "рама тяжёлого пожарного шлюза"
+	name = "heavy firelock frame"
 	reinforced = TRUE
 
 #undef CONSTRUCTION_PANEL_OPEN
 #undef CONSTRUCTION_NO_CIRCUIT
 #undef REACTIVATION_DELAY
-
-/obj/machinery/door/firedoor/proc/allow_hand_open(mob/user)
-	var/area/A = get_area(src)
-	if(A && A.fire)
-		return FALSE
-	return !is_holding_pressure()
-
-/obj/machinery/door/firedoor/border_only/allow_hand_open(mob/user)
-	var/area/A = get_area(src)
-	if((!A || !A.fire) && !is_holding_pressure())
-		return TRUE
-	var/turf/T = loc
-	var/turf/T2 = get_step(T, dir)
-	if(!T || !T2)
-		return
-	var/status1 = check_door_side(T)
-	var/status2 = check_door_side(T2)
-	if((status1 == 1 && status2 == -1) || (status1 == -1 && status2 == 1))
-		to_chat(user, "<span class='warning'>Доступ запрещён.</span>")
-		return FALSE
-	return TRUE
-
-/obj/machinery/door/firedoor/border_only/proc/check_door_side(turf/open/start_point)
-	var/list/turfs = list()
-	turfs[start_point] = 1
-	for(var/i = 1; (i <= turfs.len && i <= 11); i++) // check up to 11 turfs.
-		var/turf/open/T = turfs[i]
-		if(istype(T, /turf/open/space))
-			return -1
-		for(var/T2 in T.atmos_adjacent_turfs)
-			turfs[T2] = 1
-	if(turfs.len <= 10)
-		return 0 // not big enough to matter
-	return start_point.air.return_pressure() < 20 ? -1 : 1
+#undef DEFAULT_STEP_TIME

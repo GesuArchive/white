@@ -1,6 +1,0 @@
-GLOBAL_LIST_EMPTY(objective_computers)
-GLOBAL_LIST_EMPTY(destabilization_spawns)
-GLOBAL_LIST_EMPTY(destabliization_exits)
-GLOBAL_LIST_EMPTY(decomission_bombs)
-GLOBAL_LIST_EMPTY(loaded_ruin_parts)
-GLOBAL_VAR_INIT(exploration_points, 0)

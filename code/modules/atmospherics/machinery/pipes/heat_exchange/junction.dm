@@ -1,9 +1,9 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction
-	icon = 'icons/obj/atmospherics/pipes/he-junction.dmi'
+	icon = 'icons/obj/pipes_n_cables/he-junction.dmi'
 	icon_state = "pipe11-3"
 
-	name = "узел"
-	desc = "Разветвитель длиной в один метр, соединяющий обычную и теплообменную трубу."
+	name = "junction"
+	desc = "A one meter junction that connects regular and heat-exchanging pipe."
 
 	minimum_temperature_difference = 300
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
@@ -14,6 +14,8 @@
 
 	construction_type = /obj/item/pipe/directional
 	pipe_state = "junction"
+
+	has_gas_visuals = FALSE
 
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction/set_init_directions()
 	switch(dir)

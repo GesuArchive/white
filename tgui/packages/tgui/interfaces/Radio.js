@@ -27,12 +27,12 @@ export const Radio = (props, context) => {
     status: !!value,
   }))(data.channels);
   // Calculate window height
-  let height = 105;
+  let height = 106;
   if (subspace) {
     if (channels.length > 0) {
-      height += channels.length * 19 + 6;
+      height += channels.length * 21 + 6;
     } else {
-      height += 22;
+      height += 24;
     }
   }
   return (
@@ -40,7 +40,7 @@ export const Radio = (props, context) => {
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Частота">
+            <LabeledList.Item label="Frequency">
               {(freqlock && (
                 <Box inline color="light-gray">
                   {toFixed(frequency / 10, 1) + ' kHz'}
@@ -68,7 +68,7 @@ export const Radio = (props, context) => {
                 </Box>
               )}
             </LabeledList.Item>
-            <LabeledList.Item label="Звук">
+            <LabeledList.Item label="Audio">
               <Button
                 textAlign="center"
                 width="37px"
@@ -88,7 +88,7 @@ export const Radio = (props, context) => {
                   ml={1}
                   icon="bullhorn"
                   selected={useCommand}
-                  content={`Приоритет ${useCommand ? 'ВКЛ' : 'ВЫКЛ'}`}
+                  content={`High volume ${useCommand ? 'ON' : 'OFF'}`}
                   onClick={() => act('command')}
                 />
               )}
@@ -97,16 +97,16 @@ export const Radio = (props, context) => {
                   ml={1}
                   icon="bullhorn"
                   selected={subspace}
-                  content={`Subspace Tx ${subspace ? 'ВКЛ' : 'ВЫКЛ'}`}
+                  content={`Subspace Tx ${subspace ? 'ON' : 'OFF'}`}
                   onClick={() => act('subspace')}
                 />
               )}
             </LabeledList.Item>
             {!!subspace && (
-              <LabeledList.Item label="Каналы">
+              <LabeledList.Item label="Channels">
                 {channels.length === 0 && (
                   <Box inline color="bad">
-                    Нет установленных ключей шифрования.
+                    No encryption keys installed.
                   </Box>
                 )}
                 {channels.map((channel) => (

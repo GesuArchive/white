@@ -4,19 +4,19 @@ import { Window } from '../layouts';
 
 const damageTypes = [
   {
-    label: 'Физический',
+    label: 'Brute',
     type: 'bruteLoss',
   },
   {
-    label: 'Ожоги',
+    label: 'Burn',
     type: 'fireLoss',
   },
   {
-    label: 'Токсины',
+    label: 'Toxin',
     type: 'toxLoss',
   },
   {
-    label: 'Удушье',
+    label: 'Oxygen',
     type: 'oxyLoss',
   },
 ];
@@ -40,7 +40,7 @@ export const Sleeper = (props, context) => {
     <Window width={310} height={465}>
       <Window.Content>
         <Section
-          title={occupant.name ? occupant.name : 'Нет пациента'}
+          title={occupant.name ? occupant.name : 'No Occupant'}
           minHeight="210px"
           buttons={
             !!occupant.stat && (
@@ -74,26 +74,26 @@ export const Sleeper = (props, context) => {
                   </LabeledList.Item>
                 ))}
                 <LabeledList.Item
-                  label="Клетки"
+                  label="Cells"
                   color={occupant.cloneLoss ? 'bad' : 'good'}>
-                  {occupant.cloneLoss ? 'Повреждены' : 'Здоровы'}
+                  {occupant.cloneLoss ? 'Damaged' : 'Healthy'}
                 </LabeledList.Item>
                 <LabeledList.Item
-                  label="Мозг"
+                  label="Brain"
                   color={occupant.brainLoss ? 'bad' : 'good'}>
-                  {occupant.brainLoss ? 'Повреждён' : 'Здоров'}
+                  {occupant.brainLoss ? 'Abnormal' : 'Healthy'}
                 </LabeledList.Item>
               </LabeledList>
             </>
           )}
         </Section>
         <Section
-          title="Химикаты"
+          title="Medicines"
           minHeight="205px"
           buttons={
             <Button
               icon={open ? 'door-open' : 'door-closed'}
-              content={open ? 'Открыть' : 'Закрыть'}
+              content={open ? 'Open' : 'Closed'}
               onClick={() => act('door')}
             />
           }>

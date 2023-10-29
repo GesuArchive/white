@@ -1,37 +1,3 @@
-
-/**
- * Generate a name devices
- *
- * Creates a randomly generated tag or name for devices or anything really
- * it keeps track of a special list that makes sure no name is used more than
- * once
- *
- * args:
- * * len (int)(Optional) Default=5 The length of the name
- * * prefix (string)(Optional) static text in front of the random name
- * * postfix (string)(Optional) static text in back of the random name
- * Returns (string) The generated name
- */
-/proc/assign_random_name(len=5, prefix="", postfix="")
-	//DO NOT REMOVE NAMES HERE UNLESS YOU KNOW WHAT YOU'RE DOING
-	//All names already used
-	var/static/list/used_names = list()
-
-	var/static/valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-	var/list/new_name = list()
-	var/text
-	// machine id's should be fun random chars hinting at a larger world
-	do
-		new_name.Cut()
-		new_name += prefix
-		for(var/i = 1 to len)
-			new_name += valid_chars[rand(1,length(valid_chars))]
-		new_name += postfix
-		text = new_name.Join()
-	while(used_names[text])
-	used_names[text] = TRUE
-	return text
-
 /proc/lizard_name(gender)
 	if(gender == MALE)
 		return "[pick(GLOB.lizard_names_male)]-[pick(GLOB.lizard_names_male)]"
@@ -55,7 +21,7 @@ GLOBAL_VAR(command_name)
 	if (GLOB.command_name)
 		return GLOB.command_name
 
-	var/name = "Центральное Командование"
+	var/name = "Central Command"
 
 	GLOB.command_name = name
 	return name
@@ -85,13 +51,9 @@ GLOBAL_VAR(command_name)
 
 	var/config_server_name = CONFIG_GET(string/servername)
 	if(config_server_name)
-		world.name = "[config_server_name][config_server_name == GLOB.station_name ? "" : ": [GLOB.station_name]"]"
+		world.name = "[config_server_name][config_server_name == GLOB.station_name ? "" : ": [html_decode(GLOB.station_name)]"]"
 	else
-		world.name = GLOB.station_name
-
-	//Rename the station on the orbital charter.
-	if(SSorbits.station_instance)
-		SSorbits.station_instance.name = new_name
+		world.name = html_decode(GLOB.station_name)
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_STATION_NAME_CHANGED, new_name, old_name)
 
@@ -106,10 +68,13 @@ GLOBAL_VAR(command_name)
 		new_station_name = name + " "
 		name = ""
 
+	if(prob(0.1))
+		random = 999999999 //ridiculously long name in written numbers
+
 	// Prefix
-	var/holiday_name = pick(SSevents.holidays)
+	var/holiday_name = length(GLOB.holidays) && pick(GLOB.holidays)
 	if(holiday_name)
-		var/datum/holiday/holiday = SSevents.holidays[holiday_name]
+		var/datum/holiday/holiday = GLOB.holidays[holiday_name]
 		if(istype(holiday, /datum/holiday/friday_thirteenth))
 			random = 13
 		name = holiday.getStationPrefix()
@@ -134,16 +99,18 @@ GLOBAL_VAR(command_name)
 		if(4)
 			new_station_name += pick(GLOB.phonetic_alphabet)
 		if(5)
-			new_station_name += pick(GLOB.numbers_as_words)
+			new_station_name += convert_integer_to_words(rand(-1,99), capitalise = TRUE)
 		if(13)
-			new_station_name += pick("13","XIII","Тринадцать")
-	return capitalize(new_station_name)
+			new_station_name += pick("13","XIII","Thirteen")
+		if(999999999)
+			new_station_name += convert_integer_to_words(rand(111111111,999999999), capitalise = TRUE)
+	return new_station_name
 
 /proc/syndicate_name()
 	var/name = ""
 
 	// Prefix
-	name += pick("Нелегальный", "Прима", "Синий", "Невесомый", "Максимальный", "Взрывной", "Опасный", "Северный", "Всенаправленный", "Ньютоновский", "Кибер", "Угрожающий", "Геномодифицированный", "Противостоящий")
+	name += pick("Clandestine", "Prima", "Blue", "Zero-G", "Max", "Blasto", "North", "Omni", "Newton", "Cyber", "Bonk", "Gene", "Gib")
 
 	// Suffix
 	if (prob(80))
@@ -151,16 +118,16 @@ GLOBAL_VAR(command_name)
 
 		// Full
 		if (prob(60))
-			name += pick("Синдикат", "Консорциум", "Коллектив", "Корпорация", "Социум", "Холдинг", "Биоразработчик", "Промышленник", "Системник", "Товарник", "Химпроизводственник", "Предприниматель", "Семьянин", "Произведенец", "Интернационалец", "Межгалактик", "Межпланетар", "Фонд", "Позитроник", "Муравейник")
+			name += pick("Syndicate", "Consortium", "Collective", "Corporation", "Group", "Holdings", "Biotech", "Industries", "Systems", "Products", "Chemicals", "Enterprises", "Family", "Creations", "International", "Intergalactic", "Interplanetary", "Foundation", "Positronics", "Hive")
 		// Broken
 		else
-			name += pick("Теко", "Солнцо", "Ко", "Техо", "Иксо", "Цехо", "Корпо")
+			name += pick("Syndi", "Corp", "Bio", "System", "Prod", "Chem", "Inter", "Hive")
 			name += pick("", "-")
-			name += pick("Синдикатов", "Корпораций", "Биотехнологов", "Системников", "Крафтовиков", "Химовиков", "Интерников", "Муравейников")
+			name += pick("Tech", "Co", "Tek", "X", "Inc", "Code")
 	// Small
 	else
 		name += pick("-", "*", "")
-		name += pick("Тех", "Солнце", "Ко", "Тек", "Икс", "Цех", "Инфо", "Звезд", "Дин", "Код", "Муравейник")
+		name += pick("Tech", "Co", "Tek", "X", "Inc", "Gen", "Star", "Dyne", "Code", "Hive")
 
 	return name
 
@@ -211,23 +178,23 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 	var/locations = strings(LOCATIONS_FILE, "locations")
 
 	var/list/names = list()
-	for(var/datum/data/record/t in GLOB.data_core.general)//Picks from crew manifest.
-		names += t.fields["name"]
+	for(var/datum/record/crew/target in GLOB.manifest.general)//Picks from crew manifest.
+		names += target.name
 
 	var/maxwords = words//Extra var to check for duplicates.
 
 	for(words,words>0,words--)//Randomly picks from one of the choices below.
 
-		if(words==1&&(1 in safety)&&(2 in safety))//If there is only one word remaining and choice 1 or 2 have not been selected.
+		if(words == 1 && (1 in safety) && (2 in safety))//If there is only one word remaining and choice 1 or 2 have not been selected.
 			safety = list(pick(1,2))//Select choice 1 or 2.
-		else if(words==1&&maxwords==2)//Else if there is only one word remaining (and there were two originally), and 1 or 2 were chosen,
+		else if(words == 1 && maxwords == 2)//Else if there is only one word remaining (and there were two originally), and 1 or 2 were chosen,
 			safety = list(3)//Default to list 3
 
 		switch(pick(safety))//Chance based on the safety list.
 			if(1)//1 and 2 can only be selected once each to prevent more than two specific names/places/etc.
 				switch(rand(1,2))//Mainly to add more options later.
 					if(1)
-						if(names.len&&prob(70))
+						if(names.len && prob(70))
 							. += pick(names)
 						else
 							if(prob(10))
@@ -238,7 +205,12 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 								new_name += pick(GLOB.last_names)
 								. += new_name
 					if(2)
-						. += ru_job_parse(pick(SSjob.station_jobs))//Returns a job.
+						var/datum/job/job = pick(SSjob.joinable_occupations)
+						if(job)
+							. += job.title //Returns a job.
+						else
+							stack_trace("Failed to pick(SSjob.joinable_occupations) on generate_code_phrase()")
+							. += "Bug"
 				safety -= 1
 			if(2)
 				switch(rand(1,3))//Food, drinks, or places. Only selectable once.
@@ -260,13 +232,50 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 					if(4)
 						. += lowertext(pick(threats))
 		if(!return_list)
-			if(words==1)
+			if(words == 1)
 				. += "."
 			else
 				. += ", "
 
 /proc/odd_organ_name()
-	return "[pick(GLOB.gross_adjectives)], [pick(GLOB.gross_adjectives)] орган"
+	return "[pick(GLOB.gross_adjectives)], [pick(GLOB.gross_adjectives)] organ"
+
+/proc/hive_name()
+	return "[pick(GLOB.hive_names)]-hive"
+
+/**
+ * Generate a name devices
+ *
+ * Creates a randomly generated tag or name for devices or anything really
+ * it keeps track of a special list that makes sure no name is used more than
+ * once
+ *
+ * args:
+ * * len (int)(Optional) Default=5 The length of the name
+ * * prefix (string)(Optional) static text in front of the random name
+ * * postfix (string)(Optional) static text in back of the random name
+ * Returns (string) The generated name
+ */
+/proc/assign_random_name(len=5, prefix="", postfix="")
+	//DO NOT REMOVE NAMES HERE UNLESS YOU KNOW WHAT YOU'RE DOING
+	//All names already used
+	var/static/list/used_names = list()
+
+	var/static/valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+	var/list/new_name = list()
+	var/text
+	// machine id's should be fun random chars hinting at a larger world
+	do
+		new_name.Cut()
+		new_name += prefix
+		for(var/i = 1 to len)
+			new_name += valid_chars[rand(1,length(valid_chars))]
+		new_name += postfix
+		text = new_name.Join()
+	while(used_names[text])
+	used_names[text] = TRUE
+	return text
+
 
 /**
  * returns an ic name of the tool needed

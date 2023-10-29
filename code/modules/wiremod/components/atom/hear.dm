@@ -4,8 +4,9 @@
  * Listens for messages. Requires a shell.
  */
 /obj/item/circuit_component/hear
-	display_name = "Микрофон"
-	desc = "Компонент, который прослушивает голосовые сообщения. Для работы требуется оболочка."
+	display_name = "Voice Activator"
+	desc = "A component that listens for messages. Requires a shell."
+	category = "Entity"
 
 	/// The message heard
 	var/datum/port/output/message_port
@@ -19,11 +20,11 @@
 	var/datum/port/output/trigger_port
 
 /obj/item/circuit_component/hear/populate_ports()
-	message_port = add_output_port("Сообщение", PORT_TYPE_STRING)
-	language_port = add_output_port("Язык", PORT_TYPE_STRING)
-	speaker_port = add_output_port("Источник", PORT_TYPE_ATOM)
-	speaker_name = add_output_port("Имя источника", PORT_TYPE_STRING)
-	trigger_port = add_output_port("Активировано", PORT_TYPE_SIGNAL)
+	message_port = add_output_port("Message", PORT_TYPE_STRING)
+	language_port = add_output_port("Language", PORT_TYPE_STRING)
+	speaker_port = add_output_port("Speaker", PORT_TYPE_ATOM)
+	speaker_name = add_output_port("Speaker Name", PORT_TYPE_STRING)
+	trigger_port = add_output_port("Triggered", PORT_TYPE_SIGNAL)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 /obj/item/circuit_component/hear/register_shell(atom/movable/shell)
@@ -35,11 +36,12 @@
 	REMOVE_TRAIT(shell, TRAIT_HEARING_SENSITIVE, CIRCUIT_HEAR_TRAIT)
 
 /obj/item/circuit_component/hear/proc/on_shell_hear(datum/source, list/arguments)
+	SIGNAL_HANDLER
 	return Hear(arglist(arguments))
 
-/obj/item/circuit_component/hear/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods)
+/obj/item/circuit_component/hear/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
 	if(speaker == parent?.shell)
-		return
+		return FALSE
 
 	message_port.set_output(raw_message)
 	if(message_language)
@@ -47,3 +49,4 @@
 	speaker_port.set_output(speaker)
 	speaker_name.set_output(speaker.GetVoice())
 	trigger_port.set_output(COMPONENT_SIGNAL)
+	return TRUE

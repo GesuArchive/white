@@ -6,21 +6,14 @@
 	return user.holder ? TRUE : FALSE
 
 /datum/keybinding/admin/admin_say
-	hotkey_keys = list("F5")
+	hotkey_keys = list("F3")
 	name = ADMIN_CHANNEL
 	full_name = "Admin say"
 	description = "Talk with other admins."
 	keybind_signal = COMSIG_KB_ADMIN_ASAY_DOWN
 
-/datum/keybinding/admin/admin_say/down(client/user)
-	. = ..()
-	if(.)
-		return
-	user.get_admin_say()
-	return TRUE
-
 /datum/keybinding/admin/admin_ghost
-	hotkey_keys = list("F6")
+	hotkey_keys = list("F5")
 	name = "admin_ghost"
 	full_name = "Aghost"
 	description = "Go ghost"
@@ -34,7 +27,7 @@
 	return TRUE
 
 /datum/keybinding/admin/player_panel_new
-	hotkey_keys = list("F9")
+	hotkey_keys = list("F6")
 	name = "player_panel_new"
 	full_name = "Player Panel New"
 	description = "Opens up the new player panel"
@@ -131,16 +124,16 @@
 	user.readmin()
 	return TRUE
 
-/datum/keybinding/admin/admin_panel
-	hotkey_keys = list("\\")
-	name = "admin_panel"
-	full_name = "Admin Panel"
-	description = "Open Admin Panel"
-	keybind_signal = COMSIG_KB_ADMIN_ADMIN_PANEL_DOWN
+/datum/keybinding/admin/view_tags
+	hotkey_keys = list("F9")
+	name = "view_tags"
+	full_name = "View Tags"
+	description = "Open the View-Tags menu"
+	keybind_signal = COMSIG_KB_ADMIN_VIEWTAGS_DOWN
 
-/datum/keybinding/admin/admin_panel/down(client/user)
+/datum/keybinding/admin/view_tags/down(client/user)
 	. = ..()
 	if(.)
 		return
-	user.show_all_verbs()
+	user.holder?.display_tags()
 	return TRUE

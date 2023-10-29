@@ -32,12 +32,12 @@ const CooldownEstimate = (props) => {
     (cost > COST_UPPER_BOUND * 0.25 && 'orange') ||
     'green';
   const cooldownText =
-    (cost > COST_UPPER_BOUND * 0.75 && 'большая') ||
-    (cost > COST_UPPER_BOUND * 0.25 && 'средняя') ||
-    'короткая';
+    (cost > COST_UPPER_BOUND * 0.75 && 'long') ||
+    (cost > COST_UPPER_BOUND * 0.25 && 'moderate') ||
+    'short';
   return (
     <Box as="span" textColor={cooldownColor}>
-      {cooldownText} задержка
+      {cooldownText} cooldown.
     </Box>
   );
 };
@@ -46,7 +46,7 @@ export const DepartmentOrders = (props, context) => {
   const { data } = useBackend<Info>(context);
   const { time_left } = data;
   return (
-    <Window title="Заказы отдела" width={620} height={620}>
+    <Window title="Department Orders" width={620} height={580}>
       <Window.Content>
         {(!!time_left && <CooldownDimmer />) || (
           <Stack vertical fill>
@@ -54,11 +54,11 @@ export const DepartmentOrders = (props, context) => {
               <Stack fill vertical>
                 <Stack.Item>
                   <NoticeBox info>
-                    Для сотрудников Нанотрейзен, покупка товаров здесь полностью
-                    бесплатна, однако существует проблема с изготовлением,
-                    поэтому, чем дешевле заказ, тем меньше придётся ждать, перед
-                    заказом нового товара, дабы уменьшить вероятность лишнего
-                    заказа.
+                    As employees of Nanotrasen, the selection of orders here are
+                    completely free of charge, only incurring a cooldown on the
+                    service. Cheaper items will make you wait for less time
+                    before Nanotrasen allows another purchase, to encourage
+                    tasteful spending.
                   </NoticeBox>
                 </Stack.Item>
                 <Stack.Item grow>
@@ -83,21 +83,22 @@ const CooldownDimmer = (props, context) => {
           <Icon color="orange" name="route" size={20} />
         </Stack.Item>
         <Stack.Item fontSize="18px" color="orange">
-          Готовы к следующему заказу через {time_left}...
+          Ready for another order in {time_left}...
         </Stack.Item>
         <Stack.Item textAlign="center" color="orange">
           <Button
             width="300px"
             lineHeight={2}
             tooltip={
-              (!!can_override && 'Это действие требует доступ главы!') ||
-              'Товар уже отправлен! Никаких отмен!'
+              (!!can_override &&
+                'This action requires Head of Staff access!') ||
+              'Crate already shipped! No cancelling now!'
             }
             fontSize="14px"
             color="red"
             disabled={!can_override}
             onClick={() => act('override_order')}>
-            <Box fontSize="22px">Отменить</Box>
+            <Box fontSize="22px">Override</Box>
           </Button>
         </Stack.Item>
       </Stack>
@@ -154,7 +155,7 @@ const DepartmentCatalog = (props, context) => {
                           id: pack.id,
                         })
                       }>
-                      Заказать
+                      Order
                     </Button>
                   </Stack.Item>
                 </Stack>

@@ -5,8 +5,8 @@
 	flags_1 = CONDUCT_1
 	item_flags = NOBLUDGEON
 	inhand_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	var/friendlyName
 	var/savedName
@@ -16,7 +16,7 @@
 	var/disguise = "engineer"
 	var/mob/listeningTo
 	var/static/list/signalCache = list( // list here all signals that should break the camouflage
-			COMSIG_PARENT_ATTACKBY,
+			COMSIG_ATOM_ATTACKBY,
 			COMSIG_ATOM_ATTACK_HAND,
 			COMSIG_MOVABLE_IMPACT_ZONE,
 			COMSIG_ATOM_BULLET_ACT,
@@ -55,14 +55,14 @@
 /obj/item/borg_chameleon/proc/toggle(mob/living/silicon/robot/user)
 	if(active)
 		playsound(src, 'sound/effects/pop.ogg', 100, TRUE, -6)
-		to_chat(user, span_notice("You deactivate <b>[src.name]</b>."))
+		to_chat(user, span_notice("You deactivate \the [src]."))
 		deactivate(user)
 	else
 		if(animation_playing)
-			to_chat(user, span_notice("<b>[capitalize(src)]</b> is recharging."))
+			to_chat(user, span_notice("\the [src] is recharging."))
 			return
 		animation_playing = TRUE
-		to_chat(user, span_notice("You activate <b>[src.name]</b>."))
+		to_chat(user, span_notice("You activate \the [src]."))
 		playsound(src, 'sound/effects/seedling_chargeup.ogg', 100, TRUE, -6)
 		apply_wibbly_filters(user)
 		if (do_after(user, 50, target=user) && user.cell.use(activationCost))
@@ -87,7 +87,8 @@
 	src.user = user
 	savedName = user.name
 	user.name = friendlyName
-	user.module.cyborg_base_icon = disguise
+	user.model.cyborg_base_icon = disguise
+	user.model.name = capitalize(disguise)
 	user.bubble_icon = "robot"
 	active = TRUE
 	user.update_icons()
@@ -106,13 +107,15 @@
 		listeningTo = null
 	do_sparks(5, FALSE, user)
 	user.name = savedName
-	user.module.cyborg_base_icon = initial(user.module.cyborg_base_icon)
+	user.model.cyborg_base_icon = initial(user.model.cyborg_base_icon)
+	user.model.name = initial(user.model.name)
 	user.bubble_icon = "syndibot"
 	active = FALSE
 	user.update_icons()
 	src.user = user
 
 /obj/item/borg_chameleon/proc/disrupt(mob/living/silicon/robot/user)
+	SIGNAL_HANDLER
 	if(active)
 		to_chat(user, span_danger("Your chameleon field deactivates."))
 		deactivate(user)

@@ -1,1 +1,0 @@
-#define CRAB_POP_MAX 256

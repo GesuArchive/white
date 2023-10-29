@@ -5,7 +5,7 @@
 	name = "voting box"
 	desc = "An automatic voting box."
 
-	icon = 'icons/obj/votebox.dmi'
+	icon = 'icons/obj/storage/box.dmi'
 	icon_state = "votebox_maint"
 
 	anchored = TRUE
@@ -28,7 +28,7 @@
 		if(voting_active)
 			apply_vote(I,user)
 		else
-			to_chat(user,span_warning("[capitalize(src.name)] is in maintenance mode. Voting is not possible at the moment."))
+			to_chat(user,span_warning("[src] is in maintenance mode. Voting is not possible at the moment."))
 		return
 	return ..()
 
@@ -71,7 +71,7 @@
 		switch(href_list["act"])
 			if("toggle_vote")
 				voting_active = !voting_active
-				update_icon()
+				update_appearance()
 			if("toggle_auth")
 				id_auth = !id_auth
 			if("reset_voted")
@@ -94,7 +94,7 @@
 	ui_interact(user)
 
 /obj/structure/votebox/proc/set_description(mob/user)
-	var/new_description = stripped_multiline_input(user,"Enter new description","Vote Description",vote_description)
+	var/new_description = tgui_input_text(user, "Enter a new description", "Vote Description", vote_description, multiline = TRUE)
 	if(new_description)
 		vote_description = new_description
 
@@ -105,10 +105,10 @@
 	var/obj/item/card/id/voter_card = user.get_idcard()
 	if(id_auth)
 		if(!voter_card)
-			to_chat(user,span_warning("[capitalize(src.name)] requires a valid ID card to vote!"))
+			to_chat(user,span_warning("[src] requires a valid ID card to vote!"))
 			return
 		if(voted && (voter_card in voted))
-			to_chat(user,span_warning("[capitalize(src.name)] allows only one vote per person."))
+			to_chat(user,span_warning("[src] allows only one vote per person."))
 			return
 	if(user.transferItemToLoc(I,src))
 		if(!voted)
@@ -116,9 +116,13 @@
 		voted += voter_card
 		to_chat(user,span_notice("You cast your vote."))
 
-/obj/structure/votebox/proc/valid_vote(obj/item/paper/I)
-	if(length_char(I.info) > VOTE_TEXT_LIMIT || findtext(I.info,"<h1>Voting Results:</h1><hr><ol>"))
+/obj/structure/votebox/proc/valid_vote(obj/item/paper/voting_slip)
+	if(voting_slip.get_total_length() > VOTE_TEXT_LIMIT)
 		return FALSE
+
+	for(var/datum/paper_input/text as anything in voting_slip.raw_text_inputs)
+		if(findtext(text.raw_text, "<h1>Voting Results:</h1><hr><ol>"))
+			return FALSE
 	return TRUE
 
 /obj/structure/votebox/proc/shred(mob/user)
@@ -126,10 +130,10 @@
 		qdel(P)
 	to_chat(user,span_notice("You shred the current votes."))
 
-/obj/structure/votebox/wrench_act(mob/living/user, obj/item/I)
+/obj/structure/votebox/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
-	default_unfasten_wrench(user, I, 40)
-	return TRUE
+	default_unfasten_wrench(user, tool, time = 4 SECONDS)
+	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/structure/votebox/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -154,30 +158,35 @@
 	for(var/obj/item/paper/P in contents)
 		options += P
 	if(!length(options))
-		to_chat(user,"<span class='warning>[src] is empty!</span>")
+		to_chat(user, span_warning("[src] is empty!"))
 	else
 		var/obj/item/paper/P = pick(options)
 		user.put_in_hands(P)
-		to_chat(user,span_notice("[capitalize(src.name)] pops out random vote."))
+		to_chat(user, span_notice("[src] pops out random vote."))
 
 /obj/structure/votebox/proc/print_tally(mob/user)
 	var/list/results = list()
 	var/i = 0
-	for(var/obj/item/paper/P in contents)
+	for(var/obj/item/paper/paper_content in contents)
 		if(i++ > MAX_VOTES)
 			break
-		var/text = P.info
-		if(!valid_vote(P))
+		if(!valid_vote(paper_content))
 			continue
-		if(!results[text])
-			results[text] = 1
+
+		var/full_vote_text = ""
+		for(var/datum/paper_input/text as anything in paper_content.raw_text_inputs)
+			full_vote_text += "[text.raw_text]"
+
+		if(!results[full_vote_text])
+			results[full_vote_text] = 1
 		else
-			results[text] += 1
-	sortTim(results, cmp=GLOBAL_PROC_REF(cmp_numeric_dsc), associative = TRUE)
+			results[full_vote_text] += 1
+
+	sortTim(results, cmp=/proc/cmp_numeric_dsc, associative = TRUE)
 	if(!COOLDOWN_FINISHED(src, vote_print_cooldown))
 		return
 	COOLDOWN_START(src, vote_print_cooldown, 60 SECONDS)
-	var/obj/item/paper/P = new(drop_location())
+	var/obj/item/paper/vote_tally_paper = new(drop_location())
 	var/list/tally = list()
 	tally += {"
 		<style>
@@ -195,23 +204,22 @@
 			.vote_box_content hr {
 				display: none;
 			}
-		</style>
-		"}
+		</style>"}
 
-	tally += "<h1>Voting Results:</h1><hr><ol>"
+	tally += "<h1>Voting Results:</h1><br/><h2>[vote_description]</h2><hr><ol>"
 	for(var/option in results)
-		tally += "<li>\"<div class='vote_box_content'>[option]</div>\" - [results[option]] Vote[results[option] > 1 ? "s" : ""].</li>"
+		tally += "<li>\"<span class='vote_box_content'>[option]</span>\" - [results[option]] Vote[results[option] > 1 ? "s" : ""].</li>"
 	tally += "</ol>"
 
-	P.info = tally.Join()
-	P.name = "Voting Results"
-	P.update_icon()
-	user.put_in_hands(P)
-	to_chat(user,span_notice("[capitalize(src.name)] prints out the voting tally."))
+	vote_tally_paper.add_raw_text(tally.Join())
+	vote_tally_paper.name = "Voting Results"
+	vote_tally_paper.update_appearance()
+	user.put_in_hands(vote_tally_paper)
+	to_chat(user,span_notice("[src] prints out the voting tally."))
 
 /obj/structure/votebox/update_icon_state()
-	. = ..()
 	icon_state = "votebox_[voting_active ? "active" : "maint"]"
+	return ..()
 
 #undef VOTE_TEXT_LIMIT
 #undef MAX_VOTES

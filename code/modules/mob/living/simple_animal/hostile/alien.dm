@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/alien
 	name = "alien hunter"
 	desc = "Hiss!"
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/nonhuman-player/alien.dmi'
 	icon_state = "alienh"
 	icon_living = "alienh"
 	icon_dead = "alienh_dead"
@@ -16,25 +16,26 @@
 	obj_damage = 60
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	attack_verb_continuous = "режет"
-	attack_verb_simple = "режет"
-	speak_emote = list("шипит")
+	attack_verb_continuous = "slashes"
+	attack_verb_simple = "slash"
+	speak_emote = list("hisses")
 	bubble_icon = "alien"
-	a_intent = INTENT_HARM
-	attack_sound = 'sound/weapons/sword_kill_slash_02.ogg'
+	combat_mode = TRUE
+	attack_sound = 'sound/weapons/bladeslice.ogg'
 	attack_vis_effect = ATTACK_EFFECT_CLAW
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	unsuitable_atmos_damage = 15
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	faction = list(ROLE_ALIEN)
 	status_flags = CANPUSH
 	minbodytemp = 0
-	see_in_dark = 8
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-	unique_name = 1
+	unsuitable_heat_damage = 20
+	// Going for a dark purple here
+	lighting_cutoff_red = 30
+	lighting_cutoff_green = 15
+	lighting_cutoff_blue = 50
+	unique_name = TRUE
 	gold_core_spawnable = NO_SPAWN
-	deathsound = 'sound/voice/hiss6.ogg'
+	death_sound = 'sound/voice/hiss6.ogg'
 	death_message = "lets out a waning guttural screech, green blood bubbling from its maw..."
-	discovery_points = 2000
 	footstep_type = FOOTSTEP_MOB_CLAW
 
 /mob/living/simple_animal/hostile/alien/drone
@@ -52,7 +53,7 @@
 		return
 	plant_cooldown--
 	if(AIStatus == AI_IDLE)
-		if(!plants_off && prob(10) && plant_cooldown<=0)
+		if(!plants_off && prob(10) && plant_cooldown <= 0)
 			plant_cooldown = initial(plant_cooldown)
 			SpreadPlants()
 
@@ -68,7 +69,7 @@
 	ranged = 1
 	retreat_distance = 5
 	minimum_distance = 5
-	projectiletype = /obj/projectile/neurotox
+	projectiletype = /obj/projectile/neurotoxin/damaging
 	projectilesound = 'sound/weapons/pierce.ogg'
 
 
@@ -87,10 +88,10 @@
 	move_to_delay = 4
 	butcher_results = list(/obj/item/food/meat/slab/xeno = 4,
 							/obj/item/stack/sheet/animalhide/xeno = 1)
-	projectiletype = /obj/projectile/neurotox
+	projectiletype = /obj/projectile/neurotoxin/damaging
 	projectilesound = 'sound/weapons/pierce.ogg'
 	status_flags = 0
-	unique_name = 0
+	unique_name = FALSE
 	var/sterile = 1
 	var/plants_off = 0
 	var/egg_cooldown = 30
@@ -102,10 +103,10 @@
 	egg_cooldown--
 	plant_cooldown--
 	if(AIStatus == AI_IDLE)
-		if(!plants_off && prob(10) && plant_cooldown<=0)
+		if(!plants_off && prob(10) && plant_cooldown <= 0)
 			plant_cooldown = initial(plant_cooldown)
 			SpreadPlants()
-		if(!sterile && prob(10) && egg_cooldown<=0)
+		if(!sterile && prob(10) && egg_cooldown <= 0)
 			egg_cooldown = initial(egg_cooldown)
 			LayEggs()
 
@@ -114,7 +115,7 @@
 		return
 	if(locate(/obj/structure/alien/weeds/node) in get_turf(src))
 		return
-	visible_message(span_alertalien("[capitalize(src.name)] plants some alien weeds!"))
+	visible_message(span_alertalien("[src] plants some alien weeds!"))
 	new /obj/structure/alien/weeds/node(loc)
 
 /mob/living/simple_animal/hostile/alien/proc/LayEggs()
@@ -122,12 +123,12 @@
 		return
 	if(locate(/obj/structure/alien/egg) in get_turf(src))
 		return
-	visible_message(span_alertalien("[capitalize(src.name)] lays an egg!"))
+	visible_message(span_alertalien("[src] lays an egg!"))
 	new /obj/structure/alien/egg(loc)
 
 /mob/living/simple_animal/hostile/alien/queen/large
 	name = "alien empress"
-	icon = 'icons/mob/alienqueen.dmi'
+	icon = 'icons/mob/nonhuman-player/alienqueen.dmi'
 	icon_state = "alienq"
 	icon_living = "alienq"
 	icon_dead = "alienq_dead"
@@ -141,26 +142,11 @@
 	mob_size = MOB_SIZE_LARGE
 	gold_core_spawnable = NO_SPAWN
 
-/obj/projectile/neurotox
-	name = "neurotoxin"
-	damage = 30
-	icon_state = "toxin"
-
-/mob/living/simple_animal/hostile/alien/handle_temperature_damage()
-	if(bodytemperature < minbodytemp)
-		adjustBruteLoss(2)
-		throw_alert("temp", /atom/movable/screen/alert/cold, 1)
-	else if(bodytemperature > maxbodytemp)
-		adjustBruteLoss(20)
-		throw_alert("temp", /atom/movable/screen/alert/hot, 3)
-	else
-		clear_alert("temp")
-
 /mob/living/simple_animal/hostile/alien/maid
 	name = "lusty xenomorph maid"
 	melee_damage_lower = 0
 	melee_damage_upper = 0
-	a_intent = INTENT_HELP
+	combat_mode = FALSE
 	friendly_verb_continuous = "caresses"
 	friendly_verb_simple = "caress"
 	obj_damage = 0
@@ -174,11 +160,11 @@
 	. = ..()
 	AddElement(/datum/element/cleaning)
 
-/mob/living/simple_animal/hostile/alien/maid/AttackingTarget()
+/mob/living/simple_animal/hostile/alien/maid/AttackingTarget(atom/attacked_target)
 	if(ismovable(target))
 		target.wash(CLEAN_SCRUB)
 		if(istype(target, /obj/effect/decal/cleanable))
-			visible_message(span_notice("[capitalize(src.name)] cleans up [target]."))
+			visible_message(span_notice("[src] cleans up \the [target]."))
 		else
-			visible_message(span_notice("[capitalize(src.name)] polishes [target]."))
+			visible_message(span_notice("[src] polishes \the [target]."))
 		return TRUE

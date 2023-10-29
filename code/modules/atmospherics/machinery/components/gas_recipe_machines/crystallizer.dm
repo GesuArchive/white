@@ -4,16 +4,16 @@
 #define HIGH_CONDUCTIVITY_RATIO 0.95
 
 /obj/machinery/atmospherics/components/binary/crystallizer
-	icon = 'icons/obj/atmospherics/components/machines.dmi'
+	icon = 'icons/obj/machines/atmospherics/machines.dmi'
 	icon_state = "crystallizer-off"
 	base_icon_state = "crystallizer"
-	name = "кристаллизатор"
-	desc = "Используется для кристаллизации или солидификации газов."
+	name = "crystallizer"
+	desc = "Used to crystallize or solidify gases."
 	layer = ABOVE_MOB_LAYER
 	plane = GAME_PLANE_UPPER
 	density = TRUE
 	max_integrity = 300
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
+	armor_type = /datum/armor/binary_crystallizer
 	circuit = /obj/item/circuitboard/machine/crystallizer
 	pipe_flags = PIPING_ONE_PER_TURF | PIPING_DEFAULT_LAYER_ONLY
 	vent_movement = NONE
@@ -30,6 +30,11 @@
 	var/datum/gas_recipe/selected_recipe = null
 	///Stores the total amount of moles needed for the current recipe
 	var/total_recipe_moles = 0
+
+/datum/armor/binary_crystallizer
+	energy = 100
+	fire = 80
+	acid = 30
 
 /obj/machinery/atmospherics/components/binary/crystallizer/Initialize(mapload)
 	. = ..()
@@ -94,9 +99,9 @@
 /obj/machinery/atmospherics/components/binary/crystallizer/update_overlays()
 	. = ..()
 	cut_overlays()
-	var/mutable_appearance/pipe_appearance1 = mutable_appearance('icons/obj/atmospherics/pipes/pipe_underlays.dmi', "intact_[dir]_[piping_layer]", layer = GAS_SCRUBBER_LAYER)
+	var/mutable_appearance/pipe_appearance1 = mutable_appearance('icons/obj/pipes_n_cables/pipe_underlays.dmi', "intact_[dir]_[piping_layer]", layer = GAS_SCRUBBER_LAYER)
 	pipe_appearance1.color = COLOR_LIME
-	var/mutable_appearance/pipe_appearance2 = mutable_appearance('icons/obj/atmospherics/pipes/pipe_underlays.dmi', "intact_[REVERSE_DIR(dir)]_[piping_layer]", layer = GAS_SCRUBBER_LAYER)
+	var/mutable_appearance/pipe_appearance2 = mutable_appearance('icons/obj/pipes_n_cables/pipe_underlays.dmi', "intact_[REVERSE_DIR(dir)]_[piping_layer]", layer = GAS_SCRUBBER_LAYER)
 	pipe_appearance2.color = COLOR_MOSTLY_PURE_RED
 	. += pipe_appearance1
 	. += pipe_appearance2
@@ -224,25 +229,25 @@
 	var/quality_control
 	switch(total_quality)
 		if(100)
-			quality_control = "Шедевральный"
+			quality_control = "Masterwork"
 		if(95 to 99)
-			quality_control = "Высшего качества"
+			quality_control = "Supreme"
 		if(75 to 94)
-			quality_control = "Качественный"
+			quality_control = "Good"
 		if(65 to 74)
-			quality_control = "Отличный"
+			quality_control = "Decent"
 		if(55 to 64)
-			quality_control = "Средний"
+			quality_control = "Average"
 		if(35 to 54)
-			quality_control = "Немного кривой"
+			quality_control = "Ok"
 		if(15 to 34)
-			quality_control = "Плохой"
+			quality_control = "Poor"
 		if(5 to 14)
-			quality_control = "Уродливый"
+			quality_control = "Ugly"
 		if(1 to 4)
-			quality_control = "Разбитый"
+			quality_control = "Cracked"
 		if(0)
-			quality_control = "ХУЁВЫЙ"
+			quality_control = "Oh God why"
 
 	for(var/path in selected_recipe.products)
 		var/amount_produced = selected_recipe.products[path]
@@ -250,7 +255,7 @@
 			var/obj/creation = new path(get_step(src, SOUTH))
 			creation.name = "[quality_control] [creation.name]"
 			if(selected_recipe.dangerous)
-				investigate_log("has been created in the crystallizer.", INVESTIGATE_SUPERMATTER)
+				investigate_log("has been created in the crystallizer.", INVESTIGATE_ENGINE)
 				message_admins("[src] has been created in the crystallizer [ADMIN_JMP(src)].")
 
 
@@ -301,15 +306,15 @@
 
 	var/list/requirements
 	if(!selected_recipe)
-		requirements = list("Выбери рецепт для просмотра требований")
+		requirements = list("Select a recipe to see the requirements")
 	else
-		requirements = list("Чтобы создать [selected_recipe.name] потребуется")
+		requirements = list("To create [selected_recipe.name] you will need:")
 		for(var/gas_type in selected_recipe.requirements)
 			var/datum/gas/gas_required = gas_type
 			var/amount_consumed = selected_recipe.requirements[gas_type]
-			requirements += "-[amount_consumed] молей [initial(gas_required.name)]"
-		requirements += "В температурном диапазоне [selected_recipe.min_temp] K и [selected_recipe.max_temp] K"
-		requirements += "Реакция кристаллизации будет [selected_recipe.energy_release ? (selected_recipe.energy_release > 0 ? "экзотермической" : "эндотермической") : "термально нейтральной"]"
+			requirements += "-[amount_consumed] moles of [initial(gas_required.name)]"
+		requirements += "In a temperature range between [selected_recipe.min_temp] K and [selected_recipe.max_temp] K"
+		requirements += "The crystallization reaction will be [selected_recipe.energy_release ? (selected_recipe.energy_release > 0 ? "exothermic" : "endothermic") : "thermally neutral"]"
 	data["requirements"] = requirements.Join("\n")
 
 	var/temperature

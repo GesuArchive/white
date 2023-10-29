@@ -1,13 +1,15 @@
 import { Color } from 'common/color';
+import { multiline, decodeHtmlEntities } from 'common/string';
 import { Component, createRef, RefObject } from 'inferno';
 import { useBackend } from '../backend';
-import { Box, Button, Flex } from '../components';
+import { Tooltip, Icon, Box, Button, Flex } from '../components';
 import { Window } from '../layouts';
 
-const PX_PER_UNIT = 24;
+const LEFT_CLICK = 0;
 
 type PaintCanvasProps = Partial<{
   onCanvasModifiedHandler: (data: PointData[]) => void;
+  onCanvasDropperHandler: (x: number, y: number) => void;
   value: string[][];
   width: number;
   height: number;
@@ -15,7 +17,8 @@ type PaintCanvasProps = Partial<{
   imageHeight: number;
   editable: boolean;
   drawing_color: string | null;
-  drawing_alpha: number | null;
+  has_palette: boolean;
+  show_grid: boolean;
 }>;
 
 type PointData = {
@@ -35,22 +38,26 @@ const toMassPaintFormat = (data: PointData[]) => {
 class PaintCanvas extends Component<PaintCanvasProps> {
   canvasRef: RefObject<HTMLCanvasElement>;
   baseImageData: Color[][];
+  is_grid_shown: boolean;
   modifiedElements: PointData[];
   onCanvasModified: (data: PointData[]) => void;
+  onCanvasDropper: (x: number, y: number) => void;
   drawing: boolean;
   drawing_color: string;
-  drawing_alpha: number;
 
   constructor(props) {
     super(props);
     this.canvasRef = createRef<HTMLCanvasElement>();
     this.modifiedElements = [];
+    this.is_grid_shown = false;
     this.drawing = false;
     this.onCanvasModified = props.onCanvasModifiedHandler;
+    this.onCanvasDropper = props.onCanvasDropperHandler;
 
     this.handleStartDrawing = this.handleStartDrawing.bind(this);
     this.handleDrawing = this.handleDrawing.bind(this);
     this.handleEndDrawing = this.handleEndDrawing.bind(this);
+    this.handleDropper = this.handleDropper.bind(this);
   }
 
   componentDidMount() {
@@ -61,9 +68,10 @@ class PaintCanvas extends Component<PaintCanvasProps> {
   componentDidUpdate() {
     // eslint-disable-next-line max-len
     if (
-      this.props.value !== undefined &&
-      JSON.stringify(this.baseImageData) !==
-        JSON.stringify(fromDM(this.props.value))
+      (this.props.value !== undefined &&
+        JSON.stringify(this.baseImageData) !==
+          JSON.stringify(fromDM(this.props.value))) ||
+      this.is_grid_shown !== this.props.show_grid
     ) {
       this.syncCanvas();
     }
@@ -87,6 +95,7 @@ class PaintCanvas extends Component<PaintCanvasProps> {
       return;
     }
     this.baseImageData = fromDM(this.props.value);
+    this.is_grid_shown = !!this.props.show_grid;
     this.modifiedElements = [];
 
     const canvas = this.canvasRef.current!;
@@ -97,6 +106,11 @@ class PaintCanvas extends Component<PaintCanvasProps> {
         const color = element[y];
         ctx.fillStyle = color.toString();
         ctx.fillRect(x, y, 1, 1);
+        if (this.is_grid_shown) {
+          ctx.strokeStyle = '#888888';
+          ctx.lineWidth = 0.05;
+          ctx.strokeRect(x, y, 1, 1);
+        }
       }
     }
   }
@@ -119,35 +133,29 @@ class PaintCanvas extends Component<PaintCanvasProps> {
       !this.props.editable ||
       this.props.drawing_color === undefined ||
       this.props.drawing_color === null ||
-      this.props.drawing_alpha === undefined ||
-      this.props.drawing_alpha === null
+      event.button !== LEFT_CLICK
     ) {
       return;
     }
     this.modifiedElements = [];
     this.drawing = true;
     this.drawing_color = this.props.drawing_color;
-    this.drawing_alpha = this.props.drawing_alpha;
     const coords = this.eventToCoords(event);
-    this.drawPoint(coords.x, coords.y, this.drawing_color, this.drawing_alpha);
+    this.drawPoint(coords.x, coords.y, this.drawing_color);
   }
 
-  drawPoint(x: number, y: number, color: any, alpha: any) {
+  drawPoint(x: number, y: number, color: any) {
     let p: PointData = { x, y, color: Color.fromHex(color) };
     this.modifiedElements.push(p);
     const canvas = this.canvasRef.current!;
     const ctx = canvas.getContext('2d')!;
-    const hexToRgb = (hex) =>
-      hex
-        .replace(
-          /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
-          (m, r, g, b) => '#' + r + r + g + g + b + b
-        )
-        .substring(1)
-        .match(/.{2}/g)
-        .map((x) => parseInt(x, 16));
-    ctx.fillStyle = 'rgba(' + hexToRgb(color) + ', ' + alpha / 255 + ')';
+    ctx.fillStyle = color;
     ctx.fillRect(x, y, 1, 1);
+    if (this.is_grid_shown) {
+      ctx.strokeStyle = '#888888';
+      ctx.lineWidth = 0.05;
+      ctx.strokeRect(x, y, 1, 1);
+    }
   }
 
   handleDrawing(event: MouseEvent) {
@@ -155,7 +163,7 @@ class PaintCanvas extends Component<PaintCanvasProps> {
       return;
     }
     const coords = this.eventToCoords(event);
-    this.drawPoint(coords.x, coords.y, this.drawing_color, this.drawing_alpha);
+    this.drawPoint(coords.x, coords.y, this.drawing_color);
   }
 
   handleEndDrawing(event: MouseEvent) {
@@ -168,6 +176,15 @@ class PaintCanvas extends Component<PaintCanvasProps> {
     if (this.onCanvasModified !== undefined) {
       this.onCanvasModified(this.modifiedElements);
     }
+  }
+
+  handleDropper(event: MouseEvent) {
+    event.preventDefault();
+    if (!this.props.has_palette) {
+      return;
+    }
+    const coords = this.eventToCoords(event);
+    this.onCanvasDropper(coords.x + 1, coords.y + 1); // 1-based index dm side
   }
 
   render() {
@@ -188,7 +205,8 @@ class PaintCanvas extends Component<PaintCanvasProps> {
         onMouseDown={this.handleStartDrawing}
         onMouseMove={this.handleDrawing}
         onMouseUp={this.handleEndDrawing}
-        onMouseOut={this.handleEndDrawing}>
+        onMouseOut={this.handleEndDrawing}
+        onContextMenu={this.handleDropper}>
         Canvas failed to render.
       </canvas>
     );
@@ -201,33 +219,79 @@ const getImageSize = (value) => {
   return [width, height];
 };
 
+type PaletteColor = {
+  color: string;
+  is_selected: boolean;
+};
+
 type CanvasData = {
   grid: string[][];
+  px_per_unit: number;
   finalized: boolean;
   name: string;
   editable: boolean;
   paint_tool_color: string | null;
-  paint_tool_alpha: number | null;
+  paint_tool_palette: PaletteColor[] | null;
   author: string | null;
   medium: string | null;
   patron: string | null;
   date: string | null;
   show_plaque: boolean;
+  show_grid: boolean;
 };
 
 export const Canvas = (props, context) => {
   const { act, data } = useBackend<CanvasData>(context);
   const [width, height] = getImageSize(data.grid);
-  const scaled_width = width * PX_PER_UNIT;
-  const scaled_height = height * PX_PER_UNIT;
+  const scaled_width = width * data.px_per_unit;
+  const scaled_height = height * data.px_per_unit;
   const average_plaque_height = 90;
+  const palette_height = 44;
+  const griddy = !!data.show_grid && !!data.editable && !!data.paint_tool_color;
   return (
     <Window
       width={scaled_width + 72}
       height={
-        scaled_height + 70 + (data.show_plaque ? average_plaque_height : 0)
+        scaled_height +
+        75 +
+        (data.show_plaque ? average_plaque_height : 0) +
+        (data.editable && data.paint_tool_palette ? palette_height : 0)
       }>
       <Window.Content>
+        <Flex align="start" direction="row">
+          {!!data.paint_tool_palette && (
+            <Flex.Item>
+              <Tooltip
+                content={
+                  multiline`
+                  You can Right-Click the canvas to change the color of
+                  the painting tool to that of the clicked pixel.
+                ` +
+                  (data.editable
+                    ? multiline`
+                  \n You can also select a color from the
+                  palette at the bottom of the UI,
+                  or input a new one with Right-Click.
+                `
+                    : '')
+                }>
+                <Icon name="question-circle" color="blue" size={1.5} m={0.5} />
+              </Tooltip>
+            </Flex.Item>
+          )}
+          {!!data.editable && !!data.paint_tool_color && (
+            <Flex.Item>
+              <Button
+                title="Grid Toggle"
+                icon="th-large"
+                backgroundColor={data.show_grid ? 'green' : 'red'}
+                onClick={() => act('toggle_grid')}
+                size={1.5}
+                m={0.5}
+              />
+            </Flex.Item>
+          )}
+        </Flex>
         <Box textAlign="center">
           <PaintCanvas
             value={data.grid}
@@ -236,23 +300,59 @@ export const Canvas = (props, context) => {
             width={scaled_width}
             height={scaled_height}
             drawing_color={data.paint_tool_color}
-            drawing_alpha={data.paint_tool_alpha}
+            show_grid={griddy}
             onCanvasModifiedHandler={(changed) =>
               act('paint', { data: toMassPaintFormat(changed) })
             }
+            onCanvasDropperHandler={(x, y) =>
+              act('select_color_from_coords', { px: x, py: y })
+            }
             editable={data.editable}
+            has_palette={!!data.paint_tool_palette}
           />
-          <Flex align="center" justify="center">
+          <Flex align="center" justify="center" direction="column">
+            {!!data.editable && !!data.paint_tool_palette && (
+              <Flex.Item>
+                {data.paint_tool_palette.map((element, index) => (
+                  <Button
+                    key={`${index}`}
+                    backgroundColor={element.color}
+                    style={{
+                      'width': '24px',
+                      'height': '24px',
+                      'border-style': 'solid',
+                      'border-color': element.is_selected
+                        ? 'lightblue'
+                        : 'black',
+                      'border-width': '2px',
+                    }}
+                    onClick={() =>
+                      act('select_color', {
+                        selected_color: element.color,
+                      })
+                    }
+                    oncontextmenu={(e) => {
+                      e.preventDefault();
+                      act('change_palette', {
+                        color_index: index + 1,
+                        old_color: element.color,
+                      });
+                    }}
+                  />
+                ))}
+              </Flex.Item>
+            )}
             {!data.finalized && (
               <Flex.Item>
                 <Button.Confirm
                   onClick={() => act('finalize')}
-                  content="Закончить"
+                  content="Finalize"
                 />
               </Flex.Item>
             )}
             {!!data.finalized && !!data.show_plaque && (
               <Flex.Item
+                basis="content"
                 p={2}
                 width="60%"
                 textColor="black"
@@ -260,7 +360,7 @@ export const Canvas = (props, context) => {
                 backgroundColor="white"
                 style={{ 'border-style': 'inset' }}>
                 <Box mb={1} fontSize="18px" bold>
-                  {data.name}
+                  {decodeHtmlEntities(data.name)}
                 </Box>
                 <Box bold>
                   {data.author}
@@ -269,7 +369,7 @@ export const Canvas = (props, context) => {
                 </Box>
                 <Box italic>{data.medium}</Box>
                 <Box italic>
-                  {!!data.patron && `Спонсировано ${data.patron} `}
+                  {!!data.patron && `Sponsored by ${data.patron} `}
                   <Button
                     icon="hand-holding-usd"
                     color="transparent"

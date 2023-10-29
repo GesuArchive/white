@@ -3,38 +3,45 @@
 	animate_movement = SLIDE_STEPS
 	speech_span = SPAN_ROBOT
 	var/obj_flags = CAN_BE_HIT
-	var/set_obj_flags // ONLY FOR MAPPING: Sets flags from a string list, handled in Initialize. Usage: set_obj_flags = "EMAGGED;!CAN_BE_HIT" to set EMAGGED and clear CAN_BE_HIT.
 
-	var/damtype = BRUTE
-	var/force = 0
+	/// Extra examine line to describe controls, such as right-clicking, left-clicking, etc.
+	var/desc_controls
+
 	/// Icon to use as a 32x32 preview in crafting menus and such
 	var/icon_preview
 	var/icon_state_preview
+	/// The vertical pixel offset applied when the object is anchored on a tile with table
+	/// Ignored when set to 0 - to avoid shifting directional wall-mounted objects above tables
+	var/anchored_tabletop_offset = 0
+
+	var/damtype = BRUTE
+	var/force = 0
 
 	/// How good a given object is at causing wounds on carbons. Higher values equal better shots at creating serious wounds.
 	var/wound_bonus = 0
 	/// If this attacks a human with no wound armor on the affected body part, add this to the wound mod. Some attacks may be significantly worse at wounding if there's even a slight layer of armor to absorb some of it vs bare flesh
 	var/bare_wound_bonus = 0
 
-	var/datum/armor/armor
-	var/obj_integrity	//defaults to max_integrity
-	var/max_integrity = 500
-	var/integrity_failure = 0 //0 if we have no special broken behavior, otherwise is a percentage of at what point the obj breaks. 0.5 being 50%
-	///Damage under this value will be completely ignored
-	var/damage_deflection = 0
-
-	var/resistance_flags = NONE // INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ON_FIRE | UNACIDABLE | ACID_PROOF
+	/// A multiplier to an objecet's force when used against a stucture, vechicle, machine, or robot.
+	var/demolition_mod = 1
 
 	var/current_skin //Has the item been reskinned?
 	var/list/unique_reskin //List of options to reskin.
+	///If set to true, we can reskin this item as much as we want.
+	var/infinite_reskin = FALSE
 
 	// Access levels, used in modules\jobs\access.dm
+	/// List of accesses needed to use this object: The user must possess all accesses in this list in order to use the object.
+	/// Example: If req_access = list(ACCESS_ENGINE, ACCESS_CE)- then the user must have both ACCESS_ENGINE and ACCESS_CE in order to use the object.
 	var/list/req_access
-	var/req_access_txt = "0"
+	/// List of accesses needed to use this object: The user must possess at least one access in this list in order to use the object.
+	/// Example: If req_one_access = list(ACCESS_ENGINE, ACCESS_CE)- then the user must have either ACCESS_ENGINE or ACCESS_CE in order to use the object.
 	var/list/req_one_access
-	var/req_one_access_txt = "0"
-	/// Custom fire overlay icon
+
+	/// Custom fire overlay icon, will just use the default overlay if this is null
 	var/custom_fire_overlay
+	/// Particles this obj uses when burning, if any
+	var/burning_particles
 
 	var/renamedByPlayer = FALSE //set when a player uses a pen on a renamable object
 
@@ -43,9 +50,8 @@
 	/// Map tag for something.  Tired of it being used on snowflake items.  Moved here for some semblance of a standard.
 	/// Next pr after the network fix will have me refactor door interactions, so help me god.
 	var/id_tag = null
-	/// Network id. If set it can be found by either its hardware id or by the id tag if thats set.  It can also be
-	/// broadcasted to as long as the other guys network is on the same branch or above.
-	var/network_id = null
+
+	uses_integrity = TRUE
 
 /obj/vv_edit_var(vname, vval)
 	if(vname == NAMEOF(src, obj_flags))
@@ -56,43 +62,10 @@
 /// A list of all /obj by their id_tag
 GLOBAL_LIST_EMPTY(objects_by_id_tag)
 
-// Call this if you want to add your object to a network
-/obj/proc/init_network_id(network_id)
-	var/area/A = get_area(src)
-	if(A)
-		if(!A.network_root_id)
-			log_telecomms("Area '[A.name]([REF(A)])' has no network network_root_id, force assigning in object [src]([REF(src)])")
-			SSnetworks.lookup_area_root_id(A)
-		network_id = NETWORK_NAME_COMBINE(A.network_root_id, network_id) // I regret nothing!!
-	else
-		log_telecomms("Created [src]([REF(src)] in nullspace, assuming network to be in station")
-		network_id = NETWORK_NAME_COMBINE(STATION_NETWORK_ROOT, network_id) // I regret nothing!!
-	AddComponent(/datum/component/ntnet_interface, network_id, id_tag)
-
 /obj/Initialize(mapload)
-	if (islist(armor))
-		armor = getArmor(arglist(armor))
-	else if (!armor)
-		armor = getArmor()
-	else if (!istype(armor, /datum/armor))
-		stack_trace("Invalid type [armor.type] found in .armor during /obj Initialize()")
-	obj_integrity = max_integrity
+	. = ..()
 
-	. = ..() //Do this after, else mat datums is mad.
-
-	if (set_obj_flags)
-		var/flagslist = splittext(set_obj_flags,";")
-		var/list/string_to_objflag = GLOB.bitfields["obj_flags"]
-		for (var/flag in flagslist)
-			if(flag[1] == "!")
-				flag = copytext(flag, length(flag[1]) + 1) // Get all but the initial !
-				obj_flags &= ~string_to_objflag[flag]
-			else
-				obj_flags |= string_to_objflag[flag]
-
-	if((obj_flags & ON_BLUEPRINTS) && isturf(loc))
-		var/turf/T = loc
-		T.add_blueprints_preround(src)
+	check_on_table()
 
 	if (id_tag)
 		GLOB.objects_by_id_tag[id_tag] = src
@@ -104,13 +77,24 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	GLOB.objects_by_id_tag -= id_tag
 	. = ..()
 
+/obj/attacked_by(obj/item/attacking_item, mob/living/user)
+	if(!attacking_item.force)
+		return
 
-/obj/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
-	. = ..()
-	if(obj_flags & FROZEN)
-		visible_message(span_danger("[capitalize(src.name)] разлетается на миллион частей!"))
-		qdel(src)
+	var/total_force = (attacking_item.force * attacking_item.demolition_mod)
 
+	var/damage = take_damage(total_force, attacking_item.damtype, MELEE, 1)
+
+	var/damage_verb = "hit"
+
+	if(attacking_item.demolition_mod > 1 && damage)
+		damage_verb = "pulverise"
+	if(attacking_item.demolition_mod < 1)
+		damage_verb = "ineffectively pierce"
+
+	user.visible_message(span_danger("[user] [damage_verb][plural_s(damage_verb)] [src] with [attacking_item][damage ? "." : ", without leaving a mark!"]"), \
+		span_danger("You [damage_verb] [src] with [attacking_item][damage ? "." : ", without leaving a mark!"]"), null, COMBAT_MESSAGE_RANGE)
+	log_combat(user, src, "attacked", attacking_item)
 
 /obj/assume_air(datum/gas_mixture/giver)
 	if(loc)
@@ -118,39 +102,9 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	else
 		return null
 
-/obj/assume_air_moles(datum/gas_mixture/giver, moles)
-	if(loc)
-		return loc.assume_air_moles(giver, moles)
-	else
-		return null
-
-/obj/assume_air_ratio(datum/gas_mixture/giver, ratio)
-	if(loc)
-		return loc.assume_air_ratio(giver, ratio)
-	else
-		return null
-
-/obj/transfer_air(datum/gas_mixture/taker, moles)
-	if(loc)
-		return loc.transfer_air(taker, moles)
-	else
-		return null
-
-/obj/transfer_air_ratio(datum/gas_mixture/taker, ratio)
-	if(loc)
-		return loc.transfer_air_ratio(taker, ratio)
-	else
-		return null
-
 /obj/remove_air(amount)
 	if(loc)
 		return loc.remove_air(amount)
-	else
-		return null
-
-/obj/remove_air_ratio(ratio)
-	if(loc)
-		return loc.remove_air_ratio(ratio)
 	else
 		return null
 
@@ -162,8 +116,8 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 
 /obj/proc/handle_internal_lifeform(mob/lifeform_inside_me, breath_request)
 	//Return: (NONSTANDARD)
-	//		null if object handles breathing logic for lifeform
-	//		datum/air_group to tell lifeform to process using that breath return
+	// null if object handles breathing logic for lifeform
+	// datum/air_group to tell lifeform to process using that breath return
 	//DEFAULT: Take air from turf to give to have mob process
 
 	if(breath_request>0)
@@ -174,32 +128,34 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 		return null
 
 /obj/proc/updateUsrDialog()
-	if((obj_flags & IN_USE) && !(obj_flags & USES_TGUI))
-		var/is_in_use = FALSE
-		var/list/nearby = viewers(1, src)
-		for(var/mob/M in nearby)
-			if ((M.client && M.machine == src))
+	if(!(obj_flags & IN_USE))
+		return
+
+	var/is_in_use = FALSE
+	var/list/nearby = viewers(1, src)
+	for(var/mob/M in nearby)
+		if ((M.client && M.machine == src))
+			is_in_use = TRUE
+			ui_interact(M)
+	if(issilicon(usr) || isAdminGhostAI(usr))
+		if (!(usr in nearby))
+			if (usr.client && usr.machine == src) // && M.machine == src is omitted because if we triggered this by using the dialog, it doesn't matter if our machine changed in between triggering it and this - the dialog is probably still supposed to refresh.
 				is_in_use = TRUE
-				ui_interact(M)
-		if(issilicon(usr) || isAdminGhostAI(usr))
-			if (!(usr in nearby))
-				if (usr.client && usr.machine==src) // && M.machine == src is omitted because if we triggered this by using the dialog, it doesn't matter if our machine changed in between triggering it and this - the dialog is probably still supposed to refresh.
+				ui_interact(usr)
+
+	// check for TK users
+
+	if(ishuman(usr))
+		var/mob/living/carbon/human/H = usr
+		if(!(usr in nearby))
+			if(usr.client && usr.machine == src)
+				if(H.dna.check_mutation(/datum/mutation/human/telekinesis))
 					is_in_use = TRUE
 					ui_interact(usr)
-
-		// check for TK users
-
-		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
-			if(!(usr in nearby))
-				if(usr.client && usr.machine==src)
-					if(H.dna.check_mutation(TK))
-						is_in_use = TRUE
-						ui_interact(usr)
-		if (is_in_use)
-			obj_flags |= IN_USE
-		else
-			obj_flags &= ~IN_USE
+	if (is_in_use)
+		obj_flags |= IN_USE
+	else
+		obj_flags &= ~IN_USE
 
 /obj/proc/updateDialog(update_viewers = TRUE,update_ais = TRUE)
 	// Check that people are actually using the machine. If not, don't update anymore.
@@ -227,18 +183,22 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	ui_interact(user)
 
 /mob/proc/unset_machine()
-	if(machine)
-		machine.on_unset_machine(src)
-		machine = null
+	SIGNAL_HANDLER
+	if(!machine)
+		return
+	UnregisterSignal(machine, COMSIG_QDELETING)
+	machine.on_unset_machine(src)
+	machine = null
 
 //called when the user unsets the machine.
 /atom/movable/proc/on_unset_machine(mob/user)
 	return
 
 /mob/proc/set_machine(obj/O)
-	if(src.machine)
+	if(machine)
 		unset_machine()
-	src.machine = O
+	machine = O
+	RegisterSignal(O, COMSIG_QDELETING, PROC_REF(unset_machine))
 	if(istype(O))
 		O.obj_flags |= IN_USE
 
@@ -254,7 +214,7 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	if(!anchored || current_size >= STAGE_FIVE)
 		step_towards(src,S)
 
-/obj/get_dumping_location(datum/storage/source, mob/user)
+/obj/get_dumping_location()
 	return get_turf(src)
 
 /obj/proc/check_uplink_validity()
@@ -265,7 +225,6 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	VV_DROPDOWN_OPTION("", "---")
 	VV_DROPDOWN_OPTION(VV_HK_MASS_DEL_TYPE, "Delete all of type")
 	VV_DROPDOWN_OPTION(VV_HK_OSAY, "Object Say")
-	VV_DROPDOWN_OPTION(VV_HK_ARMOR_MOD, "Modify armor values")
 
 /obj/vv_do_topic(list/href_list)
 	if(!(. = ..()))
@@ -273,29 +232,7 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	if(href_list[VV_HK_OSAY])
 		if(check_rights(R_FUN, FALSE))
 			usr.client.object_say(src)
-	if(href_list[VV_HK_ARMOR_MOD])
-		var/list/pickerlist = list()
-		var/list/armorlist = armor.getList()
 
-		for (var/i in armorlist)
-			pickerlist += list(list("value" = armorlist[i], "name" = i))
-
-		var/list/result = presentpicker(usr, "Modify armor", "Modify armor: [src]", Button1="Save", Button2 = "Cancel", Timeout=FALSE, inputtype = "text", values = pickerlist)
-
-		if (islist(result))
-			if (result["button"] != 2) // If the user pressed the cancel button
-				// text2num conveniently returns a null on invalid values
-				armor = armor.setRating(melee = text2num(result["values"][MELEE]),\
-			                  bullet = text2num(result["values"][BULLET]),\
-			                  laser = text2num(result["values"][LASER]),\
-			                  energy = text2num(result["values"][ENERGY]),\
-			                  bomb = text2num(result["values"][BOMB]),\
-			                  bio = text2num(result["values"][BIO]),\
-			                  rad = text2num(result["values"][RAD]),\
-			                  fire = text2num(result["values"][FIRE]),\
-			                  acid = text2num(result["values"][ACID]))
-				log_admin("[key_name(usr)] modified the armor on [src] ([type]) to melee: [armor.melee], bullet: [armor.bullet], laser: [armor.laser], energy: [armor.energy], bomb: [armor.bomb], bio: [armor.bio], rad: [armor.rad], fire: [armor.fire], acid: [armor.acid]")
-				message_admins(span_notice("[key_name_admin(usr)] modified the armor on [src] ([type]) to melee: [armor.melee], bullet: [armor.bullet], laser: [armor.laser], energy: [armor.energy], bomb: [armor.bomb], bio: [armor.bio], rad: [armor.rad], fire: [armor.fire], acid: [armor.acid]"))
 	if(href_list[VV_HK_MASS_DEL_TYPE])
 		if(check_rights(R_DEBUG|R_SERVER))
 			var/action_type = tgui_alert(usr, "Strict type ([type]) or type and all subtypes?",,list("Strict type","Type and subtypes","Cancel"))
@@ -337,16 +274,16 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 
 /obj/examine(mob/user)
 	. = ..()
+	if(desc_controls)
+		. += span_notice(desc_controls)
 	if(obj_flags & UNIQUE_RENAME)
-		. += "<hr>"
-		. += span_smallnotice("Можно переименовать это используя ручку или что-то подобное.")
-	if(unique_reskin && !current_skin)
-		. += "<hr>"
-		. += span_smallnotice("ПКМ по предмету, чтобы изменить облик.")
+		. += span_notice("Use a pen on it to rename it or change its description.")
+	if(unique_reskin && (!current_skin || infinite_reskin))
+		. += span_notice("Alt-click it to reskin it.")
 
 /obj/AltClick(mob/user)
 	. = ..()
-	if(unique_reskin && !current_skin && user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+	if(unique_reskin && (!current_skin || infinite_reskin) && user.can_perform_action(src, NEED_DEXTERITY))
 		reskin_obj(user)
 
 /**
@@ -372,7 +309,7 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 		return
 	current_skin = pick
 	icon_state = unique_reskin[pick]
-	to_chat(M, "[src.name] теперь выглядит как [pick].")
+	to_chat(M, "[src] is now skinned as '[pick].'")
 
 /**
  * Checks if we are allowed to interact with a radial menu for reskins
@@ -383,7 +320,7 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 /obj/proc/check_reskin_menu(mob/user)
 	if(QDELETED(src))
 		return FALSE
-	if(current_skin)
+	if(!infinite_reskin && current_skin)
 		return FALSE
 	if(!istype(user))
 		return FALSE
@@ -391,13 +328,13 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 		return FALSE
 	return TRUE
 
-/obj/analyzer_act(mob/living/user, obj/item/I)
-	if(atmosanalyzer_scan(user, src))
+/obj/analyzer_act(mob/living/user, obj/item/analyzer/tool)
+	if(atmos_scan(user=user, target=src, silent=FALSE))
 		return TRUE
 	return ..()
 
-/obj/proc/plunger_act(obj/item/plunger/P, mob/living/user, reinforced)
-	return
+/obj/proc/plunger_act(obj/item/plunger/attacking_plunger, mob/living/user, reinforced)
+	return SEND_SIGNAL(src, COMSIG_PLUNGER_ACT, attacking_plunger, user, reinforced)
 
 // Should move all contained objects to it's location.
 /obj/proc/dump_contents()
@@ -406,12 +343,7 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 /obj/handle_ricochet(obj/projectile/P)
 	. = ..()
 	if(. && receive_ricochet_damage_coeff)
-		take_damage(P.damage * receive_ricochet_damage_coeff, P.damage_type, P.flag, 0, turn(P.dir, 180), P.armour_penetration) // pass along receive_ricochet_damage_coeff damage to the structure for the ricochet
-
-/obj/update_overlays(updates=ALL)
-	. = ..()
-	if(resistance_flags & ON_FIRE)
-		. += custom_fire_overlay ? custom_fire_overlay : GLOB.fire_overlay
+		take_damage(P.damage * receive_ricochet_damage_coeff, P.damage_type, P.armor_flag, 0, REVERSE_DIR(P.dir), P.armour_penetration) // pass along receive_ricochet_damage_coeff damage to the structure for the ricochet
 
 /// Handles exposing an object to reagents.
 /obj/expose_reagents(list/reagents, datum/reagents/source, methods=TOUCH, volume_modifier=1, show_message=TRUE)
@@ -424,32 +356,65 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 		var/datum/reagent/R = reagent
 		. |= R.expose_obj(src, reagents[R])
 
-//For returning special data when the object is saved
-//For example, or silos will return a list of their materials which will be dumped on top of them
-//Can be customised if you have something that contains something you want saved
-//If you put an incorrect format it will break outputting, so don't use this if you don't know what you are doing
-//NOTE: Contents is automatically saved, so if you store your things in the contents var, don't worry about this
-//====Output Format Examples====:
-//===Single Object===
-//	"/obj/item/folder/blue"
-//===Multiple Objects===
-//	"/obj/item/folder/blue,\n
-//	/obj/item/folder/red"
-//===Single Object with metadata===
-//	"/obj/item/folder/blue{\n
-//	\tdir = 8;\n
-//	\tname = "special folder"\n
-//	\t}"
-//===Multiple Objects with metadata===
-//	"/obj/item/folder/blue{\n
-//	\tdir = 8;\n
-//	\tname = "special folder"\n
-//	\t},\n
-//	/obj/item/folder/red"
-//====How to save easily====:
-//	return "[thing.type][generate_tgm_metadata(thing)]"
-//Where thing is the additional thing you want to same (For example ores inside an ORM)
-//Just add ,\n between each thing
-//generate_tgm_metadata(thing) handles everything inside the {} for you
-/obj/proc/on_object_saved(depth = 0)
-	return ""
+/// Attempt to freeze this obj if possible. returns TRUE if it succeeded, FALSE otherwise.
+/obj/proc/freeze()
+	if(HAS_TRAIT(src, TRAIT_FROZEN))
+		return FALSE
+	if(resistance_flags & FREEZE_PROOF)
+		return FALSE
+
+	AddElement(/datum/element/frozen)
+	return TRUE
+
+/// Unfreezes this obj if its frozen
+/obj/proc/unfreeze()
+	SEND_SIGNAL(src, COMSIG_OBJ_UNFREEZE)
+
+/// If we can unwrench this object; returns SUCCESSFUL_UNFASTEN and FAILED_UNFASTEN, which are both TRUE, or CANT_UNFASTEN, which isn't.
+/obj/proc/can_be_unfasten_wrench(mob/user, silent)
+	if(!(isfloorturf(loc) || isindestructiblefloor(loc)) && !anchored)
+		to_chat(user, span_warning("[src] needs to be on the floor to be secured!"))
+		return FAILED_UNFASTEN
+	return SUCCESSFUL_UNFASTEN
+
+/// Try to unwrench an object in a WONDERFUL DYNAMIC WAY
+/obj/proc/default_unfasten_wrench(mob/user, obj/item/wrench, time = 20)
+	if((flags_1 & NODECONSTRUCT_1) || wrench.tool_behaviour != TOOL_WRENCH)
+		return CANT_UNFASTEN
+
+	var/turf/ground = get_turf(src)
+	if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, source_atom = src))
+		to_chat(user, span_notice("You fail to secure [src]."))
+		return CANT_UNFASTEN
+	var/can_be_unfasten = can_be_unfasten_wrench(user)
+	if(!can_be_unfasten || can_be_unfasten == FAILED_UNFASTEN)
+		return can_be_unfasten
+	if(time)
+		to_chat(user, span_notice("You begin [anchored ? "un" : ""]securing [src]..."))
+	wrench.play_tool_sound(src, 50)
+	var/prev_anchored = anchored
+	//as long as we're the same anchored state and we're either on a floor or are anchored, toggle our anchored state
+	if(!wrench.use_tool(src, user, time, extra_checks = CALLBACK(src, PROC_REF(unfasten_wrench_check), prev_anchored, user)))
+		return FAILED_UNFASTEN
+	if(!anchored && ground.is_blocked_turf(exclude_mobs = TRUE, source_atom = src))
+		to_chat(user, span_notice("You fail to secure [src]."))
+		return CANT_UNFASTEN
+	to_chat(user, span_notice("You [anchored ? "un" : ""]secure [src]."))
+	set_anchored(!anchored)
+	check_on_table()
+	playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
+	SEND_SIGNAL(src, COMSIG_OBJ_DEFAULT_UNFASTEN_WRENCH, anchored)
+	return SUCCESSFUL_UNFASTEN
+
+/// For the do_after, this checks if unfastening conditions are still valid
+/obj/proc/unfasten_wrench_check(prev_anchored, mob/user)
+	if(anchored != prev_anchored)
+		return FALSE
+	if(can_be_unfasten_wrench(user, TRUE) != SUCCESSFUL_UNFASTEN) //if we aren't explicitly successful, cancel the fuck out
+		return FALSE
+	return TRUE
+
+/// Adjusts the vertical pixel offset when the object is anchored on a tile with table
+/obj/proc/check_on_table()
+	if(anchored_tabletop_offset != 0 && !istype(src, /obj/structure/table) && locate(/obj/structure/table) in loc)
+		pixel_y = anchored ? anchored_tabletop_offset : initial(pixel_y)

@@ -4,8 +4,8 @@
  * Compares two objects
  */
 /obj/item/circuit_component/compare/comparison
-	display_name = "Сравнение"
-	desc = "Компонент, который сравнивает два объекта."
+	display_name = "Comparison"
+	desc = "A component that compares two objects."
 	category = "Math"
 
 	var/datum/port/input/option/comparison_option

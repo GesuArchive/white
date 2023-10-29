@@ -179,7 +179,7 @@ SUBSYSTEM_DEF(points_of_interest)
 /// Validates the POI. Returns TRUE if the POI has valid state, returns FALSE if the POI has invalid state.
 /datum/point_of_interest/proc/validate()
 	// In nullspace, invalid as a POI.
-	if(!target?.loc)
+	if(!target.loc)
 		return FALSE
 
 	return TRUE
@@ -221,28 +221,30 @@ SUBSYSTEM_DEF(points_of_interest)
 	else
 		return sort_difference
 
-/// Priority list broadly stolen from /proc/sort_mobs. Lower numbers are higher priorities when sorted and appear closer to the top or start of lists.
+/// Priority list broadly stolen from /proc/sortmobs(). Lower numbers are higher priorities when sorted and appear closer to the top or start of lists.
 /datum/point_of_interest/mob_poi/proc/get_type_sort_priority()
-	if(istype(target, /mob/living/silicon/ai))
+	if(isAI(target))
 		return 0
-	if(istype(target, /mob/camera))
+	if(iscameramob(target))
 		return 1
-	if(istype(target, /mob/living/silicon/pai))
+	if(ispAI(target))
 		return 2
-	if(istype(target, /mob/living/silicon/robot))
+	if(iscyborg(target))
 		return 3
-	if(istype(target, /mob/living/carbon/human))
+	if(ishuman(target))
 		return 4
-	if(istype(target, /mob/living/brain))
+	if(isbrain(target))
 		return 5
-	if(istype(target, /mob/living/carbon/alien))
+	if(isalien(target))
 		return 6
-	if(istype(target, /mob/dead/observer))
+	if(isobserver(target))
 		return 7
-	if(istype(target, /mob/dead/new_player))
+	if(isnewplayer(target))
 		return 8
-	if(istype(target, /mob/living/simple_animal/slime))
+	if(isslime(target))
 		return 9
-	if(istype(target, /mob/living/simple_animal))
+	if(isanimal(target))
 		return 10
-	return 11
+	if(isbasicmob(target))
+		return 11
+	return 12

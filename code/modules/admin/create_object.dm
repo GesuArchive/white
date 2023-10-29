@@ -19,13 +19,13 @@
 	/obj/item, /obj/item/clothing, /obj/item/stack, /obj/item,
 	/obj/item/reagent_containers, /obj/item/gun)
 
-	var/path = tgui_input_list(usr, "Select the path of the object you wish to create.", "Path", sort_list(create_object_forms, GLOBAL_PROC_REF(cmp_typepaths_asc)), /obj)
+	var/path = input("Select the path of the object you wish to create.", "Path", /obj) in sort_list(create_object_forms, GLOBAL_PROC_REF(cmp_typepaths_asc))
 	var/html_form = create_object_forms[path]
 
 	if (!html_form)
 		var/objectjs = jointext(typesof(path), ";")
 		html_form = file2text('html/create_object.html')
-		html_form = replacetext(html_form, "Сотворить хуйню", "Сотворить [path]")
+		html_form = replacetext(html_form, "Create Object", "Create [path]")
 		html_form = replacetext(html_form, "null /* object types */", "\"[objectjs]\"")
 		create_object_forms[path] = html_form
 

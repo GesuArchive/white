@@ -1,7 +1,7 @@
 import { useBackend, useSharedState } from '../backend';
 import { Button, LabeledList, NoticeBox, Section, Tabs } from '../components';
 import { Window } from '../layouts';
-import { GenericUplink } from './Uplink';
+import { GenericUplink } from './Uplink/GenericUplink';
 
 export const AbductorConsole = (props, context) => {
   const [tab, setTab] = useSharedState(context, 'tab', 1);
@@ -14,14 +14,14 @@ export const AbductorConsole = (props, context) => {
             lineHeight="23px"
             selected={tab === 1}
             onClick={() => setTab(1)}>
-            Абдуктсофт 3000
+            Abductsoft 3000
           </Tabs.Tab>
           <Tabs.Tab
             icon="list"
             lineHeight="23px"
             selected={tab === 2}
             onClick={() => setTab(2)}>
-            Настройка миссии
+            Mission Settings
           </Tabs.Tab>
         </Tabs>
         {tab === 1 && <Abductsoft />}
@@ -38,10 +38,28 @@ export const AbductorConsole = (props, context) => {
 
 const Abductsoft = (props, context) => {
   const { act, data } = useBackend(context);
-  const { experiment, points, credits } = data;
+  const { experiment, points, credits, categories } = data;
 
   if (!experiment) {
-    return <NoticeBox danger>Не обнаружено машины для экспериментов</NoticeBox>;
+    return <NoticeBox danger>No Experiment Machine Detected</NoticeBox>;
+  }
+
+  const categoriesList = [];
+  const items = [];
+  for (let i = 0; i < categories.length; i++) {
+    const category = categories[i];
+    categoriesList.push(category.name);
+    for (let itemIndex = 0; itemIndex < category.items.length; itemIndex++) {
+      const item = category.items[itemIndex];
+      items.push({
+        id: item.name,
+        name: item.name,
+        category: category.name,
+        cost: `${item.cost} Credits`,
+        desc: item.desc,
+        disabled: credits < item.cost,
+      });
+    }
   }
 
   return (
@@ -53,7 +71,12 @@ const Abductsoft = (props, context) => {
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <GenericUplink currencyAmount={credits} currencySymbol="Credits" />
+      <GenericUplink
+        currency={`${credits} Credits`}
+        categories={categoriesList}
+        items={items}
+        handleBuy={(item) => act('buy', { name: item.name })}
+      />
     </>
   );
 };
@@ -63,25 +86,25 @@ const EmergencyTeleporter = (props, context) => {
   const { pad, gizmo } = data;
 
   if (!pad) {
-    return <NoticeBox danger>Не обнаружен телепад</NoticeBox>;
+    return <NoticeBox danger>No Telepad Detected</NoticeBox>;
   }
 
   return (
     <Section
-      title="Экстренный телепорт"
+      title="Emergency Teleport"
       buttons={
         <Button
           icon="exclamation-circle"
-          content="Активировать"
+          content="Activate"
           color="bad"
           onClick={() => act('teleporter_send')}
         />
       }>
       <LabeledList>
-        <LabeledList.Item label="Отметить забор">
+        <LabeledList.Item label="Mark Retrieval">
           <Button
             icon={gizmo ? 'user-plus' : 'user-slash'}
-            content={gizmo ? 'Забор' : 'Нет отметки'}
+            content={gizmo ? 'Retrieve' : 'No Mark'}
             disabled={!gizmo}
             onClick={() => act('teleporter_retrieve')}
           />
@@ -96,31 +119,31 @@ const VestSettings = (props, context) => {
   const { vest, vest_mode, vest_lock } = data;
 
   if (!vest) {
-    return <NoticeBox danger>Не обнаружено костюма агента</NoticeBox>;
+    return <NoticeBox danger>No Agent Vest Detected</NoticeBox>;
   }
 
   return (
     <Section
-      title="Настройка костюма агента"
+      title="Agent Vest Settings"
       buttons={
         <Button
           icon={vest_lock ? 'lock' : 'unlock'}
-          content={vest_lock ? 'Заблокирован' : 'Разблокирован'}
+          content={vest_lock ? 'Locked' : 'Unlocked'}
           onClick={() => act('toggle_vest')}
         />
       }>
       <LabeledList>
-        <LabeledList.Item label="Режим">
+        <LabeledList.Item label="Mode">
           <Button
             icon={vest_mode === 1 ? 'eye-slash' : 'fist-raised'}
-            content={vest_mode === 1 ? 'Стелс' : 'Боевой'}
+            content={vest_mode === 1 ? 'Stealth' : 'Combat'}
             onClick={() => act('flip_vest')}
           />
         </LabeledList.Item>
-        <LabeledList.Item label="Маскировка">
+        <LabeledList.Item label="Disguise">
           <Button
             icon="user-secret"
-            content="Выбрать"
+            content="Select"
             onClick={() => act('select_disguise')}
           />
         </LabeledList.Item>

@@ -1,7 +1,7 @@
 // Tobacco
 /obj/item/seeds/tobacco
-	name = "Пачка семян табака"
-	desc = "Эти семена вырастают в табак."
+	name = "pack of tobacco seeds"
+	desc = "These seeds grow into tobacco plants."
 	icon_state = "seed-tobacco"
 	species = "tobacco"
 	plantname = "Tobacco Plant"
@@ -17,27 +17,28 @@
 
 /obj/item/food/grown/tobacco
 	seed = /obj/item/seeds/tobacco
-	name = "Листья табака"
-	desc = "Просуши их, чтобы немного подымить."
+	name = "tobacco leaves"
+	desc = "Dry them out to make some smokes."
 	icon_state = "tobacco_leaves"
 	distill_reagent = /datum/reagent/consumable/ethanol/creme_de_menthe //Menthol, I guess.
 
 // Space Tobacco
 /obj/item/seeds/tobacco/space
-	name = "Пачка семян космотабака"
-	desc = "Эти семена вырастают в космотабак."
+	name = "pack of space tobacco seeds"
+	desc = "These seeds grow into space tobacco plants."
 	icon_state = "seed-stobacco"
 	species = "stobacco"
 	plantname = "Space Tobacco Plant"
 	product = /obj/item/food/grown/tobacco/space
-	mutatelist = list()
+	mutatelist = null
 	reagents_add = list(/datum/reagent/medicine/salbutamol = 0.05, /datum/reagent/drug/nicotine = 0.08, /datum/reagent/consumable/nutriment = 0.03)
 	rarity = 20
 
 /obj/item/food/grown/tobacco/space
 	seed = /obj/item/seeds/tobacco/space
-	name = "Листья космотабака"
-	desc = "Просуши их, чтобы космодымить."
+	name = "space tobacco leaves"
+	desc = "Dry them out to make some space-smokes."
 	icon_state = "stobacco_leaves"
+	bite_consumption_mod = 2
 	distill_reagent = null
 	wine_power = 50

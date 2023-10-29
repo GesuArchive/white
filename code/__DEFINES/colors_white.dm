@@ -1,4 +1,0 @@
-
-
-
-#define LIGHT_COLOR_CLOCKWORK 	"#BE8700"

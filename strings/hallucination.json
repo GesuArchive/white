@@ -1,325 +1,262 @@
 {
-    "suspicion": [
-        "@pick(add_name)я смотрю за тобой...",
-        "@pick(add_name)я знаю что ты делаешь",
-        "@pick(add_name)что ты прячешь?",
-        "Я видел это"
-    ],
-
-    "conversation": [
-        "Да",
-        "Ага",
-        "Угу",
-        "Нет",
-        "Неа",
-        "Сомневаюсь",
-        "Эм.",
-        "Почему?",
-        "Но.",
-        "Подожди",
-        "Ну-ка",
-        "Хм",
-        "Ага, я знаю",
-        "Я в курсе, да",
-        "Странновато",
-        "Странно"
-    ],
-
-    "greetings": [
-        "",
-        "Здарова, ",
-        "Дарова, ",
-        "Привет, ",
-        "Здравствуй, ",
-        "Подожди, ",
-        "Это "
-    ],
-
-    "getout": [
-        "@pick(add_name)убирайся",
-        "@pick(add_name)убирайся!",
-        "@pick(add_name)уходи",
-        "@pick(add_name)отъебись",
-        "@pick(add_name)вали",
-        "@pick(add_name)свали отсюда",
-        "УШЕЛ!",
-        "@pick(add_name)уходи!"
-    ],
-
-    "weird": [
-        "Кчцк-Чкцк? Кччцк!",
-        "Кчцкчк...",
-        "ЕЕЕееееЕЕЕЕ",
-        "Кххххх",
-        "#@?*&?",
-        "П***ги мн*",
-        "Х-ххххх..."
-    ],
-
-    "didyouhearthat": [
-        "Ты слышал?",
-        "Ты видел?",
-        "Что это было?"
-    ],
-
-    "add_name": [
-        "%TARGETNAME%, ",
-        ""
-    ],
-
-    "doubt": [
-        "Почему?",
-        "Что?",
-        "Подожди, что?",
-        "@pick(add_name)подожди-ка",
-        "@pick(add_name)подожди",
-        "@pick(add_name)минуту",
-        "Э-эм..."
-    ],
-
-    "aggressive": [
-        "@pick(add_name)верни это!",
-        "@pick(add_name)прекращай",
-        "@pick(add_name)я убью тебя",
-        "@pick(add_name)тебе пизда",
-        "@pick(add_name)тебе пиздец",
-        "@pick(add_name)тебе конец",
-        "@pick(add_name)пошел нахуй!",
-        "@pick(add_name)пошел нахуй",
-        "@pick(add_name)иди нахуй",
-        "@pick(add_name)иди нахуй!",
-        "@pick(add_name)где ты?",
-        "@pick(add_name)ты тварь",
-        "@pick(add_name)урод!",
-        "@pick(add_name)я найду тебя",
-        "@pick(add_name)я знаю, где ты",
-        "@pick(add_name)я иду за тобой"
-    ],
-
-    "help": [
-        "ПОМОГИ",
-        "Помоги!",
-        "Помоги",
-        "ПОМОГИТЕ",
-        "Помогите!",
-        "Помогите",
-        "Помоги мне",
-        "Помоги ему",
-        "Помоги ей",
-        "Помоги им",
-        "Помоги нам",
-        "Помоги себе"
-    ],
-
-    "escape": [
-        "@pick(add_name)БЕГИ!!",
-        "@pick(add_name)уходи оттуда.",
-        "@pick(add_name)сзади!",
-        "Они тут.",
-        "Убейте их!",
-        "Бегите",
-        "Беги!",
-        "Оно здесь!",
-        "@pick(add_name)за мной!",
-        "@pick(add_name)за мной"
-    ],
-
-    "infection_advice": [
-        "@pick(add_name)держись от меня подальше",
-        "@pick(add_name)не подходи",
-        "@pick(add_name)будь осторожен",
-        "@pick(add_name)помоги мне",
-        "@pick(add_name)убей меня"
-    ],
-
-    "people": [
-        "Капитан",
-        "ХоС",
-        "СМО",
-        "РД",
-        "СЕ",
-        "ХоП",
-        "Уборщик",
-        "ИИ",
-        "Вирусолог",
-        "КМ",
-        "%TARGETNAME%"
-    ],
-
-    "accusations": [
-        "мертвец",
-        "мертв",
-        "убит",
-        "уничтожен",
-        "ликвидирован",
-        "работает на Синдикат",
-        "агент",
-        "нечеловек",
-        "культист",
-        "революционер",
-        "предатель"
-    ],
-
-    "threat": [
-        "Культ",
-        "Маг",
-        "Блоб",
-        "Мутант",
-        "Оперативники",
-        "Свармеры",
-        "Пауки",
-        "Ксеносы",
-        "Ревенант",
-        "Предатель",
-        "Вред",
-        "Синий АПЦ",
-        "Я слышал звук флэшки",
-        "Помоги",
-        "%TARGETNAME%"
-    ],
-
-    "location": [
-        "разгерме у @pick(sublocation)",
-        "мостике",
-        "оружейной",
-        "бриге",
-        "научка",
-        "ксенобиологии",
-        "инженерке",
-        "карго",
-        "медбее",
-        "атмосе",
-        "техах",
-        "техах @pick(sublocation)",
-        "вирусологии",
-        "морге",
-        "ХоПской",
-        "капитанской",
-        "церкви",
-        "библиотеке",
-        "ассистентской",
-        "ботанике",
-        "кухни",
-        "спутнике ИИ"
-    ],
-
-    "sublocation": [
-        "мостика",
-        "оружейной",
-        "брига",
-        "научки",
-        "ксенобиологии",
-        "инженерки",
-        "карго",
-        "медбея",
-        "атмоса",
-        "техов",
-        "вирусологии",
-        "морга",
-        "ХоПской",
-        "капитанской",
-        "церкви",
-        "библиотеки",
-        "ассистентской",
-        "ботаники",
-        "кухни",
-        "спутника ИИ"
-    ],
-
-    "advice": [
-        "Хмм... не уверен насчет этого.",
-        "Да. Ты все делаешь правильно.",
-        "Нет. Прекрати делать то, что делаешь.",
-        "Ты должен быть осторожен насчет этого человека.",
-        "Верь этому человеку.",
-        "Этот человек хочет убить тебя.",
-        "Убей этого человека. Ты знаешь кого.",
-        "Ты должен уйти в другое место. Быстро.",
-        "Желаю удачи. Она тебе понадобится.",
-        "У меня есть мое разрешение. Сделай это.",
-        "Просто сделай это."
-    ],
-
-    "chemicals": [
-        "Что-нибудь",
-        "Слизь",
-        "Огонь",
-        "Земля",
-        "Молния",
-        "Воздух",
-        "Магия",
-        "Пауки",
-        "Кнопка",
-        "Сюрприз",
-        "Счастье",
-        "Отчаяние",
-        "Кровь",
-        "Отлично",
-        "Бесконечность",
-        "Электроника",
-        "Время",
-        "Космос",
-        "Боль",
-        "Кишки",
-        "Жизнь",
-        "Смерть",
-        "Мана",
-        "Энергия"
-    ],
-
-	"prikols": [
-		"Мим ставит стенку в три метра!",
-		"У химика странный шприцемет!",
-        "УБИВАЮТ В ПРИБЫТИИ",
-        "Убивают в отбытии",
-        "БРИГ",
-        "ОПЕРАТИВНИКИ",
-        "У нас война",
-        "В РнД!",
-        "Сдавайся",
-        "Синга сбежала",
-        "Безысходность",
-        "Т-Т-ТЕХИ",
-        "В медбее что-то пиликает",
-        "Бомба!",
-        "Что взорвалось?",
-        "Что бахнуло?"
+	"suspicion": [
+		"@pick(add_name)i'm watching you...",
+		"@pick(add_name)i know what you're doing",
+		"@pick(add_name)what are you hiding?",
+		"I saw that"
 	],
 
-	"jobs": [
-        "ассистента",
-		"медика",
-		"офицера",
-		"ученого",
-		"ХоПа",
-		"каптера",
-		"шахтера",
-		"ботаника",
-		"повара",
-		"куратора",
-		"химика",
-		"атмостеха",
-		"грузчика",
-		"роботиста",
-		"священника",
-		"вирусолога",
-		"бармена",
-		"инженера",
-		"РД",
-		"СЕ",
-		"СМО"
+	"conversation": [
+		"But...",
+		"Hmm",
+		"Hold on",
+		"I doubt it",
+		"Nah",
+		"No",
+		"Uh...",
+		"Weird",
+		"Why?",
+		"Yeah, i know",
+		"Yeah",
+		"Yes",
+		"Yup"
 	],
 
-	"tator-items": [
-		"странная карта",
-		"энергомеч",
-		"рука-меч",
-        "рука-лезвие",
-		"броня из плоти",
-		"бомба",
-		"револьвер",
-		"взрывчатка"
+	"greetings": [
+		"",
+		"Hello ",
+		"Hey, ",
+		"Hi ",
+		"It's ",
+		"Wait, "
+	],
 
+	"getout": [
+		"@pick(add_name)fuck off",
+		"@pick(add_name)get out!",
+		"@pick(add_name)get out",
+		"@pick(add_name)go away",
+		"@pick(add_name)out!",
+		"OUT!"
+	],
+
+	"weird": [
+		"#@§*&£",
+		"EEEeeeeEEEE",
+		"H-hhhhh...",
+		"H**p m*",
+		"Kchck-Chkck? Kchchck!",
+		"Kchckchk...",
+		"khhhhh"
+	],
+
+	"didyouhearthat": [
+		"Did you hear that?",
+		"Did you see that?",
+		"What was that?"
+	],
+
+	"add_name": [
+		"",
+		"%TARGETNAME% ",
+		"%TARGETNAME%, "
+	],
+
+	"doubt": [
+		"@pick(add_name)hold on",
+		"@pick(add_name)wait",
+		"Uh...",
+		"Wait, what?",
+		"What?",
+		"Why?"
+	],
+
+	"aggressive": [
+		"@pick(add_name)fuck you!",
+		"@pick(add_name)give me that!",
+		"@pick(add_name)i'm going to kill you!",
+		"@pick(add_name)stop it!"
+	],
+
+	"help": [
+		"HELP HER",
+		"HELP HIM",
+		"HELP MAINT",
+		"HELP ME",
+		"HELP THEM",
+		"HELP US",
+		"HELP YOURSELF",
+		"HELP",
+		"HELP",
+		"HELP",
+		"Help",
+		"Help"
+	],
+
+	"escape": [
+		"@pick(add_name)follow me!",
+		"@pick(add_name)follow me",
+		"@pick(add_name)RUN!!",
+		"It's here!",
+		"They're behind me!"
+	],
+
+	"infection_advice": [
+		"@pick(add_name)be careful",
+		"@pick(add_name)don't get close",
+		"@pick(add_name)help me",
+		"@pick(add_name)kill me",
+		"@pick(add_name)stay away"
+	],
+
+	"people": [
+		"%TARGETNAME%",
+		"AI",
+		"Borg",
+		"Captain",
+		"Ce",
+		"Cmo",
+		"Geneticist",
+		"Hop",
+		"Hos",
+		"Janitor",
+		"Qm",
+		"Rd",
+		"Robo",
+		"Viro"
+	],
+
+	"accusations": [
+		"a changeling",
+		"a cultist",
+		"a gang leader",
+		"a heretic",
+		"a ling",
+		"a rev",
+		"a revhead",
+		"a tator",
+		"a traitor",
+		"a wizard",
+		"bad",
+		"cult",
+		"dead",
+		"mindswapped",
+		"rogue",
+		"the traitor",
+		"the wizard"
+	],
+
+	"threat": [
+		"%TARGETNAME%",
+		"Blob",
+		"Blue APC",
+		"Changeling",
+		"Cult",
+		"Harm",
+		"Help",
+		"Heretics",
+		"Heretic",
+		"I hear flashing",
+		"Ling",
+		"Ops",
+		"Revenant",
+		"Spiders",
+		"Traitor",
+		"Wizard",
+		"Xenos"
+	],
+
+	"location": [
+		"@pick(sublocation) maint",
+		"atmos",
+		"botany",
+		"captains office",
+		"cargo",
+		"engineering",
+		"hops office",
+		"maint",
+		"medbay",
+		"morgue",
+		"science",
+		"sec",
+		"security",
+		"space near @pick(sublocation)",
+		"the ai sat",
+		"the armory",
+		"the bridge",
+		"the chapel",
+		"the kitchen",
+		"the library",
+		"tool storage",
+		"virology",
+		"xenobio"
+	],
+
+	"sublocation": [
+		"atmos",
+		"botany",
+		"captains office",
+		"cargo",
+		"engineering",
+		"hops office",
+		"maint",
+		"medbay",
+		"morgue",
+		"science",
+		"sec",
+		"security",
+		"the ai sat",
+		"the armory",
+		"the bridge",
+		"the chapel",
+		"the kitchen",
+		"the library",
+		"tool storage",
+		"virology",
+		"xenobio"
+	],
+
+	"advice": [
+		"Good luck. You'll need it.",
+		"Hmm...not sure about that.",
+		"Just do it.",
+		"Kill that person. You know who.",
+		"No. Stop what you're doing.",
+		"That person wants to kill you.",
+		"Trust that person.",
+		"Yes. You're doing the right thing.",
+		"You have my permission. Do it.",
+		"You should be wary of that person.",
+		"You should go somewhere else. Quickly."
+	],
+
+	"chemicals": [
+		"?????",
+		"Air",
+		"Awesome",
+		"Blood",
+		"Button",
+		"Death",
+		"Despair",
+		"Earth",
+		"Electronics",
+		"Energy",
+		"Fire",
+		"Guts",
+		"Happiness",
+		"Infinity",
+		"Life",
+		"Lightning",
+		"Magic",
+		"Mana",
+		"Ooze",
+		"Pain",
+		"Phlebotinium",
+		"Something",
+		"Space",
+		"Spiders",
+		"Surprise",
+		"Time"
 	]
 
 }

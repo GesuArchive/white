@@ -35,6 +35,7 @@ export const Button = (props) => {
     children,
     onclick,
     onClick,
+    verticalAlignContent,
     ...rest
   } = props;
   const hasContent = !!(content || children);
@@ -68,6 +69,10 @@ export const Button = (props) => {
         circular && 'Button--circular',
         compact && 'Button--compact',
         iconPosition && 'Button--iconPosition--' + iconPosition,
+        verticalAlignContent && 'Button--flex',
+        verticalAlignContent && fluid && 'Button--flex--fluid',
+        verticalAlignContent &&
+          'Button--verticalAlignContent--' + verticalAlignContent,
         color && typeof color === 'string'
           ? 'Button--color--' + color
           : 'Button--color--default',
@@ -76,6 +81,9 @@ export const Button = (props) => {
       ])}
       tabIndex={!disabled && '0'}
       onKeyDown={(e) => {
+        if (props.captureKeys === false) {
+          return;
+        }
         const keyCode = window.event ? e.which : e.keyCode;
         // Simulate a click when pressing space or enter.
         if (keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
@@ -88,27 +96,30 @@ export const Button = (props) => {
         // Refocus layout on pressing escape.
         if (keyCode === KEY_ESCAPE) {
           e.preventDefault();
+          return;
         }
       }}
       {...computeBoxProps(rest)}>
-      {icon && iconPosition !== 'right' && (
-        <Icon
-          name={icon}
-          color={iconColor}
-          rotation={iconRotation}
-          spin={iconSpin}
-        />
-      )}
-      {content}
-      {children}
-      {icon && iconPosition === 'right' && (
-        <Icon
-          name={icon}
-          color={iconColor}
-          rotation={iconRotation}
-          spin={iconSpin}
-        />
-      )}
+      <div className="Button__content">
+        {icon && iconPosition !== 'right' && (
+          <Icon
+            name={icon}
+            color={iconColor}
+            rotation={iconRotation}
+            spin={iconSpin}
+          />
+        )}
+        {content}
+        {children}
+        {icon && iconPosition === 'right' && (
+          <Icon
+            name={icon}
+            color={iconColor}
+            rotation={iconRotation}
+            spin={iconSpin}
+          />
+        )}
+      </div>
     </div>
   );
 
@@ -129,6 +140,7 @@ export const ButtonCheckbox = (props) => {
   const { checked, ...rest } = props;
   return (
     <Button
+      color="transparent"
       icon={checked ? 'check-square-o' : 'square-o'}
       selected={checked}
       {...rest}

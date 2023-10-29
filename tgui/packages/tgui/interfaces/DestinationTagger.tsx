@@ -38,7 +38,7 @@ export const DestinationTagger = (props, context) => {
   const { locations, currentTag } = data;
 
   return (
-    <Window theme="retro" title="ТэгМастер 2.4" width={622} height={510}>
+    <Window theme="retro" title="TagMaster 2.4" width={420} height={500}>
       <Window.Content>
         <Stack fill vertical>
           <Stack.Item grow>
@@ -47,21 +47,19 @@ export const DestinationTagger = (props, context) => {
               scrollable
               title={
                 !currentTag
-                  ? 'Выберем назначение'
-                  : `Текущая точка назначения: ${locations[currentTag - 1]}`
+                  ? 'Please Select A Location'
+                  : `Current Destination: ${locations[currentTag - 1]}`
               }>
               {sortDestinations(locations).map((location) => {
                 return (
                   <Button.Checkbox
                     checked={currentTag === location.sorting_id}
                     height={2}
-                    mr={1}
-                    ml={1}
                     key={location.sorting_id}
                     onClick={() =>
                       act('change', { index: location.sorting_id })
                     }
-                    width={23}>
+                    width={15}>
                     {location.name}
                   </Button.Checkbox>
                 );

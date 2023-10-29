@@ -14,18 +14,17 @@
 
 /datum/action/cooldown/mob_cooldown/lava_swoop/Grant(mob/M)
 	. = ..()
-	ADD_TRAIT(M, TRAIT_LAVA_IMMUNE, REF(src))
-	ADD_TRAIT(M, TRAIT_NOFIRE, REF(src))
+	M.add_traits(list(TRAIT_LAVA_IMMUNE, TRAIT_NOFIRE), REF(src))
 
 /datum/action/cooldown/mob_cooldown/lava_swoop/Remove(mob/M)
 	. = ..()
-	REMOVE_TRAIT(M, TRAIT_LAVA_IMMUNE, REF(src))
-	REMOVE_TRAIT(M, TRAIT_NOFIRE, REF(src))
+	M.remove_traits(list(TRAIT_LAVA_IMMUNE, TRAIT_NOFIRE), REF(src))
 
 /datum/action/cooldown/mob_cooldown/lava_swoop/Activate(atom/target_atom)
 	StartCooldown(360 SECONDS, 360 SECONDS)
 	attack_sequence(target_atom)
 	StartCooldown()
+	return TRUE
 
 /datum/action/cooldown/mob_cooldown/lava_swoop/proc/attack_sequence(atom/target)
 	if(enraged)
@@ -58,7 +57,7 @@
 	owner.alpha = 255
 	animate(owner, alpha = 204, transform = matrix()*0.9, time = 3, easing = BOUNCE_EASING)
 	for(var/i in 1 to 3)
-		sleep(1)
+		sleep(0.1 SECONDS)
 		if(QDELETED(owner) || owner.stat == DEAD) //we got hit and died, rip us
 			qdel(F)
 			if(owner.stat == DEAD)
@@ -97,18 +96,14 @@
 	owner.mouse_opacity = initial(owner.mouse_opacity)
 	playsound(owner.loc, 'sound/effects/meteorimpact.ogg', 200, TRUE)
 	for(var/mob/living/L in orange(1, owner) - owner)
-		if(L.stat)
-			owner.visible_message(span_warning("[owner] slams down on [L], crushing [L.p_them()]!"))
-			L.gib()
-		else
-			L.adjustBruteLoss(75)
-			if(L && !QDELETED(L)) // Some mobs are deleted on death
-				var/throw_dir = get_dir(owner, L)
-				if(L.loc == owner.loc)
-					throw_dir = pick(GLOB.alldirs)
-				var/throwtarget = get_edge_target_turf(owner, throw_dir)
-				L.throw_at(throwtarget, 3)
-				owner.visible_message(span_warning("[L] is thrown clear of [owner]!"))
+		L.adjustBruteLoss(75)
+		if(!QDELETED(L)) // Some mobs are deleted on death
+			var/throw_dir = get_dir(owner, L)
+			if(L.loc == owner.loc)
+				throw_dir = pick(GLOB.alldirs)
+			var/throwtarget = get_edge_target_turf(owner, throw_dir)
+			L.throw_at(throwtarget, 3)
+			owner.visible_message(span_warning("[L] is thrown clear of [owner]!"))
 	for(var/obj/vehicle/sealed/mecha/M in orange(1, owner))
 		M.take_damage(75, BRUTE, MELEE, 1)
 
@@ -149,10 +144,10 @@
 		drakewalls += new /obj/effect/temp_visual/drakewall(T) // no people with lava immunity can just run away from the attack for free
 	var/list/indestructible_turfs = list()
 	for(var/turf/T in RANGE_TURFS(2, center))
-		if(istype(T, /turf/open/indestructible))
+		if(isindestructiblefloor(T))
 			continue
-		if(!istype(T, /turf/closed/indestructible))
-			T.ChangeTurf(/turf/open/floor/plating/asteroid/basalt/lava_land_surface, flags = CHANGETURF_INHERIT_AIR)
+		if(!isindestructiblewall(T))
+			T.TerraformTurf(/turf/open/misc/asteroid/basalt/lava_land_surface, flags = CHANGETURF_INHERIT_AIR)
 		else
 			indestructible_turfs += T
 	SLEEP_CHECK_DEATH(1 SECONDS, owner) // give them a bit of time to realize what attack is actually happening
@@ -182,7 +177,7 @@
 		for(var/turf/T in turfs)
 			if(!(T in empty))
 				new /obj/effect/temp_visual/lava_warning(T)
-			else if(!istype(T, /turf/closed/indestructible))
+			else if(!isindestructiblewall(T))
 				new /obj/effect/temp_visual/lava_safe(T)
 		amount--
 		SLEEP_CHECK_DEATH(2.4 SECONDS, owner)
@@ -201,11 +196,11 @@
 	duration = 10
 
 /obj/effect/temp_visual/dragon_flight
-	icon = 'icons/mob/lavaland/96x96megafauna.dmi'
+	icon = 'icons/mob/simple/lavaland/96x96megafauna.dmi'
 	icon_state = "dragon"
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = GAME_PLANE_UPPER_FOV_HIDDEN
-	pixel_x = -16
+	pixel_x = -32
 	duration = 10
 	randomdir = FALSE
 
@@ -218,7 +213,7 @@
 		animate(src, pixel_x = -SWOOP_HEIGHT*0.1, pixel_z = SWOOP_HEIGHT*0.15, time = 3, easing = BOUNCE_EASING)
 	else
 		animate(src, pixel_x = SWOOP_HEIGHT*0.1, pixel_z = SWOOP_HEIGHT*0.15, time = 3, easing = BOUNCE_EASING)
-	sleep(3)
+	sleep(0.3 SECONDS)
 	icon_state = "dragon_swoop"
 	if(negative)
 		animate(src, pixel_x = -SWOOP_HEIGHT, pixel_z = SWOOP_HEIGHT, time = 7)

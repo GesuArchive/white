@@ -3,7 +3,7 @@ import { flow } from 'common/fp';
 import { toFixed } from 'common/math';
 import { pureComponentHooks } from 'common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Chart, ColorBox, Flex, Icon, LabeledList, ProgressBar, Section, Table } from '../components';
+import { Box, Button, Chart, ColorBox, Flex, Icon, LabeledList, ProgressBar, Section, Table, Dimmer, Stack } from '../components';
 import { Window } from '../layouts';
 
 const PEAK_DRAW = 500000;
@@ -25,7 +25,7 @@ export const PowerMonitor = () => {
 
 export const PowerMonitorContent = (props, context) => {
   const { data } = useBackend(context);
-  const { history } = data;
+  const { history = { supply: [], demand: [] } } = data;
   const [sortByField, setSortByField] = useLocalState(
     context,
     'sortByField',
@@ -53,11 +53,23 @@ export const PowerMonitorContent = (props, context) => {
   ])(data.areas);
   return (
     <>
+      {areas.length === 0 && (
+        <Dimmer>
+          <Stack>
+            <Stack.Item>
+              <Icon name="plug-circle-exclamation" size={2} />
+            </Stack.Item>
+            <Stack.Item>
+              <h1>No APCs found!</h1>
+            </Stack.Item>
+          </Stack>
+        </Dimmer>
+      )}
       <Flex mx={-0.5} mb={1}>
         <Flex.Item mx={0.5} width="200px">
           <Section>
             <LabeledList>
-              <LabeledList.Item label="Поставка">
+              <LabeledList.Item label="Supply">
                 <ProgressBar
                   value={supply}
                   minValue={0}
@@ -66,7 +78,7 @@ export const PowerMonitorContent = (props, context) => {
                   {toFixed(supply / 1000) + ' kW'}
                 </ProgressBar>
               </LabeledList.Item>
-              <LabeledList.Item label="Потребление">
+              <LabeledList.Item label="Draw">
                 <ProgressBar
                   value={demand}
                   minValue={0}
@@ -79,7 +91,7 @@ export const PowerMonitorContent = (props, context) => {
           </Section>
         </Flex.Item>
         <Flex.Item mx={0.5} grow={1}>
-          <Section position="relative" height="100%">
+          <Section position="relative" height="100%" fill="true">
             <Chart.Line
               fillPositionedParent
               data={supplyData}
@@ -102,37 +114,37 @@ export const PowerMonitorContent = (props, context) => {
       <Section>
         <Box mb={1}>
           <Box inline mr={2} color="label">
-            Сортировка:
+            Sort by:
           </Box>
           <Button.Checkbox
             checked={sortByField === 'name'}
-            content="Имя"
+            content="Name"
             onClick={() => setSortByField(sortByField !== 'name' && 'name')}
           />
           <Button.Checkbox
             checked={sortByField === 'charge'}
-            content="Заряд"
+            content="Charge"
             onClick={() => setSortByField(sortByField !== 'charge' && 'charge')}
           />
           <Button.Checkbox
             checked={sortByField === 'draw'}
-            content="Потребление"
+            content="Draw"
             onClick={() => setSortByField(sortByField !== 'draw' && 'draw')}
           />
         </Box>
         <Table>
           <Table.Row header>
-            <Table.Cell>Зона</Table.Cell>
-            <Table.Cell collapsing>Заряд</Table.Cell>
-            <Table.Cell textAlign="right">Потребление</Table.Cell>
+            <Table.Cell>Area</Table.Cell>
+            <Table.Cell collapsing>Charge</Table.Cell>
+            <Table.Cell textAlign="right">Draw</Table.Cell>
             <Table.Cell collapsing title="Equipment">
-              Обр
+              Eqp
             </Table.Cell>
             <Table.Cell collapsing title="Lighting">
-              Свт
+              Lgt
             </Table.Cell>
             <Table.Cell collapsing title="Environment">
-              Окр
+              Env
             </Table.Cell>
           </Table.Row>
           {areas.map((area, i) => (
@@ -193,8 +205,7 @@ const AreaStatusColorBox = (props) => {
   const { status } = props;
   const power = Boolean(status & 2);
   const mode = Boolean(status & 1);
-  const tooltipText =
-    (power ? 'Вкл' : 'Выкл') + ` [${mode ? 'auto' : 'manual'}]`;
+  const tooltipText = (power ? 'On' : 'Off') + ` [${mode ? 'auto' : 'manual'}]`;
   return (
     <ColorBox
       color={power ? 'good' : 'bad'}

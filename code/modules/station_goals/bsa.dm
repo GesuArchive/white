@@ -1,16 +1,22 @@
+
+///BSA unlocked by head ID swipes
+GLOBAL_VAR_INIT(bsa_unlock, FALSE)
+
 // Crew has to build a bluespace cannon
 // Cargo orders part for high price
 // Requires high amount of power
 // Requires high level stock parts
 /datum/station_goal/bluespace_cannon
-	name = "Блюспейс артиллерия"
+	name = "Bluespace Artillery"
 
 /datum/station_goal/bluespace_cannon/get_report()
-	return {"\nНашего военного присутствия в вашем секторе недостаточно.
-		\nНам нужно, чтобы вы построили БСА-[rand(1,99)] Артиллерию на борту вашей станции.
-		\n
-		\nБазовые части доступны для отправки грузовым транспортом.
-		\n - Военно-космическое Командование NanoTrasen"}
+	return list(
+		"<blockquote>Our military presence is inadequate in your sector.",
+		"We need you to construct BSA-[rand(1,99)] Artillery position aboard your station.",
+		"",
+		"Base parts are available for shipping via cargo.",
+		"-Nanotrasen Naval Command</blockquote>",
+	).Join("\n")
 
 /datum/station_goal/bluespace_cannon/on_report()
 	//Unlock BSA parts
@@ -30,43 +36,55 @@
 	density = TRUE
 	anchored = TRUE
 
-/obj/machinery/bsa/wrench_act(mob/living/user, obj/item/I)
-	..()
-	default_unfasten_wrench(user, I, 10)
-	return TRUE
+/obj/machinery/bsa/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
+	default_unfasten_wrench(user, tool, time = 1 SECONDS)
+	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/machinery/bsa/back
-	name = "Генератор орудия"
-	desc = "Генерирует пушечный импульс. Должен быть соединен с фузором."
+	name = "Bluespace Artillery Generator"
+	desc = "Generates cannon pulse. Needs to be linked with a fusor."
 	icon_state = "power_box"
+
+/obj/machinery/bsa/back/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/simple_rotation)
 
 /obj/machinery/bsa/back/multitool_act(mob/living/user, obj/item/I)
 	if(!multitool_check_buffer(user, I)) //make sure it has a data buffer
 		return
 	var/obj/item/multitool/M = I
-	M.buffer = src
-	to_chat(user, span_notice("You store linkage information in [I] buffer."))
+	M.set_buffer(src)
+	balloon_alert(user, "saved to multitool buffer")
 	return TRUE
 
 /obj/machinery/bsa/front
-	name = "Ствол орудия"
-	desc = "Не стойте перед пушкой во время выстрела. Должен быть соединен с фузором."
+	name = "Bluespace Artillery Bore"
+	desc = "Do not stand in front of cannon during operation. Needs to be linked with a fusor."
 	icon_state = "emitter_center"
+
+/obj/machinery/bsa/front/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/simple_rotation)
 
 /obj/machinery/bsa/front/multitool_act(mob/living/user, obj/item/I)
 	if(!multitool_check_buffer(user, I)) //make sure it has a data buffer
 		return
 	var/obj/item/multitool/M = I
-	M.buffer = src
-	to_chat(user, span_notice("You store linkage information in [I] buffer."))
+	M.set_buffer(src)
+	balloon_alert(user, "saved to multitool buffer")
 	return TRUE
 
 /obj/machinery/bsa/middle
-	name = "Фузор орудия"
-	desc = "Содержание засекречено командованием Нанотрейзен. Должен быть соеденен с другим частями БСА с помощью мультитула."
+	name = "Bluespace Artillery Fusor"
+	desc = "Contents classified by Nanotrasen Naval Command. Needs to be linked with the other BSA parts using a multitool."
 	icon_state = "fuel_chamber"
 	var/datum/weakref/back_ref
 	var/datum/weakref/front_ref
+
+/obj/machinery/bsa/middle/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/simple_rotation)
 
 /obj/machinery/bsa/middle/multitool_act(mob/living/user, obj/item/I)
 	if(!multitool_check_buffer(user, I))
@@ -76,40 +94,41 @@
 		if(istype(M.buffer, /obj/machinery/bsa/back))
 			back_ref = WEAKREF(M.buffer)
 			to_chat(user, span_notice("You link [src] with [M.buffer]."))
-			M.buffer = null
+			M.set_buffer(null)
 		else if(istype(M.buffer, /obj/machinery/bsa/front))
 			front_ref = WEAKREF(M.buffer)
 			to_chat(user, span_notice("You link [src] with [M.buffer]."))
-			M.buffer = null
+			M.set_buffer(null)
 	else
-		to_chat(user, span_warning("[I] data buffer is empty!"))
+		to_chat(user, span_warning("[I]'s data buffer is empty!"))
 	return TRUE
 
 /obj/machinery/bsa/middle/proc/check_completion()
 	var/obj/machinery/bsa/front/front = front_ref?.resolve()
 	var/obj/machinery/bsa/back/back = back_ref?.resolve()
 	if(!front || !back)
-		return "Не обнаружено связанных частей!"
+		return "No linked parts detected!"
 	if(!front.anchored || !back.anchored || !anchored)
-		return "Связанные части не прикручены!"
+		return "Linked parts unwrenched!"
 	if(front.y != y || back.y != y || !(front.x > x && back.x < x || front.x < x && back.x > x) || front.z != z || back.z != z)
-		return "Неправильное расположение деталей!"
+		return "Parts misaligned!"
 	if(!has_space())
-		return "Недостаточно места!"
+		return "Not enough free space!"
 
 /obj/machinery/bsa/middle/proc/has_space()
 	var/cannon_dir = get_cannon_direction()
-	var/x_min
-	var/x_max
+	var/width = 10
+	var/offset
 	switch(cannon_dir)
 		if(EAST)
-			x_min = x - 4 //replace with defines later
-			x_max = x + 6
+			offset = -4
 		if(WEST)
-			x_min = x + 4
-			x_max = x - 6
+			offset = -6
+		else
+			return FALSE
 
-	for(var/turf/T in block(locate(x_min,y-1,z),locate(x_max,y+1,z)))
+	var/turf/base = get_turf(src)
+	for(var/turf/T as anything in CORNER_BLOCK_OFFSET(base, width, 3, offset, -1))
 		if(T.density || isspaceturf(T))
 			return FALSE
 	return TRUE
@@ -126,10 +145,10 @@
 
 
 /obj/machinery/bsa/full
-	name = "Блюспейс Артиллерия"
-	desc = "Артиллерия дальнего радиуса действия."
-	icon = 'icons/obj/lavaland/cannon.dmi'
-	icon_state = "orbital_cannon1"
+	name = "Bluespace Artillery"
+	desc = "Long range bluespace artillery."
+	icon = 'icons/obj/machines/cannon.dmi'
+	icon_state = "cannon_west"
 	var/static/mutable_appearance/top_layer
 	var/ex_power = 3
 	var/power_used_per_shot = 2000000 //enough to kil standard apc - todo : make this use wires instead and scale explosion power with it
@@ -222,13 +241,14 @@
 	point.Beam(target, icon_state = "bsa_beam", time = 5 SECONDS, maxdistance = world.maxx) //ZZZAP
 	new /obj/effect/temp_visual/bsa_splash(point, dir)
 
+	notify_ghosts("The Bluespace Artillery has been fired!", source = bullseye, header = "KABOOM!")
 	if(!blocker)
 		message_admins("[ADMIN_LOOKUPFLW(user)] has launched an artillery strike targeting [ADMIN_VERBOSEJMP(bullseye)].")
-		log_game("[key_name(user)] has launched an artillery strike targeting [AREACOORD(bullseye)].")
+		user.log_message("has launched an artillery strike targeting [AREACOORD(bullseye)].", LOG_GAME)
 		explosion(bullseye, devastation_range = ex_power, heavy_impact_range = ex_power*2, light_impact_range = ex_power*4, explosion_cause = src)
 	else
 		message_admins("[ADMIN_LOOKUPFLW(user)] has launched an artillery strike targeting [ADMIN_VERBOSEJMP(bullseye)] but it was blocked by [blocker] at [ADMIN_VERBOSEJMP(target)].")
-		log_game("[key_name(user)] has launched an artillery strike targeting [AREACOORD(bullseye)] but it was blocked by [blocker] at [AREACOORD(target)].")
+		user.log_message("has launched an artillery strike targeting [AREACOORD(bullseye)] but it was blocked by [blocker] at [AREACOORD(target)].", LOG_GAME)
 
 
 /obj/machinery/bsa/full/proc/reload()
@@ -247,15 +267,16 @@
 	var/obj/machinery/parent
 
 /obj/structure/filler/ex_act()
-	return
+	return FALSE
 
 /obj/machinery/computer/bsa_control
-	name = "Компьютер блюспейс артиллерии"
-	desc = "Цельсь, готовьсь, ПЛИ!"
+	name = "bluespace artillery control"
 	use_power = NO_POWER_USE
 	circuit = /obj/item/circuitboard/computer/bsa_control
 	icon = 'icons/obj/machines/particle_accelerator.dmi'
 	icon_state = "control_boxp"
+	icon_keyboard = null
+	icon_screen = null
 
 	var/datum/weakref/cannon_ref
 	var/notice
@@ -298,7 +319,7 @@
 		if("recalibrate")
 			calibrate(usr)
 			. = TRUE
-	update_icon()
+	update_appearance()
 
 /obj/machinery/computer/bsa_control/proc/calibrate(mob/user)
 	if(!GLOB.bsa_unlock)
@@ -311,8 +332,13 @@
 	var/list/options = gps_locators
 	if(area_aim)
 		options += GLOB.teleportlocs
-	var/V = tgui_input_list(user, "Select target", "Select target", options)
-	target = options[V]
+	var/victim = tgui_input_list(user, "Select target", "Artillery Targeting", options)
+	if(isnull(victim))
+		return
+	if(isnull(options[victim]))
+		return
+	target = options[victim]
+	log_game("[key_name(user)] has aimed the artillery strike at [target].")
 
 
 /obj/machinery/computer/bsa_control/proc/get_target_name()
@@ -323,7 +349,9 @@
 		return G.gpstag
 
 /obj/machinery/computer/bsa_control/proc/get_impact_turf()
-	if(istype(target, /area))
+	if(obj_flags & EMAGGED)
+		return get_turf(src)
+	else if(istype(target, /area))
 		return pick(get_area_turfs(target))
 	else if(istype(target, /datum/component/gps))
 		var/datum/component/gps/G = target
@@ -332,13 +360,14 @@
 /obj/machinery/computer/bsa_control/proc/fire(mob/user)
 	var/obj/machinery/bsa/full/cannon = cannon_ref?.resolve()
 	if(!cannon)
-		notice = "Не найдено пушки!"
+		notice = "No Cannon Exists!"
 		return
 	if(cannon.machine_stat)
-		notice = "Пушка не запитана!"
+		notice = "Cannon unpowered!"
 		return
 	notice = null
-	cannon.fire(user, get_impact_turf())
+	var/turf/target_turf = get_impact_turf()
+	cannon.fire(user, target_turf)
 
 /obj/machinery/computer/bsa_control/proc/deploy(force=FALSE)
 	var/obj/machinery/bsa/full/prebuilt = locate() in range(7) //In case of adminspawn
@@ -347,7 +376,7 @@
 
 	var/obj/machinery/bsa/middle/centerpiece = locate() in range(7)
 	if(!centerpiece)
-		notice = "Части БСА поблизости не обнаружены"
+		notice = "No BSA parts detected nearby."
 		return null
 	notice = centerpiece.check_completion()
 	if(notice)
@@ -361,3 +390,10 @@
 	QDEL_NULL(centerpiece.back_ref)
 	qdel(centerpiece)
 	return cannon
+/obj/machinery/computer/bsa_control/emag_act(mob/user, obj/item/card/emag/emag_card)
+	if(obj_flags & EMAGGED)
+		return FALSE
+	obj_flags |= EMAGGED
+	balloon_alert(user, "rigged to explode")
+	to_chat(user, span_warning("You emag [src] and hear the focusing crystal short out. You get the feeling it wouldn't be wise to stand near [src] when the BSA fires..."))
+	return TRUE

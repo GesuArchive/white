@@ -10,7 +10,7 @@ export const byondMessages = {
     0.4 * SECONDS
   ),
   forceSayMsg: debounce(
-    (entry: string) => Byond.sendMessage('force', { entry, channel: 'Сказать' }),
+    (entry: string) => Byond.sendMessage('force', { entry, channel: 'Say' }),
     1 * SECONDS,
     true
   ),

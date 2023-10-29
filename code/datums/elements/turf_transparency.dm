@@ -96,17 +96,14 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 /// Displays a turf from the z level below us on our level
 /datum/z_pillar/proc/display_turf(turf/to_display, turf/source)
 	var/list/sources = turf_sources[to_display]
-	if(!sources)
-		sources = list()
-		turf_sources[to_display] = sources
-	sources |= source
 
-	if(length(sources) != 1) // If we aren't the first to request this turf, return
+	if(sources) // If we aren't the first to request this turf, return
+		sources |= source
 		var/obj/effect/abstract/z_holder/holding = drawing_object[to_display]
 		if(!holding)
 			return
 
-		var/turf/visual_target = to_display.above()
+		var/turf/visual_target = GET_TURF_ABOVE(to_display)
 		/// Basically, if we used to be under a non transparent turf, but are no longer in that position
 		/// Then we add to the transparent turf we're now under, and nuke the old object
 		if(!istransparentturf(visual_target))
@@ -118,8 +115,13 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 		visual_target.vis_contents += to_display
 		return
 
-	var/turf/visual_target = to_display.above()
-	if(istransparentturf(visual_target) || isopenspace(visual_target))
+	// Otherwise, we need to create a new set of sources. let's do that yeah?
+	sources = list()
+	turf_sources[to_display] = sources
+	sources |= source
+
+	var/turf/visual_target = GET_TURF_ABOVE(to_display)
+	if(istransparentturf(visual_target) || isopenspaceturf(visual_target))
 		visual_target.vis_contents += to_display
 	else
 		var/obj/effect/abstract/z_holder/hold_this = new(visual_target)
@@ -140,7 +142,7 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 	if(holding)
 		qdel(holding)
 	else
-		var/turf/visual_target = to_hide.above()
+		var/turf/visual_target = GET_TURF_ABOVE(to_hide)
 		visual_target.vis_contents -= to_hide
 
 	if(!length(turf_sources) && !QDELETED(src))
@@ -164,7 +166,7 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 	if(holding)
 		return
 
-	if(istransparentturf(parent) || isopenspace(parent))
+	if(istransparentturf(parent) || isopenspaceturf(parent))
 		parent.vis_contents += orphan
 	else
 		var/obj/effect/abstract/z_holder/hold_this = new(parent)
@@ -172,19 +174,14 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 
 /datum/element/turf_z_transparency
 	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
-	var/ignore_closed_turf_shit = FALSE
 
 ///This proc sets up the signals to handle updating viscontents when turfs above/below update. Handle plane and layer here too so that they don't cover other obs/turfs in Dream Maker
-/datum/element/turf_z_transparency/Attach(datum/target, mapload, _ignore_closed_turf_shit = FALSE)
+/datum/element/turf_z_transparency/Attach(datum/target, mapload)
 	. = ..()
 	if(!isturf(target))
 		return ELEMENT_INCOMPATIBLE
 
-	ignore_closed_turf_shit = _ignore_closed_turf_shit
-
 	var/turf/our_turf = target
-
-	our_turf.layer = OPENSPACE_LAYER
 
 	RegisterSignal(target, COMSIG_TURF_MULTIZ_DEL, PROC_REF(on_multiz_turf_del))
 	RegisterSignal(target, COMSIG_TURF_MULTIZ_NEW, PROC_REF(on_multiz_turf_new))
@@ -204,7 +201,7 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 
 ///Updates the viscontents or underlays below this tile.
 /datum/element/turf_z_transparency/proc/update_multi_z(turf/our_turf)
-	var/turf/below_turf = our_turf.below()
+	var/turf/below_turf = GET_TURF_BELOW(our_turf)
 	if(below_turf) // If we actually have something below us, display it.
 		for(var/turf/partner in range(1, below_turf))
 			// We use our z here to ensure the pillar is actually on our level
@@ -221,7 +218,7 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 	// similarly, if you rip this out, rework diagonal closed turfs to work with this system
 	// it will make them look significantly nicer, and should let you tie into their logic more easily
 	// Just please don't break behavior yeah? thanks, I love you <3
-	if(isclosedturf(our_turf) && !ignore_closed_turf_shit) //Show girders below closed turfs
+	if(isclosedturf(our_turf)) //Show girders below closed turfs
 		var/mutable_appearance/girder_underlay = mutable_appearance('icons/obj/structures.dmi', "girder", layer = TURF_LAYER-0.01)
 		girder_underlay.appearance_flags = RESET_ALPHA | RESET_COLOR
 		our_turf.underlays += girder_underlay
@@ -231,7 +228,7 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 	return TRUE
 
 /datum/element/turf_z_transparency/proc/clear_multiz(turf/our_turf)
-	var/turf/below_turf = our_turf.below()
+	var/turf/below_turf = GET_TURF_BELOW(our_turf)
 	if(below_turf) // If we actually have something below us, we need to clear ourselves from it
 		for(var/turf/partner in range(1, below_turf))
 			// We use our z here to ensure the pillar is actually on our level
@@ -242,7 +239,7 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 	else
 		our_turf.underlays -= get_baseturf_underlay(our_turf)
 
-	if(isclosedturf(our_turf) && !ignore_closed_turf_shit) //Show girders below closed turfs
+	if(isclosedturf(our_turf)) //Show girders below closed turfs
 		var/mutable_appearance/girder_underlay = mutable_appearance('icons/obj/structures.dmi', "girder", layer = TURF_LAYER-0.01)
 		girder_underlay.appearance_flags = RESET_ALPHA | RESET_COLOR
 		our_turf.underlays -= girder_underlay
@@ -277,3 +274,7 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 	var/mutable_appearance/underlay_appearance = mutable_appearance(initial(path.icon), initial(path.icon_state), layer = TURF_LAYER-0.02, offset_spokesman = our_turf, plane = PLANE_SPACE)
 	underlay_appearance.appearance_flags = RESET_ALPHA | RESET_COLOR
 	return underlay_appearance
+
+#undef Z_PILLAR_RADIUS
+#undef Z_PILLAR_TRANSFORM
+#undef Z_KEY_TO_POSITION

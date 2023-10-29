@@ -1,30 +1,36 @@
 /datum/job/cyborg
 	title = JOB_CYBORG
+	description = "Assist the crew, follow your laws, obey your AI."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SILICON
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
-	spawn_positions = 1
-	supervisors = "моим законам и ИИ"	//Nodrak
-	selection_color = "#ddffdd"
-	minimal_player_age = 14
-	exp_requirements = 300
-	exp_type = EXP_TYPE_CREW
-
-	departments_list = list(
-		/datum/job_department/silicon,
-	)
+	spawn_positions = 3
+	supervisors = "your laws and the AI" //Nodrak
+	spawn_type = /mob/living/silicon/robot
+	minimal_player_age = 21
+	exp_requirements = 120
+	exp_required_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_CREW
+	config_tag = "CYBORG"
 
 	display_order = JOB_DISPLAY_ORDER_CYBORG
 
-/datum/job/cyborg/equip(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, latejoin = FALSE, datum/outfit/outfit_override = null, client/preference_source = null)
-	if(visualsOnly)
-		CRASH("dynamic preview is unsupported")
-	return H.Robotize(FALSE, latejoin)
+	departments_list = list(
+		/datum/job_department/silicon,
+		)
+	random_spawns_possible = FALSE
+	job_flags = JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK | JOB_CANNOT_OPEN_SLOTS
 
-/datum/job/cyborg/after_spawn(mob/living/silicon/robot/R, mob/M)
+
+/datum/job/cyborg/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	R.updatename(M.client)
-	R.gender = NEUTER
+	if(!iscyborg(spawned))
+		return
+	spawned.gender = NEUTER
+	var/mob/living/silicon/robot/robot_spawn = spawned
+	robot_spawn.notify_ai(AI_NOTIFICATION_NEW_BORG)
+	if(!robot_spawn.connected_ai) // Only log if there's no Master AI
+		robot_spawn.log_current_laws()
 
-/datum/job/cyborg/radio_help_message(mob/M)
-	to_chat(M, "<b>Добавь :b перед сообщением, чтобы говорить с другими роботами и ИИ.</b>")
+/datum/job/cyborg/get_radio_information()
+	return "<b>Prefix your message with :b to speak with other cyborgs and AI.</b>"

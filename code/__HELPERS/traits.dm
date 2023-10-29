@@ -29,6 +29,7 @@
 		var/atom/the_atom2 = target
 		REMOVE_TRAIT(the_atom2,trait,source)
 
+
 /// Proc that handles adding multiple traits to a target via a list. Must have a common source and target.
 /datum/proc/add_traits(list/list_of_traits, source)
 	ASSERT(islist(list_of_traits), "Invalid arguments passed to add_traits! Invoked on [src] with [list_of_traits], source being [source].")

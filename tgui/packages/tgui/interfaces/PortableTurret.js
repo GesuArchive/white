@@ -20,16 +20,16 @@ export const PortableTurret = (props, context) => {
     lasertag_turret,
   } = data;
   return (
-    <Window width={420} height={lasertag_turret ? 120 : 318}>
+    <Window width={310} height={lasertag_turret ? 110 : 292}>
       <Window.Content>
         <NoticeBox>
-          Проведите ID-картой для {locked ? 'раз' : ''}блокировки интерфейса.
+          Swipe an ID card to {locked ? 'unlock' : 'lock'} this interface.
         </NoticeBox>
         <>
           <Section>
             <LabeledList>
               <LabeledList.Item
-                label="Состояние"
+                label="Status"
                 buttons={
                   !lasertag_turret &&
                   (!!allow_manual_control ||
@@ -38,8 +38,8 @@ export const PortableTurret = (props, context) => {
                       icon={manual_control ? 'wifi' : 'terminal'}
                       content={
                         manual_control
-                          ? 'Управляется удалённо'
-                          : 'Ручное управление'
+                          ? 'Remotely Controlled'
+                          : 'Manual Control'
                       }
                       disabled={manual_control}
                       color="bad"
@@ -49,7 +49,7 @@ export const PortableTurret = (props, context) => {
                 }>
                 <Button
                   icon={on ? 'power-off' : 'times'}
-                  content={on ? 'ВКЛ' : 'ВЫКЛ'}
+                  content={on ? 'On' : 'Off'}
                   selected={on}
                   disabled={locked}
                   onClick={() => act('power')}
@@ -59,11 +59,11 @@ export const PortableTurret = (props, context) => {
           </Section>
           {!lasertag_turret && (
             <Section
-              title="Выбор целей"
+              title="Target Settings"
               buttons={
                 <Button.Checkbox
                   checked={!neutralize_heads}
-                  content="Игнорировать командование"
+                  content="Ignore Command"
                   disabled={locked}
                   onClick={() => act('shootheads')}
                 />
@@ -71,42 +71,42 @@ export const PortableTurret = (props, context) => {
               <Button.Checkbox
                 fluid
                 checked={neutralize_all}
-                content="Не СБ и не Командование"
+                content="Non-Security and Non-Command"
                 disabled={locked}
                 onClick={() => act('shootall')}
               />
               <Button.Checkbox
                 fluid
                 checked={check_weapons}
-                content="Оружие"
+                content="Unauthorized Weapons"
                 disabled={locked}
                 onClick={() => act('authweapon')}
               />
               <Button.Checkbox
                 fluid
                 checked={neutralize_unidentified}
-                content="Ксеносы"
+                content="Unidentified Life Signs"
                 disabled={locked}
                 onClick={() => act('checkxenos')}
               />
               <Button.Checkbox
                 fluid
                 checked={neutralize_nonmindshielded}
-                content="Нет защиты разума"
+                content="Non-Mindshielded"
                 disabled={locked}
                 onClick={() => act('checkloyal')}
               />
               <Button.Checkbox
                 fluid
                 checked={neutralize_criminals}
-                content="В розыске"
+                content="Wanted Criminals"
                 disabled={locked}
                 onClick={() => act('shootcriminals')}
               />
               <Button.Checkbox
                 fluid
                 checked={neutralize_cyborgs}
-                content="Киборги"
+                content="Cyborgs"
                 disabled={locked}
                 onClick={() => act('shootborgs')}
               />

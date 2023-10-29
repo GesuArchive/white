@@ -4,26 +4,25 @@
 
 /obj/item/mecha_parts
 	name = "mecha part"
-	icon = 'icons/mecha/mech_construct.dmi'
+	icon = 'icons/mob/mech_construct.dmi'
 	icon_state = "blank"
 	w_class = WEIGHT_CLASS_GIGANTIC
 	flags_1 = CONDUCT_1
 
 /obj/item/mecha_parts/proc/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M, attach_right = FALSE) //For attaching parts to a finished mech
 	if(!user.transferItemToLoc(src, M))
-		to_chat(user, span_warning("<b>[capitalize(src)]</b> решила застрять в моей руке, не могу прикрепить к [M]!"))
+		to_chat(user, span_warning("\The [src] is stuck to your hand, you cannot put it in \the [M]!"))
 		return FALSE
-	user.visible_message(span_notice("[user] прикрепляет [src] к [M].") , span_notice("Прикрепляю [src] к [M]."))
+	user.visible_message(span_notice("[user] attaches [src] to [M]."), span_notice("You attach [src] to [M]."))
 	return TRUE
 
 /obj/item/mecha_parts/part/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M, attach_right = FALSE)
 	return
 
 /obj/item/mecha_parts/chassis
-	name = "каркас экзокостюма"
-	desc = "Сверхкрепкий металлический каркас со стандартными гнездами для конечностей и креплениями синтетических псевдо-мышц."
+	name = "Mecha Chassis"
 	icon_state = "backbone"
-	interaction_flags_item = NONE			//Don't pick us up!!
+	interaction_flags_item = NONE //Don't pick us up!!
 	var/construct_type
 
 /obj/item/mecha_parts/chassis/Initialize(mapload)
@@ -34,314 +33,314 @@
 /////////// Ripley
 
 /obj/item/mecha_parts/chassis/ripley
-	name = "каркас Рипли"
+	name = "\improper Ripley chassis"
 	construct_type = /datum/component/construction/unordered/mecha_chassis/ripley
 
 /obj/item/mecha_parts/part/ripley_torso
-	name = "торс Рипли"
-	desc = "Центральная часть АПЛУ Рипли. Содержит блок питания, процессорное ядро и системы жизнеобеспечения."
+	name = "\improper Ripley torso"
+	desc = "A torso part of Ripley APLU. Contains power unit, processing core and life support systems."
 	icon_state = "ripley_harness"
 
 /obj/item/mecha_parts/part/ripley_left_arm
-	name = "левая рука Рипли"
-	desc = "Деталь АПЛУ Рипли. Разъемы для передачи данных и питания совместимы с большинством инструментов экзокостюмов."
+	name = "\improper Ripley left arm"
+	desc = "A Ripley APLU left arm. Data and power sockets are compatible with most exosuit tools."
 	icon_state = "ripley_l_arm"
 
 /obj/item/mecha_parts/part/ripley_right_arm
-	name = "правая рука Рипли"
-	desc = "Деталь АПЛУ Рипли. Разъемы для передачи данных и питания совместимы с большинством инструментов экзокостюмов."
+	name = "\improper Ripley right arm"
+	desc = "A Ripley APLU right arm. Data and power sockets are compatible with most exosuit tools."
 	icon_state = "ripley_r_arm"
 
 /obj/item/mecha_parts/part/ripley_left_leg
-	name = "левая нога Рипли"
-	desc = "Деталь АПЛУ Рипли. Содержит сложные сервоприводы и системы поддержания баланса."
+	name = "\improper Ripley left leg"
+	desc = "A Ripley APLU left leg. Contains somewhat complex servodrives and balance maintaining systems."
 	icon_state = "ripley_l_leg"
 
 /obj/item/mecha_parts/part/ripley_right_leg
-	name = "правая нога Рипли"
-	desc = "Деталь АПЛУ Рипли. Содержит сложные сервоприводы и системы поддержания баланса."
+	name = "\improper Ripley right leg"
+	desc = "A Ripley APLU right leg. Contains somewhat complex servodrives and balance maintaining systems."
 	icon_state = "ripley_r_leg"
 
 ///////// Odysseus
 
 /obj/item/mecha_parts/chassis/odysseus
-	name = "каркас Одиссея"
+	name = "\improper Odysseus chassis"
 	construct_type = /datum/component/construction/unordered/mecha_chassis/odysseus
 
 /obj/item/mecha_parts/part/odysseus_head
-	name = "голова Одиссея"
-	desc = "Деталь Одиссея. Содержит встроенный медицинский сканер."
+	name = "\improper Odysseus head"
+	desc = "An Odysseus head. Contains an integrated medical HUD scanner."
 	icon_state = "odysseus_head"
 
 /obj/item/mecha_parts/part/odysseus_torso
-	name = "торс Одиссея"
-	desc = "Деталь Одиссея. Содержит блок питания, ядро обработки и системы жизнеобеспечения, а также разъем для крепления подвесного спасательного места."
+	name = "\improper Odysseus torso"
+	desc="A torso part of Odysseus. Contains power unit, processing core and life support systems along with an attachment port for a mounted sleeper."
 	icon_state = "odysseus_torso"
 
 /obj/item/mecha_parts/part/odysseus_left_arm
-	name = "левая рука Одиссея"
-	desc = "Деталь Одиссея. Разъемы для передачи данных и питания совместимы со специализированным медицинским оборудованием."
+	name = "\improper Odysseus left arm"
+	desc = "An Odysseus left arm. Data and power sockets are compatible with specialized medical equipment."
 	icon_state = "odysseus_l_arm"
 
 /obj/item/mecha_parts/part/odysseus_right_arm
-	name = "правая рука Одиссея"
-	desc = "Деталь Одиссея. Разъемы для передачи данных и питания совместимы со специализированным медицинским оборудованием."
+	name = "\improper Odysseus right arm"
+	desc = "An Odysseus right arm. Data and power sockets are compatible with specialized medical equipment."
 	icon_state = "odysseus_r_arm"
 
 /obj/item/mecha_parts/part/odysseus_left_leg
-	name = "левая нога Одиссея"
-	desc = "Деталь Одиссея. Содержит сложные сервоприводы и системы поддержания баланса для аккуратной транспортировки критических пациентов."
+	name = "\improper Odysseus left leg"
+	desc = "An Odysseus left leg. Contains complex servodrives and balance maintaining systems to maintain stability for critical patients."
 	icon_state = "odysseus_l_leg"
 
 /obj/item/mecha_parts/part/odysseus_right_leg
-	name = "правая нога Одиссея"
-	desc = "Деталь Одиссея. Содержит сложные сервоприводы и системы поддержания баланса для аккуратной транспортировки критических пациентов."
+	name = "\improper Odysseus right leg"
+	desc = "An odysseus right leg. Contains complex servodrives and balance maintaining systems to maintain stability for critical patients."
 	icon_state = "odysseus_r_leg"
 
 ///////// Gygax
 
 /obj/item/mecha_parts/chassis/gygax
-	name = "каркас Гигакса"
+	name = "\improper Gygax chassis"
 	construct_type = /datum/component/construction/unordered/mecha_chassis/gygax
 
 /obj/item/mecha_parts/part/gygax_torso
-	name = "торс Гигакса"
-	desc = "Деталь Гигакса. Содержит блок питания, процессорное ядро и системы жизнеобеспечения."
+	name = "\improper Gygax torso"
+	desc = "A torso part of Gygax. Contains power unit, processing core and life support systems."
 	icon_state = "gygax_harness"
 
 /obj/item/mecha_parts/part/gygax_head
-	name = "голова Гигакса"
-	desc = "Деталь Гигакса. Houses advanced surveillance and targeting sensors."
+	name = "\improper Gygax head"
+	desc = "A Gygax head. Houses advanced surveillance and targeting sensors."
 	icon_state = "gygax_head"
 
 /obj/item/mecha_parts/part/gygax_left_arm
-	name = "левая рука Гигакса"
-	desc = "Деталь Гигакса. Разъемы для передачи данных и питания совместимы с большинством инструментов и оружий экзокостюма."
+	name = "\improper Gygax left arm"
+	desc = "A Gygax left arm. Data and power sockets are compatible with most exosuit tools and weapons."
 	icon_state = "gygax_l_arm"
 
 /obj/item/mecha_parts/part/gygax_right_arm
-	name = "правая рука Гигакса"
-	desc = "Деталь Гигакса. Разъемы для передачи данных и питания совместимы с большинством инструментов и оружий экзокостюма."
+	name = "\improper Gygax right arm"
+	desc = "A Gygax right arm. Data and power sockets are compatible with most exosuit tools and weapons."
 	icon_state = "gygax_r_arm"
 
 /obj/item/mecha_parts/part/gygax_left_leg
-	name = "левая нога Гигакса"
-	desc = "Деталь Гигакса. Сконструирован с использованием передовых сервомеханизмов и приводов для обеспечения более высокой скорости."
+	name = "\improper Gygax left leg"
+	desc = "A Gygax left leg. Constructed with advanced servomechanisms and actuators to enable faster speed."
 	icon_state = "gygax_l_leg"
 
 /obj/item/mecha_parts/part/gygax_right_leg
-	name = "правая нога Гигакса"
-	desc = "Деталь Гигакса. Сконструирован с использованием передовых сервомеханизмов и приводов для обеспечения более высокой скорости."
+	name = "\improper Gygax right leg"
+	desc = "A Gygax right leg. Constructed with advanced servomechanisms and actuators to enable faster speed."
 	icon_state = "gygax_r_leg"
 
 /obj/item/mecha_parts/part/gygax_armor
 	gender = PLURAL
-	name = "броня Гигакса"
-	desc = "Набор броневых пластин, предназначенных для Гигакса. Разработан для эффективного отражения повреждений без критического влияния на вес конструкции."
+	name = "\improper Gygax armor plates"
+	desc = "A set of armor plates designed for the Gygax. Designed to effectively deflect damage with a lightweight construction."
 	icon_state = "gygax_armor"
 
 
 //////////// Durand
 
 /obj/item/mecha_parts/chassis/durand
-	name = "каркас Дюранда"
+	name = "\improper Durand chassis"
 	construct_type = /datum/component/construction/unordered/mecha_chassis/durand
 
 /obj/item/mecha_parts/part/durand_torso
-	name = "торс Дюранда"
-	desc = "Деталь Дюранда. Содержит блок питания, ядро обработки и системы жизнеобеспечения в прочной защитном корпусе."
+	name = "\improper Durand torso"
+	desc = "A torso part of Durand. Contains power unit, processing core and life support systems within a robust protective frame."
 	icon_state = "durand_harness"
 
 /obj/item/mecha_parts/part/durand_head
-	name = "голова Дюранда"
-	desc = "Деталь Дюранда. Houses advanced surveillance and targeting sensors."
+	name = "\improper Durand head"
+	desc = "A Durand head. Houses advanced surveillance and targeting sensors."
 	icon_state = "durand_head"
 
 /obj/item/mecha_parts/part/durand_left_arm
-	name = "левая рука Дюранда"
-	desc = "Деталь Дюранда. Разъемы для передачи данных и питания совместимы с большинством инструментов и оружий экзокостюма. Также наносит действительно сильный удар."
+	name = "\improper Durand left arm"
+	desc = "A Durand left arm. Data and power sockets are compatible with most exosuit tools and weapons. Packs a really mean punch as well."
 	icon_state = "durand_l_arm"
 
 /obj/item/mecha_parts/part/durand_right_arm
-	name = "правая рука Дюранда"
-	desc = "Деталь Дюранда. Разъемы для передачи данных и питания совместимы с большинством инструментов и оружий экзокостюма. Также наносит действительно сильный удар."
+	name = "\improper Durand right arm"
+	desc = "A Durand right arm. Data and power sockets are compatible with most exosuit tools and weapons. Packs a really mean punch as well."
 	icon_state = "durand_r_arm"
 
 /obj/item/mecha_parts/part/durand_left_leg
-	name = "левая нога Дюранда"
-	desc = "Деталь Дюранда. Сконструирован особенно прочно, чтобы выдерживать большой вес Дюранда и оборонительные потребности."
+	name = "\improper Durand left leg"
+	desc = "A Durand left leg. Built particularly sturdy to support the Durand's heavy weight and defensive needs."
 	icon_state = "durand_l_leg"
 
 /obj/item/mecha_parts/part/durand_right_leg
-	name = "правая нога Дюранда"
-	desc = "Деталь Дюранда. Сконструирован особенно прочно, чтобы выдерживать большой вес Дюранда и оборонительные потребности."
+	name = "\improper Durand right leg"
+	desc = "A Durand right leg. Built particularly sturdy to support the Durand's heavy weight and defensive needs."
 	icon_state = "durand_r_leg"
 
 /obj/item/mecha_parts/part/durand_armor
 	gender = PLURAL
-	name = "броня Дюранда"
-	desc = "Набор броневых пластин для Дюранда. Спроектирован крайне тяжелым, чтобы противостоять невероятному количеству урона."
+	name = "\improper Durand armor plates"
+	desc = "A set of armor plates for the Durand. Built heavy to resist an incredible amount of brute force."
 	icon_state = "durand_armor"
 
 ////////// Clarke
 
 /obj/item/mecha_parts/chassis/clarke
-	name = "каркас Кларка"
+	name = "\improper Clarke chassis"
 	construct_type = /datum/component/construction/unordered/mecha_chassis/clarke
 
 /obj/item/mecha_parts/part/clarke_torso
-	name = "торс Кларка"
-	desc = "Деталь Кларка. Содержит блок питания, процессорное ядро и системы жизнеобеспечения."
+	name = "\improper Clarke torso"
+	desc = "A torso part of Clarke. Contains power unit, processing core and life support systems."
 	icon_state = "clarke_harness"
 
 /obj/item/mecha_parts/part/clarke_head
-	name = "голова Кларка"
-	desc = "Деталь Кларка. Содержит встроенный диагностический сканер."
+	name = "\improper Clarke head"
+	desc = "A Clarke head. Contains an integrated diagnostic HUD scanner."
 	icon_state = "clarke_head"
 
 /obj/item/mecha_parts/part/clarke_left_arm
-	name = "левая рука Кларка"
-	desc = "Деталь Кларка. Разъемы для передачи данных и питания совместимы с большинством инструментов экзокостюмов."
+	name = "\improper Clarke left arm"
+	desc = "A Clarke left arm. Data and power sockets are compatible with most exosuit tools."
 	icon_state = "clarke_l_arm"
 
 /obj/item/mecha_parts/part/clarke_right_arm
-	name = "правая рука Кларка"
-	desc = "Деталь Кларка. Разъемы для передачи данных и питания совместимы с большинством инструментов экзокостюмов."
+	name = "\improper Clarke right arm"
+	desc = "A Clarke right arm. Data and power sockets are compatible with most exosuit tools."
 	icon_state = "clarke_r_arm"
 
 ////////// HONK
 
 /obj/item/mecha_parts/chassis/honker
-	name = "каркас Х.О.Н.К.а"
+	name = "\improper H.O.N.K chassis"
 	construct_type = /datum/component/construction/unordered/mecha_chassis/honker
 
 /obj/item/mecha_parts/part/honker_torso
-	name = "торс Х.О.Н.К.а"
-	desc = "Деталь Х.О.Н.К.а. Содержит блок смешков, ядро из бананиума и системы поддержки гудков."
+	name = "\improper H.O.N.K torso"
+	desc = "A torso part of H.O.N.K. Contains chuckle unit, bananium core and honk support systems."
 	icon_state = "honker_harness"
 
 /obj/item/mecha_parts/part/honker_head
-	name = "голова Х.О.Н.К.а"
-	desc = "Деталь Х.О.Н.К.а. Похоже, у него отсутствует лицевая панель."
+	name = "\improper H.O.N.K head"
+	desc = "A H.O.N.K head. Appears to lack a face plate."
 	icon_state = "honker_head"
 
 /obj/item/mecha_parts/part/honker_left_arm
-	name = "левая рука Х.О.Н.К.а"
-	desc = "Деталь Х.О.Н.К.а. С уникальными гнездами, которые принимают странное оружие, разработанное учеными-клоунами."
+	name = "\improper H.O.N.K left arm"
+	desc = "A H.O.N.K left arm. With unique sockets that accept odd weaponry designed by clown scientists."
 	icon_state = "honker_l_arm"
 
 /obj/item/mecha_parts/part/honker_right_arm
-	name = "правая рука Х.О.Н.К.а"
-	desc = "Деталь Х.О.Н.К.а. С уникальными гнездами, которые принимают странное оружие, разработанное учеными-клоунами."
+	name = "\improper H.O.N.K right arm"
+	desc = "A H.O.N.K right arm. With unique sockets that accept odd weaponry designed by clown scientists."
 	icon_state = "honker_r_arm"
 
 /obj/item/mecha_parts/part/honker_left_leg
-	name = "левая нога Х.О.Н.К.а"
-	desc = "Деталь Х.О.Н.К.а. Нога кажется достаточно большой, чтобы полностью вместить клоунскую обувь."
+	name = "\improper H.O.N.K left leg"
+	desc = "A H.O.N.K left leg. The foot appears just large enough to fully accommodate a clown shoe."
 	icon_state = "honker_l_leg"
 
 /obj/item/mecha_parts/part/honker_right_leg
-	name = "правая нога Х.О.Н.К.а"
-	desc = "Деталь Х.О.Н.К.а. Нога кажется достаточно большой, чтобы полностью вместить клоунскую обувь."
+	name = "\improper H.O.N.K right leg"
+	desc = "A H.O.N.K right leg. The foot appears just large enough to fully accommodate a clown shoe."
 	icon_state = "honker_r_leg"
 
 
 ////////// Phazon
 
 /obj/item/mecha_parts/chassis/phazon
-	name = "каркас Фазона"
+	name = "\improper Phazon chassis"
 	construct_type = /datum/component/construction/unordered/mecha_chassis/phazon
 
 /obj/item/mecha_parts/chassis/phazon/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	if(istype(I, /obj/item/assembly/signaler/anomaly) && !istype(I, /obj/item/assembly/signaler/anomaly/bluespace))
-		to_chat(user, "Разъем ядра аномалии принимает только блюспейс ядра аномалии!")
+		to_chat(user, "The anomaly core socket only accepts bluespace anomaly cores!")
 
 /obj/item/mecha_parts/part/phazon_torso
-	name = "торс Фазона"
-	desc = "Деталь Фазона. Посередине расположено гнездо для блюспейс ядра, которое питает уникальные фазовые приводы экзокостюмов ."
+	name="\improper Phazon torso"
+	desc="A Phazon torso part. The socket for the bluespace core that powers the exosuit's unique phase drives is located in the middle."
 	icon_state = "phazon_harness"
 
 /obj/item/mecha_parts/part/phazon_head
-	name = "голова Фазона"
-	desc = "Деталь Фазона. Его датчики тщательно откалиброваны, чтобы обеспечить обзор и передачу данных даже при фазировании."
+	name="\improper Phazon head"
+	desc="A Phazon head. Its sensors are carefully calibrated to provide vision and data even when the exosuit is phasing."
 	icon_state = "phazon_head"
 
 /obj/item/mecha_parts/part/phazon_left_arm
-	name = "левая рука Фазона"
-	desc = "Деталь Фазона. Под броневой обшивкой расположено несколько массивов микроинструментов, которые можно регулировать в зависимости от конкретной ситуации."
+	name="\improper Phazon left arm"
+	desc="A Phazon left arm. Several microtool arrays are located under the armor plating, which can be adjusted to the situation at hand."
 	icon_state = "phazon_l_arm"
 
 /obj/item/mecha_parts/part/phazon_right_arm
-	name = "правая рука Фазона"
-	desc = "Деталь Фазона. Под броневой обшивкой расположено несколько массивов микроинструментов, которые можно регулировать в зависимости от конкретной ситуации."
+	name="\improper Phazon right arm"
+	desc="A Phazon right arm. Several microtool arrays are located under the armor plating, which can be adjusted to the situation at hand."
 	icon_state = "phazon_r_arm"
 
 /obj/item/mecha_parts/part/phazon_left_leg
-	name = "левая нога Фазона"
-	desc = "Деталь Фазона. Содержит уникальные фазовые приводы, которые позволяют экзокостюму проходить через твердую материю при включении."
+	name="\improper Phazon left leg"
+	desc="A Phazon left leg. It contains the unique phase drives that allow the exosuit to phase through solid matter when engaged."
 	icon_state = "phazon_l_leg"
 
 /obj/item/mecha_parts/part/phazon_right_leg
-	name = "правая нога Фазона"
-	desc = "Деталь Фазона. Содержит уникальные фазовые приводы, которые позволяют экзокостюму проходить через твердую материю при включении."
+	name="\improper Phazon right leg"
+	desc="A Phazon right leg. It contains the unique phase drives that allow the exosuit to phase through solid matter when engaged."
 	icon_state = "phazon_r_leg"
 
 /obj/item/mecha_parts/part/phazon_armor
-	name = "броня Фазона"
-	desc = "Деталь Фазона. Они покрыты слоем плазмы для защиты пилота от напряжения при фазировании и обладают необычными свойствами."
+	name="Phazon armor"
+	desc="Phazon armor plates. They are layered with plasma to protect the pilot from the stress of phasing and have unusual properties."
 	icon_state = "phazon_armor"
 
-// Саванна-Иванова
+// Savannah-Ivanov
 
 /obj/item/mecha_parts/chassis/savannah_ivanov
-	name = "каркас Саванна-Иванова"
+	name = "\improper Savannah-Ivanov chassis"
 	construct_type = /datum/component/construction/unordered/mecha_chassis/savannah_ivanov
 
 /obj/item/mecha_parts/part/savannah_ivanov_torso
-	name = "торс Саванна-Иванова"
-	desc = "Деталь Саванна-Иванова. Здесь довольно просторно..."
+	name="\improper Savannah-Ivanov torso"
+	desc="A Savannah-Ivanov torso part. It's missing a huge chunk of space..."
 	icon_state = "savannah_ivanov_harness"
 
 /obj/item/mecha_parts/part/savannah_ivanov_head
-	name = "голова Саванна-Иванова"
-	desc = "Деталь Саванна-Иванова. Ее датчики были отрегулированы таким образом, чтобы поддерживать изящную посадку."
+	name="\improper Savannah-Ivanov head"
+	desc="A Savannah-Ivanov head. It's sensors have been adjusted to support graceful landings."
 	icon_state = "savannah_ivanov_head"
 
 /obj/item/mecha_parts/part/savannah_ivanov_left_arm
-	name = "левая рука Саванна-Иванова"
-	desc = "Деталь Саванна-Иванова. В запястьях скрыты компактные фабрикаторы ракет."
+	name="\improper Savannah-Ivanov left arm"
+	desc="A Savannah-Ivanov left arm. Hidden rocket fabrication included in the wrists."
 	icon_state = "savannah_ivanov_l_arm"
 
 /obj/item/mecha_parts/part/savannah_ivanov_right_arm
-	name = "правая рука Саванна-Иванова"
-	desc = "Деталь Саванна-Иванова. В запястьях скрыты компактные фабрикаторы ракет."
+	name="\improper Savannah-Ivanov right arm"
+	desc="A Savannah-Ivanov left arm. Hidden rocket fabrication included in the wrists."
 	icon_state = "savannah_ivanov_r_arm"
 
 /obj/item/mecha_parts/part/savannah_ivanov_left_leg
-	name = "левая нога Саванна-Иванова"
-	desc = "Деталь Саванна-Иванова. Ресурс ходовой системы рассчитан на перевозку более двух пассажиров, поэтому функционал был расширен, чтобы не тратить потенциал впустую."
+	name="\improper Savannah-Ivanov left leg"
+	desc="A Savannah-Ivanov left leg. In production they were designed to carry more than two passengers, so the leaping functionality was added as to not waste potential."
 	icon_state = "savannah_ivanov_l_leg"
 
 /obj/item/mecha_parts/part/savannah_ivanov_right_leg
-	name = "правая нога Саванна-Иванова"
-	desc = "Деталь Саванна-Иванова. Ресурс ходовой системы рассчитан на перевозку более двух пассажиров, поэтому функционал был расширен, чтобы не тратить потенциал впустую."
+	name="\improper Savannah-Ivanov right leg"
+	desc="A Savannah-Ivanov left leg. In production they were designed to carry more than two passengers, so the leaping functionality was added as to not waste potential."
 	icon_state = "savannah_ivanov_r_leg"
 
 /obj/item/mecha_parts/part/savannah_ivanov_armor
-	name = "броня Саванна-Иванова"
-	desc = "Деталь Саванна-Иванова. Броня имеют уникальную форму и усилена, чтобы компенсировать нагрузку на  двух пилотов, прыжки и ракетные залпы."
+	name="Savannah-Ivanov armor"
+	desc="Savannah-Ivanov armor plates. They are uniquely shaped and reinforced to deal with the stresses of two pilots, grandiose leaps, and missiles."
 	icon_state = "savannah_ivanov_armor"
 
 ///////// Circuitboards
 
 /obj/item/circuitboard/mecha
 	name = "exosuit circuit board"
-	icon = 'icons/obj/module.dmi'
+	icon = 'icons/obj/assemblies/module.dmi'
 	icon_state = "std_mod"
 	inhand_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	flags_1 = CONDUCT_1
 	force = 5
 	w_class = WEIGHT_CLASS_SMALL
@@ -350,86 +349,85 @@
 	throw_range = 7
 
 /obj/item/circuitboard/mecha/ripley/peripherals
-	name = "Плата экзокостюма Рипли - Вспомогательный контролер"
+	name = "Ripley Peripherals Control module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/ripley/main
-	name = "Плата экзокостюма Рипли - Основной контролер"
+	name = "Ripley Central Control module (Exosuit Board)"
 	icon_state = "mainboard"
 
 
 /obj/item/circuitboard/mecha/gygax/peripherals
-	name = "Плата экзокостюма Гигакс - Вспомогательный контролер"
+	name = "Gygax Peripherals Control module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/gygax/targeting
-	name = "Плата экзокостюма Гигакс - Орудийный контролер"
+	name = "Gygax Weapon Control and Targeting module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/gygax/main
-	name = "Плата экзокостюма Гигакс - Основной контролер"
+	name = "Gygax Central Control module (Exosuit Board)"
 	icon_state = "mainboard"
 
 /obj/item/circuitboard/mecha/durand/peripherals
-	name = "Плата экзокостюма Дюранд - Вспомогательный контролер"
+	name = "Durand Peripherals Control module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/durand/targeting
-	name = "Плата экзокостюма Дюранд - Орудийный контролер"
+	name = "Durand Weapon Control and Targeting module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/durand/main
-	name = "Плата экзокостюма Дюранд - Основной контролер"
+	name = "Durand Central Control module (Exosuit Board)"
 	icon_state = "mainboard"
 
 /obj/item/circuitboard/mecha/honker/peripherals
-	name = "Плата экзокостюма Х.О.Н.К - Вспомогательный контролер"
+	name = "H.O.N.K Peripherals Control module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/honker/targeting
-	name = "Плата экзокостюма Х.О.Н.К - Орудийный контролер"
+	name = "H.O.N.K Weapon Control and Targeting module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/honker/main
-	name = "Плата экзокостюма Х.О.Н.К - Основной контролер"
+	name = "H.O.N.K Central Control module (Exosuit Board)"
 	icon_state = "mainboard"
 
 /obj/item/circuitboard/mecha/odysseus/peripherals
-	name = "Плата экзокостюма Одиссей - Вспомогательный контролер"
+	name = "Odysseus Peripherals Control module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/odysseus/main
-	name = "Плата экзокостюма Одиссей - Основной контролер"
+	name = "Odysseus Central Control module (Exosuit Board)"
 	icon_state = "mainboard"
 
 /obj/item/circuitboard/mecha/phazon/peripherals
-	name = "Плата экзокостюма Фазон - Вспомогательный контролер"
+	name = "Phazon Peripherals Control module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/phazon/targeting
-	name = "Плата экзокостюма Фазон - Орудийный контролер"
+	name = "Phazon Weapon Control and Targeting module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/phazon/main
-	name = "Плата экзокостюма Фазон - Основной контролер"
-	icon_state = "mainboard"
+	name = "Phazon Central Control module (Exosuit Board)"
 
 /obj/item/circuitboard/mecha/clarke/peripherals
-	name = "Плата экзокостюма Кларк - Вспомогательный контролер"
+	name = "Clarke Peripherals Control module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/clarke/main
-	name = "Плата экзокостюма Кларк - Основной контролер"
+	name = "Clarke Central Control module (Exosuit Board)"
 	icon_state = "mainboard"
 
 /obj/item/circuitboard/mecha/savannah_ivanov/peripherals
-	name = "Плата экзокостюма Саванна-Иванов - Вспомогательный контролер Саванны"
+	name = "Savannah Peripherals Control module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/savannah_ivanov/targeting
-	name = "Плата экзокостюма Саванна-Иванов - Орудийный контролер Иванова"
+	name = "Ivanov Weapon Control and Targeting module (Exosuit Board)"
 	icon_state = "mcontroller"
 
 /obj/item/circuitboard/mecha/savannah_ivanov/main
-	name = "Плата экзокостюма Саванна-Иванов - Основной контролер"
+	name = "Savannah-Ivanov Combination Control Lock module (Exosuit Board)"
 	icon_state = "mainboard"

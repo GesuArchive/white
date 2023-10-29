@@ -1,16 +1,16 @@
 /datum/component/manual_breathing
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
-	var/obj/item/organ/lungs/L
+	var/obj/item/organ/internal/lungs/L
 	var/warn_grace = FALSE
 	var/warn_dying = FALSE
 	var/last_breath
 	var/check_every = 12 SECONDS
 	var/grace_period = 6 SECONDS
 	var/damage_rate = 1 // organ damage taken per tick
-	var/datum/emote/next_breath_type = /datum/emote/inhale
+	var/datum/emote/next_breath_type = /datum/emote/living/inhale
 
-/datum/component/manual_breathing/Initialize(mapload)
+/datum/component/manual_breathing/Initialize()
 	if(!iscarbon(parent))
 		return COMPONENT_INCOMPATIBLE
 
@@ -61,7 +61,7 @@
 			to_chat(C, span_userdanger("You begin to suffocate, you need to [next_text]!"))
 			warn_dying = TRUE
 
-		L.applyOrganDamage(damage_rate)
+		L.apply_organ_damage(damage_rate)
 		C.losebreath += 0.8
 	else if(world.time > (last_breath + check_every))
 		if(!warn_grace)
@@ -71,18 +71,18 @@
 /datum/component/manual_breathing/proc/check_added_organ(mob/who_cares, obj/item/organ/O)
 	SIGNAL_HANDLER
 
-	var/obj/item/organ/eyes/new_lungs = O
+	var/obj/item/organ/internal/eyes/new_lungs = O
 
-	if(istype(new_lungs,/obj/item/organ/lungs))
+	if(istype(new_lungs,/obj/item/organ/internal/lungs))
 		L = new_lungs
 		START_PROCESSING(SSdcs, src)
 
 /datum/component/manual_breathing/proc/check_removed_organ(mob/who_cares, obj/item/organ/O)
 	SIGNAL_HANDLER
 
-	var/obj/item/organ/lungs/old_lungs = O
+	var/obj/item/organ/internal/lungs/old_lungs = O
 
-	if(istype(old_lungs, /obj/item/organ/lungs))
+	if(istype(old_lungs, /obj/item/organ/internal/lungs))
 		L = null
 		STOP_PROCESSING(SSdcs, src)
 
@@ -90,10 +90,10 @@
 	SIGNAL_HANDLER
 
 	if(emote.type == next_breath_type)
-		if(next_breath_type == /datum/emote/inhale)
-			next_breath_type = /datum/emote/exhale
+		if(next_breath_type == /datum/emote/living/inhale)
+			next_breath_type = /datum/emote/living/exhale
 		else
-			next_breath_type = /datum/emote/inhale
+			next_breath_type = /datum/emote/living/inhale
 
 		warn_grace = FALSE
 		warn_dying = FALSE

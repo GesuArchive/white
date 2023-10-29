@@ -36,10 +36,10 @@ export const StationAlertConsoleContent = (props, context) => {
   return (
     <>
       {sortedAlarms.map((category) => (
-        <Section key={category.name} title={category.name + ' Тревоги'}>
+        <Section key={category.name} title={category.name + ' Alarms'}>
           <ul>
             {category.alerts.length === 0 && (
-              <li className="color-good">Системы в норме</li>
+              <li className="color-good">Systems Nominal</li>
             )}
             {category.alerts.map((alert) => (
               <Stack key={alert.name} height="30px" align="baseline">
@@ -47,7 +47,7 @@ export const StationAlertConsoleContent = (props, context) => {
                   <li className="color-average">
                     {alert.name}{' '}
                     {!!cameraView && alert.sources > 1
-                      ? ' (' + alert.sources + ' источники)'
+                      ? ' (' + alert.sources + ' sources)'
                       : ''}
                   </li>
                 </Stack.Item>
@@ -60,10 +60,10 @@ export const StationAlertConsoleContent = (props, context) => {
                       disabled={!alert.cameras}
                       content={
                         alert.cameras === 1
-                          ? alert.cameras + ' Камера'
+                          ? alert.cameras + ' Camera'
                           : alert.cameras > 1
-                            ? alert.cameras + ' Камеры'
-                            : 'Нет камер'
+                            ? alert.cameras + ' Cameras'
+                            : 'No Camera'
                       }
                       onClick={() =>
                         act('select_camera', {

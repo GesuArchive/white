@@ -4,8 +4,8 @@
  * Writes one of multiple inputs to one of multiple outputs.
  */
 /obj/item/circuit_component/router
-	display_name = "Маршрутизатор"
-	desc = "Копирует входные данные, выбранные \"Селектором входных данных\", в исходящие данные, выбранные \"Селектором выходных данных\"."
+	display_name = "Router"
+	desc = "Copies the input chosen by \"Input Selector\" to the output chosen by \"Output Selector\"."
 	category = "Utility"
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
@@ -53,7 +53,7 @@
 
 
 // If I is in range, L[I]. If I is out of range, wrap around.
-#define WRAPACCESS(L, I) L[(((I||1)-1)%length(L)+length(L))%length(L)+1]
+#define WRAPACCESS(L, I) L[(((I || 1)-1)%length(L)+length(L))%length(L)+1]
 /obj/item/circuit_component/router/pre_input_received(datum/port/input/port)
 	var/current_option = router_options.value
 	if(current_type != current_option)
@@ -69,6 +69,8 @@
 	output.set_output(input.value)
 
 /obj/item/circuit_component/router/multiplexer
-	display_name = "Мультиплексор"
-	desc = "Копирует входные данные, выбранные с помощью \"Селектора входных данных\", в выходные данные."
+	display_name = "Multiplexer"
+	desc = "Copies the input chosen by \"Input Selector\" to the output."
 	output_port_amount = 1
+
+#undef WRAPACCESS

@@ -30,10 +30,11 @@
 	RegisterSignal(target, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equipped))
 
 /datum/element/chewable/Detach(datum/source, force)
+	. = ..()
 	processing -= source
 	UnregisterSignal(source, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED))
 
-/datum/element/chewable/process(delta_time)
+/datum/element/chewable/process(seconds_per_tick)
 	if (processing.len == 0)
 		return PROCESS_KILL
 
@@ -44,12 +45,12 @@
 			processing -= item
 			continue
 
-		handle_reagents(item, delta_time)
+		handle_reagents(item, seconds_per_tick)
 
-/datum/element/chewable/proc/handle_reagents(obj/item/item, delta_time)
+/datum/element/chewable/proc/handle_reagents(obj/item/item, seconds_per_tick)
 	var/datum/reagents/reagents = item.reagents
 
-	var/metabolism_amount = metabolization_amount * delta_time
+	var/metabolism_amount = metabolization_amount * seconds_per_tick
 	if (!reagents.trans_to(item.loc, metabolism_amount, methods = INGEST))
 		reagents.remove_any(metabolism_amount)
 

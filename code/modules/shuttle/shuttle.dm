@@ -3,13 +3,6 @@
 #define DOCKING_PORT_HIGHLIGHT
 #endif
 
-GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
-	/turf/baseturf_bottom,
-	/turf/open/space,
-	/turf/open/lava,
-	/turf/open/floor/dock/drydock
-)))
-
 //NORTH default dir
 /obj/docking_port
 	invisibility = INVISIBILITY_ABSTRACT
@@ -18,13 +11,15 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	anchored = TRUE
+	///Common standard is for this to point -away- from the dockingport door, ie towards the ship
+	dir = NORTH
 	/// The identifier of the port or ship.
 	/// This will be used in numerous other places like the console,
 	/// stationary ports and whatnot to tell them your ship's mobile
 	/// port can be used in these places, or the docking port is compatible, etc.
-	var/id
-	///Common standard is for this to point -away- from the dockingport door, ie towards the ship
-	dir = NORTH
+	var/shuttle_id
+	/// Possible destinations
+	var/port_destinations
 	///size of covered area, perpendicular to dir. You shouldn't modify this for mobile dockingports, set automatically.
 	var/width = 0
 	///size of covered area, parallel to dir. You shouldn't modify this for mobile dockingports, set automatically.
@@ -34,43 +29,60 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	///position relative to covered area, parallel to dir. You shouldn't modify this for mobile dockingports, set automatically.
 	var/dheight = 0
 
+	var/area_type
 	///are we invisible to shuttle navigation computers?
 	var/hidden = FALSE
 
 	///Delete this port after ship fly off.
 	var/delete_after = FALSE
 
-	//The shuttle docked here/dock we're parked at.
-	var/obj/docking_port/docked
+	///are we registered in SSshuttles?
+	var/registered = FALSE
 
-/obj/docking_port/get_save_vars()
-	return list("pixel_x", "pixel_y", "dir", "name", "req_access", "req_access_txt", "piping_layer", "color", "icon_state", "pipe_color", "amount", "width", "height", "dwidth", "dheight")
+///register to SSshuttles
+/obj/docking_port/proc/register()
+	if(registered)
+		WARNING("docking_port registered multiple times")
+		unregister()
+	registered = TRUE
+	return
 
-	//these objects are indestructible
+///unregister from SSshuttles
+/obj/docking_port/proc/unregister()
+	if(!registered)
+		WARNING("docking_port unregistered multiple times")
+	registered = FALSE
+	return
+
+/obj/docking_port/proc/Check_id()
+	return
+
+//these objects are indestructible
 /obj/docking_port/Destroy(force)
 	// unless you assert that you know what you're doing. Horrible things
 	// may result.
 	if(force)
-		if(docked)
-			docked.docked = null
-			docked = null
 		..()
-		. = QDEL_HINT_QUEUE
+		return QDEL_HINT_QUEUE
 	else
 		return QDEL_HINT_LETMELIVE
 
-/obj/docking_port/has_gravity(turf/T)
-	return FALSE
+/obj/docking_port/has_gravity(turf/current_turf)
+	return TRUE
 
-/obj/docking_port/take_damage()
+/obj/docking_port/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armour_penetration = 0)
 	return
 
 /obj/docking_port/singularity_pull()
 	return
-/obj/docking_port/singularity_act()
-	return 0
 
-//returns a list(x0,y0, x1,y1) where points 0 and 1 are bounding corners of the projected rectangle
+/obj/docking_port/singularity_act()
+	return FALSE
+
+/obj/docking_port/shuttleRotate()
+	return //we don't rotate with shuttles via this code.
+
+///returns a list(x0,y0, x1,y1) where points 0 and 1 are bounding corners of the projected rectangle
 /obj/docking_port/proc/return_coords(_x, _y, _dir)
 	if(_dir == null)
 		_dir = dir
@@ -79,88 +91,35 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	if(_y == null)
 		_y = y
 
-	//In relative shuttle space, (dwidth, dheight) is the vector pointing from the bottom left corner of the bounding box to the obj/docking_port.
-	//Therefore, the negative of this vector (-dwidth,-dheight) points to one corner of the bounding box when the obj/docking_port is at the origin.
-	//Next, we rotate according to the specified direction and translate to our location in world space, the translate vector in the matrix, mat0, is one of the coordinates.
-	var/matrix/mat0 = matrix(-dwidth, -dheight, MATRIX_TRANSLATE) * matrix(dir2angle(_dir), MATRIX_ROTATE) * matrix(_x, _y, MATRIX_TRANSLATE)
-	//The opposite corner of the bounding box in relative shuttle vector space is at (width-dwidth-1,height-dheight-1)
-	//Because matrix multipication is associative, all we need to do is left multiply the missing parts of this vector to mat0 to get the other coordinate in world space.
-	var/matrix/mat1 = matrix(width-1, height-1, MATRIX_TRANSLATE) * mat0
+	//byond's sin and cos functions are inaccurate. This is faster and perfectly accurate
+	var/cos = 1
+	var/sin = 0
+	switch(_dir)
+		if(WEST)
+			cos = 0
+			sin = 1
+		if(SOUTH)
+			cos = -1
+			sin = 0
+		if(EAST)
+			cos = 0
+			sin = -1
 
 	return list(
-		mat0.c,
-		mat0.f,
-		mat1.c,
-		mat1.f
-		)
+		_x + (-dwidth*cos) - (-dheight*sin),
+		_y + (-dwidth*sin) + (-dheight*cos),
+		_x + (-dwidth+width-1)*cos - (-dheight+height-1)*sin,
+		_y + (-dwidth+width-1)*sin + (-dheight+height-1)*cos,
+	)
 
-//returns the dwidth, dheight, width, and height in the order of the union bounds of all shuttles relative to our shuttle.
-/obj/docking_port/proc/return_union_bounds(list/obj/docking_port/others)
-	var/list/coords =  return_union_coords(others, 0, 0, NORTH)
-	var/X0 = min(coords[1],coords[3]) //This will be the negative dwidth of the combined bounds
-	var/Y0 = min(coords[2],coords[4]) //This will be the negative dheight of the combined bounds
-	var/X1 = max(coords[1],coords[3]) //equal to width-dwidth-1
-	var/Y1 = max(coords[2],coords[4]) //equal to height-dheight-1
-	return list(-X0, -Y0, X1-X0+1,Y1-Y0+1)
-
-//Returns the the bounding box fully containing all provided docking ports
-/obj/docking_port/proc/return_union_coords(list/obj/docking_port/others, _x, _y, _dir)
-	if(_dir == null)
-		_dir = dir
-	if(_x == null)
-		_x = x
-	if(_y == null)
-		_y = y
-	if(!islist(others))
-		others = list(others)
-	others |= src
-	. = list(_x,_y,_x,_y)
-	//Right multiply with this matrix to transform a vector in world space to the our shuttle space specified by the parameters.
-	//This is the reason why we're not calling return_coords for each shuttle, we save time by not reconstructing the matrices lost after they're popped off the call stack
-	var/matrix/to_shuttle_space = matrix(_x-x, _y-y, MATRIX_TRANSLATE) * matrix(dir2angle(_dir)-dir2angle(dir), MATRIX_ROTATE)
-	for(var/obj/docking_port/other in others)
-		var/matrix/mat0 = matrix(-other.dwidth, -other.dheight, MATRIX_TRANSLATE) * matrix(dir2angle(other.dir), MATRIX_ROTATE) * matrix(other.x, other.y, MATRIX_TRANSLATE) * to_shuttle_space
-		var/matrix/mat1 = matrix(other.width-1, other.height-1, MATRIX_TRANSLATE) * mat0
-		. = list(
-			min(.[1], mat0.c, mat1.c),
-			min(.[2], mat0.f, mat1.f),
-			max(.[3], mat0.c, mat1.c),
-			max(.[4], mat0.f, mat1.f)
-		)
-
-//Returns the bounding box containing only the intersection of all provided docking ports
-/obj/docking_port/proc/return_intersect_coords(list/obj/docking_port/others, _x, _y, _dir)
-	if(_dir == null)
-		_dir = dir
-	if(_x == null)
-		_x = x
-	if(_y == null)
-		_y = y
-	if(!islist(others))
-		others = list(others)
-	others |= src
-	. = list(_x,_y,_x,_y)
-	//See return_union_coords() and return_coords() for explaination of the matrices.
-	var/matrix/to_shuttle_space = matrix(_x-x, _y-y, MATRIX_TRANSLATE) * matrix(dir2angle(_dir)-dir2angle(dir), MATRIX_ROTATE)
-	for(var/obj/docking_port/other in others)
-		var/matrix/mat0 = matrix(-other.dwidth, -other.dheight, MATRIX_TRANSLATE) * matrix(dir2angle(other.dir), MATRIX_ROTATE) * matrix(other.x, other.y, MATRIX_TRANSLATE) * to_shuttle_space
-		var/matrix/mat1 = matrix(other.width-1, other.height-1, MATRIX_TRANSLATE) * mat0
-		. = list(
-			max(.[1], min(mat0.c, mat1.c)),
-			max(.[2], min(mat0.f, mat1.f)),
-			min(.[3], max(mat0.c, mat1.c)),
-			min(.[4], max(mat0.f, mat1.f)),
-		)
-
-//returns turfs within our projected rectangle in no particular order
+///returns turfs within our projected rectangle in no particular order
 /obj/docking_port/proc/return_turfs()
 	var/list/L = return_coords()
 	var/turf/T0 = locate(L[1],L[2],z)
 	var/turf/T1 = locate(L[3],L[4],z)
 	return block(T0,T1)
 
-//returns turfs within our projected rectangle in a specific order.
-//this ensures that turfs are copied over in the same order, regardless of any rotation
+///returns turfs within our projected rectangle in a specific order.this ensures that turfs are copied over in the same order, regardless of any rotation
 /obj/docking_port/proc/return_ordered_turfs(_x, _y, _z, _dir)
 	var/cos = 1
 	var/sin = 0
@@ -189,7 +148,9 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 
 #ifdef DOCKING_PORT_HIGHLIGHT
 //Debug proc used to highlight bounding area
-/obj/docking_port/proc/highlight(_color)
+/obj/docking_port/proc/highlight(_color = "#f00")
+	SetInvisibility(INVISIBILITY_NONE)
+	SET_PLANE_IMPLICIT(src, GHOST_PLANE)
 	var/list/L = return_coords()
 	var/turf/T0 = locate(L[1],L[2],z)
 	var/turf/T1 = locate(L[3],L[4],z)
@@ -204,10 +165,17 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 		T.color = "#00f"
 #endif
 
-/obj/docking_port/proc/getDockedId()
-	if(docked)
-		return docked.id
+//return first-found touching dockingport
+/obj/docking_port/proc/get_docked()
+	return locate(/obj/docking_port/stationary) in loc
 
+// Return id of the docked docking_port
+/obj/docking_port/proc/getDockedId()
+	var/obj/docking_port/P = get_docked()
+	if(P)
+		return P.shuttle_id
+
+// Say that A in the absolute (rectangular) bounds of this shuttle or no.
 /obj/docking_port/proc/is_in_shuttle_bounds(atom/A)
 	var/turf/T = get_turf(A)
 	if(T.z != z)
@@ -228,38 +196,71 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 
 	var/last_dock_time
 
+	/// Map template to load when the dock is loaded
 	var/datum/map_template/shuttle/roundstart_template
+	/// Used to check if the shuttle template is enabled in the config file
 	var/json_key
+	///If true, the shuttle can always dock at this docking port, despite its area checks, or if something is already docked
+	var/override_can_dock_checks = FALSE
+
+/obj/docking_port/stationary/register(replace = FALSE)
+	. = ..()
+	if(!shuttle_id)
+		shuttle_id = "dock"
+	else
+		port_destinations = shuttle_id
+
+	if(!name)
+		name = "dock"
+
+	var/counter = SSshuttle.assoc_stationary[shuttle_id]
+	if(!replace || !counter)
+		if(counter)
+			counter++
+			SSshuttle.assoc_stationary[shuttle_id] = counter
+			shuttle_id = "[shuttle_id]_[counter]"
+			name = "[name] [counter]"
+		else
+			SSshuttle.assoc_stationary[shuttle_id] = 1
+
+	if(!port_destinations)
+		port_destinations = shuttle_id
+
+	SSshuttle.stationary_docking_ports += src
 
 /obj/docking_port/stationary/Initialize(mapload)
-	..()
-	SSshuttle.stationary += src
-	if(!id)
-		id = "[SSshuttle.stationary.len]"
-	if(name == "dock")
-		name = "dock[SSshuttle.stationary.len]"
+	. = ..()
+	register()
+	if(!area_type)
+		var/area/place = get_area(src)
+		area_type = place?.type // We might be created in nullspace
 
 	if(mapload)
 		for(var/turf/T in return_turfs())
 			T.turf_flags |= NO_RUINS
 
+	if(SSshuttle.initialized)
+		INVOKE_ASYNC(SSshuttle, TYPE_PROC_REF(/datum/controller/subsystem/shuttle, setup_shuttles), list(src))
+
 	#ifdef DOCKING_PORT_HIGHLIGHT
 	highlight("#f00")
 	#endif
 
-	return INITIALIZE_HINT_LATELOAD
-
-
-/obj/docking_port/stationary/LateInitialize()
+/obj/docking_port/stationary/unregister()
 	. = ..()
-	if(SSshuttle.shuttles_loaded)
-		load_roundstart()
-
+	SSshuttle.stationary_docking_ports -= src
 
 /obj/docking_port/stationary/Destroy(force)
 	if(force)
-		SSshuttle.stationary -= src
+		unregister()
+	return ..()
+
+/obj/docking_port/stationary/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
+	if(area_type) // We already have one
+		return
+	var/area/newarea = get_area(src)
+	area_type = newarea?.type
 
 /obj/docking_port/stationary/proc/load_roundstart()
 	if(json_key)
@@ -272,26 +273,72 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 
 		roundstart_template = SSmapping.shuttle_templates[sid]
 		if(!roundstart_template)
-			CRASH("Invalid path ([roundstart_template]) passed to docking port.")
+			CRASH("Invalid path ([sid]/[roundstart_template]) passed to docking port.")
 
 	if(roundstart_template)
 		SSshuttle.action_load(roundstart_template, src)
 
+//returns first-found touching shuttleport
+/obj/docking_port/stationary/get_docked()
+	. = locate(/obj/docking_port/mobile) in loc
+
+/// Subtype for escape pod ports so that we can give them trait behaviour
+/obj/docking_port/stationary/escape_pod
+	name = "escape pod loader"
+	height = 5
+	width = 3
+	dwidth = 1
+	roundstart_template = /datum/map_template/shuttle/escape_pod/default
+	/// Set to true if you have a snowflake escape pod dock which needs to always have the normal pod or some other one
+	var/enforce_specific_pod = FALSE
+
+/obj/docking_port/stationary/escape_pod/Initialize(mapload)
+	. = ..()
+	if (enforce_specific_pod)
+		return
+
+	if (HAS_TRAIT(SSstation, STATION_TRAIT_SMALLER_PODS))
+		roundstart_template = /datum/map_template/shuttle/escape_pod/cramped
+		return
+	if (HAS_TRAIT(SSstation, STATION_TRAIT_BIGGER_PODS))
+		roundstart_template = /datum/map_template/shuttle/escape_pod/luxury
+
+// should fit the syndicate infiltrator, and smaller ships like the battlecruiser corvettes and fighters
+/obj/docking_port/stationary/syndicate
+	name = "near the station"
+	dheight = 1
+	dwidth = 12
+	height = 17
+	width = 23
+	shuttle_id = "syndicate_nearby"
+
+/obj/docking_port/stationary/syndicate/northwest
+	name = "northwest of station"
+	shuttle_id = "syndicate_nw"
+
+/obj/docking_port/stationary/syndicate/northeast
+	name = "northeast of station"
+	shuttle_id = "syndicate_ne"
+
 /obj/docking_port/stationary/transit
 	name = "In Transit"
+	override_can_dock_checks = TRUE
+	/// The turf reservation returned by the transit area request
 	var/datum/turf_reservation/reserved_area
+	/// The area created during the transit area reservation
 	var/area/shuttle/transit/assigned_area
+	/// The mobile port that owns this transit port
 	var/obj/docking_port/mobile/owner
 
 /obj/docking_port/stationary/transit/Initialize(mapload)
 	. = ..()
-	SSshuttle.transit += src
+	SSshuttle.transit_docking_ports += src
 
 /obj/docking_port/stationary/transit/Destroy(force=FALSE)
 	if(force)
-		if(docked)
+		if(get_docked())
 			log_world("A transit dock was destroyed while something was docked to it.")
-		SSshuttle.transit -= src
+		SSshuttle.transit_docking_ports -= src
 		if(owner)
 			if(owner.assigned_transit == src)
 				owner.assigned_transit = null
@@ -301,14 +348,111 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 		reserved_area = null
 	return ..()
 
+/obj/docking_port/stationary/picked
+	///Holds a list of map name strings for the port to pick from
+	var/list/shuttlekeys
+
+/obj/docking_port/stationary/picked/Initialize(mapload)
+	. = ..()
+	if(!LAZYLEN(shuttlekeys))
+		WARNING("Random docking port [shuttle_id] loaded with no shuttle keys")
+		return
+	var/selectedid = pick(shuttlekeys)
+	roundstart_template = SSmapping.shuttle_templates[selectedid]
+
+/obj/docking_port/stationary/picked/whiteship
+	name = "Deep Space"
+	shuttle_id = "whiteship_away"
+	height = 45 //Width and height need to remain in sync with the size of whiteshipdock.dmm, otherwise we'll get overflow
+	width = 44
+	dheight = 18
+	dwidth = 18
+	dir = 2
+	shuttlekeys = list(
+		"whiteship_meta",
+		"whiteship_pubby",
+		"whiteship_box",
+		"whiteship_cere",
+		"whiteship_kilo",
+		"whiteship_donut",
+		"whiteship_delta",
+		"whiteship_tram",
+		"whiteship_personalshuttle",
+		"whiteship_obelisk",
+	)
+
+/// Helper proc that tests to ensure all whiteship templates can spawn at their docking port, and logs their sizes
+/// This should be a unit test, but too much of our other code breaks during shuttle movement, so not yet, not yet.
+/proc/test_whiteship_sizes()
+	var/obj/docking_port/stationary/port_type = /obj/docking_port/stationary/picked/whiteship
+	var/datum/turf_reservation/docking_yard = SSmapping.request_turf_block_reservation(
+		initial(port_type.width),
+		initial(port_type.height),
+		1,
+	)
+	var/turf/bottom_left = docking_yard.bottom_left_turfs[1]
+	var/turf/spawnpoint = locate(
+		bottom_left.x + initial(port_type.dwidth),
+		bottom_left.y + initial(port_type.dheight),
+		bottom_left.z,
+	)
+
+	var/obj/docking_port/stationary/picked/whiteship/port = new(spawnpoint)
+	var/list/ids = port.shuttlekeys
+	var/height = 0
+	var/width = 0
+	var/dheight = 0
+	var/dwidth = 0
+	var/delta_height = 0
+	var/delta_width = 0
+	for(var/id in ids)
+		var/datum/map_template/shuttle/our_template = SSmapping.shuttle_templates[id]
+		// We do a standard load here so any errors will properly runtimes
+		var/obj/docking_port/mobile/ship = SSshuttle.action_load(our_template, port)
+		if(ship)
+			ship.jumpToNullSpace()
+			ship = null
+		// Yes this is very hacky, but we need to both allow loading a template that's too big to be an error state
+		// And actually get the sizing information from every shuttle
+		SSshuttle.load_template(our_template)
+		var/obj/docking_port/mobile/theoretical_ship = SSshuttle.preview_shuttle
+		if(theoretical_ship)
+			height = max(theoretical_ship.height, height)
+			width = max(theoretical_ship.width, width)
+			dheight = max(theoretical_ship.dheight, dheight)
+			dwidth = max(theoretical_ship.dwidth, dwidth)
+			delta_height = max(theoretical_ship.height - theoretical_ship.dheight, delta_height)
+			delta_width = max(theoretical_ship.width - theoretical_ship.dwidth, delta_width)
+			theoretical_ship.jumpToNullSpace()
+	qdel(port, TRUE)
+	log_world("Whiteship sizing information. Use this to set the docking port, and the map size\n\
+		Max Height: [height] \n\
+		Max Width: [width] \n\
+		Max DHeight: [dheight] \n\
+		Max DWidth: [dwidth] \n\
+		The following are the safest bet for map sizing. Anything smaller then this could in the worst case not fit in the docking port\n\
+		Max Combined Width: [height + dheight] \n\
+		Max Combinded Height [width + dwidth]")
+
 /obj/docking_port/mobile
 	name = "shuttle"
 	icon_state = "pinonclose"
 
-	var/area_type = SHUTTLE_DEFAULT_SHUTTLE_AREA_TYPE
+	area_type = SHUTTLE_DEFAULT_SHUTTLE_AREA_TYPE
 
-	var/list/shuttle_areas
+	///List of all areas our shuttle holds.
+	var/list/shuttle_areas = list()
+	///List of all currently used engines that propels us.
+	var/list/obj/machinery/power/shuttle_engine/engine_list = list()
 
+	///How fast the shuttle should be, taking engine thrust into account.
+	var/engine_coeff = 1
+	///How much engine power (thrust) the shuttle currently has.
+	var/current_engine_power = 0
+	///How much engine power (thrust) the shuttle starts with at mapload.
+	var/initial_engine_power = 0
+	///Speed multiplier based on station alert level
+	var/alert_coeff = ALERT_COEFF_BLUE
 	///used as a timer (if you want time left to complete move, use timeLeft proc)
 	var/timer
 	var/last_timer_length
@@ -323,11 +467,9 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	/// time spent after transit 'landing' before actually arriving
 	var/prearrivalTime = 0
 
-	/// The direction the shuttle prefers to travel in, ie what direction
-	/// the animation will cause it to appear to be traveling in
+	/// The direction the shuttle prefers to travel in, ie what direction the animation will cause it to appear to be traveling in
 	var/preferred_direction = NORTH
-	/// relative direction of the docking port from the front of the shuttle
-	/// NORTH is towards front, EAST would be starboard side, WEST port, etc.
+	/// relative direction of the docking port from the front of the shuttle. NORTH is towards front, EAST would be starboard side, WEST port, etc.
 	var/port_direction = NORTH
 
 	var/obj/docking_port/stationary/destination
@@ -337,317 +479,193 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 
 	var/launch_status = NOLAUNCH
 
-	///Whether or not you want your ship to knock people down, and also whether it will throw them several tiles upon launching.
-	var/list/movement_force = list("KNOCKDOWN" = 3, "THROW" = 0)
-
 	var/list/ripples = list()
-	var/engine_coeff = 1
-	var/current_engines = 0
-	var/initial_engines = 0
-	var/list/engine_list = list()
-	//If this shuttle can move docking ports other than the one it is docked at
+	///Whether or not you want your ship to knock people down, and also whether it will throw them several tiles upon launching.
+	var/list/movement_force = list(
+		"KNOCKDOWN" = 3,
+		"THROW" = 0,
+	)
+
+	///if this shuttle can move docking ports other than the one it is docked at
 	var/can_move_docking_ports = FALSE
 	var/list/hidden_turfs = list()
-	var/list/towed_shuttles = list()
-	var/list/underlying_turf_area = list()
-	//If the shuttle is unable to be moved by non-untowable shuttles.
-	//Stops interference with the arrival and escape shuttle. Use this sparingly.
-	var/untowable = FALSE
+	///List of shuttle events that can run or are running
+	var/list/datum/shuttle_event/event_list = list()
 
-	var/velocity_multiplier = 1.5
+#define WORLDMAXX_CUTOFF (world.maxx + 1)
+#define WORLDMAXY_CUTOFF (world.maxx + 1)
+/**
+ * Calculated and populates the information used for docking and some internal vars.
+ * This can also be used to calculate from shuttle_areas so that you can expand/shrink shuttles!
+ *
+ * Arguments:
+ * * loading_from - The template that the shuttle was loaded from, if not given we iterate shuttle_areas to calculate information instead
+ */
+/obj/docking_port/mobile/proc/calculate_docking_port_information(datum/map_template/shuttle/loading_from)
+	var/port_x_offset = loading_from?.port_x_offset
+	var/port_y_offset = loading_from?.port_y_offset
+	var/width = loading_from?.width
+	var/height = loading_from?.height
+	if(!loading_from)
+		if(!length(shuttle_areas))
+			CRASH("Attempted to calculate a docking port's information without a template before it was assigned any areas!")
+		// no template given, use shuttle_areas to calculate width and height
+		var/min_x = -1
+		var/min_y = -1
+		var/max_x = WORLDMAXX_CUTOFF
+		var/max_y = WORLDMAXY_CUTOFF
+		for(var/area/area as anything in shuttle_areas)
+			for(var/turf/turf in area)
+				min_x = max(turf.x, min_x)
+				max_x = min(turf.x, max_x)
+				min_y = max(turf.y, min_y)
+				max_y = min(turf.y, max_y)
+			CHECK_TICK
 
-	//The virtual Z-value this shuttle is at
-	var/current_z
+		if(min_x == -1 || max_x == WORLDMAXX_CUTOFF)
+			CRASH("Failed to locate shuttle boundaries when iterating through shuttle areas, somehow.")
+		if(min_y == -1 || max_y == WORLDMAXY_CUTOFF)
+			CRASH("Failed to locate shuttle boundaries when iterating through shuttle areas, somehow.")
 
-	var/sound_played = 0 //If the launch sound has been sent to all players on the shuttle itself
+		width = (max_x - min_x) + 1
+		height = (max_y - min_y) + 1
+		port_x_offset = min_x - x
+		port_y_offset = min_y - y
 
-	var/shuttle_object_type = /datum/orbital_object/shuttle
+	if(dir in list(EAST, WEST))
+		src.width = height
+		src.height = width
+	else
+		src.width = width
+		src.height = height
 
-	/// If true, will assign the ID on load
-	var/dynamic_id = FALSE
+	switch(dir)
+		if(NORTH)
+			dwidth = port_x_offset - 1
+			dheight = port_y_offset - 1
+		if(EAST)
+			dwidth = height - port_y_offset
+			dheight = port_x_offset - 1
+		if(SOUTH)
+			dwidth = width - port_x_offset
+			dheight = height - port_y_offset
+		if(WEST)
+			dwidth = port_y_offset - 1
+			dheight = width - port_x_offset
+#undef WORLDMAXX_CUTOFF
+#undef WORLDMAXY_CUTOFF
 
-	/// If true, the shuttle will be deleted upon landing
-	var/delete_on_land = FALSE
+/**
+ * Actions to be taken after shuttle is loaded but before it has been moved out of transit z-level to its final location
+ *
+ * Arguments:
+ * * replace - TRUE if this shuttle is replacing an existing one. FALSE by default.
+ */
+/obj/docking_port/mobile/register(replace = FALSE)
+	. = ..()
+	if(!shuttle_id)
+		shuttle_id = "shuttle"
 
-/obj/docking_port/mobile/proc/register()
-	SSshuttle.mobile |= src
-	// мб пофиксит кал
-	spawn(5 SECONDS)
-		SSorbits.register_shuttle(id)
+	if(!name)
+		name = "shuttle"
+
+	var/counter = SSshuttle.assoc_mobile[shuttle_id]
+	if(!replace || !counter)
+		if(counter)
+			counter++
+			SSshuttle.assoc_mobile[shuttle_id] = counter
+			shuttle_id = "[shuttle_id]_[counter]"
+			name = "[name] [counter]"
+			//Re link machinery to new shuttle id
+			linkup()
+		else
+			SSshuttle.assoc_mobile[shuttle_id] = 1
+
+	SSshuttle.mobile_docking_ports += src
+
+/**
+ * Actions to be taken after shuttle is loaded and has been moved to its final location
+ *
+ * Arguments:
+ * * replace - TRUE if this shuttle is replacing an existing one. FALSE by default.
+ */
+/obj/docking_port/mobile/proc/postregister(replace = FALSE)
+	return
+
+/obj/docking_port/mobile/unregister()
+	. = ..()
+	SSshuttle.mobile_docking_ports -= src
 
 /obj/docking_port/mobile/Destroy(force)
-	if(force)
-		SSshuttle.mobile -= src
-		destination = null
-		previous = null
-		QDEL_NULL(assigned_transit)		//don't need it where we're goin'!
-		shuttle_areas = null
-		towed_shuttles = null
-		underlying_turf_area = null
-		remove_ripples()
-		SSorbits.remove_shuttle(id)
-	. = ..()
-
-/obj/docking_port/mobile/is_in_shuttle_bounds(atom/A)
-	return shuttle_areas[get_area(A)]
-
-/obj/docking_port/mobile/proc/add_turf(turf/T, area/shuttle/A)
-	if(!shuttle_areas[A]) //Invalid area
-		return TRUE
-
-	var/bypass_skipover_insertion = FALSE
-	if(GLOB.shuttle_turf_blacklist[T.type]) //Check if the turf is valid
-		for(var/obj/structure/lattice/lattice in T.contents)
-			bypass_skipover_insertion = TRUE
-		if(!bypass_skipover_insertion)
-			return TRUE
-
-	if(!bypass_skipover_insertion)
-		T.baseturfs = length(T.baseturfs) ? T.baseturfs : list(T.baseturfs) //We need this as a list for now
-		var/base_length = length(T.baseturfs)
-		var/skipover_index = 2 //We should always leave atleast something else below our skipover
-
-		var/BT
-		for(var/i in 0 to base_length-1) //Place the skipover after the first blacklisted baseturf from the top
-			BT = T.baseturfs[base_length - i]
-			if(BT == /turf/baseturf_skipover/shuttle) //This is a shuttle and we can't build on it
-				if(length(T.baseturfs) == 1)
-					T.baseturfs = T.baseturfs[1] //Back to a single value. I wish this wasn't a thing but I fear everything would break if I left it as a list
-				return TRUE
-			if(GLOB.shuttle_turf_blacklist[BT])
-				skipover_index = base_length - i + 1
-				break
-		T.baseturfs.Insert(skipover_index, /turf/baseturf_skipover/shuttle)
-
-	var/area/shuttle/current_area = T.loc
-	//Account for building on shuttles
-	if(istype(current_area) && current_area.mobile_port)
-		current_area.mobile_port.towed_shuttles |= src
-	//add to underlying_turf_area
-	if(!shuttle_areas[current_area]) //We already have this turf
-		underlying_turf_area[T] = current_area
-	//Change areas
-	current_area.contents -= T
-	A.contents += T
-	T.transfer_area_lighting(current_area, A)
-
-/obj/docking_port/mobile/proc/remove_turf(turf/T)
-
-	var/area/shuttle/A = get_area(T)
-	var/area/shuttle/new_area = underlying_turf_area[T]
-
-	if(!new_area) //Our shuttle isn't here
-		return TRUE
-
-	var/shuttle_layers = -1*A.get_missing_shuttles(T)
-	var/obj/docking_port/mobile/top_shuttle = A?.mobile_port
-	var/list/all_towed_shuttles = get_all_towed_shuttles()
-	var/obj/docking_port/mobile/bottom_shuttle = null
-
-	//Find how many skipover deep out shuttle is and find the shuttle above ours on this turf
-	for(var/index in 0 to all_towed_shuttles.len - 1)
-		var/obj/docking_port/mobile/M = all_towed_shuttles[all_towed_shuttles.len - index]
-		if(!M.underlying_turf_area[T])
-			continue
-		if(M != src)
-			bottom_shuttle = M
-		shuttle_layers++
-
-	if(shuttle_layers > 0)
-		var/BT_index = length(T.baseturfs)
-		var/BT
-		for(var/i in 1 to shuttle_layers)
-			while(BT_index)
-				BT = T.baseturfs[BT_index--]
-				if(BT == /turf/baseturf_skipover/shuttle)
-					break
-		if(!BT_index)
-			CRASH("A turf being removed from a shuttle has too few skipover in its baseturfs. [T]([T.type]):[T.loc]")
-		T.baseturfs.Cut(BT_index+1,BT_index+2)
-		if(T.baseturfs.len == 1) //Make the list not a list if length is 1
-			T.baseturfs = T.baseturfs[1]
-
-	//Get the new area under this turf
-	var/list/intersect_bounds
-	var/turf/T0
-	var/turf/T1
-	var/towed
-	underlying_turf_area -= T
-	if(top_shuttle == src) //Only change the area if we aren't covered by another shuttle
-		A.contents -= T
-		new_area.contents += T
-		T.transfer_area_lighting(A, new_area)
-	else if(bottom_shuttle) //update the underlying turfs of the shuttle on top of us
-		bottom_shuttle.underlying_turf_area[T] = new_area
-		intersect_bounds = return_intersect_coords(bottom_shuttle)
-		T0 = locate(intersect_bounds[1], intersect_bounds[2], z)
-		T1 = locate(intersect_bounds[3], intersect_bounds[4], z)
-		towed = TRUE
-		for(var/turf/intersect_turf in block(T0,T1))
-			if(shuttle_areas[bottom_shuttle.underlying_turf_area[intersect_turf]])
-				towed = FALSE
-				break
-		if(towed)
-			towed_shuttles -= bottom_shuttle
-
-	//update towed_shuttles of the shuttle under us
-	if(istype(new_area) && new_area.mobile_port)
-		var/obj/docking_port/mobile/other = new_area.mobile_port
-		intersect_bounds = return_intersect_coords(new_area.mobile_port)
-		T0 = locate(intersect_bounds[1], intersect_bounds[2], z)
-		T1 = locate(intersect_bounds[3], intersect_bounds[4], z)
-		towed = TRUE
-		for(var/turf/intersect_turf in block(T0,T1))
-			if(other.shuttle_areas[underlying_turf_area[intersect_turf]])
-				towed = FALSE
-				break
-		if(towed)
-			other.towed_shuttles -= src
-
-
-//A common proc used to find the amount of turfs in the shuttle
-/obj/docking_port/mobile/proc/calculate_mass()
-	. = 0
-	for(var/obj/docking_port/mobile/M in get_all_towed_shuttles())
-		. += M.underlying_turf_area.len
-
-/obj/docking_port/mobile/return_ordered_turfs(_x, _y, _z, _dir, include_towed = TRUE)
-	if(!include_towed) //I hate this, but I need to access the superfunction somehow.
-		return ..()
-	. = list()
-	for(var/obj/docking_port/mobile/M in get_all_towed_shuttles())
-		var/matrix/translate_vec = matrix(M.x - src.x, M.y - src.y, MATRIX_TRANSLATE) * matrix(dir2angle(_dir)-dir2angle(dir), MATRIX_ROTATE)
-		. |= M.return_ordered_turfs(_x + translate_vec.c, _y + translate_vec.f, _z + (M.z - src.z), angle2dir_cardinal(dir2angle(_dir) + (dir2angle(M.dir) - dir2angle(src.dir))), include_towed = FALSE)
-
-//Returns all shuttles on top of this shuttle.
-//This list is topologically sorted; for any shuttle that is above another shuttle, the higher shuttle will come after the lower shuttle in the list.
-/obj/docking_port/mobile/proc/get_all_towed_shuttles()
-	//Generate a list of all edges in the towed shuttle heirarchy with src as the root.
-	var/list/edges = list(src)
-	var/obj/docking_port/mobile/M
-	var/dequeue_pointer = 0
-	while(dequeue_pointer++ < length(edges))
-		M = edges[dequeue_pointer]
-		for(var/obj/docking_port/mobile/child in M.towed_shuttles)
-			edges[child] = edges[child] ? edges[child] | M : list(M)
-	edges -= src
-
-	//Kahn's Algorithm for topological sorting a directed acyclic graph.
-	. = list()
-	var/list/obj/docking_port/mobile/roots = list(src)
-	var/obj/docking_port/mobile/root
-	while(roots.len)
-		root = pop(roots)
-		.[root] = TRUE
-		for(M in root.towed_shuttles)
-			edges[M] -= root
-			if(!length(edges[M]))
-				edges -= M
-				roots += M
-	if(edges.len) //If the graph is cyclic, that means that a shuttle is directly or indirectly landed ontop of itself. Cyclic shuttles have not moved from edges to .
-		CRASH("The towed shuttles of [src] is cyclic, a shuttle is ontop of itself!")
-
-/obj/docking_port/newtonian_move(direction, instant = FALSE, start_delay = 0) // Please don't spacedrift thanks
-	return TRUE
+	unregister()
+	destination = null
+	previous = null
+	if(!QDELETED(assigned_transit))
+		qdel(assigned_transit, force = TRUE)
+		assigned_transit = null
+	shuttle_areas = null
+	remove_ripples()
+	return ..()
 
 /obj/docking_port/mobile/Initialize(mapload)
 	. = ..()
 
-	if(!id)
-		id = "[SSshuttle.mobile.len]"
-	else if(dynamic_id)
-		name = "[name] [SSshuttle.mobile.len]"
-		id = "[id][SSshuttle.mobile.len]"
-	if(name == "shuttle")
-		name = "shuttle[SSshuttle.mobile.len]"
+	if(!shuttle_id)
+		shuttle_id = "shuttle"
+	if(!name)
+		name = "shuttle"
+	var/counter = 1
+	var/tmp_id = shuttle_id
+	var/tmp_name = name
+	while(Check_id(shuttle_id))
+		counter++
+		shuttle_id = "[tmp_id]_[counter]"
+		name = "[tmp_name] [counter]"
 
-	shuttle_areas = list()
 	var/list/all_turfs = return_ordered_turfs(x, y, z, dir)
 	for(var/i in 1 to all_turfs.len)
 		var/turf/curT = all_turfs[i]
-		var/area/shuttle/cur_area = curT.loc
-		if(istype(cur_area, area_type) && !istype(cur_area, /area/shuttle/transit))
+		var/area/cur_area = curT.loc
+		if(istype(cur_area, area_type))
 			shuttle_areas[cur_area] = TRUE
-			if(!cur_area.mobile_port)
-				cur_area.link_to_shuttle(src)
-		//Link up shuttle consoles
-		if(dynamic_id)
-			var/obj/machinery/computer/shuttle_flight/flight_computer = locate() in curT
-			if(!flight_computer)
-				continue
-			flight_computer.set_shuttle_id("[id]")
-			flight_computer.shuttlePortId = "[id]_custom"
-
-	//Find open dock here and set it as ours
-	for(var/obj/docking_port/stationary/S in loc.contents)
-		if(!S.docked)
-			S.docked = src
-			docked = S
-			break
-
-	initial_engines = count_engines()
-	current_engines = initial_engines
-
-	current_z = src.z
 
 	#ifdef DOCKING_PORT_HIGHLIGHT
 	highlight("#0f0")
 	#endif
 
-// Called after the shuttle is loaded from template
-/obj/docking_port/mobile/proc/linkup(datum/map_template/shuttle/template, obj/docking_port/stationary/dock)
-	var/list/static/shuttle_id = list()
-	var/idnum = ++shuttle_id[template]
-	if(idnum > 1)
-		if(id == initial(id))
-			id = "[id][idnum]"
-		if(name == initial(name))
-			name = "[name] [idnum]"
-	for(var/place in shuttle_areas)
-		var/area/area = place
-		area.connect_to_shuttle(src, dock, idnum, FALSE)
-		for(var/each in place)
-			var/atom/atom = each
-			atom.connect_to_shuttle(src, dock, idnum, FALSE)
-
+// Called after the shuttle is loaded from template, so we make sure they know it's from mapload.
+/obj/docking_port/mobile/proc/linkup(obj/docking_port/stationary/dock)
+	for(var/area/place as anything in shuttle_areas)
+		place.connect_to_shuttle(TRUE, src, dock)
+		for(var/atom/individual_atoms in place)
+			individual_atoms.connect_to_shuttle(TRUE, src, dock)
 
 //this is a hook for custom behaviour. Maybe at some point we could add checks to see if engines are intact
 /obj/docking_port/mobile/proc/canMove()
-	if(untowable)
-		return TRUE
-	for(var/obj/docking_port/mobile/M in get_all_towed_shuttles())
-		if(M.untowable)
-			return FALSE
 	return TRUE
 
-//this is to check if this shuttle can physically dock at dock S
-/obj/docking_port/mobile/proc/canDock(obj/docking_port/stationary/S)
-	//coordinate of combined shuttle bounds in our dock's vector space (positive Y towards shuttle direction, positive determinant, our dock at (0,0))
-	var/list/bounds = return_union_bounds(get_all_towed_shuttles())
-	var/tow_dwidth = bounds[1]
-	var/tow_dheight = bounds[2]
-	var/tow_rwidth = bounds[3] - tow_dwidth
-	var/tow_rheight = bounds[4] - tow_dheight
-	if(!istype(S))
+//this is to check if this shuttle can physically dock at dock stationary_dock
+/obj/docking_port/mobile/proc/canDock(obj/docking_port/stationary/stationary_dock)
+	if(!istype(stationary_dock))
 		return SHUTTLE_NOT_A_DOCKING_PORT
 
-	if(istype(S, /obj/docking_port/stationary/transit))
+	if(stationary_dock.override_can_dock_checks)
 		return SHUTTLE_CAN_DOCK
 
-	if(tow_dwidth > S.dwidth)
+	if(dwidth > stationary_dock.dwidth)
 		return SHUTTLE_DWIDTH_TOO_LARGE
 
-	if(tow_rwidth > S.width-S.dwidth)
+	if(width-dwidth > stationary_dock.width-stationary_dock.dwidth)
 		return SHUTTLE_WIDTH_TOO_LARGE
 
-	if(tow_dheight > S.dheight)
+	if(dheight > stationary_dock.dheight)
 		return SHUTTLE_DHEIGHT_TOO_LARGE
 
-	if(tow_rheight > S.height-S.dheight)
+	if(height-dheight > stationary_dock.height-stationary_dock.dheight)
 		return SHUTTLE_HEIGHT_TOO_LARGE
 
 	//check the dock isn't occupied
-	var/currently_docked = S.docked
+	var/currently_docked = stationary_dock.get_docked()
 	if(currently_docked)
 		// by someone other than us
 		if(currently_docked != src)
@@ -659,14 +677,13 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 
 	return SHUTTLE_CAN_DOCK
 
-/obj/docking_port/mobile/proc/check_dock(obj/docking_port/stationary/S, silent=FALSE)
+/obj/docking_port/mobile/proc/check_dock(obj/docking_port/stationary/S, silent = FALSE)
 	var/status = canDock(S)
 	if(status == SHUTTLE_CAN_DOCK)
 		return TRUE
 	else
 		if(status != SHUTTLE_ALREADY_DOCKED && !silent) // SHUTTLE_ALREADY_DOCKED is no cause for error
-			var/msg = "Shuttle [src] cannot dock at [S], error: [status]"
-			message_admins(msg)
+			message_admins("Shuttle [src] cannot dock at [S], error: [status]")
 		// We're already docked there, don't need to do anything.
 		// Triggering shuttle movement code in place is weird
 		return FALSE
@@ -674,34 +691,37 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 /obj/docking_port/mobile/proc/transit_failure()
 	message_admins("Shuttle [src] repeatedly failed to create transit zone.")
 
-//call the shuttle to destination S
-/obj/docking_port/mobile/proc/request(obj/docking_port/stationary/S)
-	if(!check_dock(S))
+/**
+ * Calls the shuttle to the destination port, respecting its ignition and call timers
+ *
+ * Arguments:
+ * * destination_port - Stationary docking port to move the shuttle to
+ */
+/obj/docking_port/mobile/proc/request(obj/docking_port/stationary/destination_port)
+	if(!check_dock(destination_port))
 		testing("check_dock failed on request for [src]")
-		return TRUE
+		return
 
-	if(mode == SHUTTLE_IGNITING && destination == S)
-		return TRUE
-
-	log_shuttle_movement("Shuttle [S.name] ([S.id]) was requested to move from [S] at [COORD(S)] to [destination] at [COORD(destination)]. Usr: [key_name_admin(usr)]")
+	if(mode == SHUTTLE_IGNITING && destination == destination_port)
+		return
 
 	switch(mode)
 		if(SHUTTLE_CALL)
-			if(S == destination)
+			if(destination_port == destination)
 				if(timeLeft(1) < callTime * engine_coeff)
 					setTimer(callTime * engine_coeff)
 			else
-				destination = S
+				destination = destination_port
 				setTimer(callTime * engine_coeff)
 		if(SHUTTLE_RECALL)
-			if(S == destination)
+			if(destination_port == destination)
 				setTimer(callTime * engine_coeff - timeLeft(1))
 			else
-				destination = S
+				destination = destination_port
 				setTimer(callTime * engine_coeff)
 			mode = SHUTTLE_CALL
 		if(SHUTTLE_IDLE, SHUTTLE_IGNITING)
-			destination = S
+			destination = destination_port
 			mode = SHUTTLE_IGNITING
 			setTimer(ignitionTime)
 
@@ -716,78 +736,73 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	mode = SHUTTLE_RECALL
 
 /obj/docking_port/mobile/proc/enterTransit()
-	if((SSshuttle.lockdown && is_station_level(z)) || !canMove())	//emp went off, no escape
+	if((SSshuttle.lockdown && is_station_level(z)) || !canMove()) //emp went off, no escape
 		mode = SHUTTLE_IDLE
 		return
 	previous = null
 	if(!destination)
 		// sent to transit with no destination -> unlimited timer
 		timer = INFINITY
-	var/obj/docking_port/stationary/S0 = docked
+	var/obj/docking_port/stationary/S0 = get_docked()
 	var/obj/docking_port/stationary/S1 = assigned_transit
 	if(S1)
 		if(initiate_docking(S1) != DOCKING_SUCCESS)
-			WARNING("shuttle \"[id]\" could not enter transit space. Docked at [S0 ? S0.id : "null"]. Transit dock [S1 ? S1.id : "null"].")
-		else
-			if(S0?.delete_after)
+			WARNING("shuttle \"[shuttle_id]\" could not enter transit space. Docked at [S0 ? S0.shuttle_id : "null"]. Transit dock [S1 ? S1.shuttle_id : "null"].")
+		else if(S0)
+			if(S0.delete_after)
 				qdel(S0, TRUE)
 			else
 				previous = S0
 	else
-		WARNING("shuttle \"[id]\" could not enter transit space. S0=[S0 ? S0.id : "null"] S1=[S1 ? S1.id : "null"]")
+		WARNING("shuttle \"[shuttle_id]\" could not enter transit space. S0=[S0 ? S0.shuttle_id : "null"] S1=[S1 ? S1.shuttle_id : "null"]")
 
 
 /obj/docking_port/mobile/proc/jumpToNullSpace()
 	// Destroys the docking port and the shuttle contents.
 	// Not in a fancy way, it just ceases.
+	var/obj/docking_port/stationary/current_dock = get_docked()
+
+	var/underlying_area_type = SHUTTLE_DEFAULT_UNDERLYING_AREA
+	// If the shuttle is docked to a stationary port, restore its normal
+	// "empty" area and turf
+	if(current_dock?.area_type)
+		underlying_area_type = current_dock.area_type
 
 	var/list/old_turfs = return_ordered_turfs(x, y, z, dir)
 
-	// If the shuttle is docked to a stationary port, restore its normal
-	// "empty" area and turf
-
-	var/list/all_towed_shuttles = get_all_towed_shuttles()
-	var/list/all_shuttle_areas = list()
-	for(var/obj/docking_port/mobile/M in all_towed_shuttles)
-		all_shuttle_areas += M.shuttle_areas
+	var/area/underlying_area = GLOB.areas_by_type[underlying_area_type]
+	if(!underlying_area)
+		underlying_area = new underlying_area_type(null)
 
 	for(var/i in 1 to old_turfs.len)
 		var/turf/oldT = old_turfs[i]
-		if(!all_shuttle_areas[oldT?.loc])
+		if(!oldT || !istype(oldT.loc, area_type))
 			continue
-		var/area/old_area = oldT.loc
-		for(var/obj/docking_port/mobile/bottom_shuttle as() in all_towed_shuttles)
-			if(bottom_shuttle.underlying_turf_area[oldT])
-				var/area/underlying_area = bottom_shuttle.underlying_turf_area[oldT]
-				old_area.turfs_to_uncontain += oldT
-				underlying_area.contents += oldT
-				underlying_area.contained_turfs += oldT
-				oldT.transfer_area_lighting(old_area, underlying_area)
-				oldT.empty(FALSE)
-				break
+		oldT.change_area(oldT.loc, underlying_area)
+		oldT.empty(FALSE)
 
 		// Here we locate the bottommost shuttle boundary and remove all turfs above it
-		var/list/baseturf_cache = oldT.baseturfs
-		for(var/k in 1 to length(baseturf_cache))
-			if(ispath(baseturf_cache[k], /turf/baseturf_skipover/shuttle))
-				oldT.ScrapeAway(baseturf_cache.len - k + 1)
-				break
+		var/shuttle_tile_depth = oldT.depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)
+		if (!isnull(shuttle_tile_depth))
+			oldT.ScrapeAway(shuttle_tile_depth)
 
-	for(var/obj/docking_port/mobile/shuttle in all_towed_shuttles)
-		qdel(shuttle, force=TRUE)
+	qdel(src, force=TRUE)
 
+/**
+ * Ghosts and marks as escaped (for greentext purposes) all mobs, then deletes the shuttle.
+ * Used by the Shuttle Manipulator
+ */
 /obj/docking_port/mobile/proc/intoTheSunset()
 	// Loop over mobs
-	for(var/t in return_turfs())
-		var/turf/T = t
-		for(var/mob/living/M in T.get_all_contents())
+	for(var/turf/turfs as anything in return_turfs())
+		for(var/mob/living/sunset_mobs in turfs.get_all_contents())
 			// If they have a mind and they're not in the brig, they escaped
-			if(M.mind && !istype(t, /turf/open/floor/plasteel/shuttle/red) && !istype(t, /turf/open/floor/mineral/plastitanium/red/brig))
-				M.mind.force_escaped = TRUE
+			if(sunset_mobs.mind && !istype(get_area(sunset_mobs), /area/shuttle/escape/brig))
+				sunset_mobs.mind.force_escaped = TRUE
 			// Ghostize them and put them in nullspace stasis (for stat & possession checks)
-			M.notransform = TRUE
-			M.ghostize(FALSE)
-			M.moveToNullspace()
+			ADD_TRAIT(sunset_mobs, TRAIT_NO_TRANSFORM, REF(src))
+			sunset_mobs.ghostize(FALSE)
+			sunset_mobs.moveToNullspace()
 
 	// Now that mobs are stowed, delete the shuttle
 	jumpToNullSpace()
@@ -805,25 +820,20 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	var/list/L1 = return_ordered_turfs(S1.x, S1.y, S1.z, S1.dir)
 
 	var/list/ripple_turfs = list()
-	var/list/all_shuttle_areas = list()
-	for(var/obj/docking_port/mobile/M in get_all_towed_shuttles())
-		all_shuttle_areas |= M.shuttle_areas
 
 	for(var/i in 1 to L0.len)
 		var/turf/T0 = L0[i]
 		var/turf/T1 = L1[i]
 		if(!T0 || !T1)
 			continue  // out of bounds
-		if(T0.type == T0.baseturfs)
-			continue  // indestructible
-		if(!all_shuttle_areas[T0.loc] || istype(T0.loc, /area/shuttle/transit))
+		if(!istype(T0.loc, area_type) || istype(T0.loc, /area/shuttle/transit))
 			continue  // not part of the shuttle
 		ripple_turfs += T1
 
 	return ripple_turfs
 
 /obj/docking_port/mobile/proc/check_poddoors()
-	for(var/obj/machinery/door/poddoor/shuttledock/pod in GLOB.airlocks)
+	for(var/obj/machinery/door/poddoor/shuttledock/pod as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/door/poddoor/shuttledock))
 		pod.check()
 
 /obj/docking_port/mobile/proc/dock_id(id)
@@ -833,23 +843,15 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	else
 		. = null
 
-/obj/effect/landmark/shuttle_import
-	name = "Shuttle Import"
-
-// Never move the shuttle import landmark, otherwise things get WEIRD
-/obj/effect/landmark/shuttle_import/onShuttleMove()
-	return FALSE
-
 //used by shuttle subsystem to check timers
 /obj/docking_port/mobile/proc/check()
 	check_effects()
-	check_sound()
+	//process_events() if you were to add events to non-escape shuttles, uncomment this
 
 	if(mode == SHUTTLE_IGNITING)
 		check_transit_zone()
 
-	var/time_left = timeLeft(1)
-	if(time_left > 0)
+	if(timeLeft(1) > 0)
 		return
 	// If we can't dock or we don't have a transit slot, wait for 20 ds,
 	// then try again
@@ -891,18 +893,6 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	timer = 0
 	destination = null
 
-/obj/docking_port/mobile/proc/check_sound()
-	var/time_left = timeLeft(1)
-	switch(mode)
-		if(SHUTTLE_IGNITING)
-			if(time_left <= 50 && sound_played != mode)
-				hyperspace_sound(HYPERSPACE_WARMUP, shuttle_areas)
-			if(time_left <= 0)
-				hyperspace_sound(HYPERSPACE_LAUNCH, shuttle_areas)
-		if(SHUTTLE_CALL)
-			if(sound_played != mode && time_left <= HYPERSPACE_END_TIME)
-				hyperspace_sound(HYPERSPACE_END, shuttle_areas)
-
 /obj/docking_port/mobile/proc/check_effects()
 	if(!ripples.len)
 		if((mode == SHUTTLE_CALL) || (mode == SHUTTLE_RECALL))
@@ -910,7 +900,7 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 			if(tl <= SHUTTLE_RIPPLE_TIME)
 				create_ripples(destination, tl)
 
-	var/obj/docking_port/stationary/S0 = docked
+	var/obj/docking_port/stationary/S0 = get_docked()
 	if(istype(S0, /obj/docking_port/stationary/transit) && timeLeft(1) <= PARALLAX_LOOP_TIME)
 		for(var/place in shuttle_areas)
 			var/area/shuttle/shuttle_area = place
@@ -921,15 +911,15 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	for(var/place in shuttle_areas)
 		var/area/shuttle/shuttle_area = place
 		shuttle_area.parallax_movedir = FALSE
-	if(assigned_transit && assigned_transit.assigned_area)
+	if(assigned_transit?.assigned_area)
 		assigned_transit.assigned_area.parallax_movedir = FALSE
 	var/list/L0 = return_ordered_turfs(x, y, z, dir)
 	for (var/thing in L0)
 		var/turf/T = thing
-		if(!shuttle_areas[T?.loc])
+		if(!T || !istype(T.loc, area_type))
 			continue
 		for (var/atom/movable/movable as anything in T)
-			if (length(movable.client_mobs_in_contents))
+			if (movable.client_mobs_in_contents)
 				movable.update_parallax_contents()
 
 /obj/docking_port/mobile/proc/check_transit_zone()
@@ -948,6 +938,20 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 		return
 	time_remaining *= multiple
 	last_timer_length *= multiple
+	setTimer(time_remaining)
+
+/obj/docking_port/mobile/proc/alert_coeff_change(new_coeff)
+	if(isnull(new_coeff))
+		return
+
+	var/time_multiplier = new_coeff / alert_coeff
+	var/time_remaining = timer - world.time
+	if(time_remaining < 0 || !last_timer_length)
+		return
+
+	time_remaining *= time_multiplier
+	last_timer_length *= time_multiplier
+	alert_coeff = new_coeff
 	setTimer(time_remaining)
 
 /obj/docking_port/mobile/proc/invertTimer()
@@ -990,11 +994,13 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 			return "RCH"
 		if(SHUTTLE_PREARRIVAL)
 			return "LDN"
+		if(SHUTTLE_DISABLED)
+			return "DIS"
 	return ""
 
 // returns 5-letter timer string, used by status screens and mob status panel
 /obj/docking_port/mobile/proc/getTimerStr()
-	if(mode == SHUTTLE_STRANDED)
+	if(mode == SHUTTLE_STRANDED || mode == SHUTTLE_DISABLED)
 		return "--:--"
 
 	var/timeleft = timeLeft()
@@ -1005,9 +1011,22 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	else
 		return "00:00"
 
+/**
+ * Gets shuttle location status in a form of string for tgui interfaces
+ */
+/obj/docking_port/mobile/proc/get_status_text_tgui()
+	var/obj/docking_port/stationary/dockedAt = get_docked()
+	var/docked_at = dockedAt?.name || "Unknown"
+	if(!istype(dockedAt, /obj/docking_port/stationary/transit))
+		return docked_at
+	if(timeLeft() > 1 HOURS)
+		return "Hyperspace"
+	else
+		var/obj/docking_port/stationary/dst = (mode == SHUTTLE_RECALL) ? previous : destination
+		return "In transit to [dst?.name || "unknown location"]"
 
 /obj/docking_port/mobile/proc/getStatusText()
-	var/obj/docking_port/stationary/dockedAt = docked
+	var/obj/docking_port/stationary/dockedAt = get_docked()
 	var/docked_at = dockedAt?.name || "unknown"
 	if(istype(dockedAt, /obj/docking_port/stationary/transit))
 		if (timeLeft() > 1 HOURS)
@@ -1024,10 +1043,9 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	else
 		return docked_at
 
-
 /obj/docking_port/mobile/proc/getDbgStatusText()
-	var/obj/docking_port/stationary/dockedAt = docked
-	. = (dockedAt && dockedAt.name) ? dockedAt.name : "unknown"
+	var/obj/docking_port/stationary/dockedAt = get_docked()
+	. = (dockedAt?.name) ? dockedAt.name : "unknown"
 	if(istype(dockedAt, /obj/docking_port/stationary/transit))
 		var/obj/docking_port/stationary/dst
 		if(mode == SHUTTLE_RECALL)
@@ -1035,122 +1053,101 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 		else
 			dst = destination
 		if(dst)
-			. = "(transit to) [dst.name || dst.id]"
+			. = "(transit to) [dst.name || dst.shuttle_id]"
 		else
 			. = "(transit to) nowhere"
 	else if(dockedAt)
-		. = dockedAt.name || dockedAt.id
+		. = dockedAt.name || dockedAt.shuttle_id
 	else
 		. = "unknown"
 
 
 // attempts to locate /obj/machinery/computer/shuttle with matching ID inside the shuttle
-/obj/docking_port/mobile/proc/getControlConsole()
-	for(var/place in shuttle_areas)
-		var/area/shuttle/shuttle_area = place
-		for(var/obj/machinery/computer/shuttle_flight/S in shuttle_area)
-			if(S.shuttleId == id)
-				return S
+/obj/docking_port/mobile/proc/get_control_console()
+	for(var/area/shuttle/shuttle_area as anything in shuttle_areas)
+		var/obj/machinery/computer/shuttle/shuttle_computer = locate(/obj/machinery/computer/shuttle) in shuttle_area
+		if(!shuttle_computer)
+			continue
+		if(shuttle_computer.shuttleId == shuttle_id)
+			return shuttle_computer
 	return null
 
-/obj/docking_port/mobile/proc/hyperspace_sound(phase, list/areas, forced_sound)
-	var/sound/selected_sound = forced_sound
-	if(!selected_sound)
-		switch(phase)
-			if(HYPERSPACE_WARMUP)
-				selected_sound = 'sound/runtime/hyperspace/hyperspace_begin_distance.ogg'
-			if(HYPERSPACE_LAUNCH)
-				selected_sound = 'sound/runtime/hyperspace/hyperspace_progress_distance.ogg'
-			if(HYPERSPACE_END)
-				selected_sound = 'sound/runtime/hyperspace/hyperspace_end_distance.ogg'
+/obj/docking_port/mobile/proc/hyperspace_sound(phase, list/areas)
+	var/selected_sound
+	switch(phase)
+		if(HYPERSPACE_WARMUP)
+			selected_sound = "hyperspace_begin"
+		if(HYPERSPACE_LAUNCH)
+			selected_sound = "hyperspace_progress"
+		if(HYPERSPACE_END)
+			selected_sound = "hyperspace_end"
+		else
+			CRASH("Invalid hyperspace sound phase: [phase]")
 	// This previously was played from each door at max volume, and was one of the worst things I had ever seen.
 	// Now it's instead played from the nearest engine if close, or the first engine in the list if far since it doesn't really matter.
 	// Or a door if for some reason the shuttle has no engine, fuck oh hi daniel fuck it
 	var/range = (engine_coeff * max(width, height))
 	var/long_range = range * 2.5
 	var/atom/distant_source
-	var/list/engines = list()
-	for(var/datum/weakref/engine in engine_list)
-		var/obj/structure/shuttle/engine/real_engine = engine.resolve()
-		if(!real_engine)
-			engine_list -= engine
-			continue
-		engines += real_engine
 
-	if(LAZYLEN(engines))
-		distant_source = engines[1]
+	if(engine_list.len)
+		distant_source = engine_list[1]
 	else
-		for(var/A in areas)
-			distant_source = locate(/obj/machinery/door) in A
+		for(var/our_area in areas)
+			distant_source = locate(/obj/machinery/door) in our_area
 			if(distant_source)
 				break
 
-	if(distant_source)
-		for(var/mob/M as() in SSmobs.clients_by_zlevel[z])
-			var/dist_far = get_dist(M, distant_source)
-			//Cannot hear shuttles from other shuttles
-			if(M.z != z)
-				continue
-			if(dist_far <= long_range && dist_far > range)
-				M.playsound_local(distant_source, selected_sound, 100)
-			else if(dist_far <= range)
-				var/source
-				if(engines.len == 0)
-					source = distant_source
-				else
-					var/closest_dist = 10000
-					for(var/obj/O in engines)
-						var/dist_near = get_dist(M, O)
-						if(dist_near < closest_dist)
-							source = O
-							closest_dist = dist_near
-				M.playsound_local(source, selected_sound, 100)
+	if(!distant_source)
+		return
+	for(var/mob/zlevel_mobs as anything in SSmobs.clients_by_zlevel[z])
+		var/dist_far = get_dist(zlevel_mobs, distant_source)
+		if(dist_far <= long_range && dist_far > range)
+			zlevel_mobs.playsound_local(distant_source, "sound/runtime/hyperspace/[selected_sound]_distance.ogg", 100)
+		else if(dist_far <= range)
+			var/source
+			if(!engine_list.len)
+				source = distant_source
+			else
+				var/closest_dist = 10000
+				for(var/obj/machinery/power/shuttle_engine/engines as anything in engine_list)
+					var/dist_near = get_dist(zlevel_mobs, engines)
+					if(dist_near < closest_dist)
+						source = engines
+						closest_dist = dist_near
+			zlevel_mobs.playsound_local(source, "sound/runtime/hyperspace/[selected_sound].ogg", 100)
 
 // Losing all initial engines should get you 2
 // Adding another set of engines at 0.5 time
 /obj/docking_port/mobile/proc/alter_engines(mod)
-	if(mod == 0)
+	if(!mod)
 		return
 	var/old_coeff = engine_coeff
-	engine_coeff = get_engine_coeff(current_engines,mod)
-	current_engines = max(0,current_engines + mod)
+	engine_coeff = get_engine_coeff(mod)
+	current_engine_power = max(0, current_engine_power + mod)
 	if(in_flight())
 		var/delta_coeff = engine_coeff / old_coeff
 		modTimer(delta_coeff)
 
-/obj/docking_port/mobile/proc/count_engines()
-	. = 0
-	engine_list.Cut()
-	for(var/thing in shuttle_areas)
-		var/area/shuttle/areaInstance = thing
-		for(var/obj/structure/shuttle/engine/E in areaInstance.contents)
-			if(!QDELETED(E))
-				engine_list += WEAKREF(E)
-				. += E.engine_power
-		for(var/obj/machinery/shuttle/engine/E in areaInstance.contents)
-			if(!QDELETED(E))
-				engine_list += E
-				. += E.thruster_active ? 1 : 0
-
 // Double initial engines to get to 0.5 minimum
 // Lose all initial engines to get to 2
 //For 0 engine shuttles like BYOS 5 engines to get to doublespeed
-/obj/docking_port/mobile/proc/get_engine_coeff(current,engine_mod)
-	var/new_value = max(0,current + engine_mod)
-	if(new_value == initial_engines)
+/obj/docking_port/mobile/proc/get_engine_coeff(engine_mod)
+	var/new_value = max(0, current_engine_power + engine_mod)
+	if(new_value == initial_engine_power)
 		return 1
-	if(new_value > initial_engines)
-		var/delta = new_value - initial_engines
+	if(new_value > initial_engine_power)
+		var/delta = new_value - initial_engine_power
 		var/change_per_engine = (1 - ENGINE_COEFF_MIN) / ENGINE_DEFAULT_MAXSPEED_ENGINES // 5 by default
-		if(initial_engines > 0)
-			change_per_engine = (1 - ENGINE_COEFF_MIN) / initial_engines // or however many it had
-		return clamp(1 - delta * change_per_engine,ENGINE_COEFF_MIN,ENGINE_COEFF_MAX)
-	if(new_value < initial_engines)
-		var/delta = initial_engines - new_value
+		if(initial_engine_power > 0)
+			change_per_engine = (1 - ENGINE_COEFF_MIN) / initial_engine_power // or however many it had
+		return clamp(1 - delta * change_per_engine,ENGINE_COEFF_MIN, ENGINE_COEFF_MAX)
+	if(new_value < initial_engine_power)
+		var/delta = initial_engine_power - new_value
 		var/change_per_engine = 1 //doesn't really matter should not be happening for 0 engine shuttles
-		if(initial_engines > 0)
-			change_per_engine = (ENGINE_COEFF_MAX -  1) / initial_engines //just linear drop to max delay
-		return clamp(1 + delta * change_per_engine,ENGINE_COEFF_MIN,ENGINE_COEFF_MAX)
+		if(initial_engine_power > 0)
+			change_per_engine = (ENGINE_COEFF_MAX - 1) / initial_engine_power //just linear drop to max delay
+		return clamp(1 + delta * change_per_engine, ENGINE_COEFF_MIN, ENGINE_COEFF_MAX)
 
 
 /obj/docking_port/mobile/proc/in_flight()
@@ -1159,8 +1156,7 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 			return TRUE
 		if(SHUTTLE_IDLE,SHUTTLE_IGNITING)
 			return FALSE
-		else
-			return FALSE // hmm
+	return FALSE // hmm
 
 /obj/docking_port/mobile/emergency/in_flight()
 	switch(mode)
@@ -1168,9 +1164,7 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 			return TRUE
 		if(SHUTTLE_STRANDED,SHUTTLE_ENDGAME)
 			return FALSE
-		else
-			return ..()
-
+	return ..()
 
 //Called when emergency shuttle leaves the station
 /obj/docking_port/mobile/proc/on_emergency_launch()
@@ -1178,19 +1172,38 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 		launch_status = ENDGAME_LAUNCHED
 		enterTransit()
 
+///Let people know shits about to go down
+/obj/docking_port/mobile/proc/announce_shuttle_events()
+	for(var/datum/shuttle_event/event as anything in event_list)
+		notify_ghosts("The [name] has selected: [event.name]")
+
 /obj/docking_port/mobile/emergency/on_emergency_launch()
 	return
 
 //Called when emergency shuttle docks at centcom
 /obj/docking_port/mobile/proc/on_emergency_dock()
-	//Mapping a new docking point for each ship mappers could potentially want docking with centcom would take up lots of space, just let them keep flying off into the sunset for their greentext
+	// Mapping a new docking point for each ship mappers could potentially want docking with centcom would take up lots of space,
+	// just let them keep flying off "into the sunset" for their greentext.
 	if(launch_status == ENDGAME_LAUNCHED)
 		launch_status = ENDGAME_TRANSIT
 
 /obj/docking_port/mobile/pod/on_emergency_dock()
 	if(launch_status == ENDGAME_LAUNCHED)
-		initiate_docking(SSshuttle.getDock("[id]_away")) //Escape pods dock at centcom
+		initiate_docking(SSshuttle.getDock("[shuttle_id]_away")) //Escape pods dock at centcom
 		mode = SHUTTLE_ENDGAME
 
 /obj/docking_port/mobile/emergency/on_emergency_dock()
 	return
+
+///Process all the shuttle events for every shuttle tick we get
+/obj/docking_port/mobile/proc/process_events()
+	var/list/removees
+	for(var/datum/shuttle_event/event as anything in event_list)
+		if(event.event_process() == SHUTTLE_EVENT_CLEAR) //if we return SHUTTLE_EVENT_CLEAR, we clean them up
+			LAZYADD(removees, event)
+	for(var/item in removees)
+		event_list.Remove(item)
+
+#ifdef TESTING
+#undef DOCKING_PORT_HIGHLIGHT
+#endif

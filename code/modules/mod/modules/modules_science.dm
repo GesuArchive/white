@@ -2,10 +2,10 @@
 
 ///Reagent Scanner - Lets the user scan reagents.
 /obj/item/mod/module/reagent_scanner
-	name = "модуль сканера реагентов"
-	desc = "ММодуль созданный для мониторинга особо опасных химических экспериментов, благодаря возможности сканирования содержимого \
-		ёмкостей и проецировать информацию в удобном для чтения формате на дисплей владельца. \
-		Он не может определить вкус, так что это зависит от вас."
+	name = "MOD reagent scanner module"
+	desc = "A module based off research-oriented Nanotrasen HUDs, this is capable of scanning the contents of \
+		containers and projecting the information in an easy-to-read format on the wearer's display. \
+		It cannot detect flavors, so that's up to you."
 	icon_state = "scanner"
 	module_type = MODULE_TOGGLE
 	complexity = 1
@@ -26,7 +26,7 @@
 	REMOVE_TRAIT(mod.wearer, TRAIT_REAGENT_SCANNER, MOD_TRAIT)
 
 /obj/item/mod/module/reagent_scanner/advanced
-	name = "продвинутый модуль сканера реагентов"
+	name = "MOD advanced reagent scanner module"
 	complexity = 0
 	removable = FALSE
 	var/explosion_detection_dist = 21
@@ -49,16 +49,16 @@
 	devastation_range, heavy_impact_range, light_impact_range, took, orig_dev_range, orig_heavy_range, orig_light_range)
 	SIGNAL_HANDLER
 	var/turf/wearer_turf = get_turf(mod.wearer)
-	if(wearer_turf.z != epicenter.z)
+	if(!is_valid_z_level(wearer_turf, epicenter))
 		return
 	if(get_dist(epicenter, wearer_turf) > explosion_detection_dist)
 		return
-	to_chat(mod.wearer, span_notice("Обнаружен взрыв! Эпицентр: [devastation_range], Внешний: [heavy_impact_range], Волна: [light_impact_range]"))
+	to_chat(mod.wearer, span_notice("Explosion detected! Epicenter: [devastation_range], Outer: [heavy_impact_range], Shock: [light_impact_range]"))
 
 ///Anti-Gravity - Makes the user weightless.
 /obj/item/mod/module/anomaly_locked/antigrav
-	name = "модуль анти-гравитации"
-	desc = "Модуль, использующий ядро гравитационной аномалии, чтобы сделать пользователя практически невесомым."
+	name = "MOD anti-gravity module"
+	desc = "A module that uses a gravitational core to make the user completely weightless."
 	icon_state = "antigrav"
 	module_type = MODULE_TOGGLE
 	complexity = 3
@@ -74,7 +74,6 @@
 	if(mod.wearer.has_gravity())
 		new /obj/effect/temp_visual/mook_dust(get_turf(src))
 	mod.wearer.AddElement(/datum/element/forced_gravity, 0)
-	mod.wearer.update_gravity(mod.wearer.has_gravity())
 	playsound(src, 'sound/effects/gravhit.ogg', 50)
 
 /obj/item/mod/module/anomaly_locked/antigrav/on_deactivation(display_message = TRUE, deleting = FALSE)
@@ -82,7 +81,6 @@
 	if(!.)
 		return
 	mod.wearer.RemoveElement(/datum/element/forced_gravity, 0)
-	mod.wearer.update_gravity(mod.wearer.has_gravity())
 	if(deleting)
 		return
 	if(mod.wearer.has_gravity())
@@ -92,10 +90,13 @@
 /obj/item/mod/module/anomaly_locked/antigrav/prebuilt
 	prebuilt = TRUE
 
+/obj/item/mod/module/anomaly_locked/antigrav/prebuilt/locked
+	core_removable = FALSE
+
 ///Teleporter - Lets the user teleport to a nearby location.
 /obj/item/mod/module/anomaly_locked/teleporter
-	name = "модуль телепорта"
-	desc = "Модуль, использующий ядро блюспейс аномалии, для управляемой телепортации."
+	name = "MOD teleporter module"
+	desc = "A module that uses a bluespace core to let the user transport their particles elsewhere."
 	icon_state = "teleporter"
 	module_type = MODULE_ACTIVE
 	complexity = 3
@@ -111,22 +112,25 @@
 		return
 	var/turf/open/target_turf = get_turf(target)
 	if(!istype(target_turf) || target_turf.is_blocked_turf_ignore_climbable() || !(target_turf in view(mod.wearer)))
-		balloon_alert(mod.wearer, "Неправильная цель!")
+		balloon_alert(mod.wearer, "invalid target!")
 		return
-	balloon_alert(mod.wearer, "Телепортация...")
+	balloon_alert(mod.wearer, "teleporting...")
 	var/matrix/pre_matrix = matrix()
 	pre_matrix.Scale(4, 0.25)
 	var/matrix/post_matrix = matrix()
 	post_matrix.Scale(0.25, 4)
 	animate(mod.wearer, teleport_time, color = COLOR_CYAN, transform = pre_matrix.Multiply(mod.wearer.transform), easing = SINE_EASING|EASE_OUT)
 	if(!do_after(mod.wearer, teleport_time, target = mod))
-		balloon_alert(mod.wearer, "Прервано!")
-		animate(mod.wearer, teleport_time*0.1, color = null, transform = post_matrix.Multiply(mod.wearer.transform), easing = SINE_EASING|EASE_OUT)
+		balloon_alert(mod.wearer, "interrupted!")
+		animate(mod.wearer, teleport_time*0.1, color = null, transform = post_matrix.Multiply(mod.wearer.transform), easing = SINE_EASING|EASE_IN)
 		return
-	animate(mod.wearer, teleport_time*0.1, color = null, transform = post_matrix.Multiply(mod.wearer.transform), easing = SINE_EASING|EASE_OUT)
+	animate(mod.wearer, teleport_time*0.1, color = null, transform = post_matrix.Multiply(mod.wearer.transform), easing = SINE_EASING|EASE_IN)
 	if(!do_teleport(mod.wearer, target_turf, asoundin = 'sound/effects/phasein.ogg'))
 		return
 	drain_power(use_power_cost)
 
 /obj/item/mod/module/anomaly_locked/teleporter/prebuilt
 	prebuilt = TRUE
+
+/obj/item/mod/module/anomaly_locked/teleporter/prebuilt/locked
+	core_removable = FALSE

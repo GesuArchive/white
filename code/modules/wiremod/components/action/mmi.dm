@@ -4,9 +4,11 @@
  * Allows an MMI to be inserted into a shell, allowing it to be linked up. Requires a shell.
  */
 /obj/item/circuit_component/mmi
-	display_name = "MMI"
-	desc = "Компонент, который позволяет поместить MMI внутрь оболочки для отправки исходящих сигналов."
+	display_name = "Man-Machine Interface"
+	desc = "A component that allows MMI to enter shells to send output signals."
 	category = "Action"
+	circuit_flags = CIRCUIT_FLAG_REFUSE_MODULE
+
 	/// The message to send to the MMI in the shell.
 	var/datum/port/input/message
 	/// Sends the current MMI a message
@@ -76,10 +78,10 @@
 
 /obj/item/circuit_component/mmi/register_shell(atom/movable/shell)
 	. = ..()
-	RegisterSignal(shell, COMSIG_PARENT_ATTACKBY, PROC_REF(handle_attack_by))
+	RegisterSignal(shell, COMSIG_ATOM_ATTACKBY, PROC_REF(handle_attack_by))
 
 /obj/item/circuit_component/mmi/unregister_shell(atom/movable/shell)
-	UnregisterSignal(shell, COMSIG_PARENT_ATTACKBY)
+	UnregisterSignal(shell, COMSIG_ATOM_ATTACKBY)
 	remove_current_brain()
 	return ..()
 
@@ -99,7 +101,7 @@
 	if(to_add.brainmob)
 		update_mmi_mob(to_add, null, to_add.brainmob)
 	brain = to_add
-	RegisterSignal(to_add, COMSIG_PARENT_QDELETING, PROC_REF(remove_current_brain))
+	RegisterSignal(to_add, COMSIG_QDELETING, PROC_REF(remove_current_brain))
 	RegisterSignal(to_add, COMSIG_MOVABLE_MOVED, PROC_REF(mmi_moved))
 
 /obj/item/circuit_component/mmi/proc/mmi_moved(atom/movable/mmi)
@@ -116,7 +118,7 @@
 	if(brain.brainmob)
 		update_mmi_mob(brain, brain.brainmob)
 	UnregisterSignal(brain, list(
-		COMSIG_PARENT_QDELETING,
+		COMSIG_QDELETING,
 		COMSIG_MOVABLE_MOVED
 	))
 	if(brain.loc == src)
@@ -147,9 +149,8 @@
 
 	return TRUE
 
-/obj/item/circuit_component/mmi/proc/handle_mmi_attack(mob/living/source, atom/target, list/mods)
+/obj/item/circuit_component/mmi/proc/handle_mmi_attack(mob/living/source, atom/target, list/modifiers)
 	SIGNAL_HANDLER
-	var/list/modifiers = params2list(mods)
 	if(modifiers[RIGHT_CLICK])
 		clicked_atom.set_output(target)
 		secondary_attack.set_output(COMPONENT_SIGNAL)
@@ -163,9 +164,9 @@
 	. = ..()
 	if(HAS_TRAIT(add_to, TRAIT_COMPONENT_MMI))
 		return FALSE
-	ADD_TRAIT(add_to, TRAIT_COMPONENT_MMI, src)
+	ADD_TRAIT(add_to, TRAIT_COMPONENT_MMI, REF(src))
 
 /obj/item/circuit_component/mmi/removed_from(obj/item/integrated_circuit/removed_from)
-	REMOVE_TRAIT(removed_from, TRAIT_COMPONENT_MMI, src)
+	REMOVE_TRAIT(removed_from, TRAIT_COMPONENT_MMI, REF(src))
 	remove_current_brain()
 	return ..()

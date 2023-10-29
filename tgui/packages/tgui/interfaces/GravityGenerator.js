@@ -3,18 +3,12 @@ import { Box, Button, LabeledList, NoticeBox, ProgressBar, Section } from '../co
 import { Window } from '../layouts';
 
 export const GravityGenerator = (props, context) => {
-  const { act, data } = useBackend(context);
-  const { charging_state, operational } = data;
+  const { data } = useBackend(context);
+  const { operational } = data;
   return (
-    <Window width={400} height={148}>
+    <Window width={400} height={155}>
       <Window.Content>
-        {!operational && <NoticeBox>Нет данных</NoticeBox>}
-        {!!operational && charging_state !== 0 && (
-          <NoticeBox danger>ВНИМАНИЕ - Обнаружена радиация</NoticeBox>
-        )}
-        {!!operational && charging_state === 0 && (
-          <NoticeBox success>Радиации не обнаружено</NoticeBox>
-        )}
+        {!operational && <NoticeBox>No data available</NoticeBox>}
         {!!operational && <GravityGeneratorContent />}
       </Window.Content>
     </Window>
@@ -27,16 +21,16 @@ const GravityGeneratorContent = (props, context) => {
   return (
     <Section>
       <LabeledList>
-        <LabeledList.Item label="Рубильник">
+        <LabeledList.Item label="Power">
           <Button
             icon={breaker ? 'power-off' : 'times'}
-            content={breaker ? 'Вкл' : 'Выкл'}
+            content={breaker ? 'On' : 'Off'}
             selected={breaker}
             disabled={!operational}
             onClick={() => act('gentoggle')}
           />
         </LabeledList.Item>
-        <LabeledList.Item label="Гравитация">
+        <LabeledList.Item label="Gravity Charge">
           <ProgressBar
             value={charge_count / 100}
             ranges={{
@@ -46,13 +40,13 @@ const GravityGeneratorContent = (props, context) => {
             }}
           />
         </LabeledList.Item>
-        <LabeledList.Item label="Заряд">
+        <LabeledList.Item label="Charge Mode">
           {charging_state === 0 &&
-            ((on && <Box color="good">Полностью заряжено</Box>) || (
-              <Box color="bad">Не заряжается</Box>
+            ((on && <Box color="good">Fully Charged</Box>) || (
+              <Box color="bad">Not Charging</Box>
             ))}
-          {charging_state === 1 && <Box color="average">Заряжается</Box>}
-          {charging_state === 2 && <Box color="average">Разряжается</Box>}
+          {charging_state === 1 && <Box color="average">Charging</Box>}
+          {charging_state === 2 && <Box color="average">Discharging</Box>}
         </LabeledList.Item>
       </LabeledList>
     </Section>

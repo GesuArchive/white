@@ -9,30 +9,37 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	RADIO_CHANNEL_CENTCOM = RADIO_TOKEN_CENTCOM,
 	RADIO_CHANNEL_SYNDICATE = RADIO_TOKEN_SYNDICATE,
 	RADIO_CHANNEL_SUPPLY = RADIO_TOKEN_SUPPLY,
-	RADIO_CHANNEL_EXPLORATION = RADIO_TOKEN_EXPLORATION,
 	RADIO_CHANNEL_SERVICE = RADIO_TOKEN_SERVICE,
 	MODE_BINARY = MODE_TOKEN_BINARY,
-	RADIO_CHANNEL_AI_PRIVATE = RADIO_TOKEN_AI_PRIVATE,
-	RADIO_CHANNEL_FACTION = RADIO_TOKEN_FACTION,
-	RADIO_CHANNEL_YOHEI = RADIO_TOKEN_YOHEI,
+	RADIO_CHANNEL_AI_PRIVATE = RADIO_TOKEN_AI_PRIVATE
 ))
 
 /obj/item/radio/headset
-	name = "гарнитура"
-	desc = "Обновленный, модульный интерком, который располагается над головой. Принимает ключи шифрования."
+	name = "radio headset"
+	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
 	icon_state = "headset"
 	inhand_icon_state = "headset"
-	worn_icon_state = null
-	custom_materials = list(/datum/material/iron=75)
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	worn_icon_state = "headset"
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 0.75)
 	subspace_transmission = TRUE
 	canhear_range = 0 // can't hear headsets from very far away
 
 	slot_flags = ITEM_SLOT_EARS
-	var/obj/item/encryptionkey/keyslot2 = null
 	dog_fashion = null
+	var/obj/item/encryptionkey/keyslot2 = null
+	/// A list of all languages that this headset allows the user to understand. Populated by language encryption keys.
+	var/list/language_list
+
+	// headset is too small to display overlays
+	overlay_speaker_idle = null
+	overlay_speaker_active = null
+	overlay_mic_idle = null
+	overlay_mic_active = null
 
 /obj/item/radio/headset/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins putting <b>[src.name]</b>'s antenna up [user.ru_ego()] nose! It looks like [user.p_theyre()] trying to give [user.ru_na()]self cancer!"))
+	user.visible_message(span_suicide("[user] begins putting \the [src]'s antenna up [user.p_their()] nose! It looks like [user.p_theyre()] trying to give [user.p_them()]self cancer!"))
 	return TOXLOSS
 
 /obj/item/radio/headset/examine(mob/user)
@@ -40,24 +47,26 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 	if(item_flags & IN_INVENTORY && loc == user)
 		// construction of frequency description
-		var/list/avail_chans = list("[RADIO_KEY_COMMON] для текущей частоты.")
+		var/list/avail_chans = list("Use [RADIO_KEY_COMMON] for the currently tuned frequency")
 		if(translate_binary)
-			avail_chans += "[MODE_TOKEN_BINARY] для [MODE_BINARY]"
+			avail_chans += "use [MODE_TOKEN_BINARY] for [MODE_BINARY]"
 		if(length(channels))
 			for(var/i in 1 to length(channels))
 				if(i == 1)
-					avail_chans += "[MODE_TOKEN_DEPARTMENT] или [GLOB.channel_tokens[channels[i]]] для [lowertext(ru_comms(channels[i]))]"
+					avail_chans += "use [MODE_TOKEN_DEPARTMENT] or [GLOB.channel_tokens[channels[i]]] for [lowertext(channels[i])]"
 				else
-					avail_chans += "[GLOB.channel_tokens[channels[i]]] для [lowertext(ru_comms(channels[i]))]"
-		. += "<hr><span class='notice'>Дисплей показывает следующие частоты:\n[avail_chans.Join("\n")].</span>"
+					avail_chans += "use [GLOB.channel_tokens[channels[i]]] for [lowertext(channels[i])]"
+		. += span_notice("A small screen on the headset displays the following available frequencies:\n[english_list(avail_chans)].")
 
 		if(command)
-			. += "<hr><span class='info'>ПКМ для переключения режима высокой громкости вещания.</span>"
+			. += span_info("Alt-click to toggle the high-volume mode.")
 	else
-		. += "<hr><span class='notice'>На гарнитуре мигает маленький экран, он слишком мал для чтения без удержания или ношения гарнитуры.</span>"
+		. += span_notice("A small screen on the headset flashes, it's too small to read without holding or wearing the headset.")
 
 /obj/item/radio/headset/Initialize(mapload)
 	. = ..()
+	if(ispath(keyslot2))
+		keyslot2 = new keyslot2()
 	set_listening(TRUE)
 	recalculateChannels()
 	possibly_deactivate_in_loc()
@@ -73,264 +82,252 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	possibly_deactivate_in_loc()
 
 /obj/item/radio/headset/Destroy()
-	QDEL_NULL(keyslot2)
+	if(istype(keyslot2))
+		QDEL_NULL(keyslot2)
 	return ..()
 
 /obj/item/radio/headset/ui_data(mob/user)
 	. = ..()
 	.["headset"] = TRUE
 
-/obj/item/radio/headset/syndicate //disguised to look like a normal headset for stealth ops
-	radiosound = 'white/valtos/sounds/radio/syndie.ogg'
+/obj/item/radio/headset/MouseDrop(mob/over, src_location, over_location)
+	var/mob/headset_user = usr
+	if((headset_user == over) && headset_user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+		return attack_self(headset_user)
+	return ..()
 
-/obj/item/radio/headset/syndicate/alt //undisguised bowman with flash protection
-	name = "гарнитура синдиката"
-	desc = "Гарнитура, которая может использоваться для прослушивания всех радиочастот. Защищает уши от светошумовых гранат."
-	icon_state = "syndie_headset"
-	inhand_icon_state = "syndie_headset"
+/// Grants all the languages this headset allows the mob to understand via installed chips.
+/obj/item/radio/headset/proc/grant_headset_languages(mob/grant_to)
+	for(var/language in language_list)
+		grant_to.grant_language(language, language_flags = UNDERSTOOD_LANGUAGE, source = LANGUAGE_RADIOKEY)
 
-/obj/item/radio/headset/syndicate/alt/ComponentInitialize()
+/obj/item/radio/headset/equipped(mob/user, slot, initial)
 	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	if(!(slot_flags & slot))
+		return
 
-/obj/item/radio/headset/syndicate/alt/leader
-	name = "гарнитура лидера команды"
-	command = TRUE
+	grant_headset_languages(user)
+
+/obj/item/radio/headset/dropped(mob/user, silent)
+	. = ..()
+	for(var/language in language_list)
+		user.remove_language(language, language_flags = UNDERSTOOD_LANGUAGE, source = LANGUAGE_RADIOKEY)
+
+/obj/item/radio/headset/syndicate //disguised to look like a normal headset for stealth ops
 
 /obj/item/radio/headset/syndicate/Initialize(mapload)
 	. = ..()
 	make_syndie()
 
-/obj/item/radio/headset/binary
-/obj/item/radio/headset/binary/Initialize(mapload)
+/obj/item/radio/headset/syndicate/alt //undisguised bowman with flash protection
+	name = "syndicate headset"
+	desc = "A syndicate headset that can be used to hear all radio frequencies. Protects ears from flashbangs."
+	icon_state = "syndie_headset"
+	worn_icon_state = "syndie_headset"
+
+/obj/item/radio/headset/syndicate/alt/Initialize(mapload)
 	. = ..()
-	qdel(keyslot)
-	keyslot = new /obj/item/encryptionkey/binary
-	recalculateChannels()
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+
+/obj/item/radio/headset/syndicate/alt/leader
+	name = "team leader headset"
+	command = TRUE
+
+/obj/item/radio/headset/binary
+	keyslot = /obj/item/encryptionkey/binary
 
 /obj/item/radio/headset/headset_sec
-	name = "гарнитура офицера"
-	desc = "Используется вашими элитными силами безопасности."
+	name = "security radio headset"
+	desc = "This is used by your elite security force."
 	icon_state = "sec_headset"
-	keyslot = new /obj/item/encryptionkey/headset_sec
-	radiosound = 'white/valtos/sounds/radio/security.ogg'
+	worn_icon_state = "sec_headset"
+	keyslot = /obj/item/encryptionkey/headset_sec
 
 /obj/item/radio/headset/headset_sec/alt
-	name = "гарнитура-бабочка офицера"
-	desc = "Используется вашими элитными силами безопасности. Защищает уши от светошумовых гранат."
+	name = "security bowman headset"
+	desc = "This is used by your elite security force. Protects ears from flashbangs."
 	icon_state = "sec_headset_alt"
-	inhand_icon_state = "sec_headset_alt"
+	worn_icon_state = "sec_headset_alt"
 
-/obj/item/radio/headset/headset_sec/alt/ComponentInitialize()
+/obj/item/radio/headset/headset_sec/alt/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
 /obj/item/radio/headset/headset_eng
-	name = "инженерная гарнитура"
-	desc = "Когда инженеры хотят поболтать, как девочки."
+	name = "engineering radio headset"
+	desc = "When the engineers wish to chat like girls."
 	icon_state = "eng_headset"
-	keyslot = new /obj/item/encryptionkey/headset_eng
-
-/obj/item/radio/headset/headset_eng_sec
-	name = "гарнитура специалиста"
-	desc = "Гарнитура квалифицированного военного инженера."
-	icon_state = "eng_sec_headset"
-	keyslot = new /obj/item/encryptionkey/headset_eng_sec
-
-/obj/item/radio/headset/headset_eng_sec/alt
-	name = "гарнитура специалиста"
-	desc = "Гарнитура квалифицированного военного инженера. Защищает уши от светошумовых гранат."
-	icon_state = "eng_sec_headset_alt"
-	keyslot = new /obj/item/encryptionkey/headset_eng_sec
-
-/obj/item/radio/headset/headset_eng_sec/alt/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	worn_icon_state = "eng_headset"
+	keyslot = /obj/item/encryptionkey/headset_eng
 
 /obj/item/radio/headset/headset_rob
-	name = "гарнитура роботехника"
-	desc = "Сделано специально для робототехников, которые не могут выбирать между отделами."
+	name = "robotics radio headset"
+	desc = "Made specifically for the roboticists, who cannot decide between departments."
 	icon_state = "rob_headset"
-	keyslot = new /obj/item/encryptionkey/headset_rob
+	worn_icon_state = "rob_headset"
+	keyslot = /obj/item/encryptionkey/headset_rob
 
 /obj/item/radio/headset/headset_med
-	name = "гарнитура медотсека"
-	desc = "Гарнитура для обученного персонала медотсека."
+	name = "medical radio headset"
+	desc = "A headset for the trained staff of the medbay."
 	icon_state = "med_headset"
-	keyslot = new /obj/item/encryptionkey/headset_med
-
-/obj/item/radio/headset/headset_medsec
-	name = "гарнитура полевого медика"
-	desc = "Гарнитура для обученного персонала медотсека. С доступом к каналу охраны."
-	icon_state = "med_headset"
-	keyslot = new /obj/item/encryptionkey/headset_medsec
-
-/obj/item/radio/headset/headset_medsec/alt
-	name = "гарнитура-бабочка полевого медика"
-	desc = "Гарнитура для обученного персонала медотсека. С доступом к каналу охраны. Защищает уши от светошумовых гранат."
-	icon_state = "med_sec_headset_alt"
-	keyslot = new /obj/item/encryptionkey/headset_medsec
-
-/obj/item/radio/headset/headset_medsec/alt/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	worn_icon_state = "med_headset"
+	keyslot = /obj/item/encryptionkey/headset_med
 
 /obj/item/radio/headset/headset_sci
-	name = "научная гарнитура"
-	desc = "Научная гарнитура. Как обычно."
+	name = "science radio headset"
+	desc = "A sciency headset. Like usual."
 	icon_state = "sci_headset"
-	keyslot = new /obj/item/encryptionkey/headset_sci
+	worn_icon_state = "sci_headset"
+	keyslot = /obj/item/encryptionkey/headset_sci
 
 /obj/item/radio/headset/headset_medsci
-	name = "гарнитура мед-исследователя"
-	desc = "Гарнитура, которая является результатом спаривания медицины и науки."
+	name = "medical research radio headset"
+	desc = "A headset that is a result of the mating between medical and science."
 	icon_state = "medsci_headset"
-	keyslot = new /obj/item/encryptionkey/headset_medsci
+	worn_icon_state = "medsci_headset"
+	keyslot = /obj/item/encryptionkey/headset_medsci
 
 /obj/item/radio/headset/headset_srvsec
-	name = "гарнитура закона и порядка"
-	desc = "В гарнитуре системы уголовного правосудия ключ шифрования представляет собой две отдельные, но не менее важные группы. Служба безопасности, которая расследует преступления, и секьюрити, которые предоставляют услуги. Это их связь."
+	name = "law and order headset"
+	desc = "In the criminal justice headset, the encryption key represents two separate but equally important groups. Sec, who investigate crime, and Service, who provide services. These are their comms."
 	icon_state = "srvsec_headset"
-	keyslot = new /obj/item/encryptionkey/headset_srvsec
+	worn_icon_state = "srvsec_headset"
+	keyslot = /obj/item/encryptionkey/headset_srvsec
 
 /obj/item/radio/headset/headset_srvmed
-	name = "psychology headset"
+	name = "service medical headset"
 	desc = "A headset allowing the wearer to communicate with medbay and service."
-	icon_state = "med_headset"
-	keyslot = new /obj/item/encryptionkey/headset_srvmed
+	icon_state = "srv_headset"
+	worn_icon_state = "srv_headset"
+	keyslot = /obj/item/encryptionkey/headset_srvmed
 
 /obj/item/radio/headset/headset_com
-	name = "гарнитура командования"
-	desc = "Гарнитура с доступом к каналу командования."
+	name = "command radio headset"
+	desc = "A headset with a commanding channel."
 	icon_state = "com_headset"
-	keyslot = new /obj/item/encryptionkey/headset_com
+	worn_icon_state = "com_headset"
+	keyslot = /obj/item/encryptionkey/headset_com
 
 /obj/item/radio/headset/heads
 	command = TRUE
 
 /obj/item/radio/headset/heads/captain
-	name = "капитанская гарнитура"
-	desc = "Гарнитура короля или королевы."
+	name = "\proper the captain's headset"
+	desc = "The headset of the king."
 	icon_state = "com_headset"
-	keyslot = new /obj/item/encryptionkey/heads/captain
+	worn_icon_state = "com_headset"
+	keyslot = /obj/item/encryptionkey/heads/captain
 
 /obj/item/radio/headset/heads/captain/alt
-	name = "капитанская гарнитура-бабочка"
-	desc = "Гарнитура босса. Защищает уши от светошумовых гранат."
+	name = "\proper the captain's bowman headset"
+	desc = "The headset of the boss. Protects ears from flashbangs."
 	icon_state = "com_headset_alt"
-	inhand_icon_state = "com_headset_alt"
+	worn_icon_state = "com_headset_alt"
 
-/obj/item/radio/headset/heads/captain/alt/ComponentInitialize()
+/obj/item/radio/headset/heads/captain/alt/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
 /obj/item/radio/headset/heads/rd
-	name = "гарнитура научного руководителя"
-	desc = "Гарнитура того, кто держит общество в движении к технологической сингулярности."
+	name = "\proper the research director's headset"
+	desc = "Headset of the fellow who keeps society marching towards technological singularity."
 	icon_state = "com_headset"
-	keyslot = new /obj/item/encryptionkey/heads/rd
+	worn_icon_state = "com_headset"
+	keyslot = /obj/item/encryptionkey/heads/rd
 
 /obj/item/radio/headset/heads/hos
-	name = "гарнитура главы безопасности"
-	desc = "Гарнитура человека, отвечающего за поддержание порядка и охрану станции."
+	name = "\proper the head of security's headset"
+	desc = "The headset of the man in charge of keeping order and protecting the station."
 	icon_state = "com_headset"
-	keyslot = new /obj/item/encryptionkey/heads/hos
+	worn_icon_state = "com_headset"
+	keyslot = /obj/item/encryptionkey/heads/hos
 
 /obj/item/radio/headset/heads/hos/alt
-	name = "гарнитура-бабочка главы безопасности"
-	desc = "Гарнитура человека, отвечающего за поддержание порядка и охрану станции. Защищает уши от светошумовых гранат."
+	name = "\proper the head of security's bowman headset"
+	desc = "The headset of the man in charge of keeping order and protecting the station. Protects ears from flashbangs."
 	icon_state = "com_headset_alt"
-	inhand_icon_state = "com_headset_alt"
+	worn_icon_state = "com_headset_alt"
 
-/obj/item/radio/headset/heads/hos/ComponentInitialize()
+/obj/item/radio/headset/heads/hos/alt/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
 /obj/item/radio/headset/heads/ce
-	name = "гарнитура старшего инженера"
-	desc = "Гарнитура парня, отвечающего за поддержание станции в рабочем состоянии и неповрежденной."
+	name = "\proper the chief engineer's headset"
+	desc = "The headset of the guy in charge of keeping the station powered and undamaged."
 	icon_state = "com_headset"
-	keyslot = new /obj/item/encryptionkey/heads/ce
+	worn_icon_state = "com_headset"
+	keyslot = /obj/item/encryptionkey/heads/ce
 
 /obj/item/radio/headset/heads/cmo
-	name = "гарнитура главврача"
-	desc = "Гарнитура высококвалифицированного медицинского руководителя."
+	name = "\proper the chief medical officer's headset"
+	desc = "The headset of the highly trained medical chief."
 	icon_state = "com_headset"
-	keyslot = new /obj/item/encryptionkey/heads/cmo
+	worn_icon_state = "com_headset"
+	keyslot = /obj/item/encryptionkey/heads/cmo
 
 /obj/item/radio/headset/heads/hop
-	name = "гарнитура главы персонала"
-	desc = "Гарнитура парня, который однажды станет капитаном."
+	name = "\proper the head of personnel's headset"
+	desc = "The headset of the guy who will one day be captain."
 	icon_state = "com_headset"
-	keyslot = new /obj/item/encryptionkey/heads/hop
+	worn_icon_state = "com_headset"
+	keyslot = /obj/item/encryptionkey/heads/hop
+
+/obj/item/radio/headset/heads/qm
+	name = "\proper the quartermaster's headset"
+	desc = "The headset of the guy who runs the cargo department."
+	icon_state = "com_headset"
+	worn_icon_state = "com_headset"
+	keyslot = /obj/item/encryptionkey/heads/qm
 
 /obj/item/radio/headset/headset_cargo
-	name = "гарнитура снабжения"
-	desc = "Гарнитура, используемая завхозом и его подчиненными."
+	name = "supply radio headset"
+	desc = "A headset used by the QM's slaves."
 	icon_state = "cargo_headset"
-	keyslot = new /obj/item/encryptionkey/headset_cargo
+	worn_icon_state = "cargo_headset"
+	keyslot = /obj/item/encryptionkey/headset_cargo
 
 /obj/item/radio/headset/headset_cargo/mining
-	name = "шахтёрская гарнитура"
-	desc = "Гарнитура, используемая шахтерами."
+	name = "mining radio headset"
+	desc = "Headset used by shaft miners."
 	icon_state = "mine_headset"
-	keyslot = new /obj/item/encryptionkey/headset_mining
-
-/obj/item/radio/headset/headset_quartermaster
-	name = "гарнитура завхоза"
-	desc = "Гарнитура почти знатного господина."
-	icon_state = "cargo_headset"
-	keyslot = new /obj/item/encryptionkey/headset_exp
-	keyslot2 = new /obj/item/encryptionkey/headset_cargo
-
-/obj/item/radio/headset/headset_exploration
-	name = "рейнджерская гарнитура"
-	desc = "Используется рейнджерами не по назначению."
-	icon_state = "exploration_headset"
-	keyslot = new /obj/item/encryptionkey/headset_expteam
+	worn_icon_state = "mine_headset"
+	// "puts the antenna down" while the headset is off
+	overlay_speaker_idle = "headset_up"
+	overlay_mic_idle = "headset_up"
+	keyslot = /obj/item/encryptionkey/headset_mining
 
 /obj/item/radio/headset/headset_srv
-	name = "гарнитура обслуги"
-	desc = "Гарнитура, используемая обслуживающим персоналом, призванная поддерживать станцию полной, счастливой и чистой."
+	name = "service radio headset"
+	desc = "Headset used by the service staff, tasked with keeping the station full, happy and clean."
 	icon_state = "srv_headset"
-	keyslot = new /obj/item/encryptionkey/headset_service
-
-/obj/item/radio/headset/headset_curator
-	name = "гарнитура куратора"
-	desc = "Специальная гарнитура, которая позволяет зачитывать порно прямо в канал рейнджеров."
-	icon_state = "srv_headset"
-	keyslot = new /obj/item/encryptionkey/headset_curator
-
-/obj/item/radio/headset/headset_yohei
-	name = "гарнитура Йохея"
-	desc = "Через это общаются наёмники."
-	icon = 'icons/obj/abductor.dmi'
-	icon_state = "abductor_headset"
-	inhand_icon_state = "abductor_headset"
-	keyslot = new /obj/item/encryptionkey/headset_yohei
+	worn_icon_state = "srv_headset"
+	keyslot = /obj/item/encryptionkey/headset_service
 
 /obj/item/radio/headset/headset_cent
-	name = "гарнитура ЦентКома"
-	desc = "Гарнитура, используемая в высших эшелонах NanoTrasen."
+	name = "\improper CentCom headset"
+	desc = "A headset used by the upper echelons of Nanotrasen."
 	icon_state = "cent_headset"
-	keyslot = new /obj/item/encryptionkey/headset_com
-	keyslot2 = new /obj/item/encryptionkey/headset_cent
+	worn_icon_state = "cent_headset"
+	keyslot = /obj/item/encryptionkey/headset_cent
+	keyslot2 = /obj/item/encryptionkey/headset_com
 
 /obj/item/radio/headset/headset_cent/empty
 	keyslot = null
 	keyslot2 = null
 
 /obj/item/radio/headset/headset_cent/commander
-	keyslot = new /obj/item/encryptionkey/heads/captain
+	keyslot2 = /obj/item/encryptionkey/heads/captain
 
 /obj/item/radio/headset/headset_cent/alt
-	name = "гарнитура-бабочка ЦентКома"
-	desc = "Гарнитура, специально предназначенная для персонала аварийно-спасательных служб. Защищает уши от светошумовых гранат."
+	name = "\improper CentCom bowman headset"
+	desc = "A headset especially for emergency response personnel. Protects ears from flashbangs."
 	icon_state = "cent_headset_alt"
-	inhand_icon_state = "cent_headset_alt"
-	keyslot = null
+	worn_icon_state = "cent_headset_alt"
+	keyslot2 = null
 
-/obj/item/radio/headset/headset_cent/alt/ComponentInitialize()
+/obj/item/radio/headset/headset_cent/alt/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
@@ -344,31 +341,43 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot2 = new /obj/item/encryptionkey/ai
 	command = TRUE
 
+/obj/item/radio/headset/silicon/ai/evil
+	name = "\proper Evil Integrated Subspace Transceiver "
+	keyslot2 = new /obj/item/encryptionkey/ai/evil
+	command = FALSE
+
+/obj/item/radio/headset/silicon/ai/evil/Initialize(mapload)
+	. = ..()
+	make_syndie()
+
+/obj/item/radio/headset/screwdriver_act(mob/living/user, obj/item/tool)
+	user.set_machine(src)
+	if(keyslot || keyslot2)
+		for(var/ch_name in channels)
+			SSradio.remove_object(src, GLOB.radiochannels[ch_name])
+			secure_radio_connections[ch_name] = null
+
+		if(keyslot)
+			user.put_in_hands(keyslot)
+			keyslot = null
+		if(keyslot2)
+			user.put_in_hands(keyslot2)
+			keyslot2 = null
+
+		recalculateChannels()
+		to_chat(user, span_notice("You pop out the encryption keys in the headset."))
+
+	else
+		to_chat(user, span_warning("This headset doesn't have any unique encryption keys! How useless..."))
+	tool.play_tool_sound(src, 10)
+	return TRUE
+
 /obj/item/radio/headset/attackby(obj/item/W, mob/user, params)
 	user.set_machine(src)
 
-	if(W.tool_behaviour == TOOL_SCREWDRIVER)
-		if(keyslot || keyslot2)
-			for(var/ch_name in channels)
-				SSradio.remove_object(src, GLOB.radiochannels[ch_name])
-				secure_radio_connections[ch_name] = null
-
-			if(keyslot)
-				user.put_in_hands(keyslot)
-				keyslot = null
-			if(keyslot2)
-				user.put_in_hands(keyslot2)
-				keyslot2 = null
-
-			recalculateChannels()
-			to_chat(user, span_notice("Вытаскиваю ключи шифрования из гарнитуры."))
-
-		else
-			to_chat(user, span_warning("У этой гарнитуры нет уникальных ключей шифрования! Как бесполезно...."))
-
-	else if(istype(W, /obj/item/encryptionkey))
+	if(istype(W, /obj/item/encryptionkey))
 		if(keyslot && keyslot2)
-			to_chat(user, span_warning("Гарнитура не может держать другой ключ!"))
+			to_chat(user, span_warning("The headset can't hold another key!"))
 			return
 
 		if(!keyslot)
@@ -386,7 +395,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	else
 		return ..()
 
-
 /obj/item/radio/headset/recalculateChannels()
 	. = ..()
 	if(keyslot2)
@@ -398,15 +406,33 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 			translate_binary = TRUE
 		if(keyslot2.syndie)
 			syndie = TRUE
-		if (keyslot2.independent)
+		if(keyslot2.independent)
 			independent = TRUE
 
 		for(var/ch_name in channels)
 			secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
+
+	var/list/old_language_list = language_list?.Copy()
+	language_list = list()
+	if(keyslot?.translated_language)
+		language_list += keyslot.translated_language
+	if(keyslot2?.translated_language)
+		language_list += keyslot2.translated_language
+
+	// If we're equipped on a mob, we should make sure all the languages
+	// learned from our installed key chips are all still accurate
+	var/mob/mob_loc = loc
+	if(istype(mob_loc) && mob_loc.get_item_by_slot(slot_flags) == src)
+		// Remove all the languages we may not be able to know anymore
+		for(var/language in old_language_list)
+			mob_loc.remove_language(language, language_flags = UNDERSTOOD_LANGUAGE, source = LANGUAGE_RADIOKEY)
+
+		// And grant all the languages we definitely should know now
+		grant_headset_languages(mob_loc)
 
 /obj/item/radio/headset/AltClick(mob/living/user)
 	if(!istype(user) || !Adjacent(user) || user.incapacitated())
 		return
 	if (command)
 		use_command = !use_command
-		to_chat(user, span_notice("[use_command ? "Громкоговоритель включен." : "Громкоговоритель выключен."]."))
+		to_chat(user, span_notice("You toggle high-volume mode [use_command ? "on" : "off"]."))

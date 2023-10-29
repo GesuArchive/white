@@ -9,11 +9,15 @@
 	receive_ricochet_chance_mod = 0.6
 	pass_flags_self = PASSSTRUCTURE
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
-	var/broken = 0 //similar to machinery's stat BROKEN
+	armor_type = /datum/armor/obj_structure
+	burning_particles = /particles/smoke/burning
+	var/broken = FALSE
+
+/datum/armor/obj_structure
+	fire = 50
+	acid = 50
 
 /obj/structure/Initialize(mapload)
-	if (!armor)
-		armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)
 	. = ..()
 	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 		QUEUE_SMOOTH(src)
@@ -28,11 +32,6 @@
 		QUEUE_SMOOTH_NEIGHBORS(src)
 	return ..()
 
-/obj/structure/attack_hand(mob/user)
-	. = ..()
-	if(.)
-		return
-
 /obj/structure/ui_act(action, params)
 	add_fingerprint(usr)
 	return ..()
@@ -41,30 +40,29 @@
 	. = ..()
 	if(!(resistance_flags & INDESTRUCTIBLE))
 		if(resistance_flags & ON_FIRE)
-			. += "<hr><span class='warning'>Оно горит!</span>"
+			. += span_warning("It's on fire!")
 		if(broken)
-			. += "<hr><span class='notice'>Оно сломано.</span>"
+			. += span_notice("It appears to be broken.")
 		var/examine_status = examine_status(user)
 		if(examine_status)
-			. += "<hr>"
 			. += examine_status
 
 /obj/structure/proc/examine_status(mob/user) //An overridable proc, mostly for falsewalls.
-	var/healthpercent = (obj_integrity/max_integrity) * 100
+	var/healthpercent = (atom_integrity/max_integrity) * 100
 	switch(healthpercent)
 		if(50 to 99)
-			return  "Виднеются следы царапин."
+			return  "It looks slightly damaged."
 		if(25 to 50)
-			return  "Вмятины видны невооруженным глазом."
+			return  "It appears heavily damaged."
 		if(0 to 25)
 			if(!broken)
-				return span_warning("Кажется эта штука сейчас развалится!")
+				return  span_warning("It's falling apart!")
 
 /obj/structure/rust_heretic_act()
 	take_damage(500, BRUTE, "melee", 1)
 
 /obj/structure/zap_act(power, zap_flags)
 	if(zap_flags & ZAP_OBJ_DAMAGE)
-		take_damage(power/8000, BURN, "energy")
-	power -= power/2000 //walls take a lot out of ya
+		take_damage(power * 1.5625e-7, BURN, "energy")
+	power -= power * 5e-4 //walls take a lot out of ya
 	. = ..()

@@ -3,6 +3,7 @@ import { multiline } from 'common/string';
 import { BlockQuote, Button, Dimmer, Section, Stack } from '../components';
 import { BooleanLike } from 'common/react';
 import { Window } from '../layouts';
+import { ObjectivePrintout, Objective } from './common/Objectives';
 
 const allystyle = {
   fontWeight: 'bold',
@@ -19,13 +20,8 @@ const goalstyle = {
   fontWeight: 'bold',
 };
 
-type Objective = {
-  count: number;
-  name: string;
-  explanation: string;
-};
-
 type Info = {
+  has_codewords: BooleanLike;
   phrases: string;
   responses: string;
   theme: string;
@@ -34,39 +30,23 @@ type Info = {
   intro: string;
   code: string;
   failsafe_code: string;
+  replacement_code: string;
+  replacement_frequency: string;
   has_uplink: BooleanLike;
   uplink_intro: string;
   uplink_unlock_info: string;
   objectives: Objective[];
 };
 
-const ObjectivePrintout = (props, context) => {
-  const { data } = useBackend<Info>(context);
-  const { objectives } = data;
-  return (
-    <Stack vertical>
-      <Stack.Item bold>Your current objectives:</Stack.Item>
-      <Stack.Item>
-        {(!objectives && 'None!') ||
-          objectives.map((objective) => (
-            <Stack.Item key={objective.count}>
-              #{objective.count}: {objective.explanation}
-            </Stack.Item>
-          ))}
-      </Stack.Item>
-    </Stack>
-  );
-};
-
 const IntroductionSection = (props, context) => {
   const { act, data } = useBackend<Info>(context);
-  const { intro } = data;
+  const { intro, objectives } = data;
   return (
     <Section fill title="Intro" scrollable>
       <Stack vertical fill>
         <Stack.Item fontSize="25px">{intro}</Stack.Item>
         <Stack.Item grow>
-          <ObjectivePrintout />
+          <ObjectivePrintout objectives={objectives} />
         </Stack.Item>
       </Stack>
     </Section>
@@ -119,15 +99,34 @@ const EmployerSection = (props, context) => {
 
 const UplinkSection = (props, context) => {
   const { data } = useBackend<Info>(context);
-  const { has_uplink, uplink_intro, uplink_unlock_info, code, failsafe_code } =
-    data;
+  const {
+    has_uplink,
+    uplink_intro,
+    uplink_unlock_info,
+    code,
+    failsafe_code,
+    replacement_code,
+    replacement_frequency,
+  } = data;
   return (
     <Section title="Uplink" mb={!has_uplink && -1}>
       <Stack fill>
         {(!has_uplink && (
           <Dimmer>
-            <Stack.Item fontSize="18px">
-              You were not supplied with an uplink.
+            <Stack.Item fontSize="16px">
+              <Section textAlign="Center">
+                Your uplink is missing or destroyed. <br />
+                Craft a Syndicate Uplink Beacon and then speak
+                <br />
+                <span style={goalstyle}>
+                  <b>{replacement_code}</b>
+                </span>{' '}
+                on frequency{' '}
+                <span style={goalstyle}>
+                  <b>{replacement_frequency}</b>
+                </span>{' '}
+                after synchronizing with the beacon.
+              </Section>
             </Stack.Item>
           </Dimmer>
         )) || (
@@ -135,9 +134,11 @@ const UplinkSection = (props, context) => {
             <Stack.Item bold>
               {uplink_intro}
               <br />
-              <span style={goalstyle}>Code: {code}</span>
+              {code && <span style={goalstyle}>Code: {code}</span>}
               <br />
-              <span style={badstyle}>Failsafe: {failsafe_code}</span>
+              {failsafe_code && (
+                <span style={badstyle}>Failsafe: {failsafe_code}</span>
+              )}
             </Stack.Item>
             <Stack.Divider />
             <Stack.Item mt="1%">
@@ -146,41 +147,72 @@ const UplinkSection = (props, context) => {
           </>
         )}
       </Stack>
+      <br />
+      {(has_uplink && (
+        <Section textAlign="Center">
+          If you lose your uplink, you can craft a Syndicate Uplink Beacon and
+          then speak{' '}
+          <span style={goalstyle}>
+            <b>{replacement_code}</b>
+          </span>{' '}
+          on radio frequency{' '}
+          <span style={goalstyle}>
+            <b>{replacement_frequency}</b>
+          </span>{' '}
+          after synchronizing with the beacon.
+        </Section>
+      )) || (
+        <Section>
+          {' '}
+          <br />
+          <br />
+        </Section>
+      )}
     </Section>
   );
 };
 
 const CodewordsSection = (props, context) => {
   const { data } = useBackend<Info>(context);
-  const { phrases, responses } = data;
+  const { has_codewords, phrases, responses } = data;
   return (
-    <Section title="Codewords">
+    <Section title="Codewords" mb={!has_codewords && -1}>
       <Stack fill>
-        <Stack.Item grow basis={0}>
+        {(!has_codewords && (
           <BlockQuote>
-            The Syndicate have provided you with the following codewords to
-            identify fellow agents. Use the codewords during regular
-            conversation to identify other agents. Proceed with caution,
+            You have not been supplied with codewords. You will have to use
+            alternative methods to find potential allies. Proceed with caution,
             however, as everyone is a potential foe.
-            <span style={badstyle}>
-              &ensp;You have memorized the codewords, allowing you to recognise
-              them when heard.
-            </span>
           </BlockQuote>
-        </Stack.Item>
-        <Stack.Divider mr={1} />
-        <Stack.Item grow basis={0}>
-          <Stack vertical>
-            <Stack.Item>Code Phrases:</Stack.Item>
-            <Stack.Item bold textColor="blue">
-              {phrases}
+        )) || (
+          <>
+            <Stack.Item grow basis={0}>
+              <BlockQuote>
+                Your employer provided you with the following codewords to
+                identify fellow agents. Use the codewords during regular
+                conversation to identify other agents. Proceed with caution,
+                however, as everyone is a potential foe.
+                <span style={badstyle}>
+                  &ensp;You have memorized the codewords, allowing you to
+                  recognise them when heard.
+                </span>
+              </BlockQuote>
             </Stack.Item>
-            <Stack.Item>Code Responses:</Stack.Item>
-            <Stack.Item bold textColor="red">
-              {responses}
+            <Stack.Divider mr={1} />
+            <Stack.Item grow basis={0}>
+              <Stack vertical>
+                <Stack.Item>Code Phrases:</Stack.Item>
+                <Stack.Item bold textColor="blue">
+                  {phrases}
+                </Stack.Item>
+                <Stack.Item>Code Responses:</Stack.Item>
+                <Stack.Item bold textColor="red">
+                  {responses}
+                </Stack.Item>
+              </Stack>
             </Stack.Item>
-          </Stack>
-        </Stack.Item>
+          </>
+        )}
       </Stack>
     </Section>
   );

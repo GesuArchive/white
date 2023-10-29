@@ -8,49 +8,44 @@
 	tech_fluff_string = span_holoparasite("Boot sequence complete. Dextrous combat modules loaded. Holoparasite swarm online.")
 	carp_fluff_string = span_holoparasite("CARP CARP CARP! You caught one! It can hold stuff in its fins, sort of.")
 	miner_fluff_string = span_holoparasite("You encounter... Gold, a malleable constructor.")
+	creator_name = "Dextrous"
+	creator_desc = "Does low damage on attack, but is capable of holding items and storing a single item within it. It will drop items held in its hands when it recalls, but it will retain the stored item."
+	creator_icon = "dextrous"
 	dextrous = TRUE
+	hud_type = /datum/hud/dextrous/guardian
 	held_items = list(null, null)
 	var/obj/item/internal_storage //what we're storing within ourself
 
 /mob/living/simple_animal/hostile/guardian/dextrous/death(gibbed)
-	..()
+	. = ..()
 	if(internal_storage)
 		dropItemToGround(internal_storage)
 
 /mob/living/simple_animal/hostile/guardian/dextrous/examine(mob/user)
-	if(dextrous)
-		. = list("<span class='info'>Это же [icon2html(src)] <b>[src]</b>!\n[desc]<hr>")
-		for(var/obj/item/I in held_items)
-			if(!(I.item_flags & ABSTRACT))
-				. += "\nОно держит [I.get_examine_string(user)] в его [get_held_index_name(get_held_index_of_item(I))]."
-		if(internal_storage && !(internal_storage.item_flags & ABSTRACT))
-			. += "\nЕщё у него есть [internal_storage.get_examine_string(user)] во внутреннем хранилище."
-		. += "</span>"
-	else
-		return ..()
+	. = ..()
+	if(internal_storage && !(internal_storage.item_flags & ABSTRACT))
+		. += span_info("It is holding [internal_storage.get_examine_string(user)] in its internal storage.")
 
-/mob/living/simple_animal/hostile/guardian/dextrous/Recall(forced)
-	if(!summoner || loc == summoner || (cooldown > world.time && !forced))
-		return FALSE
+/mob/living/simple_animal/hostile/guardian/dextrous/recall_effects()
 	drop_all_held_items()
-	return ..() //lose items, then return
 
-/mob/living/simple_animal/hostile/guardian/dextrous/snapback()
-	if(summoner && !(get_dist(get_turf(summoner),get_turf(src)) <= range))
-		drop_all_held_items()
-		..() //lose items, then return
+/mob/living/simple_animal/hostile/guardian/dextrous/check_distance()
+	if(!summoner || get_dist(get_turf(summoner), get_turf(src)) <= range)
+		return
+	drop_all_held_items()
+	..() //lose items, then return
 
 //SLOT HANDLING BULLSHIT FOR INTERNAL STORAGE
-/mob/living/simple_animal/hostile/guardian/dextrous/doUnEquip(obj/item/I, force, newloc, no_move, invdrop = TRUE, silent = FALSE)
+/mob/living/simple_animal/hostile/guardian/dextrous/doUnEquip(obj/item/equipped_item, force, newloc, no_move, invdrop = TRUE, silent = FALSE)
 	if(..())
-		update_inv_hands()
-		if(I == internal_storage)
+		update_held_items()
+		if(equipped_item == internal_storage)
 			internal_storage = null
 			update_inv_internal_storage()
 		return TRUE
 	return FALSE
 
-/mob/living/simple_animal/hostile/guardian/dextrous/can_equip(obj/item/I, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+/mob/living/simple_animal/hostile/guardian/dextrous/can_equip(obj/item/equipped_item, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE)
 	switch(slot)
 		if(ITEM_SLOT_DEX_STORAGE)
 			if(internal_storage)
@@ -68,13 +63,13 @@
 		return ITEM_SLOT_DEX_STORAGE
 	return ..()
 
-/mob/living/simple_animal/hostile/guardian/dextrous/equip_to_slot(obj/item/I, slot)
+/mob/living/simple_animal/hostile/guardian/dextrous/equip_to_slot(obj/item/equipping, slot, initial = FALSE, redraw_mob = FALSE, indirect_action = FALSE)
 	if(!..())
 		return
 
 	switch(slot)
 		if(ITEM_SLOT_DEX_STORAGE)
-			internal_storage = I
+			internal_storage = equipping
 			update_inv_internal_storage()
 		else
 			to_chat(src, span_danger("You are trying to equip this item to an unsupported inventory slot. Report this to a coder!"))
@@ -87,7 +82,7 @@
 
 /mob/living/simple_animal/hostile/guardian/dextrous/proc/update_inv_internal_storage()
 	if(internal_storage && client && hud_used?.hud_shown)
-		internal_storage.screen_loc = hud_used.retro_hud ? UI_ID_RETRO : UI_ID
+		internal_storage.screen_loc = ui_id
 		client.screen += internal_storage
 
 /mob/living/simple_animal/hostile/guardian/dextrous/regenerate_icons()

@@ -1,6 +1,6 @@
-#define BM_SWITCHSTATE_NONE	0
-#define BM_SWITCHSTATE_MODE	1
-#define BM_SWITCHSTATE_DIR	2
+#define BM_SWITCHSTATE_NONE 0
+#define BM_SWITCHSTATE_MODE 1
+#define BM_SWITCHSTATE_DIR 2
 
 /datum/buildmode
 	var/build_dir = SOUTH
@@ -22,9 +22,8 @@
 	// dirswitch UI
 	var/atom/movable/screen/buildmode/bdir/dirbutton
 	var/list/dirswitch_buttons = list()
-
-	var/static/list/dirs = list(NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST)
-	var/dirindex = 5 //south is default
+	/// item preview for selected item
+	var/atom/movable/screen/buildmode/preview_item/preview
 
 /datum/buildmode/New(client/c)
 	mode = new /datum/buildmode_mode/basic(src)
@@ -37,24 +36,6 @@
 	holder.screen += buttons
 	holder.click_intercept = src
 	mode.enter_mode(src)
-	RegisterSignal(holder, COMSIG_MOUSE_SCROLL_ON, PROC_REF(MouseWheelRotate))
-
-
-/datum/buildmode/proc/MouseWheelRotate(source, atom/A, delta_x, delta_y, params)
-	SIGNAL_HANDLER
-	var/delta = round(delta_y/120)
-	var/list/modifiers = params2list(params)
-	if(GLOB.cardinals.Find(dirs[dirindex]) && !modifiers.Find("ctrl"))
-		dirindex += delta
-	dirindex += delta
-
-	if(dirindex < 1)
-		dirindex = dirindex + 8
-	if(dirindex > 8)
-		dirindex = dirindex - 8
-
-	build_dir = dirs[dirindex]
-	dirbutton.update_icon_state()
 
 /datum/buildmode/proc/quit()
 	mode.exit_mode(src)
@@ -64,8 +45,8 @@
 	qdel(src)
 
 /datum/buildmode/Destroy()
-	UnregisterSignal(holder, COMSIG_MOUSE_SCROLL_ON)
 	close_switchstates()
+	close_preview()
 	holder.player_details.post_login_callbacks -= li_cb
 	li_cb = null
 	holder = null
@@ -107,7 +88,7 @@
 		var/y = FLOOR(pos_idx / switch_width, 1)
 		var/atom/movable/screen/buildmode/B = new buttontype(src, thing)
 		// extra .5 for a nice offset look
-		B.screen_loc = "TOP-[(1 + 0.5 + y*1.5)],LEFT+[0.5 + x*1.5]"
+		B.screen_loc = "NORTH-[(1 + 0.5 + y*1.5)],WEST+[0.5 + x*1.5]"
 		buttonslist += B
 		pos_idx++
 
@@ -148,18 +129,49 @@
 	switch_state = BM_SWITCHSTATE_NONE
 	holder.screen -= dirswitch_buttons
 
+/datum/buildmode/proc/preview_selected_item(atom/typepath)
+	close_preview()
+	preview = new /atom/movable/screen/buildmode/preview_item(src)
+	preview.name = initial(typepath.name)
+
+	// Scale the preview if it's bigger than one tile
+	var/mutable_appearance/preview_overlay = new(typepath)
+	var/list/icon_dimensions = get_icon_dimensions(initial(typepath.icon))
+	var/width = icon_dimensions["width"]
+	var/height = icon_dimensions["height"]
+	var/scale = 1
+	if(width > world.icon_size || height > world.icon_size)
+		if(width >= height)
+			scale = world.icon_size / width
+		else
+			scale = world.icon_size / height
+	preview_overlay.transform = preview_overlay.transform.Scale(scale)
+	preview_overlay.appearance_flags |= TILE_BOUND
+	preview_overlay.layer = FLOAT_LAYER
+	preview_overlay.plane = FLOAT_PLANE
+	preview.add_overlay(preview_overlay)
+
+	holder.screen += preview
+
+/datum/buildmode/proc/close_preview()
+	if(isnull(preview))
+		return
+	holder.screen -= preview
+	QDEL_NULL(preview)
+
 /datum/buildmode/proc/change_mode(newmode)
 	mode.exit_mode(src)
 	QDEL_NULL(mode)
 	close_switchstates()
+	close_preview()
 	mode = new newmode(src)
 	mode.enter_mode(src)
-	modebutton.update_icon()
+	modebutton.update_appearance()
 
 /datum/buildmode/proc/change_dir(newdir)
 	build_dir = newdir
 	close_dirswitch()
-	dirbutton.update_icon()
+	dirbutton.update_appearance()
 	return 1
 
 /datum/buildmode/proc/InterceptClickOn(mob/user, params, atom/object)
@@ -174,11 +186,11 @@
 		if(istype(M.client.click_intercept,/datum/buildmode))
 			var/datum/buildmode/B = M.client.click_intercept
 			B.quit()
-			log_admin("[key_name(usr)] has left build mode.")
+			log_admin("[key_name(M)] has left build mode.")
 		else
 			new /datum/buildmode(M.client)
-			message_admins("[key_name_admin(usr)] has entered build mode.")
-			log_admin("[key_name(usr)] has entered build mode.")
+			message_admins("[key_name_admin(M)] has entered build mode.")
+			log_admin("[key_name(M)] has entered build mode.")
 
 #undef BM_SWITCHSTATE_NONE
 #undef BM_SWITCHSTATE_MODE

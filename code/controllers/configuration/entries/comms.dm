@@ -8,6 +8,7 @@
 	key_mode = KEY_MODE_TEXT
 	value_mode = VALUE_MODE_TEXT
 	protection = CONFIG_ENTRY_LOCKED
+	lowercase_key = FALSE // The names of the servers are proper nouns. Also required for the cross_comms_name config to work.
 
 /datum/config_entry/keyed_list/cross_server/ValidateAndSet(str_val)
 	. = ..()
@@ -22,20 +23,5 @@
 
 /datum/config_entry/string/cross_comms_name
 
-/datum/config_entry/string/medal_hub_address
-
-/datum/config_entry/string/medal_hub_password
-	protection = CONFIG_ENTRY_HIDDEN
-
-/datum/config_entry/string/webhook_address
-	protection = CONFIG_ENTRY_HIDDEN
-/datum/config_entry/string/webhook_key
-	protection = CONFIG_ENTRY_HIDDEN
-/datum/config_entry/string/webhook_address_invst
-	protection = CONFIG_ENTRY_HIDDEN
-/datum/config_entry/string/cross_key
-	protection = CONFIG_ENTRY_HIDDEN
 /datum/config_entry/string/cross_comms_network
 	protection = CONFIG_ENTRY_LOCKED
-/datum/config_entry/string/github_auth_key
-	protection = CONFIG_ENTRY_HIDDEN

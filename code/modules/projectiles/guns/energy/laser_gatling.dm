@@ -4,7 +4,7 @@
 /obj/item/minigunpack
 	name = "backpack power source"
 	desc = "The massive external power source for the laser gatling gun."
-	icon = 'icons/obj/guns/minigun.dmi'
+	icon = 'icons/obj/weapons/guns/minigun.dmi'
 	icon_state = "holstered"
 	inhand_icon_state = "backpack"
 	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
@@ -32,11 +32,11 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/item/minigunpack/process(delta_time)
-	overheat = max(0, overheat - heat_diffusion * delta_time)
+/obj/item/minigunpack/process(seconds_per_tick)
+	overheat = max(0, overheat - heat_diffusion * seconds_per_tick)
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/minigunpack/attack_hand(mob/living/carbon/user)
+/obj/item/minigunpack/attack_hand(mob/living/carbon/user, list/modifiers)
 	if(src.loc == user)
 		if(!armed)
 			if(user.get_item_by_slot(ITEM_SLOT_BACK) == src)
@@ -45,8 +45,8 @@
 					armed = FALSE
 					to_chat(user, span_warning("You need a free hand to hold the gun!"))
 					return
-				update_icon()
-				user.update_inv_back()
+				update_appearance()
+				user.update_worn_back()
 		else
 			to_chat(user, span_warning("You are already holding the gun!"))
 	else
@@ -81,11 +81,8 @@
 
 
 /obj/item/minigunpack/update_icon_state()
-	. = ..()
-	if(armed)
-		icon_state = "notholstered"
-	else
-		icon_state = "holstered"
+	icon_state = armed ? "notholstered" : "holstered"
+	return ..()
 
 /obj/item/minigunpack/proc/attach_gun(mob/user)
 	if(!gun)
@@ -96,17 +93,14 @@
 		to_chat(user, span_notice("You attach the [gun.name] to the [name]."))
 	else
 		src.visible_message(span_warning("The [gun.name] snaps back onto the [name]!"))
-	update_icon()
-	user.update_inv_back()
+	update_appearance()
+	user.update_worn_back()
 
 
 /obj/item/gun/energy/minigun
 	name = "laser gatling gun"
 	desc = "An advanced laser cannon with an incredible rate of fire. Requires a bulky backpack power source to use."
-	icon = 'icons/obj/guns/minigun.dmi'
-
-	pickup_sound = 'white/valtos/sounds/lasercock_heavy.wav'
-
+	icon = 'icons/obj/weapons/guns/minigun.dmi'
 	icon_state = "minigun_spin"
 	inhand_icon_state = "minigun"
 	slowdown = 1
@@ -149,7 +143,7 @@
 		to_chat(user, span_warning("The gun's heat sensor locked the trigger to prevent lens damage!"))
 		return
 	..()
-	ammo_pack.overheat += burst_size
+	ammo_pack.overheat++
 	if(ammo_pack.battery)
 		var/totransfer = min(100, ammo_pack.battery.charge)
 		var/transferred = cell.give(totransfer)
@@ -164,6 +158,5 @@
 /obj/item/stock_parts/cell/minigun
 	name = "gatling gun fusion core"
 	desc = "Where did these come from?"
-	icon_state = "h+cell"
 	maxcharge = 500000
 	chargerate = 5000

@@ -1,6 +1,6 @@
 /datum/action/cooldown/alien/hide
-	name = "Спрятаться"
-	desc = "Позволяет спрятаться под столами и некоторыми предметами."
+	name = "Hide"
+	desc = "Allows you to hide beneath tables and certain objects."
 	button_icon_state = "alien_hide"
 	plasma_cost = 0
 	/// The layer we are on while hiding
@@ -10,22 +10,22 @@
 	if(owner.layer == hide_layer)
 		owner.layer = initial(owner.layer)
 		owner.visible_message(
-			span_notice("[owner] медленно поднимается..."),
-			span_noticealien("Я больше не прячусь."),
+			span_notice("[owner] slowly peeks up from the ground..."),
+			span_noticealien("You stop hiding."),
 		)
 
 	else
 		owner.layer = hide_layer
 		owner.visible_message(
-			span_name("[owner] приникает к земле!"),
-			span_noticealien("Я прячусь."),
+			span_name("[owner] scurries to the ground!"),
+			span_noticealien("You are now hiding."),
 		)
 
 	return TRUE
 
 /datum/action/cooldown/alien/larva_evolve
-	name = "Эволюционировать"
-	desc = "Развиться в более совершенную особь."
+	name = "Evolve"
+	desc = "Evolve into a higher alien caste."
 	button_icon_state = "alien_evolve_larva"
 	plasma_cost = 0
 
@@ -53,42 +53,47 @@
 		caste_options = list()
 
 		// This can probably be genericized in the future.
-		var/mob/hunter_path = /mob/living/carbon/alien/humanoid/hunter
+		var/mob/hunter_path = /mob/living/carbon/alien/adult/hunter
 		var/datum/radial_menu_choice/hunter = new()
-		hunter.name = "Охотник"
+		hunter.name = "Hunter"
 		hunter.image  = image(icon = initial(hunter_path.icon), icon_state = initial(hunter_path.icon_state))
-		hunter.info = span_info("Это самый быстрый подвид, задачей которых является добыча новых инкубаторов. Они намного быстрее человека и могут прыгать, однако не намного сильнее дрона.")
+		hunter.info = span_info("Hunters are the most agile caste, tasked with hunting for hosts. \
+			They are faster than a human and can even pounce, but are not much tougher than a drone.")
 
-		caste_options["Охотник"] = hunter
+		caste_options["Hunter"] = hunter
 
-		var/mob/sentinel_path = /mob/living/carbon/alien/humanoid/sentinel
+		var/mob/sentinel_path = /mob/living/carbon/alien/adult/sentinel
 		var/datum/radial_menu_choice/sentinel = new()
-		sentinel.name = "Страж"
+		sentinel.name = "Sentinel"
 		sentinel.image  = image(icon = initial(sentinel_path.icon), icon_state = initial(sentinel_path.icon_state))
-		sentinel.info = span_info("Защитники улья. Более живучие и не такие быстрые как охотники, но способны скрываться в тенях и стрелять нейротоксичной слизью, после чего утаскивать бессознательную жертву в гнездо.")
+		sentinel.info = span_info("Sentinels are tasked with protecting the hive. \
+			With their ranged spit, invisibility, and high health, they make formidable guardians \
+			and acceptable secondhand hunters.")
 
-		caste_options["Страж"] = sentinel
+		caste_options["Sentinel"] = sentinel
 
-		var/mob/drone_path = /mob/living/carbon/alien/humanoid/drone
+		var/mob/drone_path = /mob/living/carbon/alien/adult/drone
 		var/datum/radial_menu_choice/drone = new()
-		drone.name = "Трутень"
+		drone.name = "Drone"
 		drone.image  = image(icon = initial(drone_path.icon), icon_state = initial(drone_path.icon_state))
-		drone.info = span_info("Являются самым слабым и медленным подвидом, однако могут вырасти сначала в преторианца, а затем и в королеву, если ее не существует на тот момент, так же они крайне важны за счет их способности выделять биполярную смолу для строительства и расширения улья.")
+		drone.info = span_info("Drones are the weakest and slowest of the castes, \
+			but can grow into a praetorian and then queen if no queen exists, \
+			and are vital to maintaining a hive with their resin secretion abilities.")
 
-		caste_options["Трутень"] = drone
+		caste_options["Drone"] = drone
 
 	var/alien_caste = show_radial_menu(owner, owner, caste_options, radius = 38, require_near = TRUE, tooltips = TRUE)
-	if(QDELETED(src) || QDELETED(owner) || !IsAvailable() || isnull(alien_caste))
+	if(QDELETED(src) || QDELETED(owner) || !IsAvailable(feedback = TRUE) || isnull(alien_caste))
 		return
 
-	var/mob/living/carbon/alien/humanoid/new_xeno
+	var/mob/living/carbon/alien/adult/new_xeno
 	switch(alien_caste)
-		if("Охотник")
-			new_xeno = new /mob/living/carbon/alien/humanoid/hunter(larva.loc)
-		if("Страж")
-			new_xeno = new /mob/living/carbon/alien/humanoid/sentinel(larva.loc)
-		if("Трутень")
-			new_xeno = new /mob/living/carbon/alien/humanoid/drone(larva.loc)
+		if("Hunter")
+			new_xeno = new /mob/living/carbon/alien/adult/hunter(larva.loc)
+		if("Sentinel")
+			new_xeno = new /mob/living/carbon/alien/adult/sentinel(larva.loc)
+		if("Drone")
+			new_xeno = new /mob/living/carbon/alien/adult/drone(larva.loc)
 		else
 			CRASH("Alien evolve was given an invalid / incorrect alien cast type. Got: [alien_caste]")
 

@@ -13,43 +13,26 @@
 		ui.open()
 
 /datum/crew_manifest/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if (..())
+	. = ..()
+	if(.)
 		return
 
 /datum/crew_manifest/ui_data(mob/user)
-	var/list/positions = list(
-		"Командование" = 0,
-		"Охрана" = 0,
-		"Инженерный" = 0,
-		"Медицинский" = 0,
-		"Научный" = 0,
-		"Снабжение" = 0,
-		"Обслуга" = 0,
-		"Синтетики" = 0,
-		"Гости" = 0
-	)
-	var/list/departments = list(
-		"Командование" = GLOB.command_positions,
-		"Охрана" = GLOB.security_positions,
-		"Инженерный" = GLOB.engineering_positions,
-		"Медицинский" = GLOB.medical_positions,
-		"Научный" = GLOB.science_positions,
-		"Снабжение" = GLOB.supply_positions,
-		"Обслуга" = GLOB.service_positions,
-		"Синтетики" = GLOB.nonhuman_positions,
-		"Гости" = GLOB.scum_positions
-	)
-
-	for(var/job in SSjob.name_occupations)
-		for(var/department in departments)
-			// Check if the job is part of a department using its flag
-			// Will return true for Research Director if the department is Science or Command, for example
-			if(job in departments[department])
-				var/datum/job/job_datum = SSjob.name_occupations[job]
-				// Add open positions to current department
-				positions[department] += (job_datum["total_positions"] - job_datum["current_positions"])
+	var/list/positions = list()
+	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
+		var/open = 0
+		var/list/exceptions = list()
+		for(var/datum/job/job as anything in department.department_jobs)
+			if(job.total_positions == -1)
+				exceptions += job.title
+				continue
+			var/open_slots = job.total_positions - job.current_positions
+			if(open_slots < 1)
+				continue
+			open += open_slots
+		positions[department.department_name] = list("exceptions" = exceptions, "open" = open)
 
 	return list(
-		"manifest" = GLOB.data_core.get_manifest(),
+		"manifest" = GLOB.manifest.get_manifest(),
 		"positions" = positions
 	)

@@ -1,21 +1,29 @@
 import { Loader } from './common/Loader';
 import { InputButtons } from './common/InputButtons';
 import { Button, Input, Section, Stack } from '../components';
+import { useBackend, useLocalState } from '../backend';
 import { KEY_A, KEY_DOWN, KEY_ESCAPE, KEY_ENTER, KEY_UP, KEY_Z } from '../../common/keycodes';
 import { Window } from '../layouts';
-import { useBackend, useLocalState } from '../backend';
 
 type ListInputData = {
-  items: string[];
-  message: string;
   init_value: string;
+  items: string[];
+  large_buttons: boolean;
+  message: string;
   timeout: number;
   title: string;
 };
 
-export const ListInputModal = (_, context) => {
+export const ListInputModal = (props, context) => {
   const { act, data } = useBackend<ListInputData>(context);
-  const { items = [], message, init_value, timeout, title } = data;
+  const {
+    items = [],
+    message = '',
+    init_value,
+    large_buttons,
+    timeout,
+    title,
+  } = data;
   const [selected, setSelected] = useLocalState<number>(
     context,
     'selected',
@@ -66,9 +74,10 @@ export const ListInputModal = (_, context) => {
     setSearchBarVisible(true);
   };
   // User presses a letter key with no searchbar visible
-  const onLetterSearch = (key: String) => {
+  const onLetterSearch = (key: number) => {
+    const keyChar = String.fromCharCode(key);
     const foundItem = items.find((item) => {
-      return item?.toLowerCase().startsWith(key?.toLowerCase());
+      return item?.toLowerCase().startsWith(keyChar?.toLowerCase());
     });
     if (foundItem) {
       const foundIndex = items.indexOf(foundItem);
@@ -94,7 +103,8 @@ export const ListInputModal = (_, context) => {
     item?.toLowerCase().includes(searchQuery.toLowerCase())
   );
   // Dynamically changes the window height based on the message.
-  const windowHeight = 525 + Math.ceil(message?.length / 3);
+  const windowHeight =
+    325 + Math.ceil(message.length / 3) + (large_buttons ? 5 : 0);
   // Grabs the cursor when no search bar is visible.
   if (!searchBarVisible) {
     setTimeout(() => document!.getElementById(selected.toString())?.focus(), 1);
@@ -116,7 +126,7 @@ export const ListInputModal = (_, context) => {
           }
           if (!searchBarVisible && keyCode >= KEY_A && keyCode <= KEY_Z) {
             event.preventDefault();
-            onLetterSearch(event.key);
+            onLetterSearch(keyCode);
           }
           if (keyCode === KEY_ESCAPE) {
             event.preventDefault();
@@ -131,8 +141,8 @@ export const ListInputModal = (_, context) => {
               selected
               tooltip={
                 searchBarVisible
-                  ? 'Режима поиска. Пиши и управляй стрелками для выбора.'
-                  : 'Режим хоткеев. Пиши букву и прыгай к нужному. Enter для выбора.'
+                  ? 'Search Mode. Type to search or use arrow keys to select manually.'
+                  : 'Hotkey Mode. Type a letter to jump to the first match. Enter to select.'
               }
               tooltipPosition="left"
               onClick={() => onSearchBarToggle()}
@@ -179,10 +189,11 @@ const ListDisplay = (props, context) => {
     props;
 
   return (
-    <Section fill noborder scrollable tabIndex={0}>
+    <Section fill scrollable tabIndex={0}>
       {filteredItems.map((item, index) => {
         return (
           <Button
+            color="transparent"
             fluid
             id={index}
             key={index}
@@ -229,7 +240,7 @@ const SearchBar = (props, context) => {
         act('submit', { entry: filteredItems[selected] });
       }}
       onInput={(_, value) => onSearch(value)}
-      placeholder="Поиск..."
+      placeholder="Search..."
       value={searchQuery}
     />
   );

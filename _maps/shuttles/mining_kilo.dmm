@@ -3,7 +3,7 @@
 /turf/template_noop,
 /area/template_noop)
 "b" = (
-/obj/effect/spawner/structure/window/shuttle,
+/obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "c" = (
@@ -13,7 +13,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
 "d" = (
-/obj/machinery/computer/shuttle_flight/mining,
+/obj/machinery/computer/shuttle/mining,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
@@ -29,7 +29,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
 "f" = (
-/obj/item/storage/firstaid/regular,
+/obj/item/storage/medkit/regular,
 /obj/structure/table,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
@@ -76,7 +76,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
 "m" = (
-/obj/machinery/light/small,
+/obj/machinery/light/small/directional/south,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -89,10 +89,8 @@
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/mining/large)
 "o" = (
-/obj/machinery/light/small,
-/obj/item/radio/intercom{
-	pixel_y = -29
-	},
+/obj/machinery/light/small/directional/south,
+/obj/item/radio/intercom/directional/south,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -109,10 +107,7 @@
 	pixel_y = 18
 	},
 /obj/structure/table,
-/obj/machinery/airalarm{
-	dir = 8;
-	pixel_x = 22
-	},
+/obj/machinery/airalarm/directional/east,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
 "q" = (
@@ -124,21 +119,12 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/mining/large)
 "s" = (
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
 /obj/machinery/door/airlock/mining{
 	name = "Mining Shuttle Cockpit"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/turf/open/floor/plasteel/dark,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
 /area/shuttle/mining/large)
 "t" = (
 /obj/item/clothing/suit/hazardvest{
@@ -163,11 +149,11 @@
 	pixel_x = -3;
 	pixel_y = -3
 	},
-/obj/item/clothing/head/hardhat/orange{
+/obj/item/clothing/head/utility/hardhat/orange{
 	name = "protective hat";
 	pixel_y = 9
 	},
-/obj/item/clothing/head/hardhat/orange{
+/obj/item/clothing/head/utility/hardhat/orange{
 	name = "protective hat";
 	pixel_y = 9
 	},
@@ -175,19 +161,14 @@
 /obj/effect/turf_decal/box/corners{
 	dir = 1
 	},
-/obj/machinery/airalarm{
-	dir = 4;
-	pixel_x = -22
-	},
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
 "u" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 4
 	},
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
 "v" = (
@@ -204,8 +185,12 @@
 /obj/effect/turf_decal/box/corners{
 	dir = 1
 	},
-/obj/machinery/light/small{
-	dir = 1
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/mining/large)
+"x" = (
+/obj/effect/turf_decal/box/corners{
+	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
@@ -225,7 +210,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
 "A" = (
@@ -252,11 +236,8 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/mining/large)
 "D" = (
-/obj/machinery/power/engine_capacitor_bank{
-	dir = 1
-	},
-/obj/structure/cable,
-/obj/effect/spawner/structure/window/shuttle,
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "E" = (
@@ -265,10 +246,8 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
 "F" = (
-/obj/machinery/shuttle/engine/ion{
-	dir = 1
-	},
-/turf/open/floor/plating,
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/open/floor/plating/airless,
 /area/shuttle/mining/large)
 "G" = (
 /obj/structure/rack,
@@ -279,7 +258,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "H" = (
@@ -287,7 +265,7 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/mining/large)
 "I" = (
-/obj/machinery/door/airlock/external{
+/obj/machinery/door/airlock/external/ruin{
 	name = "Mining Shuttle External Airlock"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
@@ -300,12 +278,7 @@
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "J" = (
-/obj/machinery/power/apc/highcap{
-	dir = 4;
-	locked = 0;
-	name = "Mining Shuttle APC";
-	pixel_x = 25
-	},
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/turf_decal/bot,
@@ -315,9 +288,7 @@
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "K" = (
-/obj/structure/sign/warning/vacuum/external{
-	pixel_x = 32
-	},
+/obj/structure/sign/warning/vacuum/external/directional/east,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -325,23 +296,21 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/light/small{
-	dir = 8
-	},
+/obj/machinery/light/small/directional/west,
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1
 	},
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "L" = (
-/obj/machinery/door/airlock/external{
+/obj/machinery/door/airlock/external/ruin{
 	name = "Mining Shuttle External Airlock"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
 /obj/docking_port/mobile{
-	id = "mining";
+	shuttle_id = "mining";
 	name = "mining shuttle";
 	port_direction = 2
 	},
@@ -351,7 +320,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 
@@ -374,7 +342,7 @@ f
 l
 r
 t
-B
+x
 G
 D
 F

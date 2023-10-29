@@ -20,6 +20,8 @@ SUBSYSTEM_DEF(assets)
 		transport = newtransport
 	transport.Load()
 
+
+
 /datum/controller/subsystem/assets/Initialize()
 	for(var/type in typesof(/datum/asset))
 		var/datum/asset/A = type

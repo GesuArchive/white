@@ -1,16 +1,35 @@
+/datum/crafting_recipe/gold_horn
+	name = "Golden Bike Horn"
+	result = /obj/item/bikehorn/golden
+	time = 2 SECONDS
+	reqs = list(
+		/obj/item/stack/sheet/mineral/bananium = 5,
+		/obj/item/bikehorn = 1,
+	)
+	category = CAT_TOOLS
+
+/datum/crafting_recipe/bonfire
+	name = "Bonfire"
+	time = 6 SECONDS
+	reqs = list(/obj/item/grown/log = 5)
+	parts = list(/obj/item/grown/log = 5)
+	blacklist = list(/obj/item/grown/log/steel)
+	result = /obj/structure/bonfire
+	category = CAT_TOOLS
+
 /datum/crafting_recipe/boneshovel
-	name = "Зазубренная костяная лопата"
+	name = "Serrated Bone Shovel"
 	always_available = FALSE
 	reqs = list(
 		/obj/item/stack/sheet/bone = 4,
 		/datum/reagent/fuel/oil = 5,
-		/obj/item/shovel/spade = 1,
+		/obj/item/shovel = 1,
 	)
 	result = /obj/item/shovel/serrated
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/lasso
-	name = "Костяное лассо"
+	name = "Bone Lasso"
 	reqs = list(
 		/obj/item/stack/sheet/bone = 1,
 		/obj/item/stack/sheet/sinew = 5,
@@ -18,37 +37,21 @@
 	result = /obj/item/key/lasso
 	category = CAT_TOOLS
 
-/datum/crafting_recipe/ore_sensor
-	name = "Датчик Руды"
-	time = 3 SECONDS
-	reqs = list(
-		/datum/reagent/brimdust = 15,
-		/obj/item/stack/sheet/bone = 1,
-		/obj/item/stack/sheet/sinew = 1,
-	)
-	result = /obj/item/ore_sensor
-	category = CAT_TOOLS
-
-/datum/crafting_recipe/rake //Category resorting incoming
-	name = "Грабли"
-	time = 30
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 5)
-	result = /obj/item/cultivator/rake
-	category = CAT_TOOLS
-
-/datum/crafting_recipe/firebrand
-	name = "Факел"
-	result = /obj/item/match/firebrand
-	time = 100 //Long construction time. Making fire is hard work.
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 2)
-	category = CAT_TOOLS
-
 /datum/crafting_recipe/ipickaxe
-	name = "Самодельная кирка"
+	name = "Improvised Pickaxe"
 	reqs = list(
 		/obj/item/crowbar = 1,
-		/obj/item/kitchen/knife = 1,
+		/obj/item/knife = 1,
 		/obj/item/stack/sticky_tape = 1,
 	)
 	result = /obj/item/pickaxe/improvised
+	category = CAT_TOOLS
+
+/datum/crafting_recipe/bandage
+	name = "Makeshift Bandage"
+	reqs = list(
+		/obj/item/stack/sheet/cloth = 3,
+		/datum/reagent/medicine/c2/libital = 10,
+	)
+	result = /obj/item/stack/medical/bandage/makeshift
 	category = CAT_TOOLS

@@ -3,7 +3,7 @@
 	copy_type = /datum/disease/advance
 
 /datum/disease/advance/cold/New()
-	name = "Риновирус"
+	name = "Cold"
 	symptoms = list(new/datum/symptom/sneeze)
 	..()
 
@@ -12,13 +12,13 @@
 	copy_type = /datum/disease/advance
 
 /datum/disease/advance/flu/New()
-	name = "Грипп"
+	name = "Flu"
 	symptoms = list(new/datum/symptom/cough)
 	..()
 
 //Randomly generated Disease, for virus crates and events
 /datum/disease/advance/random
-	name = "Экспериментальный вирус"
+	name = "Experimental Disease"
 	copy_type = /datum/disease/advance
 
 /datum/disease/advance/random/New(max_symptoms, max_level = 8)
@@ -39,4 +39,4 @@
 			symptoms += S
 	Refresh()
 
-	name = "Образец #[rand(1,10000)]"
+	name = "Sample #[rand(1,10000)]"

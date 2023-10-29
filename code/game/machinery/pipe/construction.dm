@@ -8,13 +8,13 @@ Buildable meters
 //...otherwise construction will stop working
 
 /obj/item/pipe
-	name = "труба"
-	desc = "Труба?"
+	name = "pipe"
+	desc = "A pipe."
 	var/pipe_type
 	var/pipename
 	force = 7
 	throwforce = 7
-	icon = 'icons/obj/atmospherics/pipes/pipe_item.dmi'
+	icon = 'icons/obj/pipes_n_cables/pipe_item.dmi'
 	icon_state = "simple"
 	icon_state_preview = "manifold4w"
 	inhand_icon_state = "buildpipe"
@@ -103,7 +103,18 @@ Buildable meters
 	pixel_y += rand(-5, 5)
 
 	//Flipping handled manually due to custom handling for trinary pipes
-	AddComponent(/datum/component/simple_rotation)
+	AddComponent(/datum/component/simple_rotation, ROTATION_NO_FLIPPING)
+
+	// Only 'normal' pipes
+	if(type != /obj/item/pipe/quaternary)
+		return ..()
+	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/ghettojetpack, /datum/crafting_recipe/pipegun, /datum/crafting_recipe/smoothbore_disabler, /datum/crafting_recipe/improvised_pneumatic_cannon)
+
+	AddComponent(
+		/datum/component/slapcrafting,\
+		slapcraft_recipes = slapcraft_recipe_list,\
+	)
+
 	return ..()
 
 /obj/item/pipe/proc/make_from_existing(obj/machinery/atmospherics/make_from)
@@ -144,8 +155,8 @@ Buildable meters
 		resistance_flags |= FIRE_PROOF | LAVA_PROOF
 
 /obj/item/pipe/verb/flip()
-	set category = "Объект"
-	set name = "Flip Pipe"
+	set category = "Object"
+	set name = "Invert Pipe"
 	set src in view(1)
 
 	if ( usr.incapacitated() )
@@ -234,8 +245,8 @@ Buildable meters
 
 	wrench.play_tool_sound(src)
 	user.visible_message( \
-		"[user] fastens <b>[src.name]</b>.", \
-		span_notice("You fasten <b>[src.name]</b>.") , \
+		"[user] fastens \the [src].", \
+		span_notice("You fasten \the [src]."), \
 		span_hear("You hear ratcheting."))
 
 	qdel(src)
@@ -338,7 +349,7 @@ Buildable meters
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		for(var/i in 1 to 20)
-			C.vomit(0, TRUE, FALSE, 4, FALSE)
+			C.vomit(vomit_flags = (MOB_VOMIT_BLOOD | MOB_VOMIT_HARM), lost_nutrition = 0, distance = 4)
 			if(prob(20))
 				C.spew_organ()
 			sleep(0.5 SECONDS)
@@ -377,7 +388,7 @@ Buildable meters
 /obj/item/pipe_meter
 	name = "meter"
 	desc = "A meter that can be wrenched on pipes, or attached to the floor with screws."
-	icon = 'icons/obj/atmospherics/pipes/pipe_item.dmi'
+	icon = 'icons/obj/pipes_n_cables/pipe_item.dmi'
 	icon_state = "meter"
 	inhand_icon_state = "buildpipe"
 	w_class = WEIGHT_CLASS_BULKY

@@ -1,24 +1,26 @@
 /obj/item/bombcore/miniature/pizza
-	name = "пицца-бомба"
-	desc = "Особая доставка!"
+	name = "pizza bomb"
+	desc = "Special delivery!"
 	icon_state = "pizzabomb_inactive"
-	inhand_icon_state = "eshield0"
+	inhand_icon_state = "eshield"
 	lefthand_file = 'icons/mob/inhands/equipment/shields_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/shields_righthand.dmi'
 
 /obj/item/pizzabox
-	name = "коробка для пиццы"
-	desc = "Коробка, в которой можно хранить пиццу."
+	name = "pizza box"
+	desc = "A box suited for pizzas."
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "pizzabox"
 	base_icon_state = "pizzabox"
 	inhand_icon_state = "pizzabox"
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
-	custom_materials = list(/datum/material/cardboard = 2000)
+	lefthand_file = 'icons/mob/inhands/items/food_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/food_righthand.dmi'
+	custom_materials = list(/datum/material/cardboard =SHEET_MATERIAL_AMOUNT)
 
 	var/open = FALSE
 	var/can_open_on_fall = TRUE //if FALSE, this pizza box will never open if it falls from a stack
+	/// Used so that you can not destroy the infinite pizza box
+	var/foldable = TRUE
 	var/boxtag = ""
 	///Used to make sure artisinal box tags aren't overwritten.
 	var/boxtag_set = FALSE
@@ -40,10 +42,23 @@
 	if(pizza)
 		pizza = new pizza
 	update_appearance()
+	register_context()
 
+/obj/item/pizzabox/proc/register_bomb(new_bomb)
+	bomb = new_bomb
+	if(istype(bomb))
+		RegisterSignal(bomb, COMSIG_QDELETING, PROC_REF(clear_bomb))
+
+/obj/item/pizzabox/proc/clear_bomb(datum/source)
+	SIGNAL_HANDLER
+	if(isnull(bomb))
+		return
+	UnregisterSignal(bomb, COMSIG_QDELETING)
+	bomb = null
 
 /obj/item/pizzabox/Destroy()
 	unprocess()
+	clear_bomb()
 	return ..()
 
 /obj/item/pizzabox/update_desc()
@@ -54,19 +69,19 @@
 		boxtag_set = TRUE
 	if(open)
 		if(pizza)
-			desc = "[desc] Кажется, внутри лежит [pizza]. Используй другую, чтобы достать её."
+			desc = "[desc] It appears to have \a [pizza] inside. Use your other hand to take it out."
 		if(bomb)
-			desc = "[desc] Погоди, что?! ВНУТРИ БОМБА!"
+			desc = "[desc] Wait, what?! It has \a [bomb] inside!"
 			if(bomb_defused)
-				desc = "[desc] Бомба кажется неактивной. Используй другую руку, чтобы активировать её."
+				desc = "[desc] The bomb seems inert. Use your other hand to activate it."
 			if(bomb_active)
-				desc = "[desc] Кажется, она сейчас взорвётся!"
+				desc = "[desc] It looks like it's about to go off!"
 	else
-		var/obj/item/pizzabox/box = boxes.len ? boxes[boxes.len] : src
-		if(boxes.len)
-			desc = "Куча коробок для пиццы. Кажется, их тут [boxes.len + 1]."
+		var/obj/item/pizzabox/box = length(boxes) ? boxes[length(boxes)] : src
+		if(length(boxes))
+			desc = "A pile of boxes suited for pizzas. There appear to be [length(boxes) + 1] boxes in the pile."
 		if(box.boxtag != "")
-			desc = "[desc] [boxes.len ? "на верхней коробке" : "на коробке"] написано: [box.boxtag]"
+			desc = "[desc] The [length(boxes) ? "top box" : "box"]'s tag reads: [box.boxtag]"
 
 /obj/item/pizzabox/update_icon_state()
 	if(!open)
@@ -85,7 +100,7 @@
 			pizza_overlay.pixel_y = -2
 			. += pizza_overlay
 		if(bomb)
-			var/mutable_appearance/bomb_overlay = mutable_appearance(bomb.icon, bomb.icon_state)
+			var/mutable_appearance/bomb_overlay = mutable_appearance(bomb.icon, bomb.icon_state, layer = layer + 0.01)
 			bomb_overlay.pixel_y = 8
 			. += bomb_overlay
 		return
@@ -94,13 +109,13 @@
 	for(var/stacked_box in boxes)
 		box_offset += 3
 		var/obj/item/pizzabox/box = stacked_box
-		var/mutable_appearance/box_overlay = mutable_appearance(box.icon, box.icon_state)
+		var/mutable_appearance/box_overlay = mutable_appearance(box.icon, box.icon_state, layer = layer + (box_offset * 0.01))
 		box_overlay.pixel_y = box_offset
 		. += box_overlay
 
-	var/obj/item/pizzabox/box = LAZYLEN(boxes.len) ? boxes[boxes.len] : src
+	var/obj/item/pizzabox/box = LAZYLEN(length(boxes)) ? boxes[length(boxes)] : src
 	if(box.boxtag != "")
-		var/mutable_appearance/tag_overlay = mutable_appearance(icon, "pizzabox_tag")
+		var/mutable_appearance/tag_overlay = mutable_appearance(icon, "pizzabox_tag", layer = layer + (box_offset * 0.02))
 		tag_overlay.pixel_y = box_offset
 		. += tag_overlay
 
@@ -117,20 +132,24 @@
 		. += M
 
 /obj/item/pizzabox/attack_self(mob/user)
-	if(boxes.len > 0)
+	if(length(boxes) > 0)
 		return
 	open = !open
 	if(open && !bomb_defused)
 		audible_message(span_warning("[icon2html(src, hearers(src))] *beep*"))
 		bomb_active = TRUE
 		START_PROCESSING(SSobj, src)
-	else if(!open && !pizza && !bomb)
-		var/obj/item/stack/sheet/cardboard/cardboard = new /obj/item/stack/sheet/cardboard(user.drop_location())
-		to_chat(user, span_notice("Складываю коробку из под пиццы в картон."))
-		user.put_in_active_hand(cardboard)
-		qdel(src)
-		return
 	update_appearance()
+
+/obj/item/pizzabox/attack_self_secondary(mob/user)
+	if(length(boxes) > 0)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	if(pizza || bomb || !foldable)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	var/obj/item/stack/sheet/cardboard/cardboard = new(user.drop_location())
+	user.put_in_active_hand(cardboard)
+	qdel(src)
+	return SECONDARY_ATTACK_CONTINUE_CHAIN
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/pizzabox/attack_hand(mob/user, list/modifiers)
@@ -139,35 +158,28 @@
 	if(open)
 		if(pizza)
 			user.put_in_hands(pizza)
-			to_chat(user, span_notice("Достаю [pizza] из [src]."))
 			pizza = null
 			update_appearance()
 		else if(bomb)
 			if(wires.is_all_cut() && bomb_defused)
 				user.put_in_hands(bomb)
-				to_chat(user, span_notice("Осторожно извлёкаю [bomb] из [src]."))
-				bomb = null
+				balloon_alert(user, "removed bomb")
+				clear_bomb()
 				update_appearance()
 				return
 			else
-				bomb_timer = input(user, "Изменяю таймер [bomb] с [bomb_timer_min] на [bomb_timer_max].", bomb, bomb_timer) as num|null
-
-				if (isnull(bomb_timer))
+				bomb_timer = tgui_input_number(user, "Set the bomb timer", "Pizza Bomb", bomb_timer, bomb_timer_max, bomb_timer_min)
+				if(!bomb_timer || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 					return
-
-				bomb_timer = clamp(CEILING(bomb_timer, 1), bomb_timer_min, bomb_timer_max)
 				bomb_defused = FALSE
-
 				log_bomber(user, "has trapped a", src, "with [bomb] set to [bomb_timer] seconds")
 				bomb.adminlog = "The [bomb.name] in [src.name] that [key_name(user)] activated has detonated!"
-
-				to_chat(user, span_warning("You trap [src] with [bomb]."))
+				balloon_alert(user, "bomb set")
 				update_appearance()
-	else if(boxes.len)
-		var/obj/item/pizzabox/topbox = boxes[boxes.len]
+	else if(length(boxes))
+		var/obj/item/pizzabox/topbox = boxes[length(boxes)]
 		boxes -= topbox
 		user.put_in_hands(topbox)
-		to_chat(user, span_notice("Достаю верхнюю [name] из кучи."))
 		topbox.update_appearance()
 		update_appearance()
 		user.regenerate_icons()
@@ -183,64 +195,60 @@
 				return
 			boxes += add
 			newbox.boxes.Cut()
-			to_chat(user, span_notice("Кладу [newbox] на [src]!"))
 			newbox.update_appearance()
 			update_appearance()
 			user.regenerate_icons()
-			if(boxes.len >= 5)
-				if(prob(10 * boxes.len))
-					to_chat(user, span_danger("Не могу удержать коробки!"))
+			if(length(boxes) >= 5)
+				if(prob(10 * length(boxes)))
+					user.balloon_alert_to_viewers("oops!")
 					disperse_pizzas()
 				else
-					to_chat(user, span_warning("Коробок становится слишком много!"))
+					balloon_alert(user, "looks unstable...")
 			return
 		else
-			to_chat(user, span_notice("Сначала надо закрыть [open ? src : newbox]!"))
+			balloon_alert(user, "close it first!")
 	else if(istype(I, /obj/item/food/pizza))
 		if(open)
 			if(pizza)
-				to_chat(user, span_warning("В [src] уже лежит [pizza.name]!"))
+				balloon_alert(user, "it's full!")
 				return
 			if(!user.transferItemToLoc(I, src))
 				return
 			pizza = I
-			to_chat(user, span_notice("Кладу [I] в [src]."))
 			update_appearance()
 			return
 	else if(istype(I, /obj/item/bombcore/miniature/pizza))
 		if(open && !bomb)
 			if(!user.transferItemToLoc(I, src))
 				return
-			wires = new /datum/wires/explosive/pizza(src)
-			bomb = I
-			to_chat(user, span_notice("Кладу [I] в [src]. Чики брики..."))
+			set_wires(new /datum/wires/explosive/pizza(src))
+			register_bomb(I)
+			balloon_alert(user, "bomb placed")
 			update_appearance()
 			return
 		else if(bomb)
-			to_chat(user, span_warning("В [src] уже находится бомба!"))
+			balloon_alert(user, "already rigged!")
 	else if(istype(I, /obj/item/pen))
 		if(!open)
-			if(!user.is_literate())
-				to_chat(user, span_notice("Неразборчиво пишу на [src]!"))
+			if(!user.can_write(I))
 				return
-			var/obj/item/pizzabox/box = boxes.len ? boxes[boxes.len] : src
-			box.boxtag += stripped_input(user, "Надпись на [box]:", box, "", 30)
-			if(!user.canUseTopic(src, BE_CLOSE))
+			var/obj/item/pizzabox/box = length(boxes) ? boxes[length(boxes)] : src
+			box.boxtag += tgui_input_text(user, "Write on [box]'s tag:", box, max_length = 30)
+			if(!user.can_perform_action(src))
 				return
-			to_chat(user, span_notice("Пишу на [src] с помощью [I]."))
+			balloon_alert(user, "writing box tag...")
+			boxtag_set = TRUE
 			update_appearance()
 			return
 	else if(is_wire_tool(I))
 		if(wires && bomb)
 			wires.interact(user)
-	else if(istype(I, /obj/item/reagent_containers/food))
-		to_chat(user, span_warning("Это не пицца!"))
 	..()
 
-/obj/item/pizzabox/process(delta_time)
+/obj/item/pizzabox/process(seconds_per_tick)
 	if(bomb_active && !bomb_defused && (bomb_timer > 0))
 		playsound(loc, 'sound/items/timer.ogg', 50, FALSE)
-		bomb_timer -= delta_time
+		bomb_timer -= seconds_per_tick
 	if(bomb_active && !bomb_defused && (bomb_timer <= 0))
 		if(bomb in src)
 			bomb.detonate()
@@ -255,23 +263,23 @@
 
 /obj/item/pizzabox/attack(mob/living/target, mob/living/user, def_zone)
 	. = ..()
-	if(boxes.len >= 3 && prob(25 * boxes.len))
+	if(length(boxes) >= 3 && prob(25 * length(boxes)))
 		disperse_pizzas()
 
 /obj/item/pizzabox/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	if(boxes.len >= 2 && prob(20 * boxes.len))
+	if(length(boxes) >= 2 && prob(20 * length(boxes)))
 		disperse_pizzas()
 
 /obj/item/pizzabox/examine(mob/user)
 	. = ..()
 	if(isobserver(user))
 		if(bomb)
-			. += span_deadsay("В пицце лежит [bomb_defused ? "деактивированная бомба" : "бомба"].")
+			. += span_deadsay("This pizza box contains [bomb_defused ? "an unarmed bomb" : "an armed bomb"].")
 		if(pizza && istype(pizza, /obj/item/food/pizza/margherita/robo))
-			. += span_deadsay("Пицца в этой коробке содержит наномашины.")
+			. += span_deadsay("The pizza in this pizza box contains nanomachines.")
 
 /obj/item/pizzabox/proc/disperse_pizzas()
-	visible_message(span_warning("Пиццы падают и разлетаются по полу!"))
+	visible_message(span_warning("The pizzas fall everywhere!"))
 	for(var/V in boxes)
 		var/obj/item/pizzabox/P = V
 		var/fall_dir = pick(GLOB.alldirs)
@@ -292,21 +300,22 @@
 /obj/item/pizzabox/proc/unprocess()
 	STOP_PROCESSING(SSobj, src)
 	qdel(wires)
-	wires = null
+	set_wires(null)
 	update_appearance()
 
 /obj/item/pizzabox/bomb/Initialize(mapload)
 	. = ..()
 	if(!pizza)
-		var/randompizza = pick(subtypesof(/obj/item/food/pizza))
+		var/randompizza = pick(subtypesof(/obj/item/food/pizza) - /obj/item/food/pizza/flatbread) //also disincludes another base type
 		pizza = new randompizza(src)
-	bomb = new(src)
-	wires = new /datum/wires/explosive/pizza(src)
+		update_appearance()
+	register_bomb(new /obj/item/bombcore/miniature/pizza(src))
+	set_wires(new /datum/wires/explosive/pizza(src))
 
 /obj/item/pizzabox/bomb/armed
 	bomb_timer = 5
 	bomb_defused = FALSE
-	boxtag = "Мясной взрыв!"
+	boxtag = "Meat Explosion"
 	boxtag_set = TRUE
 	pizza = /obj/item/food/pizza/meat
 
@@ -332,7 +341,8 @@
 /obj/item/pizzabox/infinite
 	resistance_flags = FIRE_PROOF | LAVA_PROOF | ACID_PROOF //hard to destroy
 	can_open_on_fall = FALSE
-	boxtag = "Твоя любимая" //used to give it a tag overlay, shouldn't be seen by players
+	foldable = FALSE
+	boxtag = "Your Favourite" //used to give it a tag overlay, shouldn't be seen by players
 	///List of pizzas this box can spawn. Weighted by chance to be someone's favorite.
 	var/list/pizza_types = list(
 		/obj/item/food/pizza/meat = 10,
@@ -353,29 +363,92 @@
 		pizza_preferences = list()
 
 /obj/item/pizzabox/infinite/examine(mob/user)
+	if(!open && ishuman(user))
+		attune_pizza(user) //pizza tag changes based on examiner
 	. = ..()
 	if(isobserver(user))
-		. += "<hr><span class='deadsay'>Эта коробка для пиццы является аномальной и будет производить бесконечное количество пицц.</span>"
+		. += span_deadsay("This pizza box is anomalous, and will produce infinite pizza.")
 
 /obj/item/pizzabox/infinite/attack_self(mob/living/user)
-	QDEL_NULL(pizza)
 	if(ishuman(user))
 		attune_pizza(user)
-		to_chat(user, span_notice("Еще одна пицца внезапно появляется в коробке. Какого хрена?"))
-	. = ..()
+		to_chat(user, span_notice("Another pizza immediately appears in the box, what the hell?"))
+	return ..()
 
-/obj/item/pizzabox/infinite/proc/attune_pizza(mob/living/carbon/human/noms) //tonight on "proc names I never thought I'd type"
-	if(!pizza_preferences[noms.ckey])
-		pizza_preferences[noms.ckey] = pick_weight(pizza_types)
-		if(noms.has_quirk(/datum/quirk/pineapple_liker))
-			pizza_preferences[noms.ckey] = /obj/item/food/pizza/pineapple
-		else if(noms.has_quirk(/datum/quirk/pineapple_hater))
+/obj/item/pizzabox/infinite/proc/attune_pizza(mob/living/carbon/human/nommer) //tonight on "proc names I never thought I'd type"
+	if(!nommer.ckey)
+		return
+
+	//list our ckey and assign it a favourite pizza
+	if(!pizza_preferences[nommer.ckey])
+		if(nommer.has_quirk(/datum/quirk/pineapple_liker))
+			pizza_preferences[nommer.ckey] = /obj/item/food/pizza/pineapple
+		else if(nommer.has_quirk(/datum/quirk/pineapple_hater))
 			var/list/pineapple_pizza_liker = pizza_types.Copy()
 			pineapple_pizza_liker -= /obj/item/food/pizza/pineapple
-			pizza_preferences[noms.ckey] = pick_weight(pineapple_pizza_liker)
-		else if(noms.mind && noms.mind.assigned_role == JOB_BOTANIST)
-			pizza_preferences[noms.ckey] = /obj/item/food/pizza/dank
+			pizza_preferences[nommer.ckey] = pick_weight(pineapple_pizza_liker)
+		else if(nommer.mind?.assigned_role.title == /datum/job/botanist)
+			pizza_preferences[nommer.ckey] = /obj/item/food/pizza/dank
+		else
+			pizza_preferences[nommer.ckey] = pick_weight(pizza_types)
+	if(pizza)
+		//if the pizza isn't our favourite, delete it
+		if(pizza.type != pizza_preferences[nommer.ckey])
+			QDEL_NULL(pizza)
+		else
+			pizza.foodtypes = nommer.get_liked_foodtypes() //make sure it's our favourite
+			return
 
-	var/obj/item/pizza_type = pizza_preferences[noms.ckey]
-	pizza = new pizza_type (src)
-	pizza.foodtypes = noms.dna.species.liked_food //it's our favorite!
+	var/obj/item/food/pizza/favourite_pizza_type = pizza_preferences[nommer.ckey]
+	pizza = new favourite_pizza_type
+	boxtag_set = FALSE
+	update_appearance() //update our boxtag to match our new pizza
+	pizza.foodtypes = nommer.get_liked_foodtypes() //it's our favorite!
+
+///screentips for pizzaboxes
+/obj/item/pizzabox/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	if(!held_item)
+		if(user.get_inactive_held_item() != src)
+			return NONE
+		if(open)
+			if(pizza)
+				context[SCREENTIP_CONTEXT_LMB] = "Remove pizza"
+			else if(bomb && wires.is_all_cut() && bomb_defused)
+				context[SCREENTIP_CONTEXT_LMB] = "Remove bomb"
+		else
+			if(length(boxes) > 0)
+				context[SCREENTIP_CONTEXT_LMB] = "Remove pizza box"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	if(held_item == src)
+		if(length(boxes) > 0)
+			return NONE
+		context[SCREENTIP_CONTEXT_LMB] = open ? "Close" : "Open"
+		if(!pizza && !bomb && foldable)
+			context[SCREENTIP_CONTEXT_RMB] = "Deconstruct"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	if(istype(held_item, /obj/item/pizzabox))
+		if(!open)
+			context[SCREENTIP_CONTEXT_LMB] = "Stack pizza box"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	if(istype(held_item, /obj/item/food/pizza))
+		if(open && !pizza)
+			context[SCREENTIP_CONTEXT_LMB] = "Place pizza"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	if(istype(held_item, /obj/item/pen))
+		if(!open)
+			context[SCREENTIP_CONTEXT_LMB] = "Write boxtag"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	if(istype(held_item, /obj/item/bombcore/miniature/pizza))
+		if(open && !bomb)
+			context[SCREENTIP_CONTEXT_LMB] = "Place bomb"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	if(is_wire_tool(held_item))
+		if(open && bomb)
+			context[SCREENTIP_CONTEXT_LMB] = "Access wires"
+		return CONTEXTUAL_SCREENTIP_SET

@@ -1,25 +1,26 @@
 /datum/round_event_control/processor_overload
-	name = "Событие: Перегрузка процессоров"
+	name = "Processor Overload"
 	typepath = /datum/round_event/processor_overload
-	weight = 55
-	min_players = 5
+	weight = 15
+	min_players = 20
+	category = EVENT_CATEGORY_ENGINEERING
+	description = "Emps the telecomm processors, scrambling radio speech. Might blow up a few."
 
 /datum/round_event/processor_overload
-	announceWhen	= 1
+	announce_when = 1
 
 /datum/round_event/processor_overload/announce(fake)
-	var/alert = pick(
-		"Входящий экзосферный пузырь. Вероятна перегрузка процессоров. Пожалуйста, свяжитесь с*%xp25)`6cq-BZZT",
-		"Входящий экзосферный пузырь. Вероятна перегрузка процес*1eta;c5;'1vВ¬-BZZZT",
-		"Входящий экзосферный пузырь. Вероятна пере#MCi46:5.;@63-BZZZZT",
-		"Входящий экзосферный пу'Fz\\k55_@-BZZZZZT",
-		"Входящий экз:%ВЈ QCbyj^j</.3-BZZZZZZT",
+	var/alert = pick("Exospheric bubble inbound. Processor overload is likely. Please contact you*%xp25)`6cq-BZZT",
+		"Exospheric bubble inbound. Processor overload is likel*1eta;c5;'1v¬-BZZZT",
+		"Exospheric bubble inbound. Processor ov#MCi46:5.;@63-BZZZZT",
+		"Exospheric bubble inbo'Fz\\k55_@-BZZZZZT",
+		"Exospheri:%£ QCbyj^j</.3-BZZZZZZT",
 		"!!hy%;f3l7e,<$^-BZZZZZZZT",
 	)
 
 	for(var/mob/living/silicon/ai/A in GLOB.ai_list)
 	//AIs are always aware of processor overload
-		to_chat(A, "<br><span class='warning'><b>[alert]</b></span><br>")
+		to_chat(A, "<br>[span_warning("<b>[alert]</b>")]<br>")
 
 	// Announce most of the time, but leave a little gap so people don't know
 	// whether it's, say, a tesla zapping tcomms, or some selective

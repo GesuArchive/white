@@ -1,22 +1,23 @@
 //Chameleon causes the owner to slowly become transparent when not moving.
 /datum/mutation/human/chameleon
-	name = "Хамелеон"
-	desc = "Геном изменяющий эпидермис носителя, позволяя ему сливаться окружающим пространством с течением времени."
+	name = "Chameleon"
+	desc = "A genome that causes the holder's skin to become transparent over time."
 	quality = POSITIVE
 	difficulty = 16
-	text_gain_indication = span_notice("Я как будто могу смотреть сквозь свою руку...")
-	text_lose_indication = span_notice("Я более не прозрачен...")
+	text_gain_indication = "<span class='notice'>You feel one with your surroundings.</span>"
+	text_lose_indication = "<span class='notice'>You feel oddly exposed.</span>"
 	instability = 25
+	power_coeff = 1
 
 /datum/mutation/human/chameleon/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
 		return
 	owner.alpha = CHAMELEON_MUTATION_DEFAULT_TRANSPARENCY
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
-	RegisterSignal(owner, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, PROC_REF(on_attack_hand))
+	RegisterSignal(owner, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_attack_hand))
 
-/datum/mutation/human/chameleon/on_life(delta_time, times_fired)
-	owner.alpha = max(owner.alpha - (12.5 * delta_time), 0)
+/datum/mutation/human/chameleon/on_life(seconds_per_tick, times_fired)
+	owner.alpha = max(owner.alpha - (12.5 * (GET_MUTATION_POWER(src)) * seconds_per_tick), 0)
 
 /**
  * Resets the alpha of the host to the chameleon default if they move.
@@ -53,4 +54,4 @@
 	if(..())
 		return
 	owner.alpha = 255
-	UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_HUMAN_EARLY_UNARMED_ATTACK))
+	UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_UNARMED_ATTACK))

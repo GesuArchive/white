@@ -70,7 +70,7 @@
  * change static data.
  */
 /datum/proc/update_static_data_for_all_viewers()
-	for (var/datum/tgui/window as anything in SStgui.open_uis_by_src[REF(src)])
+	for (var/datum/tgui/window as anything in open_uis)
 		window.send_full_update()
 
 /**
@@ -156,7 +156,8 @@
  * Called on a UI's object when the UI is closed, not to be confused with
  * client/verb/uiclose(), which closes the ui window
  */
-/datum/proc/ui_close(mob/user, datum/tgui/tgui)
+/datum/proc/ui_close(mob/user)
+	SIGNAL_HANDLER
 
 /**
  * verb
@@ -217,10 +218,18 @@
 				context = window_id)
 			SStgui.force_close_window(usr, window_id)
 			return TRUE
+
 	// Decode payload
 	var/payload
 	if(href_list["payload"])
-		payload = json_decode(href_list["payload"])
+		var/payload_text = href_list["payload"]
+
+		if (!rustg_json_is_valid(payload_text))
+			log_tgui(usr, "Error: Invalid JSON")
+			return TRUE
+
+		payload = json_decode(payload_text)
+
 	// Pass message to window
 	if(window)
 		window.on_message(type, payload, href_list)

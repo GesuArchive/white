@@ -1,4 +1,4 @@
-/*
+/**
  * Tippable component. For making mobs able to be tipped, like cows and medibots.
  */
 /datum/component/tippable
@@ -16,6 +16,17 @@
 	var/datum/callback/post_tipped_callback
 	/// Callback to additional behavior after being untipped.
 	var/datum/callback/post_untipped_callback
+	/// Callback to any extra roleplay behaviour
+	var/datum/callback/roleplay_callback
+	///The timer given until they untip themselves
+	var/self_untip_timer
+
+	///Should we accept roleplay?
+	var/roleplay_friendly
+	///Have we roleplayed?
+	var/roleplayed = FALSE
+	///List of emotes that will half their untip time
+	var/list/roleplay_emotes
 
 /datum/component/tippable/Initialize(
 	tip_time = 3 SECONDS,
@@ -24,6 +35,9 @@
 	datum/callback/pre_tipped_callback,
 	datum/callback/post_tipped_callback,
 	datum/callback/post_untipped_callback,
+	roleplay_friendly = FALSE,
+	roleplay_emotes,
+	datum/callback/roleplay_callback,
 )
 
 	if(!isliving(parent))
@@ -35,23 +49,27 @@
 	src.pre_tipped_callback = pre_tipped_callback
 	src.post_tipped_callback = post_tipped_callback
 	src.post_untipped_callback = post_untipped_callback
+	src.roleplay_friendly = roleplay_friendly
+	src.roleplay_emotes = roleplay_emotes
+	src.roleplay_callback = roleplay_callback
 
 /datum/component/tippable/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_SECONDARY, PROC_REF(interact_with_tippable))
+	if (roleplay_friendly)
+		RegisterSignal(parent, COMSIG_MOB_EMOTE, PROC_REF(accept_roleplay))
+
 
 /datum/component/tippable/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_SECONDARY)
 
 /datum/component/tippable/Destroy()
-	if(pre_tipped_callback)
-		QDEL_NULL(pre_tipped_callback)
-	if(post_tipped_callback)
-		QDEL_NULL(post_tipped_callback)
-	if(post_untipped_callback)
-		QDEL_NULL(post_untipped_callback)
+	pre_tipped_callback = null
+	post_tipped_callback = null
+	post_untipped_callback = null
+	roleplay_callback = null
 	return ..()
 
-/*
+/**
  * Attempt to interact with [source], either tipping it or helping it up.
  *
  * source - the mob being tipped over
@@ -63,7 +81,7 @@
 	var/mob/living/living_user = user
 	if(DOING_INTERACTION_WITH_TARGET(user, source))
 		return
-	if(istype(living_user) && !living_user.a_intent == INTENT_HARM)
+	if(istype(living_user) && !living_user.combat_mode)
 		return
 
 	if(is_tipped)
@@ -71,9 +89,9 @@
 	else
 		INVOKE_ASYNC(src, PROC_REF(try_tip), source, user)
 
-	return COMPONENT_CANCEL_ATTACK_CHAIN
+	return COMPONENT_SECONDARY_CANCEL_ATTACK_CHAIN
 
-/*
+/**
  * Try to tip over [tipped_mob].
  * If the mob is dead, or optional callback returns a value, or our do-after fails, we don't tip the mob.
  * Otherwise, upon completing of the do_after, tip over the mob.
@@ -82,26 +100,29 @@
  * tipper - the mob tipping the tipped_mob
  */
 /datum/component/tippable/proc/try_tip(mob/living/tipped_mob, mob/tipper)
-	if(tipped_mob.stat != CONSCIOUS)
+	if(tipped_mob.stat != CONSCIOUS && !HAS_TRAIT(tipped_mob, TRAIT_FORCED_STANDING))
 		return
 
 	if(pre_tipped_callback?.Invoke(tipper))
 		return
 
 	if(tip_time > 0)
-		to_chat(tipper, span_warning("Начинаю переворачивать [tipped_mob]..."))
+		to_chat(tipper, span_warning("You begin tipping over [tipped_mob]..."))
 		tipped_mob.visible_message(
-			span_warning("[tipper] начинает переворачивать [tipped_mob]."),
-			span_userdanger("[tipper] начинает меня переворачивать!"),
+			span_warning("[tipper] begins tipping over [tipped_mob]."),
+			span_userdanger("[tipper] begins tipping you over!"),
 			ignored_mobs = tipper
 		)
 
 		if(!do_after(tipper, tip_time, target = tipped_mob))
-			to_chat(tipper, span_danger("Не удалось перевернуть [tipped_mob]."))
+			if(!isnull(tipped_mob.client))
+				tipped_mob.log_message("was attempted to tip over by [key_name(tipper)]", LOG_VICTIM, log_globally = FALSE)
+				tipper.log_message("failed to tip over [key_name(tipped_mob)]", LOG_ATTACK)
+			to_chat(tipper, span_danger("You fail to tip over [tipped_mob]."))
 			return
 	do_tip(tipped_mob, tipper)
 
-/*
+/**
  * Actually tip over the mob, setting it to tipped.
  * Also invoking any callbacks we have, with the tipper as the argument,
  * and set a timer to right our self-right our tipped mob if we can.
@@ -112,11 +133,16 @@
 /datum/component/tippable/proc/do_tip(mob/living/tipped_mob, mob/tipper)
 	if(QDELETED(tipped_mob))
 		CRASH("Tippable component: do_tip() called with QDELETED tipped_mob!")
+	if (is_tipped) // sanity check in case multiple people try to tip at the same time
+		return
 
-	to_chat(tipper, span_warning("Переворачиваю [tipped_mob]."))
+	to_chat(tipper, span_warning("You tip over [tipped_mob]."))
+	if (!isnull(tipped_mob.client))
+		tipped_mob.log_message("has been tipped over by [key_name(tipper)].", LOG_ATTACK)
+		tipper.log_message("has tipped over [key_name(tipped_mob)].", LOG_ATTACK)
 	tipped_mob.visible_message(
-		span_warning("[tipper] переворачивает [tipped_mob]."),
-		span_userdanger("[tipper] переворачивает меня!"),
+		span_warning("[tipper] tips over [tipped_mob]."),
+		span_userdanger("You are tipped over by [tipper]!"),
 		ignored_mobs = tipper
 		)
 
@@ -127,9 +153,9 @@
 	else if(self_right_time <= 0)
 		right_self(tipped_mob)
 	else
-		addtimer(CALLBACK(src, PROC_REF(right_self), tipped_mob), self_right_time)
+		self_untip_timer = addtimer(CALLBACK(src, PROC_REF(right_self), tipped_mob), self_right_time, TIMER_UNIQUE | TIMER_STOPPABLE)
 
-/*
+/**
  * Try to untip a mob that has been tipped.
  * After a do-after is completed, we untip the mob.
  *
@@ -138,20 +164,20 @@
  */
 /datum/component/tippable/proc/try_untip(mob/living/tipped_mob, mob/untipper)
 	if(untip_time > 0)
-		to_chat(untipper, span_notice("Начинаю ставить на место [tipped_mob]..."))
+		to_chat(untipper, span_notice("You begin righting [tipped_mob]..."))
 		tipped_mob.visible_message(
-			span_notice("[untipper] начинает ставить на место [tipped_mob]."),
-			span_notice("[untipper] начинает ставить меня на место."),
+			span_notice("[untipper] begins righting [tipped_mob]."),
+			span_notice("[untipper] begins righting you."),
 			ignored_mobs = untipper
 		)
 
 		if(!do_after(untipper, untip_time, target = tipped_mob))
-			to_chat(untipper, span_warning("Не вышло поставить на место [tipped_mob]."))
+			to_chat(untipper, span_warning("You fail to right [tipped_mob]."))
 			return
 
 	do_untip(tipped_mob, untipper)
 
-/*
+/**
  * Actually untip over the mob, setting it to untipped.
  * Also invoke any untip callbacks we have, with the untipper as the argument.
  *
@@ -161,18 +187,22 @@
 /datum/component/tippable/proc/do_untip(mob/living/tipped_mob, mob/untipper)
 	if(QDELETED(tipped_mob))
 		return
+	if (!is_tipped) // sanity check in case multiple people try to untip at the same time
+		return
 
-	to_chat(untipper, span_notice("Ставлю на место [tipped_mob]."))
+	to_chat(untipper, span_notice("You right [tipped_mob]."))
 	tipped_mob.visible_message(
-		span_notice("[untipper] ставит на место [tipped_mob]."),
-		span_notice("[untipper] ставит меня на место!"),
+		span_notice("[untipper] rights [tipped_mob]."),
+		span_notice("You are righted by [untipper]!"),
 		ignored_mobs = untipper
 		)
 
+	if(self_untip_timer)
+		deltimer(self_untip_timer)
 	set_tipped_status(tipped_mob, FALSE)
 	post_untipped_callback?.Invoke(untipper)
 
-/*
+/**
  * Proc called after a timer to have a tipped mob un-tip itself after a certain length of time.
  * Sets our mob to untipped and invokes the untipped callback without any arguments if we have one.
  *
@@ -186,11 +216,11 @@
 	post_untipped_callback?.Invoke()
 
 	tipped_mob.visible_message(
-		span_notice("[tipped_mob] переворачивается сам по себе."),
-		span_notice("Переворачиваюсь.")
+		span_notice("[tipped_mob] rights itself."),
+		span_notice("You right yourself.")
 		)
 
-/*
+/**
  * Toggles our tipped status between tipped or untipped (TRUE or FALSE)
  * also handles rotating our mob and adding immobilization traits
  *
@@ -205,3 +235,25 @@
 	else
 		tipped_mob.transform = turn(tipped_mob.transform, -180)
 		REMOVE_TRAIT(tipped_mob, TRAIT_IMMOBILIZED, TIPPED_OVER)
+
+/**
+ * Accepts "roleplay" in the form of emotes, which removes a quarter of the remaining time left to untip ourself.
+ *
+ * Arguments:
+ * * mob/living/user - The tipped mob
+ * * datum/emote/emote - The emote used by the mob
+ */
+/datum/component/tippable/proc/accept_roleplay(mob/living/user, datum/emote/emote)
+	SIGNAL_HANDLER
+
+	if (!is_tipped)
+		return
+	if (roleplayed)
+		return
+	if (!is_type_in_list(emote, roleplay_emotes))
+		return
+	var/time_left = timeleft(self_untip_timer)
+	deltimer(self_untip_timer)
+	self_untip_timer = addtimer(CALLBACK(src, PROC_REF(right_self), user), time_left * 0.75, TIMER_UNIQUE | TIMER_STOPPABLE)
+	roleplayed = TRUE
+	roleplay_callback?.Invoke(user)

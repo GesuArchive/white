@@ -10,17 +10,17 @@
 
 // delays for the different stages of the box's state, the visuals, and the audio
 /// How long the box takes to decide what the prize is
-#define MBOX_DURATION_CHOOSING 5 SECONDS
+#define MBOX_DURATION_CHOOSING (5 SECONDS)
 /// How long the box takes to start expiring the offer, though it's still valid until MBOX_DURATION_EXPIRING finishes. Timed to the sound clips
-#define MBOX_DURATION_PRESENTING 3.5 SECONDS
+#define MBOX_DURATION_PRESENTING (3.5 SECONDS)
 /// How long the box takes to start lowering the prize back into itself. When this finishes, the prize is gone
-#define MBOX_DURATION_EXPIRING 4.5 SECONDS
+#define MBOX_DURATION_EXPIRING (4.5 SECONDS)
 /// How long after the box closes until it can go again
-#define MBOX_DURATION_STANDBY 2.7 SECONDS
+#define MBOX_DURATION_STANDBY (2.7 SECONDS)
 
 GLOBAL_LIST_INIT(mystery_box_guns, list(
 	/obj/item/gun/energy/lasercannon,
-	/obj/item/gun/energy/kinetic_accelerator/crossbow/large,
+	/obj/item/gun/energy/recharge/ebow/large,
 	/obj/item/gun/energy/e_gun,
 	/obj/item/gun/energy/e_gun/advtaser,
 	/obj/item/gun/energy/e_gun/nuclear,
@@ -30,7 +30,7 @@ GLOBAL_LIST_INIT(mystery_box_guns, list(
 	/obj/item/gun/energy/laser/captain,
 	/obj/item/gun/energy/laser/scatter,
 	/obj/item/gun/energy/temperature,
-	/obj/item/gun/ballistic/revolver/detective,
+	/obj/item/gun/ballistic/revolver/c38/detective,
 	/obj/item/gun/ballistic/revolver/mateba,
 	/obj/item/gun/ballistic/automatic/pistol/deagle/camo,
 	/obj/item/gun/ballistic/automatic/pistol/suppressed,
@@ -47,7 +47,7 @@ GLOBAL_LIST_INIT(mystery_box_guns, list(
 	/obj/item/gun/ballistic/automatic/m90,
 	/obj/item/gun/ballistic/automatic/tommygun,
 	/obj/item/gun/ballistic/automatic/wt550,
-	/obj/item/gun/ballistic/automatic/sniper_rifle,
+	/obj/item/gun/ballistic/rifle/sniper_rifle,
 	/obj/item/gun/ballistic/rifle/boltaction,
 ))
 
@@ -58,8 +58,8 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 	/obj/item/shield/riot/flash,
 	/obj/item/grenade/stingbang/mega,
 	/obj/item/storage/belt/sabre,
-	/obj/item/kitchen/knife/combat,
-	/obj/item/melee/baton/loaded,
+	/obj/item/knife/combat,
+	/obj/item/melee/baton/security/loaded,
 	/obj/item/reagent_containers/hypospray/combat,
 	/obj/item/defibrillator/compact/combat/loaded/nanotrasen,
 	/obj/item/melee/energy/sword/saber,
@@ -69,9 +69,9 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 
 
 /obj/structure/mystery_box
-	name = "загадочная коробка"
-	desc = "Удивительная."
-	icon = 'icons/obj/crates.dmi'
+	name = "mystery box"
+	desc = "A wooden crate that seems equally magical and mysterious, capable of granting the user all kinds of different pieces of gear."
+	icon = 'icons/obj/storage/crates.dmi'
 	icon_state = "wooden"
 	pixel_y = -4
 	anchored = TRUE
@@ -97,10 +97,18 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 	var/list/valid_types
 	/// If the prize is a ballistic gun with an external magazine, should we grant the user a spare mag?
 	var/grant_extra_mag = TRUE
+	/// Stores the current sound channel we're using so we can cut off our own sounds as needed. Randomized after each roll
+	var/current_sound_channel
 
 /obj/structure/mystery_box/Initialize(mapload)
 	. = ..()
 	generate_valid_types()
+
+/obj/structure/mystery_box/Destroy()
+	QDEL_NULL(presented_item)
+	if(current_sound_channel)
+		SSsounds.free_sound_channel(current_sound_channel)
+	return ..()
 
 /obj/structure/mystery_box/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
@@ -134,12 +142,13 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 	update_icon_state()
 	presented_item = new(loc)
 	presented_item.start_animation(src)
-	playsound(src, open_sound, 80, FALSE, channel = CHANNEL_MBOX)
+	current_sound_channel = SSsounds.reserve_sound_channel(src)
+	playsound(src, open_sound, 70, FALSE, channel = current_sound_channel, falloff_exponent = 10)
 	playsound(src, crate_open_sound, 80)
 
 /// The box has finished choosing, mark it as available for grabbing
 /obj/structure/mystery_box/proc/present_weapon()
-	visible_message(span_notice("<b>[capitalize(src)]</b> представляет <b>[presented_item]</b>!"), vision_distance = COMBAT_MESSAGE_RANGE)
+	visible_message(span_notice("[src] presents [presented_item]!"), vision_distance = COMBAT_MESSAGE_RANGE)
 	box_state = MYSTERY_BOX_PRESENTING
 	box_expire_timer = addtimer(CALLBACK(src, PROC_REF(start_expire_offer)), MBOX_DURATION_PRESENTING, TIMER_STOPPABLE)
 
@@ -162,8 +171,10 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 
 /// The cooldown between activations has finished, shake to show that
 /obj/structure/mystery_box/proc/ready_again()
+	SSsounds.free_sound_channel(current_sound_channel)
+	current_sound_channel = null
 	box_state = MYSTERY_BOX_STANDBY
-	Shake(10, 0, 0.5 SECONDS)
+	Shake(3, 0, 0.5 SECONDS)
 
 /// Someone attacked the box with an empty hand, spawn the shown prize and give it to them, then close the box
 /obj/structure/mystery_box/proc/grant_weapon(mob/living/user)
@@ -176,22 +187,22 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 		if(grant_extra_mag && istype(instantiated_gun, /obj/item/gun/ballistic))
 			var/obj/item/gun/ballistic/instantiated_ballistic = instantiated_gun
 			if(!instantiated_ballistic.internal_magazine)
-				var/obj/item/ammo_box/magazine/extra_mag = new instantiated_ballistic.mag_type(loc)
+				var/obj/item/ammo_box/magazine/extra_mag = new instantiated_ballistic.spawn_magazine_type(loc)
 				user.put_in_hands(extra_mag)
 
-	user.visible_message(span_notice("<b>[user]</b> достаёт [presented_item] из <b>[src]</b>."), span_notice("Достаю [presented_item] из <b>[src]</b>."), vision_distance = COMBAT_MESSAGE_RANGE)
-	playsound(src, grant_sound, 80, FALSE, channel = CHANNEL_MBOX)
+	user.visible_message(span_notice("[user] takes [presented_item] from [src]."), span_notice("You take [presented_item] from [src]."), vision_distance = COMBAT_MESSAGE_RANGE)
+	playsound(src, grant_sound, 70, FALSE, channel = current_sound_channel, falloff_exponent = 10)
 	close_box()
 
 
 /obj/structure/mystery_box/guns
-	desc = "Эта с пушками."
+	desc = "A wooden crate that seems equally magical and mysterious, capable of granting the user all kinds of different pieces of gear. This one seems focused on firearms."
 
 /obj/structure/mystery_box/guns/generate_valid_types()
 	valid_types = GLOB.summoned_guns
 
 /obj/structure/mystery_box/tdome
-	desc = "Здесь есть всякое."
+	desc = "A wooden crate that seems equally magical and mysterious, capable of granting the user all kinds of different pieces of gear. This one has an extended array of weaponry."
 
 /obj/structure/mystery_box/tdome/generate_valid_types()
 	valid_types = GLOB.mystery_box_guns + GLOB.mystery_box_extended
@@ -200,13 +211,14 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 /// This represents the item that comes out of the box and is constantly changing before the box finishes deciding. Can probably be just an /atom or /movable.
 /obj/mystery_box_item
 	name = "???"
-	desc = "ЧТО ЖЕ ЭТО ТАКОЕ??"
-	icon = 'icons/obj/guns/projectile.dmi'
-	icon_state = "detective"
+	desc = "Who knows what it'll be??"
+	icon = 'icons/obj/weapons/guns/ballistic.dmi'
+	icon_state = "revolver"
 	pixel_y = -8
+	uses_integrity = FALSE
 
 	/// The currently selected item. Constantly changes while choosing, determines what is spawned if the prize is claimed, and its current icon
-	var/selected_path = /obj/item/gun/ballistic/revolver/detective
+	var/selected_path = /obj/item/gun/ballistic/revolver/c38/detective
 	/// The box that spawned this
 	var/obj/structure/mystery_box/parent_box
 	/// Whether this prize is currently claimable
@@ -221,8 +233,8 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 	add_filter("weapon_rays", 3, list("type" = "rays", "size" = 28, "color" = COLOR_VIVID_YELLOW))
 
 /obj/mystery_box_item/Destroy(force)
-	. = ..()
 	parent_box = null
+	return ..()
 
 // this way, clicking on the prize will work the same as clicking on the box
 /obj/mystery_box_item/attack_hand(mob/living/user, list/modifiers)

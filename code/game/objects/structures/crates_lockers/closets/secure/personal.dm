@@ -1,8 +1,23 @@
 /obj/structure/closet/secure_closet/personal
-	desc = "Сейф для персонала. Привязывает карту при первом свайпе."
-	name = "шкаф персонала"
+	desc = "It's a secure locker for personnel. The first person to swipe their ID gains control."
+	name = "personal closet"
 	req_access = list(ACCESS_ALL_PERSONAL_LOCKERS)
-	var/registered_name = null
+	card_reader_installed = TRUE
+
+/obj/structure/closet/secure_closet/personal/Initialize(mapload)
+	. = ..()
+	var/static/list/choices
+	if(isnull(choices))
+		choices = list("Personal")
+	access_choices = choices
+
+/obj/structure/closet/secure_closet/personal/can_unlock(mob/living/user, obj/item/card/id/player_id, obj/item/card/id/registered_id)
+	if(isnull(registered_id)) //first time anyone can unlock
+		return TRUE
+	else
+		if(allowed(user)) //players with ACCESS_ALL_PERSONAL_LOCKERS can override your ID
+			return TRUE
+		return player_id == registered_id
 
 /obj/structure/closet/secure_closet/personal/PopulateContents()
 	..()
@@ -15,7 +30,7 @@
 	new /obj/item/radio/headset( src )
 
 /obj/structure/closet/secure_closet/personal/patient
-	name = "шкаф пациента"
+	name = "patient's closet"
 
 /obj/structure/closet/secure_closet/personal/patient/PopulateContents()
 	new /obj/item/clothing/under/color/white( src )
@@ -34,24 +49,3 @@
 	new /obj/item/storage/backpack/satchel/leather/withwallet( src )
 	new /obj/item/instrument/piano_synth(src)
 	new /obj/item/radio/headset( src )
-
-/obj/structure/closet/secure_closet/personal/attackby(obj/item/W, mob/user, params)
-	var/obj/item/card/id/I = W.GetID()
-	if(istype(I))
-		if(broken)
-			to_chat(user, span_danger("Кажется, он сломан."))
-			return
-		if(!I || !I.registered_name)
-			return
-		if(allowed(user) || !registered_name || (istype(I) && (registered_name == I.registered_name)))
-			//they can open all lockers, or nobody owns this, or they own this locker
-			locked = !locked
-			update_icon()
-
-			if(!registered_name)
-				registered_name = I.registered_name
-				desc = "Принадлежит [I.registered_name]."
-		else
-			to_chat(user, span_danger("Доступ запрещён."))
-	else
-		return ..()

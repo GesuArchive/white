@@ -1,6 +1,6 @@
 import { decodeHtmlEntities } from 'common/string';
 import { useBackend } from '../backend';
-import { Box, Button, Grid, LabeledList, Section } from '../components';
+import { Box, Button, LabeledList, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 export const EngravedMessage = (props, context) => {
@@ -24,8 +24,8 @@ export const EngravedMessage = (props, context) => {
           <Box bold textAlign="center" fontSize="20px" mb={2}>
             {decodeHtmlEntities(hidden_message)}
           </Box>
-          <Grid>
-            <Grid.Column>
+          <Stack>
+            <Stack.Item grow={1.05}>
               <Button
                 fluid
                 icon="arrow-up"
@@ -37,8 +37,8 @@ export const EngravedMessage = (props, context) => {
                 lineHeight="24px"
                 onClick={() => act('like')}
               />
-            </Grid.Column>
-            <Grid.Column>
+            </Stack.Item>
+            <Stack.Item grow={1}>
               <Button
                 fluid
                 icon="circle"
@@ -49,8 +49,8 @@ export const EngravedMessage = (props, context) => {
                 lineHeight="24px"
                 onClick={() => act('neutral')}
               />
-            </Grid.Column>
-            <Grid.Column>
+            </Stack.Item>
+            <Stack.Item grow={1.05}>
               <Button
                 fluid
                 icon="arrow-down"
@@ -62,29 +62,30 @@ export const EngravedMessage = (props, context) => {
                 lineHeight="24px"
                 onClick={() => act('dislike')}
               />
-            </Grid.Column>
-          </Grid>
+            </Stack.Item>
+          </Stack>
         </Section>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Создано">{realdate}</LabeledList.Item>
+            <LabeledList.Item label="Created On">{realdate}</LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section />
         {!!admin_mode && (
           <Section
             title="Admin Panel"
             buttons={
               <Button
                 icon="times"
-                content="Удалить"
+                content="Delete"
                 color="bad"
                 onClick={() => act('delete')}
               />
             }>
             <LabeledList>
-              <LabeledList.Item label="Автор">{creator_key}</LabeledList.Item>
-              <LabeledList.Item label="Персонаж">
+              <LabeledList.Item label="Creator Ckey">
+                {creator_key}
+              </LabeledList.Item>
+              <LabeledList.Item label="Creator Character Name">
                 {creator_name}
               </LabeledList.Item>
             </LabeledList>

@@ -7,7 +7,6 @@
 // Themes
 import './styles/main.scss';
 import './styles/themes/light.scss';
-import './styles/themes/gruvbox.scss';
 
 import { perf } from 'common/perf';
 import { combineReducers } from 'common/redux';
@@ -86,28 +85,29 @@ const setupApp = () => {
     'size': '0x0',
   });
 
-  Byond.winset('browseroutput', {
-    'size': '0x' + (window.innerHeight - 28),
+  // Resize the panel to match the non-browser output
+  Byond.winget('output').then((output) => {
+    Byond.winset('browseroutput', {
+      'size': output.size,
+    });
   });
 
   // Enable hot module reloading
   if (module.hot) {
     setupHotReloading();
-    module.hot.accept(
-      [
-        './audio',
-        './chat',
-        './game',
-        './Notifications',
-        './Panel',
-        './ping',
-        './settings',
-        './telemetry',
-      ],
-      () => {
-        renderApp();
-      }
-    );
+    // prettier-ignore
+    module.hot.accept([
+      './audio',
+      './chat',
+      './game',
+      './Notifications',
+      './Panel',
+      './ping',
+      './settings',
+      './telemetry',
+    ], () => {
+      renderApp();
+    });
   }
 };
 

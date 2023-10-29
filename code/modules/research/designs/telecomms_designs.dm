@@ -3,89 +3,81 @@
 ///////////////////////////////////
 
 /datum/design/board/subspace_receiver
-	name = "Подпространственный приемник"
-	desc = "Эта машина имеет форму тарелкообразной приемной антенны и зеленые огоньки. Предназначена для приема и обработки подпространственного радиосигнала."
-	id = "s-receiver"
-	build_type = IMPRINTER | MECHFAB
-	construction_time = 40
+	name = "Subspace Receiver Board"
+	desc = "Allows for the construction of Subspace Receiver equipment."
+	id = "s_receiver"
 	build_path = /obj/item/circuitboard/machine/telecomms/receiver
-	category = list("Подпространственная связь")
-	sub_category = list("Радиорелейные платы")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_TELECOMMS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/telecomms_bus
-	name = "Мэйнфрейм шины"
-	desc = "Мощное аппаратное обеспечение, используемое для быстрой передачи огромных объемов данных и связывание машин в общую сеть."
-	id = "s-bus"
-	build_type = IMPRINTER | MECHFAB
-	construction_time = 40
+	name = "Bus Mainframe Board"
+	desc = "Allows for the construction of Telecommunications Bus Mainframes."
+	id = "s_bus"
 	build_path = /obj/item/circuitboard/machine/telecomms/bus
-	category = list("Подпространственная связь")
-	sub_category = list("Радиорелейные платы")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_TELECOMMS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/telecomms_hub
-	name = "Телекоммуникационный узел"
-	desc = "Мощное аппаратное обеспечение, используемое для отправки / приема огромных объемов данных."
-	id = "s-hub"
-	build_type = IMPRINTER | MECHFAB
-	construction_time = 40
+	name = "Hub Mainframe Board"
+	desc = "Allows for the construction of Telecommunications Hub Mainframes."
+	id = "s_hub"
 	build_path = /obj/item/circuitboard/machine/telecomms/hub
-	category = list("Подпространственная связь")
-	sub_category = list("Радиорелейные платы")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_TELECOMMS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/telecomms_relay
-	name = "Телекоммуникационный ретранслятор"
-	desc = "Мощное аппаратное обеспечение, используемое для передачи огромных объемов данных на огромное расстояние."
-	id = "s-relay"
-	build_type = IMPRINTER | MECHFAB
-	construction_time = 40
+	name = "Relay Mainframe Board"
+	desc = "Allows for the construction of Telecommunications Relay Mainframes."
+	id = "s_relay"
 	build_path = /obj/item/circuitboard/machine/telecomms/relay
-	category = list("Подпространственная связь")
-	sub_category = list("Радиорелейные платы")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_TELECOMMS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/telecomms_processor
-	name = "Процессорный блок"
-	desc = "Эта машина используется для обработки больших объемов информации."
-	id = "s-processor"
-	build_type = IMPRINTER | MECHFAB
-	construction_time = 40
+	name = "Processor Unit Board"
+	desc = "Allows for the construction of Telecommunications Processor equipment."
+	id = "s_processor"
 	build_path = /obj/item/circuitboard/machine/telecomms/processor
-	category = list("Подпространственная связь")
-	sub_category = list("Радиорелейные платы")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_TELECOMMS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/telecomms_server
-	name = "Телекоммуникационный сервер"
-	desc = "Машина, используемая для хранения данных и сетевой статистики."
-	id = "s-server"
-	build_type = IMPRINTER | MECHFAB
-	construction_time = 40
+	name = "Server Mainframe Board"
+	desc = "Allows for the construction of Telecommunications Servers."
+	id = "s_server"
 	build_path = /obj/item/circuitboard/machine/telecomms/server
-	category = list("Подпространственная связь")
-	sub_category = list("Радиорелейные платы")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_TELECOMMS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/telecomms_messaging
-	name = "Сервер месенджера"
-	desc = "Машина, которая обрабатывает и маршрутизирует сообщения КПК и запрашивает консольные сообщения."
-	id = "s-messaging"
-	build_type = IMPRINTER | MECHFAB
-	construction_time = 40
+	name = "Messaging Server Board"
+	desc = "Allows for the construction of Telecommunications Messaging Servers."
+	id = "s_messaging"
 	build_path = /obj/item/circuitboard/machine/telecomms/message_server
-	category = list("Подпространственная связь")
-	sub_category = list("Радиорелейные платы")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_TELECOMMS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/subspace_broadcaster
-	name = "Подпространственный вещатель"
-	desc = "Машина в форме тарелки, используемая для передачи обработанных подпространственных сигналов."
-	id = "s-broadcaster"
-	build_type = IMPRINTER | MECHFAB
-	construction_time = 40
+	name = "Subspace Broadcaster Board"
+	desc = "Allows for the construction of Subspace Broadcasting equipment."
+	id = "s_broadcaster"
 	build_path = /obj/item/circuitboard/machine/telecomms/broadcaster
-	category = list("Подпространственная связь")
-	sub_category = list("Радиорелейные платы")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_TELECOMMS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE

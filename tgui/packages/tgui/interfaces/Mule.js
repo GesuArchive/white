@@ -12,32 +12,41 @@ export const Mule = (props, context) => {
     load,
     mode,
     modeStatus,
-    haspai,
     autoReturn,
     autoPickup,
     reportDelivery,
     destination,
     home,
     id,
+    allow_possession,
+    possession_enabled,
+    pai_inserted,
     destinations = [],
   } = data;
   const locked = data.locked && !data.siliconUser;
   return (
-    <Window width={350} height={455}>
+    <Window width={350} height={445}>
       <Window.Content>
         <InterfaceLockNoticeBox />
         <Section
-          title="Состояние"
+          title="Status"
           minHeight="110px"
           buttons={
-            !locked && (
+            <>
               <Button
-                icon={on ? 'power-off' : 'times'}
-                content={on ? 'Включен' : 'Выключен'}
-                selected={on}
-                onClick={() => act('power')}
+                icon="fa-poll-h"
+                content="Rename"
+                onClick={() => act('rename')}
               />
-            )
+              {!locked && (
+                <Button
+                  icon={on ? 'power-off' : 'times'}
+                  content={on ? 'On' : 'Off'}
+                  selected={on}
+                  onClick={() => act('on')}
+                />
+              )}
+            </>
           }>
           <ProgressBar
             value={cell ? cellPercent / 100 : 0}
@@ -46,7 +55,7 @@ export const Mule = (props, context) => {
           <Flex mt={1}>
             <Flex.Item grow={1} basis={0}>
               <LabeledList>
-                <LabeledList.Item label="Режим" color={modeStatus}>
+                <LabeledList.Item label="Mode" color={modeStatus}>
                   {mode}
                 </LabeledList.Item>
               </LabeledList>
@@ -54,9 +63,9 @@ export const Mule = (props, context) => {
             <Flex.Item grow={1} basis={0}>
               <LabeledList>
                 <LabeledList.Item
-                  label="Груз"
+                  label="Load"
                   color={load ? 'good' : 'average'}>
-                  {load || 'Отсутствует'}
+                  {load || 'None'}
                 </LabeledList.Item>
               </LabeledList>
             </Flex.Item>
@@ -64,21 +73,21 @@ export const Mule = (props, context) => {
         </Section>
         {!locked && (
           <Section
-            title="Управление"
+            title="Controls"
             buttons={
               <>
                 {!!load && (
                   <Button
                     icon="eject"
-                    content="Разгрузить"
+                    content="Unload"
                     onClick={() => act('unload')}
                   />
                 )}
-                {!!haspai && (
+                {!!pai_inserted && (
                   <Button
                     icon="eject"
-                    content="Изъять пИИ"
-                    onClick={() => act('ejectpai')}
+                    content="Eject PAI"
+                    onClick={() => act('eject_pai')}
                   />
                 )}
               </>
@@ -90,22 +99,22 @@ export const Mule = (props, context) => {
                   onChange={(e, value) => act('setid', { value })}
                 />
               </LabeledList.Item>
-              <LabeledList.Item label="Цель">
+              <LabeledList.Item label="Destination">
                 <Dropdown
                   over
-                  selected={destination || 'Нет'}
+                  selected={destination || 'None'}
                   options={destinations}
                   width="150px"
                   onSelected={(value) => act('destination', { value })}
                 />
                 <Button
                   icon="stop"
-                  content="Стоп"
+                  content="Stop"
                   onClick={() => act('stop')}
                 />
-                <Button icon="play" content="Старт" onClick={() => act('go')} />
+                <Button icon="play" content="Go" onClick={() => act('go')} />
               </LabeledList.Item>
-              <LabeledList.Item label="Дом">
+              <LabeledList.Item label="Home">
                 <Dropdown
                   over
                   selected={home}
@@ -115,28 +124,36 @@ export const Mule = (props, context) => {
                 />
                 <Button
                   icon="home"
-                  content="Вернуть домой"
+                  content="Go Home"
                   onClick={() => act('home')}
                 />
               </LabeledList.Item>
               <LabeledList.Item label="Settings">
                 <Button.Checkbox
                   checked={autoReturn}
-                  content="Авто-возвращение"
+                  content="Auto-Return"
                   onClick={() => act('autored')}
                 />
                 <br />
                 <Button.Checkbox
                   checked={autoPickup}
-                  content="Авто-подбор"
+                  content="Auto-Pickup"
                   onClick={() => act('autopick')}
                 />
                 <br />
                 <Button.Checkbox
                   checked={reportDelivery}
-                  content="Сообщать о дост."
+                  content="Report Delivery"
                   onClick={() => act('report')}
                 />
+                <br />
+                {allow_possession && (
+                  <Button.Checkbox
+                    checked={possession_enabled}
+                    content="Download Personality"
+                    onClick={() => act('toggle_personality')}
+                  />
+                )}
               </LabeledList.Item>
             </LabeledList>
           </Section>

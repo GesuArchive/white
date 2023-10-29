@@ -1,21 +1,21 @@
 /datum/mutation/human/tongue_spike
-	name = "Языковой шип"
-	desc = "Позволяет произвести мгновенную коварную атаку, выстрелив в оппонента скрывающимся в вашем рту острым шипом."
+	name = "Tongue Spike"
+	desc = "Allows a creature to voluntary shoot their tongue out as a deadly weapon."
 	quality = POSITIVE
-	text_gain_indication = span_notice("Чувствую себя весьма острым на язык.")
-	instability = 20
+	text_gain_indication = span_notice("Your feel like you can throw your voice.")
+	instability = 15
 	power_path = /datum/action/cooldown/spell/tongue_spike
 
 	energy_coeff = 1
 	synchronizer_coeff = 1
 
 /datum/action/cooldown/spell/tongue_spike
-	name = "Выстрел шипом"
-	desc = "Выстреливает языковым шипом строго <b>в направлении вашего взгляда</b>. Спустя некоторое время шип можно вырастить заново."
+	name = "Launch spike"
+	desc = "Shoot your tongue out in the direction you're facing, embedding it and dealing damage until they remove it."
 	button_icon = 'icons/mob/actions/actions_genetic.dmi'
 	button_icon_state = "spike"
 
-	cooldown_time = 10 SECONDS
+	cooldown_time = 1 SECONDS
 	spell_requirements = SPELL_REQUIRES_HUMAN
 
 	/// The type-path to what projectile we spawn to throw at someone.
@@ -26,68 +26,38 @@
 
 /datum/action/cooldown/spell/tongue_spike/cast(mob/living/carbon/cast_on)
 	. = ..()
-/*
 	if(HAS_TRAIT(cast_on, TRAIT_NODISMEMBER))
-		to_chat(cast_on, span_notice("Концентрируюсь, но ничего не выходит."))
+		to_chat(cast_on, span_notice("You concentrate really hard, but nothing happens."))
 		return
 
-	var/obj/item/organ/tongue/to_fire = locate() in cast_on.internal_organs
+	var/obj/item/organ/internal/tongue/to_fire = locate() in cast_on.organs
 	if(!to_fire)
-		to_chat(cast_on, span_notice("Языка нет!"))
+		to_chat(cast_on, span_notice("You don't have a tongue to shoot!"))
 		return
 
 	to_fire.Remove(cast_on, special = TRUE)
 	var/obj/item/hardened_spike/spike = new spike_path(get_turf(cast_on), cast_on)
 	to_fire.forceMove(spike)
 	spike.throw_at(get_edge_target_turf(cast_on, cast_on.dir), 14, 4, cast_on)
-*/
-	if(!iscarbon(owner))
-		return
-
-	var/mob/living/carbon/C = owner
-//	if(HAS_TRAIT(C, TRAIT_NODISMEMBER))
-//		return
-	var/obj/item/organ/tongue/tongue
-	for(var/org in C.internal_organs)
-		if(istype(org, /obj/item/organ/tongue))
-			tongue = org
-			break
-
-	if(!tongue)
-		if(!do_after(C, 30, C))
-			return
-		var/obj/item/organ/tongue/new_tongue = new()
-		to_chat(C, span_notice("Формирую во рту новый шип!"))
-		playsound(C,'sound/surgery/organ1.ogg', 50, TRUE)
-		new_tongue.Insert(C)
-		C.adjust_nutrition(-10)
-		C.hydration = C.hydration - 10
-		C.blood_volume = C.blood_volume - 10
-		return
-
-	tongue.Remove(C, special = TRUE)
-	var/obj/item/hardened_spike/spike = new spike_path(get_turf(C), C)
-	tongue.forceMove(spike)
-	spike.throw_at(get_edge_target_turf(C,C.dir), 14, 4, C)
-	playsound(C,'white/Feline/sounds/tongue_spike.ogg', 50, TRUE)
 
 /obj/item/hardened_spike
-	name = "языковой шип"
-	desc = "Твердая биомасса в форме шипа. Очень острая!"
+	name = "biomass spike"
+	desc = "Hardened biomass, shaped into a spike. Very pointy!"
+	icon = 'icons/obj/weapons/thrown.dmi'
 	icon_state = "tonguespike"
 	force = 2
-	throwforce = 15 //15 + 2 (WEIGHT_CLASS_SMALL) * 4 (EMBEDDED_IMPACT_PAIN_MULTIPLIER) = i didnt do the math
+	throwforce = 25
 	throw_speed = 4
 	embedding = list(
-		"embedded_pain_multiplier" = 4,
+		"impact_pain_mult" = 0,
+		"embedded_pain_multiplier" = 15,
 		"embed_chance" = 100,
 		"embedded_fall_chance" = 0,
 		"embedded_ignore_throwspeed_threshold" = TRUE,
 	)
 	w_class = WEIGHT_CLASS_SMALL
 	sharpness = SHARP_POINTY
-	hitsound = 'sound/weapons/stab1.ogg'
-	custom_materials = list(/datum/material/biomass = 500)
+	custom_materials = list(/datum/material/biomass = SMALL_MATERIAL_AMOUNT * 5)
 	/// What mob "fired" our tongue
 	var/datum/weakref/fired_by_ref
 	/// if we missed our target
@@ -107,35 +77,40 @@
 		missed = FALSE
 
 /obj/item/hardened_spike/unembedded()
-	visible_message(span_warning("[capitalize(src.name)] трескается и ломается, превращаясь в обычный кусок плоти!"))
+	visible_message(span_warning("[src] cracks and twists, changing shape!"))
 	for(var/obj/tongue as anything in contents)
 		tongue.forceMove(get_turf(src))
 
 	qdel(src)
 
 /datum/mutation/human/tongue_spike/chem
-	name = "Химический шип"
-	desc = "Позволяет выстрелить в оппонента собственным языком, после чего перенести все химические препараты из вашей крови в цель."
+	name = "Chem Spike"
+	desc = "Allows a creature to voluntary shoot their tongue out as biomass, allowing a long range transfer of chemicals."
 	quality = POSITIVE
-	text_gain_indication = span_notice("Чувствую себя очень токсичным на язык.")
+	text_gain_indication = span_notice("Your feel like you can really connect with people by throwing your voice.")
+	instability = 15
 	locked = TRUE
 	power_path = /datum/action/cooldown/spell/tongue_spike/chem
 	energy_coeff = 1
 	synchronizer_coeff = 1
 
 /datum/action/cooldown/spell/tongue_spike/chem
-	name = "Выстрел хим-шипом"
-	desc = "Выстреливает шип в направлении вашего взгляда, нанося очень слабый урон. Пока шип в теле жертвы вы можете передать ей все химикаты находящиеся в вашей крови."
+	name = "Launch chem spike"
+	desc = "Shoot your tongue out in the direction you're facing, \
+		embedding it for a very small amount of damage. \
+		While the other person has the spike embedded, \
+		you can transfer your chemicals to them."
 	button_icon_state = "spikechem"
 
 	spike_path = /obj/item/hardened_spike/chem
 
 /obj/item/hardened_spike/chem
-	name = "химический шип"
-	desc = "Твердая биомасса в форме шипа. Кажется она полая внутри."
+	name = "chem spike"
+	desc = "Hardened biomass, shaped into... something."
 	icon_state = "tonguespikechem"
-	throwforce = 2 //2 + 2 (WEIGHT_CLASS_SMALL) * 0 (EMBEDDED_IMPACT_PAIN_MULTIPLIER) = i didnt do the math again but very low or smthin
+	throwforce = 2
 	embedding = list(
+		"impact_pain_mult" = 0,
 		"embedded_pain_multiplier" = 0,
 		"embed_chance" = 100,
 		"embedded_fall_chance" = 0,
@@ -155,30 +130,31 @@
 		return
 
 	var/datum/action/send_chems/chem_action = new(src)
-	chem_action.transfered_ref = WEAKREF(embedded_mob)
+	chem_action.transferred_ref = WEAKREF(embedded_mob)
 	chem_action.Grant(fired_by)
 
-	to_chat(fired_by, span_notice("Связь установлена! Используйте \"Передачу химикатов\" для перемещения их из вашей крови в тело жертвы!"))
+	to_chat(fired_by, span_notice("Link established! Use the \"Transfer Chemicals\" ability \
+		to send your chemicals to the linked target!"))
 
 /obj/item/hardened_spike/chem/unembedded()
 	var/mob/living/carbon/fired_by = fired_by_ref?.resolve()
 	if(fired_by)
-		to_chat(fired_by, span_warning("Связь потеряна!"))
+		to_chat(fired_by, span_warning("Link lost!"))
 		var/datum/action/send_chems/chem_action = locate() in fired_by.actions
 		QDEL_NULL(chem_action)
 
 	return ..()
 
 /datum/action/send_chems
-	name = "Передача химикатов"
-	desc = "Перемещает все реагенты из вашей крови в тело жертвы."
+	name = "Transfer Chemicals"
+	desc = "Send all of your reagents into whomever the chem spike is embedded in. One use."
 	background_icon_state = "bg_spell"
 	button_icon = 'icons/mob/actions/actions_genetic.dmi'
 	button_icon_state = "spikechemswap"
 	check_flags = AB_CHECK_CONSCIOUS
 
 	/// Weakref to the mob target that we transfer chemicals to on activation
-	var/datum/weakref/transfered_ref
+	var/datum/weakref/transferred_ref
 
 /datum/action/send_chems/New(Target)
 	. = ..()
@@ -192,17 +168,17 @@
 	if(!ishuman(owner) || !owner.reagents)
 		return FALSE
 	var/mob/living/carbon/human/transferer = owner
-	var/mob/living/carbon/human/transfered = transfered_ref?.resolve()
-	if(!ishuman(transfered))
+	var/mob/living/carbon/human/transferred = transferred_ref?.resolve()
+	if(!ishuman(transferred))
 		return FALSE
 
-	to_chat(transfered, span_warning("Что-то укололо меня!"))
-	transferer.reagents.trans_to(transfered, transferer.reagents.total_volume, 1, 1, 0, transfered_by = transferer)
+	to_chat(transferred, span_warning("You feel a tiny prick!"))
+	transferer.reagents.trans_to(transferred, transferer.reagents.total_volume, 1, 1, 0, transferred_by = transferer)
 
 	var/obj/item/hardened_spike/chem/chem_spike = target
 	var/obj/item/bodypart/spike_location = chem_spike.check_embedded()
 
 	//this is where it would deal damage, if it transfers chems it removes itself so no damage
 	chem_spike.forceMove(get_turf(spike_location))
-	chem_spike.visible_message(span_notice("[chem_spike] выпал из [spike_location]!"))
+	chem_spike.visible_message(span_notice("[chem_spike] falls out of [spike_location]!"))
 	return TRUE

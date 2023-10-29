@@ -1,26 +1,19 @@
-/*
-//////////////////////////////////////
-
-Hallucigen
-
-	Very noticable.
-	Lowers resistance considerably.
-	Decreases stage speed.
-	Reduced transmittable.
-	Critical Level.
-
-Bonus
-	Makes the affected mob be hallucinated for short periods of time.
-
-//////////////////////////////////////
+/*Hallucigen
+ * Slightly increases stealth
+ * Lowers resistance tremendously
+ * Slightly decreases stage speed
+ * Slightly reduces transmissibility
+ * Critical level
+ * Bonus:Makes the affected mob be hallucinated for short periods of time.
 */
 
 /datum/symptom/hallucigen
-	name = "Галлюциген"
-	desc = "Вирус стимулирует мозг, время от времени вызывая галлюцинации."
-	stealth = -1
-	resistance = -3
-	stage_speed = -3
+	name = "Hallucigen"
+	desc = "The virus stimulates the brain, causing occasional hallucinations."
+	illness = "Paranoyance"
+	stealth = 1
+	resistance = -4
+	stage_speed = 1
 	transmittable = -1
 	level = 5
 	severity = 2
@@ -29,42 +22,44 @@ Bonus
 	symptom_delay_max = 90
 	var/fake_healthy = FALSE
 	threshold_descs = list(
-		"Скорость 7" = "Увеличивает количество галлюцинаций.",
-		"Скрытность 4" = "Вирус имитирует положительные симптомы.",
+		"Stage Speed 7" = "Increases the amount of hallucinations.",
+		"Stealth 4" = "The virus mimics positive symptoms.",
 	)
 
 /datum/symptom/hallucigen/Start(datum/disease/advance/A)
-	if(!..())
+	. = ..()
+	if(!.)
 		return
-	if(A.properties["stealth"] >= 4) //fake good symptom messages
+	if(A.totalStealth() >= 4) //fake good symptom messages
 		fake_healthy = TRUE
 		base_message_chance = 50
-	if(A.properties["stage_rate"] >= 7) //stronger hallucinations
+	if(A.totalStageSpeed() >= 7) //stronger hallucinations
 		power = 2
 
 /datum/symptom/hallucigen/Activate(datum/disease/advance/A)
-	if(!..())
+	. = ..()
+	if(!.)
 		return
 	var/mob/living/carbon/M = A.affected_mob
-	var/list/healthy_messages = list("Лёгким стало лучше.", "Можно не дышать.", "Я могу и не дышать вовсе.",\
-					"Глазам стало лучше.", "Ушам стало лучше.", "Можно не моргать.")
+	var/list/healthy_messages = list("Your lungs feel great.", "You realize you haven't been breathing.", "You don't feel the need to breathe.",\
+					"Your eyes feel great.", "Your ears feel great.", "You don't feel the need to blink.")
 	switch(A.stage)
 		if(1, 2)
 			if(prob(base_message_chance))
 				if(!fake_healthy)
-					to_chat(M, span_notice("[pick("Что-то появляется в периферийном зрении, а затем гаснет.", "Кто-то что-то шепчет.", "Голова болит.")]"))
+					to_chat(M, span_notice("[pick("Something appears in your peripheral vision, then winks out.", "You hear a faint whisper with no source.", "Your head aches.")]"))
 				else
 					to_chat(M, span_notice("[pick(healthy_messages)]"))
 		if(3, 4)
 			if(prob(base_message_chance))
 				if(!fake_healthy)
-					to_chat(M, span_danger("[pick("Кто-то идёт за мной.", "Кто-то смотрит на меня.", "Кто-то шепчет мне что-то на ухо.", "Кто-то идёт по моим пятам.")]"))
+					to_chat(M, span_danger("[pick("Something is following you.", "You are being watched.", "You hear a whisper in your ear.", "Thumping footsteps slam toward you from nowhere.")]"))
 				else
 					to_chat(M, span_notice("[pick(healthy_messages)]"))
 		else
 			if(prob(base_message_chance))
 				if(!fake_healthy)
-					to_chat(M, span_userdanger("[pick("Ох, голова...", "Моя голова разрывается.", "ОНИ ПОВСЮДУ! Бежим!", "Что-то затаилось в тенях...")]"))
+					to_chat(M, span_userdanger("[pick("Oh, your head...", "Your head pounds.", "They're everywhere! Run!", "Something in the shadows...")]"))
 				else
 					to_chat(M, span_notice("[pick(healthy_messages)]"))
-			M.hallucination += (45 * power)
+			M.adjust_hallucinations(90 SECONDS * power)

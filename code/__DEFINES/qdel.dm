@@ -13,7 +13,6 @@
 // Qdel should assume this object won't gc, and hard delete it posthaste.
 #define QDEL_HINT_HARDDEL_NOW 4
 
-//! Defines for the [gc_destroyed][/datum/var/gc_destroyed] var.
 
 #ifdef REFERENCE_TRACKING
 /** If REFERENCE_TRACKING is enabled, qdel will call this object's find_references() verb.
@@ -31,6 +30,7 @@
 #define GC_QUEUE_CHECK 2 //! main queue that waits 5 minutes because thats the longest byond can hold a reference to our shit.
 #define GC_QUEUE_HARDDELETE 3 //! short queue for things that hard delete instead of going thru the gc subsystem, this is purely so if they *can* softdelete, they will soft delete rather then wasting time with a hard delete.
 #define GC_QUEUE_COUNT 3 //! Number of queues, used for allocating the nested lists. Don't forget to increase this if you add a new queue stage
+
 
 // Defines for the ssgarbage queue items
 #define GC_QUEUE_ITEM_QUEUE_TIME 1 //! Time this item entered the queue
@@ -54,7 +54,11 @@
 #define QDELETED(X) (isnull(X) || QDELING(X))
 #define QDESTROYING(X) (!X || X.gc_destroyed == GC_CURRENTLY_BEING_QDELETED)
 
-#define QDEL_IN(item, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), (time) > GC_FILTER_QUEUE ? WEAKREF(item) : item), time, TIMER_STOPPABLE)
+// This is a bit hacky, we do it to avoid people relying on a return value for the macro
+// If you need that you should use QDEL_IN_STOPPABLE instead
+#define QDEL_IN(item, time) ; \
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), (time) > GC_FILTER_QUEUE ? WEAKREF(item) : item), time);
+#define QDEL_IN_STOPPABLE(item, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), (time) > GC_FILTER_QUEUE ? WEAKREF(item) : item), time, TIMER_STOPPABLE)
 #define QDEL_IN_CLIENT_TIME(item, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), item), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
 #define QDEL_NULL(item) qdel(item); item = null
 #define QDEL_LIST(L) if(L) { for(var/I in L) qdel(I); L.Cut(); }

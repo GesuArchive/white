@@ -1,116 +1,156 @@
+///Defines for the pressure strength of the fist
+#define LOW_PRESSURE 1
+#define MID_PRESSURE 2
+#define HIGH_PRESSURE 3
+///Defines for the tank change action
+#define TANK_INSERTING 0
+#define TANK_REMOVING 1
+
 /obj/item/melee/powerfist
-	name = "силовой кулак"
-	desc = "Металлическая перчатка с поршневым тараном на вершине для дополнительной силы в вашем ударе."
+	name = "power-fist"
+	desc = "A metal gauntlet with a piston-powered ram ontop for that extra 'ompfh' in your punch."
+	icon = 'icons/obj/antags/syndicate_tools.dmi'
 	icon_state = "powerfist"
 	inhand_icon_state = "powerfist"
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
 	flags_1 = CONDUCT_1
-	attack_verb_continuous = list("вмазывает", "фистит", "очень сильно бьёт")
-	attack_verb_simple = list("вмазывает", "фистит", "очень сильно бьёт")
+	attack_verb_continuous = list("whacks", "fists", "power-punches")
+	attack_verb_simple = list("whack", "fist", "power-punch")
 	force = 20
 	throwforce = 10
 	throw_range = 7
 	w_class = WEIGHT_CLASS_NORMAL
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 40)
+	armor_type = /datum/armor/melee_powerfist
 	resistance_flags = FIRE_PROOF
-	var/click_delay = 1.5
-	var/fisto_setting = 1
-	var/gasperfist = 3
-	var/obj/item/tank/internals/tank = null //Tank used for the gauntlet's piston-ram.
+	/// Delay between attacks
+	var/click_delay = 0.15 SECONDS
+	/// Pressure level on the fist
+	var/fist_pressure_setting = LOW_PRESSURE
+	/// Amount of moles per punch
+	var/gas_per_fist = 3
+	/// Tank used for the gauntlet's piston-ram.
+	var/obj/item/tank/internals/tank
 
+/datum/armor/melee_powerfist
+	fire = 100
+	acid = 40
+
+/obj/item/melee/powerfist/proc/pressure_setting_to_text(fist_pressure_setting)
+	switch(fist_pressure_setting)
+		if(LOW_PRESSURE)
+			return "low"
+		if(MID_PRESSURE)
+			return "medium"
+		if(HIGH_PRESSURE)
+			return "high"
+		else
+			CRASH("Invalid pressure setting: [fist_pressure_setting]!")
 
 /obj/item/melee/powerfist/examine(mob/user)
 	. = ..()
 	if(!in_range(user, src))
-		. += "<hr><span class='notice'>Нужно подойти ближе, чтобы увидеть что-то ещё.</span>"
+		. += span_notice("You'll need to get closer to see any more.")
 		return
 	if(tank)
-		. += "<hr><span class='notice'>[icon2html(tank, user)] It has \a [tank] mounted onto it.</span>"
+		. += span_notice("[icon2html(tank, user)] It has \a [tank] mounted onto it.")
+		. += span_notice("Can be removed with a <b>screwdriver</b>.")
 
+	. += span_notice("Use a <b>wrench</b> to change the valve strength. Current strength is at <b>[pressure_setting_to_text(fist_pressure_setting)]</b> level.")
 
-/obj/item/melee/powerfist/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/tank/internals))
-		if(!tank)
-			var/obj/item/tank/internals/IT = W
-			if(IT.volume <= 3)
-				to_chat(user, span_warning("<b>[capitalize(IT)]</b> is too small for <b>[src.name]</b>."))
-				return
-			updateTank(W, 0, user)
-	else if(W.tool_behaviour == TOOL_WRENCH)
-		switch(fisto_setting)
-			if(1)
-				fisto_setting = 2
-			if(2)
-				fisto_setting = 3
-			if(3)
-				fisto_setting = 1
-		W.play_tool_sound(src)
-		to_chat(user, span_notice("Настраиваю поршневой клапан <b>[src.name]</b> на [fisto_setting]."))
-	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
-		if(tank)
-			updateTank(tank, 1, user)
+/obj/item/melee/powerfist/wrench_act(mob/living/user, obj/item/tool)
+	fist_pressure_setting = fist_pressure_setting >= HIGH_PRESSURE ? LOW_PRESSURE : fist_pressure_setting + 1
+	tool.play_tool_sound(src)
+	balloon_alert(user, "piston strength set to [pressure_setting_to_text(fist_pressure_setting)]")
+	return TRUE
 
-/obj/item/melee/powerfist/proc/updateTank(obj/item/tank/internals/thetank, removing = 0, mob/living/carbon/human/user)
+/obj/item/melee/powerfist/screwdriver_act(mob/living/user, obj/item/tool)
+	if(!tank)
+		balloon_alert(user, "no tank present")
+		return
+	update_tank(tank, TANK_REMOVING, user)
+	return TRUE
+
+/obj/item/melee/powerfist/attackby(obj/item/item_to_insert, mob/user, params)
+	if(!istype(item_to_insert, /obj/item/tank/internals))
+		return ..()
+	if(tank)
+		to_chat(user, span_notice("A tank is already present, remove it with a screwdriver first."))
+		return
+	var/obj/item/tank/internals/tank_to_insert = item_to_insert
+	if(tank_to_insert.volume <= 3)
+		to_chat(user, span_warning("\The [tank_to_insert] is too small for \the [src]."))
+		return
+	update_tank(item_to_insert, TANK_INSERTING, user)
+
+/obj/item/melee/powerfist/proc/update_tank(obj/item/tank/internals/the_tank, removing = TANK_INSERTING, mob/living/carbon/human/user)
 	if(removing)
 		if(!tank)
-			to_chat(user, span_notice("<b>[capitalize(src)]</b> не имеет баллона."))
+			to_chat(user, span_notice("\The [src] currently has no tank attached to it."))
 			return
-		to_chat(user, span_notice("Открепляю [thetank] от <b>[src.name]</b>."))
+		to_chat(user, span_notice("You detach \the [the_tank] from \the [src]."))
 		tank.forceMove(get_turf(user))
 		user.put_in_hands(tank)
 		tank = null
-	if(!removing)
-		if(tank)
-			to_chat(user, span_warning("<b>[capitalize(src)]</b> уже имеет баллон."))
-			return
-		if(!user.transferItemToLoc(thetank, src))
-			return
-		to_chat(user, span_notice("Присоединяю [thetank] к <b>[src.name]</b>."))
-		tank = thetank
+		return
 
+	if(tank)
+		to_chat(user, span_warning("\The [src] already has a tank."))
+		return
+	if(!user.transferItemToLoc(the_tank, src))
+		return
+	to_chat(user, span_notice("You hook \the [the_tank] up to \the [src]."))
+	tank = the_tank
 
 /obj/item/melee/powerfist/attack(mob/living/target, mob/living/user)
 	if(!tank)
-		to_chat(user, span_warning("<b>[capitalize(src)]</b> не может работать без источника газа!"))
+		to_chat(user, span_warning("\The [src] can't operate without a source of gas!"))
 		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("Не хочу вредить живым существам!"))
+		to_chat(user, span_warning("You don't want to harm other living beings!"))
 		return
-	var/datum/gas_mixture/gasused = tank.air_contents.remove(gasperfist * fisto_setting)
-	var/turf/T = get_turf(src)
-	if(!T)
+	var/turf/our_turf = get_turf(src)
+	if(!our_turf)
 		return
-	T.assume_air(gasused)
-	T.air_update_turf()
-	if(!gasused)
-		to_chat(user, span_warning("<b>[capitalize(src)]</b>'s tank is empty!"))
+
+	var/datum/gas_mixture/gas_used = tank.remove_air(gas_per_fist * fist_pressure_setting)
+	if(!gas_used)
+		to_chat(user, span_warning("\The [src]'s tank is empty!"))
 		target.apply_damage((force / 5), BRUTE)
 		playsound(loc, 'sound/weapons/punch1.ogg', 50, TRUE)
-		target.visible_message(span_danger("[user] силовой кулак издает тупой стук от удара [user.ru_who()] по [user.p_es()] [target.name]!") , \
-			span_userdanger("[user] бьет тебя!"))
+		target.visible_message(span_danger("[user]'s powerfist lets out a dull thunk as [user.p_they()] punch[user.p_es()] [target.name]!"), \
+			span_userdanger("[user]'s punches you!"))
 		return
-	if(gasused.total_moles() < gasperfist * fisto_setting)
-		to_chat(user, span_warning("Поршневая рама <b>[src.name]</b> издает слабое шипение, ей нужно больше газа!"))
+
+	if(!molar_cmp_equals(gas_used.total_moles(), gas_per_fist * fist_pressure_setting))
+		our_turf.assume_air(gas_used)
+		to_chat(user, span_warning("\The [src]'s piston-ram lets out a weak hiss, it needs more gas!"))
 		playsound(loc, 'sound/weapons/punch4.ogg', 50, TRUE)
 		target.apply_damage((force / 2), BRUTE)
-		target.visible_message(span_danger("[user] силовой кулак издает слабое шипение во время удара [user.ru_who()] по [user.p_es()] [target.name]!") , \
-			span_userdanger("[user] бьет с большой силой!"))
+		target.visible_message(span_danger("[user]'s powerfist lets out a weak hiss as [user.p_they()] punch[user.p_es()] [target.name]!"), \
+			span_userdanger("[user]'s punch strikes with force!"))
 		return
 
-	target.apply_damage(force * fisto_setting, BRUTE, wound_bonus = CANT_WOUND)
-	target.visible_message(span_danger("[user] силовой кулак издает сильное шипение во время удара [user.ru_who()] по [user.p_es()] [target.name]!") , \
-		span_userdanger("Вскрикиваю от боли, когда [user] удар отбрасывает меня назад!"))
+	target.visible_message(span_danger("[user]'s powerfist lets out a loud hiss as [user.p_they()] punch[user.p_es()] [target.name]!"), \
+		span_userdanger("You cry out in pain as [user]'s punch flings you backwards!"))
 	new /obj/effect/temp_visual/kinetic_blast(target.loc)
-	playsound(loc, 'sound/weapons/resonator_blast.ogg', 50, TRUE)
-	playsound(loc, 'sound/weapons/genhit2.wav', 50, TRUE)
+	target.apply_damage(force * fist_pressure_setting, BRUTE, wound_bonus = CANT_WOUND)
+	playsound(src, 'sound/weapons/resonator_blast.ogg', 50, TRUE)
+	playsound(src, 'sound/weapons/genhit2.ogg', 50, TRUE)
 
-	var/atom/throw_target = get_edge_target_turf(target, get_dir(src, get_step_away(target, src)))
+	if(!QDELETED(target))
+		var/atom/throw_target = get_edge_target_turf(target, get_dir(src, get_step_away(target, src)))
 
-	target.throw_at(throw_target, 5 * fisto_setting, 0.5 + (fisto_setting / 2))
+		target.throw_at(throw_target, 5 * fist_pressure_setting, 0.5 + (fist_pressure_setting / 2))
 
 	log_combat(user, target, "power fisted", src)
 
 	user.changeNext_move(CLICK_CD_MELEE * click_delay)
 
-	return
+	our_turf.assume_air(gas_used)
+
+#undef LOW_PRESSURE
+#undef MID_PRESSURE
+#undef HIGH_PRESSURE
+#undef TANK_INSERTING
+#undef TANK_REMOVING

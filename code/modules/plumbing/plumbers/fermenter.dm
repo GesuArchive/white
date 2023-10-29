@@ -4,10 +4,10 @@
 	icon_state = "fermenter"
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = ABOVE_GAME_PLANE
-
 	reagent_flags = TRANSPARENT | DRAINABLE
 	buffer = 400
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 2
+
 	///input dir
 	var/eat_dir = SOUTH
 
@@ -18,12 +18,6 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
-
-/obj/machinery/plumbing/grinder_chemical/can_be_rotated(mob/user, rotation_type)
-	if(anchored)
-		to_chat(user, span_warning("It is fastened to the floor!"))
-		return FALSE
-	return TRUE
 
 /obj/machinery/plumbing/fermenter/setDir(newdir)
 	. = ..()
@@ -39,7 +33,6 @@
 /obj/machinery/plumbing/fermenter/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
 	ferment(AM)
-
 
 /// uses fermentation proc similar to fermentation barrels
 /obj/machinery/plumbing/fermenter/proc/ferment(atom/AM)

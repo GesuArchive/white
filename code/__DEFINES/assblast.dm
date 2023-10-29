@@ -1,7 +1,0 @@
-#define ASSBLAST_CUMJAR "cumjar"
-#define ASSBLAST_SHOCKING "shocking_incompetence"
-#define ASSBLAST_WIZARD "R_U_A_WIZARD?"
-#define ASSBLAST_BAD_CONNECTION "bad_connection"
-#define ASSBLAST_LIFEWEB "lifeweb"
-#define ASSBLAST_PACIFIST "pacifist"
-#define ASSBLAST_INTEGRAL "integral"

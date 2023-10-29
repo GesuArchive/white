@@ -147,15 +147,15 @@
 	required_temp = 100
 	optimal_temp = 450
 	overheat_temp = 900
-	optimal_ph_min = 3
-	optimal_ph_max = 9
+	optimal_ph_min = 4
+	optimal_ph_max = 8.5
 	determin_ph_range = 2
 	temp_exponent_factor = 1
 	ph_exponent_factor = 0.2
 	thermic_constant = 500
 	H_ion_release = 2.5
 	rate_up_lim = 10
-	purity_min = 0.5
+	purity_min = 0.7
 	reaction_flags = REACTION_PH_VOL_CONSTANT
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DAMAGING | REACTION_TAG_OTHER
 
@@ -307,9 +307,9 @@
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DAMAGING | REACTION_TAG_OTHER
 
 /datum/chemical_reaction/heparin
-	results = list(/datum/reagent/toxin/heparin = 4)
-	required_reagents = list(/datum/reagent/toxin/formaldehyde = 1, /datum/reagent/sodium = 1, /datum/reagent/chlorine = 1, /datum/reagent/lithium = 1)
-	mix_message = span_danger("Смесь разжижается и теряет весь цвет.")
+	results = list(/datum/reagent/toxin/heparin = 3)
+	required_reagents = list(/datum/reagent/toxin/formaldehyde = 1, /datum/reagent/consumable/salt = 1, /datum/reagent/lithium = 1)
+	mix_message = "<span class='danger'>The mixture thins and loses all color.</span>"
 	is_cold_recipe = FALSE
 	required_temp = 100
 	optimal_temp = 450
@@ -329,7 +329,7 @@
 /datum/chemical_reaction/rotatium
 	results = list(/datum/reagent/toxin/rotatium = 3)
 	required_reagents = list(/datum/reagent/toxin/mindbreaker = 1, /datum/reagent/teslium = 1, /datum/reagent/toxin/fentanyl = 1)
-	mix_message = span_danger("After sparks, fire, and the smell of mindbreaker, the mix is constantly spinning with no stop in sight.")
+	mix_message = "<span class='danger'>After sparks, fire, and the smell of mindbreaker, the mix is constantly spinning with no stop in sight.</span>"
 	is_cold_recipe = FALSE
 	required_temp = 100
 	optimal_temp = 450
@@ -389,7 +389,7 @@
 /datum/chemical_reaction/bonehurtingjuice
 	results = list(/datum/reagent/toxin/bonehurtingjuice = 5)
 	required_reagents = list(/datum/reagent/toxin/mutagen = 1, /datum/reagent/toxin/itching_powder = 3, /datum/reagent/consumable/milk = 1)
-	mix_message = span_danger("Смесь неожиданно становится прозрачной и выглядит очень похоже на воду. У меня серьезное желание её выпить.")
+	mix_message = "<span class='danger'>The mixture suddenly becomes clear and looks a lot like water. You feel a strong urge to drink it.</span>"
 	is_cold_recipe = FALSE
 	required_temp = 100
 	optimal_temp = 450

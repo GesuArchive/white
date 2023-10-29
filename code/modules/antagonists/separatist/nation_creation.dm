@@ -21,8 +21,7 @@
 	//reference to all independent nation teams
 	var/list/team_datums = list()
 	for(var/datum/antagonist/separatist/separatist_datum in GLOB.antagonists)
-		var/datum/job/tjob = SSjob.GetJob(separatist_datum.owner?.assigned_role)
-		var/independent_department_type = tjob.departments_list[1]
+		var/independent_department_type = separatist_datum.owner?.assigned_role.departments_list[1]
 		independent_departments |= independent_department_type
 		team_datums |= separatist_datum.nation
 
@@ -49,11 +48,11 @@
 	nation.generate_nation_objectives(dangerous, department_target)
 
 	//convert current members of the department
-	for(var/mob/living/carbon/human/possible_separatist as anything in GLOB.human_list)
-		if(!possible_separatist.mind)
+	for(var/mob/living/possible_separatist in GLOB.player_list)
+		if(isnull(possible_separatist.mind))
 			continue
 		var/datum/mind/separatist_mind = possible_separatist.mind
-		if(!(separatist_mind.assigned_role in jobs_to_revolt))
+		if(!(separatist_mind.assigned_role.title in jobs_to_revolt))
 			continue
 		citizens += possible_separatist
 		separatist_mind.add_antag_datum(/datum/antagonist/separatist, nation, department)

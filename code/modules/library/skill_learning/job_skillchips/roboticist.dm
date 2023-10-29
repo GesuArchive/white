@@ -1,13 +1,9 @@
 /obj/item/skillchip/job/roboticist
-	name = "научный скилчип BORG-AI"
-	desc = "Помогает лучше понимать лучших друзей."
-	auto_traits = list(TRAIT_KNOW_CYBORG_WIRES)
-	chip_category = "sci"
-	incompatibility_list = list("sci")
-	skill_name = "Знание кибернетических схем"
-	skill_description = "Распознает маркировку проводов киборгов."
+	name = "Cyborg C1-RCU-1T skillchip"
+	desc = "A roboticist's second best friend."
+	auto_traits = list(TRAIT_KNOW_ROBO_WIRES)
+	skill_name = "Cyborg Circuitry"
+	skill_description = "Recognise cyborg wire layouts and understand their functionality at a glance."
 	skill_icon = "sitemap"
-	custom_price = PAYCHECK_HARD * 2
-	custom_premium_price = PAYCHECK_HARD * 3
-	activate_message = span_notice("В памяти проявляются все возможные комбинации распиновок проводов киборгов и кодировки маркировок робототехники.")
-	deactivate_message = span_notice("Все схемы распиновок проводов робототехники расплываются в памяти...")
+	activate_message = "<span class='notice'>You suddenly comprehend the secrets behind cyborg circuitry.</span>"
+	deactivate_message = "<span class='notice'>Cyborg circuitry stops making sense as images of coloured wires fade from your mind.</span>"

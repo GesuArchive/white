@@ -3,244 +3,193 @@
 ///////////////////////////////////
 
 /datum/design/milk
-	name = "Космическое молоко"
-	desc = "Это молоко."
+	name = "Synthetic Milk"
 	id = "milk"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 100)
-	build_path = /obj/item/reagent_containers/food/condiment/milk
-	category = list("initial","Еда")
+	materials = list(/datum/material/biomass = 0.4)
+	make_reagent = /datum/reagent/consumable/milk
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/soymilk
-	name = "Соевое молоко"
-	desc = "Это соевое молоко."
+	name = "Synthetic Soy Milk"
 	id = "soymilk"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 100 )
-	build_path = /obj/item/reagent_containers/food/condiment/soymilk
-	category = list("initial","Еда")
-
-/datum/design/black_pepper
-	name = "Перечница"
-	desc = "Используется для придания блюду перчинки."
-	id = "black_pepper"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 50)
-	build_path = /obj/item/reagent_containers/food/condiment/peppermill
-	category = list("initial","Еда")
-
-/datum/design/enzyme
-	name = "Универсальный фермент"
-	desc = "Используется при приготовлении различных блюд."
-	id = "enzyme"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 150)
-	build_path = /obj/item/reagent_containers/food/condiment/enzyme
-	category = list("initial","Еда")
-
-/datum/design/flour
-	name = "Мука"
-	desc = "Хорошо подходит для выпечки!"
-	id = "flour_sack"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 150)
-	build_path = /obj/item/reagent_containers/food/condiment/flour
-	category = list("initial","Еда")
+	materials = list(/datum/material/biomass = 0.4)
+	make_reagent = /datum/reagent/consumable/soymilk
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/ethanol
-	name = "Этанол 10 ед."
-	desc = "Известный алкоголь с множеством применений."
+	name = "Synthetic Ethanol"
 	id = "ethanol"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 30)
-	make_reagents = list(/datum/reagent/consumable/ethanol = 10)
-	category = list("initial","Еда")
+	materials = list(/datum/material/biomass = 0.6)
+	make_reagent = /datum/reagent/consumable/ethanol
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/cream
-	name = "Сливки 10 ед."
-	desc = "Жирные сливки, изготовленные из натурального молока. Почему бы тебе не смешать это со скотчем, а?"
+	name = "Synthetic Cream"
 	id = "cream"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 30)
-	make_reagents = list(/datum/reagent/consumable/cream = 10)
-	category = list("initial","Еда")
+	materials = list(/datum/material/biomass = 0.6)
+	make_reagent = /datum/reagent/consumable/cream
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
-/datum/design/strange_seed
-	name = "Пачка странных семян"
-	desc = "Такие же странные, как и их название. Стрёмно."
-	id = "strange_seed"
+/datum/design/black_pepper
+	name = "Synthetic Black Pepper"
+	id = "black_pepper"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 5000)
-	build_path = /obj/item/seeds/random
-	category = list("initial","Разное")
+	materials = list(/datum/material/biomass = 0.6)
+	make_reagent = /datum/reagent/consumable/blackpepper
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
+
+/datum/design/enzyme
+	name = "Synthetic Enzyme"
+	id = "enzyme"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 0.6)
+	make_reagent = /datum/reagent/consumable/enzyme
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
+
+/datum/design/flour
+	name = "Synthetic Flour"
+	id = "flour_sack"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 0.6)
+	make_reagent = /datum/reagent/consumable/flour
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
+
+/datum/design/sugar
+	name = "Synthetic Sugar"
+	id = "sugar"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 0.6)
+	make_reagent = /datum/reagent/consumable/sugar
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/monkey_cube
-	name = "Обезьяний кубик"
-	desc = "Просто добавь воды!"
+	name = "Monkey Cube"
 	id = "mcube"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 250)
+	materials = list(/datum/material/biomass = 50)
 	build_path = /obj/item/food/monkeycube
-	category = list("initial","Еда")
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
-/datum/design/ez_nut
-	name = "E-Z-Nutrient"
-	desc = "Содержит электролиты. Это то, чего жаждут растения."
+/datum/design/seaweed_sheet
+	name = "Seaweed Sheet"
+	id = "seaweedsheet"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 3)
+	build_path = /obj/item/food/seaweedsheet
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
+
+/datum/design/ez_nut   //easy nut :)
+	name = "E-Z Nutrient"
 	id = "ez_nut"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 10)
-	make_reagents = list(/datum/reagent/plantnutriment/eznutriment = 25)
-	category = list("initial","Химикаты")
+	materials = list(/datum/material/biomass = 0.1)
+	make_reagent = /datum/reagent/plantnutriment/eznutriment
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/l4z_nut
-	name = "Left 4 Zed 25 ед."
-	desc = "Нестабильные удобрения, из-за которой растения мутируют чаще, чем обычно."
+	name = "Left 4 Zed"
 	id = "l4z_nut"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 20)
-	make_reagents = list(/datum/reagent/plantnutriment/left4zednutriment = 25)
-	category = list("initial","Химикаты")
+	materials = list(/datum/material/biomass = 0.1)
+	make_reagent = /datum/reagent/plantnutriment/left4zednutriment
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/rh_nut
-	name = "Robust Harvest 25 ед."
-	desc = "Очень мощное удобрение, которое замедляет мутацию растений."
+	name = "Robust Harvest"
 	id = "rh_nut"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 25)
-	make_reagents = list(/datum/reagent/plantnutriment/robustharvestnutriment = 25)
-	category = list("initial","Химикаты")
+	materials = list(/datum/material/biomass = 0.2)
+	make_reagent = /datum/reagent/plantnutriment/robustharvestnutriment
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/end_gro
-	name = "Эндуро-рост 25 ед."
-	desc = "Специализированная подкормка, которая уменьшает количество продукта и их потенциал, но повышает выносливость растений."
+	name = "Enduro Grow"
 	id = "end_gro"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 30)
-	make_reagents = list(/datum/reagent/plantnutriment/endurogrow = 25)
-	category = list("initial","Химикаты")
+	materials = list(/datum/material/biomass = 0.3)
+	make_reagent = /datum/reagent/plantnutriment/endurogrow
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/liq_earth
-	name = "Жидкая Встряска 25 ед."
-	desc = "Специализированная подкормка, которая увеличивает скорость роста растения, но также ухудшает его восприимчивость к сорнякам."
+	name = "Liquid Earthquake"
 	id = "liq_earth"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 30)
-	make_reagents = list(/datum/reagent/plantnutriment/liquidearthquake = 25)
-	category = list("initial","Химикаты")
+	materials = list(/datum/material/biomass = 0.3)
+	make_reagent = /datum/reagent/plantnutriment/liquidearthquake
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/weed_killer
-	name = "Уничтожитель сорняков 25 ед."
-	desc = "Опасный токсин для выведения сорняков. Не употреблять внутрь!"
+	name = "Weed Killer"
 	id = "weed_killer"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 50)
-	make_reagents = list(/datum/reagent/toxin/plantbgone/weedkiller = 25)
-	category = list("initial","Химикаты")
+	materials = list(/datum/material/biomass = 0.2)
+	make_reagent = /datum/reagent/toxin/plantbgone/weedkiller
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/pest_spray
-	name = "Уничтожитель паразитов 25 ед."
-	desc = "Опасный токсин для убийства насекомых. Не употреблять внутрь!"
+	name = "Pest Killer"
 	id = "pest_spray"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 50)
-	make_reagents = list(/datum/reagent/toxin/pestkiller = 25)
-	category = list("initial","Химикаты")
+	materials = list(/datum/material/biomass = 0.4)
+	make_reagent = /datum/reagent/toxin/pestkiller
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/org_pest_spray
-	name = "Натуральный уничтожитель паразитов 25 ед."
-	desc = "Органическая смесь, используемая для убийства насекомых с более мягкими последствиями. Не употреблять внутрь!"
+	name = "Organic Pest Killer"
 	id = "org_pest_spray"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 80)
-	make_reagents = list(/datum/reagent/toxin/pestkiller/organic = 25)
-	category = list("initial","Химикаты")
-
-/datum/design/cloth
-	name = "Ткань"
-	desc = "Это хлопок? Лен? Джинса? Мешковина? Канва? Не могу сказать."
-	id = "cloth"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 50)
-	build_path = /obj/item/stack/sheet/cloth
-	category = list("initial","Органика")
-
-/datum/design/cardboard
-	name = "Картон"
-	desc = "Большие листы картона, выглядят как плоские коробки."
-	id = "cardboard"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 25)
-	build_path = /obj/item/stack/sheet/cardboard
-	category = list("initial","Органика")
-
-/datum/design/rolling_paper_pack
-	name = "Упаковка папиросной бумаги"
-	desc = "Тонкий лист бумаги, используемый для приготовления сигаретных изделий."
-	id = "rolling_paper_pack"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 50)
-	build_path = /obj/item/storage/fancy/rollingpapers
-	category = list("initial","Органика")
+	materials = list(/datum/material/biomass = 0.6)
+	make_reagent = /datum/reagent/toxin/pestkiller/organic
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/leather
-	name = "Кожа"
-	desc = "Побочный продукт разведения животных."
+	name = "Sheet of Leather"
 	id = "leather"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 150)
+	materials = list(/datum/material/biomass = 30)
 	build_path = /obj/item/stack/sheet/leather
-	category = list("initial","Органика")
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_MATERIALS)
 
-/datum/design/secbelt
-	name = "Пояс офицера"
-	desc = "Может хранить наручники, флэшки, но не преступников."
-	id = "secbelt"
+/datum/design/cloth
+	name = "Sheet of Cloth"
+	id = "cloth"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 300)
-	build_path = /obj/item/storage/belt/security
-	category = list("initial","Органика")
+	materials = list(/datum/material/biomass = 10)
+	build_path = /obj/item/stack/sheet/cloth
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_MATERIALS)
 
-/datum/design/medbelt
-	name = "Медицинский пояс"
-	desc = "Может хранить различные медицинские штуки."
-	id = "medbel"
+/datum/design/cardboard
+	name = "Sheet of Cardboard"
+	id = "cardboard"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 300)
-	build_path = /obj/item/storage/belt/medical
-	category = list("initial","Органика")
+	materials = list(/datum/material/biomass = 5)
+	build_path = /obj/item/stack/sheet/cardboard
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_MATERIALS)
 
-/datum/design/janibelt
-	name = "Убор-пояс"
-	desc = "На ремне хранится большинство принадлежностей для уборки."
-	id = "janibelt"
+/datum/design/paper
+	name = "Sheet of Paper"
+	id = "paper"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 300)
-	build_path = /obj/item/storage/belt/janitor
-	category = list("initial","Органика")
+	materials = list(/datum/material/biomass = 2)
+	build_path = /obj/item/paper
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_MATERIALS)
 
-/datum/design/plantbelt
-	name = "Ботанический пояс"
-	desc = "Пояс, используемый для хранения большинства принадлежностей для гидропоники. Удивительно, но не зеленый."
-	id = "plantbelt"
+/datum/design/rolling_paper
+	name = "Sheet of Rolling Paper"
+	id = "rollingpaper"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 300)
-	build_path = /obj/item/storage/belt/plant
-	category = list("initial","Органика")
+	materials = list(/datum/material/biomass = 1)
+	build_path = /obj/item/rollingpaper
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_MATERIALS)
 
-/datum/design/s_holster
-	name = "Пистолетная кобура"
-	desc = "Довольно простая, но все равно классно выглядящая кобура, в которую можно поместить пистолет."
-	id = "s_holster"
+/datum/design/candle
+	name = "Candle"
+	id = "candle"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 400)
-	build_path = /obj/item/storage/belt/holster
-	category = list("initial","Органика")
-
-/datum/design/rice_hat
-	name = "Рисовая шляпа"
-	desc = "Добро пожаловать на рисовые поля, ублюдок."
-	id = "rice_hat"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass= 300)
-	build_path = /obj/item/clothing/head/rice_hat
-	category = list("initial","Органика")
+	materials = list(/datum/material/biomass = 3)
+	build_path = /obj/item/flashlight/flare/candle
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_MATERIALS)

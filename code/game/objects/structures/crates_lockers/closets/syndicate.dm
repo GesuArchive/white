@@ -1,37 +1,49 @@
 /obj/structure/closet/syndicate
-	name = "оружейный шкаф"
-	desc = "Почему это здесь?"
+	name = "armory closet"
+	desc = "Why is this here?"
 	icon_state = "syndicate"
+	armor_type = /datum/armor/closet_syndicate
+	paint_jobs = null
+
+/datum/armor/closet_syndicate
+	melee = 70
+	bullet = 40
+	laser = 40
+	energy = 30
+	bomb = 30
+	fire = 70
+	acid = 70
 
 /obj/structure/closet/syndicate/personal
-	desc = "Личное хранилище для оперативного оборудования."
+	desc = "It's a personal storage unit for operative gear."
 
 /obj/structure/closet/syndicate/personal/PopulateContents()
 	..()
+	new /obj/item/trench_tool(src)
+	new /obj/item/clothing/glasses/night(src)
+	new /obj/item/ammo_box/magazine/m10mm(src)
+	new /obj/item/storage/belt/military(src)
+	new /obj/item/storage/belt/holster/nukie(src)
+	new /obj/item/radio/headset/syndicate(src)
 	new /obj/item/clothing/under/syndicate(src)
 	new /obj/item/clothing/under/syndicate/skirt(src)
 	new /obj/item/clothing/shoes/sneakers/black(src)
-	new /obj/item/radio/headset/syndicate(src)
-	new /obj/item/ammo_box/magazine/m9mm(src)
-	new /obj/item/storage/belt/military(src)
-	new /obj/item/crowbar/red(src)
-	new /obj/item/clothing/glasses/night(src)
-	new /obj/item/storage/belt/holster/nukie(src)
-	new /obj/item/pickaxe/drill/diamonddrill(src)
+	new /obj/item/mod/module/plasma_stabilizer(src)
+	new /obj/item/climbing_hook/syndicate(src)
 
 /obj/structure/closet/syndicate/nuclear
-	desc = "Хранилище для абордажной группы Синдиката."
+	desc = "It's a storage unit for a Syndicate boarding party."
 
 /obj/structure/closet/syndicate/nuclear/PopulateContents()
 	for(var/i in 1 to 5)
-		new /obj/item/ammo_box/magazine/m9mm(src)
+		new /obj/item/ammo_box/magazine/m10mm(src)
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/box/teargas(src)
 	new /obj/item/storage/backpack/duffelbag/syndie/med(src)
-	new /obj/item/modular_computer/tablet/pda/syndicate(src)
+	new /obj/item/modular_computer/pda/syndicate(src)
 
 /obj/structure/closet/syndicate/resources
-	desc = "Старый, пыльный шкафчик."
+	desc = "An old, dusty locker."
 
 // A lot of this stuff is objective items, and it's also only used for debugging, so init times don't matter here.
 /obj/structure/closet/syndicate/resources/populate_contents_immediate()
@@ -46,9 +58,10 @@
 
 	//Sad trombone
 	if(pickednum == 1)
-		var/obj/item/paper/P = new /obj/item/paper(src)
-		P.name = "\improper IOU"
-		P.info = "Sorry man, we needed the money so we sold your stash. It's ok, we'll double our money for sure this time!"
+		var/obj/item/paper/paper = new /obj/item/paper(src)
+		paper.name = "\improper IOU"
+		paper.add_raw_text("Sorry man, we needed the money so we sold your stash. It's ok, we'll double our money for sure this time!")
+		paper.update_appearance()
 
 	//Iron (common ore)
 	if(pickednum >= 2)
@@ -95,7 +108,8 @@
 		new /obj/item/tank/jetpack/carbondioxide(src)
 
 /obj/structure/closet/syndicate/resources/everything
-	desc = "Аварийное хранилище для ремонта."
+	desc = "It's an emergency storage closet for repairs."
+	storage_capacity = 60 // This is gonna be used for debug.
 
 // A lot of this stuff is objective items, and it's also only used for debugging, so init times don't matter here.
 /obj/structure/closet/syndicate/resources/everything/populate_contents_immediate()
@@ -118,7 +132,7 @@
 	/obj/item/stack/sheet/mineral/wood
 	)
 
-	for(var/i = 0, i<2, i++)
+	for(var/i in 1 to 2)
 		for(var/res in resources)
 			var/obj/item/stack/R = res
 			new res(src, initial(R.max_amount))

@@ -1,103 +1,98 @@
 //Lavaland Ruins
+//NOTICE: /unpowered means you never get power. Thanks Fikou
 
 /area/ruin/powered/beach
-	icon_state = "dk_yellow"
+
+/area/ruin/powered/lavaland_phone_booth
+	name = "\improper Phone Booth"
 
 /area/ruin/powered/clownplanet
-	name = "Планета Клоунов"
-	icon_state = "dk_yellow"
-	ambientsounds = list('sound/music/clown.ogg')
+	name = "\improper Clown Biodome"
+	ambientsounds = list('sound/ambience/clown.ogg')
 
 /area/ruin/unpowered/gaia
-	name = "Клочок Эдэма"
-	icon_state = "dk_yellow"
+	name = "\improper Patch of Eden"
 
 /area/ruin/powered/snow_biodome
-	icon_state = "dk_yellow"
 
 /area/ruin/powered/gluttony
-	icon_state = "dk_yellow"
 
 /area/ruin/powered/golem_ship
-	name = "Корабль свободных големов"
-	icon_state = "dk_yellow"
+	name = "\improper Free Golem Ship"
 
 /area/ruin/powered/greed
-	icon_state = "dk_yellow"
 
 /area/ruin/unpowered/hierophant
-	name = "Арена Иерофанта"
-	icon_state = "dk_yellow"
+	name = "\improper Hierophant's Arena"
 
 /area/ruin/powered/pride
-	icon_state = "dk_yellow"
 
 /area/ruin/powered/seedvault
-	icon_state = "dk_yellow"
 
 /area/ruin/unpowered/elephant_graveyard
-	name = "Кладбище слонов"
-	icon_state = "dk_yellow"
+	name = "\improper Elephant Graveyard"
 
 /area/ruin/powered/graveyard_shuttle
-	name = "Кладбище слонов"
-	icon_state = "green"
+	name = "\improper Elephant Graveyard"
 
-/area/ruin/unpowered/syndicate_lava_base
-	name = "Секретная база"
-	icon_state = "dk_yellow"
+/area/ruin/syndicate_lava_base
+	name = "\improper Secret Base"
 	ambience_index = AMBIENCE_DANGER
-	ambientsounds = HIGHSEC
+	ambient_buzz = 'sound/ambience/magma.ogg'
 
 /area/ruin/unpowered/cultaltar
-	name = "Алтарь культистов"
+	name = "\improper Cult Altar"
 	area_flags = CULT_PERMITTED
 	ambience_index = AMBIENCE_SPOOKY
-	ambientsounds = SPOOKY
 
 //Syndicate lavaland base
 
-/area/ruin/unpowered/syndicate_lava_base/engineering
-	name = "Секретная база: Инженерный"
+/area/ruin/syndicate_lava_base/engineering
+	name = "Syndicate Lavaland Engineering"
 
-/area/ruin/unpowered/syndicate_lava_base/medbay
-	name = "Секретная база: Медбей"
+/area/ruin/syndicate_lava_base/medbay
+	name = "Syndicate Lavaland Medbay"
 
-/area/ruin/unpowered/syndicate_lava_base/arrivals
-	name = "Секретная база: Прибытие"
+/area/ruin/syndicate_lava_base/arrivals
+	name = "Syndicate Lavaland Arrivals"
 
-/area/ruin/unpowered/syndicate_lava_base/bar
-	name = "Секретная база: Бар"
+/area/ruin/syndicate_lava_base/bar
+	name = "\improper Syndicate Lavaland Bar"
 
-/area/ruin/unpowered/syndicate_lava_base/main
-	name = "Секретная база: Коридоры"
+/area/ruin/syndicate_lava_base/main
+	name = "\improper Syndicate Lavaland Primary Hallway"
 
-/area/ruin/unpowered/syndicate_lava_base/cargo
-	name = "Syndicate Lavaland Cargo Bay"
+/area/ruin/syndicate_lava_base/cargo
+	name = "\improper Syndicate Lavaland Cargo Bay"
 
-/area/ruin/unpowered/syndicate_lava_base/chemistry
-	name = "Секретная база: Химическая лаборатория"
+/area/ruin/syndicate_lava_base/chemistry
+	name = "Syndicate Lavaland Chemistry"
 
-/area/ruin/unpowered/syndicate_lava_base/virology
-	name = "Секретная база: Вирусология"
+/area/ruin/syndicate_lava_base/virology
+	name = "Syndicate Lavaland Virology"
 
-/area/ruin/unpowered/syndicate_lava_base/testlab
-	name = "Секретная база: Лаборатория"
+/area/ruin/syndicate_lava_base/testlab
+	name = "\improper Syndicate Lavaland Experimentation Lab"
 
-/area/ruin/unpowered/syndicate_lava_base/dormitories
-	name = "Секретная база: Дормитории"
+/area/ruin/syndicate_lava_base/dormitories
+	name = "\improper Syndicate Lavaland Dormitories"
 
-/area/ruin/unpowered/syndicate_lava_base/telecomms
-	name = "Секретная база: Телекомы"
+/area/ruin/syndicate_lava_base/telecomms
+	name = "\improper Syndicate Lavaland Telecommunications"
 
 //Xeno Nest
 
 /area/ruin/unpowered/xenonest
-	name = "Улей"
+	name = "The Hive"
 	always_unpowered = TRUE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
+	ambient_buzz = 'sound/ambience/magma.ogg'
+
 //ash walker nest
 /area/ruin/unpowered/ash_walkers
-	icon_state = "red"
+	ambient_buzz = 'sound/ambience/magma.ogg'
+/area/ruin/unpowered/ratvar
+	outdoors = TRUE
+	ambient_buzz = 'sound/ambience/magma.ogg'

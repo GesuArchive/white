@@ -1,41 +1,22 @@
 
-/obj/structure/window/reinforced/fulltile/indestructable
+/obj/structure/window/reinforced/fulltile/indestructible
 	name = "robust window"
 	flags_1 = PREVENT_CLICK_UNDER_1 | NODECONSTRUCT_1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
-/obj/structure/grille/indestructable
+/obj/structure/window/reinforced/fulltile/indestructible/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
+	return FALSE
+
+
+/obj/structure/grille/indestructible
 	flags_1 = CONDUCT_1 | NODECONSTRUCT_1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
-
-/obj/structure/grille/indestructable/shocking
-	var/obj/item/stock_parts/cell/infinite/power_source
-
-
-/obj/structure/grille/indestructable/shocking/Initialize(mapload)
-	. = ..()
-	power_source = new
-
-/obj/structure/grille/indestructable/shocking/Destroy()
-	qdel(power_source)
-	. = ..()
-
-/obj/structure/grille/indestructable/shocking/shock(mob/user, prb)
-	if(!prob(prb))
-		return FALSE
-	if(!in_range(src, user))//To prevent TK and mech users from getting shocked
-		return FALSE
-
-	if(electrocute_mob(user, power_source, src, 1, TRUE))
-		var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
-		return TRUE
+/obj/structure/grille/indestructible/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	return FALSE
 
-/obj/effect/spawner/structure/window/reinforced/indestructable
-	spawn_list = list(/obj/structure/grille/indestructable, /obj/structure/window/reinforced/fulltile/indestructable)
+/obj/effect/spawner/structure/window/reinforced/indestructible
+	spawn_list = list(/obj/structure/grille/indestructible, /obj/structure/window/reinforced/fulltile/indestructible)
 
 /obj/structure/barricade/security/murderdome
 	name = "respawnable barrier"
@@ -49,7 +30,7 @@
 /obj/effect/murderdome/dead_barricade
 	name = "dead barrier"
 	desc = "It provided cover in fire fights. And now it's gone."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "barrier0"
 	alpha = 100
 

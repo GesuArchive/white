@@ -1,58 +1,64 @@
 /datum/emote/silicon
-	mob_type_allowed_typecache = list(/mob/living/silicon)
+	mob_type_allowed_typecache = list(/mob/living/silicon, /mob/living/simple_animal/bot)
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/silicon/boop
 	key = "boop"
-	ru_name = "бупать"
 	key_third_person = "boops"
-	message = "бупает."
+	message = "boops."
 
 /datum/emote/silicon/buzz
 	key = "buzz"
-	ru_name = "гудеть"
 	key_third_person = "buzzes"
-	message = "гудит."
-	message_param = "гудит на %t."
-	sound = 'white/valtos/sounds/error1.ogg'
+	message = "buzzes."
+	message_param = "buzzes at %t."
+	emote_type = EMOTE_AUDIBLE
+	sound = 'sound/machines/buzz-sigh.ogg'
+
 
 /datum/emote/silicon/buzz2
 	key = "buzz2"
-	ru_name = "гудеть дважды"
-	message = "гудит дважды."
-	sound = 'white/valtos/sounds/error2.ogg'
+	message = "buzzes twice."
+	emote_type = EMOTE_AUDIBLE
+	sound = 'sound/machines/buzz-two.ogg'
 
 /datum/emote/silicon/chime
 	key = "chime"
-	ru_name = "звонить"
 	key_third_person = "chimes"
-	message = "звонит."
+	message = "chimes."
+	emote_type = EMOTE_AUDIBLE
 	sound = 'sound/machines/chime.ogg'
 
 /datum/emote/silicon/honk
 	key = "honk"
-	ru_name = "хонкать"
 	key_third_person = "honks"
-	message = "хонкает."
+	message = "honks."
+	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'sound/items/bikehorn.ogg'
 
 /datum/emote/silicon/ping
 	key = "ping"
-	ru_name = "пинговать"
 	key_third_person = "pings"
-	message = "пингует."
-	message_param = "пингует %t."
+	message = "pings."
+	message_param = "pings at %t."
+	emote_type = EMOTE_AUDIBLE
 	sound = 'sound/machines/ping.ogg'
 
 /datum/emote/silicon/sad
 	key = "sad"
-	ru_name = "потеря потерь"
-	message = "проигрывает грустную мелодию..."
+	message = "plays a sad trombone..."
+	emote_type = EMOTE_AUDIBLE
 	sound = 'sound/misc/sadtrombone.ogg'
 
 /datum/emote/silicon/warn
 	key = "warn"
-	ru_name = "тревога"
-	message = "издаёт сигнал тревоги!"
+	message = "blares an alarm!"
+	emote_type = EMOTE_AUDIBLE
 	sound = 'sound/machines/warning-buzzer.ogg'
+
+/datum/emote/silicon/slowclap
+	key = "slowclap"
+	message = "activates their slow clap processor."
+	emote_type = EMOTE_AUDIBLE
+	sound = 'sound/machines/slowclap.ogg'

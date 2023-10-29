@@ -1,9 +1,7 @@
-
-
 /obj/item/stack/sticky_tape
-	name = "клейкая лента"
-	singular_name = "клейкая лента"
-	desc = "Используется для приклеивания вещей, а иногда и для приклеивания упомянутых вещей к людям."
+	name = "sticky tape"
+	singular_name = "sticky tape"
+	desc = "Used for sticking to things for sticking said things to people."
 	icon = 'icons/obj/tapes.dmi'
 	icon_state = "tape"
 	var/prefix = "sticky"
@@ -14,109 +12,91 @@
 	max_amount = 5
 	resistance_flags = FLAMMABLE
 	grind_results = list(/datum/reagent/cellulose = 5)
-	splint_factor = 0.8
+	splint_factor = 0.65
 	merge_type = /obj/item/stack/sticky_tape
 	var/list/conferred_embed = EMBED_HARMLESS
-	var/overwrite_existing = FALSE
 	///The tape type you get when ripping off a piece of tape.
 	var/obj/tape_gag = /obj/item/clothing/mask/muzzle/tape
 	greyscale_config = /datum/greyscale_config/tape
 	greyscale_colors = "#B2B2B2#BD6A62"
 
-
-/obj/item/stack/sticky_tape/afterattack(obj/item/I, mob/living/user)
-	if(!istype(I))
-		return
-
-	if(I.embedding && I.embedding == conferred_embed)
-		to_chat(user, span_warning("<b>[capitalize(I)]</b> уже обёрнут в <b>[src]</b>!"))
-		return
-
-	user.visible_message(span_notice("<b>[user]</b> начинает оборачивать <b>[I]</b> при помощи <b>[src]</b>.") , span_notice("Начинаю оборачивать <b>[I]</b> при помощи <b>[src]</b>."))
-
-	if(do_after(user, 30, target=I))
+/obj/item/stack/sticky_tape/attack_hand(mob/user, list/modifiers)
+	if(user.get_inactive_held_item() == src)
+		if(is_zero_amount(delete_if_zero = TRUE))
+			return
+		playsound(user, 'sound/items/duct_tape_rip.ogg', 50, TRUE)
+		if(!do_after(user, 1 SECONDS))
+			return
+		var/new_tape_gag = new tape_gag(src)
+		user.put_in_hands(new_tape_gag)
 		use(1)
-		if(istype(I, /obj/item/clothing/gloves/fingerless))
+		to_chat(user, span_notice("You rip off a piece of tape."))
+		playsound(user, 'sound/items/duct_tape_snap.ogg', 50, TRUE)
+		return TRUE
+	return ..()
+
+/obj/item/stack/sticky_tape/examine(mob/user)
+	. = ..()
+	. += "[span_notice("You could rip a piece off by using an empty hand.")]"
+
+/obj/item/stack/sticky_tape/afterattack(obj/item/target, mob/living/user, proximity)
+	if(!proximity)
+		return
+
+	if(!istype(target))
+		return
+
+	. |= AFTERATTACK_PROCESSED_ITEM
+
+	if(target.embedding && target.embedding == conferred_embed)
+		to_chat(user, span_warning("[target] is already coated in [src]!"))
+		return .
+
+	user.visible_message(span_notice("[user] begins wrapping [target] with [src]."), span_notice("You begin wrapping [target] with [src]."))
+	playsound(user, 'sound/items/duct_tape_rip.ogg', 50, TRUE)
+
+	if(do_after(user, 3 SECONDS, target=target))
+		playsound(user, 'sound/items/duct_tape_snap.ogg', 50, TRUE)
+		use(1)
+		if(istype(target, /obj/item/clothing/gloves/fingerless))
 			var/obj/item/clothing/gloves/tackler/offbrand/O = new /obj/item/clothing/gloves/tackler/offbrand
-			to_chat(user, span_notice("Оборачиваю <b>[I]</b> в <b>[O]</b> используя <b>[src]</b>."))
-			QDEL_NULL(I)
+			to_chat(user, span_notice("You turn [target] into [O] with [src]."))
+			QDEL_NULL(target)
 			user.put_in_hands(O)
-			return
+			return .
 
-		if(I.embedding && I.embedding == conferred_embed)
-			to_chat(user, span_warning("[I] уже покрыт [src]!"))
-			return
+		if(target.embedding && target.embedding == conferred_embed)
+			to_chat(user, span_warning("[target] is already coated in [src]!"))
+			return .
 
-		I.embedding = conferred_embed
-		I.updateEmbedding()
-		to_chat(user, span_notice("Заканчиваю оборачивать <b>[I]</b> используя <b>[src]</b>."))
-		I.name = "[prefix] [I.name]"
+		target.embedding = conferred_embed
+		target.updateEmbedding()
+		to_chat(user, span_notice("You finish wrapping [target] with [src]."))
+		target.name = "[prefix] [target.name]"
 
-		if(istype(I, /obj/item/grenade))
-			var/obj/item/grenade/sticky_bomb = I
+		if(isgrenade(target))
+			var/obj/item/grenade/sticky_bomb = target
 			sticky_bomb.sticky = TRUE
 
-		if(istype(I, /obj/item/storage/bag/tray))
-			var/obj/item/shield/trayshield/new_item = new(user.loc)
-			to_chat(user, span_notice("Наматываю [src] на [I]."))
-			var/replace = (user.get_inactive_held_item()==I)
-			qdel(I)
-			if(src.use(3) == 0)
-				user.dropItemToGround(src)
-				qdel(src)
-			if(replace)
-				user.put_in_hands(new_item)
-			playsound(user, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
-		if(istype(I, /obj/item/shard) && !istype(I, /obj/item/melee/shank))
-			var/obj/item/melee/shank/new_item = new(user.loc)
-			to_chat(user, span_notice("Наматываю [src] на [I]."))
-			var/replace = (user.get_inactive_held_item()==I)
-			qdel(I)
-			if(src.use(3) == 0)
-				user.dropItemToGround(src)
-				qdel(src)
-			if(replace)
-				user.put_in_hands(new_item)
-			playsound(user, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
-		if(ishuman(I) && (user.zone_selected == "mouth" || user.zone_selected == "head"))
-			var/mob/living/carbon/human/H = I
-			if(H.head && (H.head.flags_cover & HEADCOVERSMOUTH))
-				to_chat(user, span_danger("Надо снять [H.head] сначала."))
-				return
-			if(H.wear_mask) //don't even check to see if the mask covers the mouth as the tape takes up mask slot
-				to_chat(user, span_danger("Надо снять [H.wear_mask] сначала."))
-				return
-			playsound(loc, 'white/valtos/sounds/ducttape1.ogg', 30, 1)
-			to_chat(user, span_notice("Начинаю заклеивать рот [H]."))
-			if(do_mob(user, H, 20))
-				// H.wear_mask = new/obj/item/clothing/mask/tape(H)
-				H.equip_to_slot_or_del(new /obj/item/clothing/mask/tape(H), ITEM_SLOT_MASK)
-				to_chat(user, span_notice("Заматываю рот [H]."))
-				playsound(loc, 'white/valtos/sounds/ducttape1.ogg', 50, 1)
-				if(src.use(2) == 0)
-					user.dropItemToGround(src)
-					qdel(src)
-				log_combat(user, H, "mouth-taped")
-			else
-				to_chat(user, span_warning("У меня не вышло заткнуть [H]."))
+	return .
 
 /obj/item/stack/sticky_tape/super
-	name = "супер клейкая лента"
-	singular_name = "супер клейкая лента"
-	desc = "Вполне возможно, самое вредное вещество в галактике. Используйте с крайней осторожностью."
-	prefix = "очень липкий"
+	name = "super sticky tape"
+	singular_name = "super sticky tape"
+	desc = "Quite possibly the most mischevious substance in the galaxy. Use with extreme lack of caution."
+	prefix = "super sticky"
 	conferred_embed = EMBED_HARMLESS_SUPERIOR
-	splint_factor = 0.6
+	splint_factor = 0.4
 	merge_type = /obj/item/stack/sticky_tape/super
 	greyscale_colors = "#4D4D4D#75433F"
 	tape_gag = /obj/item/clothing/mask/muzzle/tape/super
 
 /obj/item/stack/sticky_tape/pointy
-	name = "заостренная лента"
-	singular_name = "заостренная лента"
-	desc = "Используется для приклеивания к вещам, для того, чтобы приклеивать эти вещи к людям."
+	name = "pointy tape"
+	singular_name = "pointy tape"
+	desc = "Used for sticking to things for sticking said things inside people."
 	icon_state = "tape_spikes"
-	prefix = "заострённый"
+	prefix = "pointy"
 	conferred_embed = EMBED_POINTY
 	merge_type = /obj/item/stack/sticky_tape/pointy
 	greyscale_config = /datum/greyscale_config/tape/spikes
@@ -124,24 +104,26 @@
 	tape_gag = /obj/item/clothing/mask/muzzle/tape/pointy
 
 /obj/item/stack/sticky_tape/pointy/super
-	name = "супер заостренная лента"
-	singular_name = "супер заостренная лента"
-	desc = "Вы не знали, что лента может выглядеть так зловеще. Добро пожаловать на Космическую Станцию 13."
-	prefix = "невероятно острый"
+	name = "super pointy tape"
+	singular_name = "super pointy tape"
+	desc = "You didn't know tape could look so sinister. Welcome to Space Station 13."
+	prefix = "super pointy"
 	conferred_embed = EMBED_POINTY_SUPERIOR
 	merge_type = /obj/item/stack/sticky_tape/pointy/super
 	greyscale_colors = "#8C0A00#4F4F4F#300008"
 	tape_gag = /obj/item/clothing/mask/muzzle/tape/pointy/super
 
 /obj/item/stack/sticky_tape/surgical
-	name = "хирургическая лента"
-	singular_name = "хирургическая лента"
-	desc = "Используется для сращивания поломаных костей как и костный гель. Не для пранков."
-	icon_state = "tape"
+	name = "surgical tape"
+	singular_name = "surgical tape"
+	desc = "Made for patching broken bones back together alongside bone gel, not for playing pranks."
 	prefix = "surgical"
-	conferred_embed = list("embed_chance" = 70, "pain_mult" = 0, "jostle_pain_mult" = 0, "ignore_throwspeed_threshold" = TRUE)
-	splint_factor = 0.4
-	custom_price = PAYCHECK_MEDIUM
+	conferred_embed = list("embed_chance" = 30, "pain_mult" = 0, "jostle_pain_mult" = 0, "ignore_throwspeed_threshold" = TRUE)
+	splint_factor = 0.5
+	custom_price = PAYCHECK_CREW
 	merge_type = /obj/item/stack/sticky_tape/surgical
 	greyscale_colors = "#70BAE7#BD6A62"
 	tape_gag = /obj/item/clothing/mask/muzzle/tape/surgical
+
+/obj/item/stack/sticky_tape/surgical/get_surgery_tool_overlay(tray_extended)
+	return "tape" + (tray_extended ? "" : "_out")

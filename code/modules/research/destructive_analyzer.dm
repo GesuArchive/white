@@ -6,19 +6,19 @@ It is used to destroy hand-held objects and advance technological research. Cont
 Note: Must be placed within 3 tiles of the R&D Console
 */
 /obj/machinery/rnd/destructive_analyzer
-	name = "деструктивный анализатор"
-	desc = "Если ты хочешь понять как работают вещи, тебе придется их сломать."
+	name = "destructive analyzer"
+	desc = "Learn science by destroying things!"
 	icon_state = "d_analyzer"
+	base_icon_state = "d_analyzer"
 	circuit = /obj/item/circuitboard/machine/destructive_analyzer
 	var/decon_mod = 0
 
 /obj/machinery/rnd/destructive_analyzer/RefreshParts()
 	. = ..()
 	var/T = 0
-	for(var/obj/item/stock_parts/S in component_parts)
-		T += S.rating
+	for(var/datum/stock_part/stock_part in component_parts)
+		T += stock_part.tier
 	decon_mod = T
-
 
 /obj/machinery/rnd/destructive_analyzer/proc/ConvertReqString2List(list/source_list)
 	var/list/temp_list = params2list(source_list)
@@ -26,13 +26,13 @@ Note: Must be placed within 3 tiles of the R&D Console
 		temp_list[O] = text2num(temp_list[O])
 	return temp_list
 
-/obj/machinery/rnd/destructive_analyzer/Insert_Item(obj/item/O, mob/user)
-	if(user.a_intent != INTENT_HARM)
+/obj/machinery/rnd/destructive_analyzer/Insert_Item(obj/item/O, mob/living/user)
+	if(!user.combat_mode)
 		. = 1
 		if(!is_insertion_ready(user))
 			return
 		if(!user.transferItemToLoc(O, src))
-			to_chat(user, span_warning("<b>[capitalize(O)]</b> is stuck to your hand, you cannot put it in the [src.name]!"))
+			to_chat(user, span_warning("\The [O] is stuck to your hand, you cannot put it in the [src.name]!"))
 			return
 		busy = TRUE
 		loaded_item = O
@@ -42,15 +42,12 @@ Note: Must be placed within 3 tiles of the R&D Console
 		updateUsrDialog()
 
 /obj/machinery/rnd/destructive_analyzer/proc/finish_loading()
-	update_icon()
+	update_appearance()
 	reset_busy()
 
 /obj/machinery/rnd/destructive_analyzer/update_icon_state()
-	. = ..()
-	if(loaded_item)
-		icon_state = "d_analyzer_l"
-	else
-		icon_state = initial(icon_state)
+	icon_state = "[base_icon_state][loaded_item ? "_l" : null]"
+	return ..()
 
 /obj/machinery/rnd/destructive_analyzer/proc/destroy_item(obj/item/thing, innermode = FALSE)
 	if(QDELETED(thing) || QDELETED(src))
@@ -66,12 +63,14 @@ Note: Must be placed within 3 tiles of the R&D Console
 		for(var/obj/item/innerthing in food)
 			destroy_item(innerthing, TRUE)
 	for(var/mob/living/victim in thing)
+		if(victim.stat != DEAD)
+			victim.investigate_log("has been killed by a destructive analyzer.", INVESTIGATE_DEATHS)
 		victim.death()
 
 	qdel(thing)
 	loaded_item = null
 	if (!innermode)
-		update_icon()
+		update_appearance()
 	return TRUE
 
 /obj/machinery/rnd/destructive_analyzer/proc/user_try_decon_id(id, mob/user)
@@ -93,14 +92,14 @@ Note: Must be placed within 3 tiles of the R&D Console
 				differences[i] = value
 		if(length(worths) && !length(differences))
 			return FALSE
-		var/choice = tgui_input_list(usr, "Are you sure you want to destroy [loaded_item] to [!length(worths) ? "reveal [TN.display_name]" : "boost [TN.display_name] by [json_encode(differences)] point\s"]?", , list("Proceed", "Cancel"))
-		if(choice == "Cancel")
+		var/choice = tgui_alert(user, "Are you sure you want to destroy [loaded_item] to [!length(worths) ? "reveal [TN.display_name]" : "boost [TN.display_name] by [json_encode(differences)] point\s"]?", "Destructive Analyzer", list("Proceed", "Cancel"))
+		if(choice != "Proceed")
 			return FALSE
 		if(QDELETED(loaded_item) || QDELETED(src))
 			return FALSE
 		SSblackbox.record_feedback("nested tally", "item_deconstructed", 1, list("[TN.id]", "[loaded_item.type]"))
 		if(destroy_item(loaded_item))
-			stored_research.boost_with_path(SSresearch.techweb_node_by_id(TN.id), dpath)
+			stored_research.boost_with_item(SSresearch.techweb_node_by_id(TN.id), dpath)
 
 	else
 		var/list/point_value = techweb_item_point_check(loaded_item)
@@ -122,7 +121,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 		return FALSE
 	loaded_item.forceMove(get_turf(src))
 	loaded_item = null
-	update_icon()
+	update_appearance()
 	return TRUE
 
 /obj/machinery/rnd/destructive_analyzer/ui_interact(mob/user)
@@ -131,7 +130,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 	popup.set_content(ui_deconstruct())
 	popup.open()
 
-/obj/machinery/rnd/destructive_analyzer/proc/ui_deconstruct()		//Legacy code
+/obj/machinery/rnd/destructive_analyzer/proc/ui_deconstruct() //Legacy code
 	var/list/l = list()
 	if(!loaded_item)
 		l += "<div class='statusDisplay'>No item loaded. Standing-by...</div>"
@@ -149,14 +148,14 @@ Note: Must be placed within 3 tiles of the R&D Console
 
 			l += "<div class='statusDisplay'>[RDSCREEN_NOBREAK]"
 			if (stored_research.researched_nodes[N.id])  // already researched
-				l += span_linkoff("[N.display_name]")
+				l += "<span class='linkOff'>[N.display_name]</span>"
 				l += "This node has already been researched."
 			else if(!length(worth))  // reveal only
 				if (stored_research.hidden_nodes[N.id])
 					l += "<A href='?src=[REF(src)];deconstruct=[N.id]'>[N.display_name]</A>"
 					l += "This node will be revealed."
 				else
-					l += span_linkoff("[N.display_name]")
+					l += "<span class='linkOff'>[N.display_name]</span>"
 					l += "This node has already been revealed."
 			else  // boost by the difference
 				var/list/differences = list()
@@ -170,7 +169,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 					l += "<A href='?src=[REF(src)];deconstruct=[N.id]'>[N.display_name]</A>"
 					l += "This node will be boosted with the following:<BR>[techweb_point_display_generic(differences)]"
 				else
-					l += span_linkoff("[N.display_name]")
+					l += "<span class='linkOff'>[N.display_name]</span>"
 					l += "This node has already been boosted.</span>"
 			l += "</div>[RDSCREEN_NOBREAK]"
 
@@ -179,7 +178,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 			anything = TRUE
 			l += "<div class='statusDisplay'>[RDSCREEN_NOBREAK]"
 			if (stored_research.deconstructed_items[loaded_item.type])
-				l += span_linkoff("Point Deconstruction")
+				l += "<span class='linkOff'>Point Deconstruction</span>"
 				l += "This item's points have already been claimed."
 			else
 				l += "<A href='?src=[REF(src)];deconstruct=[RESEARCH_MATERIAL_DESTROY_ID]'>Point Deconstruction</A>"
@@ -218,7 +217,9 @@ Note: Must be placed within 3 tiles of the R&D Console
 			unload_item()
 	if(ls["deconstruct"])
 		if(!user_try_decon_id(ls["deconstruct"], usr))
-			playsound(src, 'white/valtos/sounds/click3.ogg', 20, TRUE)
 			say("Destructive analysis failed!")
 
 	updateUsrDialog()
+
+/obj/machinery/rnd/destructive_analyzer/screwdriver_act(mob/living/user, obj/item/tool)
+	return FALSE

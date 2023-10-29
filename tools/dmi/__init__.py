@@ -45,9 +45,6 @@ class Dmi:
 
     @classmethod
     def from_file(cls, fname):
-        # 10/10 crutch
-        if(fname == ".\icons\effects\crayondecal.dmi" or fname == "./icons/effects/crayondecal.dmi"):
-            return
         image = Image.open(fname)
         if image.mode != 'RGBA':
             image = image.convert('RGBA')
@@ -127,7 +124,6 @@ class Dmi:
             if state.name == name:
                 return state
         raise KeyError(name)
-        return self.default_state
 
     def _assemble_comment(self):
         comment = "# BEGIN DMI\n"

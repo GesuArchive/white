@@ -16,8 +16,6 @@
 	var/list/override_types
 	/// For how much firestacks does one our stack count
 	var/stack_modifier = 1
-	/// A particle effect, for things like embers
-	var/obj/effect/abstract/particle_holder/particle_effect
 
 /datum/status_effect/fire_handler/refresh(mob/living/new_owner, new_stacks, forced = FALSE)
 	if(forced)
@@ -31,6 +29,11 @@
 	if(isanimal(owner))
 		qdel(src)
 		return
+	if(isbasicmob(owner))
+		var/mob/living/basic/basic_owner = owner
+		if(!(basic_owner.basic_mob_flags & FLAMMABLE_MOB))
+			qdel(src)
+			return
 
 	owner = new_owner
 	set_stacks(new_stacks)
@@ -43,8 +46,8 @@
 				continue
 
 			var/cur_stacks = stacks
-			adjust_stacks(-enemy_effect.stacks * enemy_effect.stack_modifier / stack_modifier)
-			enemy_effect.adjust_stacks(-cur_stacks * stack_modifier / enemy_effect.stack_modifier)
+			adjust_stacks(-abs(enemy_effect.stacks * enemy_effect.stack_modifier / stack_modifier))
+			enemy_effect.adjust_stacks(-abs(cur_stacks * stack_modifier / enemy_effect.stack_modifier))
 			if(enemy_effect.stacks <= 0)
 				qdel(enemy_effect)
 
@@ -74,23 +77,6 @@
 
 			adjust_stacks(override_effect.stacks)
 			qdel(override_effect)
-
-	update_particles()
-
-/datum/status_effect/fire_handler/on_apply()
-	. = ..()
-	update_particles()
-
-/datum/status_effect/fire_handler/on_remove()
-	if(particle_effect)
-		QDEL_NULL(particle_effect)
-	return ..()
-
-/**
- * Updates the particles for the status effects
- */
-/datum/status_effect/fire_handler/proc/update_particles()
-	SHOULD_CALL_PARENT(FALSE)
 
 /**
  * Setter and adjuster procs for firestacks
@@ -127,9 +113,9 @@
 			owner.on_fire = TRUE
 
 	if(was_on_fire && !owner.on_fire)
-		owner.clear_alert("fire")
+		owner.clear_alert(ALERT_FIRE)
 	else if(!was_on_fire && owner.on_fire)
-		owner.throw_alert("fire", /atom/movable/screen/alert/fire)
+		owner.throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
 
 /**
  * Used to update owner's effect overlay
@@ -139,31 +125,30 @@
 
 /datum/status_effect/fire_handler/fire_stacks
 	id = "fire_stacks" //fire_stacks and wet_stacks should have different IDs or else has_status_effect won't work
+	remove_on_fullheal = TRUE
 
 	enemy_types = list(/datum/status_effect/fire_handler/wet_stacks)
 	stack_modifier = 1
 
 	/// If we're on fire
 	var/on_fire = FALSE
-	/// A weakref to the mob light emitter
-	var/datum/weakref/firelight_ref
-	/// Type of mob light emitter we use when on fire
-	var/firelight_type = /obj/effect/dummy/lighting_obj/moblight/fire
 	/// Stores current fire overlay icon state, for optimisation purposes
 	var/last_icon_state
+	/// Reference to the mob light emitter itself
+	var/obj/effect/dummy/lighting_obj/moblight
+	/// Type of mob light emitter we use when on fire
+	var/moblight_type = /obj/effect/dummy/lighting_obj/moblight/fire
 
-/datum/status_effect/fire_handler/fire_stacks/tick(delta_time, times_fired)
+/datum/status_effect/fire_handler/fire_stacks/tick(seconds_between_ticks)
 	if(stacks <= 0)
 		qdel(src)
 		return TRUE
 
-	if(!on_fire || isanimal(owner))
+	if(!on_fire)
 		return TRUE
 
-	if(iscyborg(owner))
-		adjust_stacks(-0.55 * delta_time)
-	else
-		adjust_stacks(-0.05 * delta_time)
+	var/decay_multiplier = HAS_TRAIT(owner, TRAIT_HUSK) ? 2 : 1 // husks decay twice as fast
+	adjust_stacks(owner.fire_stack_decay_rate * decay_multiplier * seconds_between_ticks)
 
 	if(stacks <= 0)
 		qdel(src)
@@ -174,7 +159,7 @@
 		qdel(src)
 		return TRUE
 
-	deal_damage(delta_time, times_fired)
+	deal_damage(seconds_between_ticks)
 	update_overlay()
 	update_particles()
 
@@ -183,9 +168,9 @@
 		if(!particle_effect)
 			particle_effect = new(owner, /particles/embers)
 		if(stacks > MOB_BIG_FIRE_STACK_THRESHOLD)
-			particle_effect?.particles?.spawning = 5
+			particle_effect.particles.spawning = 5
 		else
-			particle_effect?.particles?.spawning = 1
+			particle_effect.particles.spawning = 1
 	else if(particle_effect)
 		QDEL_NULL(particle_effect)
 
@@ -193,28 +178,26 @@
  * Proc that handles damage dealing and all special effects
  *
  * Arguments:
- * - delta_time
- * - times_fired
+ * - seconds_between_ticks
  *
  */
 
-/datum/status_effect/fire_handler/fire_stacks/proc/deal_damage(delta_time, times_fired)
-	owner.on_fire_stack(delta_time, times_fired, src)
+/datum/status_effect/fire_handler/fire_stacks/proc/deal_damage(seconds_per_tick)
+	owner.on_fire_stack(seconds_per_tick, src)
 
 	var/turf/location = get_turf(owner)
-	location.hotspot_expose(700, 25 * delta_time, TRUE)
+	location.hotspot_expose(700, 25 * seconds_per_tick, TRUE)
 
 /**
  * Used to deal damage to humans and count their protection.
  *
  * Arguments:
- * - delta_time
- * - times_fired
+ * - seconds_between_ticks
  * - no_protection: When set to TRUE, fire will ignore any possible fire protection
  *
  */
 
-/datum/status_effect/fire_handler/fire_stacks/proc/harm_human(delta_time, times_fired, no_protection = FALSE)
+/datum/status_effect/fire_handler/fire_stacks/proc/harm_human(seconds_per_tick, no_protection = FALSE)
 	var/mob/living/carbon/human/victim = owner
 	var/thermal_protection = victim.get_thermal_protection()
 
@@ -222,11 +205,12 @@
 		return
 
 	if(thermal_protection >= FIRE_SUIT_MAX_TEMP_PROTECT && !no_protection)
-		victim.adjust_bodytemperature(5.5 * delta_time)
+		victim.adjust_bodytemperature(5.5 * seconds_per_tick)
 		return
 
-	victim.adjust_bodytemperature((BODYTEMP_HEATING_MAX + (stacks * 12)) * 0.5 * delta_time)
-	SEND_SIGNAL(victim, COMSIG_ADD_MOOD_EVENT, "on_fire", /datum/mood_event/on_fire)
+	victim.adjust_bodytemperature((BODYTEMP_HEATING_MAX + (stacks * 12)) * 0.5 * seconds_per_tick)
+	victim.add_mood_event("on_fire", /datum/mood_event/on_fire)
+	victim.add_mob_memory(/datum/memory/was_burning)
 
 /**
  * Handles mob ignition, should be the only way to set on_fire to TRUE
@@ -242,10 +226,12 @@
 
 	on_fire = TRUE
 	if(!silent)
-		owner.visible_message(span_warning("[owner] горит!"), span_userdanger("ГОРЮ!"))
+		owner.visible_message(span_warning("[owner] catches fire!"), span_userdanger("You're set on fire!"))
 
-	if(firelight_type)
-		firelight_ref = WEAKREF(new firelight_type(owner))
+	if(moblight_type)
+		if(moblight)
+			qdel(moblight)
+		moblight = new moblight_type(owner)
 
 	SEND_SIGNAL(owner, COMSIG_LIVING_IGNITED, owner)
 	cache_stacks()
@@ -258,20 +244,14 @@
  */
 
 /datum/status_effect/fire_handler/fire_stacks/proc/extinguish()
-	if(firelight_ref)
-		qdel(firelight_ref)
-
+	QDEL_NULL(moblight)
 	on_fire = FALSE
-	SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, "on_fire")
+	owner.clear_mood_event("on_fire")
 	SEND_SIGNAL(owner, COMSIG_LIVING_EXTINGUISHED, owner)
 	cache_stacks()
 	update_overlay()
 	update_particles()
-	if(!iscarbon(owner))
-		return
-
 	for(var/obj/item/equipped in owner.get_equipped_items())
-		equipped.wash(CLEAN_TYPE_ACID)
 		equipped.extinguish()
 
 /datum/status_effect/fire_handler/fire_stacks/on_remove()
@@ -300,8 +280,8 @@
 	enemy_types = list(/datum/status_effect/fire_handler/fire_stacks)
 	stack_modifier = -1
 
-/datum/status_effect/fire_handler/wet_stacks/tick(delta_time)
-	adjust_stacks(-2 * delta_time)
+/datum/status_effect/fire_handler/wet_stacks/tick(seconds_between_ticks)
+	adjust_stacks(-0.5 * seconds_between_ticks)
 	if(stacks <= 0)
 		qdel(src)
 

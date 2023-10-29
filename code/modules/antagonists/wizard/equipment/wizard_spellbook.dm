@@ -1,7 +1,7 @@
 /obj/item/spellbook
-	name = "книга заклинаний"
-	desc = "Загадочный том, светящийся от исходящей изнутри силы.."
-	icon = 'icons/obj/library.dmi'
+	name = "spell book"
+	desc = "An unearthly tome that glows with power."
+	icon = 'icons/obj/service/library.dmi'
 	icon_state ="book"
 	worn_icon_state = "book"
 	throw_speed = 2
@@ -39,39 +39,37 @@
 /obj/item/spellbook/proc/on_magic_charge(datum/source, datum/action/cooldown/spell/spell, mob/living/caster)
 	SIGNAL_HANDLER
 
-	var/static/list/clever_girl = list(
-		"ХОРОШАЯ ПОПЫТКА, НО НЕТ!",
-		"УМНЫЙ, НО НЕДОСТАТОЧНО!",
-		"ТАКОЕ ВОПИЮЩЕЕ МОШЕННИЧЕСТВО - ВОТ ПОЧЕМУ МЫ ПРИНЯЛИ ВАШУ ЗАЯВКУ!",
-		"МИЛО! ОЧЕНЬ МИЛО!",
-		"ТЫ ЖЕ НЕ ДУМАЛ, ЧТО ЭТО БУДЕТ ТАК ПРОСТО, НЕ ТАК ЛИ?",
-	)
-
-	to_chat(caster, span_warning("На передней обложке появляются светящиеся красные буквы..."))
-	to_chat(caster, span_red(pick(clever_girl)))
+	to_chat(caster, span_warning("Glowing red letters appear on the front cover..."))
+	to_chat(caster, span_red(pick(
+		"NICE TRY BUT NO!",
+		"CLEVER BUT NOT CLEVER ENOUGH!",
+		"SUCH FLAGRANT CHEESING IS WHY WE ACCEPTED YOUR APPLICATION!",
+		"CUTE! VERY CUTE!",
+		"YOU DIDN'T THINK IT'D BE THAT EASY, DID YOU?",
+	)))
 
 	return COMPONENT_ITEM_BURNT_OUT
 
 /obj/item/spellbook/examine(mob/user)
 	. = ..()
 	if(owner)
-		. += {"На передней обложке есть небольшая подпись: "[owner]"."}
+		. += "There is a small signature on the front cover: \"[owner]\"."
 	else
-		. += "Похоже, у нее нет хозяина."
+		. += "It appears to have no author."
 
 /obj/item/spellbook/attack_self(mob/user)
 	if(!owner)
 		if(!user.mind)
 			return
-		to_chat(user, span_notice("Привязываю [src] к себе."))
+		to_chat(user, span_notice("You bind [src] to yourself."))
 		owner = user.mind
 		return
 
 	if(user.mind != owner)
 		if(user.mind?.special_role == ROLE_WIZARD_APPRENTICE)
-			to_chat(user, span_warning("Если меня поймают, когда я 'случайно' заглядываю в книгу заклинаний моего учителя, меня, скорее всего, исключат из Академии волшебников. Лучше не надо."))
+			to_chat(user, span_warning("If you got caught sneaking a peek from your teacher's spellbook, you'd likely be expelled from the Wizard Academy. Better not."))
 		else
-			to_chat(user, span_warning("[src] не признает меня своим владельцем и отказывается открываться!"))
+			to_chat(user, span_warning("[src] does not recognize you as its owner and refuses to open!"))
 		return
 
 	return ..()
@@ -81,17 +79,17 @@
 	if(istype(O, /obj/item/antag_spawner/contract))
 		var/datum/spellbook_entry/item/contract/contract_entry = locate() in entries
 		if(!istype(contract_entry))
-			to_chat(user, span_warning("[src], похоже, не хочет возвращать очки заклинаний [O]."))
+			to_chat(user, span_warning("[src] doesn't seem to want to refund [O]."))
 			return
 		if(!contract_entry.can_refund(user, src))
-			to_chat(user, span_warning("Я не могу вернуть очки заклинаний из [src]."))
+			to_chat(user, span_warning("You can't refund [src]."))
 			return
 		var/obj/item/antag_spawner/contract/contract = O
 		if(contract.used)
-			to_chat(user, span_warning("Контракт был использован, теперь вы не можете вернуть свои очки заклинаний обратно!"))
+			to_chat(user, span_warning("The contract has been used, you can't get your points back now!"))
 			return
 
-		to_chat(user, span_notice("Запихиваю контракт обратно в книгу заклинаний, возвращая свои очки заклинаний."))
+		to_chat(user, span_notice("You feed the contract back into the spellbook, refunding your points."))
 		uses += contract_entry.cost
 		contract_entry.times--
 		qdel(O)
@@ -99,13 +97,13 @@
 	else if(istype(O, /obj/item/antag_spawner/slaughter_demon/laughter))
 		var/datum/spellbook_entry/item/hugbottle/demon_entry = locate() in entries
 		if(!istype(demon_entry))
-			to_chat(user, span_warning("[src], похоже, не хочет возвращать очки заклинаний [O]."))
+			to_chat(user, span_warning("[src] doesn't seem to want to refund [O]."))
 			return
 		if(!demon_entry.can_refund(user, src))
-			to_chat(user, span_warning("Я не могу вернуть очки заклинаний [O]."))
+			to_chat(user, span_warning("You can't refund [O]."))
 			return
 
-		to_chat(user, span_notice("Если подумать, то, возможно, призыв демона - не самая смешная идея. Я возвращаю свои очки заклинаний."))
+		to_chat(user, span_notice("On second thought, maybe summoning a demon isn't a funny idea. You refund your points."))
 		uses += demon_entry.cost
 		demon_entry.times--
 		qdel(O)
@@ -113,13 +111,13 @@
 	else if(istype(O, /obj/item/antag_spawner/slaughter_demon))
 		var/datum/spellbook_entry/item/bloodbottle/demon_entry = locate() in entries
 		if(!istype(demon_entry))
-			to_chat(user, span_warning("[src], похоже, не хочет возвращать очки заклинаний [O]."))
+			to_chat(user, span_warning("[src] doesn't seem to want to refund [O]."))
 			return
 		if(!demon_entry.can_refund(user, src))
-			to_chat(user, span_warning("Я не могу вернуть очки заклинаний [O]."))
+			to_chat(user, span_warning("You can't refund [O]."))
 			return
 
-		to_chat(user, span_notice("Если подумать, то, возможно, призыв демона - плохая идея. Я возвращаю свои очки заклинаний."))
+		to_chat(user, span_notice("On second thought, maybe summoning a demon is a bad idea. You refund your points."))
 		uses += demon_entry.cost
 		demon_entry.times--
 		qdel(O)
@@ -148,8 +146,6 @@
 	var/list/data = list()
 	data["owner"] = owner
 	data["points"] = uses
-	data["semi_random_bonus"] = initial(uses) + semi_random_bonus
-	data["full_random_bonus"] = initial(uses) + full_random_bonus
 	return data
 
 //This is a MASSIVE amount of data, please be careful if you remove it from static.
@@ -172,6 +168,8 @@
 		entry_data += list(individual_entry_data)
 
 	data["entries"] = entry_data
+	data["semi_random_bonus"] = initial(uses) + semi_random_bonus
+	data["full_random_bonus"] = initial(uses) + full_random_bonus
 	return data
 
 /obj/item/spellbook/ui_act(action, params)
@@ -218,7 +216,7 @@
 			return TRUE
 
 		if("purchase_loadout")
-			wizard_loadout(wizard, locate(params["id"]))
+			wizard_loadout(wizard, params["id"])
 			return TRUE
 
 /// Attempts to purchased the passed entry [to_buy] for [user].

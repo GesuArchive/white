@@ -2,30 +2,41 @@ import { Loader } from './common/Loader';
 import { InputButtons } from './common/InputButtons';
 import { KEY_ENTER, KEY_ESCAPE } from '../../common/keycodes';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, NumberInput, Section, Stack } from '../components';
+import { Box, Button, RestrictedInput, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 type NumberInputData = {
+  init_value: number;
+  large_buttons: boolean;
   max_value: number | null;
   message: string;
   min_value: number | null;
-  init_value: number;
   timeout: number;
   title: string;
+  round_value: boolean;
 };
 
-export const NumberInputModal = (_, context) => {
+export const NumberInputModal = (props, context) => {
   const { act, data } = useBackend<NumberInputData>(context);
-  const { message, init_value, timeout, title } = data;
+  const { init_value, large_buttons, message = '', timeout, title } = data;
   const [input, setInput] = useLocalState(context, 'input', init_value);
   const onChange = (value: number) => {
+    if (value === input) {
+      return;
+    }
     setInput(value);
   };
   const onClick = (value: number) => {
+    if (value === input) {
+      return;
+    }
     setInput(value);
   };
   // Dynamically changes the window height based on the message.
-  const windowHeight = 125 + Math.ceil(message?.length / 3);
+  const windowHeight =
+    140 +
+    (message.length > 30 ? Math.ceil(message.length / 3) : 0) +
+    (message.length && large_buttons ? 5 : 0);
 
   return (
     <Window title={title} width={270} height={windowHeight}>
@@ -34,7 +45,7 @@ export const NumberInputModal = (_, context) => {
         onKeyDown={(event) => {
           const keyCode = window.event ? event.which : event.keyCode;
           if (keyCode === KEY_ENTER) {
-            act('choose', { choice: input });
+            act('submit', { entry: input });
           }
           if (keyCode === KEY_ESCAPE) {
             act('cancel');
@@ -42,7 +53,7 @@ export const NumberInputModal = (_, context) => {
         }}>
         <Section fill>
           <Stack fill vertical>
-            <Stack.Item>
+            <Stack.Item grow>
               <Box color="label">{message}</Box>
             </Stack.Item>
             <Stack.Item>
@@ -60,43 +71,46 @@ export const NumberInputModal = (_, context) => {
 
 /** Gets the user input and invalidates if there's a constraint. */
 const InputArea = (props, context) => {
-  const { data } = useBackend<NumberInputData>(context);
-  const { min_value, max_value, init_value } = data;
+  const { act, data } = useBackend<NumberInputData>(context);
+  const { min_value, max_value, init_value, round_value } = data;
   const { input, onClick, onChange } = props;
-
   return (
     <Stack fill>
       <Stack.Item>
         <Button
+          disabled={input === min_value}
           icon="angle-double-left"
-          onClick={() => onClick(min_value || 0)}
-          tooltip="Минимум"
+          onClick={() => onClick(min_value)}
+          tooltip={min_value ? `Min (${min_value})` : 'Min'}
         />
       </Stack.Item>
       <Stack.Item grow>
-        <NumberInput
+        <RestrictedInput
           autoFocus
           autoSelect
           fluid
+          allowFloats={!round_value}
           minValue={min_value}
           maxValue={max_value}
           onChange={(_, value) => onChange(value)}
-          onDrag={(_, value) => onChange(value)}
-          value={input || init_value || 0}
+          onEnter={(_, value) => act('submit', { entry: value })}
+          value={input}
         />
       </Stack.Item>
       <Stack.Item>
         <Button
+          disabled={input === max_value}
           icon="angle-double-right"
-          onClick={() => onClick(max_value || 10000)}
-          tooltip="Макс"
+          onClick={() => onClick(max_value)}
+          tooltip={max_value ? `Max (${max_value})` : 'Max'}
         />
       </Stack.Item>
       <Stack.Item>
         <Button
+          disabled={input === init_value}
           icon="redo"
-          onClick={() => onClick(init_value || 0)}
-          tooltip="Сброс"
+          onClick={() => onClick(init_value)}
+          tooltip={init_value ? `Reset (${init_value})` : 'Reset'}
         />
       </Stack.Item>
     </Stack>

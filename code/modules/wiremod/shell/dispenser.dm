@@ -5,7 +5,7 @@
  */
 /obj/structure/dispenser_bot
 	name = "dispenser"
-	icon = 'icons/obj/wiremod.dmi'
+	icon = 'icons/obj/science/circuits.dmi'
 	icon_state = "setup_drone_arms"
 
 	density = FALSE
@@ -28,11 +28,12 @@
 	return ..()
 
 
-/obj/structure/dispenser_bot/proc/add_item(obj/item/to_add)
+/obj/structure/dispenser_bot/proc/add_item(mob/user, obj/item/to_add)
+	balloon_alert(user, "inserted item")
 	stored_items += to_add
 	to_add.forceMove(src)
 	RegisterSignal(to_add, COMSIG_MOVABLE_MOVED, PROC_REF(handle_stored_item_moved))
-	RegisterSignal(to_add, COMSIG_PARENT_QDELETING, PROC_REF(handle_stored_item_deleted))
+	RegisterSignal(to_add, COMSIG_QDELETING, PROC_REF(handle_stored_item_deleted))
 	SEND_SIGNAL(src, COMSIG_DISPENSERBOT_ADD_ITEM, to_add)
 
 /obj/structure/dispenser_bot/proc/handle_stored_item_moved(obj/item/moving_item, atom/location)
@@ -47,7 +48,7 @@
 /obj/structure/dispenser_bot/proc/remove_item(obj/item/to_remove)
 	UnregisterSignal(to_remove, list(
 		COMSIG_MOVABLE_MOVED,
-		COMSIG_PARENT_QDELETING,
+		COMSIG_QDELETING,
 	))
 	to_remove.forceMove(drop_location())
 	stored_items -= to_remove
@@ -61,27 +62,33 @@
 	), SHELL_CAPACITY_LARGE)
 
 /obj/structure/dispenser_bot/attackby(obj/item/item, mob/living/user, params)
-	. = ..()
-	if(user.a_intent == INTENT_HARM || .)
-		return
-
-	if(item.w_class > max_weight)
+	if(user.combat_mode)
+		return ..()
+	if(istype(item, /obj/item/wrench) || istype(item, /obj/item/multitool) || istype(item, /obj/item/integrated_circuit))
+		return ..()
+	if(item.w_class > max_weight && !istype(item, /obj/item/storage/bag))
 		balloon_alert(user, "item too big!")
-		return
-
+		return FALSE
 	if(length(stored_items) >= capacity)
 		balloon_alert(user, "at maximum capacity!")
-		return
-
-	add_item(item)
-
+		return FALSE
+	if(istype(item, /obj/item/storage/bag))
+		for(var/obj/item/bag_item in item.contents)
+			if(length(stored_items) >= capacity)
+				break
+			if(bag_item.w_class > max_weight || istype(bag_item, /obj/item/storage/bag))
+				continue
+			add_item(user, bag_item)
+		return TRUE
+	add_item(user, item)
+	return TRUE
 
 /obj/structure/dispenser_bot/wrench_act(mob/living/user, obj/item/tool)
 	if(locked)
 		return
 	set_anchored(!anchored)
 	tool.play_tool_sound(src)
-	balloon_alert(user, "You [anchored?"secure":"unsecure"] [src].")
+	balloon_alert(user, "[anchored? "secured" : "unsecured"]")
 	return TRUE
 
 /obj/item/circuit_component/dispenser_bot
@@ -141,7 +148,7 @@
 /obj/item/circuit_component/dispenser_bot/proc/remove_vendor_component(obj/item/circuit_component/vendor_component/vendor_component)
 	SIGNAL_HANDLER
 	UnregisterSignal(vendor_component, list(
-		COMSIG_PARENT_QDELETING,
+		COMSIG_QDELETING,
 		COMSIG_CIRCUIT_COMPONENT_REMOVED,
 	))
 	if(!QDELING(vendor_component))
@@ -158,7 +165,7 @@
 			parent.add_component(vendor_component, user)
 			vendor_components += vendor_component
 			RegisterSignals(vendor_component, list(
-				COMSIG_PARENT_QDELETING,
+				COMSIG_QDELETING,
 				COMSIG_CIRCUIT_COMPONENT_REMOVED,
 			), PROC_REF(remove_vendor_component))
 

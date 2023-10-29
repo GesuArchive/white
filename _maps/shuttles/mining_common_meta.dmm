@@ -3,7 +3,7 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/mining)
 "b" = (
-/obj/effect/spawner/structure/window/shuttle,
+/obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/shuttle/mining)
 "c" = (
@@ -11,10 +11,7 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "d" = (
-/obj/machinery/computer/shuttle_flight/mining/common,
-/obj/effect/turf_decal/loading_area{
-	dir = 1
-	},
+/obj/machinery/computer/shuttle/mining/common,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "e" = (
@@ -24,19 +21,10 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/obj/effect/turf_decal/bot,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "g" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable,
-/obj/machinery/camera/autoname{
-	dir = 5;
-	start_active = 1
-	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/mining)
 "h" = (
@@ -45,67 +33,32 @@
 	},
 /obj/docking_port/mobile{
 	dir = 8;
-	id = "mining_common";
+	shuttle_id = "mining_common";
 	name = "lavaland shuttle";
 	port_direction = 4
 	},
-/obj/structure/fans/tiny,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/mining)
 "i" = (
-/obj/effect/turf_decal/bot,
-/obj/structure/ore_box,
-/obj/structure/cable,
+/obj/structure/closet/crate,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "j" = (
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/machinery/power/shuttle_engine/heater,
+/obj/structure/window/reinforced/spawner/directional/north{
 	layer = 2.9
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/power/engine_capacitor_bank{
-	dir = 1
-	},
-/obj/structure/cable,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/plating,
 /area/shuttle/mining)
 "k" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/power/smes/engineering,
-/obj/structure/cable,
+/obj/structure/ore_box,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "l" = (
-/obj/machinery/shuttle/engine/ion{
-	dir = 1
-	},
+/obj/machinery/power/shuttle_engine/propulsion/burst,
 /turf/open/floor/plating/airless,
-/area/shuttle/mining)
-"m" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot,
-/obj/machinery/power/terminal,
-/obj/structure/cable,
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/mining)
-"t" = (
-/obj/effect/turf_decal/bot,
-/obj/structure/closet/crate,
-/obj/structure/cable,
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/mining)
-"O" = (
-/obj/structure/cable,
-/turf/open/floor/mineral/titanium,
 /area/shuttle/mining)
 "Q" = (
 /obj/structure/chair/comfy/shuttle{
@@ -128,7 +81,7 @@ a
 c
 e
 g
-t
+f
 i
 a
 "}
@@ -145,8 +98,8 @@ l
 a
 c
 e
-O
-m
+e
+f
 k
 a
 "}

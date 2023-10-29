@@ -5,19 +5,19 @@ import { Window } from '../layouts';
 
 const damageTypes = [
   {
-    label: 'Физический',
+    label: 'Brute',
     type: 'bruteLoss',
   },
   {
-    label: 'Кислородный',
+    label: 'Respiratory',
     type: 'oxyLoss',
   },
   {
-    label: 'Токсины',
+    label: 'Toxin',
     type: 'toxLoss',
   },
   {
-    label: 'Ожоги',
+    label: 'Burn',
     type: 'fireLoss',
   },
 ];
@@ -36,23 +36,23 @@ const CryoContent = (props, context) => {
   const { act, data } = useBackend(context);
   return (
     <>
-      <Section title="Пациент">
+      <Section title="Occupant">
         <LabeledList>
-          <LabeledList.Item label="Пациент">
-            {data.occupant.name || 'Нет пациента'}
+          <LabeledList.Item label="Occupant">
+            {data.occupant.name || 'No Occupant'}
           </LabeledList.Item>
           {!!data.hasOccupant && (
             <>
-              <LabeledList.Item label="Статус" color={data.occupant.statstate}>
+              <LabeledList.Item label="State" color={data.occupant.statstate}>
                 {data.occupant.stat}
               </LabeledList.Item>
               <LabeledList.Item
-                label="Температура"
+                label="Temperature"
                 color={data.occupant.temperaturestatus}>
                 <AnimatedNumber value={data.occupant.bodyTemperature} />
                 {' K'}
               </LabeledList.Item>
-              <LabeledList.Item label="Здоровье">
+              <LabeledList.Item label="Health">
                 <ProgressBar
                   value={data.occupant.health / data.occupant.maxHealth}
                   color={data.occupant.health > 0 ? 'good' : 'average'}>
@@ -70,42 +70,42 @@ const CryoContent = (props, context) => {
           )}
         </LabeledList>
       </Section>
-      <Section title="Камера">
+      <Section title="Cell">
         <LabeledList>
-          <LabeledList.Item label="Питание">
+          <LabeledList.Item label="Power">
             <Button
               icon={data.isOperating ? 'power-off' : 'times'}
               disabled={data.isOpen}
               onClick={() => act('power')}
               color={data.isOperating && 'green'}>
-              {data.isOperating ? 'Вкл' : 'Выкл'}
+              {data.isOperating ? 'On' : 'Off'}
             </Button>
           </LabeledList.Item>
-          <LabeledList.Item label="Температура">
+          <LabeledList.Item label="Temperature">
             <AnimatedNumber value={data.cellTemperature} /> K
           </LabeledList.Item>
-          <LabeledList.Item label="Камера">
+          <LabeledList.Item label="Door">
             <Button
               icon={data.isOpen ? 'unlock' : 'lock'}
               onClick={() => act('door')}
-              content={data.isOpen ? 'Открыта' : 'Закрыта'}
+              content={data.isOpen ? 'Open' : 'Closed'}
             />
             <Button
               icon={data.autoEject ? 'sign-out-alt' : 'sign-in-alt'}
               onClick={() => act('autoeject')}
-              content={data.autoEject ? 'Авто' : 'Вручную'}
+              content={data.autoEject ? 'Auto' : 'Manual'}
             />
           </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section
-        title="Пробирка"
+        title="Beaker"
         buttons={
           <Button
             icon="eject"
             disabled={!data.isBeakerLoaded}
             onClick={() => act('ejectbeaker')}
-            content="Изъять"
+            content="Eject"
           />
         }>
         <BeakerContents

@@ -4,109 +4,86 @@
 /////////////////////////////////////////
 
 /datum/design/beacon
-	name = "Телепортационный маяк"
-	desc = "Миниатюрное устройство служащее фокусирующим маяком для ручных и стационарных телепортов."
+	name = "Tracking Beacon"
+	desc = "A bluespace tracking beacon."
 	id = "beacon"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/iron = 150, /datum/material/glass = 100)
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*1.5, /datum/material/glass =SMALL_MATERIAL_AMOUNT)
 	build_path = /obj/item/beacon
-	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение", "Снаряжение СБ")
-	sub_category = list("Связь и навигация")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SECURITY
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_BLUESPACE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/bag_holding
-	name = "Инертная блюспейс сумка"
-	desc = "То, что в настоящее время представляет собой просто громоздкий металлический блок со слотом, готовым принять ядро блюспейс аномалии."
+	name = "Inert Bag of Holding"
+	desc = "A block of metal ready to be transformed into a bag of holding with a bluespace anomaly core."
 	id = "bag_holding"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/gold = 3000, /datum/material/diamond = 1500, /datum/material/uranium = 250, /datum/material/bluespace = 2000)
+	build_type = PROTOLATHE
+	materials = list(/datum/material/gold =SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/diamond =HALF_SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/uranium = SMALL_MATERIAL_AMOUNT*2.5, /datum/material/bluespace =SHEET_MATERIAL_AMOUNT)
 	build_path = /obj/item/bag_of_holding_inert
-	category = list("Блюспейс разработки", "Научное снаряжение")
-	sub_category = list("Экипировка")
-	dangerous_construction = TRUE
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
-
-/datum/design/bluebutt
-	name = "Блюспейс задница"
-	desc = "Высокотехнологичный протез задницы с подпространственным карманом для хранения предметов."
-	id = "bluebutt"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/gold = 2000, /datum/material/diamond = 1250, /datum/material/uranium = 250, /datum/material/bluespace = 2000)
-	build_path = /obj/item/organ/butt/bluebutt
-	category = list("Блюспейс разработки", "Научное снаряжение")
-	sub_category = list("Экипировка")
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/bluespace_crystal
-	name = "Синтетический блюспейс кристалл"
-	desc = "Искусственно сделанный блюспейс кристалл, выглядит изысканно."
+	name = "Artificial Bluespace Crystal"
+	desc = "A small blue crystal with mystical properties."
 	id = "bluespace_crystal"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/diamond = 1500, /datum/material/plasma = 1500)
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/diamond =HALF_SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/plasma =HALF_SHEET_MATERIAL_AMOUNT * 1.5)
 	build_path = /obj/item/stack/ore/bluespace_crystal/artificial
-	category = list("Блюспейс разработки", "Сплавы и синтез")
-	sub_category = list("Синтез")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+	category = list(
+		RND_CATEGORY_CONSTRUCTION + RND_SUBCATEGORY_CONSTRUCTION_MATERIALS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/telesci_gps
-	name = "GPS - глобальная система позиционирования"
-	desc = "Помогает потерянным космонавтам найти дорогу домой с 2016 года."
+	name = "GPS Device"
+	desc = "Little thingie that can track its position at all times."
 	id = "telesci_gps"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 1000)
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT)
 	build_path = /obj/item/gps
-	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение", "Снаряжение СБ")
-	sub_category = list("Связь и навигация")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_BLUESPACE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_CARGO
+	autolathe_exportable = FALSE
 
 /datum/design/desynchronizer
-	name = "Десинхронизатор"
-	desc = "Технология позволяющая грубо вмешаться в структуру блюспейс пространства и способная повлиять на пространственно-временной континиум. Строго запрещена космической академией наук."
+	name = "Desynchronizer"
+	desc = "A device that can desynchronize the user from spacetime."
 	id = "desynchronizer"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500, /datum/material/silver = 1500, /datum/material/bluespace = 1000)
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5, /datum/material/silver =HALF_SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/bluespace =HALF_SHEET_MATERIAL_AMOUNT)
 	build_path = /obj/item/desynchronizer
-	category = list("Блюспейс разработки", "Научное снаряжение", "Снаряжение СБ")
-	sub_category = list("Экипировка")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_BLUESPACE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/miningsatchel_holding
-	name = "Бездонная сумка для руды"
-	desc = "Революция в удобстве: этот рюкзак позволяет хранить огромное количество руды. Он оборудован мерами безопасности от сбоев."
+	name = "Mining Satchel of Holding"
+	desc = "A mining satchel that can hold an infinite amount of ores."
 	id = "minerbag_holding"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/gold = 250, /datum/material/uranium = 500) //quite cheap, for more convenience
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*2.5, /datum/material/uranium =SMALL_MATERIAL_AMOUNT*5) //quite cheap, for more convenience
 	build_path = /obj/item/storage/bag/ore/holding
-	category = list("Блюспейс разработки", "Карго снаряжение")
-	sub_category = list("Горнопромышленное снаряжение")
-	departmental_flags = DEPARTMENTAL_FLAG_CARGO
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MINING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
 /datum/design/swapper
-	name = "Квантовый инвертор"
-	desc = "Экспериментальное устройство, которое способно менять местами местоположения двух объектов, изменяя значения их частиц. Для корректной работы должен быть синхронизирован с другим таким же устройством."
+	name = "Quantum Spin Inverter"
+	desc = "An experimental device that is able to swap the locations of two entities by switching their particles' spin values. Must be linked to another device to function."
 	id = "swapper"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 1000, /datum/material/bluespace = 2000, /datum/material/gold = 1500, /datum/material/silver = 1000)
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace =SHEET_MATERIAL_AMOUNT, /datum/material/gold =HALF_SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/silver =HALF_SHEET_MATERIAL_AMOUNT)
 	build_path = /obj/item/swapper
-	category = list("Блюспейс разработки", "Научное снаряжение", "Снаряжение СБ")
-	sub_category = list("Экипировка")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
-
-/datum/design/bluemine
-	name = "Блюспейс майнинг"
-	desc = "Благодаря совместным усилиям Bluespace-A.S.S Technologies теперь можно добывать тонкую струйку ресурсов с помощью Блюспейс магии..."
-	id = "bluemine"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/gold = 500, /datum/material/silver = 500, /datum/material/bluespace = 500) //quite cheap, for more convenience
-	build_path = /obj/item/circuitboard/machine/bluespace_miner
-	category = list("Блюспейс разработки", "Инженерное оборудование", "Научное оборудование", "Карго оборудование")
-	sub_category = list("Производство")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_CARGO
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_BLUESPACE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE

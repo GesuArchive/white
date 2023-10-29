@@ -1,15 +1,15 @@
 /obj/item/ammo_box/magazine/recharge
-	name = "энергопакет"
-	desc = "Используется для перезарядки лазерных винтовок."
+	name = "power pack"
+	desc = "A rechargeable, detachable battery that serves as a magazine for laser rifles."
 	icon_state = "oldrifle-20"
 	base_icon_state = "oldrifle"
-	ammo_type = /obj/item/ammo_casing/caseless/laser
-	caliber = "laser"
+	ammo_type = /obj/item/ammo_casing/laser
+	caliber = CALIBER_LASER
 	max_ammo = 20
 
 /obj/item/ammo_box/magazine/recharge/update_desc()
 	. = ..()
-	desc = "[initial(desc)]<hr> Осталось [stored_ammo.len] выстрелов."
+	desc = "[initial(desc)] It has [stored_ammo.len] shot\s left."
 
 /obj/item/ammo_box/magazine/recharge/update_icon_state()
 	. = ..()

@@ -29,9 +29,11 @@
 	pic = blood_splatter_appearances[index]
 
 	if(!pic)
-		var/icon/blood_splatter_icon = icon(I.icon, I.icon_state, , 1)
+		var/icon/blood_splatter_icon = icon(I.icon, I.icon_state, , 1) //icon of the item that will become splattered
+		var/icon/blood_icon = icon(_icon, _icon_state) //icon of the blood that we apply
+		blood_icon.Scale(blood_splatter_icon.Width(), blood_splatter_icon.Height())
 		blood_splatter_icon.Blend("#fff", ICON_ADD) //fills the icon_state with white (except where it's transparent)
-		blood_splatter_icon.Blend(icon(_icon, _icon_state), ICON_MULTIPLY) //adds blood and the remaining white areas become transparant
+		blood_splatter_icon.Blend(blood_icon, ICON_MULTIPLY) //adds blood and the remaining white areas become transparant
 		pic = mutable_appearance(blood_splatter_icon, I.icon_state)
 		blood_splatter_appearances[index] = pic
 	return TRUE
@@ -39,10 +41,7 @@
 /datum/element/decal/blood/proc/get_examine_name(datum/source, mob/user, list/override)
 	SIGNAL_HANDLER
 
-	override[EXAMINE_POSITION_BEFORE] = "<small class='red'>(в крови)</small> "
-	/*
 	var/atom/A = source
 	override[EXAMINE_POSITION_ARTICLE] = A.gender == PLURAL? "some" : "a"
 	override[EXAMINE_POSITION_BEFORE] = " blood-stained "
-	*/
 	return COMPONENT_EXNAME_CHANGED

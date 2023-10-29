@@ -21,6 +21,9 @@ GLOBAL_PROTECT(lua_usr)
 	/// A list in which to store datums and lists instantiated in lua, ensuring that they don't get garbage collected
 	var/list/references = list()
 
+	/// Ckey of the last user who ran a script on this lua state.
+	var/ckey_last_runner = ""
+
 /datum/lua_state/vv_edit_var(var_name, var_value)
 	. = ..()
 	if(var_name == NAMEOF(src, internal_id))
@@ -88,6 +91,18 @@ GLOBAL_PROTECT(lua_usr)
 
 /datum/lua_state/proc/call_function(function, ...)
 	var/call_args = length(args) > 1 ? args.Copy(2) : list()
+	if(islist(function))
+		var/list/new_function_path = list()
+		for(var/path_element in function)
+			if(isweakref(path_element))
+				var/datum/weakref/weak_ref = path_element
+				var/resolved = weak_ref.hard_resolve()
+				if(!resolved)
+					return list("status" = "errored", "param" = "Weakref in function path ([weak_ref] [text_ref(weak_ref)]) resolved to null.", "name" = jointext(function, "."))
+				new_function_path += resolved
+			else
+				new_function_path += path_element
+		function = new_function_path
 	var/msg = "[key_name(usr)] called the lua function \"[function]\" with arguments: [english_list(call_args)]"
 	log_lua(msg)
 
@@ -99,7 +114,7 @@ GLOBAL_PROTECT(lua_usr)
 	GLOB.lua_usr = tmp_usr
 
 	if(isnull(result))
-		result = list("status" = "errored", "param" = "__lua_call returned null (it may have runtimed - check the runtime logs)", "name" = "input")
+		result = list("status" = "errored", "param" = "__lua_call returned null (it may have runtimed - check the runtime logs)", "name" = islist(function) ? jointext(function, ".") : function)
 	if(istext(result))
 		result = list("status" = "errored", "param" = result, "name" = islist(function) ? jointext(function, ".") : function)
 	check_if_slept(result)
@@ -118,7 +133,7 @@ GLOBAL_PROTECT(lua_usr)
 	GLOB.IsLuaCall = FALSE
 
 	if(isnull(result))
-		result = list("status" = "errored", "param" = "__lua_awaken returned null (it may have runtimed - check the runtime logs)", "name" = "input")
+		result = list("status" = "errored", "param" = "__lua_awaken returned null (it may have runtimed - check the runtime logs)", "name" = "An attempted awaken")
 	if(istext(result))
 		result = list("status" = "errored", "param" = result, "name" = "An attempted awaken")
 	check_if_slept(result)
@@ -135,7 +150,7 @@ GLOBAL_PROTECT(lua_usr)
 	GLOB.IsLuaCall = FALSE
 
 	if(isnull(result))
-		result = list("status" = "errored", "param" = "__lua_resume returned null (it may have runtimed - check the runtime logs)", "name" = "input")
+		result = list("status" = "errored", "param" = "__lua_resume returned null (it may have runtimed - check the runtime logs)", "name" = "An attempted resume")
 	if(istext(result))
 		result = list("status" = "errored", "param" = result, "name" = "An attempted resume")
 	check_if_slept(result)
@@ -155,5 +170,19 @@ GLOBAL_PROTECT(lua_usr)
 	if(editor_list)
 		for(var/datum/lua_editor/editor as anything in editor_list)
 			SStgui.update_uis(editor)
+
+/// Called by lua scripts when they add an atom to var/list/references so that it gets cleared up on delete.
+/datum/lua_state/proc/clear_on_delete(datum/to_clear)
+	RegisterSignal(to_clear, COMSIG_QDELETING, PROC_REF(on_delete))
+
+/// Called by lua scripts when an atom they've added should soft delete and this state should stop tracking it.
+/// Needs to unregister all signals.
+/datum/lua_state/proc/let_soft_delete(datum/to_clear)
+	UnregisterSignal(to_clear, COMSIG_QDELETING, PROC_REF(on_delete))
+	references -= to_clear
+
+/datum/lua_state/proc/on_delete(datum/to_clear)
+	SIGNAL_HANDLER
+	references -= to_clear
 
 #undef MAX_LOG_REPEAT_LOOKBACK

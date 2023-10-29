@@ -7,9 +7,9 @@
 //As long as this is working, solar panels on same powernet will track automatically
 
 /obj/machinery/power/tracker
-	name = "Отслеживатель солнечных лучей"
+	name = "solar tracker"
 	desc = "A solar directional tracker."
-	icon = 'icons/obj/solar.dmi'
+	icon = 'icons/obj/machines/solar.dmi'
 	icon_state = "tracker_base"
 	density = TRUE
 	use_power = NO_POWER_USE
@@ -50,7 +50,7 @@
 	layer = FLY_LAYER
 
 /obj/machinery/power/tracker/proc/add_panel_overlay(icon_state, z_offset)
-	var/obj/effect/overlay/overlay = new()
+	var/obj/effect/overlay/tracker/overlay = new(src)
 	overlay.icon_state = icon_state
 	SET_PLANE_EXPLICIT(overlay, ABOVE_GAME_PLANE, src)
 	overlay.pixel_z = z_offset
@@ -124,14 +124,14 @@
 
 /obj/machinery/power/tracker/crowbar_act(mob/user, obj/item/I)
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
-	user.visible_message(span_notice("[user] начинает снимать стекло с [src].") , span_notice("Начинаю снимать стекло с [src]..."))
+	user.visible_message(span_notice("[user] begins to take the glass off [src]."), span_notice("You begin to take the glass off [src]..."))
 	if(I.use_tool(src, user, 50))
 		playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		user.visible_message(span_notice("[user] снимает стекло с [src].") , span_notice("Снимаю стекло с [src]."))
+		user.visible_message(span_notice("[user] takes the glass off [src]."), span_notice("You take the glass off [src]."))
 		deconstruct(TRUE)
 	return TRUE
 
-/obj/machinery/power/tracker/obj_break(damage_flag)
+/obj/machinery/power/tracker/atom_break(damage_flag)
 	. = ..()
 	if(.)
 		playsound(loc, 'sound/effects/glassbr3.ogg', 100, TRUE)
@@ -145,7 +145,7 @@
 				S.forceMove(loc)
 				S.give_glass(machine_stat & BROKEN)
 		else
-			playsound(src, "shatter", 70, TRUE)
+			playsound(src, SFX_SHATTER, 70, TRUE)
 			new /obj/item/shard(src.loc)
 			new /obj/item/shard(src.loc)
 	qdel(src)
@@ -153,7 +153,7 @@
 // Tracker Electronic
 
 /obj/item/electronics/tracker
-	name = "электроника отслеживателя солнечных лучей"
+	name = "tracker electronics"
 
 #undef TRACKER_Z_OFFSET
 #undef TRACKER_EDGE_Z_OFFSET

@@ -32,6 +32,7 @@ export const AccessList = (props, context) => {
   }
 
   const parsedRegions = [];
+  const selectedTrimAccess = [];
   accesses.forEach((region) => {
     const regionName = region.name;
     const regionAccess = region.accesses;
@@ -41,6 +42,22 @@ export const AccessList = (props, context) => {
       hasSelected: false,
       allSelected: true,
     };
+
+    // If we're showing the basic accesses included as part of the trim,
+    // we want to figure out how many are selected for later formatting
+    // logic.
+    if (showBasic) {
+      regionAccess.forEach((access) => {
+        if (
+          trimAccess.includes(access.ref) &&
+          selectedList.includes(access.ref) &&
+          !selectedTrimAccess.includes(access.ref)
+        ) {
+          selectedTrimAccess.push(access.ref);
+        }
+      });
+    }
+
     // If there's no wildcard selected, grab accesses in
     // the trimAccess list as they require no wildcard.
     if (selectedWildcard === 'None') {
@@ -82,13 +99,15 @@ export const AccessList = (props, context) => {
   });
 
   return (
-    <Section title="Доступ" buttons={extraButtons}>
+    <Section title="Access" buttons={extraButtons}>
       <Flex wrap="wrap">
         <Flex.Item width="100%">
           <FormatWildcards
             wildcardSlots={wildcardSlots}
             selectedList={selectedList}
             showBasic={showBasic}
+            basicUsed={selectedTrimAccess.length}
+            basicMax={trimAccess.length}
           />
         </Flex.Item>
         <Flex.Item>
@@ -112,7 +131,7 @@ export const AccessList = (props, context) => {
 };
 
 export const FormatWildcards = (props, context) => {
-  const { wildcardSlots = {}, showBasic } = props;
+  const { wildcardSlots = {}, showBasic, basicUsed = 0, basicMax = 0 } = props;
 
   const [wildcardTab, setWildcardTab] = useSharedState(
     context,
@@ -135,22 +154,29 @@ export const FormatWildcards = (props, context) => {
         <Tabs.Tab
           selected={selectedWildcard === 'None'}
           onClick={() => setWildcardTab('None')}>
-          Basic
+          Trim:
+          <br />
+          {basicUsed + '/' + basicMax}
         </Tabs.Tab>
       )}
 
       {Object.keys(wildcardSlots).map((wildcard) => {
         const wcObj = wildcardSlots[wildcard];
-        const wcLimit = wcObj.limit;
+        let wcLimit = wcObj.limit;
         const wcUsage = wcObj.usage.length;
         const wcLeft = wcLimit - wcUsage;
-        const wcLeftStr = wcLeft >= 0 ? '' + wcLeft + '/' + wcLimit : '∞';
+        if (wcLeft < 0) {
+          wcLimit = '∞';
+        }
+        const wcLeftStr = `${wcUsage}/${wcLimit}`;
         return (
           <Tabs.Tab
             key={wildcard}
             selected={selectedWildcard === wildcard}
             onClick={() => setWildcardTab(wildcard)}>
-            {wildcard + ': ' + wcLeftStr}
+            {wildcard + ':'}
+            <br />
+            {wcLeftStr}
           </Tabs.Tab>
         );
       })}

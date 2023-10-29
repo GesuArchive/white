@@ -4,10 +4,11 @@
  * A movable mob that can be fed inputs on which direction to travel.
  */
 /mob/living/circuit_drone
-	name = "дрон"
-	desc = "Оболочка, способная к самостоятельному передвижению. Внутренний контролер используется для отправки выходных сигналов движения на оболочку дрона"
-	icon = 'icons/obj/wiremod.dmi'
+	name = "drone"
+	icon = 'icons/obj/science/circuits.dmi'
 	icon_state = "setup_medium_med"
+	maxHealth = 300
+	health = 300
 	living_flags = 0
 	light_system = MOVABLE_LIGHT_DIRECTIONAL
 	light_on = FALSE
@@ -18,17 +19,36 @@
 		new /obj/item/circuit_component/bot_circuit()
 	), SHELL_CAPACITY_LARGE)
 
+/mob/living/circuit_drone/examine(mob/user)
+	. = ..()
+	if(health < maxHealth)
+		if(health > maxHealth/3)
+			. += "[src]'s parts look loose."
+		else
+			. += "[src]'s parts look very loose!"
+	else
+		. += "[src] is in pristine condition."
+
 /mob/living/circuit_drone/updatehealth()
 	. = ..()
 	if(health < 0)
-		gib(no_brain = TRUE, no_organs = TRUE, no_bodyparts = TRUE)
+		gib()
+
+/mob/living/circuit_drone/welder_act(mob/living/user, obj/item/tool)
+	. = ..()
+	if(health == maxHealth)
+		balloon_alert(user, "already at maximum integrity!")
+		return TRUE
+	if(tool.use_tool(src, user, 1 SECONDS, volume = 50))
+		heal_overall_damage(50, 50)
+	return TRUE
 
 /mob/living/circuit_drone/spawn_gibs()
 	new /obj/effect/gibspawner/robot(drop_location(), src, get_static_viruses())
 
 /obj/item/circuit_component/bot_circuit
-	display_name = "Дрон"
-	desc = "Используется для отправки выходных сигналов движения на оболочку дрона."
+	display_name = "Drone"
+	desc = "Used to send movement output signals to the drone shell."
 
 	/// The inputs to allow for the drone to move
 	var/datum/port/input/north
@@ -45,11 +65,26 @@
 	/// Delay between each movement
 	var/move_delay = 0.2 SECONDS
 
+/obj/item/circuit_component/bot_circuit/register_shell(atom/movable/shell)
+	. = ..()
+	if(ismob(shell))
+		RegisterSignal(shell, COMSIG_PROCESS_BORGCHARGER_OCCUPANT, PROC_REF(on_borg_charge))
+
+/obj/item/circuit_component/bot_circuit/unregister_shell(atom/movable/shell)
+	UnregisterSignal(shell, COMSIG_PROCESS_BORGCHARGER_OCCUPANT)
+	return ..()
+
+/obj/item/circuit_component/bot_circuit/proc/on_borg_charge(datum/source, amount)
+	SIGNAL_HANDLER
+	if (isnull(parent.cell))
+		return
+	parent.cell.give(amount)
+
 /obj/item/circuit_component/bot_circuit/populate_ports()
-	north = add_input_port("Север", PORT_TYPE_SIGNAL)
-	east = add_input_port("Восток", PORT_TYPE_SIGNAL)
-	south = add_input_port("Юг", PORT_TYPE_SIGNAL)
-	west = add_input_port("Запад", PORT_TYPE_SIGNAL)
+	north = add_input_port("Move North", PORT_TYPE_SIGNAL)
+	east = add_input_port("Move East", PORT_TYPE_SIGNAL)
+	south = add_input_port("Move South", PORT_TYPE_SIGNAL)
+	west = add_input_port("Move West", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/bot_circuit/input_received(datum/port/input/port)
 

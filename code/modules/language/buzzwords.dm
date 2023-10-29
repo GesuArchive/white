@@ -1,10 +1,10 @@
 /datum/language/buzzwords
-	name = "Бззззлова"
-	desc = "Общий язык для всех насекомых, созданный ритмичным взмахом крыльев."
+	name = "Buzzwords"
+	desc = "A common language to all insects, made by the rhythmic beating of wings."
 	key = "z"
 	space_chance = 0
 	syllables = list(
-		"бзз","ззз","з","бз","бззз","зззз", "бзззз", "б", "зз", "ззззз"
+		"bzz","zzz","z","bz","bzzz","zzzz", "bzzzz", "b", "zz", "zzzzz"
 	)
 	icon_state = "buzz"
 	default_priority = 90

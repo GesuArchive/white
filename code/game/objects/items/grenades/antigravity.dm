@@ -9,15 +9,13 @@
 
 /obj/item/grenade/antigravity/detonate(mob/living/lanced_by)
 	. = ..()
+	if(!.)
+		return
+
 	update_mob()
 
-	for(var/turf/T in view(range,src))
-		T.AddElement(/datum/element/forced_gravity, forced_value)
-		addtimer(CALLBACK(T, TYPE_PROC_REF(/datum/, _RemoveElement), list(forced_value)), duration)
+	for(var/turf/lanced_turf in view(range, src))
+		lanced_turf.AddElement(/datum/element/forced_gravity, forced_value)
+		addtimer(CALLBACK(lanced_turf, TYPE_PROC_REF(/datum/, _RemoveElement), list(/datum/element/forced_gravity, forced_value)), duration)
 
 	qdel(src)
-
-/obj/item/grenade/antigravity/heavy
-	name = "Магнитная граната"
-	desc = "Данный образец на короткое время увеличивает гравитацию в радиусе взрыва за счет активных частиц."
-	forced_value = 3

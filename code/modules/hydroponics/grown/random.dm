@@ -1,8 +1,8 @@
 //Random seeds; stats, traits, and plant type are randomized for each seed.
 
 /obj/item/seeds/random
-	name = "Пачка странных семян"
-	desc = "Такие же странные, как и их название. Стрёмно."
+	name = "pack of strange seeds"
+	desc = "Mysterious seeds as strange as their name implies. Spooky."
 	icon_state = "seed-x"
 	species = "?????"
 	plantname = "strange plant"
@@ -11,7 +11,7 @@
 	icon_dead = "xpod-dead"
 	icon_harvest = "xpod-harvest"
 	growthstages = 4
-	custom_premium_price = PAYCHECK_EASY * 2
+	custom_premium_price = PAYCHECK_CREW * 2
 
 /obj/item/seeds/random/Initialize(mapload)
 	. = ..()
@@ -24,10 +24,9 @@
 
 /obj/item/food/grown/random
 	seed = /obj/item/seeds/random
-	name = "Странный плод"
-	desc = "Что это такое?"
+	name = "strange plant"
+	desc = "What could this even be?"
 	icon_state = "crunchy"
-	bite_consumption_mod = 2
 
 /obj/item/food/grown/random/Initialize(mapload)
 	. = ..()

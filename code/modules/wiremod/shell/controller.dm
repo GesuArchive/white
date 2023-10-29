@@ -5,14 +5,13 @@
  * In game, this translates to having different signals for normal usage, alt-clicking, and ctrl-clicking when in your hand.
  */
 /obj/item/controller
-	name = "Контроллер"
-	desc = "Портативная оболочка с несколькими кнопками. Используется для приема входных данных от оболочки контроллера. <b>Используйте оболочку в руке</b>, чтобы запустить выходной сигнал. <b>Alt+клик</b> для получения альтернативного сигнала. <b>ПКМ</b> для получения дополнительного сигнала."
-	icon = 'icons/obj/wiremod.dmi'
+	name = "controller"
+	icon = 'icons/obj/science/circuits.dmi'
 	icon_state = "setup_small_calc"
 	inhand_icon_state = "electronic"
 	worn_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	light_system = MOVABLE_LIGHT_DIRECTIONAL
 	light_on = FALSE
 
@@ -23,9 +22,9 @@
 	), SHELL_CAPACITY_MEDIUM)
 
 /obj/item/circuit_component/controller
-	display_name = "Контроллер"
-	desc = "Портативная оболочка с несколькими кнопками. Используется для приема входных данных от оболочки контроллера. <b>Используйте оболочку в руке</b>, чтобы запустить выходной сигнал. <b>Alt+клик</b> для получения альтернативного сигнала. <b>ПКМ</b> для получения дополнительного сигнала."
-
+	display_name = "Controller"
+	desc = "Used to receive inputs from the controller shell. Use the shell in hand to trigger the output signal."
+	desc_controls = "Alt-click for the alternate signal. Right click for the extra signal."
 	/// The three separate buttons that are called in attack_hand on the shell.
 	var/datum/port/output/signal
 	var/datum/port/output/alt
@@ -60,7 +59,7 @@
 	if(!user.Adjacent(source))
 		return
 	source.balloon_alert(user, "clicked primary button")
-	playsound(source, get_sfx("terminal_type"), 25, FALSE)
+	playsound(source, get_sfx(SFX_TERMINAL_TYPE), 25, FALSE)
 	entity.set_output(user)
 	signal.set_output(COMPONENT_SIGNAL)
 
@@ -72,7 +71,7 @@
 	if(!user.Adjacent(source))
 		return
 	source.balloon_alert(user, "clicked alternate button")
-	playsound(source, get_sfx("terminal_type"), 25, FALSE)
+	playsound(source, get_sfx(SFX_TERMINAL_TYPE), 25, FALSE)
 	entity.set_output(user)
 	alt.set_output(COMPONENT_SIGNAL)
 
@@ -84,6 +83,6 @@
 	if(!user.Adjacent(source))
 		return
 	source.balloon_alert(user, "clicked extra button")
-	playsound(source, get_sfx("terminal_type"), 25, FALSE)
+	playsound(source, get_sfx(SFX_TERMINAL_TYPE), 25, FALSE)
 	entity.set_output(user)
 	right.set_output(COMPONENT_SIGNAL)

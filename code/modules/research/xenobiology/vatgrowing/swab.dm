@@ -1,8 +1,8 @@
 ///Tool capable of taking biological samples from mobs
 /obj/item/swab
-	name = "ватный диск"
-	desc = "Некоторые девушки используют их по разным причинам."
-	icon = 'icons/obj/xenobiology/vatgrowing.dmi'
+	name = "swab"
+	desc = "Some men use these for different reasons."
+	icon = 'icons/obj/science/vatgrowing.dmi'
 	icon_state = "swab"
 	w_class = WEIGHT_CLASS_TINY
 

@@ -19,25 +19,27 @@
 /mob/living/simple_animal/hostile/asteroid/elite/herald
 	name = "herald"
 	desc = "A monstrous beast which fires deadly projectiles at threats and prey."
-	icon = 'icons/mob/lavaland/lavaland_elites_64.dmi'
+	icon = 'icons/mob/simple/lavaland/lavaland_elites_64.dmi'
 	icon_state = "herald"
 	icon_living = "herald"
 	icon_aggro = "herald"
 	icon_dead = "herald_dying"
 	icon_gib = "syndicate_gib"
+	pixel_x = -16
+	base_pixel_x = -16
 	health_doll_icon = "herald"
 	maxHealth = 1000
 	health = 1000
 	melee_damage_lower = 20
 	melee_damage_upper = 20
-	attack_verb_continuous = "задумывается в"
-	attack_verb_simple = "задумывается в"
+	attack_verb_continuous = "preaches to"
+	attack_verb_simple = "preach to"
 	attack_sound = 'sound/magic/clockwork/ratvar_attack.ogg'
 	throw_message = "doesn't affect the purity of"
 	speed = 2
 	move_to_delay = 10
 	mouse_opacity = MOUSE_OPACITY_ICON
-	deathsound = 'sound/magic/demon_dies.ogg'
+	death_sound = 'sound/magic/demon_dies.ogg'
 	death_message = "begins to shudder as it becomes transparent..."
 	loot_drop = /obj/item/clothing/neck/cloak/herald_cloak
 
@@ -61,32 +63,32 @@
 /mob/living/simple_animal/hostile/asteroid/elite/herald/proc/become_ghost()
 	icon_state = "herald_ghost"
 
-/mob/living/simple_animal/hostile/asteroid/elite/herald/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
+/mob/living/simple_animal/hostile/asteroid/elite/herald/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null, message_range = 7, datum/saymode/saymode = null)
 	. = ..()
 	playsound(get_turf(src), 'sound/magic/clockwork/invoke_general.ogg', 20, TRUE)
 
 /datum/action/innate/elite_attack/herald_trishot
 	name = "Triple Shot"
 	button_icon_state = "herald_trishot"
-	chosen_message = span_boldwarning("You are now firing three shots in your chosen direction.")
+	chosen_message = "<span class='boldwarning'>You are now firing three shots in your chosen direction.</span>"
 	chosen_attack_num = HERALD_TRISHOT
 
 /datum/action/innate/elite_attack/herald_directionalshot
 	name = "Circular Shot"
 	button_icon_state = "herald_directionalshot"
-	chosen_message = span_boldwarning("You are firing projectiles in all directions.")
+	chosen_message = "<span class='boldwarning'>You are firing projectiles in all directions.</span>"
 	chosen_attack_num = HERALD_DIRECTIONALSHOT
 
 /datum/action/innate/elite_attack/herald_teleshot
 	name = "Teleport Shot"
 	button_icon_state = "herald_teleshot"
-	chosen_message = span_boldwarning("You will now fire a shot which teleports you where it lands.")
+	chosen_message = "<span class='boldwarning'>You will now fire a shot which teleports you where it lands.</span>"
 	chosen_attack_num = HERALD_TELESHOT
 
 /datum/action/innate/elite_attack/herald_mirror
 	name = "Summon Mirror"
 	button_icon_state = "herald_mirror"
-	chosen_message = span_boldwarning("You will spawn a mirror which duplicates your attacks.")
+	chosen_message = "<span class='boldwarning'>You will spawn a mirror which duplicates your attacks.</span>"
 	chosen_attack_num = HERALD_MIRROR
 
 /mob/living/simple_animal/hostile/asteroid/elite/herald/OpenFire()
@@ -195,15 +197,18 @@
 
 /mob/living/simple_animal/hostile/asteroid/elite/herald/mirror
 	name = "herald's mirror"
-	desc = "This fiendish work of magic copies the herald's attacks. Seems logical to smash it."
+	desc = "This fiendish work of magic copies the herald's attacks.  Seems logical to smash it."
 	health = 60
 	maxHealth = 60
 	icon_state = "herald_mirror"
 	icon_aggro = "herald_mirror"
+	pixel_x = -16
+	base_pixel_x = -16
 	death_message = "shatters violently!"
-	deathsound = 'sound/effects/glassbr1.ogg'
+	death_sound = 'sound/effects/glassbr1.ogg'
 	del_on_death = TRUE
 	is_mirror = TRUE
+	move_resist = MOVE_FORCE_OVERPOWERING // no dragging your mirror around
 	var/mob/living/simple_animal/hostile/asteroid/elite/herald/my_master = null
 
 /mob/living/simple_animal/hostile/asteroid/elite/herald/mirror/Initialize(mapload)
@@ -222,37 +227,36 @@
 	damage = 20
 	armour_penetration = 60
 	speed = 2
-	eyeblur = 0
 	damage_type = BRUTE
 	pass_flags = PASSTABLE
 
+/obj/projectile/herald/on_hit(atom/target, blocked = 0, pierce_hit)
+	if(ismob(target) && ismob(firer))
+		var/mob/living/mob_target = target
+		if(mob_target.faction_check_atom(firer))
+			damage = 0
+
+	. = ..()
+	if(ismineralturf(target))
+		var/turf/closed/mineral/rock_target = target
+		rock_target.gets_drilled()
+
 /obj/projectile/herald/teleshot
-	name ="golden bolt"
+	name = "golden bolt"
 	damage = 0
 	color = rgb(255,255,102)
 
-/obj/projectile/herald/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/herald/teleshot/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(ismineralturf(target))
-		var/turf/closed/mineral/M = target
-		M.attempt_drill()
-		return
-	else if(isliving(target))
-		var/mob/living/L = target
-		var/mob/living/F = firer
-		if(F != null && istype(F, /mob/living/simple_animal/hostile/asteroid/elite) && F.faction_check_mob(L))
-			L.heal_overall_damage(damage)
-
-/obj/projectile/herald/teleshot/on_hit(atom/target, blocked = FALSE)
-	. = ..()
-	firer.forceMove(get_turf(src))
+	if(!QDELETED(firer))
+		firer.forceMove(get_turf(src))
 
 //Herald's loot: Cloak of the Prophet
 
 /obj/item/clothing/neck/cloak/herald_cloak
 	name = "cloak of the prophet"
 	desc = "A cloak which protects you from the heresy of the world."
-	icon = 'icons/obj/lavaland/elite_trophies.dmi'
+	icon = 'icons/obj/mining_zones/elite_trophies.dmi'
 	icon_state = "herald_cloak"
 	body_parts_covered = CHEST|GROIN|ARMS
 	hit_reaction_chance = 20
@@ -270,11 +274,16 @@
 	H.firer = owner
 	H.fire(set_angle)
 
-/obj/item/clothing/neck/cloak/herald_cloak/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+/obj/item/clothing/neck/cloak/herald_cloak/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	. = ..()
-	if(rand(1,100) > hit_reaction_chance)
+	if(prob(hit_reaction_chance))
 		return
-	owner.visible_message(span_danger("[owner] [src] emits a loud noise as [owner] is struck!"))
+	owner.visible_message(span_danger("[owner]'s [src] emits a loud noise as [owner] is struck!"))
 	var/static/list/directional_shot_angles = list(0, 45, 90, 135, 180, 225, 270, 315)
 	playsound(get_turf(owner), 'sound/magic/clockwork/invoke_general.ogg', 20, TRUE)
 	addtimer(CALLBACK(src, PROC_REF(reactionshot), owner), 10)
+
+#undef HERALD_TRISHOT
+#undef HERALD_DIRECTIONALSHOT
+#undef HERALD_TELESHOT
+#undef HERALD_MIRROR

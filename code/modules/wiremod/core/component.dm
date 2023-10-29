@@ -9,9 +9,11 @@
  */
 /obj/item/circuit_component
 	name = COMPONENT_DEFAULT_NAME
-	icon = 'icons/obj/module.dmi'
+	icon = 'icons/obj/assemblies/module.dmi'
 	icon_state = "component"
 	inhand_icon_state = "electronic"
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 
 	/// The name of the component shown on the UI
 	var/display_name = "Generic"
@@ -84,8 +86,6 @@
 		trigger_output = add_output_port("Triggered", PORT_TYPE_SIGNAL, order = 2)
 	if(circuit_flags & CIRCUIT_FLAG_INSTANT)
 		ui_color = "orange"
-	if(circuit_flags & CIRCUIT_FLAG_REFUSE_MODULE)
-		desc += " Incompatible with module components."
 
 /obj/item/circuit_component/Destroy()
 	if(parent)

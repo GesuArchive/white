@@ -1,9 +1,9 @@
 ///All colors available to pipes and atmos components
-GLOBAL_LIST_INIT(pipe_paint_colors, sort_list(list(
-	"grey" = COLOR_VERY_LIGHT_GRAY,
+GLOBAL_LIST_INIT(pipe_paint_colors, list(
+	"omni" = COLOR_VERY_LIGHT_GRAY,
+	"green" = COLOR_VIBRANT_LIME,
 	"blue" = COLOR_BLUE,
 	"red" = COLOR_RED,
-	"green" = COLOR_VIBRANT_LIME,
 	"orange" = COLOR_TAN_ORANGE,
 	"cyan" = COLOR_CYAN,
 	"dark" = COLOR_DARK,
@@ -11,8 +11,8 @@ GLOBAL_LIST_INIT(pipe_paint_colors, sort_list(list(
 	"brown" = COLOR_BROWN,
 	"pink" = COLOR_LIGHT_PINK,
 	"purple" = COLOR_PURPLE,
-	"violet" = COLOR_STRONG_VIOLET
-)))
+	"violet" = COLOR_STRONG_VIOLET,
+))
 
 ///List that sorts the colors and is used for setting up the pipes layer so that they overlap correctly
 GLOBAL_LIST_INIT(pipe_colors_ordered, sort_list(list(
@@ -32,16 +32,16 @@ GLOBAL_LIST_INIT(pipe_colors_ordered, sort_list(list(
 
 ///Names shown in the examine for every colored atmos component
 GLOBAL_LIST_INIT(pipe_color_name, sort_list(list(
-	COLOR_VERY_LIGHT_GRAY = "серая",
-	COLOR_BLUE = "синяя",
-	COLOR_RED = "красная",
-	COLOR_VIBRANT_LIME = "зелёная",
-	COLOR_TAN_ORANGE = "оранжевая",
-	COLOR_CYAN = "голубая",
-	COLOR_DARK = "тёмная",
-	COLOR_YELLOW = "жёлтая",
-	COLOR_BROWN = "коричневая",
-	COLOR_LIGHT_PINK = "розовая",
-	COLOR_PURPLE = "пурпурная",
-	COLOR_STRONG_VIOLET = "фиолетовая"
+	COLOR_VERY_LIGHT_GRAY = "omni",
+	COLOR_BLUE = "blue",
+	COLOR_RED = "red",
+	COLOR_VIBRANT_LIME = "green",
+	COLOR_TAN_ORANGE = "orange",
+	COLOR_CYAN = "cyan",
+	COLOR_DARK = "dark",
+	COLOR_YELLOW = "yellow",
+	COLOR_BROWN = "brown",
+	COLOR_LIGHT_PINK = "pink",
+	COLOR_PURPLE = "purple",
+	COLOR_STRONG_VIOLET = "violet"
 )))

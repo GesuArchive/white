@@ -9,17 +9,17 @@
 	var/list/navigation_images = list()
 
 /mob/living/verb/navigate()
-	set name = "Навигация"
+	set name = "Navigate"
 	set category = "IC"
 
 	if(incapacitated())
 		return
 	if(length(client.navigation_images))
 		addtimer(CALLBACK(src, PROC_REF(cut_navigation)), world.tick_lag)
-		balloon_alert(src, "путь убран")
+		balloon_alert(src, "navigation path removed")
 		return
 	if(!COOLDOWN_FINISHED(src, navigate_cooldown))
-		balloon_alert(src, "путь думает!")
+		balloon_alert(src, "navigation on cooldown!")
 		return
 	addtimer(CALLBACK(src, PROC_REF(create_navigation)), world.tick_lag)
 
@@ -33,16 +33,16 @@
 
 	if(!is_reserved_level(z)) //don't let us path to nearest staircase or ladder on shuttles in transit
 		if(z > 1)
-			destination_list["Ближайший путь вниз"] = DOWN
+			destination_list["Nearest Way Down"] = DOWN
 		if(z < world.maxz)
-			destination_list["Ближайший путь наверх"] = UP
+			destination_list["Nearest Way Up"] = UP
 
 	if(!length(destination_list))
-		balloon_alert(src, "не обнаружено сигналов!")
+		balloon_alert(src, "no navigation signals!")
 		return
 
-	var/destination_id = tgui_input_list(src, "Выберем же место", "Навигация", sort_list(destination_list))
-	var/navigate_target = destination_list[destination_id]
+	var/platform_code = tgui_input_list(src, "Select a location", "Navigate", sort_list(destination_list))
+	var/navigate_target = destination_list[platform_code]
 
 	if(isnull(navigate_target))
 		return
@@ -54,7 +54,7 @@
 		var/new_target = find_nearest_stair_or_ladder(navigate_target)
 
 		if(!new_target)
-			balloon_alert(src, "нет возможности найти путь [navigate_target == UP ? "наверх" : "вниз"]!")
+			balloon_alert(src, "can't find ladder or staircase going [navigate_target == UP ? "up" : "down"]!")
 			return
 
 		navigate_target = new_target
@@ -63,35 +63,36 @@
 		stack_trace("Navigate target ([navigate_target]) is not an atom, somehow.")
 		return
 
-	var/list/path = get_path_to(src, navigate_target, MAX_NAVIGATE_RANGE, mintargetdist = 1, id = get_idcard(), skip_first = FALSE)
+	var/list/path = get_path_to(src, navigate_target, MAX_NAVIGATE_RANGE, mintargetdist = 1, access = get_access(), skip_first = FALSE)
 	if(!length(path))
-		balloon_alert(src, "нет пути!")
+		balloon_alert(src, "no valid path with current access!")
 		return
 	path |= get_turf(navigate_target)
 	for(var/i in 1 to length(path))
-		var/image/path_image = image(icon = 'icons/effects/navigation.dmi', layer = HIGH_PIPE_LAYER, loc = path[i])
-		path_image.plane = GAME_PLANE
+		var/turf/current_turf = path[i]
+		var/image/path_image = image(icon = 'icons/effects/navigation.dmi', layer = HIGH_PIPE_LAYER, loc = current_turf)
+		SET_PLANE(path_image, GAME_PLANE, current_turf)
 		path_image.color = COLOR_CYAN
 		path_image.alpha = 0
 		var/dir_1 = 0
 		var/dir_2 = 0
 		if(i == 1)
-			dir_2 = turn(angle2dir(get_angle(path[i+1], path[i])), 180)
+			dir_2 = REVERSE_DIR(angle2dir(get_angle(path[i+1], current_turf)))
 		else if(i == length(path))
-			dir_2 = turn(angle2dir(get_angle(path[i-1], path[i])), 180)
+			dir_2 = REVERSE_DIR(angle2dir(get_angle(path[i-1], current_turf)))
 		else
-			dir_1 = turn(angle2dir(get_angle(path[i+1], path[i])), 180)
-			dir_2 = turn(angle2dir(get_angle(path[i-1], path[i])), 180)
+			dir_1 = REVERSE_DIR(angle2dir(get_angle(path[i+1], current_turf)))
+			dir_2 = REVERSE_DIR(angle2dir(get_angle(path[i-1], current_turf)))
 			if(dir_1 > dir_2)
 				dir_1 = dir_2
-				dir_2 = turn(angle2dir(get_angle(path[i+1], path[i])), 180)
+				dir_2 = REVERSE_DIR(angle2dir(get_angle(path[i+1], current_turf)))
 		path_image.icon_state = "[dir_1]-[dir_2]"
 		client.images += path_image
 		client.navigation_images += path_image
 		animate(path_image, 0.5 SECONDS, alpha = 150)
 	addtimer(CALLBACK(src, PROC_REF(shine_navigation)), 0.5 SECONDS)
 	RegisterSignal(src, COMSIG_LIVING_DEATH, PROC_REF(cut_navigation))
-	balloon_alert(src, "путь создан")
+	balloon_alert(src, "navigation path created")
 
 /mob/living/proc/shine_navigation()
 	for(var/i in 1 to length(client.navigation_images))

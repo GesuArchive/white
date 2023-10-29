@@ -17,11 +17,11 @@ cfg
 data
 SQL
 node_modules
-white.dmb
-white.int
-white.rsc
-white.lk
-white.dyn.rsc
+tgstation.dmb
+tgstation.int
+tgstation.rsc
+tgstation.lk
+tgstation.dyn.rsc
 *.dll
 Dockerfile
 tools/bootstrap/.cache

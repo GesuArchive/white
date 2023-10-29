@@ -2,10 +2,10 @@
 /obj/structure/tank_holder
 	name = "tank holder"
 	desc = "A metallic frame that can hold tanks and extinguishers."
-	icon = 'icons/obj/tank.dmi'
+	icon = 'icons/obj/canisters.dmi'
 	icon_state = "holder"
 
-	custom_materials = list(/datum/material/iron = 2000)
+	custom_materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT)
 
 	density = FALSE
 	anchored = FALSE
@@ -35,13 +35,24 @@
 
 /obj/structure/tank_holder/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>It is held together by some <b>screws</b>.</span>"
+	. += "It is [anchored ? "wrenched to the floor." : "The <i>bolts</i> on the bottom are unsecured."]<br/>"
+	if(tank)
+		. += "It is holding one [tank]."
+	else
+		. += "It is empty."
+	. += span_notice("It is held together by some <b>screws</b>.")
 
-/obj/structure/tank_holder/attackby(obj/item/W, mob/user, params)
-	if(user.a_intent == INTENT_HARM)
+/obj/structure/tank_holder/attackby(obj/item/W, mob/living/user, params)
+	if(user.combat_mode)
 		return ..()
-	if(!SEND_SIGNAL(W, COMSIG_CONTAINER_TRY_ATTACH, src, user))
+	if(W.tool_behaviour == TOOL_WRENCH)
+		to_chat(user, span_notice("You begin to [anchored ? "unwrench" : "wrench"] [src]."))
+		if(W.use_tool(src, user, 20, volume=50))
+			to_chat(user, span_notice("You successfully [anchored ? "unwrench" : "wrench"] [src]."))
+			set_anchored(!anchored)
+	else if(!SEND_SIGNAL(W, COMSIG_CONTAINER_TRY_ATTACH, src, user))
 		to_chat(user, span_warning("[W] does not fit in [src]."))
+	return
 
 /obj/structure/tank_holder/screwdriver_act(mob/living/user, obj/item/I)
 	if(..())
@@ -57,13 +68,12 @@
 	new /obj/item/stack/rods(Tsec, 2)
 	if(tank)
 		tank.forceMove(Tsec)
-		after_detach_tank()
 	qdel(src)
 
-/obj/structure/tank_holder/attack_paw(mob/user)
-	return attack_hand(user)
+/obj/structure/tank_holder/attack_paw(mob/user, list/modifiers)
+	return attack_hand(user, modifiers)
 
-/obj/structure/tank_holder/attack_hand(mob/user)
+/obj/structure/tank_holder/attack_hand(mob/user, list/modifiers)
 	if(!tank)
 		return ..()
 	if(!Adjacent(user) || issilicon(user))
@@ -72,16 +82,23 @@
 	add_fingerprint(user)
 	tank.add_fingerprint(user)
 	user.put_in_hands(tank)
-	after_detach_tank()
 
-/obj/structure/tank_holder/handle_atom_del(atom/A)
-	if(A == tank)
+/obj/structure/tank_holder/Exited(atom/movable/gone, direction)
+	. = ..()
+	if(gone == tank)
 		after_detach_tank()
-	return ..()
 
 /obj/structure/tank_holder/contents_explosion(severity, target)
-	if(tank)
-		tank.ex_act(severity, target)
+	if(!tank)
+		return
+
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			SSexplosions.high_mov_atom += tank
+		if(EXPLODE_HEAVY)
+			SSexplosions.med_mov_atom += tank
+		if(EXPLODE_LIGHT)
+			SSexplosions.low_mov_atom += tank
 
 /// Call this after taking the tank from contents in order to update references, icon
 /// and density.

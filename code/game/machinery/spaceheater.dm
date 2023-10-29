@@ -7,13 +7,13 @@
 	anchored = FALSE
 	density = TRUE
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN
-	icon = 'icons/obj/atmos.dmi'
+	icon = 'icons/obj/pipes_n_cables/atmos.dmi'
 	icon_state = "sheater-off"
 	base_icon_state = "sheater"
-	name = "обогреватель"
-	desc = "Обогреватель/охладитель, сделанный космическими амишами с использованием традиционных космических технологий, гарантированно не подожжет станцию. Гарантия аннулируется при использовании в двигателях."
+	name = "space heater"
+	desc = "Made by Space Amish using traditional space techniques, this heater/cooler is guaranteed not to set the station on fire. Warranty void if used in engines."
 	max_integrity = 250
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
+	armor_type = /datum/armor/machinery_space_heater
 	circuit = /obj/item/circuitboard/machine/space_heater
 	//We don't use area power, we always use the cell
 	use_power = NO_POWER_USE
@@ -39,6 +39,10 @@
 	var/settable_temperature_range = 30
 	///Should we add an overlay for open spaceheaters
 	var/display_panel = TRUE
+
+/datum/armor/machinery_space_heater
+	fire = 80
+	acid = 10
 
 /obj/machinery/space_heater/get_cell()
 	return cell
@@ -83,14 +87,14 @@
 
 /obj/machinery/space_heater/examine(mob/user)
 	. = ..()
-	. += "<hr>"
-	. += "<b>[capitalize(src.name)]</b> [on ? "включен" : "выключен"] и его техническая панель [panel_open ? "открыта" : "закрыта"]."
+	. += "\The [src] is [on ? "on" : "off"], and the hatch is [panel_open ? "open" : "closed"]."
 	if(cell)
-		. += "<hr>Заряд: [cell ? round(cell.percent(), 1) : 0]%."
+		. += "The charge meter reads [cell ? round(cell.percent(), 1) : 0]%."
 	else
-		. += "<hr>Внутри нет батарейки."
+		. += "There is no power cell installed."
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Температурный диапазон <b>[settable_temperature_range]°C</b>.<br>Сила нагрева <b>[siunit(heating_power, "W", 1)]</b>.<br>Потребление <b>[(efficiency*-0.0025)+150]%</b>.</span>" //100%, 75%, 50%, 25%
+		. += span_notice("The status display reads: Temperature range at <b>[settable_temperature_range]°C</b>.<br>Heating power at <b>[siunit(heating_power, "W", 1)]</b>.<br>Power consumption at <b>[(efficiency*-0.0025)+150]%</b>.") //100%, 75%, 50%, 25%
+		. += span_notice("<b>Right-click</b> to toggle [on ? "off" : "on"].")
 
 /obj/machinery/space_heater/update_icon_state()
 	. = ..()
@@ -159,10 +163,10 @@
 	. = ..()
 	var/laser = 0
 	var/cap = 0
-	for(var/obj/item/stock_parts/micro_laser/M in component_parts)
-		laser += M.rating
-	for(var/obj/item/stock_parts/capacitor/M in component_parts)
-		cap += M.rating
+	for(var/datum/stock_part/micro_laser/micro_laser in component_parts)
+		laser += micro_laser.tier
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		cap += capacitor.tier
 
 	heating_power = laser * 40000
 
@@ -189,7 +193,7 @@
 	add_fingerprint(user)
 
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, I))
-		user.visible_message(span_notice("[capitalize(user)] [panel_open ? "открывает" : "закрывает"] the hatch on \the [src]."), span_notice("[panel_open ? "Закрываю" : "Открываю"] техническую панель <b>[src.name]</b>."))
+		user.visible_message(span_notice("\The [user] [panel_open ? "opens" : "closes"] the hatch on \the [src]."), span_notice("You [panel_open ? "open" : "close"] the hatch on \the [src]."))
 		update_appearance()
 		return TRUE
 
@@ -201,13 +205,13 @@
 			to_chat(user, span_warning("The hatch must be open to insert a power cell!"))
 			return
 		if(cell)
-			to_chat(user, span_warning("Внутри уже есть батарейка!"))
+			to_chat(user, span_warning("There is already a power cell inside!"))
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		cell = I
 		I.add_fingerprint(usr)
-		user.visible_message(span_notice("[capitalize(user)] вставляет батарейку в <b>[src.name]</b>.") , span_notice("Вставляю батарейку внутрь <b>[src.name]</b>."))
+		user.visible_message(span_notice("\The [user] inserts a power cell into \the [src]."), span_notice("You insert the power cell into \the [src]."))
 		SStgui.update_uis(src)
 		return TRUE
 	return ..()
@@ -290,7 +294,7 @@
 
 ///For use with heating reagents in a ghetto way
 /obj/machinery/space_heater/improvised_chem_heater
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "sheater-off"
 	name = "Improvised chem heater"
 	desc = "A space heater hacked to reroute heating to a water bath on the top."
@@ -371,7 +375,7 @@
 		cell = item
 		item.add_fingerprint(usr)
 
-		user.visible_message(span_notice("<b>[capitalize(user)]</b> inserts a power cell into [src].") , span_notice("You insert the power cell into [src]."))
+		user.visible_message(span_notice("\The [user] inserts a power cell into \the [src]."), span_notice("You insert the power cell into \the [src]."))
 		SStgui.update_uis(src)
 	//reagent containers
 	if(is_reagent_container(item) && !(item.item_flags & ABSTRACT) && item.is_open_container())
@@ -418,7 +422,7 @@
 
 /obj/machinery/space_heater/improvised_chem_heater/AltClick(mob/living/user)
 	. = ..()
-	if(!can_interact(user) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+	if(!can_interact(user) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		return
 	replace_beaker(user)
 
@@ -439,10 +443,10 @@
 	. = ..()
 	var/lasers_rating = 0
 	var/capacitors_rating = 0
-	for(var/obj/item/stock_parts/micro_laser/laser in component_parts)
-		lasers_rating += laser.rating
-	for(var/obj/item/stock_parts/capacitor/capacitor in component_parts)
-		capacitors_rating += capacitor.rating
+	for(var/datum/stock_part/micro_laser/laser in component_parts)
+		lasers_rating += laser.tier
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		capacitors_rating += capacitor.tier
 
 	heating_power = lasers_rating * 20000
 

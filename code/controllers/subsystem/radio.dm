@@ -9,7 +9,6 @@ SUBSYSTEM_DEF(radio)
 	for(var/_SM in subtypesof(/datum/saymode))
 		var/datum/saymode/SM = new _SM()
 		saymodes[SM.key] = SM
-		saymodes[SM.ru_key] = SM
 	return ..()
 
 /datum/controller/subsystem/radio/proc/add_object(obj/device, new_frequency as num, filter = null as text|null)

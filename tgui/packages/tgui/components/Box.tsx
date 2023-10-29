@@ -5,11 +5,11 @@
  */
 
 import { BooleanLike, classes, pureComponentHooks } from 'common/react';
-import { createVNode, InfernoNode } from 'inferno';
+import { createVNode, InfernoNode, SFC } from 'inferno';
 import { ChildFlags, VNodeFlags } from 'inferno-vnode-flags';
 import { CSS_COLORS } from '../constants';
 
-export interface BoxProps {
+export type BoxProps = {
   [key: string]: any;
   as?: string;
   className?: string | BooleanLike;
@@ -38,6 +38,7 @@ export interface BoxProps {
   bold?: BooleanLike;
   italic?: BooleanLike;
   nowrap?: BooleanLike;
+  preserveWhitespace?: BooleanLike;
   m?: string | BooleanLike;
   mx?: string | BooleanLike;
   my?: string | BooleanLike;
@@ -56,7 +57,7 @@ export interface BoxProps {
   textColor?: string | BooleanLike;
   backgroundColor?: string | BooleanLike;
   fillPositionedParent?: boolean;
-}
+};
 
 /**
  * Coverts our rem-like spacing unit into a CSS unit.
@@ -160,7 +161,8 @@ const styleMapperByPropName = {
   bold: mapBooleanPropTo('font-weight', 'bold'),
   italic: mapBooleanPropTo('font-style', 'italic'),
   nowrap: mapBooleanPropTo('white-space', 'nowrap'),
-  // Margins
+  preserveWhitespace: mapBooleanPropTo('white-space', 'pre-wrap'),
+  // Margin
   m: mapDirectionalUnitPropTo('margin', halfUnit, [
     'top',
     'bottom',
@@ -173,7 +175,7 @@ const styleMapperByPropName = {
   mb: mapUnitPropTo('margin-bottom', halfUnit),
   ml: mapUnitPropTo('margin-left', halfUnit),
   mr: mapUnitPropTo('margin-right', halfUnit),
-  // Margins
+  // Padding
   p: mapDirectionalUnitPropTo('padding', halfUnit, [
     'top',
     'bottom',
@@ -250,7 +252,7 @@ export const computeBoxClassName = (props: BoxProps) => {
   ]);
 };
 
-export const Box = (props: BoxProps) => {
+export const Box: SFC<BoxProps> = (props: BoxProps) => {
   const { as = 'div', className, children, ...rest } = props;
   // Render props
   if (typeof children === 'function') {
@@ -268,7 +270,8 @@ export const Box = (props: BoxProps) => {
     computedClassName,
     children,
     ChildFlags.UnknownChildren,
-    computedProps
+    computedProps,
+    undefined
   );
 };
 

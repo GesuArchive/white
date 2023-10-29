@@ -1,54 +1,56 @@
 /datum/job/quartermaster
 	title = JOB_QUARTERMASTER
-	department_head = list(JOB_HEAD_OF_PERSONNEL)
-	faction = "Station"
+	description = "Coordinate cargo technicians and shaft miners, assist with \
+		economical purchasing."
+	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
+	department_head = list(JOB_CAPTAIN)
+	head_announce = list(RADIO_CHANNEL_SUPPLY)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "главе персонала"
-	selection_color = "#d7b088"
-	exp_type_department = EXP_TYPE_SUPPLY // This is so the jobs menu can work properly
+	minimal_player_age = 7
+	supervisors = SUPERVISOR_CAPTAIN
+	exp_required_type_department = EXP_TYPE_SUPPLY
+	exp_granted_type = EXP_TYPE_CREW
+	config_tag = "QUARTERMASTER"
 
 	outfit = /datum/outfit/job/quartermaster
+	plasmaman_outfit = /datum/outfit/plasmaman/cargo
 
-	exp_type = EXP_TYPE_CREW
-	exp_requirements = 1200
-
-	paycheck = PAYCHECK_MEDIUM
+	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_CAR
 
-	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
+	liver_traits = list(TRAIT_ROYAL_METABOLISM) // finally upgraded
 
 	display_order = JOB_DISPLAY_ORDER_QUARTERMASTER
 	bounty_types = CIV_JOB_RANDOM
-
-	mail_goodies = list(
-		/obj/item/circuitboard/machine/emitter = 3
-	)
-
 	departments_list = list(
 		/datum/job_department/cargo,
 		/datum/job_department/command,
+		)
+	family_heirlooms = list(/obj/item/stamp, /obj/item/stamp/denied)
+	mail_goodies = list(
+		/obj/item/circuitboard/machine/emitter = 3
 	)
-
 	rpg_title = "Steward"
-	rpg_title_ru = "Завхоз"
-
-/datum/job/quartermaster/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
-	..()
-	if(announce_captaincy)
-		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(minor_announce), "Учитывая нехватку экипажа, текущим капитаном станции теперь является [H.real_name]!"))
+	job_flags = STATION_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
+	voice_of_god_power = 1.4 //Command staff has authority
+	ignore_human_authority = TRUE
 
 /datum/outfit/job/quartermaster
-	name = JOB_QUARTERMASTER
+	name = "Quartermaster"
 	jobtype = /datum/job/quartermaster
-
-	belt = /obj/item/modular_computer/tablet/pda/quartermaster
-	ears = /obj/item/radio/headset/headset_quartermaster
+	backpack_contents = list(
+		/obj/item/melee/baton/telescopic = 1,
+	)
+	id_trim = /datum/id_trim/job/quartermaster
+	id = /obj/item/card/id/advanced/silver
 	uniform = /obj/item/clothing/under/rank/cargo/qm
-	shoes = /obj/item/clothing/shoes/sneakers/brown
+	belt = /obj/item/modular_computer/pda/heads/quartermaster
+	suit = /obj/item/clothing/suit/jacket/quartermaster
+	ears = /obj/item/radio/headset/heads/qm
 	glasses = /obj/item/clothing/glasses/sunglasses
+	shoes = /obj/item/clothing/shoes/laceup
 	l_hand = /obj/item/clipboard
 
-	chameleon_extras = /obj/item/stamp/qm
-
-	id_trim = /datum/id_trim/job/quartermaster
+	chameleon_extras = /obj/item/stamp/head/qm

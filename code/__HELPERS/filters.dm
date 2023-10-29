@@ -23,7 +23,7 @@ GLOBAL_LIST_INIT(master_filter_info, list(
 		)
 	),
 	// Not implemented, but if this isn't uncommented some windows will just error
-	// Needs either a proper matrix editor, or just a hook to our existing one
+	// Needs either a proper matrix editor, or just a hook to our existing one 
 	// Issue is filterrific assumes variables will have the same value type if they share the same name, which this violates
 	// Gotta refactor this sometime
 	"color" = list(
@@ -133,14 +133,6 @@ GLOBAL_LIST_INIT(master_filter_info, list(
 		"flags" = list(
 			"WAVE_SIDEWAYS" = WAVE_SIDEWAYS,
 			"WAVE_BOUNDED" = WAVE_BOUNDED
-		)
-	),
-	"bloom" = list(
-		"defaults" = list(
-			"threshold" = NONE,
-			"size" = NONE,
-			"offset" = NONE,
-			"alpha" = 255,
 		)
 	)
 ))
@@ -302,17 +294,6 @@ GLOBAL_LIST_INIT(master_filter_info, list(
 		.["offset"] = offset
 	if(!isnull(flags))
 		.["flags"] = flags
-
-/proc/bloom_filter(threshold, size, offset, alpha)
-	. = list("type" = "bloom")
-	if(!isnull(threshold))
-		.["threshold"] = threshold
-	if(!isnull(size))
-		.["size"] = size
-	if(!isnull(offset))
-		.["offset"] = offset
-	if(!isnull(alpha))
-		.["alpha"] = alpha
 
 /proc/apply_wibbly_filters(atom/in_atom, length)
 	for(var/i in 1 to 7)

@@ -22,7 +22,7 @@ This component is used in vat growing to swab for microbiological samples which 
 		return COMPONENT_INCOMPATIBLE
 
 	RegisterSignal(parent, COMSIG_ITEM_PRE_ATTACK, PROC_REF(try_to_swab))
-	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(examine))
+	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(examine))
 	RegisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(handle_overlays))
 	RegisterSignal(parent, COMSIG_ATOM_UPDATE_ICON, PROC_REF(handle_icon))
 
@@ -32,25 +32,25 @@ This component is used in vat growing to swab for microbiological samples which 
 	src.update_icons = update_icons
 	src.update_overlays = update_overlays
 
-/datum/component/swabbing/Destroy()
-	. = ..()
+/datum/component/swabbing/Destroy(force, silent)
 	for(var/swabbed in swabbed_items)
 		qdel(swabbed)
-	QDEL_NULL(update_icons)
-	QDEL_NULL(update_overlays)
+	update_icons = null
+	update_overlays = null
+	return ..()
 
 
 ///Changes examine based on your sample
 /datum/component/swabbing/proc/examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	if(LAZYLEN(swabbed_items))
-		examine_list += span_nicegreen("\nThere is a microbiological sample on [parent]!")
-		examine_list += "\n[span_notice("You can see the following micro-organisms:")]"
+		examine_list += span_nicegreen("There is a microbiological sample on [parent]!")
+		examine_list += "[span_notice("You can see the following micro-organisms:")]\n"
 		for(var/i in swabbed_items)
 			var/datum/biological_sample/samp = i
 			for(var/organism in samp.micro_organisms)
 				var/datum/micro_organism/MO = organism
-				examine_list += "\n"+MO.get_details()
+				examine_list += MO.get_details()
 
 ///Ran when you attack an object, tries to get a swab of the object. if a swabbable surface is found it will run behavior and hopefully
 /datum/component/swabbing/proc/try_to_swab(datum/source, atom/target, mob/user, params)
@@ -83,7 +83,7 @@ This component is used in vat growing to swab for microbiological samples which 
 		LAZYCLEARLIST(swabbed_items)
 
 		var/obj/item/I = parent
-		I.update_icon()
+		I.update_appearance()
 
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 	if(!can_swab(target))
@@ -112,7 +112,7 @@ This component is used in vat growing to swab for microbiological samples which 
 	to_chat(user, span_nicegreen("You manage to collect a microbiological sample from [target]!"))
 
 	var/obj/item/parent_item = parent
-	parent_item.update_icon()
+	parent_item.update_appearance()
 
 ///Checks if the swabbing component can swab the specific object or nots
 /datum/component/swabbing/proc/can_swab(atom/target)

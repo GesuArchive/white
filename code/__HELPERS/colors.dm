@@ -21,44 +21,11 @@
 /proc/random_colour(mode = 0)
 	switch(mode)
 		if(0)
-			return pick(
-				"white",
-				"black",
-				"gray",
-				"red",
-				"green",
-				"blue",
-				"brown",
-				"yellow",
-				"orange",
-				"darkred",
-				"crimson",
-				"lime",
-				"darkgreen",
-				"cyan",
-				"navy",
-				"teal",
-				"purple",
-				"indigo",
-			)
+			return pick("white","black","gray","red","green","blue","brown","yellow","orange","darkred",
+						"crimson","lime","darkgreen","cyan","navy","teal","purple","indigo")
 		if(1)
-			return pick(
-				"red",
-				"green",
-				"blue",
-				"brown",
-				"yellow",
-				"orange",
-				"darkred",
-				"crimson",
-				"lime",
-				"darkgreen",
-				"cyan",
-				"navy",
-				"teal",
-				"purple",
-				"indigo",
-			)
+			return pick("red","green","blue","brown","yellow","orange","darkred","crimson",
+						"lime","darkgreen","cyan","navy","teal","purple","indigo")
 		else
 			return "white"
 
@@ -94,29 +61,41 @@
 	flashed_client.color = flash_color
 	animate(flashed_client, color = animate_color, time = flash_time)
 
+/// Blends together two colors (passed as 3 or 4 length lists) using the screen blend mode
+/// Much like multiply, screen effects the brightness of the resulting color
+/// Screen blend will always lighten the resulting color, since before multiplication we invert the colors
+/// This makes our resulting output brighter instead of darker
+/proc/blend_screen_color(list/first_color, list/second_color)
+	var/list/output = new /list(4)
+
+	// max out any non existant alphas
+	if(length(first_color) < 4)
+		first_color[4] = 255
+	if(length(second_color) < 4)
+		second_color[4] = 255
+
+	// time to do our blending
+	for(var/i in 1 to 4)
+		output[i] = (1 - (1 - first_color[i] / 255) * (1 - second_color[i] / 255)) * 255
+	return output
+
+/// Used to blend together two different color cutoffs
+/// Uses the screen blendmode under the hood, essentially just [/proc/blend_screen_color]
+/// But paired down and modified to work for our color range
+/// Accepts the color cutoffs as two 3 length list(0-100,...) arguments
+/proc/blend_cutoff_colors(list/first_color, list/second_color)
+	// These runtimes usually mean that either the eye or the glasses have an incorrect color_cutoffs
+	ASSERT(first_color?.len == 3, "First color must be a 3 length list, received [json_encode(first_color)]")
+	ASSERT(second_color?.len == 3, "Second color must be a 3 length list, received [json_encode(second_color)]")
+
+	var/list/output = new /list(3)
+
+	// Invert the colors, multiply to "darken" (actually lights), then uninvert to get back to what we want
+	for(var/i in 1 to 3)
+		output[i] = (1 - (1 - first_color[i] / 100) * (1 - second_color[i] / 100)) * 100
+
+	return output
+
+
 #define RANDOM_COLOUR (rgb(rand(0,255),rand(0,255),rand(0,255)))
 
-/proc/hsv2rgb(hue, sat, val)
-	val *= 255
-	if(sat <= 0)
-		return rgb(val, val, val)
-	hue %= 360
-	hue /= 60
-	var/i = round(hue)
-	var/f = hue - i
-	var/p = val * (1 - sat)
-	var/q = val * (1 - sat * f)
-	var/t = val * (1 - sat * (1 - f))
-	switch(i)
-		if(0)
-			return rgb(val, t, p)
-		if(1)
-			return rgb(q, val, p)
-		if(2)
-			return rgb(p, val, t)
-		if(3)
-			return rgb(p, q, val)
-		if(4)
-			return rgb(t, p, val)
-		else
-			return rgb(val, p, q)

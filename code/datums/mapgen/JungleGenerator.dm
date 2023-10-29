@@ -40,8 +40,6 @@
 	var/heat_seed = rand(0, 50000)
 
 	for(var/t in turfs) //Go through all the turfs and generate them
-		if(!istype(t, /turf/open/genturf))
-			continue
 		var/turf/gen_turf = t
 		var/drift_x = (gen_turf.x + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom
 		var/drift_y = (gen_turf.y + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom
@@ -81,15 +79,27 @@
 		selected_biome.generate_turf(gen_turf)
 		CHECK_TICK
 
-/turf/open/genturf
-	name = "ungenerated turf"
-	desc = "If you see this, and you're not a ghost, yell at coders"
-	icon = 'icons/turf/debug.dmi'
-	icon_state = "genturf"
-
 /area/mine/planetgeneration
 	name = "planet generation area"
 	static_lighting = FALSE
 	base_lighting_alpha = 255
-	base_lighting_color = COLOR_WHITE
+
 	map_generator = /datum/map_generator/jungle_generator
+
+/// This turf doesn't actually do anything beyond provide contrast for mappers and be very visible when stuff breaks in game. The actual areas are what drive cave generation.
+/turf/open/genturf
+	name = "green ungenerated turf"
+	desc = "If you see this, and you're not a ghost, yell at coders"
+	icon = 'icons/turf/debug.dmi'
+	icon_state = "genturf_green"
+
+// following two are currently used for edge cases in which you want a certain type of map generation intermingled with other genturfs
+/turf/open/genturf/blue
+	name = "blue ungenerated turf"
+	icon_state = "genturf_blue"
+
+/turf/open/genturf/orange
+	name = "orange ungenerated turf"
+	icon_state = "genturf_orange"
+
+#undef BIOME_RANDOM_SQUARE_DRIFT

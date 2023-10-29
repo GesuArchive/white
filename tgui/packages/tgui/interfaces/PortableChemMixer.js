@@ -1,8 +1,8 @@
+import { sortBy } from 'common/collections';
 import { toTitleCase } from 'common/string';
 import { useBackend } from '../backend';
 import { AnimatedNumber, Box, Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
-import { sortBy } from 'common/collections';
 
 export const PortableChemMixer = (props, context) => {
   const { act, data } = useBackend(context);
@@ -19,10 +19,10 @@ export const PortableChemMixer = (props, context) => {
     [];
   const chemicals = sortBy((chem) => chem.title)(data.chemicals);
   return (
-    <Window width={645} height={550}>
+    <Window width={465} height={550}>
       <Window.Content scrollable>
         <Section
-          title="Выдать"
+          title="Dispense"
           buttons={beakerTransferAmounts.map((amount) => (
             <Button
               key={amount}
@@ -36,14 +36,15 @@ export const PortableChemMixer = (props, context) => {
               }
             />
           ))}>
-          <Box mr={-1}>
+          <Box>
             {chemicals.map((chemical) => (
               <Button
                 key={chemical.id}
                 icon="tint"
-                width="150px"
-                lineHeight="21px"
+                fluid
+                lineHeight={1.75}
                 content={`(${chemical.volume}) ${chemical.title}`}
+                tooltip={'pH: ' + chemical.pH}
                 onClick={() =>
                   act('dispense', {
                     reagent: chemical.id,
@@ -54,7 +55,7 @@ export const PortableChemMixer = (props, context) => {
           </Box>
         </Section>
         <Section
-          title="Выдача"
+          title="Disposal controls"
           buttons={beakerTransferAmounts.map((amount) => (
             <Button
               key={amount}
@@ -66,40 +67,46 @@ export const PortableChemMixer = (props, context) => {
           ))}>
           <LabeledList>
             <LabeledList.Item
-              label="Пробирка"
+              label="Beaker"
               buttons={
                 !!data.isBeakerLoaded && (
                   <Button
                     icon="eject"
-                    content="Изъять"
+                    content="Eject"
                     disabled={!data.isBeakerLoaded}
                     onClick={() => act('eject')}
                   />
                 )
               }>
-              {(recording && 'Виртуальная пробирка') ||
+              {(recording && 'Virtual beaker') ||
                 (data.isBeakerLoaded && (
                   <>
                     <AnimatedNumber
                       initial={0}
                       value={data.beakerCurrentVolume}
                     />
-                    /{data.beakerMaxVolume} единиц
+                    /{data.beakerMaxVolume} units
                   </>
                 )) ||
-                'Нет пробирки'}
+                'No beaker'}
             </LabeledList.Item>
-            <LabeledList.Item label="Содержимое">
+            <LabeledList.Item label="Contents">
               <Box color="label">
                 {(!data.isBeakerLoaded && !recording && 'N/A') ||
-                  (beakerContents.length === 0 && 'Ничего')}
+                  (beakerContents.length === 0 && 'Nothing')}
               </Box>
               {beakerContents.map((chemical) => (
                 <Box key={chemical.name} color="label">
-                  <AnimatedNumber initial={0} value={chemical.volume} /> единиц{' '}
-                  {chemical.name}
+                  <AnimatedNumber initial={0} value={chemical.volume} /> units
+                  of {chemical.name}
                 </Box>
               ))}
+              {beakerContents.length > 0 && !!data.showpH && (
+                <Box>
+                  pH:
+                  <AnimatedNumber value={data.beakerCurrentpH} />
+                </Box>
+              )}
             </LabeledList.Item>
           </LabeledList>
         </Section>

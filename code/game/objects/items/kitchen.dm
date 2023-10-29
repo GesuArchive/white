@@ -2,16 +2,14 @@
  * Contains:
  * Fork
  * Kitchen knives
- * Ritual Knife
- * Bloodletter
- * Butcher's cleaver
- * Combat Knife
  * Rolling Pins
  * Plastic Utensils
  */
 
+#define PLASTIC_BREAK_PROBABILITY 25
+
 /obj/item/kitchen
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/service/kitchen.dmi'
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
 
@@ -20,30 +18,34 @@
 	ADD_TRAIT(src, TRAIT_APC_SHOCKING, INNATE_TRAIT)
 
 /obj/item/kitchen/fork
-	name = "вилка"
-	desc = "Один удар четыре дырки."
+	name = "fork"
+	desc = "Pointy."
 	icon_state = "fork"
 	force = 4
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 5
-	custom_materials = list(/datum/material/iron=80)
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.8)
 	flags_1 = CONDUCT_1
 	attack_verb_continuous = list("attacks", "stabs", "pokes")
 	attack_verb_simple = list("attack", "stab", "poke")
-	hitsound = 'sound/weapons/stab1.ogg'
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 30)
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	armor_type = /datum/armor/kitchen_fork
 	sharpness = SHARP_POINTY
 	var/datum/reagent/forkload //used to eat omelette
-	custom_price = PAYCHECK_PRISONER
+	custom_price = PAYCHECK_LOWER
+
+/datum/armor/kitchen_fork
+	fire = 50
+	acid = 30
 
 /obj/item/kitchen/fork/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/eyestab)
 
 /obj/item/kitchen/fork/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] stabs <b>[src]</b> into [user.p_their()] chest! It looks like [user.p_theyre()] trying to take a bite out of [user.p_them()]self!"))
+	user.visible_message(span_suicide("[user] stabs \the [src] into [user.p_their()] chest! It looks like [user.p_theyre()] trying to take a bite out of [user.p_them()]self!"))
 	playsound(src, 'sound/items/eatfood.ogg', 50, TRUE)
 	return BRUTELOSS
 
@@ -64,233 +66,124 @@
 		return ..()
 
 /obj/item/kitchen/fork/plastic
-	name = "пластиковая вилка"
-	desc = "Ностальгия возвращает тебя обратно к школьному столу."
+	name = "plastic fork"
+	desc = "Really takes you back to highschool lunch."
 	icon_state = "plastic_fork"
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 0
-	custom_materials = list(/datum/material/plastic=80)
-	custom_price = PAYCHECK_PRISONER * 2
-	var/break_chance = 25
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 0.8)
+	custom_price = PAYCHECK_LOWER * 1
 
-/obj/item/kitchen/fork/plastic/afterattack(atom/target, mob/user)
+/obj/item/kitchen/fork/plastic/Initialize(mapload)
 	. = ..()
-	if(prob(break_chance))
-		user.visible_message(span_danger("[user]'s fork snaps into tiny pieces in their hand."))
-		qdel(src)
+	AddElement(/datum/element/easily_fragmented, PLASTIC_BREAK_PROBABILITY)
 
-/obj/item/kitchen/knife
-	name = "кухонный нож"
-	icon_state = "knife"
-	inhand_icon_state = "knife"
-	worn_icon_state = "knife"
-	desc = "Универсальный поварской нож производства Космо Шэф Инк. Гарантированно останется острым на долгие годы."
-	flags_1 = CONDUCT_1
-	force = 10
-	w_class = WEIGHT_CLASS_SMALL
-	throwforce = 10
-	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
-	throw_speed = 3
-	throw_range = 6
-	custom_materials = list(/datum/material/iron=12000)
-	attack_verb_continuous = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
-	sharpness = SHARP_EDGED
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)
-	var/bayonet = FALSE //Can this be attached to a gun?
-	wound_bonus = -5
-	bare_wound_bonus = 10
-	tool_behaviour = TOOL_KNIFE
+/obj/item/knife/kitchen
+	name = "kitchen knife"
+	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
 
-/obj/item/kitchen/knife/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/eyestab)
-	set_butchering()
-
-///Adds the butchering component, used to override stats for special cases
-/obj/item/kitchen/knife/proc/set_butchering()
-	AddComponent(/datum/component/butchering, 80 - force, 100, force - 10) //bonus chance increases depending on force
-
-/obj/item/kitchen/knife/suicide_act(mob/user)
-	user.visible_message(pick(span_suicide("[user] is slitting [user.p_their()] wrists with the [src.name]! It looks like [user.p_theyre()] trying to commit suicide.") , \
-						span_suicide("[user] is slitting [user.p_their()] throat with the [src.name]! It looks like [user.p_theyre()] trying to commit suicide.") , \
-						span_suicide("[user] is slitting [user.p_their()] stomach open with the [src.name]! It looks like [user.p_theyre()] trying to commit seppuku.")))
-	return (BRUTELOSS)
-
-/obj/item/kitchen/knife/plastic
-	name = "пластиковый нож"
+/obj/item/knife/plastic
+	name = "plastic knife"
 	icon_state = "plastic_knife"
 	inhand_icon_state = "knife"
-	desc = "Очень безопасный, едва заточенный нож из пластика. Хорош для нарезки продуктов и не более того."
+	desc = "A very safe, barely sharp knife made of plastic. Good for cutting food and not much else."
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 0
 	throw_range = 5
-	custom_materials = list(/datum/material/plastic = 100)
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT)
 	attack_verb_continuous = list("prods", "whiffs", "scratches", "pokes")
 	attack_verb_simple = list("prod", "whiff", "scratch", "poke")
 	sharpness = SHARP_EDGED
-	custom_price = PAYCHECK_PRISONER * 2
-	var/break_chance = 25
+	custom_price = PAYCHECK_LOWER * 2
 
-/obj/item/kitchen/knife/plastic/afterattack(mob/living/carbon/user)
+/obj/item/knife/plastic/Initialize(mapload)
 	. = ..()
-	if(prob(break_chance))
-		user.visible_message(span_danger("[user]'s knife snaps into tiny pieces in their hand."))
-		qdel(src)
+	AddElement(/datum/element/easily_fragmented, PLASTIC_BREAK_PROBABILITY)
 
-/obj/item/kitchen/knife/ritual
-	name = "ритуальный серп"
-	desc = "Неземные энергии, которые когда-то питали этот клинок, теперь дремлют."
-	icon = 'icons/obj/eldritch.dmi'
-	icon_state = "bone_blade"
-	inhand_icon_state = "bone_blade"
-	worn_icon_state = "bone_blade"
-	lefthand_file = 'icons/mob/inhands/64x64_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/64x64_righthand.dmi'
-	inhand_x_dimension = 64
-	inhand_y_dimension = 64
-	w_class = WEIGHT_CLASS_NORMAL
-
-/obj/item/kitchen/knife/bloodletter
-	name = "кровопускатель"
-	desc = "Кинжал оккультного вида, холодный на ощупь. Каким-то образом безупречный шар на навершии полностью сделан из жидкой крови."
-	icon = 'icons/obj/ice_moon/artifacts.dmi'
-	icon_state = "bloodletter"
-	worn_icon_state = "render"
-	w_class = WEIGHT_CLASS_NORMAL
-	/// Bleed stacks applied when an organic mob target is hit
-	var/bleed_stacks_per_hit = 3
-
-/obj/item/kitchen/knife/bloodletter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	. = ..()
-	if(!isliving(target) || !proximity_flag)
-		return
-	var/mob/living/M = target
-	if(!(M.mob_biotypes & MOB_ORGANIC))
-		return
-	var/datum/status_effect/stacking/saw_bleed/bloodletting/B = M.has_status_effect(/datum/status_effect/stacking/saw_bleed/bloodletting)
-	if(!B)
-		M.apply_status_effect(/datum/status_effect/stacking/saw_bleed/bloodletting, bleed_stacks_per_hit)
-	else
-		B.add_stacks(bleed_stacks_per_hit)
-
-/obj/item/kitchen/knife/butcher
-	name = "тесак мясника"
-	desc = "Огромная штука, используемая для измельчения мяса. Включая клоунов и прочее ГМО."
-	icon_state = "butch"
-	inhand_icon_state = "butch"
-	flags_1 = CONDUCT_1
-	force = 15
-	throwforce = 10
-	custom_materials = list(/datum/material/iron=18000)
-	attack_verb_continuous = list("cleaves", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("cleave", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
-	w_class = WEIGHT_CLASS_NORMAL
-	custom_price = PAYCHECK_EASY * 5
-	wound_bonus = 25
-
-/obj/item/kitchen/knife/hunting
-	name = "охотничий нож"
-	desc = "Несмотря на свое название, он в основном используется для разделки мяса мертвой добычи, а не для настоящей охоты."
-	inhand_icon_state = "huntingknife"
-	icon_state = "huntingknife"
-
-/obj/item/kitchen/knife/hunting/set_butchering()
-	AddComponent(/datum/component/butchering, 80 - force, 100, force + 10)
-
-/obj/item/kitchen/knife/combat
-	name = "боевой нож"
-	desc = "Армейский нож для выживания."
-	icon_state = "buckknife"
-	embedding = list("pain_mult" = 4, "embed_chance" = 65, "fall_chance" = 10, "ignore_throwspeed_threshold" = TRUE)
-	force = 20
-	throwforce = 20
-	attack_verb_continuous = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "cuts")
-	attack_verb_simple = list("slash", "stab", "slice", "tear", "lacerate", "rip", "cut")
-	bayonet = TRUE
-
-/obj/item/kitchen/knife/combat/survival
-	name = "нож выживальщика"
-	desc = "Охотничий нож для выживания."
-	icon_state = "survivalknife"
-	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
-	force = 15
-	throwforce = 15
-	bayonet = TRUE
-
-/obj/item/kitchen/knife/combat/bone
-	name = "костяной нож"
-	desc = "Заостренная кость. Абсолютный минимум для выживания."
-	inhand_icon_state = "bone_dagger"
-	icon_state = "bone_dagger"
-	worn_icon_state = "bone_dagger"
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
-	force = 15
-	throwforce = 15
-	custom_materials = null
-
-/obj/item/kitchen/knife/combat/cyborg
-	name = "нож киборга"
-	desc = "Пластиковый нож киборга. Чрезвычайно острый и прочный."
+/obj/item/knife/kitchen/silicon
+	name = "Kitchen Toolset"
 	icon = 'icons/obj/items_cyborg.dmi'
-	icon_state = "knife_cyborg"
+	icon_state = "sili_knife"
+	desc = "A breakthrough in synthetic engineering, this tool is a knife programmed to dull when not used for cooking purposes, and can exchange the blade for a rolling pin"
+	force = 0
+	throwforce = 0
+	sharpness = SHARP_EDGED
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb_continuous = list("prods", "whiffs", "scratches", "pokes")
+	attack_verb_simple = list("prod", "whiff", "scratch", "poke")
+	tool_behaviour = TOOL_KNIFE
 
-/obj/item/kitchen/knife/shiv
-	name = "стеклянная заточка"
-	desc = "Твой единственный шанс на сохранение невинности если ты вдруг уронил мыло."
-	icon = 'icons/obj/shards.dmi'
-	icon_state = "shiv"
-	inhand_icon_state = "shiv"
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	force = 8
-	throwforce = 12
-	attack_verb_continuous = list("shanks", "shivs")
-	attack_verb_simple = list("shank", "shiv")
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0)
-	custom_materials = list(/datum/material/glass=400)
+/obj/item/knife/kitchen/silicon/get_all_tool_behaviours()
+	return list(TOOL_ROLLINGPIN, TOOL_KNIFE)
 
-/obj/item/kitchen/knife/shiv/carrot
-	name = "морковная заточка"
-	desc = "Не вся морковь полезна для здоровья."
-	icon_state = "carrotshiv"
-	inhand_icon_state = "carrotshiv"
-	icon = 'icons/obj/kitchen.dmi'
-	custom_materials = null
+/obj/item/knife/kitchen/silicon/examine()
+	. = ..()
+	. += " It's fitted with a [tool_behaviour] head."
 
-/obj/item/kitchen/knife/shiv/carrot/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] forcefully drives <b>[src]</b> into [user.p_their()] eye! It looks like [user.p_theyre()] trying to commit suicide!"))
-	return BRUTELOSS
+/obj/item/knife/kitchen/silicon/attack_self(mob/user)
+	playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
+	if(tool_behaviour != TOOL_ROLLINGPIN)
+		tool_behaviour = TOOL_ROLLINGPIN
+		to_chat(user, span_notice("You attach the rolling pin bit to the [src]."))
+		icon_state = "sili_rolling_pin"
+		force = 8
+		sharpness = NONE
+		hitsound = SFX_SWING_HIT
+		attack_verb_continuous = list("bashes", "batters", "bludgeons", "thrashes", "whacks")
+		attack_verb_simple = list("bash", "batter", "bludgeon", "thrash", "whack")
+
+	else
+		tool_behaviour = TOOL_KNIFE
+		to_chat(user, span_notice("You attach the knife bit to the [src]."))
+		icon_state = "sili_knife"
+		force = 0
+		sharpness = SHARP_EDGED
+		hitsound = 'sound/weapons/bladeslice.ogg'
+		attack_verb_continuous = list("prods", "whiffs", "scratches", "pokes")
+		attack_verb_simple = list("prod", "whiff", "scratch", "poke")
 
 /obj/item/kitchen/rollingpin
-	name = "скалка"
-	desc = "Использовать для вырубания бармена."
+	name = "rolling pin"
+	desc = "Used to knock out the Bartender."
+	icon = 'icons/obj/service/kitchen.dmi'
 	icon_state = "rolling_pin"
 	worn_icon_state = "rolling_pin"
+	inhand_icon_state = "rolling_pin"
 	force = 8
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 7
-	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT * 1.5)
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 1.5)
+	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb_continuous = list("bashes", "batters", "bludgeons", "thrashes", "whacks")
 	attack_verb_simple = list("bash", "batter", "bludgeon", "thrash", "whack")
-	custom_price = PAYCHECK_EASY * 1.5
+	custom_price = PAYCHECK_CREW * 1.5
 	tool_behaviour = TOOL_ROLLINGPIN
 
+/obj/item/kitchen/rollingpin/illegal
+	name = "metal rolling pin"
+	desc = "A heavy metallic rolling pin used to bash in those annoying ingredients."
+	icon_state = "metal_rolling_pin"
+	inhand_icon_state = "metal_rolling_pin"
+	force = 12
+	flags_1 = CONDUCT_1
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1.5)
+	custom_price = PAYCHECK_CREW * 2
+	bare_wound_bonus = 14
+
 /obj/item/kitchen/rollingpin/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins flattening [user.p_their()] head with <b>[src]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] begins flattening [user.p_their()] head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 /* Trays  moved to /obj/item/storage/bag */
 
 /obj/item/kitchen/spoon
-	name = "ложка"
-	desc = "Один удар протянешь ножки."
+	name = "spoon"
+	desc = "Just be careful your food doesn't melt the spoon first."
 	icon_state = "spoon"
+	base_icon_state = "spoon"
 	w_class = WEIGHT_CLASS_TINY
 	flags_1 = CONDUCT_1
 	force = 2
@@ -298,25 +191,138 @@
 	throw_range = 5
 	attack_verb_simple = list("whack", "spoon", "tap")
 	attack_verb_continuous = list("whacks", "spoons", "taps")
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 30)
-	custom_materials = list(/datum/material/iron=120)
-	custom_price = PAYCHECK_PRISONER * 5
+	armor_type = /datum/armor/kitchen_spoon
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 1.2)
+	custom_price = PAYCHECK_LOWER * 2
 	tool_behaviour = TOOL_MINING
 	toolspeed = 25 // Literally 25 times worse than the base pickaxe
 
+	var/spoon_sip_size = 5
+
+/obj/item/kitchen/spoon/Initialize(mapload)
+	. = ..()
+	create_reagents(5, INJECTABLE|OPENCONTAINER|DUNKABLE)
+	register_item_context()
+
+/obj/item/kitchen/spoon/create_reagents(max_vol, flags)
+	. = ..()
+	RegisterSignals(reagents, list(COMSIG_REAGENTS_NEW_REAGENT, COMSIG_REAGENTS_ADD_REAGENT, COMSIG_REAGENTS_DEL_REAGENT, COMSIG_REAGENTS_REM_REAGENT), PROC_REF(on_reagent_change))
+
+/obj/item/kitchen/spoon/proc/on_reagent_change(datum/reagents/reagents, ...)
+	SIGNAL_HANDLER
+	update_appearance(UPDATE_OVERLAYS)
+	return NONE
+
+/obj/item/kitchen/spoon/add_item_context(obj/item/source, list/context, atom/target, mob/living/user)
+	if(target.is_open_container())
+		context[SCREENTIP_CONTEXT_LMB] = "Empty spoonful"
+		context[SCREENTIP_CONTEXT_RMB] = "Grab spoonful"
+		return CONTEXTUAL_SCREENTIP_SET
+	if(isliving(target))
+		context[SCREENTIP_CONTEXT_LMB] = target == user ? "[spoon_sip_size >= reagents.maximum_volume ? "Swallow" : "Taste"] spoonful" : "Give spoonful"
+		return CONTEXTUAL_SCREENTIP_SET
+	return NONE
+
+/obj/item/kitchen/spoon/update_overlays()
+	. = ..()
+	if(reagents.total_volume <= 0)
+		return
+	var/mutable_appearance/filled_overlay = mutable_appearance(icon, "[base_icon_state]_filled")
+	filled_overlay.color = mix_color_from_reagents(reagents.reagent_list)
+	. += filled_overlay
+
+/obj/item/kitchen/spoon/attack(mob/living/target_mob, mob/living/user, params)
+	if(!target_mob.reagents || reagents.total_volume <= 0)
+		return  ..()
+
+	if(target_mob == user)
+		user.visible_message(
+			span_notice("[user] scoops a spoonful into [user.p_their()] mouth."),
+			span_notice("You scoop a spoonful into your mouth.")
+		)
+
+	else
+		to_chat(target_mob, span_userdanger("[target_mob.is_blind() ? "Someone" : "[user]"] forces a spoon into your face!"))
+		target_mob.balloon_alert(user, "feeding spoonful...")
+		if(!do_after(user, 3 SECONDS, target_mob))
+			target_mob.balloon_alert(user, "interrupted!")
+			return TRUE
+
+		to_chat(target_mob, span_userdanger("[target_mob.is_blind() ? "You are forced to" : "[user] forces you to"] swallow a spoonful of something!"))
+		user.visible_message(
+			span_danger("[user] scoops a spoonful into [target_mob]'s mouth."),
+			span_notice("You scoop a spoonful into [target_mob]'s mouth.")
+		)
+
+	playsound(target_mob, 'sound/items/drink.ogg', rand(10,50), vary = TRUE)
+	reagents.trans_to(target_mob, spoon_sip_size, methods = INGEST)
+	return TRUE
+
+/obj/item/kitchen/spoon/pre_attack(atom/attacked_atom, mob/living/user, params)
+	. = ..()
+	if(.)
+		return
+	if(isliving(attacked_atom))
+		return
+	if(!attacked_atom.is_open_container())
+		return
+	if(reagents.total_volume <= 0)
+		return
+
+	var/amount_given = reagents.trans_to(attacked_atom, reagents.maximum_volume)
+	if(amount_given >= reagents.total_volume)
+		attacked_atom.balloon_alert(user, "spoon emptied")
+	else if(amount_given > 0)
+		attacked_atom.balloon_alert(user, "spoon partially emptied")
+	else
+		attacked_atom.balloon_alert(user, "it's full!")
+	return TRUE
+
+/obj/item/kitchen/spoon/pre_attack_secondary(atom/attacked_atom, mob/living/user, params)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
+	if(isliving(attacked_atom))
+		return SECONDARY_ATTACK_CALL_NORMAL
+	if(!attacked_atom.is_open_container())
+		return SECONDARY_ATTACK_CALL_NORMAL
+
+	if(reagents.total_volume >= reagents.maximum_volume || attacked_atom.reagents.total_volume <= 0)
+		return SECONDARY_ATTACK_CALL_NORMAL
+
+	if(attacked_atom.reagents.trans_to(src, reagents.maximum_volume))
+		attacked_atom.balloon_alert(user, "grabbed spoonful")
+	else
+		attacked_atom.balloon_alert(user, "spoon is full!")
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
 /obj/item/kitchen/spoon/plastic
-	name = "пластиковая ложка"
+	name = "plastic spoon"
 	icon_state = "plastic_spoon"
 	force = 0
-	custom_materials = list(/datum/material/plastic=120)
-	custom_price = PAYCHECK_PRISONER * 2
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 1.2)
 	toolspeed = 75 // The plastic spoon takes 5 minutes to dig through a single mineral turf... It's one, continuous, breakable, do_after...
+	custom_price = PAYCHECK_LOWER * 1
 
-	/// The probability of this breaking every time it's used
-	var/break_chance = 25
+/datum/armor/kitchen_spoon
+	fire = 50
+	acid = 30
 
-/obj/item/kitchen/spoon/plastic/afterattack(atom/target, mob/user)
+/obj/item/kitchen/spoon/plastic/Initialize(mapload)
 	. = ..()
-	if(prob(break_chance))
-		user.visible_message(span_danger("[user] смотрит на остатки сломавшейся ложки у себя в руках."))
-		qdel(src)
+	AddElement(/datum/element/easily_fragmented, PLASTIC_BREAK_PROBABILITY)
+
+/obj/item/kitchen/spoon/soup_ladle
+	name = "ladle"
+	desc = "What is a ladle but a comically large spoon?"
+	icon_state = "ladle"
+	base_icon_state = "ladle"
+	inhand_icon_state = "spoon"
+	custom_price = PAYCHECK_LOWER * 4
+	spoon_sip_size = 3 // just a taste
+
+/obj/item/kitchen/spoon/soup_ladle/Initialize(mapload)
+	. = ..()
+	create_reagents(SOUP_SERVING_SIZE + 5, INJECTABLE|OPENCONTAINER)
+
+#undef PLASTIC_BREAK_PROBABILITY

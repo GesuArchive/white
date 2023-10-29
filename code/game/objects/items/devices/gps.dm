@@ -1,17 +1,17 @@
 
 /obj/item/gps
-	name = "GPS - глобальная система позиционирования"
-	desc = "Помогает потерянным космонавтам найти дорогу домой с 2016 года."
-	icon = 'icons/obj/telescience.dmi'
+	name = "global positioning system"
+	desc = "Helping lost spacemen find their way through the planets since 2016."
+	icon = 'icons/obj/device.dmi'
 	icon_state = "gps-c"
 	inhand_icon_state = "electronic"
-	worn_icon = 'white/Feline/icons/gps_back.dmi'
-	worn_icon_state = "gps-c"
+	worn_icon_state = "electronic"
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
-	slot_flags = ITEM_SLOT_NECK
+	slot_flags = ITEM_SLOT_BELT
 	obj_flags = UNIQUE_RENAME
 	var/gpstag
-	var/offline = FALSE
 
 /obj/item/gps/Initialize(mapload)
 	. = ..()
@@ -19,36 +19,23 @@
 
 /// Adds the GPS component to this item.
 /obj/item/gps/proc/add_gps_component()
-	if(offline)
-		AddComponent(/datum/component/gps/item/off, gpstag)
-	else
-		AddComponent(/datum/component/gps/item, gpstag)
+	AddComponent(/datum/component/gps/item, gpstag)
 
 /obj/item/gps/spaceruin
 	gpstag = SPACE_SIGNAL_GPSTAG
 
 /obj/item/gps/science
 	icon_state = "gps-s"
-	worn_icon_state = "gps-s"
 	gpstag = "SCI0"
 
 /obj/item/gps/engineering
 	icon_state = "gps-e"
-	worn_icon_state = "gps-e"
 	gpstag = "ENG0"
 
 /obj/item/gps/mining
 	icon_state = "gps-m"
-	worn_icon_state = "gps-m"
 	gpstag = "MINE0"
-	desc = "GPS поисковая система для поиска пропавших шахтеров и объектов повышенного интереса."
-
-/obj/item/gps/mining/off
-	offline = TRUE
-
-/obj/item/gps/mining/exploration
-	gpstag = "EXP0"
-	desc = "GPS поисковая система для отслеживания целей задания и поиска соратников."
+	desc = "A positioning system helpful for rescuing trapped or injured miners, keeping one on you at all times while mining might just save your life."
 
 /obj/item/gps/cyborg
 	icon_state = "gps-b"

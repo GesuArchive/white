@@ -32,3 +32,4 @@
 	if(!current_variable)
 		return
 	current_variable.set_value(input_port.value)
+

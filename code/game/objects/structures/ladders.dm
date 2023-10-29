@@ -1,7 +1,7 @@
 // Basic ladder. By default links to the z-level above/below.
 /obj/structure/ladder
-	name = "лестница"
-	desc = "Крепкая металлическая лестница."
+	name = "ladder"
+	desc = "A sturdy metal ladder."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "ladder11"
 	anchored = TRUE
@@ -30,10 +30,14 @@
 
 /obj/structure/ladder/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	if(up)
-		context[SCREENTIP_CONTEXT_LMB] = "Подняться"
+		context[SCREENTIP_CONTEXT_LMB] = "Climb up"
 	if(down)
-		context[SCREENTIP_CONTEXT_RMB] = "Опуститься"
+		context[SCREENTIP_CONTEXT_RMB] = "Climb down"
 	return CONTEXTUAL_SCREENTIP_SET
+
+/obj/structure/ladder/examine(mob/user)
+	. = ..()
+	. += span_info("<b>Left-click</b> it to start moving up; <b>Right-click</b> to start moving down.")
 
 /obj/structure/ladder/Destroy(force)
 	GLOB.ladders -= src
@@ -46,14 +50,14 @@
 	var/obj/structure/ladder/L
 
 	if (!down)
-		L = locate() in SSmapping.get_turf_below(T)
+		L = locate() in GET_TURF_BELOW(T)
 		if (L)
 			if(crafted == L.crafted)
 				down = L
 				L.up = src  // Don't waste effort looping the other way
 				L.update_appearance()
 	if (!up)
-		L = locate() in SSmapping.get_turf_above(T)
+		L = locate() in GET_TURF_ABOVE(T)
 		if (L)
 			if(crafted == L.crafted)
 				up = L
@@ -77,7 +81,7 @@
 
 /obj/structure/ladder/singularity_pull()
 	if (!(resistance_flags & INDESTRUCTIBLE))
-		visible_message(span_danger("[capitalize(src.name)] разлетается на куски под силой гравитации!"))
+		visible_message(span_danger("[src] is torn to pieces by the gravitational pull!"))
 		qdel(src)
 
 /obj/structure/ladder/proc/use(mob/user, going_up = TRUE)
@@ -85,10 +89,13 @@
 		return
 
 	if(!up && !down)
-		balloon_alert(user, "никуда не ведёт!")
+		balloon_alert(user, "doesn't lead anywhere!")
 		return
 	if(going_up ? !up : !down)
-		balloon_alert(user, "некуда больше [going_up ? "подниматься" : "опускаться"]")
+		balloon_alert(user, "can't go any further [going_up ? "up" : "down"]")
+		return
+	if(user.buckled && user.buckled.anchored)
+		balloon_alert(user, "buckled to something anchored!")
 		return
 	if(travel_time)
 		INVOKE_ASYNC(src, PROC_REF(start_travelling), user, going_up)
@@ -103,25 +110,17 @@
 
 /// The message shown when the player starts climbing the ladder
 /obj/structure/ladder/proc/show_initial_fluff_message(mob/user, going_up)
-	var/up_down = going_up ? "поднимается" : "опускается"
-	user.balloon_alert_to_viewers("[up_down]...")
+	var/up_down = going_up ? "up" : "down"
+	user.balloon_alert_to_viewers("climbing [up_down]...")
 
 /obj/structure/ladder/proc/travel(mob/user, going_up = TRUE, is_ghost = FALSE)
 	var/obj/structure/ladder/ladder = going_up ? up : down
 	if(!ladder)
-		balloon_alert(user, "там нет ничего!")
+		balloon_alert(user, "there's nothing that way!")
 		return
 	var/response = SEND_SIGNAL(user, COMSIG_LADDER_TRAVEL, src, ladder, going_up)
 	if(response & LADDER_TRAVEL_BLOCK)
 		return
-
-	if(!HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES) && !HAS_TRAIT(user, TRAIT_FREERUNNING))
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
-			H.adjustStaminaLoss(5)
-
-	if(isliving(user))
-		playsound(get_turf(user), "ladder", 55, TRUE)
 
 	var/turf/target = get_turf(ladder)
 	user.zMove(target = target, z_move_flags = ZMOVE_CHECK_PULLEDBY|ZMOVE_ALLOW_BUCKLED|ZMOVE_INCLUDE_PULLED)
@@ -137,18 +136,18 @@
 
 /// The messages shown after the player has finished climbing. Players can see this happen from either src or the destination so we've 2 POVs here
 /obj/structure/ladder/proc/show_final_fluff_message(mob/user, obj/structure/ladder/destination, going_up)
-	var/up_down = going_up ? "поднимается" : "опускается"
+	var/up_down = going_up ? "up" : "down"
 
 	//POV of players around the source
-	visible_message(span_notice("[user] [up_down] по лестнице."))
+	visible_message(span_notice("[user] climbs [up_down] [src]."))
 	//POV of players around the destination
-	user.balloon_alert_to_viewers("[up_down]")
+	user.balloon_alert_to_viewers("climbed [up_down]")
 
 /// Shows a radial menu that players can use to climb up and down a stair.
 /obj/structure/ladder/proc/show_options(mob/user, is_ghost = FALSE)
 	var/list/tool_list = list()
-	tool_list["Вверх"] = image(icon = 'icons/testing/turf_analysis.dmi', icon_state = "red_arrow", dir = NORTH)
-	tool_list["Вниз"] = image(icon = 'icons/testing/turf_analysis.dmi', icon_state = "red_arrow", dir = SOUTH)
+	tool_list["Up"] = image(icon = 'icons/testing/turf_analysis.dmi', icon_state = "red_arrow", dir = NORTH)
+	tool_list["Down"] = image(icon = 'icons/testing/turf_analysis.dmi', icon_state = "red_arrow", dir = SOUTH)
 
 	var/datum/callback/check_menu
 	if(!is_ghost)
@@ -157,11 +156,11 @@
 
 	var/going_up
 	switch(result)
-		if("Вверх")
+		if("Up")
 			going_up = TRUE
-		if("Вниз")
+		if("Down")
 			going_up = FALSE
-		if("Отмена")
+		else
 			return
 
 	if(is_ghost || !travel_time)
@@ -195,47 +194,47 @@
 /obj/structure/ladder/attack_alien(mob/user, list/modifiers)
 	use(user)
 	return TRUE
-/*
+
 /obj/structure/ladder/attack_alien_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
 	use(user, going_up = FALSE)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-*/
+
 /obj/structure/ladder/attack_larva(mob/user, list/modifiers)
 	use(user)
 	return TRUE
-/*
+
 /obj/structure/ladder/attack_larva_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
 	use(user, going_up = FALSE)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-*/
+
 /obj/structure/ladder/attack_animal(mob/user, list/modifiers)
 	use(user)
 	return TRUE
-/*
+
 /obj/structure/ladder/attack_animal_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
 	use(user, going_up = FALSE)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-*/
+
 /obj/structure/ladder/attack_slime(mob/user, list/modifiers)
 	use(user)
 	return TRUE
-/*
+
 /obj/structure/ladder/attack_slime_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
 	use(user, going_up = FALSE)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-*/
+
 /obj/structure/ladder/attackby(obj/item/item, mob/user, params)
 	use(user)
 	return TRUE
@@ -255,7 +254,18 @@
 /obj/structure/ladder/attack_robot_secondary(mob/living/silicon/robot/user)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN || !user.Adjacent(src))
-		return SECONDARY_ATTACK_CONTINUE_CHAIN
+		return
+	use(user, going_up = FALSE)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/structure/ladder/attack_pai(mob/user, list/modifiers)
+	use(user)
+	return TRUE
+
+/obj/structure/ladder/attack_pai_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
 	use(user, going_up = FALSE)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
@@ -267,7 +277,7 @@
 ///Ghosts use the byond default popup menu function on right click, so this is going to work a little differently for them.
 /obj/structure/ladder/proc/ghost_use(mob/user)
 	if (!up && !down)
-		balloon_alert(user, "никуда не ведёт!")
+		balloon_alert(user, "doesn't lead anywhere!")
 		return
 	if(!up) //only goes down
 		travel(user, going_up = FALSE, is_ghost = TRUE)
@@ -278,8 +288,8 @@
 
 // Indestructible away mission ladders which link based on a mapped ID and height value rather than X/Y/Z.
 /obj/structure/ladder/unbreakable
-	name = "прочная лестница"
-	desc = "Невероятно крепкая лестница."
+	name = "sturdy ladder"
+	desc = "An extremely sturdy metal ladder."
 	resistance_flags = INDESTRUCTIBLE
 	var/id
 	var/height = 0  // higher numbers are considered physically higher
@@ -310,19 +320,3 @@
 
 /obj/structure/ladder/crafted
 	crafted = TRUE
-
-//should be called on turf above player
-/turf/proc/canlookthroughladderup(mob/M)
-	if(locate(/obj/structure/ladder) in src)
-		var/obj/structure/ladder/L = locate(/obj/structure/ladder) in src
-		if(M.z == L.down?.z)
-			return TRUE
-	return FALSE
-
-//should be called on turf where is player
-/turf/proc/canlookthroughladderdown(mob/M)
-	if(locate(/obj/structure/ladder) in src)
-		var/obj/structure/ladder/L = locate(/obj/structure/ladder) in src
-		if(L.down)
-			return TRUE
-	return FALSE

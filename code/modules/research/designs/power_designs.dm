@@ -3,101 +3,127 @@
 ////////////////////////////////////////
 
 /datum/design/basic_cell
-	name = "Базовая батарея"
-	desc = "Перезаряжаемый электрохимический элемент питания, вмещающий 1 МДж энергии."
+	name = "Basic Power Cell"
+	desc = "A basic power cell that holds 1 MJ of energy."
 	id = "basic_cell"
-	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
-	materials = list(/datum/material/iron = 700, /datum/material/glass = 50)
-	construction_time = 40
+	build_type = PROTOLATHE | AWAY_LATHE | AUTOLATHE |MECHFAB
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7, /datum/material/glass =SMALL_MATERIAL_AMOUNT * 0.5)
+	construction_time=100
 	build_path = /obj/item/stock_parts/cell/empty
-	category = list("Батареи и прочее","Энергетические разработки","Оборудование","initial")
-
-/datum/design/basic_cell/stock_parts
-	id = "basic_cell2"
-	build_type = MECHFAB
-	category = list("Медицинское оборудование", "Оборудование СБ", "Оборудование сервиса")
-	sub_category = list("Базовые компоненты")
+	category = list(
+		RND_CATEGORY_STOCK_PARTS + RND_SUBCATEGORY_STOCK_PARTS_1
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/high_cell
-	name = "Батарея увеличенной емкости"
-	desc = "Перезаряжаемый электрохимический элемент питания, вмещающий 10 МДж энергии."
+	name = "High-Capacity Power Cell"
+	desc = "A power cell that holds 10 MJ of energy."
 	id = "high_cell"
-	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
-	materials = list(/datum/material/iron = 700, /datum/material/glass = 60)
-	construction_time = 40
+	build_type = PROTOLATHE | AWAY_LATHE | AUTOLATHE | MECHFAB
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.6)
+	construction_time=100
 	build_path = /obj/item/stock_parts/cell/high/empty
-	category = list("Батареи и прочее","Энергетические разработки")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+	category = list(
+		RND_CATEGORY_STOCK_PARTS + RND_SUBCATEGORY_STOCK_PARTS_2
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/super_cell
-	name = "Батарея сверхувеличенной емкости"
-	desc = "Усовершенстованный перезаряжаемый электрохимический элемент питания, вмещающий 20 МДж энергии."
+	name = "Super-Capacity Power Cell"
+	desc = "A power cell that holds 20 MJ of energy."
 	id = "super_cell"
-	build_type = PROTOLATHE | MECHFAB
-	materials = list(/datum/material/iron = 700, /datum/material/glass = 70)
-	construction_time = 40
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.7)
+	construction_time=100
 	build_path = /obj/item/stock_parts/cell/super/empty
-	category = list("Батареи и прочее","Энергетические разработки")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+	category = list(
+		RND_CATEGORY_STOCK_PARTS + RND_SUBCATEGORY_STOCK_PARTS_3
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/hyper_cell
-	name = "Батарея гиперувеличенной емкости"
-	desc = "Усовершенстованный перезаряжаемый электрохимический элемент питания, вмещающий 30 МДж энергии."
+	name = "Hyper-Capacity Power Cell"
+	desc = "A power cell that holds 30 MJ of energy."
 	id = "hyper_cell"
-	build_type = PROTOLATHE | MECHFAB
-	materials = list(/datum/material/iron = 700, /datum/material/gold = 150, /datum/material/silver = 150, /datum/material/glass = 80)
-	construction_time = 40
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 1.5, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 1.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.8)
+	construction_time=100
 	build_path = /obj/item/stock_parts/cell/hyper/empty
-	category = list("Батареи и прочее","Энергетические разработки")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+	category = list(
+		RND_CATEGORY_STOCK_PARTS + RND_SUBCATEGORY_STOCK_PARTS_3
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/bluespace_cell
-	name = "Блюспейс батарея"
-	desc = "Экспериментальный перезаряжаемый межпространственный элемент питания, вмещающий 40 МДж энергии."
+	name = "Bluespace Power Cell"
+	desc = "A power cell that holds 40 MJ of energy."
 	id = "bluespace_cell"
-	build_type = PROTOLATHE | MECHFAB
-	materials = list(/datum/material/iron = 800, /datum/material/gold = 120, /datum/material/glass = 160, /datum/material/diamond = 160, /datum/material/titanium = 300, /datum/material/bluespace = 100)
-	construction_time = 40
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 1.2, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 1.6, /datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1.6, /datum/material/titanium =SMALL_MATERIAL_AMOUNT * 3, /datum/material/bluespace =SMALL_MATERIAL_AMOUNT)
+	construction_time=100
 	build_path = /obj/item/stock_parts/cell/bluespace/empty
-	category = list("Батареи и прочее","Энергетические разработки")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+	category = list(
+		RND_CATEGORY_STOCK_PARTS + RND_SUBCATEGORY_STOCK_PARTS_4
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/inducer
-	name = "Индуктор"
-	desc = "Инструмент для индуктивной зарядки элементов питания, позволяя заряжать их без необходимости извлечения."
+	name = "Inducer"
+	desc = "The NT-75 Electromagnetic Power Inducer can wirelessly induce electric charge in an object, allowing you to recharge power cells without having to remove them."
 	id = "inducer"
-	build_type = PROTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/iron = 3000, /datum/material/glass = 1000)
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT)
 	build_path = /obj/item/inducer/sci
-	category = list("Энергетические разработки")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_ENGINEERING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/board/pacman
-	name = "П.А.К.М.А.Н. - портативный генератор"
-	desc = "Портативный генератор для аварийного резервного питания. Работает на плазме."
-	build_type = IMPRINTER | MECHFAB
-	construction_time = 100
+	name = "PACMAN Board"
+	desc = "The circuit board for a PACMAN-type portable generator."
 	id = "pacman"
 	build_path = /obj/item/circuitboard/machine/pacman
-	category = list("Инженерное оборудование")
-	sub_category = list("Портативные генераторы")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
-/datum/design/board/pacman/super
-	name = "С.У.П.Е.Р.П.А.К.М.А.Н. - портативный генератор"
-	desc = "Портативный генератор для аварийного резервного питания. Работает на уране."
-	build_type = IMPRINTER | MECHFAB
+/datum/design/turbine_part_compressor
+	name = "Turbine Compressor"
+	desc = "The basic tier of a compressor blade."
+	id = "turbine_part_compressor"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	id = "superpacman"
-	build_path = /obj/item/circuitboard/machine/pacman/super
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+	build_path = /obj/item/turbine_parts/compressor
+	category = list(
+		RND_CATEGORY_STOCK_PARTS + RND_SUBCATEGORY_STOCK_PARTS_TURBINE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
-/datum/design/board/pacman/mrs
-	name = "М.И.С.И.С.П.А.К.М.А.Н. - портативный генератор"
-	desc = "Портативный генератор для аварийного резервного питания. Работает на алмазах."
-	build_type = IMPRINTER | MECHFAB
+/datum/design/turbine_part_rotor
+	name = "Turbine Rotor"
+	desc = "The basic tier of a rotor shaft."
+	id = "turbine_part_rotor"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	id = "mrspacman"
-	build_path = /obj/item/circuitboard/machine/pacman/mrs
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+	build_path = /obj/item/turbine_parts/rotor
+	category = list(
+		RND_CATEGORY_STOCK_PARTS + RND_SUBCATEGORY_STOCK_PARTS_TURBINE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
+
+/datum/design/turbine_part_stator
+	name = "Turbine Stator"
+	desc = "The basic tier of a stator."
+	id = "turbine_part_stator"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*5)
+	construction_time = 100
+	build_path = /obj/item/turbine_parts/stator
+	category = list(
+		RND_CATEGORY_STOCK_PARTS + RND_SUBCATEGORY_STOCK_PARTS_TURBINE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING

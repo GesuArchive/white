@@ -43,7 +43,7 @@ SUBSYSTEM_DEF(machines)
 	for(var/next_type in typesof(machine_type))
 		var/list/found_machines = machines_by_type[next_type]
 		if(found_machines)
-			machines += found_machines
+			machines += found_machines 
 	return machines
 
 

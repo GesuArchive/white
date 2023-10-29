@@ -35,7 +35,6 @@ body {
 .header {
     width: 100%;
     background-color:rgba(0,0,0,0.3);
-    color: #FFFFFF;
 }
 
 .container {
@@ -54,11 +53,9 @@ body {
 }
 
 .banned {
-	color: #f44;
-    background-color:#220000;
+    background-color:#ff5555;
 }
 
 .unbanned {
-	color: #000;
-    background-color:#00aa33;
+    background-color:#00b75c;
 }

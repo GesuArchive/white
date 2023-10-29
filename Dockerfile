@@ -1,6 +1,5 @@
 # base = ubuntu + full apt update
 FROM ubuntu:xenial AS base
-
 RUN dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get upgrade -y \
@@ -31,9 +30,9 @@ RUN . ./dependencies.sh \
     && cd .. \
     && rm -rf byond byond.zip
 
-# build = byond + white compiled and deployed to /deploy
+# build = byond + tgstation compiled and deployed to /deploy
 FROM byond AS build
-WORKDIR /white
+WORKDIR /tgstation
 
 RUN apt-get install -y --no-install-recommends \
         curl
@@ -69,12 +68,9 @@ RUN . ./dependencies.sh \
     && git checkout FETCH_HEAD \
     && env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo build --release --target i686-unknown-linux-gnu
 
-# Required to satisfy our compile_options
-COPY --from=auxmos /build/target/i686-unknown-linux-gnu/release/libauxmos.so /dm-build/auxtools/libauxmos.so
-
 # final = byond + runtime deps + rust_g + build
 FROM byond
-WORKDIR /white
+WORKDIR /tgstation
 
 RUN apt-get install -y --no-install-recommends \
         libssl1.0.0:i386 \
@@ -83,6 +79,6 @@ RUN apt-get install -y --no-install-recommends \
 COPY --from=build /deploy ./
 COPY --from=rust_g /rust_g/target/i686-unknown-linux-gnu/release/librust_g.so ./librust_g.so
 
-VOLUME [ "/white/config", "/white/data" ]
-ENTRYPOINT [ "DreamDaemon", "white.dmb", "-port", "1337", "-trusted", "-close", "-verbose" ]
+VOLUME [ "/tgstation/config", "/tgstation/data" ]
+ENTRYPOINT [ "DreamDaemon", "tgstation.dmb", "-port", "1337", "-trusted", "-close", "-verbose" ]
 EXPOSE 1337

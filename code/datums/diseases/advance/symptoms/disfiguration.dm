@@ -1,23 +1,15 @@
-/*
-//////////////////////////////////////
-Disfiguration
-
-	Hidden.
-	No change to resistance.
-	Increases stage speed.
-	Slightly increases transmittability.
-	Critical Level.
-
-BONUS
-	Adds disfiguration trait making the mob appear as "Unknown" to others.
-
-//////////////////////////////////////
-*/
-
+/**Disfiguration
+ * Increases stealth
+ * No change to resistance
+ * Increases stage speed
+ * Slightly increases transmissibility
+ * Critical level
+ * Bonus: Adds disfiguration trait making the mob appear as "Unknown" to others.
+ */
 /datum/symptom/disfiguration
-
-	name = "Обезображивание"
-	desc = "Вирус разжижает лицевые мышцы, обезображивая хозяина."
+	name = "Disfiguration"
+	desc = "The virus liquefies facial muscles, disfiguring the host."
+	illness = "Broken Face"
 	stealth = 2
 	resistance = 0
 	stage_speed = 3
@@ -37,9 +29,9 @@ BONUS
 	switch(A.stage)
 		if(5)
 			ADD_TRAIT(M, TRAIT_DISFIGURED, DISEASE_TRAIT)
-			M.visible_message(span_warning("Лицо [M], кажется, входит в череп!") , span_notice("Лицо входит в череп!"))
+			M.visible_message(span_warning("[M]'s face appears to cave in!"), span_notice("You feel your face crumple and cave in!"))
 		else
-			M.visible_message(span_warning("Лицо [M] начинает дёргаться...") , span_notice("Моё лицо становится мокрым и немного подёргивающимся..."))
+			M.visible_message(span_warning("[M]'s face begins to contort..."), span_notice("Your face feels wet and malleable..."))
 
 
 /datum/symptom/disfiguration/End(datum/disease/advance/A)

@@ -1,13 +1,13 @@
 /obj/machinery/cell_charger
-	name = "зарядник батарей"
-	desc = "Заряжает аккумуляторные батареи, не подходит для вооружения."
-	icon = 'icons/obj/cell.dmi'
+	name = "cell charger"
+	desc = "It charges power cells."
+	icon = 'icons/obj/machines/cell_charger.dmi'
 	icon_state = "ccharger"
 	power_channel = AREA_USAGE_EQUIP
 	circuit = /obj/item/circuitboard/machine/cell_charger
 	pass_flags = PASSTABLE
 	var/obj/item/stock_parts/cell/charging = null
-	var/charge_rate = 1
+	var/charge_rate = 250
 
 /obj/machinery/cell_charger/update_overlays()
 	. = ..()
@@ -18,49 +18,57 @@
 	if(!(machine_stat & (BROKEN|NOPOWER)))
 		var/newlevel = round(charging.percent() * 4 / 100)
 		. += "ccharger-o[newlevel]"
-	if(!charging.charging_icon)
-		. += image(charging.icon, charging.icon_state)
-	else
-		.+= image('icons/obj/cell.dmi', charging.charging_icon)
+	. += image(charging.icon, charging.icon_state)
+	if(charging.grown_battery)
+		. += mutable_appearance('icons/obj/machines/cell_charger.dmi', "grown_wires")
+	. += "ccharger-[charging.connector_type]-on"
+	if((charging.charge > 0.01) && charging.charge_light_type)
+		. += mutable_appearance('icons/obj/machines/cell_charger.dmi', "cell-[charging.charge_light_type]-o[(charging.percent() >= 99.5) ? 2 : 1]")
 
 /obj/machinery/cell_charger/examine(mob/user)
 	. = ..()
-	. += "<hr>Внутри [charging ? "батарейка" : "нет батарейки"] в заряднике."
+	. += "There's [charging ? "\a [charging]" : "no cell"] in the charger."
 	if(charging)
-		. += "<hr><b>Заряд:</b> [round(charging.percent(), 1)]%."
+		. += "Current charge: [round(charging.percent(), 1)]%."
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: [charge_rate == 1 ? "Стандартная скорость зарядки." : "Скорость зарядки увеличена в <b>[charge_rate]</b> раза."]</span>"
+		. += span_notice("The status display reads: Charging power: <b>[charge_rate]W</b>.")
+
+/obj/machinery/cell_charger/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
+	if(charging)
+		return FALSE
+	if(default_unfasten_wrench(user, tool))
+		update_appearance()
+	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/machinery/cell_charger/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell) && !panel_open)
 		if(machine_stat & BROKEN)
-			to_chat(user, span_warning("[capitalize(src.name)] сломан!"))
+			to_chat(user, span_warning("[src] is broken!"))
 			return
 		if(!anchored)
-			to_chat(user, span_warning("[capitalize(src.name)] не прикручен!"))
+			to_chat(user, span_warning("[src] isn't attached to the ground!"))
 			return
 		if(charging)
-			to_chat(user, span_warning("Здесь уже есть батарейка!"))
+			to_chat(user, span_warning("There is already a cell in the charger!"))
 			return
 		else
 			var/area/a = loc.loc // Gets our locations location, like a dream within a dream
 			if(!isarea(a))
 				return
 			if(a.power_equip == 0) // There's no APC in this area, don't try to cheat power!
-				to_chat(user, span_warning("[capitalize(src.name)] мигает красным диодом!"))
+				to_chat(user, span_warning("[src] blinks red as you try to insert the cell!"))
 				return
 			if(!user.transferItemToLoc(W,src))
 				return
 
 			charging = W
-			user.visible_message(span_notice("[user] вставляет батарейку в [src].") , span_notice("Вставляю батарейку в [src]."))
-			update_icon()
+			user.visible_message(span_notice("[user] inserts a cell into [src]."), span_notice("You insert a cell into [src]."))
+			update_appearance()
 	else
 		if(!charging && default_deconstruction_screwdriver(user, icon_state, icon_state, W))
 			return
 		if(default_deconstruction_crowbar(W))
-			return
-		if(!charging && default_unfasten_wrench(user, W))
 			return
 		return ..()
 
@@ -74,11 +82,11 @@
 	return ..()
 
 /obj/machinery/cell_charger/proc/removecell()
-	charging.update_icon()
+	charging.update_appearance()
 	charging = null
-	update_icon()
+	update_appearance()
 
-/obj/machinery/cell_charger/attack_hand(mob/user)
+/obj/machinery/cell_charger/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(.)
 		return
@@ -88,7 +96,7 @@
 	user.put_in_hands(charging)
 	charging.add_fingerprint(user)
 
-	user.visible_message(span_notice("[user] достаёт [charging] из [src].") , span_notice("Достаю [charging] из [src]."))
+	user.visible_message(span_notice("[user] removes [charging] from [src]."), span_notice("You remove [charging] from [src]."))
 
 	removecell()
 
@@ -98,7 +106,7 @@
 		return
 
 	charging.forceMove(loc)
-	to_chat(user, span_notice("Телекинетически достаю [charging] из [src]."))
+	to_chat(user, span_notice("You telekinetically remove [charging] from [src]."))
 
 	removecell()
 	return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -118,21 +126,21 @@
 
 /obj/machinery/cell_charger/RefreshParts()
 	. = ..()
-	charge_rate = 1
-	for(var/obj/item/stock_parts/capacitor/C in component_parts)
-		charge_rate *= C.rating
+	charge_rate = 250
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		charge_rate *= capacitor.tier
 
-/obj/machinery/cell_charger/process(delta_time)
+/obj/machinery/cell_charger/process(seconds_per_tick)
 	if(!charging || !anchored || (machine_stat & (BROKEN|NOPOWER)))
 		return
 
 	if(charging.percent() >= 100)
 		return
-	//a crude fix to allow cells to dictate how fast they should be charging while also allowing cell_chargers to charge faster if upgraded.
-	var/main_draw = use_power_from_net(charging.chargerate * charge_rate * delta_time, take_any = TRUE) //Pulls directly from the Powernet to dump into the cell
+
+	var/main_draw = use_power_from_net(charge_rate * seconds_per_tick, take_any = TRUE) //Pulls directly from the Powernet to dump into the cell
 	if(!main_draw)
 		return
 	charging.give(main_draw)
 	use_power(charge_rate / 100) //use a small bit for the charger itself, but power usage scales up with the part tier
 
-	update_icon()
+	update_appearance()

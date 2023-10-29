@@ -1,16 +1,16 @@
 
 //sets you on fire, does burn damage, explodes into flame when burnt, weak to water
 /datum/blobstrain/reagent/blazing_oil
-	name = "Пылающее масло"
-	description = "нанесет средний урон от ожога и подожжет цели."
-	effectdesc = "также будет выпускать вспышки пламени при горении, но получает урон от воды."
-	analyzerdescdamage = "Наносит средний урон от ожога и поджигает цели."
-	analyzerdesceffect = "Вызывает огонь при горении, но получает повреждения от воды и других средств пожаротушения."
+	name = "Blazing Oil"
+	description = "will do medium-high burn damage ignoring armor, and set targets on fire."
+	effectdesc = "will also release bursts of flame when burnt, but takes damage from water."
+	analyzerdescdamage = "Does medium-high burn damage and sets targets on fire."
+	analyzerdesceffect = "Releases fire when burnt, but takes damage from water and other extinguishing liquids."
 	color = "#B68D00"
 	complementary_color = "#BE5532"
-	blobbernaut_message = "брызгается"
-	message = "Масса обливает меня горящим маслом"
-	message_living = " и моя кожа горит"
+	blobbernaut_message = "splashes"
+	message = "The blob splashes you with burning oil"
+	message_living = ", and you feel your skin char and melt"
 	reagent = /datum/reagent/blob/blazing_oil
 	fire_based = TRUE
 
@@ -28,9 +28,8 @@
 	return ..()
 
 /datum/reagent/blob/blazing_oil
-	name = "Пылающее масло"
-	enname = "Blazing Oil"
-	taste_description = "горящее масло"
+	name = "Blazing Oil"
+	taste_description = "burning oil"
 	color = "#B68D00"
 
 /datum/reagent/blob/blazing_oil/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message, touch_protection, mob/camera/blob/overmind)
@@ -41,4 +40,4 @@
 	if(exposed_mob)
 		exposed_mob.apply_damage(0.8*reac_volume, BURN, wound_bonus=CANT_WOUND)
 	if(iscarbon(exposed_mob))
-		exposed_mob.emote("agony")
+		exposed_mob.emote("scream")

@@ -2,11 +2,13 @@
 
 /obj/item/radio
 	icon = 'icons/obj/radio.dmi'
-	name = "рация"
+	name = "station bounced radio"
 	icon_state = "walkietalkie"
-	inhand_icon_state = "walkietalkie"
+	inhand_icon_state = "radio"
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	worn_icon_state = "radio"
-	desc = "Базовая портативная радиостанция, связывающаяся с местными телекоммуникационными сетями."
+	desc = "A basic handheld radio that communicates with local telecommunication networks."
 	dog_fashion = /datum/dog_fashion/back
 
 	flags_1 = CONDUCT_1
@@ -14,8 +16,7 @@
 	throw_speed = 3
 	throw_range = 7
 	w_class = WEIGHT_CLASS_SMALL
-	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
-	obj_flags = USES_TGUI
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 0.75, /datum/material/glass=SMALL_MATERIAL_AMOUNT * 0.25)
 
 	///if FALSE, broadcasting and listening dont matter and this radio shouldnt do anything
 	VAR_PRIVATE/on = TRUE
@@ -41,8 +42,6 @@
 	/// Tracks the number of EMPs currently stacked.
 	var/emped = 0
 
-	/// If true, the transmit wire starts cut.
-	var/prison_radio = FALSE
 	/// Whether wires are accessible. Toggleable by screwdrivering.
 	var/unscrewed = FALSE
 	/// If true, the radio has access to the full spectrum.
@@ -52,7 +51,7 @@
 	/// If true, subspace_transmission can be toggled at will.
 	var/subspace_switchable = FALSE
 	/// Frequency lock to stop the user from untuning specialist radios.
-	var/freqlock = FALSE
+	var/freqlock = RADIO_FREQENCY_UNLOCKED
 	/// If true, broadcasts will be large and BOLD.
 	var/use_command = FALSE
 	/// If true, use_command can be toggled at will.
@@ -61,41 +60,70 @@
 	///makes anyone who is talking through this anonymous.
 	var/anonymize = FALSE
 
-	// Encryption key handling
+	/// Encryption key handling
 	var/obj/item/encryptionkey/keyslot
 	/// If true, can hear the special binary channel.
 	var/translate_binary = FALSE
 	/// If true, can say/hear on the special CentCom channel.
 	var/independent = FALSE
-	/// If true, hears all well-known channels automatically, and can say/hear on the Syndicate channel.
+	/// If true, hears all well-known channels automatically, and can say/hear on the Syndicate channel. Also protects from radio jammers.
 	var/syndie = FALSE
 	/// associative list of the encrypted radio channels this radio is currently set to listen/broadcast to, of the form: list(channel name = TRUE or FALSE)
 	var/list/channels
 	/// associative list of the encrypted radio channels this radio can listen/broadcast to, of the form: list(channel name = channel frequency)
 	var/list/secure_radio_connections
-	var/radiosound = 'white/valtos/sounds/radio/common.ogg'
+
+	/// overlay when speaker is on
+	var/overlay_speaker_idle = "s_idle"
+	/// overlay when recieving a message
+	var/overlay_speaker_active = "s_active"
+
+	/// overlay when mic is on
+	var/overlay_mic_idle = "m_idle"
+	/// overlay when speaking a message (is displayed simultaniously with speaker_active)
+	var/overlay_mic_active = "m_active"
+
+	/// When set to FALSE, will avoid calling update_icon() in set_broadcasting and co.
+	/// Used to save time on updating icon several times over initialization.
+	VAR_PRIVATE/perform_update_icon = TRUE
+
+	/// If TRUE, will set the icon in initializations.
+	VAR_PRIVATE/should_update_icon = FALSE
 
 /obj/item/radio/Initialize(mapload)
-	wires = new /datum/wires/radio(src)
-	if(prison_radio)
-		wires.cut(WIRE_TX) // OH GOD WHY
+	set_wires(new /datum/wires/radio(src))
 	secure_radio_connections = list()
 	. = ..()
 
+	if(ispath(keyslot))
+		keyslot = new keyslot()
 	for(var/ch_name in channels)
 		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
 
+	perform_update_icon = FALSE
 	set_listening(listening)
 	set_broadcasting(broadcasting)
-	set_frequency(sanitize_frequency(frequency, freerange))
+	set_frequency(sanitize_frequency(frequency, freerange, syndie))
 	set_on(on)
+	perform_update_icon = TRUE
+
+	if (should_update_icon)
+		update_appearance(UPDATE_ICON)
 
 	AddElement(/datum/element/empprotection, EMP_PROTECT_WIRES)
+
+	// No subtypes
+	if(type != /obj/item/radio)
+		return
+	AddComponent(/datum/component/slapcrafting,\
+		slapcraft_recipes = list(/datum/crafting_recipe/improv_explosive)\
+	)
 
 /obj/item/radio/Destroy()
 	remove_radio_all(src) //Just to be sure
 	QDEL_NULL(wires)
-	QDEL_NULL(keyslot)
+	if(istype(keyslot))
+		QDEL_NULL(keyslot)
 	return ..()
 
 /obj/item/radio/proc/set_frequency(new_frequency)
@@ -111,9 +139,9 @@
 	resetChannels()
 
 	if(keyslot)
-		for(var/ch_name in keyslot.channels)
-			if(!(ch_name in channels))
-				channels[ch_name] = keyslot.channels[ch_name]
+		for(var/channel_name in keyslot.channels)
+			if(!(channel_name in channels))
+				channels[channel_name] = keyslot.channels[channel_name]
 
 		if(keyslot.translate_binary)
 			translate_binary = TRUE
@@ -122,8 +150,8 @@
 		if(keyslot.independent)
 			independent = TRUE
 
-	for(var/ch_name in channels)
-		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
+	for(var/channel_name in channels)
+		secure_radio_connections[channel_name] = add_radio(src, GLOB.radiochannels[channel_name])
 
 // Used for cyborg override
 /obj/item/radio/proc/resetChannels()
@@ -133,17 +161,16 @@
 	syndie = FALSE
 	independent = FALSE
 
-	///goes through all radio channels we should be listening for and readds them to the global list
+///goes through all radio channels we should be listening for and readds them to the global list
 /obj/item/radio/proc/readd_listening_radio_channels()
 	for(var/channel_name in channels)
 		add_radio(src, GLOB.radiochannels[channel_name])
 
-	add_radio(src, FREQ_COMMON)
-
+	add_radio(src, frequency)
 
 /obj/item/radio/proc/make_syndie() // Turns normal radios into Syndicate radios!
 	qdel(keyslot)
-	keyslot = new /obj/item/encryptionkey/syndicate
+	keyslot = new /obj/item/encryptionkey/syndicate()
 	syndie = TRUE
 	recalculateChannels()
 
@@ -173,6 +200,8 @@
 /obj/item/radio/proc/get_listening()
 	return listening
 
+//now for setters for the above protected vars
+
 /**
  * setter for the listener var, adds or removes this radio from the global radio list if we are also on
  *
@@ -189,6 +218,11 @@
 		readd_listening_radio_channels()
 	else if(!listening)
 		remove_radio_all(src)
+
+	if (perform_update_icon && !isnull(overlay_speaker_idle))
+		update_icon()
+	else if (!perform_update_icon)
+		should_update_icon = TRUE
 
 /**
  * setter for broadcasting that makes us not hearing sensitive if not broadcasting and hearing sensitive if broadcasting
@@ -208,6 +242,11 @@
 	else if(!broadcasting)
 		lose_hearing_sensitivity(INNATE_TRAIT)
 
+	if (perform_update_icon && !isnull(overlay_mic_idle))
+		update_icon()
+	else if (!perform_update_icon)
+		should_update_icon = TRUE
+
 ///setter for the on var that sets both broadcasting and listening to off or whatever they were supposed to be
 /obj/item/radio/proc/set_on(new_on)
 
@@ -223,24 +262,9 @@
 /obj/item/radio/talk_into(atom/movable/talking_movable, message, channel, list/spans, datum/language/language, list/message_mods)
 	if(SEND_SIGNAL(talking_movable, COMSIG_MOVABLE_USING_RADIO, src) & COMPONENT_CANNOT_USE_RADIO)
 		return
+	if(SEND_SIGNAL(src, COMSIG_RADIO_NEW_MESSAGE, talking_movable, message, channel) & COMPONENT_CANNOT_USE_RADIO)
+		return
 
-	if(HAS_TRAIT(talking_movable, TRAIT_SIGN_LANG)) //Forces Sign Language users to wear the translation gloves to speak over radios
-		var/mob/living/carbon/mute = talking_movable
-		if(istype(mute))
-			var/empty_indexes = mute.get_empty_held_indexes() //How many hands the player has empty
-			var/obj/item/clothing/gloves/radio/G = mute.get_item_by_slot(ITEM_SLOT_GLOVES)
-			if(!istype(G))
-				return FALSE
-			if(!HAS_TRAIT(G, TRAIT_CAN_SIGN_ON_COMMS))
-				return FALSE
-			if(length(empty_indexes) == 1)
-				message = stars(message)
-			if(length(empty_indexes) == 0) //Due to the requirement of gloves, the arm check for normal speech would be redundant here.
-				return FALSE
-			if(mute.handcuffed)//Would be weird if they couldn't sign but their words still went over the radio
-				return FALSE
-			if(HAS_TRAIT(mute, TRAIT_HANDS_BLOCKED) || HAS_TRAIT(mute, TRAIT_EMOTEMUTE))
-				return FALSE
 	if(!spans)
 		spans = list(talking_movable.speech_span)
 	if(!language)
@@ -255,11 +279,13 @@
 		return
 	if(wires.is_cut(WIRE_TX))  // Permacell and otherwise tampered-with radios
 		return
-	if(!talking_movable.IsVocal())
+	if(!talking_movable.try_speak(message))
 		return
 
 	if(use_command)
 		spans |= SPAN_COMMAND
+
+	flick_overlay_view(overlay_mic_active, 5 SECONDS)
 
 	/*
 	Roughly speaking, radios attempt to make a subspace transmission (which
@@ -284,11 +310,8 @@
 		channel = null
 
 	// Nearby active jammers prevent the message from transmitting
-	var/turf/position = get_turf(src)
-	for(var/obj/item/jammer/jammer as anything in GLOB.active_jammers)
-		var/turf/jammer_turf = get_turf(jammer)
-		if(position.z == jammer_turf.z && (get_dist(position, jammer_turf) <= jammer.range))
-			return
+	if(is_within_radio_jammer_range(src) && !syndie)
+		return
 
 	// Determine the identity information which will be attached to the signal.
 	var/atom/movable/virtualspeaker/speaker = new(null, talking_movable, src)
@@ -297,10 +320,10 @@
 	var/datum/signal/subspace/vocal/signal = new(src, freq, speaker, language, message, spans, message_mods)
 
 	// Independent radios, on the CentCom frequency, reach all independent radios
-	if (independent && (freq == FREQ_CENTCOM || freq == FREQ_CTF_RED || freq == FREQ_CTF_BLUE || freq == FREQ_CTF_GREEN || freq == FREQ_CTF_YELLOW || freq == FREQ_YOHEI || freq == FREQ_FACTION))
+	if (independent && (freq == FREQ_CENTCOM || freq == FREQ_CTF_RED || freq == FREQ_CTF_BLUE || freq == FREQ_CTF_GREEN || freq == FREQ_CTF_YELLOW))
 		signal.data["compression"] = 0
 		signal.transmission_method = TRANSMISSION_SUPERSPACE
-		signal.levels = list(0)  // reaches all Z-levels
+		signal.levels = list(0)
 		signal.broadcast()
 		return
 
@@ -326,11 +349,14 @@
 	signal.levels = SSmapping.get_connected_levels(T)
 	signal.broadcast()
 
-/obj/item/radio/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
+/obj/item/radio/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), message_range)
 	. = ..()
 	if(radio_freq || !broadcasting || get_dist(src, speaker) > canhear_range)
 		return
-
+	var/filtered_mods = list()
+	if (message_mods[MODE_CUSTOM_SAY_EMOTE])
+		filtered_mods[MODE_CUSTOM_SAY_EMOTE] = message_mods[MODE_CUSTOM_SAY_EMOTE]
+		filtered_mods[MODE_CUSTOM_SAY_ERASE_INPUT] = message_mods[MODE_CUSTOM_SAY_ERASE_INPUT]
 	if(message_mods[RADIO_EXTENSION] == MODE_L_HAND || message_mods[RADIO_EXTENSION] == MODE_R_HAND)
 		// try to avoid being heard double
 		if (loc == speaker && ismob(speaker))
@@ -340,7 +366,7 @@
 			if (idx && (idx % 2) == (message_mods[RADIO_EXTENSION] == MODE_L_HAND))
 				return
 
-	talk_into(speaker, raw_message, , spans, language=message_language)
+	talk_into(speaker, raw_message, , spans, language=message_language, message_mods=filtered_mods)
 
 /// Checks if this radio can receive on the given frequency.
 /obj/item/radio/proc/can_receive(input_frequency, list/levels)
@@ -355,15 +381,15 @@
 
 	// allow checks: are we listening on that frequency?
 	if (input_frequency == frequency)
-		playsound(get_turf(src), radiosound, rand(5, 10), extrarange = -3)
 		return TRUE
 	for(var/ch_name in channels)
 		if(channels[ch_name] & FREQ_LISTENING)
-			//the GLOB.radiochannels list is located in communications.dm
 			if(GLOB.radiochannels[ch_name] == text2num(input_frequency) || syndie)
-				playsound(get_turf(src), radiosound, rand(5, 10), extrarange = -3)
 				return TRUE
 	return FALSE
+
+/obj/item/radio/proc/on_recieve_message()
+	flick_overlay_view(overlay_speaker_active, 5 SECONDS)
 
 /obj/item/radio/ui_state(mob/user)
 	return GLOB.inventory_state
@@ -384,7 +410,7 @@
 	data["frequency"] = frequency
 	data["minFrequency"] = freerange ? MIN_FREE_FREQ : MIN_FREQ
 	data["maxFrequency"] = freerange ? MAX_FREE_FREQ : MAX_FREQ
-	data["freqlock"] = freqlock
+	data["freqlock"] = freqlock != RADIO_FREQENCY_UNLOCKED
 	data["channels"] = list()
 	for(var/channel in channels)
 		data["channels"][channel] = channels[channel] & FREQ_LISTENING
@@ -402,7 +428,7 @@
 		return
 	switch(action)
 		if("frequency")
-			if(freqlock)
+			if(freqlock != RADIO_FREQENCY_UNLOCKED)
 				return
 			var/tune = params["tune"]
 			var/adjust = text2num(params["adjust"])
@@ -413,7 +439,7 @@
 				tune = tune * 10
 				. = TRUE
 			if(.)
-				set_frequency(sanitize_frequency(tune, freerange))
+				set_frequency(sanitize_frequency(tune, freerange, syndie))
 		if("listen")
 			set_listening(!listening)
 			. = TRUE
@@ -448,19 +474,28 @@
 /obj/item/radio/examine(mob/user)
 	. = ..()
 	if (frequency && in_range(src, user))
-		. += "<hr><span class='notice'>Вещание настроено на частоте [frequency/10].</span>"
+		. += span_notice("It is set to broadcast over the [frequency/10] frequency.")
 	if (unscrewed)
-		. += "<hr><span class='notice'>Может быть приделано к чему-то или модифицированно.</span>"
+		. += span_notice("It can be attached and modified.")
 	else
-		. += "<hr><span class='notice'>Не готово к приделыванию и модифицированию.</span>"
+		. += span_notice("It cannot be modified or attached.")
+
+/obj/item/radio/update_overlays()
+	. = ..()
+	if(unscrewed)
+		return
+	if(broadcasting && overlay_mic_idle)
+		. += overlay_mic_idle
+	if(listening && overlay_speaker_idle)
+		. += overlay_speaker_idle
 
 /obj/item/radio/screwdriver_act(mob/living/user, obj/item/tool)
 	add_fingerprint(user)
 	unscrewed = !unscrewed
 	if(unscrewed)
-		to_chat(user, span_notice("Теперь рация может быть приделана к чему-то или модифицированна!"))
+		to_chat(user, span_notice("The radio can now be attached and modified!"))
 	else
-		to_chat(user, span_notice("Теперь рация не может быть приделана к чему-то или модифицированна!"))
+		to_chat(user, span_notice("The radio can no longer be modified or attached!"))
 
 /obj/item/radio/emp_act(severity)
 	. = ..()
@@ -468,8 +503,8 @@
 		return
 	emped++ //There's been an EMP; better count it
 	var/curremp = emped //Remember which EMP this was
-	if (listening && ismob(loc))	// if the radio is turned on and on someone's person they notice
-		to_chat(loc, span_warning("[capitalize(src.name)] перегружается."))
+	if (listening && ismob(loc)) // if the radio is turned on and on someone's person they notice
+		to_chat(loc, span_warning("\The [src] overloads."))
 	for (var/ch_name in channels)
 		channels[ch_name] = 0
 	set_on(FALSE)
@@ -478,12 +513,6 @@
 /obj/item/radio/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] starts bouncing [src] off [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
-
-/obj/item/radio/Destroy()
-	remove_radio_all(src) //Just to be sure
-	QDEL_NULL(wires)
-	QDEL_NULL(keyslot)
-	return ..()
 
 /obj/item/radio/proc/end_emp_effect(curremp)
 	if(emped != curremp) //Don't fix it if it's been EMP'd again
@@ -498,7 +527,7 @@
 //Giving borgs their own radio to have some more room to work with -Sieve
 
 /obj/item/radio/borg
-	name = "рация киборга"
+	name = "cyborg radio"
 	subspace_transmission = TRUE
 	subspace_switchable = TRUE
 	dog_fashion = null
@@ -508,12 +537,12 @@
 
 	var/mob/living/silicon/robot/R = loc
 	if(istype(R))
-		for(var/ch_name in R.module.radio_channels)
+		for(var/ch_name in R.model.radio_channels)
 			channels[ch_name] = TRUE
 
 /obj/item/radio/borg/syndicate
 	syndie = TRUE
-	keyslot = new /obj/item/encryptionkey/syndicate
+	keyslot = /obj/item/encryptionkey/syndicate
 
 /obj/item/radio/borg/syndicate/Initialize(mapload)
 	. = ..()
@@ -521,7 +550,7 @@
 
 /obj/item/radio/borg/screwdriver_act(mob/living/user, obj/item/tool)
 	if(!keyslot)
-		to_chat(user, span_warning("Внутри нет ключей шифрования!"))
+		to_chat(user, span_warning("This radio doesn't have any encryption keys!"))
 		return
 
 	for(var/ch_name in channels)
@@ -535,14 +564,14 @@
 			keyslot = null
 
 	recalculateChannels()
-	to_chat(user, span_notice("Вынимаю ключ шифрования из рации."))
+	to_chat(user, span_notice("You pop out the encryption key in the radio."))
 	return ..()
 
 /obj/item/radio/borg/attackby(obj/item/attacking_item, mob/user, params)
 
 	if(istype(attacking_item, /obj/item/encryptionkey))
 		if(keyslot)
-			to_chat(user, span_warning("Эта рация не может иметь больше ключей шифрования!"))
+			to_chat(user, span_warning("The radio can't hold another key!"))
 			return
 
 		if(!keyslot)
@@ -553,26 +582,11 @@
 		recalculateChannels()
 
 
-/obj/item/radio/off	// Station bounced radios, their only difference is spawning with the speakers off, this was made to help the lag.
+/obj/item/radio/off // Station bounced radios, their only difference is spawning with the speakers off, this was made to help the lag.
 	dog_fashion = /datum/dog_fashion/back
 
 /obj/item/radio/off/Initialize(mapload)
 	. = ..()
 	set_listening(FALSE)
 
-/obj/item/radio/ancient
-	name = "старое радио"
-	icon_state = "radio"
-	worn_icon_state = "radio"
-/*
-/obj/item/radio/ancient/Initialize(mapload)
-	. = ..()
-	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
-	SP.prefs_toggle_flag = null
-	SP.set_sound(sound('white/valtos/sounds/radiop.ogg'))
-	SP.set_channel(open_sound_channel_for_boombox())
-	SP.playing_volume = 50
-	SP.playing_range = 14
-	SP.playing_falloff = 1
-	SP.active = TRUE
-*/
+#undef FREQ_LISTENING

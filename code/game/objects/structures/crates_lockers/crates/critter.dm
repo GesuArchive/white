@@ -1,7 +1,8 @@
 /obj/structure/closet/crate/critter
-	name = "ящик для животных"
-	desc = "Ящик, предназначенный для безопасной перевозки животных. Он имеет кислородный баллон для безопасной транспортировки в космосе. «Животных в загон»"
+	name = "critter crate"
+	desc = "A crate designed for safe transport of animals. It has an oxygen tank for safe transport in space."
 	icon_state = "crittercrate"
+	base_icon_state = "crittercrate"
 	horizontal = FALSE
 	allow_objects = FALSE
 	breakout_time = 600
@@ -13,6 +14,8 @@
 	open_sound_volume = 25
 	close_sound_volume = 50
 	contents_pressure_protection = 0.8
+	can_install_electronics = FALSE
+
 	var/obj/item/tank/internals/emergency_oxygen/tank
 
 /obj/structure/closet/crate/critter/Initialize(mapload)
@@ -28,21 +31,22 @@
 	return ..()
 
 /obj/structure/closet/crate/critter/update_icon_state()
-	. = ..()
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 /obj/structure/closet/crate/critter/update_overlays()
 	. = ..()
 	if(opened)
 		. += "crittercrate_door_open"
-	else
-		. += "crittercrate_door"
-		if(manifest)
-			. += "manifest"
+		return
+
+	. += "crittercrate_door"
+	if(manifest)
+		. += "manifest"
 
 /obj/structure/closet/crate/critter/return_air()
 	if(tank)
-		return tank.air_contents
+		return tank.return_air()
 	else
 		return loc.return_air()
 

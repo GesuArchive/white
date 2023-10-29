@@ -1,18 +1,18 @@
 /obj/structure/trap
 	name = "IT'S A TRAP"
 	desc = "Stepping on me is a guaranteed bad day."
-	icon = 'icons/obj/hand_of_god_structures.dmi'
+	icon = 'icons/obj/service/hand_of_god_structures.dmi'
 	icon_state = "trap"
 	density = FALSE
 	anchored = TRUE
 	alpha = 30 //initially quite hidden when not "recharging"
-	var/flare_message = span_warning("the trap flares brightly!")
+	var/flare_message = "<span class='warning'>the trap flares brightly!</span>"
 	var/last_trigger = 0
 	var/time_between_triggers = 600 //takes a minute to recharge
 	var/charges = INFINITY
-	var/checks_antimagic = TRUE
+	var/antimagic_flags = MAGIC_RESISTANCE
 
-	var/static/list/ignore_typecache
+	var/list/static/ignore_typecache
 	var/list/mob/immune_minds = list()
 
 	var/sparks = TRUE
@@ -20,7 +20,7 @@
 
 /obj/structure/trap/Initialize(mapload)
 	. = ..()
-	flare_message = span_warning("[capitalize(src.name)] flares brightly!")
+	flare_message = "<span class='warning'>[src] flares brightly!</span>"
 	spark_system = new
 	spark_system.set_up(4,1,src)
 	spark_system.attach(src)
@@ -33,7 +33,8 @@
 	if(!ignore_typecache)
 		ignore_typecache = typecacheof(list(
 			/obj/effect,
-			/mob/dead))
+			/mob/dead,
+		))
 
 /obj/structure/trap/Destroy()
 	qdel(spark_system)
@@ -47,7 +48,7 @@
 	if(user.mind && (user.mind in immune_minds))
 		return
 	if(get_dist(user, src) <= 1)
-		. += "<hr><span class='notice'>You reveal [src]!</span>"
+		. += span_notice("You reveal [src]!")
 		flare()
 
 /obj/structure/trap/proc/flare()
@@ -76,7 +77,7 @@
 		var/mob/M = AM
 		if(M.mind in immune_minds)
 			return
-		if(checks_antimagic && M.anti_magic_check())
+		if(M.can_block_magic(antimagic_flags))
 			flare()
 			return
 	if(charges <= 0)
@@ -101,18 +102,18 @@
 /obj/structure/trap/stun/hunter
 	name = "bounty trap"
 	desc = "A trap that only goes off when a fugitive steps on it, announcing the location and stunning the target. You'd better avoid it."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/restraints.dmi'
 	icon_state = "bounty_trap_on"
 	stun_time = 200
 	sparks = FALSE //the item version gives them off to prevent runtimes (see Destroy())
-	checks_antimagic  = FALSE
+	antimagic_flags = NONE
 	var/obj/item/bountytrap/stored_item
 	var/caught = FALSE
 
 /obj/structure/trap/stun/hunter/Initialize(mapload)
 	. = ..()
 	time_between_triggers = 10
-	flare_message = span_warning("[src] snaps shut!")
+	flare_message = "<span class='warning'>[src] snaps shut!</span>"
 
 /obj/structure/trap/stun/hunter/Destroy()
 	if(!QDELETED(stored_item))
@@ -130,6 +131,9 @@
 
 /obj/structure/trap/stun/hunter/flare()
 	..()
+	var/turf/our_turf = get_turf(src)
+	if(!our_turf)
+		return
 	stored_item.forceMove(get_turf(src))
 	forceMove(stored_item)
 	if(caught)
@@ -139,7 +143,7 @@
 /obj/item/bountytrap
 	name = "bounty trap"
 	desc = "A trap that only goes off when a fugitive steps on it, announcing the location and stunning the target. It's currently inactive."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/restraints.dmi'
 	icon_state = "bounty_trap_off"
 	var/obj/structure/trap/stun/hunter/stored_trap
 	var/obj/item/radio/radio
@@ -168,7 +172,7 @@
 	var/turf/T = get_turf(src)
 	if(!user || !user.transferItemToLoc(src, T))//visibly unequips
 		return
-	to_chat(user, "<span class=notice>You set up [src]. Examine while close to disarm it.</span>")
+	to_chat(user, span_notice("You set up [src]. Examine while close to disarm it."))
 	stored_trap.forceMove(T)//moves trap to ground
 	forceMove(stored_trap)//moves item into trap
 
@@ -212,7 +216,7 @@
 	to_chat(L, span_danger("<B>The ground quakes beneath your feet!</B>"))
 	L.Paralyze(100)
 	L.adjustBruteLoss(35)
-	var/obj/structure/flora/rock/giant_rock = new(get_turf(src))
+	var/obj/structure/flora/rock/style_random/giant_rock = new(get_turf(src))
 	QDEL_IN(giant_rock, 200)
 
 

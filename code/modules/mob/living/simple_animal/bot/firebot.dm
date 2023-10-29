@@ -5,25 +5,32 @@
 #define FOAM_INTERVAL 50  // Time between deployment of fire fighting foam
 
 /mob/living/simple_animal/bot/firebot
-	name = "пожарный бот"
-	desc = "Маленький бот для тушения пожаров. Он выглядит довольно встревоженным."
-	icon = 'icons/mob/aibots.dmi'
-	icon_state = "firebot"
-	icon_preview = 'icons/mob/aibots.dmi'
-	icon_state_preview = "firebot1"
+	name = "\improper Firebot"
+	desc = "A little fire extinguishing bot. He looks rather anxious."
+	icon = 'icons/mob/silicon/aibots.dmi'
+	icon_state = "firebot1"
 	density = FALSE
 	anchored = FALSE
 	health = 25
 	maxHealth = 25
 
+	maints_access_required = list(ACCESS_ROBOTICS, ACCESS_CONSTRUCTION)
 	radio_key = /obj/item/encryptionkey/headset_eng
 	radio_channel = RADIO_CHANNEL_ENGINEERING
 	bot_type = FIRE_BOT
-	model = "Firebot"
-	bot_core = /obj/machinery/bot_core/firebot
-	window_id = "autoextinguisher"
-	window_name = "Автоматизированная противопожарная система J0-2"
+	hackables = "fire safety protocols"
 	path_image_color = "#FFA500"
+	possessed_message = "You are a firebot! Protect the station from fires to the best of your ability!"
+
+	automated_announcements = list(
+		FIREBOT_VOICED_FIRE_DETECTED = 'sound/voice/firebot/detected.ogg',
+		FIREBOT_VOICED_STOP_DROP = 'sound/voice/firebot/stopdropnroll.ogg',
+		FIREBOT_VOICED_EXTINGUISHING = 'sound/voice/firebot/extinguishing.ogg',
+		FIREBOT_VOICED_NO_FIRES = 'sound/voice/firebot/nofires.ogg',
+		FIREBOT_VOICED_ONLY_YOU = 'sound/voice/firebot/onlyyou.ogg',
+		FIREBOT_VOICED_TEMPERATURE_NOMINAL = 'sound/voice/firebot/tempnominal.ogg',
+		FIREBOT_VOICED_KEEP_COOL = 'sound/voice/firebot/keepitcool.ogg',
+	)
 
 	var/atom/target_fire
 	var/atom/old_target_fire
@@ -43,7 +50,7 @@
 /mob/living/simple_animal/bot/firebot/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 	// Doing this hurts my soul, but simplebot access reworks are for another day.
 	var/datum/id_trim/job/engi_trim = SSid_access.trim_singletons_by_path[/datum/id_trim/job/station_engineer]
@@ -51,10 +58,11 @@
 	prev_access = access_card.access.Copy()
 
 	create_extinguisher()
+	AddElement(/datum/element/atmos_sensitive, mapload)
 
-/mob/living/simple_animal/bot/firebot/ComponentInitialize()
-	. = ..()
-	AddElement(/datum/element/atmos_sensitive)
+/mob/living/simple_animal/bot/firebot/Destroy()
+	QDEL_NULL(internal_ext)
+	return ..()
 
 /mob/living/simple_animal/bot/firebot/bot_reset()
 	create_extinguisher()
@@ -66,8 +74,8 @@
 	internal_ext.max_water = INFINITY
 	internal_ext.refill()
 
-/mob/living/simple_animal/bot/firebot/UnarmedAttack(atom/A)
-	if(!on)
+/mob/living/simple_animal/bot/firebot/UnarmedAttack(atom/A, proximity_flag, list/modifiers)
+	if(!(bot_mode_flags & BOT_MODE_ON))
 		return
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		return
@@ -76,8 +84,8 @@
 	else
 		return ..()
 
-/mob/living/simple_animal/bot/firebot/RangedAttack(atom/A)
-	if(!on)
+/mob/living/simple_animal/bot/firebot/RangedAttack(atom/A, proximity_flag, list/modifiers)
+	if(!(bot_mode_flags & BOT_MODE_ON))
 		return
 	if(internal_ext)
 		internal_ext.afterattack(A, src)
@@ -86,89 +94,77 @@
 
 /mob/living/simple_animal/bot/firebot/turn_on()
 	. = ..()
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/bot/firebot/turn_off()
 	..()
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/bot/firebot/bot_reset()
 	..()
 	target_fire = null
 	old_target_fire = null
-	ignore_list = list()
-	anchored = FALSE
-	update_icon()
+	set_anchored(FALSE)
+	update_appearance()
 
 /mob/living/simple_animal/bot/firebot/proc/soft_reset()
-	QDEL_LIST(path)
 	path = list()
 	target_fire = null
 	mode = BOT_IDLE
 	last_found = world.time
-	update_icon()
+	update_appearance()
 
-/mob/living/simple_animal/bot/firebot/set_custom_texts()
-	text_hack = "Взламываю протоколы безопасности [name]."
-	text_dehack = "Замечаю ошибки в коде [name] и удаляю их."
-	text_dehack_fail = "[name] не отвечает на команды сброса!"
+/mob/living/simple_animal/bot/firebot/emag_act(mob/user, obj/item/card/emag/emag_card)
+	. = ..()
+	if(!(bot_cover_flags & BOT_COVER_EMAGGED))
+		return
 
-/mob/living/simple_animal/bot/firebot/get_controls(mob/user)
-	var/dat
-	dat += hack(user)
-	dat += showpai(user)
-	dat += "<TT><B>Автоматизированная противопожарная система J0-2</B></TT><BR><BR>"
-	dat += "Состояние: <A href='?src=[REF(src)];power=1'>[on ? "Вкл" : "Выкл"]</A><BR>"
-	dat += "Техническая панель [open ? "открыта" : "закрыта"]<BR>"
+	to_chat(user, span_warning("You enable the very ironically named \"fighting with fire\" mode, and disable the targetting safeties.")) // heheehe. funny
 
-	dat += "Управление поведением [locked ? "заблокировано" : "разблокировано"]<BR>"
-	if(!locked || issilicon(user) || isAdminGhostAI(user))
-		dat += "Тушить пожары: <A href='?src=[REF(src)];operation=extinguish_fires'>[extinguish_fires ? "Да" : "Нет"]</A><BR>"
-		dat += "Тушить людей: <A href='?src=[REF(src)];operation=extinguish_people'>[extinguish_people ? "Да" : "Нет"]</A><BR>"
-		dat += "Патрулировать станцию: <A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Да" : "Нет"]</A><BR>"
-		dat += "Стационарный режим: <a href='?src=[REF(src)];operation=stationary_mode'>[stationary_mode ? "Да" : "Нет"]</a><br>"
+	audible_message(span_danger("[src] buzzes oddly!"))
+	playsound(src, SFX_SPARKS, 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	if(user)
+		old_target_fire = user
+	extinguish_fires = FALSE
+	extinguish_people = TRUE
 
-	return dat
+	internal_ext = new /obj/item/extinguisher(src)
+	internal_ext.chem = /datum/reagent/clf3 //Refill the internal extinguisher with liquid fire
+	internal_ext.power = 3
+	internal_ext.safety = FALSE
+	internal_ext.precision = FALSE
+	internal_ext.max_water = INFINITY
+	internal_ext.refill()
+	return TRUE
 
-/mob/living/simple_animal/bot/firebot/emag_act(mob/user)
-	..()
-	if(emagged == 2)
-		if(user)
-			to_chat(user, span_danger("[capitalize(src.name)] жужжит и шипит."))
-		audible_message(span_danger("[capitalize(src.name)] громко жужжит!"))
-		playsound(src, "zap", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-		if(user)
-			old_target_fire = user
-		extinguish_fires = FALSE
-		extinguish_people = TRUE
+// Variables sent to TGUI
+/mob/living/simple_animal/bot/firebot/ui_data(mob/user)
+	var/list/data = ..()
+	if(!(bot_cover_flags & BOT_COVER_LOCKED) || issilicon(user) || isAdminGhostAI(user))
+		data["custom_controls"]["extinguish_fires"] = extinguish_fires
+		data["custom_controls"]["extinguish_people"] = extinguish_people
+		data["custom_controls"]["stationary_mode"] = stationary_mode
+	return data
 
-		internal_ext = new /obj/item/extinguisher(src)
-		internal_ext.chem = /datum/reagent/clf3 //Refill the internal extinguisher with liquid fire
-		internal_ext.power = 3
-		internal_ext.safety = FALSE
-		internal_ext.precision = FALSE
-		internal_ext.max_water = INFINITY
-		internal_ext.refill()
+// Actions received from TGUI
+/mob/living/simple_animal/bot/firebot/ui_act(action, params)
+	. = ..()
+	if(. || (bot_cover_flags & BOT_COVER_LOCKED && !usr.has_unlimited_silicon_privilege))
+		return
 
-/mob/living/simple_animal/bot/firebot/Topic(href, href_list)
-	if(..())
-		return TRUE
-
-	switch(href_list["operation"])
+	switch(action)
 		if("extinguish_fires")
 			extinguish_fires = !extinguish_fires
 		if("extinguish_people")
 			extinguish_people = !extinguish_people
 		if("stationary_mode")
 			stationary_mode = !stationary_mode
-
-	update_controls()
-	update_icon()
+			update_appearance()
 
 /mob/living/simple_animal/bot/firebot/proc/is_burning(atom/target)
 	if(ismob(target))
 		var/mob/living/M = target
-		if(M.on_fire || (emagged == 2 && !M.on_fire))
+		if(M.on_fire || (bot_cover_flags & BOT_COVER_EMAGGED && !M.on_fire))
 			return TRUE
 
 	else if(isturf(target))
@@ -189,13 +185,13 @@
 		return
 
 	if(prob(1) && target_fire == null)
-		var/list/messagevoice = list("Пожаров не обнаружено." = 'sound/voice/firebot/nofires.ogg',
-		"Только ты можешь предотвратить пожары на станции." = 'sound/voice/firebot/onlyyou.ogg',
-		"Температура номинальна." = 'sound/voice/firebot/tempnominal.ogg'/*,
-		"Сохраняйте это прохладным." = 'sound/voice/firebot/keepitcool.ogg'*/) //непереводимая игра слов.
-		var/message = pick(messagevoice)
-		speak(message)
-		//playsound(src, messagevoice[message], 50)
+		var/static/list/idle_line = list(
+			FIREBOT_VOICED_NO_FIRES,
+			FIREBOT_VOICED_ONLY_YOU,
+			FIREBOT_VOICED_TEMPERATURE_NOMINAL,
+			FIREBOT_VOICED_KEEP_COOL,
+		)
+		speak(pick(idle_line))
 
 	// Couldn't reach the target, reset and try again ignoring the old one
 	if(frustration > 8)
@@ -207,23 +203,23 @@
 		target_fire = null
 		var/scan_range = (stationary_mode ? 1 : DEFAULT_SCAN_RANGE)
 
+		var/list/things_to_extinguish = list()
 		if(extinguish_people)
-			target_fire = scan(list(/mob/living), old_target_fire, scan_range) // Scan for burning humans first
+			things_to_extinguish += list(/mob/living)
 
 		if(target_fire == null && extinguish_fires)
-			target_fire = scan(list(/turf/open), old_target_fire, scan_range) // Scan for burning turfs second
+			things_to_extinguish += list(/turf/open)
 
+		target_fire = scan(things_to_extinguish, old_target_fire, scan_range) // Scan for burning turfs second
 		old_target_fire = target_fire
 
 	// Target reached ENGAGE WATER CANNON
-	if(target_fire && (get_dist(src, target_fire) <= (emagged == 2 ? 1 : 2))) // Make the bot spray water from afar when not emagged
+	if(target_fire && (get_dist(src, target_fire) <= (bot_cover_flags & BOT_COVER_EMAGGED ? 1 : 2))) // Make the bot spray water from afar when not emagged
 		if((speech_cooldown + SPEECH_INTERVAL) < world.time)
 			if(ishuman(target_fire))
-				speak("Падай и катись!")//падение подразумевает остановку. На английском полная фраза Stop, drop and roll звучит лаконичней из-за краткости всех слов.
-				//playsound(src, 'sound/voice/firebot/stopdropnroll.ogg', 50, FALSE)
+				speak(FIREBOT_VOICED_STOP_DROP)
 			else
-				speak("Тушу!")
-				//playsound(src, 'sound/voice/firebot/extinguishing.ogg', 50, FALSE)
+				speak(FIREBOT_VOICED_EXTINGUISHING)
 			speech_cooldown = world.time
 
 			flick("firebot1_use", src)
@@ -243,7 +239,7 @@
 
 	if(target_fire && (get_dist(src, target_fire) > 2))
 
-		path = get_path_to(src, target_fire, 30, 1, id=access_card)
+		path = get_path_to(src, target_fire, max_distance=30, mintargetdist=1, access=access_card.GetAccess())
 		mode = BOT_MOVING
 		if(!path.len)
 			soft_reset()
@@ -258,29 +254,23 @@
 	if(path.len > 8 && target_fire)
 		frustration++
 
-	if(auto_patrol && !target_fire)
-		if(mode == BOT_IDLE || mode == BOT_START_PATROL)
-			start_patrol()
-
-		if(mode == BOT_PATROL)
-			bot_patrol()
+	if(bot_mode_flags & BOT_MODE_AUTOPATROL && !target_fire)
+		switch(mode)
+			if(BOT_IDLE, BOT_START_PATROL)
+				start_patrol()
+			if(BOT_PATROL)
+				bot_patrol()
 
 
 //Look for burning people or turfs around the bot
 /mob/living/simple_animal/bot/firebot/process_scan(atom/scan_target)
-	var/result
+	if(!is_burning(scan_target))
+		return null
 
-	if(scan_target == src)
-		return result
-
-	if(is_burning(scan_target))
-		if((detected_cooldown + DETECTED_VOICE_INTERVAL) < world.time)
-			speak("Обнаружен открытый огонь!")
-			//playsound(src, 'sound/voice/firebot/detected.ogg', 50, FALSE)
-			detected_cooldown = world.time
-		result = scan_target
-
-	return result
+	if((detected_cooldown + DETECTED_VOICE_INTERVAL) < world.time)
+		speak(FIREBOT_VOICED_FIRE_DETECTED)
+		detected_cooldown = world.time
+		return scan_target
 
 /mob/living/simple_animal/bot/firebot/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
 	return (exposed_temperature > T0C + 200 || exposed_temperature < BODYTEMP_COLD_DAMAGE_LIMIT)
@@ -299,42 +289,29 @@
 		flick("firebot1_use", user)
 	internal_ext.afterattack(target, user, null)
 
-/mob/living/simple_animal/bot/firebot/update_icon()
+/mob/living/simple_animal/bot/firebot/update_icon_state()
 	. = ..()
-	if(!on)
+	if(!(bot_mode_flags & BOT_MODE_ON))
 		icon_state = "firebot0"
 		return
-	if(IsStun() || IsParalyzed())
+	if(IsStun() || IsParalyzed() || stationary_mode) //Bot has yellow light to indicate stationary mode.
 		icon_state = "firebots1"
-	else if(stationary_mode) //Bot has yellow light to indicate stationary mode.
-		icon_state = "firebots1"
-	else
-		icon_state = "firebot1"
+		return
+	icon_state = "firebot1"
 
 
 /mob/living/simple_animal/bot/firebot/explode()
-	on = FALSE
-	visible_message(span_boldannounce("[capitalize(src.name)] взрывается!"))
-
 	var/atom/Tsec = drop_location()
 
 	new /obj/item/assembly/prox_sensor(Tsec)
-	new /obj/item/clothing/head/hardhat/red(Tsec)
+	new /obj/item/clothing/head/utility/hardhat/red(Tsec)
 
 	var/turf/T = get_turf(Tsec)
 
 	if(isopenturf(T))
 		var/turf/open/theturf = T
 		theturf.MakeSlippery(TURF_WET_WATER, min_wet_time = 10 SECONDS, wet_time_to_add = 5 SECONDS)
-
-	if(prob(50))
-		drop_part(robot_arm, Tsec)
-
-	do_sparks(3, TRUE, src)
-	..()
-
-/obj/machinery/bot_core/firebot
-	req_one_access = list(ACCESS_CONSTRUCTION, ACCESS_ROBOTICS)
+	return ..()
 
 #undef SPEECH_INTERVAL
 #undef DETECTED_VOICE_INTERVAL

@@ -1,18 +1,10 @@
-#define HOLOPAD_MAX_DIAL_TIME 200
-
-#define HOLORECORD_DELAY	"delay"
-#define HOLORECORD_SAY		"say"
-#define HOLORECORD_SOUND	"sound"
-#define HOLORECORD_LANGUAGE	"lang"
-#define HOLORECORD_PRESET	"preset"
-#define HOLORECORD_RENAME "rename"
-
-#define HOLORECORD_MAX_LENGTH 200
-
 /mob/camera/ai_eye/remote/holo/setLoc(turf/destination, force_update = FALSE)
-	. = ..()
+	// If we're moving outside the space of our projector, then just... don't
 	var/obj/machinery/holopad/H = origin
-	H?.move_hologram(eye_user, loc)
+	if(!H?.move_hologram(eye_user, destination))
+		sprint = initial(sprint) // Reset sprint so it doesn't balloon in our calling proc
+		return
+	return ..()
 
 /obj/machinery/holopad/remove_eye_control(mob/living/user)
 	if(user.client)
@@ -56,16 +48,16 @@
 			dialed_holopads += connected_holopad
 			if(head_call)
 				if(connected_holopad.secure)
-					calling_pad.say("Авто-соединений отклонено, возвращаемся к обычному режиму звонка.")
-					connected_holopad.say("Входящий звонок.")
+					calling_pad.say("Auto-connection refused, falling back to call mode.")
+					connected_holopad.say("Incoming call.")
 				else
-					connected_holopad.say("Входящее соединение.")
+					connected_holopad.say("Incoming connection.")
 			else
-				connected_holopad.say("Входящий звонок.")
+				connected_holopad.say("Incoming call.")
 			connected_holopad.set_holocall(src)
 
 	if(!dialed_holopads.len)
-		calling_pad.say("Ошибка соединения.")
+		calling_pad.say("Connection failure.")
 		qdel(src)
 		return
 
@@ -74,9 +66,7 @@
 //cleans up ALL references :)
 /datum/holocall/Destroy()
 	QDEL_NULL(hangup)
-
-	if(!QDELETED(eye))
-		QDEL_NULL(eye)
+	QDEL_NULL(eye)
 
 	if(connected_holopad && !QDELETED(hologram))
 		hologram = null
@@ -92,12 +82,11 @@
 
 	for(var/obj/machinery/holopad/dialed_holopad as anything in dialed_holopads)
 		dialed_holopad.set_holocall(src, FALSE)
+
 	dialed_holopads.Cut()
 
-	if(calling_holopad)
-		calling_holopad.calling = FALSE
-		calling_holopad.outgoing_call = null
-		calling_holopad.SetLightsAndPower()
+	if(calling_holopad)//if the call is answered, then calling_holopad wont be in dialed_holopads and thus wont have set_holocall(src, FALSE) called
+		calling_holopad.callee_hung_up()
 		calling_holopad = null
 	if(connected_holopad)
 		connected_holopad.SetLightsAndPower()
@@ -112,9 +101,9 @@
 	testing("Holocall disconnect")
 	if(H == connected_holopad)
 		var/area/A = get_area(connected_holopad)
-		calling_holopad.say("[A] отключается.")
+		calling_holopad.say("[A] holopad disconnected.")
 	else if(H == calling_holopad && connected_holopad)
-		connected_holopad.say("[user] отключается.")
+		connected_holopad.say("[user] disconnected.")
 
 	ConnectionFailure(H, TRUE)
 
@@ -123,7 +112,7 @@
 	testing("Holocall connection failure: graceful [graceful]")
 	if(disconnected_holopad == connected_holopad || disconnected_holopad == calling_holopad)
 		if(!graceful && disconnected_holopad != calling_holopad)
-			calling_holopad.say("Ошибка соединения.")
+			calling_holopad.say("Connection failure.")
 		qdel(src)
 		return
 
@@ -132,7 +121,7 @@
 	dialed_holopads -= disconnected_holopad
 	if(!dialed_holopads.len)
 		if(graceful)
-			calling_holopad.say("Звонок отклонён.")
+			calling_holopad.say("Call rejected.")
 		testing("No recipients, terminating")
 		qdel(src)
 
@@ -162,7 +151,7 @@
 	if(!Check())
 		return
 
-	calling_holopad.calling = FALSE
+	calling_holopad.callee_picked_up()
 	hologram = answering_holopad.activate_holo(user)
 	hologram.HC = src
 
@@ -171,7 +160,7 @@
 	eye.origin = answering_holopad
 	eye.eye_initialized = TRUE
 	eye.eye_user = user
-	eye.name = "Глаз-камера ([user.name])"
+	eye.name = "Camera Eye ([user.name])"
 	user.remote_control = eye
 	user.reset_perspective(eye)
 	eye.setLoc(answering_holopad.loc)
@@ -179,7 +168,7 @@
 	hangup = new(eye, src)
 	hangup.Grant(user)
 	playsound(answering_holopad, 'sound/machines/ping.ogg', 100)
-	answering_holopad.say("Соединение установлено.")
+	answering_holopad.say("Connection established.")
 
 //Checks the validity of a holocall and qdels itself if it's not. Returns TRUE if valid, FALSE otherwise
 /datum/holocall/proc/Check()
@@ -196,7 +185,7 @@
 		if(!connected_holopad)
 			. = world.time < (call_start_time + HOLOPAD_MAX_DIAL_TIME)
 			if(!.)
-				calling_holopad.say("Нет ответа.")
+				calling_holopad.say("No answer received.")
 
 	if(!.)
 		testing("Holocall Check fail")
@@ -218,7 +207,7 @@
 
 //RECORDS
 /datum/holorecord
-	var/caller_name = "Неизвестно" //Caller name
+	var/caller_name = "Unknown" //Caller name
 	var/image/caller_image
 	var/list/entries = list()
 	var/language = /datum/language/common //Initial language, can be changed by HOLORECORD_LANGUAGE entries
@@ -230,11 +219,11 @@
 	user.setDir(olddir)
 
 /obj/item/disk/holodisk
-	name = "голодиск"
-	desc = "Хранит записи с Holo-платформ"
+	name = "holorecord disk"
+	desc = "Stores recorder holocalls."
 	icon_state = "holodisk"
 	obj_flags = UNIQUE_RENAME
-	custom_materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 	var/datum/holorecord/record
 	//Preset variables
 	var/preset_image_type
@@ -259,10 +248,10 @@
 			record.caller_image = holodiskOriginal.record.caller_image
 			record.entries = holodiskOriginal.record.entries.Copy()
 			record.language = holodiskOriginal.record.language
-			to_chat(user, span_notice("Копирую запись с [holodiskOriginal] на [src] используя специальные порты!"))
+			to_chat(user, span_notice("You copy the record from [holodiskOriginal] to [src] by connecting the ports!"))
 			name = holodiskOriginal.name
 		else
-			to_chat(user, span_warning("[capitalize(holodiskOriginal)] не имеет записей!"))
+			to_chat(user, span_warning("[holodiskOriginal] has no record on it!"))
 	..()
 
 /obj/item/disk/holodisk/proc/build_record()
@@ -301,7 +290,7 @@
 				if(ispath(preset_type,/datum/preset_holoimage))
 					record.entries += list(list(HOLORECORD_PRESET,preset_type))
 	if(!preset_image_type)
-		record.caller_image = image('icons/mob/animal.dmi',"old")
+		record.caller_image = image('icons/mob/simple/animal.dmi',"old")
 	else
 		var/datum/preset_holoimage/H = new preset_image_type
 		record.caller_image = H.build_image()
@@ -326,6 +315,54 @@
 		. = image(mannequin)
 		unset_busy_human_dummy("HOLODISK_PRESET")
 
+/datum/preset_holoimage/clown
+	outfit_type = /datum/outfit/job/clown
+
+/datum/preset_holoimage/engineer
+	outfit_type = /datum/outfit/job/engineer
+
+/datum/preset_holoimage/corgi
+	nonhuman_mobtype = /mob/living/basic/pet/dog/corgi
+
+/datum/preset_holoimage/engineer/mod
+	outfit_type = /datum/outfit/job/engineer/mod
+
+/datum/preset_holoimage/engineer/ce
+	outfit_type = /datum/outfit/job/ce
+
+/datum/preset_holoimage/engineer/ce/mod
+	outfit_type = /datum/outfit/job/ce/mod
+
+/datum/preset_holoimage/engineer/atmos
+	outfit_type = /datum/outfit/job/atmos
+
+/datum/preset_holoimage/engineer/atmos/mod
+	outfit_type = /datum/outfit/job/atmos/mod
+
+/datum/preset_holoimage/researcher
+	outfit_type = /datum/outfit/job/scientist
+
+/datum/preset_holoimage/captain
+	outfit_type = /datum/outfit/job/captain
+
+/datum/preset_holoimage/nanotrasenprivatesecurity
+	outfit_type = /datum/outfit/nanotrasensoldiercorpse
+
+/datum/preset_holoimage/syndicatebattlecruisercaptain
+	outfit_type = /datum/outfit/syndicate_empty/battlecruiser
+
+/datum/preset_holoimage/hivebot
+	nonhuman_mobtype = /mob/living/basic/hivebot
+
+/datum/preset_holoimage/ai
+	nonhuman_mobtype = /mob/living/silicon/ai
+
+/datum/preset_holoimage/robot
+	nonhuman_mobtype = /mob/living/silicon/robot
+
+/datum/preset_holoimage/assistant
+	outfit_type = /datum/outfit/job/assistant
+
 /obj/item/disk/holodisk/example
 	preset_image_type = /datum/preset_holoimage/clown
 	preset_record_text = {"
@@ -346,42 +383,6 @@
 	LANGUAGE /datum/language/common
 	SAY OOGA
 	DELAY 20"}
-
-/datum/preset_holoimage/engineer
-	outfit_type = /datum/outfit/job/engineer
-
-/datum/preset_holoimage/engineer/rig
-	outfit_type = /datum/outfit/job/engineer/gloved/rig
-
-/datum/preset_holoimage/engineer/ce
-	outfit_type = /datum/outfit/job/ce
-
-/datum/preset_holoimage/engineer/ce/rig
-	outfit_type = /datum/outfit/job/engineer/gloved/rig
-
-/datum/preset_holoimage/engineer/atmos
-	outfit_type = /datum/outfit/job/atmos
-
-/datum/preset_holoimage/engineer/atmos/rig
-	outfit_type = /datum/outfit/job/engineer/gloved/rig
-
-/datum/preset_holoimage/researcher
-	outfit_type = /datum/outfit/job/scientist
-
-/datum/preset_holoimage/captain
-	outfit_type = /datum/outfit/job/captain
-
-/datum/preset_holoimage/nanotrasenprivatesecurity
-	outfit_type = /datum/outfit/nanotrasensoldiercorpse2
-
-/datum/preset_holoimage/gorilla
-	nonhuman_mobtype = /mob/living/simple_animal/hostile/gorilla
-
-/datum/preset_holoimage/corgi
-	nonhuman_mobtype = /mob/living/simple_animal/pet/dog/corgi
-
-/datum/preset_holoimage/clown
-	outfit_type = /datum/outfit/job/clown
 
 /obj/item/disk/holodisk/donutstation/whiteship
 	name = "Blackbox Print-out #DS024"
@@ -453,19 +454,141 @@
 	DELAY 10
 	SAY Oh, shit!
 	DELAY 10
-	PRESET /datum/preset_holoimage/engineer/atmos/rig
+	PRESET /datum/preset_holoimage/engineer/atmos/mod
 	LANGUAGE /datum/language/narsie
 	NAME Unknown
 	SAY RISE, MY LORD!!
 	DELAY 10
 	LANGUAGE /datum/language/common
 	NAME Plastic
-	PRESET /datum/preset_holoimage/engineer/rig
+	PRESET /datum/preset_holoimage/engineer/mod
 	SAY Fuck, fuck, fuck!
 	DELAY 20
-	SAY It's loose! CALL THE FUCKING SHUTT-
+	NAME Maria Dell
+	PRESET /datum/preset_holoimage/engineer/atmos
+	SAY GEORGE, WAIT-
 	DELAY 10
 	PRESET /datum/preset_holoimage/corgi
 	NAME Blackbox Automated Message
 	SAY Connection lost. Dumping audio logs to disk.
 	DELAY 50"}
+
+/obj/item/disk/holodisk/ruin/ghost_restaurant
+	name = "Blackbox Print-out #NG234"
+	preset_image_type = /datum/preset_holoimage/assistant
+	preset_record_text = {"
+	NAME Aron Blue
+	SAY Message from NTGrub Themed Surprise Deliveries, Trademark.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Must you always say the full name, dude?
+	DELAY 20
+	NAME Aron Blue
+	SAY Ahem!
+	DELAY 20
+	NAME Aron Blue
+	SAY It says that they loved our new robot themes!
+	DELAY 20
+	NAME Henry Fresh
+	SAY Oh dang!
+	DELAY 20
+	NAME Henry Fresh
+	SAY Will we be moved to the main team?
+	DELAY 20
+	NAME Aron Blue
+	SAY Hell yeah we will! High five!
+	DELAY 20
+	SOUND punch
+	NAME Henry Fresh
+	SAY High five!
+	DELAY 20
+	NAME Henry Fresh
+	SAY Oh, new order. Its for, hah, *Funny Food*.
+	DELAY 20
+	NAME Aron Blue
+	SAY Easy!
+	DELAY 20
+	NAME Aron Blue
+	SAY I will dress up this robot as a clown.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Well, if you are that basic, lets make it ask for a Banana Pie.
+	DELAY 20
+	NAME Aron Blue
+	SAY Gateway to Planetside Pagliacci 15 is open.
+	DELAY 20
+	NAME Aron Blue
+	SAY Feels appropriate.
+	DELAY 15
+	SOUND clown_step
+	DELAY 10
+	SOUND sparks
+	DELAY 10
+	NAME Aron Blue
+	SAY Next order is for a simple farm dish.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Unlike you, I am creative.
+	DELAY 20
+	NAME Henry Fresh
+	SAY I'll dress it up as a scarecrow.
+	SOUND rustle
+	DELAY 20
+	NAME Aron Blue
+	SAY Let's ask for uuuh, Hot Potato.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Send it to the new place. Firebase Balthazord.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Wait.
+	DELAY 10
+	NAME Henry Fresh
+	SAY You know its called Baked Potato, right?
+	DELAY 10
+	SOUND sparks
+	DELAY 20
+	NAME Aron Blue
+	SAY Shut up, they'll know what I meant!
+	DELAY 20
+	SOUND sparks
+	DELAY 10
+	NAME Henry Fresh
+	SAY Its back.
+	DELAY 20
+	NAME Henry Fresh
+	SAY Haha, it brought a raw potato.
+	DELAY 20
+	NAME Aron Blue
+	SAY HENRY ITS TICK-
+	DELAY 20
+	SOUND explosion
+	DELAY 20
+	PRESET /datum/preset_holoimage/corgi
+	NAME Blackbox Automated Message
+	SAY Connection lost. Dumping audio logs to disk.
+	DELAY 50
+	"}
+
+/obj/item/disk/holodisk/ruin/space/travelers_rest
+	name = "Owner's memo"
+	desc = "A holodisk containing a small memo from the previous owner, addressed to someone else."
+	preset_image_type = /datum/preset_holoimage/engineer/atmos
+	preset_record_text = {"
+		NAME Space Adventurer
+		SOUND PING
+		DELAY 20
+		SAY Hey, I left you this message for when you come back.
+		DELAY 50
+		SAY I picked up an emergency signal from a freighter and I'm going there to search for some goodies.
+		DELAY 50
+		SAY You can crash here if you need to, but make sure to check the anchor cables before you leave.
+		DELAY 50
+		SAY If you don't, this thing might drift off into space.
+		DELAY 50
+		SAY Then some weirdo could find it and potentially claim it as their own.
+		DELAY 50
+		SAY Anyway, gotta go, see ya!
+		DELAY 40
+		SOUND sparks
+	"}

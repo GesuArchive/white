@@ -20,7 +20,7 @@
 	resistance_flags = FIRE_PROOF
 	max_integrity = 200
 	obj_flags = CAN_BE_HIT
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
+	armor_type = /datum/armor/machinery_atmospherics
 
 	///Check if the object can be unwrenched
 	var/can_unwrench = FALSE
@@ -66,7 +66,15 @@
 	///If we should init and immediately start processing
 	var/init_processing = FALSE
 
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
+	armor_type = /datum/armor/machinery_atmospherics
+
+/datum/armor/machinery_atmospherics
+	melee = 25
+	bullet = 10
+	laser = 10
+	energy = 100
+	fire = 100
+	acid = 70
 
 /obj/machinery/atmospherics/LateInitialize()
 	. = ..()
@@ -344,9 +352,9 @@
 	return
 
 /**
- * Similar to set_pipenet() but instead of setting a network to a pipeline, it replaces the old pipeline with a new one, called by Merge() in datum_pipeline.dm
+ * Replaces the connection to the old_pipenet with the new_pipenet
  */
-/obj/machinery/atmospherics/proc/replace_pipenet()
+/obj/machinery/atmospherics/proc/replace_pipenet(datum/pipeline/old_pipenet, datum/pipeline/new_pipenet)
 	return
 
 /**

@@ -1,6 +1,6 @@
 /datum/wires/suit_storage_unit
 	holder_type = /obj/machinery/suit_storage_unit
-	proper_name = "Блок хранения костюма"
+	proper_name = "Suit Storage Unit"
 
 /datum/wires/suit_storage_unit/New(atom/holder)
 	wires = list(
@@ -11,6 +11,8 @@
 	..()
 
 /datum/wires/suit_storage_unit/interactable(mob/user)
+	if(!..())
+		return FALSE
 	var/obj/machinery/suit_storage_unit/SSU = holder
 	if(SSU.panel_open)
 		return TRUE
@@ -18,8 +20,8 @@
 /datum/wires/suit_storage_unit/get_status()
 	var/obj/machinery/suit_storage_unit/SSU = holder
 	var/list/status = list()
-	status += "УФ лампа [SSU.uv_super ? "светится" : "не светится"]."
-	status += "Протоколы безопасности [SSU.safeties ? "отключены" : "включены"]."
+	status += "The UV bulb is [SSU.uv_super ? "glowing" : "dim"]."
+	status += "The service light is [SSU.safeties ? "off" : "on"]."
 	return status
 
 /datum/wires/suit_storage_unit/on_pulse(wire)
@@ -33,7 +35,7 @@
 			if(usr)
 				SSU.shock(usr)
 
-/datum/wires/suit_storage_unit/on_cut(wire, mend)
+/datum/wires/suit_storage_unit/on_cut(wire, mend, source)
 	var/obj/machinery/suit_storage_unit/SSU = holder
 	switch(wire)
 		if(WIRE_HACK)

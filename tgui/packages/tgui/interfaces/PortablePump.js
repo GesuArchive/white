@@ -14,14 +14,14 @@ export const PortablePump = (props, context) => {
     minPressure,
     maxPressure,
   } = data;
-  const pump_or_port = connected ? 'Порт' : 'Помпа';
-  const area_or_tank = holding ? 'Бак' : 'Зона';
+  const pump_or_port = connected ? 'Port' : 'Pump';
+  const area_or_tank = holding ? 'Tank' : 'Area';
   return (
     <Window width={300} height={340}>
       <Window.Content>
         <PortableBasicInfo />
         <Section
-          title="Помпа"
+          title="Pumping"
           buttons={
             <Button
               content={
@@ -34,10 +34,10 @@ export const PortablePump = (props, context) => {
             />
           }>
           <LabeledList>
-            <LabeledList.Item label="Выход">
+            <LabeledList.Item label="Output">
               <NumberInput
                 value={targetPressure}
-                unit="кПа"
+                unit="kPa"
                 width="75px"
                 minValue={minPressure}
                 maxValue={maxPressure}
@@ -49,7 +49,7 @@ export const PortablePump = (props, context) => {
                 }
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Управление">
+            <LabeledList.Item label="Presets">
               <Button
                 icon="minus"
                 disabled={targetPressure === minPressure}

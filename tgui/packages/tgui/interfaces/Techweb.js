@@ -1,7 +1,6 @@
-import { filter, map, sortBy } from 'common/collections';
-import { flow } from 'common/fp';
+import { map, sortBy } from 'common/collections';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Section, Modal, Dropdown, Tabs, Box, Input, Flex, ProgressBar, Collapsible, Icon, Divider } from '../components';
+import { Button, Section, Modal, Tabs, Box, Input, Flex, ProgressBar, Collapsible, Icon, Divider } from '../components';
 import { Window, NtosWindow } from '../layouts';
 import { Experiment } from './ExperimentConfigure';
 
@@ -75,33 +74,47 @@ const useRemappedBackend = (context) => {
 // Utility Functions
 
 const abbreviations = {
-  'Основные Исследования': 'Осн. Исл.',
-  'Нанитовые Исследования': 'Нанит. Исл.',
+  'General Research': 'Gen. Res.',
 };
 const abbreviateName = (name) => abbreviations[name] ?? name;
 
 // Actual Components
 
 export const Techweb = (props, context) => {
-  const { act, data } = useRemappedBackend(context);
-  const { locked } = data;
   return (
     <Window width={640} height={735}>
-      <Window.Content>
-        {!!locked && (
-          <Modal width="15em" align="center" className="Techweb__LockedModal">
-            <div>
-              <b>Консоль заблокирована</b>
-            </div>
-            <Button icon="unlock" onClick={() => act('toggleLock')}>
-              Разблокировать
-            </Button>
-          </Modal>
-        )}
-        <TechwebContent />
+      <Window.Content scrollable>
+        <TechwebStart />
       </Window.Content>
     </Window>
   );
+};
+
+const TechwebStart = (props, context) => {
+  const { act, data } = useBackend(context);
+  const { locked, stored_research } = data;
+  if (locked) {
+    return (
+      <Modal width="15em" align="center" className="Techweb__LockedModal">
+        <div>
+          <b>Console Locked</b>
+        </div>
+        <Button icon="unlock" onClick={() => act('toggleLock')}>
+          Unlock
+        </Button>
+      </Modal>
+    );
+  }
+  if (!stored_research) {
+    return (
+      <Modal width="25em" align="center" className="Techweb__LockedModal">
+        <div>
+          <b>No research techweb found, please synchronize the console.</b>
+        </div>
+      </Modal>
+    );
+  }
+  return <TechwebContent />;
 };
 
 export const AppTechweb = (props, context) => {
@@ -110,17 +123,7 @@ export const AppTechweb = (props, context) => {
   return (
     <NtosWindow width={640} height={735}>
       <NtosWindow.Content scrollable>
-        {!!locked && (
-          <Modal width="15em" align="center" className="Techweb__LockedModal">
-            <div>
-              <b>Консоль заблокирована</b>
-            </div>
-            <Button icon="unlock" onClick={() => act('toggleLock')}>
-              Разблокировать
-            </Button>
-          </Modal>
-        )}
-        <TechwebContent />
+        <TechwebStart />
       </NtosWindow.Content>
     </NtosWindow>
   );
@@ -150,30 +153,30 @@ export const TechwebContent = (props, context) => {
         <Flex className="Techweb__HeaderContent">
           <Flex.Item>
             <Box>
-              Доступные очки:
+              Available points:
               <ul className="Techweb__PointSummary">
                 {Object.keys(points).map((k) => (
                   <li key={k}>
                     <b>{k}</b>: {points[k]}
-                    {!!points_last_tick[k] && ` (+${points_last_tick[k]}/сек)`}
+                    {!!points_last_tick[k] && ` (+${points_last_tick[k]}/sec)`}
                   </li>
                 ))}
               </ul>
             </Box>
             <Box>
-              Протоколы безопасности:
+              Security protocols:
               <span
                 className={`Techweb__SecProtocol ${
                   !!sec_protocols && 'engaged'
                 }`}>
-                {sec_protocols ? 'Включены' : 'Отключены'}
+                {sec_protocols ? 'Engaged' : 'Disengaged'}
               </span>
             </Box>
           </Flex.Item>
           <Flex.Item grow={1} />
           <Flex.Item>
             <Button fluid onClick={() => act('toggleLock')} icon="lock">
-              Заблокировать
+              Lock Console
             </Button>
             {d_disk && (
               <Flex.Item>
@@ -182,7 +185,7 @@ export const TechwebContent = (props, context) => {
                   onClick={() =>
                     setTechwebRoute({ route: 'disk', diskType: 'design' })
                   }>
-                  Диск с дизайнами
+                  Design Disk Inserted
                 </Button>
               </Flex.Item>
             )}
@@ -193,7 +196,7 @@ export const TechwebContent = (props, context) => {
                   onClick={() =>
                     setTechwebRoute({ route: 'disk', diskType: 'tech' })
                   }>
-                  Диск с технологиями
+                  Tech Disk Inserted
                 </Button>
               </Flex.Item>
             )}
@@ -258,33 +261,33 @@ const TechwebOverview = (props, context) => {
       <Flex.Item>
         <Flex justify="space-between" className="Techweb__HeaderSectionTabs">
           <Flex.Item align="center" className="Techweb__HeaderTabTitle">
-            Просмотр сети
+            Web View
           </Flex.Item>
           <Flex.Item grow={1}>
             <Tabs>
               <Tabs.Tab
                 selected={!searching && tabIndex === 0}
                 onClick={() => switchTab(0)}>
-                Исследовано
+                Researched
               </Tabs.Tab>
               <Tabs.Tab
                 selected={!searching && tabIndex === 1}
                 onClick={() => switchTab(1)}>
-                Доступно
+                Available
               </Tabs.Tab>
               <Tabs.Tab
                 selected={!searching && tabIndex === 2}
                 onClick={() => switchTab(2)}>
-                Будущее
+                Future
               </Tabs.Tab>
-              {!!searching && <Tabs.Tab selected>Результаты поиска</Tabs.Tab>}
+              {!!searching && <Tabs.Tab selected>Search Results</Tabs.Tab>}
             </Tabs>
           </Flex.Item>
           <Flex.Item align={'center'}>
             <Input
               value={searchText}
               onInput={(e, value) => setSearchText(value)}
-              placeholder={'Поиск...'}
+              placeholder={'Search...'}
             />
           </Flex.Item>
         </Flex>
@@ -330,28 +333,23 @@ const TechwebDiskMenu = (props, context) => {
       <Flex.Item>
         <Flex justify="space-between" className="Techweb__HeaderSectionTabs">
           <Flex.Item align="center" className="Techweb__HeaderTabTitle">
-            {diskType.charAt(0).toUpperCase() + diskType.slice(1)} Диск
+            {diskType.charAt(0).toUpperCase() + diskType.slice(1)} Disk
           </Flex.Item>
           <Flex.Item grow={1}>
             <Tabs>
-              <Tabs.Tab selected>Данные</Tabs.Tab>
+              <Tabs.Tab selected>Stored Data</Tabs.Tab>
             </Tabs>
           </Flex.Item>
           <Flex.Item align="center">
             {diskType === 'tech' && (
               <Button icon="save" onClick={() => act('loadTech')}>
-                Сеть &rarr; Диск
+                Web &rarr; Disk
               </Button>
             )}
             <Button
               icon="upload"
               onClick={() => act('uploadDisk', { type: diskType })}>
-              Диск &rarr; Сеть
-            </Button>
-            <Button
-              icon="trash"
-              onClick={() => act('eraseDisk', { type: diskType })}>
-              Стереть
+              Disk &rarr; Web
             </Button>
             <Button
               icon="eject"
@@ -359,10 +357,10 @@ const TechwebDiskMenu = (props, context) => {
                 act('ejectDisk', { type: diskType });
                 setTechwebRoute(null);
               }}>
-              Изъять
+              Eject
             </Button>
             <Button icon="home" onClick={() => setTechwebRoute(null)}>
-              Домой
+              Home
             </Button>
           </Flex.Item>
         </Flex>
@@ -376,94 +374,16 @@ const TechwebDiskMenu = (props, context) => {
 
 const TechwebDesignDisk = (props, context) => {
   const { act, data } = useRemappedBackend(context);
-  const { design_cache, researched_designs, d_disk } = data;
+  const { design_cache, d_disk } = data;
   const { blueprints } = d_disk;
-  const [selectedDesign, setSelectedDesign] = useLocalState(
-    context,
-    'designDiskSelect',
-    null
-  );
-  const [showModal, setShowModal] = useLocalState(
-    context,
-    'showDesignModal',
-    -1
-  );
-
-  const designIdByIdx = Object.keys(researched_designs);
-  const designOptions = flow([
-    filter((x) => x.toLowerCase() !== 'error'),
-    map((id, idx) => `${design_cache[id].name} [${idx}]`),
-    sortBy((x) => x),
-  ])(designIdByIdx);
 
   return (
     <>
-      {showModal >= 0 && (
-        <Modal width="20em">
-          <Flex direction="column" className="Techweb__DesignModal">
-            <Flex.Item>Что будем сохранять...</Flex.Item>
-            <Flex.Item>
-              <Dropdown
-                width="100%"
-                options={designOptions}
-                onSelected={(val) => {
-                  const idx = parseInt(
-                    val
-                      .split('[')
-                      .pop()
-                      .split(']')[0],
-                    10
-                  );
-                  setSelectedDesign(designIdByIdx[idx]);
-                }}
-              />
-            </Flex.Item>
-            <Flex.Item align="center">
-              <Button onClick={() => setShowModal(-1)}>Отмена</Button>
-              <Button
-                disabled={selectedDesign === null}
-                onClick={() => {
-                  act('writeDesign', {
-                    slot: showModal + 1,
-                    selectedDesign: selectedDesign,
-                  });
-                  setShowModal(-1);
-                  setSelectedDesign(null);
-                }}>
-                Выбрать
-              </Button>
-            </Flex.Item>
-          </Flex>
-        </Modal>
-      )}
       {blueprints.map((x, i) => (
-        <Section
-          key={i}
-          title={`Slot ${i + 1}`}
-          buttons={
-            <>
-              {x !== null && (
-                <Button
-                  icon="upload"
-                  onClick={() => act('uploadDesignSlot', { slot: i + 1 })}>
-                  Выгрузить дизайн в сеть
-                </Button>
-              )}
-              <Button icon="save" onClick={() => setShowModal(i)}>
-                {x !== null ? 'Overwrite Slot' : 'Load Design to Slot'}
-              </Button>
-              {x !== null && (
-                <Button
-                  icon="trash"
-                  onClick={() => act('clearDesignSlot', { slot: i + 1 })}>
-                  Очистить слот
-                </Button>
-              )}
-            </>
-          }>
+        <Section key={i} title={`Slot ${i + 1}`}>
           {(x === null && 'Empty') || (
             <>
-              Содержит дизайн для <b>{design_cache[x].name}</b>:<br />
+              Contains the design for <b>{design_cache[x].name}</b>:<br />
               <span
                 className={`${design_cache[x].class} Techweb__DesignIcon`}
               />
@@ -513,26 +433,26 @@ const TechNodeDetail = (props, context) => {
       <Flex.Item shrink={1}>
         <Flex justify="space-between" className="Techweb__HeaderSectionTabs">
           <Flex.Item align="center" className="Techweb__HeaderTabTitle">
-            Ячейка
+            Node
           </Flex.Item>
           <Flex.Item grow={1}>
             <Tabs>
               <Tabs.Tab
                 selected={tabIndex === 0}
                 onClick={() => setTabIndex(0)}>
-                Требует ({complPrereq}/{prereqNodes.length})
+                Required ({complPrereq}/{prereqNodes.length})
               </Tabs.Tab>
               <Tabs.Tab
                 selected={tabIndex === 1}
                 disabled={unlockedNodes.length === 0}
                 onClick={() => setTabIndex(1)}>
-                Разблокирует ({unlockedNodes.length})
+                Unlocks ({unlockedNodes.length})
               </Tabs.Tab>
             </Tabs>
           </Flex.Item>
           <Flex.Item align="center">
             <Button icon="home" onClick={() => setTechwebRoute(null)}>
-              Домой
+              Home
             </Button>
           </Flex.Item>
         </Flex>
@@ -595,7 +515,7 @@ const TechNode = (props, context) => {
         bad: [-Infinity, 0.25],
       }}
       value={expcompl / required_experiments.length}>
-      Эксперименты ({expcompl}/{required_experiments.length})
+      Experiments ({expcompl}/{required_experiments.length})
     </ProgressBar>
   );
 
@@ -610,11 +530,11 @@ const TechNode = (props, context) => {
         bad: [-Infinity, 0.25],
       }}
       value={techcompl / prereq_ids.length}>
-      Технология ({techcompl}/{prereq_ids.length})
+      Tech ({techcompl}/{prereq_ids.length})
     </ProgressBar>
   );
 
-  // Notice this logic will have te be changed if we make the discounts
+  // Notice that this logic will have to be changed if we make the discounts
   // pool-specific
   const nodeDiscount = Object.keys(discount_experiments)
     .filter((x) => experiments[x]?.completed)
@@ -636,7 +556,7 @@ const TechNode = (props, context) => {
                   setTechwebRoute({ route: 'details', selectedNode: id });
                   setTabIndex(0);
                 }}>
-                Детали
+                Details
               </Button>
             )}
             {tier > 0 && (
@@ -644,7 +564,7 @@ const TechNode = (props, context) => {
                 icon="lightbulb"
                 disabled={!can_unlock || tier > 1}
                 onClick={() => act('researchNode', { node_id: id })}>
-                Исследовать
+                Research
               </Button>
             )}
           </>
@@ -678,7 +598,7 @@ const TechNode = (props, context) => {
               {techProgress}
             </Flex.Item>
           )}
-          {required_experiments?.length > 0 && (
+          {required_experiments.length > 0 && (
             <Flex.Item grow={1} basis={0}>
               {experimentProgress}
             </Flex.Item>
@@ -698,10 +618,10 @@ const TechNode = (props, context) => {
           />
         ))}
       </Box>
-      {required_experiments?.length > 0 && (
+      {required_experiments.length > 0 && (
         <Collapsible
           className="Techweb__NodeExperimentsRequired"
-          title="Требуемые эксперименты">
+          title="Required Experiments">
           {required_experiments.map((k) => {
             const thisExp = experiments[k];
             if (thisExp === null || thisExp === undefined) {
@@ -714,7 +634,7 @@ const TechNode = (props, context) => {
       {Object.keys(discount_experiments).length > 0 && (
         <Collapsible
           className="TechwebNodeExperimentsRequired"
-          title="Эксперименты для скидки">
+          title="Discount-Eligible Experiments">
           {Object.keys(discount_experiments).map((k) => {
             const thisExp = experiments[k];
             if (thisExp === null || thisExp === undefined) {
@@ -723,8 +643,8 @@ const TechNode = (props, context) => {
             return (
               <Experiment key={thisExp} exp={thisExp}>
                 <Box className="Techweb__ExperimentDiscount">
-                  Предоставляет скидку в размере {discount_experiments[k]}
-                  очко на все требуемые исследования.
+                  Provides a discount of {discount_experiments[k]} points to all
+                  required point pools.
                 </Box>
               </Experiment>
             );
@@ -746,14 +666,14 @@ const LockedExperiment = (props, context) => {
         <Flex align="center" justify="space-between">
           <Flex.Item color="rgba(0, 0, 0, 0.6)">
             <Icon name="lock" />
-            Неизвестеный эксперимент
+            Undiscovered Experiment
           </Flex.Item>
           <Flex.Item color="rgba(0, 0, 0, 0.5)">???</Flex.Item>
         </Flex>
       </Button>
       <Box className={'ExperimentConfigure__ExperimentContent'}>
-        Этот эксперимент ещё неизвестен, продолжайте изучать ячейки в древе,
-        чтобы узнать что там может быть скрыто.
+        This experiment has not been discovered yet, continue researching nodes
+        in the tree to discover the contents of this experiment.
       </Box>
     </Box>
   );

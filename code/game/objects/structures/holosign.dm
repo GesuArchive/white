@@ -6,11 +6,20 @@
 	icon = 'icons/effects/effects.dmi'
 	anchored = TRUE
 	max_integrity = 1
-	armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 0, BIO = 0, RAD = 0, FIRE = 20, ACID = 20)
+	armor_type = /datum/armor/structure_holosign
+	// How can you freeze a trick of the light?
+	resistance_flags = FREEZE_PROOF
 	var/obj/item/holosign_creator/projector
 	var/use_vis_overlay = TRUE
 
-/obj/structure/holosign/Initialize(loc, source_projector)
+/datum/armor/structure_holosign
+	bullet = 50
+	laser = 50
+	energy = 50
+	fire = 20
+	acid = 20
+
+/obj/structure/holosign/Initialize(mapload, source_projector)
 	. = ..()
 	var/turf/our_turf = get_turf(src)
 	if(use_vis_overlay)
@@ -26,13 +35,13 @@
 		projector = null
 	return ..()
 
-/obj/structure/holosign/attack_hand(mob/living/user)
+/obj/structure/holosign/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(.)
 		return
-	attack_holosign(user)
+	attack_holosign(user, modifiers)
 
-/obj/structure/holosign/proc/attack_holosign(mob/living/user)
+/obj/structure/holosign/proc/attack_holosign(mob/living/user, list/modifiers)
 	user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
 	user.changeNext_move(CLICK_CD_MELEE)
 	take_damage(5 , BRUTE, MELEE, 1)
@@ -45,14 +54,14 @@
 			playsound(loc, 'sound/weapons/egloves.ogg', 80, TRUE)
 
 /obj/structure/holosign/wetsign
-	name = "знак мокрого пола"
-	desc = "Слова мелькают, как будто они ничего не значат."
+	name = "wet floor sign"
+	desc = "The words flicker as if they mean nothing."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "holosign"
 
 /obj/structure/holosign/barrier
-	name = "голографический барьер"
-	desc = "Небольшой голографический барьер, который можно преодолеть только замедлившись до шага."
+	name = "holobarrier"
+	desc = "A short holographic barrier which can only be passed by walking."
 	icon_state = "holosign_sec"
 	pass_flags_self = PASSTABLE | PASSGRILLE | PASSGLASS | LETPASSTHROW
 	density = TRUE
@@ -65,56 +74,64 @@
 		return
 	if(iscarbon(mover))
 		var/mob/living/carbon/C = mover
-		if(C.stat)	// Lets not prevent dragging unconscious/dead people.
+		if(C.stat) // Lets not prevent dragging unconscious/dead people.
 			return TRUE
-		if(allow_walk && (C.m_intent == MOVE_INTENT_WALK || C.m_intent == MOVE_INTENT_CRAWL))
+		if(allow_walk && C.move_intent == MOVE_INTENT_WALK)
 			return TRUE
 
 /obj/structure/holosign/barrier/wetsign
-	name = "голографический барьер мокрого пола"
-	desc = "Когда он говорит \"шагом\", это означает \"шагом\"."
+	name = "wet floor holobarrier"
+	desc = "When it says walk it means walk."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "holosign"
+	max_integrity = 1
 
 /obj/structure/holosign/barrier/wetsign/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(iscarbon(mover))
 		var/mob/living/carbon/C = mover
-		if(C.stat)	// Lets not prevent dragging unconscious/dead people.
+		if(C.stat) // Lets not prevent dragging unconscious/dead people.
 			return TRUE
-		if(allow_walk && C.m_intent != MOVE_INTENT_WALK)
+		if(allow_walk && C.move_intent != MOVE_INTENT_WALK)
 			return FALSE
 
 /obj/structure/holosign/barrier/engineering
 	icon_state = "holosign_engi"
-	flags_1 = RAD_PROTECT_CONTENTS_1 | RAD_NO_CONTAMINATE_1
 	rad_insulation = RAD_LIGHT_INSULATION
+	max_integrity = 1
 
 /obj/structure/holosign/barrier/atmos
-	name = "голографический барьер АТМОСа"
-	desc = "Барьер, препятствующие прохождению газов, но не людей."
+	name = "holofirelock"
+	desc = "A holographic barrier resembling a firelock. Though it does not prevent solid objects from passing through, gas is kept out."
 	icon_state = "holo_firelock"
 	density = FALSE
 	anchored = TRUE
 	can_atmos_pass = ATMOS_PASS_NO
 	alpha = 150
-	flags_1 = RAD_PROTECT_CONTENTS_1 | RAD_NO_CONTAMINATE_1
 	rad_insulation = RAD_LIGHT_INSULATION
+	resistance_flags = FIRE_PROOF | FREEZE_PROOF
 
 /obj/structure/holosign/barrier/atmos/sturdy
-	name = "крепкий голофайрлок"
+	name = "sturdy holofirelock"
 	max_integrity = 150
+
+/obj/structure/holosign/barrier/atmos/tram
+	name = "tram atmos barrier"
+	max_integrity = 150
+	icon_state = "holo_tram"
 
 /obj/structure/holosign/barrier/atmos/Initialize(mapload)
 	. = ..()
-	air_update_turf(TRUE)
+	air_update_turf(TRUE, TRUE)
+	var/static/list/turf_traits = list(TRAIT_FIREDOOR_STOP)
+	AddElement(/datum/element/give_turf_traits, turf_traits)
 
-/obj/structure/holosign/barrier/atmos/block_superconductivity()
+/obj/structure/holosign/barrier/atmos/block_superconductivity() //Didn't used to do this, but it's "normal", and will help ease heat flow transitions with the players.
 	return TRUE
 
 /obj/structure/holosign/barrier/atmos/Destroy()
-	. = ..()
-	air_update_turf(TRUE)
+	air_update_turf(TRUE, FALSE)
+	return ..()
 
 /obj/structure/holosign/barrier/cyborg
 	name = "Energy Field"
@@ -122,26 +139,26 @@
 	density = TRUE
 	max_integrity = 10
 	allow_walk = FALSE
+	armor_type = /datum/armor/structure_holosign/cyborg_barrier // Gets a special armor subtype which is extra good at defense.
 
-/obj/structure/holosign/barrier/cyborg/bullet_act(obj/projectile/P)
-	take_damage((P.damage / 5) , BRUTE, MELEE, 1)	//Doesn't really matter what damage flag it is.
-	if(istype(P, /obj/projectile/energy/electrode))
-		take_damage(10, BRUTE, MELEE, 1)	//Tasers aren't harmful.
-	if(istype(P, /obj/projectile/beam/disabler))
-		take_damage(5, BRUTE, MELEE, 1)	//Disablers aren't harmful.
-	return BULLET_ACT_HIT
+/datum/armor/structure_holosign/cyborg_barrier
+	bullet = 80
+	laser = 80
+	energy = 80
+	melee = 20
 
 /obj/structure/holosign/barrier/medical
-	name = "голографический барьер PENLITE"
-	desc = "Барьер который блокирует проход пациентам с опасными заболеваниями. Используется для контроля эпидемий."
+	name = "\improper PENLITE holobarrier"
+	desc = "A holobarrier that uses biometrics to detect human viruses. Denies passing to personnel with easily-detected, malicious viruses. Good for quarantines."
 	icon_state = "holo_medical"
 	alpha = 125 //lazy :)
+	max_integrity = 1
 	var/force_allaccess = FALSE
 	var/buzzcd = 0
 
 /obj/structure/holosign/barrier/medical/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>The biometric scanners are <b>[force_allaccess ? "off" : "on"]</b>.</span>"
+	. += span_notice("The biometric scanners are <b>[force_allaccess ? "off" : "on"]</b>.")
 
 /obj/structure/holosign/barrier/medical/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
@@ -161,7 +178,7 @@
 	icon_state = "holo_medical"
 	if(ishuman(AM) && !CheckHuman(AM))
 		if(buzzcd < world.time)
-			playsound(get_turf(src),'white/valtos/sounds/error1.ogg',65,TRUE,4)
+			playsound(get_turf(src),'sound/machines/buzz-sigh.ogg',65,TRUE,4)
 			buzzcd = (world.time + 60)
 		icon_state = "holo_medical-deny"
 
@@ -172,7 +189,7 @@
 	return TRUE
 
 /obj/structure/holosign/barrier/medical/attack_hand(mob/living/user, list/modifiers)
-	if(user.a_intent != INTENT_HARM && CanPass(user, get_dir(src, user)))
+	if(!user.combat_mode && CanPass(user, get_dir(src, user)))
 		force_allaccess = !force_allaccess
 		to_chat(user, span_warning("You [force_allaccess ? "deactivate" : "activate"] the biometric scanners.")) //warning spans because you can make the station sick!
 	else
@@ -182,16 +199,13 @@
 	name = "Charged Energy Field"
 	desc = "A powerful energy field that blocks movement. Energy arcs off it."
 	max_integrity = 20
+	armor_type = /datum/armor/structure_holosign //Yeah no this doesn't get projectile resistance.
 	var/shockcd = 0
-
-/obj/structure/holosign/barrier/cyborg/hacked/bullet_act(obj/projectile/P)
-	take_damage(P.damage, BRUTE, MELEE, 1)	//Yeah no this doesn't get projectile resistance.
-	return BULLET_ACT_HIT
 
 /obj/structure/holosign/barrier/cyborg/hacked/proc/cooldown()
 	shockcd = FALSE
 
-/obj/structure/holosign/barrier/cyborg/hacked/attack_hand(mob/living/user)
+/obj/structure/holosign/barrier/cyborg/hacked/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(.)
 		return

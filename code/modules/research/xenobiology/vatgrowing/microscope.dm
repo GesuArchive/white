@@ -1,7 +1,7 @@
 /obj/structure/microscope
-	name = "микроскоп"
-	desc = "Простой микроскоп, позволяющий исследовать микроорганизмы."
-	icon = 'icons/obj/xenobiology/vatgrowing.dmi'
+	name = "Microscope"
+	desc = "A simple microscope, allowing you to examine micro-organisms."
+	icon = 'icons/obj/science/vatgrowing.dmi'
 	icon_state = "microscope"
 	var/obj/item/petri_dish/current_dish
 
@@ -9,16 +9,16 @@
 	if(!istype(I, /obj/item/petri_dish))
 		return ..()
 	if(current_dish)
-		to_chat(user, span_warning("В нем уже есть чашка Петри."))
+		to_chat(user, span_warning("There is already a petridish in \the [src]."))
 		return
-	to_chat(user, span_notice("Помещаю [I] под <b>[src.name]</b>."))
+	to_chat(user, span_notice("You put [I] into \the [src]."))
 	current_dish = I
 	current_dish.forceMove(src)
 
 /obj/structure/microscope/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Microscope")
+		ui = new(user, src, "Microscope", name)
 		ui.open()
 
 /obj/structure/microscope/ui_data(mob/user)
@@ -78,10 +78,10 @@
 			current_dish.forceMove(get_turf(src))
 			current_dish = null
 			. = TRUE
-	update_icon()
+	update_appearance()
 
 /datum/crafting_recipe/microscope
-	name = "Микроскоп"
+	name = "Microscope"
 	result = /obj/structure/microscope
 	time = 30
 	tool_behaviors = list(TOOL_SCREWDRIVER)

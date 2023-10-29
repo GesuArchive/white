@@ -1,41 +1,51 @@
 /obj/machinery/rnd/production/protolathe/department
-	name = "протолат отдела"
-	desc = "Специальный протолат со встроенным интерфейсом, предназначенный для использования в отделах, со встроенными приемниками ExoSync, позволяющими печатать исследованные проекты, соответствующие типу отдела, закодированному в ROM."
+	name = "department protolathe"
+	desc = "A special protolathe with a built in interface meant for departmental usage, with built in ExoSync receivers allowing it to print designs researched that match its ROM-encoded department type."
 	icon_state = "protolathe"
 	circuit = /obj/item/circuitboard/machine/protolathe/department
 
 /obj/machinery/rnd/production/protolathe/department/engineering
-	name = "протолат отдела (Инженерный)"
-	allowed_department_flags = DEPARTMENTAL_FLAG_ENGINEERING
-	department_tag = "Инженерный"
+	name = "department protolathe (Engineering)"
+	allowed_department_flags = DEPARTMENT_BITFLAG_ENGINEERING
 	circuit = /obj/item/circuitboard/machine/protolathe/department/engineering
+	stripe_color = "#EFB341"
+	payment_department = ACCOUNT_ENG
+
+/obj/machinery/rnd/production/protolathe/department/engineering/no_tax
+	circuit = /obj/item/circuitboard/machine/protolathe/department/engineering/no_tax
+	charges_tax = FALSE
 
 /obj/machinery/rnd/production/protolathe/department/service
-	name = "протолат отдела (Сервис)"
-	allowed_department_flags = DEPARTMENTAL_FLAG_SERVICE
-	department_tag = "Сервисный"
+	name = "department protolathe (Service)"
+	allowed_department_flags = DEPARTMENT_BITFLAG_SERVICE
 	circuit = /obj/item/circuitboard/machine/protolathe/department/service
+	stripe_color = "#83ca41"
+	payment_department = ACCOUNT_SRV
 
 /obj/machinery/rnd/production/protolathe/department/medical
-	name = "протолат отдела (Медбей)"
-	allowed_department_flags = DEPARTMENTAL_FLAG_MEDICAL
-	department_tag = "Медицинский"
+	name = "department protolathe (Medical)"
+	allowed_department_flags = DEPARTMENT_BITFLAG_MEDICAL
 	circuit = /obj/item/circuitboard/machine/protolathe/department/medical
+	stripe_color = "#52B4E9"
+	payment_department = ACCOUNT_MED
 
 /obj/machinery/rnd/production/protolathe/department/cargo
-	name = "протолат отдела (Снабжение)"
-	allowed_department_flags = DEPARTMENTAL_FLAG_CARGO
-	department_tag = "Снабженский"
+	name = "department protolathe (Cargo)"
+	allowed_department_flags = DEPARTMENT_BITFLAG_CARGO
 	circuit = /obj/item/circuitboard/machine/protolathe/department/cargo
+	stripe_color = "#956929"
+	payment_department = ACCOUNT_CAR
 
 /obj/machinery/rnd/production/protolathe/department/science
-	name = "протолат отдела (Научный)"
-	allowed_department_flags = DEPARTMENTAL_FLAG_SCIENCE
-	department_tag = "Научный"
+	name = "department protolathe (Science)"
+	allowed_department_flags = DEPARTMENT_BITFLAG_SCIENCE
 	circuit = /obj/item/circuitboard/machine/protolathe/department/science
+	stripe_color = "#D381C9"
+	payment_department = ACCOUNT_SCI
 
 /obj/machinery/rnd/production/protolathe/department/security
-	name = "протолат отдела (Охрана)"
-	allowed_department_flags = DEPARTMENTAL_FLAG_SECURITY
-	department_tag = "Охраны"
+	name = "department protolathe (Security)"
+	allowed_department_flags = DEPARTMENT_BITFLAG_SECURITY
 	circuit = /obj/item/circuitboard/machine/protolathe/department/security
+	stripe_color = "#DE3A3A"
+	payment_department = ACCOUNT_SEC

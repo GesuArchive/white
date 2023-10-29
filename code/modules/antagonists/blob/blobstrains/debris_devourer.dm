@@ -2,14 +2,14 @@
 
 // Accumulates junk liberally
 /datum/blobstrain/debris_devourer
-	name = "Пожиратель мусора"
-	description = "запустит скопившиеся обломки в цели."
-	analyzerdescdamage = "Наносит средний грубый урон и может цепляться за оружие ближнего боя."
-	analyzerdesceffect = "Пожирает незакрепленные предметы, оставленные на станции, и выпускает их при атаке или нападении."
+	name = "Debris Devourer"
+	description = "will launch accumulated debris into targets. Does very low brute damage without debris-launching."
+	analyzerdescdamage = "Does very low brute damage and may grab onto melee weapons."
+	analyzerdesceffect = "Devours loose items left on the station, and releases them when attacking or attacked."
 	color = "#8B1000"
 	complementary_color = "#00558B"
-	blobbernaut_message = "лупит"
-	message = "Масса лупит меня"
+	blobbernaut_message = "blasts"
+	message = "The blob blasts you"
 
 
 /datum/blobstrain/debris_devourer/attack_living(mob/living/L, list/nearby_blobs)
@@ -46,19 +46,18 @@
 
 /datum/blobstrain/debris_devourer/examine(mob/user)
 	. = ..()
-	. += "<hr>"
 	var/obj/structure/blob/special/core/core = overmind.blob_core
 	if (isobserver(user))
-		. += span_notice("Поглощенный мусор в настоящее время снижает входящий урон на [round(max(min(DEBRIS_DENSITY, 10),0))]")
+		. += span_notice("Absorbed debris is currently reducing incoming damage by [round(max(min(DEBRIS_DENSITY, 10),0))]")
 	else
 		switch (round(max(min(DEBRIS_DENSITY, 10),0)))
 			if (0)
-				. += span_notice("В настоящее время недостаточно поглощенного мусора, чтобы уменьшить урон.")
+				. += span_notice("There is not currently enough absorbed debris to reduce damage.")
 			if (1 to 3)
-				. += span_notice("Поглощенный мусор в настоящее время снижает входящий урон на очень небольшую величину.")  // these roughly correspond with force description strings
+				. += span_notice("Absorbed debris is currently reducing incoming damage by a very low amount.") // these roughly correspond with force description strings
 			if (4 to 7)
-				. += span_notice("Поглощенный мусор в настоящее время снижает входящий урон на небольшую величину.")
+				. += span_notice("Absorbed debris is currently reducing incoming damage by a low amount.")
 			if (8 to 10)
-				. += span_notice("Поглощенный мусор в настоящее время снижает входящий урон на средний уровень.")
+				. += span_notice("Absorbed debris is currently reducing incoming damage by a medium amount.")
 
 #undef DEBRIS_DENSITY

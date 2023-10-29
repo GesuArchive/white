@@ -4,8 +4,8 @@
  * Fires every tick of the circuit timer SS
  */
 /obj/item/circuit_component/clock
-	display_name = "Тактовый генератор"
-	desc = "Компонент, который периодически срабатывает."
+	display_name = "Clock"
+	desc = "A component that repeatedly fires."
 	category = "Utility"
 
 	/// Whether the clock is on or not
@@ -19,9 +19,9 @@
 	. += create_ui_notice("Clock Interval: [DisplayTimeText(COMP_CLOCK_DELAY)]", "orange", "clock")
 
 /obj/item/circuit_component/clock/populate_ports()
-	on = add_input_port("Включено", PORT_TYPE_NUMBER)
+	on = add_input_port("On", PORT_TYPE_NUMBER)
 
-	signal = add_output_port("Сигнал", PORT_TYPE_SIGNAL)
+	signal = add_output_port("Signal", PORT_TYPE_SIGNAL)
 
 /obj/item/circuit_component/clock/input_received(datum/port/input/port)
 
@@ -34,7 +34,7 @@
 	stop_process()
 	return ..()
 
-/obj/item/circuit_component/clock/process(delta_time)
+/obj/item/circuit_component/clock/process(seconds_per_tick)
 	signal.set_output(COMPONENT_SIGNAL)
 
 /**

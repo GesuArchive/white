@@ -2,14 +2,14 @@
 #define CAMERA_PICTURE_SIZE_HARD_LIMIT 21
 
 /obj/item/camera
-	name = "фотокамера"
-	icon = 'icons/obj/items_and_weapons.dmi'
-	desc = "Полароид."
+	name = "camera"
+	icon = 'icons/obj/art/camera.dmi'
+	desc = "A polaroid camera."
 	icon_state = "camera"
 	inhand_icon_state = "camera"
 	worn_icon_state = "camera"
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	light_system = MOVABLE_LIGHT //Used as a flash here.
 	light_range = 8
 	light_color = COLOR_WHITE
@@ -18,8 +18,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_NECK
-	custom_materials = list(/datum/material/iron = 50, /datum/material/glass = 150)
-	custom_price = PAYCHECK_EASY * 2
+	custom_materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*0.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT*1.5)
+	custom_price = PAYCHECK_CREW * 2
 	var/flash_enabled = TRUE
 	var/state_on = "camera"
 	var/state_off = "camera_off"
@@ -40,6 +40,8 @@
 	var/picture_size_y_max = 4
 	var/can_customise = TRUE
 	var/default_picture_name
+	///Whether the camera should print pictures immediately when a picture is taken.
+	var/print_picture_on_snap = TRUE
 
 /obj/item/camera/Initialize(mapload)
 	. = ..()
@@ -48,30 +50,30 @@
 /obj/item/camera/attack_self(mob/user)
 	if(!disk)
 		return
-	to_chat(user, span_notice("Достаю [disk] из [src]."))
+	to_chat(user, span_notice("You eject [disk] out the back of [src]."))
 	user.put_in_hands(disk)
 	disk = null
 
 /obj/item/camera/examine(mob/user)
 	. = ..()
-	. += span_notice("<hr>ALT-Клик для настройки фокуса, позволит выбрать насколько большую фотографию мы собираемся сделать.")
+	. += span_notice("Alt-click to change its focusing, allowing you to set how big of an area it will capture.")
 
 /obj/item/camera/proc/adjust_zoom(mob/user)
-	var/desired_x = input(user, "Насколько широко будем делать нашу фотографию, [picture_size_x_min] и [picture_size_x_max]?", "Зум", picture_size_x) as num|null
-
-	if (isnull(desired_x))
-		return
-
-	var/desired_y = input(user, "Насколько высоко будем делать нашу фотографию, [picture_size_y_min] и [picture_size_y_max]?", "Зум", picture_size_y) as num|null
-
-	if (isnull(desired_y))
-		return
-
+	if(loc != user)
+		to_chat(user, span_warning("You must be holding the camera to continue!"))
+		return FALSE
+	var/desired_x = tgui_input_number(user, "How wide do you want the camera to shoot?", "Zoom", picture_size_x, picture_size_x_max, picture_size_x_min)
+	if(!desired_x || QDELETED(user) || QDELETED(src) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH) || loc != user)
+		return FALSE
+	var/desired_y = tgui_input_number(user, "How high do you want the camera to shoot", "Zoom", picture_size_y, picture_size_y_max, picture_size_y_min)
+	if(!desired_y || QDELETED(user) || QDELETED(src) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH) || loc != user)
+		return FALSE
 	picture_size_x = min(clamp(desired_x, picture_size_x_min, picture_size_x_max), CAMERA_PICTURE_SIZE_HARD_LIMIT)
 	picture_size_y = min(clamp(desired_y, picture_size_y_min, picture_size_y_max), CAMERA_PICTURE_SIZE_HARD_LIMIT)
+	return TRUE
 
 /obj/item/camera/AltClick(mob/user)
-	if(!user.canUseTopic(src, BE_CLOSE))
+	if(!user.can_perform_action(src))
 		return
 	adjust_zoom(user)
 
@@ -81,29 +83,29 @@
 /obj/item/camera/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/camera_film))
 		if(pictures_left)
-			to_chat(user, span_notice("[src] уже имеет плёнку!"))
+			to_chat(user, span_notice("[src] still has some film in it!"))
 			return
 		if(!user.temporarilyRemoveItemFromInventory(I))
 			return
-		to_chat(user, span_notice("Вставляю [I] в [src]."))
+		to_chat(user, span_notice("You insert [I] into [src]."))
 		qdel(I)
 		pictures_left = pictures_max
 		return
 	if(istype(I, /obj/item/disk/holodisk))
 		if (!disk)
 			if(!user.transferItemToLoc(I, src))
-				to_chat(user, span_warning("[I] застряла в моей руке!"))
+				to_chat(user, span_warning("[I] is stuck to your hand!"))
 				return TRUE
-			to_chat(user, span_notice("Вставляю [I] в [src]."))
+			to_chat(user, span_notice("You slide [I] into the back of [src]."))
 			disk = I
 		else
-			to_chat(user, span_warning("Здесь есть диск внутри [src]."))
+			to_chat(user, span_warning("There's already a disk inside [src]."))
 		return TRUE //no afterattack
 	..()
 
 /obj/item/camera/examine(mob/user)
 	. = ..()
-	. += "<hr>В наличии [pictures_left] фотографий."
+	. += "It has [pictures_left] photos left."
 
 //user can be atom or mob
 /obj/item/camera/proc/can_target(atom/target, mob/user, prox_flag)
@@ -125,6 +127,8 @@
 	return TRUE
 
 /obj/item/camera/afterattack(atom/target, mob/user, flag)
+	. |= AFTERATTACK_PROCESSED_ITEM
+
 	if (disk)
 		if(ismob(target))
 			if (disk.record)
@@ -135,7 +139,7 @@
 			disk.record.caller_name = M.name
 			disk.record.set_caller_image(M)
 		else
-			to_chat(user, span_warning("Неправильная цель для голодиска."))
+			to_chat(user, span_warning("Invalid holodisk target."))
 			return
 
 	if(!can_target(target, user, flag))
@@ -171,7 +175,7 @@
 		return FALSE
 	size_x = clamp(size_x, 0, CAMERA_PICTURE_SIZE_HARD_LIMIT)
 	size_y = clamp(size_y, 0, CAMERA_PICTURE_SIZE_HARD_LIMIT)
-	var/list/desc = list("Это фото [size_x+1]х[size_y+1] метров.")
+	var/list/desc = list("This is a photo of an area of [size_x+1] meters by [size_y+1] meters.")
 	var/list/mobs_spotted = list()
 	var/list/dead_spotted = list()
 	var/ai_user = isAI(user)
@@ -183,71 +187,83 @@
 	var/list/turfs = list()
 	var/list/mobs = list()
 	var/blueprints = FALSE
-	var/clone_area = SSmapping.RequestBlockReservation(size_x * 2 + 1, size_y * 2 + 1)
-	for(var/turf/placeholder in block(locate(target_turf.x - size_x, target_turf.y - size_y, target_turf.z), locate(target_turf.x + size_x, target_turf.y + size_y, target_turf.z)))
-		var/turf/T = placeholder
-		while(istype(T, /turf/open/openspace)) //Multi-z photography
-			T = SSmapping.get_turf_below(T)
-			if(!T)
+	var/clone_area = SSmapping.request_turf_block_reservation(size_x * 2 + 1, size_y * 2 + 1, 1)
+	///list of human names taken on picture
+	var/list/names = list()
+
+	var/width = size_x * 2 + 1
+	var/height = size_y * 2 + 1
+	for(var/turf/placeholder as anything in CORNER_BLOCK_OFFSET(target_turf, width, height, -size_x, -size_y))
+		while(istype(placeholder, /turf/open/openspace)) //Multi-z photography
+			placeholder = GET_TURF_BELOW(placeholder)
+			if(!placeholder)
 				break
 
-		if(T && ((ai_user && GLOB.cameranet.checkTurfVis(placeholder)) || (placeholder in seen)))
-			turfs += T
-			for(var/mob/M in T)
+		if(placeholder && ((ai_user && GLOB.cameranet.checkTurfVis(placeholder)) || (placeholder in seen)))
+			turfs += placeholder
+			for(var/mob/M in placeholder)
 				mobs += M
-			if(locate(/obj/item/areaeditor/blueprints) in T)
+			if(locate(/obj/item/areaeditor/blueprints) in placeholder)
 				blueprints = TRUE
-	for(var/i in mobs)
-		var/mob/M = i
-		mobs_spotted += M
-		if(M.stat == DEAD)
-			dead_spotted += M
-		desc += M.get_photo_description(src)
+
+	// do this before picture is taken so we can reveal revenants for the photo
+	steal_souls(mobs)
+
+	for(var/mob/mob as anything in mobs)
+		mobs_spotted += mob
+		if(mob.stat == DEAD)
+			dead_spotted += mob
+		desc += mob.get_photo_description(src)
 
 	var/psize_x = (size_x * 2 + 1) * world.icon_size
 	var/psize_y = (size_y * 2 + 1) * world.icon_size
 	var/icon/get_icon = camera_get_icon(turfs, target_turf, psize_x, psize_y, clone_area, size_x, size_y, (size_x * 2 + 1), (size_y * 2 + 1))
 	qdel(clone_area)
 	get_icon.Blend("#000", ICON_UNDERLAY)
+	for(var/mob/living/carbon/human/person in mobs)
+		if(person.is_face_visible())
+			names += "[person.name]"
 
-	var/datum/picture/picture = new("picture", desc.Join(" "), mobs_spotted, dead_spotted, get_icon, null, psize_x, psize_y, blueprints, can_see_ghosts = see_ghosts)
+	var/datum/picture/picture = new("picture", desc.Join(" "), mobs_spotted, dead_spotted, names, get_icon, null, psize_x, psize_y, blueprints, can_see_ghosts = see_ghosts)
 	after_picture(user, picture)
 	SEND_SIGNAL(src, COMSIG_CAMERA_IMAGE_CAPTURED, target, user)
 	blending = FALSE
-
+	return picture
 
 /obj/item/camera/proc/flash_end()
 	set_light_on(FALSE)
 
+/obj/item/camera/proc/steal_souls(list/victims)
+	return
 
 /obj/item/camera/proc/after_picture(mob/user, datum/picture/picture)
-	printpicture(user, picture)
+	if(print_picture_on_snap)
+		printpicture(user, picture)
 
 /obj/item/camera/proc/printpicture(mob/user, datum/picture/picture) //Normal camera proc for creating photos
-	var/obj/item/photo/p = new(get_turf(src), picture)
-	if(user && in_range(src, user)) //needed because of TK
-		if(!ispAI(user))
-			user.put_in_hands(p)
-			pictures_left--
-			to_chat(user, span_notice("[pictures_left] фотографий осталось."))
-		var/customise = "Нет"
-		if(can_customise)
-			customise = tgui_alert(user, "Настроим нашу фотографию?", "Кастомизация", list("Да", "Нет"))
-		if(customise == "Да")
-			var/name1 = stripped_input(user, "Нужно выбрать имя фотографии, либо оставить его пустым. 32 символа максимум.", "Имя", max_length = 32)
-			var/desc1 = stripped_input(user, "Дадим описание фотографии, либо оставим его пустым. 128 символа максимум.", "Описание", max_length = 128)
-			var/caption = stripped_input(user, "Напишем что-то на обороте, либо оставим его пустым. 256 символа максимум.", "Оборот", max_length = 256)
+	if(!user)
+		return
+	pictures_left--
+	var/obj/item/photo/new_photo = new(get_turf(src), picture)
+	if(in_range(new_photo, user) && user.put_in_hands(new_photo)) //needed because of TK
+		to_chat(user, span_notice("[pictures_left] photos left."))
+
+	if(can_customise)
+		var/customise = tgui_alert(user, "Do you want to customize the photo?", "Customization", list("Yes", "No"))
+		if(customise == "Yes")
+			var/name1 = tgui_input_text(user, "Set a name for this photo, or leave blank.", "Name", max_length = 32)
+			var/desc1 = tgui_input_text(user, "Set a description to add to photo, or leave blank.", "Description", max_length = 128)
+			var/caption = tgui_input_text(user, "Set a caption for this photo, or leave blank.", "Caption", max_length = 256)
 			if(name1)
 				picture.picture_name = name1
 			if(desc1)
 				picture.picture_desc = "[desc1] - [picture.picture_desc]"
 			if(caption)
 				picture.caption = caption
-		else
-			if(default_picture_name)
-				picture.picture_name = default_picture_name
+		else if(default_picture_name)
+			picture.picture_name = default_picture_name
 
-	p.set_picture(picture, TRUE, TRUE)
+	new_photo.set_picture(picture, TRUE, TRUE)
 	if(CONFIG_GET(flag/picture_logging_camera))
 		picture.log_to_file()
 

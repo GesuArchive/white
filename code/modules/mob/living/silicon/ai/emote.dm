@@ -7,13 +7,15 @@
 	key = "blank"
 	var/emotion = AI_EMOTION_BLANK
 
-/datum/emote/ai/emotion_display/run_emote(mob/user, params, type_override, intentional)
+/datum/emote/ai/emotion_display/run_emote(mob/living/silicon/ai/user, params, type_override, intentional)
 	. = ..()
 	if(!.)
 		return
-	for(var/obj/machinery/status_display/ai/ai_display as anything in GLOB.ai_status_displays)
-		ai_display.emotion = emotion
-		ai_display.update()
+
+	if(!istype(user))
+		return
+
+	user.apply_emote_display(emotion)
 
 /datum/emote/ai/emotion_display/very_happy
 	key = "veryhappy"

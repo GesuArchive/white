@@ -1,11 +1,12 @@
 import { Loader } from './common/Loader';
-import { InputButtons, Validator } from './common/InputButtons';
+import { InputButtons } from './common/InputButtons';
 import { useBackend, useLocalState } from '../backend';
-import { KEY_SHIFT, KEY_ENTER, KEY_ESCAPE } from '../../common/keycodes';
-import { Box, Input, Section, Stack, TextArea } from '../components';
+import { KEY_ENTER, KEY_ESCAPE } from '../../common/keycodes';
+import { Box, Section, Stack, TextArea } from '../components';
 import { Window } from '../layouts';
 
 type TextInputData = {
+  large_buttons: boolean;
   max_length: number;
   message: string;
   multiline: boolean;
@@ -14,54 +15,59 @@ type TextInputData = {
   title: string;
 };
 
-export const TextInputModal = (_, context) => {
+export const sanitizeMultiline = (toSanitize: string) => {
+  return toSanitize.replace(/(\n|\r\n){3,}/, '\n\n');
+};
+
+export const removeAllSkiplines = (toSanitize: string) => {
+  return toSanitize.replace(/[\r\n]+/, '');
+};
+
+export const TextInputModal = (props, context) => {
   const { act, data } = useBackend<TextInputData>(context);
-  const { max_length, message, multiline, placeholder, timeout, title } = data;
+  const {
+    large_buttons,
+    max_length,
+    message = '',
+    multiline,
+    placeholder,
+    timeout,
+    title,
+  } = data;
   const [input, setInput] = useLocalState<string>(
     context,
     'input',
     placeholder || ''
   );
-  const [inputIsValid, setInputIsValid] = useLocalState<Validator>(
-    context,
-    'inputIsValid',
-    { isValid: !!placeholder, error: null }
-  );
-  const [isShiftDown, setShiftDown] = useLocalState<boolean>(
-	context,
-	'isShiftDown',
-	false
-  );
   const onType = (value: string) => {
-    setInputIsValid(validateInput(value, max_length));
-    setInput(value);
+    if (value === input) {
+      return;
+    }
+    const sanitizedInput = multiline
+      ? sanitizeMultiline(value)
+      : removeAllSkiplines(value);
+    setInput(sanitizedInput);
   };
+
+  const visualMultiline = multiline || input.length >= 30;
   // Dynamically changes the window height based on the message.
   const windowHeight =
-    125 + Math.ceil(message.length / 3) + (multiline ? 75 : 0);
-  let shiftDown:boolean = true;
+    135 +
+    (message.length > 30 ? Math.ceil(message.length / 4) : 0) +
+    (visualMultiline ? 75 : 0) +
+    (message.length && large_buttons ? 5 : 0);
 
   return (
-    <Window title={title} width={325} height={windowHeight} shiftDown={false}>
+    <Window title={title} width={325} height={windowHeight}>
       {timeout && <Loader value={timeout} />}
       <Window.Content
-	    ass
         onKeyDown={(event) => {
           const keyCode = window.event ? event.which : event.keyCode;
-          if (keyCode === KEY_SHIFT) {
-            setShiftDown(true);
-          }
-          if (keyCode === KEY_ENTER && !(isShiftDown && multiline)) {
+          if (keyCode === KEY_ENTER && (!visualMultiline || !event.shiftKey)) {
             act('submit', { entry: input });
           }
           if (keyCode === KEY_ESCAPE) {
             act('cancel');
-          }
-        }}
-        onKeyUp={(event) => {
-          const keyCode = window.event ? event.which : event.keyCode;
-          if (keyCode === KEY_SHIFT) {
-            setShiftDown(false);
           }
         }}>
         <Section fill>
@@ -69,13 +75,14 @@ export const TextInputModal = (_, context) => {
             <Stack.Item>
               <Box color="label">{message}</Box>
             </Stack.Item>
-            <InputArea
-              input={input}
-              inputIsValid={inputIsValid}
-              onType={onType}
-            />
+            <Stack.Item grow>
+              <InputArea input={input} onType={onType} />
+            </Stack.Item>
             <Stack.Item>
-              <InputButtons input={input} inputIsValid={inputIsValid} />
+              <InputButtons
+                input={input}
+                message={`${input.length}/${max_length}`}
+              />
             </Stack.Item>
           </Stack>
         </Section>
@@ -86,45 +93,29 @@ export const TextInputModal = (_, context) => {
 
 /** Gets the user input and invalidates if there's a constraint. */
 const InputArea = (props, context) => {
-  const { data } = useBackend<TextInputData>(context);
-  const { multiline } = data;
+  const { act, data } = useBackend<TextInputData>(context);
+  const { max_length, multiline } = data;
   const { input, onType } = props;
 
-  if (!multiline) {
-    return (
-      <Stack.Item>
-        <Input
-          autoFocus
-          autoSelect
-          fluid
-          onInput={(_, value) => onType(value)}
-          placeholder="Напиши что-нибудь..."
-          value={input}
-        />
-      </Stack.Item>
-    );
-  } else {
-    return (
-      <Stack.Item grow>
-        <TextArea
-          autoFocus
-          autoSelect
-          height="100%"
-          onInput={(_, value) => onType(value)}
-          placeholder="Напиши что-нибудь..."
-          value={input}
-        />
-      </Stack.Item>
-    );
-  }
-};
+  const visualMultiline = multiline || input.length >= 30;
 
-/** Helper functions */
-const validateInput = (input, max_length) => {
-  if (!!max_length && input.length > max_length) {
-    return { isValid: false, error: `Too long!` };
-  } else if (input.length === 0) {
-    return { isValid: false, error: null };
-  }
-  return { isValid: true, error: null };
+  return (
+    <TextArea
+      autoFocus
+      autoSelect
+      height={multiline || input.length >= 30 ? '100%' : '1.8rem'}
+      maxLength={max_length}
+      onEscape={() => act('cancel')}
+      onEnter={(event) => {
+        if (visualMultiline && event.shiftKey) {
+          return;
+        }
+        event.preventDefault();
+        act('submit', { entry: input });
+      }}
+      onInput={(_, value) => onType(value)}
+      placeholder="Type something..."
+      value={input}
+    />
+  );
 };

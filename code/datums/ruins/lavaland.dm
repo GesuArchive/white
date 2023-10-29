@@ -1,7 +1,9 @@
 // Hey! Listen! Update \config\lavaruinblacklist.txt with your new ruins!
 
 /datum/map_template/ruin/lavaland
-	prefix = "_maps/r_ruins/lavaland/"
+	ruin_type = ZTRAIT_LAVA_RUINS
+	prefix = "_maps/RandomRuins/LavaRuins/"
+	default_area = /area/lavaland/surface/outdoors/unexplored
 
 /datum/map_template/ruin/lavaland/biodome
 	cost = 5
@@ -62,17 +64,17 @@
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/lavaland/free_golem
-	name = "Корабль свободных големов"
+	name = "Free Golem Ship"
 	id = "golem-ship"
 	description = "Lumbering humanoids, made out of precious metals, move inside this ship. They frequently leave to mine more minerals, which they somehow turn into more of them. \
 	Seem very intent on research and individual liberty, and also geology-based naming?"
 	cost = 20
-	prefix = "_maps/r_ruins/anywhere/"
+	prefix = "_maps/RandomRuins/AnywhereRuins/"
 	suffix = "golem_ship.dmm"
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/lavaland/gaia
-	name = "Клочок Эдэма"
+	name = "Patch of Eden"
 	id = "gaia"
 	description = "Who would have thought that such a peaceful place could be on such a horrific planet?"
 	cost = 5
@@ -125,7 +127,7 @@
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/lavaland/hierophant
-	name = "Арена Иерофанта"
+	name = "Hierophant's Arena"
 	id = "hierophant"
 	description = "A strange, square chunk of metal of massive size. Inside awaits only death and many, many squares."
 	suffix = "lavaland_surface_hierophant.dmm"
@@ -148,6 +150,15 @@
 	name = "Blood-Drunk Miner (Hunter)"
 	suffix = "lavaland_surface_blooddrunk3.dmm"
 
+/datum/map_template/ruin/lavaland/blood_drunk_miner/random
+	name = "Blood-Drunk Miner (Random)"
+	suffix = null
+	always_place = TRUE
+
+/datum/map_template/ruin/lavaland/blood_drunk_miner/random/New()
+	suffix = pick("lavaland_surface_blooddrunk1.dmm", "lavaland_surface_blooddrunk2.dmm", "lavaland_surface_blooddrunk3.dmm")
+	return ..()
+
 /datum/map_template/ruin/lavaland/ufo_crash
 	name = "UFO Crash"
 	id = "ufo-crash"
@@ -164,10 +175,10 @@
 	cost = 20
 
 /datum/map_template/ruin/lavaland/fountain
-	name = "Фонтан-Холл"
-	id = "fountain"
+	name = "Fountain Hall"
+	id = "lava_fountain"
 	description = "The fountain has a warning on the side. DANGER: May have undeclared side effects that only become obvious when implemented."
-	prefix = "_maps/r_ruins/anywhere/"
+	prefix = "_maps/RandomRuins/AnywhereRuins/"
 	suffix = "fountain_hall.dmm"
 	cost = 5
 
@@ -202,14 +213,6 @@
 	allow_duplicates = FALSE
 	cost = 10
 
-/datum/map_template/ruin/lavaland/swarmer_boss
-	name = "Crashed Shuttle"
-	id = "swarmerboss"
-	description = "A Syndicate shuttle had an unfortunate stowaway..."
-	suffix = "lavaland_surface_swarmer_crash.dmm"
-	allow_duplicates = FALSE
-	cost = 20
-
 /datum/map_template/ruin/lavaland/miningripley
 	name = "Ripley"
 	id = "ripley"
@@ -234,7 +237,7 @@
 	cost = 2
 
 /datum/map_template/ruin/lavaland/puzzle
-	name = "Древняя головоломка"
+	name = "Ancient Puzzle"
 	id = "puzzle"
 	description = "Mystery to be solved."
 	suffix = "lavaland_surface_puzzle.dmm"
@@ -250,9 +253,49 @@
 	allow_duplicates = TRUE
 
 /datum/map_template/ruin/lavaland/elephant_graveyard
-	name = "Кладбище слонов"
+	name = "Elephant Graveyard"
 	id = "Graveyard"
 	description = "An abandoned graveyard, calling to those unable to continue."
 	suffix = "lavaland_surface_elephant_graveyard.dmm"
 	allow_duplicates = FALSE
 	cost = 10
+
+/datum/map_template/ruin/lavaland/bileworm_nest
+	name = "Bileworm Nest"
+	id = "bileworm_nest"
+	description = "A small sanctuary from the harsh wilderness... if you're a bileworm, that is."
+	cost = 5
+	suffix = "lavaland_surface_bileworm_nest.dmm"
+	allow_duplicates = FALSE
+
+/datum/map_template/ruin/lavaland/lava_phonebooth
+	name = "Phonebooth"
+	id = "lava_phonebooth"
+	description = "A venture by nanotrasen to help popularize the use of holopads. This one somehow made its way here."
+	suffix = "lavaland_surface_phonebooth.dmm"
+	allow_duplicates = FALSE
+	cost = 5
+
+/datum/map_template/ruin/lavaland/battle_site
+	name = "Battle Site"
+	id = "battle_site"
+	description = "The long past site of a battle between beast and humanoids. The victor is unknown, but the losers are clear."
+	suffix = "lavaland_battle_site.dmm"
+	allow_duplicates = TRUE
+	cost = 3
+
+/datum/map_template/ruin/lavaland/watcher_grave
+	name = "Watchers' Grave"
+	id = "watcher-grave"
+	description = "A lonely cave where an orphaned child awaits a new parent."
+	suffix = "lavaland_surface_watcher_grave.dmm"
+	cost = 5
+	allow_duplicates = FALSE
+
+/datum/map_template/ruin/lavaland/mook_village
+	name = "Mook Village"
+	id = "mook_village"
+	description = "A village hosting a community of friendly mooks!"
+	suffix = "lavaland_surface_mookvillage.dmm"
+	allow_duplicates = FALSE
+	cost = 5

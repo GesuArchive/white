@@ -9,7 +9,7 @@ export const MedicalKiosk = (props, context) => {
   const { active_status_1, active_status_2, active_status_3, active_status_4 } =
     data;
   return (
-    <Window width={575} height={460}>
+    <Window width={575} height={420}>
       <Window.Content scrollable>
         <Flex mb={1}>
           <Flex.Item mr={1}>
@@ -17,37 +17,35 @@ export const MedicalKiosk = (props, context) => {
               <MedicalKioskScanButton
                 index={1}
                 icon="procedures"
-                name="Общее сканирование здоровья"
+                name="General Health Scan"
                 description={multiline`
-                  Читает обратно точные значения вашего
-                  общего сканирования здоровья.
+                  Reads back exact values of your general health scan.
                 `}
               />
               <MedicalKioskScanButton
                 index={2}
                 icon="heartbeat"
-                name="Проверка на основе симптомов"
+                name="Symptom Based Checkup"
                 description={multiline`
-                  Предоставляет информацию на основе
-                  различных неочевидных симптомов,
-                  как уровень крови или статус болезни.
+                  Provides information based on various non-obvious symptoms,
+                  like blood levels or disease status.
                 `}
               />
               <MedicalKioskScanButton
                 index={3}
                 icon="radiation-alt"
-                name="Невро/Радиологическое сканирование"
+                name="Neurological/Radiological Scan"
                 description={multiline`
-                  Предоставляет информацию о травме головного мозга и радиации.
+                  Provides information about brain trauma and radiation.
                 `}
               />
               <MedicalKioskScanButton
                 index={4}
                 icon="mortar-pestle"
-                name="Хим. анализ и психоактивное сканирование"
+                name="Chemical and Psychoactive Scan"
                 description={multiline`
-                  Предоставляет список потребляемых химических веществ,
-                  а также потенциальные побочные эффекты.
+                  Provides a list of consumed chemicals, as well as potential
+                  side effects.
                 `}
               />
             </Section>
@@ -104,24 +102,24 @@ const MedicalKioskInstructions = (props, context) => {
   return (
     <Section minHeight="100%">
       <Box italic>
-        Приветствую, уважаемый сотрудник. Пожалуйста, выберите желаемую
-        процедуру. Стоимость процедуры <b>{data.kiosk_cost} кредитов</b>.
+        Greetings Valued Employee! Please select a desired automatic health
+        check procedure. Diagnosis costs <b>{kiosk_cost} credits.</b>
       </Box>
       <Box mt={1}>
         <Box inline color="label" mr={1}>
-          Текущий пациент:
+          Patient:
         </Box>
         {patient_name}
       </Box>
       <Button
         mt={1}
         tooltip={multiline`
-         Сбрасывает текущую цель сканирования, отменяя текущие сканирования.
+          Resets the current scanning target, cancelling current scans.
         `}
         icon="sync"
         color="average"
         onClick={() => act('clearTarget')}
-        content="Сбросить сканер"
+        content="Reset Scanner"
       />
     </Section>
   );
@@ -137,30 +135,30 @@ const MedicalKioskScanResults1 = (props, context) => {
     toxin_health,
   } = data;
   return (
-    <Section title="Здоровье пациента">
+    <Section title="Patient Health">
       <LabeledList>
-        <LabeledList.Item label="Общее здоровье">
+        <LabeledList.Item label="Total Health">
           <ProgressBar value={patient_health / 100}>
             <AnimatedNumber value={patient_health} />%
           </ProgressBar>
         </LabeledList.Item>
         <LabeledList.Divider />
-        <LabeledList.Item label="Физический урон">
+        <LabeledList.Item label="Brute Damage">
           <ProgressBar value={brute_health / 100} color="bad">
             <AnimatedNumber value={brute_health} />
           </ProgressBar>
         </LabeledList.Item>
-        <LabeledList.Item label="Ожоги">
+        <LabeledList.Item label="Burn Damage">
           <ProgressBar value={burn_health / 100} color="bad">
             <AnimatedNumber value={burn_health} />
           </ProgressBar>
         </LabeledList.Item>
-        <LabeledList.Item label="Кислородный урон">
+        <LabeledList.Item label="Oxygen Damage">
           <ProgressBar value={suffocation_health / 100} color="bad">
             <AnimatedNumber value={suffocation_health} />
           </ProgressBar>
         </LabeledList.Item>
-        <LabeledList.Item label="Интоксикация">
+        <LabeledList.Item label="Toxin Damage">
           <ProgressBar value={toxin_health / 100} color="bad">
             <AnimatedNumber value={toxin_health} />
           </ProgressBar>
@@ -181,20 +179,20 @@ const MedicalKioskScanResults2 = (props, context) => {
     blood_status,
   } = data;
   return (
-    <Section title="Проверка на основе симптомов">
+    <Section title="Symptom Based Checkup">
       <LabeledList>
-        <LabeledList.Item label="Состояние пациента" color="good">
+        <LabeledList.Item label="Patient Status" color="good">
           {patient_status}
         </LabeledList.Item>
         <LabeledList.Divider />
-        <LabeledList.Item label="Состояние болезни">
+        <LabeledList.Item label="Disease Status">
           {patient_illness}
         </LabeledList.Item>
-        <LabeledList.Item label="Информация о болезни">
+        <LabeledList.Item label="Disease information">
           {illness_info}
         </LabeledList.Item>
         <LabeledList.Divider />
-        <LabeledList.Item label="Уровень крови">
+        <LabeledList.Item label="Blood Levels">
           <ProgressBar value={blood_levels / 100} color="bad">
             <AnimatedNumber value={blood_levels} />
           </ProgressBar>
@@ -202,7 +200,7 @@ const MedicalKioskScanResults2 = (props, context) => {
             {bleed_status}
           </Box>
         </LabeledList.Item>
-        <LabeledList.Item label="Информация о крови">
+        <LabeledList.Item label="Blood Information">
           {blood_status}
         </LabeledList.Item>
       </LabeledList>
@@ -212,48 +210,26 @@ const MedicalKioskScanResults2 = (props, context) => {
 
 const MedicalKioskScanResults3 = (props, context) => {
   const { data } = useBackend(context);
-  const {
-    clone_health,
-    brain_damage,
-    brain_health,
-    rad_contamination_status,
-    rad_contamination_value,
-    rad_sickness_status,
-    rad_sickness_value,
-    trauma_status,
-  } = data;
+  const { clone_health, brain_damage, brain_health, trauma_status } = data;
   return (
-    <Section title="Невро/Радиологическое сканирование">
+    <Section title="Patient Neurological and Radiological Health">
       <LabeledList>
-        <LabeledList.Item label="Клеточный урон">
+        <LabeledList.Item label="Cellular Damage">
           <ProgressBar value={clone_health / 100} color="good">
             <AnimatedNumber value={clone_health} />
           </ProgressBar>
         </LabeledList.Item>
         <LabeledList.Divider />
-        <LabeledList.Item label="Повреждения мозга">
+        <LabeledList.Item label="Brain Damage">
           <ProgressBar value={brain_damage / 100} color="good">
             <AnimatedNumber value={brain_damage} />
           </ProgressBar>
         </LabeledList.Item>
-        <LabeledList.Item label="Состояние мозга" color="health-0">
+        <LabeledList.Item label="Brain Status" color="health-0">
           {brain_health}
         </LabeledList.Item>
-        <LabeledList.Item label="Травмы головного мозга">
+        <LabeledList.Item label="Brain Trauma Status">
           {trauma_status}
-        </LabeledList.Item>
-        <LabeledList.Divider />
-        <LabeledList.Item label="Radiation Sickness Status">
-          {rad_sickness_status}
-        </LabeledList.Item>
-        <LabeledList.Item label="Процент лучевой болезни">
-          {rad_sickness_value}%
-        </LabeledList.Item>
-        <LabeledList.Item label="Состояние радиационного загрязнения">
-          {rad_contamination_status}
-        </LabeledList.Item>
-        <LabeledList.Item label="Процент радиационного загрязнения">
-          {rad_contamination_value}%
         </LabeledList.Item>
       </LabeledList>
     </Section>
@@ -269,35 +245,35 @@ const MedicalKioskScanResults4 = (props, context) => {
     hallucinating_status,
   } = data;
   return (
-    <Section title="Хим. анализ и психоактивное сканирование">
+    <Section title="Chemical and Psychoactive Analysis">
       <LabeledList>
-        <LabeledList.Item label="Химикаты в крови">
+        <LabeledList.Item label="Chemical Contents">
           {chemical_list.length === 0 && (
-            <Box color="average">Не обнаружено реагентов.</Box>
+            <Box color="average">No reagents detected.</Box>
           )}
           {chemical_list.map((chem) => (
             <Box key={chem.id} color="good">
-              {chem.volume} единиц {chem.name}
+              {chem.volume} units of {chem.name}
             </Box>
           ))}
         </LabeledList.Item>
-        <LabeledList.Item label="Состояние передозировки" color="bad">
+        <LabeledList.Item label="Overdose Status" color="bad">
           {overdose_list.length === 0 && (
-            <Box color="good">Пациент не испытывает передозировку.</Box>
+            <Box color="good">Patient is not overdosing.</Box>
           )}
           {overdose_list.map((chem) => (
-            <Box key={chem.id}>Передозировка {chem.name}</Box>
+            <Box key={chem.id}>Overdosing on {chem.name}</Box>
           ))}
         </LabeledList.Item>
-        <LabeledList.Item label="Состояние зависимостей" color="bad">
+        <LabeledList.Item label="Addiction Status" color="bad">
           {addict_list.length === 0 && (
-            <Box color="good">Нет зависимостей.</Box>
+            <Box color="good">Patient has no addictions.</Box>
           )}
           {addict_list.map((chem) => (
-            <Box key={chem.id}>Зависимость от {chem.name}</Box>
+            <Box key={chem.id}>Addicted to {chem.name}</Box>
           ))}
         </LabeledList.Item>
-        <LabeledList.Item label="Психоактивное состояние">
+        <LabeledList.Item label="Psychoactive Status">
           {hallucinating_status}
         </LabeledList.Item>
       </LabeledList>

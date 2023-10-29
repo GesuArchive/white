@@ -30,21 +30,21 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	))
 
 /obj/machinery/portable_atmospherics/canister
-	name = "канистра"
-	desc = "Канистра для хранения газа."
-	icon = 'icons/obj/atmospherics/canisters.dmi'
+	name = "canister"
+	desc = "A canister for the storage of gas."
+	icon = 'icons/obj/pipes_n_cables/canisters.dmi'
 	icon_state = "#mapme"
-	greyscale_config = /datum/greyscale_config/canister/hazard
-	greyscale_colors = "#ffff00#000000"
+	greyscale_config = /datum/greyscale_config/canister
+	greyscale_colors = "#6b6b80"
 	density = TRUE
 	volume = 2000
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
+	armor_type = /datum/armor/portable_atmospherics_canister
 	max_integrity = 300
 	integrity_failure = 0.4
 	pressure_resistance = 7 * ONE_ATMOSPHERE
 	req_access = list()
 
-	var/icon/canister_overlay_file = 'icons/obj/atmospherics/canisters.dmi'
+	var/icon/canister_overlay_file = 'icons/obj/pipes_n_cables/canisters.dmi'
 
 	///Is the valve open?
 	var/valve_open = FALSE
@@ -92,6 +92,15 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	///used while processing to update appearance only when its pressure state changes
 	var/current_pressure_state
 
+/datum/armor/portable_atmospherics_canister
+	melee = 50
+	bullet = 50
+	laser = 50
+	energy = 100
+	bomb = 10
+	fire = 80
+	acid = 50
+
 /obj/machinery/portable_atmospherics/canister/Initialize(mapload, datum/gas_mixture/existing_mixture)
 	. = ..()
 
@@ -137,136 +146,136 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 // Basic canister per gas below here
 
 /obj/machinery/portable_atmospherics/canister/air
-	name = "канистра с воздухом"
-	desc = "То, чем ты сейчас дышишь."
+	name = "Air canister"
+	desc = "Pre-mixed air."
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#c6c0b5"
 
 /obj/machinery/portable_atmospherics/canister/antinoblium
-	name = "канистра с антиноблием"
+	name = "Antinoblium canister"
 	gas_type = /datum/gas/antinoblium
 	filled = 1
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
-	greyscale_colors = "#9b5d7f#368bff"
+	greyscale_colors = "#333333#fefb30"
 
 /obj/machinery/portable_atmospherics/canister/bz
-	name = "канистра с БЗ"
+	name = "\improper BZ canister"
 	gas_type = /datum/gas/bz
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#9b5d7f#d0d2a0"
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide
-	name = "канистра с угарным газом"
+	name = "Carbon dioxide canister"
 	gas_type = /datum/gas/carbon_dioxide
-	greyscale_config = /datum/greyscale_config/canister
-	greyscale_colors = "#4e4c48"
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#4e4c48#eaeaea"
 
 /obj/machinery/portable_atmospherics/canister/freon
-	name = "канистра с фреоном"
+	name = "Freon canister"
 	gas_type = /datum/gas/freon
 	filled = 1
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#6696ee#fefb30"
 
 /obj/machinery/portable_atmospherics/canister/halon
-	name = "канистра с галоном"
+	name = "Halon canister"
 	gas_type = /datum/gas/halon
 	filled = 1
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#9b5d7f#368bff"
 
 /obj/machinery/portable_atmospherics/canister/healium
-	name = "канистра с хилиумом"
+	name = "Healium canister"
 	gas_type = /datum/gas/healium
 	filled = 1
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#009823#ff0e00"
 
 /obj/machinery/portable_atmospherics/canister/helium
-	name = "канистра с гелием"
+	name = "Helium canister"
 	gas_type = /datum/gas/helium
 	filled = 1
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#9b5d7f#368bff"
 
 /obj/machinery/portable_atmospherics/canister/hydrogen
-	name = "канистра с водородом"
+	name = "Hydrogen canister"
 	gas_type = /datum/gas/hydrogen
 	filled = 1
-	greyscale_config = /datum/greyscale_config/canister/stripe
-	greyscale_colors = "#bdc2c0#ffffff"
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#eaeaea#be3455"
 
 /obj/machinery/portable_atmospherics/canister/miasma
-	name = "канистра с миазмой"
+	name = "Miasma canister"
 	gas_type = /datum/gas/miasma
 	filled = 1
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#009823#f7d5d3"
 
 /obj/machinery/portable_atmospherics/canister/nitrogen
-	name = "канистра с азотом"
+	name = "Nitrogen canister"
 	gas_type = /datum/gas/nitrogen
-	greyscale_config = /datum/greyscale_config/canister
-	greyscale_colors = "#d41010"
+	greyscale_config = /datum/greyscale_config/canister/double_stripe
+	greyscale_colors = "#e9ff5c#f4fce8"
 
 /obj/machinery/portable_atmospherics/canister/nitrous_oxide
-	name = "канистра с закисью азота"
+	name = "Nitrous oxide canister"
 	gas_type = /datum/gas/nitrous_oxide
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#c63e3b#f7d5d3"
 
 /obj/machinery/portable_atmospherics/canister/nitrium
-	name = "канистра с нитрилом"
+	name = "Nitrium canister"
 	gas_type = /datum/gas/nitrium
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#7b4732"
 
 /obj/machinery/portable_atmospherics/canister/nob
-	name = "канистра с гипер-ноблием"
+	name = "Hyper-noblium canister"
 	gas_type = /datum/gas/hypernoblium
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#6399fc#b2b2b2"
 
 /obj/machinery/portable_atmospherics/canister/oxygen
-	name = "канистра с кислородом"
+	name = "Oxygen canister"
 	gas_type = /datum/gas/oxygen
 	greyscale_config = /datum/greyscale_config/canister/stripe
 	greyscale_colors = "#2786e5#e8fefe"
 
 /obj/machinery/portable_atmospherics/canister/pluoxium
-	name = "канистра с плюоксием"
+	name = "Pluoxium canister"
 	gas_type = /datum/gas/pluoxium
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#2786e5"
 
 /obj/machinery/portable_atmospherics/canister/proto_nitrate
-	name = "канистра с протонитратом"
+	name = "Proto Nitrate canister"
 	gas_type = /datum/gas/proto_nitrate
 	filled = 1
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#008200#33cc33"
 
 /obj/machinery/portable_atmospherics/canister/plasma
-	name = "канистра с плазмой"
+	name = "Plasma canister"
 	gas_type = /datum/gas/plasma
 	greyscale_config = /datum/greyscale_config/canister/hazard
 	greyscale_colors = "#f62800#000000"
 
 /obj/machinery/portable_atmospherics/canister/tritium
-	name = "канистра с тритием"
+	name = "Tritium canister"
 	gas_type = /datum/gas/tritium
 	greyscale_config = /datum/greyscale_config/canister/hazard
 	greyscale_colors = "#3fcd40#000000"
 
 /obj/machinery/portable_atmospherics/canister/water_vapor
-	name = "канистра с паром"
+	name = "Water vapor canister"
 	gas_type = /datum/gas/water_vapor
 	filled = 1
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#4c4e4d#f7d5d3"
 
 /obj/machinery/portable_atmospherics/canister/zauker
-	name = "канистра с циклоном Б"
+	name = "Zauker canister"
 	gas_type = /datum/gas/zauker
 	filled = 1
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
@@ -275,8 +284,8 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 // Special canisters below here
 
 /obj/machinery/portable_atmospherics/canister/fusion_test
-	name = "пиздец, а не канистра"
-	desc = "Анпедал уже готовится."
+	name = "fusion test canister"
+	desc = "Don't be a badmin."
 	temp_limit = 1e12
 	pressure_limit = 1e14
 
@@ -323,8 +332,8 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	greyscale_colors = "#ffffff#a50021#ffffff"
 
 /obj/machinery/portable_atmospherics/canister/proto/default
-	name = "прототип канистры"
-	desc = "Лучший способ исправить атмосферную аварию... или лучший способ создать ее."
+	name = "prototype canister"
+	desc = "The best way to fix an atmospheric emergency... or the best way to introduce one."
 	volume = 5000
 	max_integrity = 300
 	temperature_resistance = 2000 + T0C
@@ -333,8 +342,8 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	prototype = TRUE
 
 /obj/machinery/portable_atmospherics/canister/proto/default/oxygen
-	name = "прототип канистры"
-	desc = "Канистра любителя изобретать велосипеды, что может пойти не так?"
+	name = "prototype canister"
+	desc = "A prototype canister for a prototype bike, what could go wrong?"
 	gas_type = /datum/gas/oxygen
 	filled = 1
 	release_pressure = ONE_ATMOSPHERE*2
@@ -471,20 +480,20 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 		return TRUE
 	var/pressure = air_contents.return_pressure()
 	if(pressure > 300)
-		to_chat(user, span_alert("Индикаторы канистры сообщают о высоком давлении внутри... может стоит передумать?"))
+		to_chat(user, span_alert("The pressure gauge on [src] indicates a high pressure inside... maybe you want to reconsider?"))
 		message_admins("[src] deconstructed by [ADMIN_LOOKUPFLW(user)]")
-		log_game("[src] deconstructed by [key_name(user)]")
-	to_chat(user, span_notice("Начинаю резать <b>[src.name]</b> на куски..."))
+		user.log_message("deconstructed [src] with a welder.", LOG_GAME)
+	to_chat(user, span_notice("You begin cutting [src] apart..."))
 	if(I.use_tool(src, user, 3 SECONDS, volume=50))
-		to_chat(user, span_notice("Режу <b>[src.name]</b> на куски."))
+		to_chat(user, span_notice("You cut [src] apart."))
 		deconstruct(TRUE)
 	return TRUE
 
 /obj/machinery/portable_atmospherics/canister/welder_act(mob/living/user, obj/item/tool)
 	. = ..()
-	if(user.a_intent == INTENT_HARM)
+	if(user.combat_mode)
 		return FALSE
-	if(obj_integrity >= max_integrity)
+	if(atom_integrity >= max_integrity)
 		return TRUE
 	if(machine_stat & BROKEN)
 		return TRUE
@@ -492,8 +501,8 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 		return TRUE
 	to_chat(user, span_notice("You begin repairing cracks in [src]..."))
 	while(tool.use_tool(src, user, 2.5 SECONDS, volume=40))
-		obj_integrity = min(obj_integrity + 25, max_integrity)
-		if(obj_integrity >= max_integrity)
+		atom_integrity = min(atom_integrity + 25, max_integrity)
+		if(atom_integrity >= max_integrity)
 			to_chat(user, span_notice("You've finished repairing [src]."))
 			return TRUE
 		to_chat(user, span_notice("You repair some of the cracks in [src]..."))
@@ -510,7 +519,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 		return
 	SSair.start_processing_machine(src)
 
-/obj/machinery/portable_atmospherics/canister/obj_break(damage_flag)
+/obj/machinery/portable_atmospherics/canister/atom_break(damage_flag)
 	. = ..()
 	if(!.)
 		return
@@ -525,7 +534,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	var/turf/T = get_turf(src)
 	T.assume_air(expelled_gas)
 
-	obj_break()
+	atom_break()
 
 	set_density(FALSE)
 	playsound(src.loc, 'sound/effects/spray.ogg', 10, TRUE, -3)
@@ -557,7 +566,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	if(shielding_powered)
 		var/power_factor = round(log(10, max(our_pressure - pressure_limit, 1)) + log(10, max(our_temperature - temp_limit, 1)))
 		var/power_consumed = power_factor * 250 * seconds_per_tick
-		if(powered(AREA_USAGE_EQUIP))
+		if(powered(AREA_USAGE_EQUIP, ignore_use_power = TRUE))
 			use_power(power_consumed, AREA_USAGE_EQUIP)
 			protected_contents = TRUE
 		else if(internal_cell?.use(power_consumed * 0.025))
@@ -689,7 +698,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 		if("restricted")
 			restricted = !restricted
 			if(restricted)
-				req_access = list(ACCESS_ENGINE)
+				req_access = list(ACCESS_ENGINEERING)
 			else
 				req_access = list()
 				. = TRUE
@@ -759,7 +768,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 					timer_set = min(maximum_timer_set, timer_set + 10)
 				if("input")
 					var/user_input = tgui_input_number(usr, "Set time to valve toggle", "Canister Timer", timer_set, maximum_timer_set, minimum_timer_set)
-					if(isnull(user_input) || QDELETED(usr) || QDELETED(src))
+					if(isnull(user_input) || QDELETED(usr) || QDELETED(src) || !usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 						return
 					timer_set = user_input
 					log_admin("[key_name(usr)] has activated a prototype valve timer")

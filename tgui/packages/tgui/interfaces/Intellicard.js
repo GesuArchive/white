@@ -19,12 +19,12 @@ export const Intellicard = (props, context) => {
     <Window width={500} height={500}>
       <Window.Content scrollable>
         <Section
-          title={name || 'Пустая карта'}
+          title={name || 'Empty Card'}
           buttons={
             !!name && (
               <Button
                 icon="trash"
-                content={wiping ? 'СТОП' : 'Стереть'}
+                content={wiping ? 'Stop Wiping' : 'Wipe'}
                 disabled={isDead}
                 onClick={() => act('wipe')}
               />
@@ -32,12 +32,10 @@ export const Intellicard = (props, context) => {
           }>
           {!!name && (
             <LabeledList>
-              <LabeledList.Item
-                label="Состояние"
-                color={offline ? 'bad' : 'good'}>
-                {offline ? 'Оффлайн' : 'Операбельно'}
+              <LabeledList.Item label="Status" color={offline ? 'bad' : 'good'}>
+                {offline ? 'Offline' : 'Operation'}
               </LabeledList.Item>
-              <LabeledList.Item label="Целостность прошивки">
+              <LabeledList.Item label="Software Integrity">
                 <ProgressBar
                   value={health}
                   minValue={0}
@@ -49,21 +47,21 @@ export const Intellicard = (props, context) => {
                   }}
                 />
               </LabeledList.Item>
-              <LabeledList.Item label="Настройки">
+              <LabeledList.Item label="Settings">
                 <Button
                   icon="signal"
-                  content="Беспроводная активность"
+                  content="Wireless Activity"
                   selected={wireless}
                   onClick={() => act('wireless')}
                 />
                 <Button
                   icon="microphone"
-                  content="Подпростраственное радио"
+                  content="Subspace Radio"
                   selected={radio}
                   onClick={() => act('radio')}
                 />
               </LabeledList.Item>
-              <LabeledList.Item label="Законы">
+              <LabeledList.Item label="Laws">
                 {laws.map((law) => (
                   <BlockQuote key={law}>{law}</BlockQuote>
                 ))}

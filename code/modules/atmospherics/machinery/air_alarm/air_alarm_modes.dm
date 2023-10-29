@@ -32,8 +32,8 @@ GLOBAL_LIST_INIT(air_alarm_modes, init_air_alarm_modes())
 
 /// The default.
 /datum/air_alarm_mode/filtering
-	name = "Фильтрация"
-	desc = "откачивает все вредные газы"
+	name = "Filtering"
+	desc = "Scrubs out contaminants"
 	danger = FALSE
 
 /datum/air_alarm_mode/filtering/apply(area/applied)
@@ -51,8 +51,8 @@ GLOBAL_LIST_INIT(air_alarm_modes, init_air_alarm_modes())
 		scrubber.set_widenet(FALSE)
 
 /datum/air_alarm_mode/contaminated
-	name = "Чистка"
-	desc = "откачивает все вредные газы БЫСТРО"
+	name = "Contaminated"
+	desc = "Scrubs out ALL contaminants quickly"
 	danger = FALSE
 
 /datum/air_alarm_mode/contaminated/apply(area/applied)
@@ -72,8 +72,8 @@ GLOBAL_LIST_INIT(air_alarm_modes, init_air_alarm_modes())
 		scrubber.set_widenet(TRUE)
 
 /datum/air_alarm_mode/draught
-	name = "Перекачка"
-	desc = "откачивает воздух, пока вкачивает новый"
+	name = "Draught"
+	desc = "Siphons out air while replacing"
 	danger = FALSE
 
 /datum/air_alarm_mode/draught/apply(area/applied)
@@ -90,8 +90,8 @@ GLOBAL_LIST_INIT(air_alarm_modes, init_air_alarm_modes())
 		scrubber.set_scrubbing(ATMOS_DIRECTION_SIPHONING)
 
 /datum/air_alarm_mode/refill
-	name = "Закачка х3"
-	desc = "тройная скорость наполнения"
+	name = "Refill"
+	desc = "Triple vent output"
 	danger = TRUE
 
 /datum/air_alarm_mode/refill/apply(area/applied)
@@ -110,8 +110,8 @@ GLOBAL_LIST_INIT(air_alarm_modes, init_air_alarm_modes())
 		scrubber.set_scrubbing(ATMOS_DIRECTION_SCRUBBING)
 
 /datum/air_alarm_mode/cycle
-	name = "Цикл"
-	desc = "откачивает весь воздух и потом наполняет"
+	name = "Cycle"
+	desc = "Siphons air before replacing"
 	danger = TRUE
 
 /// Same as [/datum/air_alarm_mode/siphon/apply]
@@ -145,8 +145,8 @@ GLOBAL_LIST_INIT(air_alarm_modes, init_air_alarm_modes())
 		scrubber.set_widenet(FALSE)
 
 /datum/air_alarm_mode/siphon
-	name = "Откачка"
-	desc = "откачивает воздух из помещения"
+	name = "Siphon"
+	desc = "Siphons air out of the room"
 	danger = TRUE
 
 /datum/air_alarm_mode/siphon/apply(area/applied)
@@ -160,8 +160,8 @@ GLOBAL_LIST_INIT(air_alarm_modes, init_air_alarm_modes())
 		scrubber.set_scrubbing(ATMOS_DIRECTION_SIPHONING)
 
 /datum/air_alarm_mode/panic_siphon
-	name = "Быстрая откачка"
-	desc = "откачивает воздух быстро"
+	name = "Panic Siphon"
+	desc = "Siphons air out of the room quickly"
 	danger = TRUE
 
 /datum/air_alarm_mode/panic_siphon/apply(area/applied)
@@ -175,8 +175,8 @@ GLOBAL_LIST_INIT(air_alarm_modes, init_air_alarm_modes())
 		scrubber.set_scrubbing(ATMOS_DIRECTION_SIPHONING)
 
 /datum/air_alarm_mode/off
-	name = "Выключить"
-	desc = "отключает вентиляцию полностью"
+	name = "Off"
+	desc = "Shuts off vents and scrubbers"
 	danger = FALSE
 
 /datum/air_alarm_mode/off/apply(area/applied)
@@ -189,8 +189,8 @@ GLOBAL_LIST_INIT(air_alarm_modes, init_air_alarm_modes())
 		scrubber.update_appearance(UPDATE_ICON)
 
 /datum/air_alarm_mode/flood
-	name = "Заполнение"
-	desc = "Выключает фильтры и включает вентиляцию на полную"
+	name = "Flood"
+	desc = "Shuts off scrubbers and opens vents"
 	danger = TRUE
 	emag = TRUE
 
@@ -207,8 +207,8 @@ GLOBAL_LIST_INIT(air_alarm_modes, init_air_alarm_modes())
 		scrubber.update_appearance(UPDATE_ICON)
 
 /datum/air_alarm_mode/vent_siphon
-	name = "В вентиляцию"
-	desc = "Выключает фильтры и ставит вентиляцию в режим откачки"
+	name = "Vent siphon"
+	desc = "Disables scrubbers and turns vents to siphon"
 	danger = TRUE
 	emag = TRUE // siphoning things with vents can horribly fuck up distro, even if its surprisingly fast
 

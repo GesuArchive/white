@@ -1,7 +1,7 @@
 /obj/item/stack/light_w
-	name = "светоплитка"
-	singular_name = "светоплитка"
-	desc = "Светится. Круто!"
+	name = "wired glass tile"
+	singular_name = "wired glass floor tile"
+	desc = "A glass tile, which is wired, somehow."
 	icon = 'icons/obj/tiles.dmi'
 	icon_state = "glass_wire"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -14,20 +14,21 @@
 	grind_results = list(/datum/reagent/silicon = 20, /datum/reagent/copper = 5)
 	merge_type = /obj/item/stack/light_w
 
-/obj/item/stack/light_w/thirty
-	amount = 30
+/obj/item/stack/light_w/examine(mob/user)
+	. = ..()
+	. += span_warning("The [name] looks unfinished, add <b>iron</b> to complete it.")
 
 /obj/item/stack/light_w/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/stack/sheet/iron))
 		var/obj/item/stack/sheet/iron/M = O
 		if (M.use(1))
 			var/obj/item/L = new /obj/item/stack/tile/light(user.drop_location())
-			to_chat(user, span_notice("Создаю светоплитку."))
+			to_chat(user, span_notice("You make a light tile."))
 			if (!QDELETED(L))
 				L.add_fingerprint(user)
 			use(1)
 		else
-			to_chat(user, span_warning("Мне нужен один железный лист, чтобы закончить светоплитку!"))
+			to_chat(user, span_warning("You need one iron sheet to finish the light tile!"))
 	else
 		return ..()
 

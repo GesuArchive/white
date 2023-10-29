@@ -1,42 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/structure/chair/comfy/shuttle,
-/obj/machinery/light/directional/north,
+/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/hunter{
+	dir = 8;
+	view_range = 7;
+	x_offset = 6
+	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
 "ab" = (
-/obj/machinery/computer/shuttle_flight/hunter{
-	dir = 8
-	},
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/hunter)
-"ac" = (
-/obj/structure/fans/tiny,
-/obj/docking_port/stationary{
-	dir = 4;
-	dwidth = 3;
-	height = 12;
-	id = "huntership_home";
-	name = "Deep Space";
-	width = 7
-	},
-/obj/docking_port/mobile{
-	dir = 4;
-	id = "huntership";
-	name = "hunter shuttle";
-	rechargeTime = 1800
-	},
-/obj/machinery/door/poddoor/shutters{
-	id = "Interpolship"
-	},
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/hunter)
-"ae" = (
-/obj/machinery/button/door{
-	id = "Interpolship";
-	pixel_y = 26
-	},
-/obj/effect/turf_decal/stripes{
+/obj/machinery/computer/shuttle/hunter{
 	dir = 8
 	},
 /turf/open/floor/mineral/titanium/blue,
@@ -49,6 +21,7 @@
 /area/shuttle/hunter)
 "ag" = (
 /obj/effect/turf_decal/delivery,
+/obj/machinery/fugitive_locator,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
 "ah" = (
@@ -62,15 +35,6 @@
 /obj/effect/turf_decal/box,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
-"ak" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/effect/mob_spawn/human/fugitive/spacepol{
-	dir = 1
-	},
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/hunter)
 "al" = (
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -80,56 +44,39 @@
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
-"av" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/effect/mob_spawn/human/fugitive/spacepol{
-	dir = 1
-	},
-/obj/machinery/light/directional/south,
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/hunter)
 "bY" = (
 /obj/structure/chair/comfy/shuttle,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
-"gi" = (
-/obj/structure/table,
+"dJ" = (
+/obj/machinery/light/directional/south,
+/obj/structure/closet/crate/eva,
+/obj/effect/turf_decal/box,
+/obj/item/pinpointer/shuttle,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/hunter)
+"gc" = (
+/obj/machinery/door/airlock/titanium,
+/obj/effect/mapping_helpers/airlock/access/all/hunter,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
 "hB" = (
-/obj/machinery/shuttle/engine/ion{
-	dir = 4
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
 	},
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/hunter)
-"hJ" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
-/turf/open/floor/plating,
+"jc" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
 "ku" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/hunter)
 "lp" = (
 /obj/machinery/fugitive_capture,
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/hunter)
-"ol" = (
-/obj/effect/mob_spawn/human/fugitive/spacepol{
-	dir = 8
-	},
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/hunter)
-"om" = (
-/obj/machinery/power/engine_capacitor_bank{
-	dir = 4
-	},
-/turf/closed/wall/mineral/titanium,
-/area/shuttle/hunter)
-"rR" = (
-/obj/machinery/door/airlock/titanium,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
 "te" = (
@@ -139,24 +86,66 @@
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
+"tW" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/hunter)
+"Am" = (
+/obj/effect/mob_spawn/ghost_role/human/fugitive/spacepol{
+	dir = 8
+	},
+/obj/effect/turf_decal/box,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/hunter)
 "An" = (
-/obj/effect/spawner/structure/window/shuttle,
+/obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
+/area/shuttle/hunter)
+"Bn" = (
+/obj/effect/mob_spawn/ghost_role/human/fugitive/spacepol{
+	dir = 1
+	},
+/obj/effect/turf_decal/box,
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/hunter)
+"CF" = (
+/obj/structure/fans/tiny,
+/obj/docking_port/stationary{
+	dir = 4;
+	dwidth = 3;
+	height = 12;
+	name = "Deep Space";
+	shuttle_id = "huntership_home";
+	width = 7
+	},
+/obj/docking_port/mobile{
+	dir = 4;
+	name = "hunter shuttle";
+	rechargeTime = 1800;
+	shuttle_id = "huntership"
+	},
+/obj/machinery/door/poddoor/shutters{
+	id = "Interpolship"
+	},
+/turf/open/floor/mineral/titanium/blue,
+/area/shuttle/hunter)
+"Jv" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/obj/machinery/button/door/directional/north{
+	id = "Interpolship";
+	req_access = list("hunter")
+	},
+/turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
 "Pq" = (
 /turf/template_noop,
 /area/template_noop)
-"Rz" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/hunter)
 "RO" = (
-/turf/open/floor/mineral/titanium/blue,
-/area/shuttle/hunter)
-"Tn" = (
-/obj/machinery/light/directional/south,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
 
@@ -164,7 +153,7 @@
 Pq
 ku
 te
-ac
+CF
 te
 ku
 Pq
@@ -172,7 +161,7 @@ Pq
 (2,1,1) = {"
 Pq
 ku
-ae
+Jv
 al
 af
 ku
@@ -183,44 +172,44 @@ Pq
 ku
 bY
 RO
-ak
+Bn
 ku
 Pq
 "}
 (4,1,1) = {"
 hB
 ku
-bY
+jc
 RO
-ak
+Bn
 ku
 hB
 "}
 (5,1,1) = {"
-om
 ku
-aa
+ku
+bY
 RO
-av
+Bn
 ku
-om
+ku
 "}
 (6,1,1) = {"
 Pq
-hJ
+An
 ag
 RO
 RO
-hJ
+An
 Pq
 "}
 (7,1,1) = {"
 Pq
-hJ
+An
 ah
 RO
 aj
-hJ
+An
 Pq
 "}
 (8,1,1) = {"
@@ -228,7 +217,7 @@ Pq
 ku
 lp
 RO
-aj
+dJ
 ku
 Pq
 "}
@@ -236,26 +225,26 @@ Pq
 hB
 ku
 ku
-rR
+gc
 ku
 ku
 hB
 "}
 (10,1,1) = {"
-om
+ku
 ku
 RO
-Rz
-Tn
+tW
+RO
 ku
-om
+ku
 "}
 (11,1,1) = {"
 Pq
 An
-ol
-gi
+Am
 ab
+aa
 An
 Pq
 "}

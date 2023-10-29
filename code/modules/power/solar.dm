@@ -1,14 +1,12 @@
-#define SOLAR_GEN_RATE 3000
+#define SOLAR_GEN_RATE 1500
 #define OCCLUSION_DISTANCE 20
 #define PANEL_Z_OFFSET 13
 #define PANEL_EDGE_Z_OFFSET (PANEL_Z_OFFSET - 2)
-#define SOLAR_ALPHA_MINIMUM_TO_GENERATE_POWER 100
-#define SOLAR_ALPHA_MAXIMUM_TO_GENERATE_POWER 200
 
 /obj/machinery/power/solar
-	name = "солнечная панель"
-	desc = "Генерирует энергию при контакте со светом."
-	icon = 'icons/obj/solar.dmi'
+	name = "solar panel"
+	desc = "A solar panel. Generates electricity when in contact with sunlight."
+	icon = 'icons/obj/machines/solar.dmi'
 	icon_state = "sp_base"
 	density = TRUE
 	use_power = NO_POWER_USE
@@ -31,41 +29,12 @@
 	var/needs_to_update_solar_exposure = TRUE
 	var/obj/effect/overlay/panel
 	var/obj/effect/overlay/panel_edge
-	/// Is the current light level too low to generate power?
-	var/light_level_too_low = FALSE
-
-	var/power_multi = 1
-	var/solar_panel_state = "solar_panel_t1"
-	var/shard_type = /obj/item/shard
-
-/obj/machinery/power/solar/t2_armored
-	name = "укрепленная солнечная панель"
-	desc = "Генерирует энергию при контакте со светом. Данная модель вдвое производительнее обычной."
-	max_integrity = 300
-	power_multi = 2
-	solar_panel_state = "solar_panel_t2"
-
-/obj/machinery/power/solar/t3_plasma
-	name = "солнечная плазменная панель"
-	desc = "Генерирует энергию при контакте со светом. Данная модель в четыре раза производительнее обычной."
-	max_integrity = 450
-	power_multi = 4
-	solar_panel_state = "solar_panel_t3"
-	shard_type = /obj/item/shard/plasma
-
-/obj/machinery/power/solar/t4_plastitaniumglass
-	name = "солнечная пластитановая панель"
-	desc = "Генерирует энергию при контакте со светом. Данная модель в восемь раз производительнее обычной."
-	max_integrity = 600
-	power_multi = 8
-	solar_panel_state = "solar_panel_t4"
-	shard_type = /obj/item/shard/plasma
 
 /obj/machinery/power/solar/Initialize(mapload, obj/item/solar_assembly/S)
 	. = ..()
 
 	panel_edge = add_panel_overlay("solar_panel_edge", PANEL_EDGE_Z_OFFSET)
-	panel = add_panel_overlay(solar_panel_state, PANEL_Z_OFFSET)
+	panel = add_panel_overlay("solar_panel", PANEL_Z_OFFSET)
 
 	Make(S)
 	connect_to_network()
@@ -88,9 +57,8 @@
 	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
 
 /obj/machinery/power/solar/proc/add_panel_overlay(icon_state, z_offset)
-	var/obj/effect/overlay/solar_panel/overlay = new()
+	var/obj/effect/overlay/solar_panel/overlay = new(src)
 	overlay.icon_state = icon_state
-	overlay.layer = FLY_LAYER
 	SET_PLANE_EXPLICIT(overlay, ABOVE_GAME_PLANE, src)
 	overlay.pixel_z = z_offset
 	vis_contents += overlay
@@ -120,15 +88,15 @@
 	else
 		S.forceMove(src)
 	if(S.glass_type == /obj/item/stack/sheet/rglass) //if the panel is in reinforced glass
-		max_integrity *= 2 								 //this need to be placed here, because panels already on the map don't have an assembly linked to
-		obj_integrity = max_integrity
+		max_integrity *= 2  //this need to be placed here, because panels already on the map don't have an assembly linked to
+		atom_integrity = max_integrity
 
 /obj/machinery/power/solar/crowbar_act(mob/user, obj/item/I)
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
-	user.visible_message(span_notice("[user] начинает снимать стекло с [src].") , span_notice("Начинаю снимать стекло с [src]..."))
+	user.visible_message(span_notice("[user] begins to take the glass off [src]."), span_notice("You begin to take the glass off [src]..."))
 	if(I.use_tool(src, user, 50))
 		playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		user.visible_message(span_notice("[user] снимает стекло с [src].") , span_notice("Снимаю стекло с [src]."))
+		user.visible_message(span_notice("[user] takes the glass off [src]."), span_notice("You take the glass off [src]."))
 		deconstruct(TRUE)
 	return TRUE
 
@@ -143,7 +111,7 @@
 			playsound(loc, 'sound/items/welder.ogg', 100, TRUE)
 
 
-/obj/machinery/power/solar/obj_break(damage_flag)
+/obj/machinery/power/solar/atom_break(damage_flag)
 	. = ..()
 	if(.)
 		playsound(loc, 'sound/effects/glassbr3.ogg', 100, TRUE)
@@ -161,14 +129,14 @@
 				S.forceMove(loc)
 				S.give_glass(machine_stat & BROKEN)
 		else
-			playsound(src, "shatter", 70, TRUE)
-			new shard_type(src.loc)
-			new shard_type(src.loc)
+			playsound(src, SFX_SHATTER, 70, TRUE)
+			new /obj/item/shard(src.loc)
+			new /obj/item/shard(src.loc)
 	qdel(src)
 
 /obj/machinery/power/solar/update_overlays()
 	. = ..()
-	panel.icon_state = "[(machine_stat & BROKEN) ? "solar_panel-b" : solar_panel_state]"
+	panel.icon_state = "solar_panel[(machine_stat & BROKEN) ? "-b" : null]"
 	panel_edge.icon_state = "solar_panel[(machine_stat & BROKEN) ? "-b" : "_edge"]"
 
 /obj/machinery/power/solar/proc/queue_turn(azimuth)
@@ -266,6 +234,12 @@
 /obj/machinery/power/solar/process()
 	if(machine_stat & BROKEN)
 		return
+	// space vines block out sunlight
+	var/obj/structure/spacevine/vine = locate(/obj/structure/spacevine) in loc
+	if(istype(vine) && !(/datum/spacevine_mutation/transparency in vine.mutations))
+		unset_control()
+		return
+
 	if(control && (!powernet || control.powernet != powernet))
 		unset_control()
 	if(needs_to_turn)
@@ -274,10 +248,8 @@
 		update_solar_exposure()
 	if(sunfrac <= 0)
 		return
-	if(light_level_too_low)
-		return
 
-	var/sgen = SOLAR_GEN_RATE * sunfrac * power_multi
+	var/sgen = SOLAR_GEN_RATE * sunfrac
 	add_avail(sgen)
 	if(control)
 		control.gen += sgen
@@ -295,13 +267,13 @@
 //
 
 /obj/item/solar_assembly
-	name = "основание солнечной панели"
-	desc = "Рама для создания солнечной панели. При подключении к ней платы отслеживания так же выполняет функцию солнечного отслеживателя."
-	icon = 'icons/obj/solar.dmi'
+	name = "solar panel assembly"
+	desc = "A solar panel assembly kit, allows constructions of a solar panel, or with a tracking circuit board, a solar tracker."
+	icon = 'icons/obj/machines/solar.dmi'
 	icon_state = "sp_base"
 	inhand_icon_state = "electropack"
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY // Pretty big!
 	anchored = FALSE
 	var/tracker = 0
@@ -340,40 +312,35 @@
 /obj/item/solar_assembly/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_WRENCH && isturf(loc))
 		if(isinspace())
-			to_chat(user, span_warning("Не могу прикрутить [src] тут."))
+			to_chat(user, span_warning("You can't secure [src] here."))
 			return
 		set_anchored(!anchored)
-
-		user.visible_message(span_notice("[user] [anchored ? "при" : "от"]кручивает основание солнечной панели.") , span_notice("[anchored ? "При" : "от"]кручиваю основание солнечной панели."))
+		user.visible_message(
+			span_notice("[user] [anchored ? null : "un"]wrenches the solar assembly [anchored ? "into place" : null]."),
+			span_notice("You [anchored ? null : "un"]wrench the solar assembly [anchored ? "into place" : null]."),
+		)
 		W.play_tool_sound(src, 75)
 		return TRUE
 
-	if(istype(W, /obj/item/stack/sheet/glass) || istype(W, /obj/item/stack/sheet/rglass) || istype(W, /obj/item/stack/sheet/plasmaglass) || istype(W, /obj/item/stack/sheet/plasmarglass) || istype(W, /obj/item/stack/sheet/plastitaniumglass))
+	if(istype(W, /obj/item/stack/sheet/glass) || istype(W, /obj/item/stack/sheet/rglass))
 		if(!anchored)
-			to_chat(user, span_warning("Мне нужно прикрутить основание прежде чем добавлять туда стекло."))
+			to_chat(user, span_warning("You need to secure the assembly before you can add glass."))
 			return
 		var/turf/solarturf = get_turf(src)
 		if(locate(/obj/machinery/power/solar) in solarturf)
-			to_chat(user, span_warning("Здесь уже стоит солнечная панель!"))
+			to_chat(user, span_warning("A solar panel is already assembled here."))
 			return
 		var/obj/item/stack/sheet/S = W
 		if(S.use(2))
 			glass_type = W.type
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
-			user.visible_message(span_notice("[user] вставляет стекло в основание солнечной панели.") , span_notice("Вставляю стекло в основание солнейчной панели."))
+			user.visible_message(span_notice("[user] places the glass on the solar assembly."), span_notice("You place the glass on the solar assembly."))
 			if(tracker)
 				new /obj/machinery/power/tracker(get_turf(src), src)
 			else
-				if (istype(W, /obj/item/stack/sheet/glass))
-					new /obj/machinery/power/solar(get_turf(src), src)
-				if (istype(W, /obj/item/stack/sheet/rglass))
-					new /obj/machinery/power/solar/t2_armored(get_turf(src), src)
-				if (istype(W, /obj/item/stack/sheet/plasmaglass) || istype(W, /obj/item/stack/sheet/plasmarglass))
-					new /obj/machinery/power/solar/t3_plasma(get_turf(src), src)
-				if (istype(W, /obj/item/stack/sheet/plastitaniumglass))
-					new /obj/machinery/power/solar/t4_plastitaniumglass(get_turf(src), src)
+				new /obj/machinery/power/solar(get_turf(src), src)
 		else
-			to_chat(user, span_warning("Мне нужно иметь два листа стекла прежде чем вставлять их в основание!"))
+			to_chat(user, span_warning("You need two sheets of glass to put them into a solar panel!"))
 			return
 		return TRUE
 
@@ -384,14 +351,14 @@
 			tracker = TRUE
 			update_appearance()
 			qdel(W)
-			user.visible_message(span_notice("[user] вставляет электронику в основание солнечной панели.") , span_notice("Вставляю электронику в основание солнечной панели."))
+			user.visible_message(span_notice("[user] inserts the electronics into the solar assembly."), span_notice("You insert the electronics into the solar assembly."))
 			return TRUE
 	else
 		if(W.tool_behaviour == TOOL_CROWBAR)
 			new /obj/item/electronics/tracker(src.loc)
 			tracker = FALSE
 			update_appearance()
-			user.visible_message(span_notice("[user] вынимает электронику из основания солнечной панели.") , span_notice("Вынимаю электронику из основания солнечной панели."))
+			user.visible_message(span_notice("[user] takes out the electronics from the solar assembly."), span_notice("You take out the electronics from the solar assembly."))
 			return TRUE
 	return ..()
 
@@ -400,9 +367,9 @@
 //
 
 /obj/machinery/power/solar_control
-	name = "Консоль управления солнечными панелями"
-	desc = "Управления азимутом поворота в автоматическом режиме."
-	icon = 'icons/obj/computer.dmi'
+	name = "solar panel control"
+	desc = "A controller for solar panel arrays."
+	icon = 'icons/obj/machines/computer.dmi'
 	icon_state = "computer"
 	density = TRUE
 	use_power = IDLE_POWER_USE
@@ -422,13 +389,25 @@
 	var/obj/machinery/power/tracker/connected_tracker = null
 	var/list/connected_panels = list()
 
+	///History of power supply
+	var/list/history = list()
+	///Size of history, should be equal or bigger than the solar cycle
+	var/record_size = 0
+	///Interval between records
+	var/record_interval = 60 SECONDS
+	///History record timer
+	var/next_record = 0
+
 /obj/machinery/power/solar_control/Initialize(mapload)
 	. = ..()
-	azimuth_rate = SSsun.base_rotation
 	RegisterSignal(SSsun, COMSIG_SUN_MOVED, PROC_REF(timed_track))
 	connect_to_network()
 	if(powernet)
 		set_panels(azimuth_target)
+	azimuth_rate = SSsun.base_rotation
+	record_interval = SSsun.wait
+	history["supply"] = list()
+	history["capacity"] = list()
 
 /obj/machinery/power/solar_control/Destroy()
 	for(var/obj/machinery/power/solar/M in connected_panels)
@@ -442,6 +421,11 @@
 	if(powernet)
 		for(var/obj/machinery/power/M in powernet.nodes)
 			if(istype(M, /obj/machinery/power/solar))
+				// space vines block out sunlight
+				var/obj/structure/spacevine/vine = locate(/obj/structure/spacevine) in loc
+				if(istype(vine) && !(/datum/spacevine_mutation/transparency in vine.mutations))
+					continue
+
 				var/obj/machinery/power/solar/S = M
 				if(!S.control) //i.e unconnected
 					S.set_control(src)
@@ -451,16 +435,37 @@
 					if(!T.control) //i.e unconnected
 						T.set_control(src)
 
+///Record the generated power supply and capacity for history
+/obj/machinery/power/solar_control/proc/record()
+	if(record_size == 0)
+		record_size = 1 + ROUND_UP(360 / (azimuth_rate * abs(SSsun.azimuth_mod))) //History contains full sun cycle
+
+	if(world.time >= next_record)
+		next_record = world.time + record_interval
+
+		var/list/supply = history["supply"]
+		if(powernet)
+			supply += round(lastgen)
+		if(supply.len > record_size)
+			supply.Cut(1, 2)
+
+		var/list/capacity = history["capacity"]
+		if(powernet)
+			capacity += round(max(connected_panels.len, 1) * SOLAR_GEN_RATE)
+		if(capacity.len > record_size)
+			capacity.Cut(1, 2)
+
 /obj/machinery/power/solar_control/update_overlays()
 	. = ..()
 	if(machine_stat & NOPOWER)
 		. += mutable_appearance(icon, "[icon_keyboard]_off")
 		return
+
 	. += mutable_appearance(icon, icon_keyboard)
 	if(machine_stat & BROKEN)
 		. += mutable_appearance(icon, "[icon_state]_broken")
-	else
-		. += mutable_appearance(icon, icon_screen)
+		return
+	. += mutable_appearance(icon, icon_screen)
 
 /obj/machinery/power/solar_control/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -470,14 +475,15 @@
 
 /obj/machinery/power/solar_control/ui_data()
 	var/data = list()
-	data["generated"] = round(lastgen)
-	data["generated_ratio"] = data["generated"] / round(max(connected_panels.len, 1) * SOLAR_GEN_RATE)
+	data["supply"] = round(lastgen)
+	data["capacity"] = connected_panels.len * SOLAR_GEN_RATE
 	data["azimuth_current"] = azimuth_target
 	data["azimuth_rate"] = azimuth_rate
 	data["max_rotation_rate"] = SSsun.base_rotation * 2
 	data["tracking_state"] = track
 	data["connected_panels"] = connected_panels.len
 	data["connected_tracker"] = (connected_tracker ? TRUE : FALSE)
+	data["history"] = history
 	return data
 
 /obj/machinery/power/solar_control/ui_act(action, params)
@@ -516,11 +522,11 @@
 		return TRUE
 	return FALSE
 
-/obj/machinery/power/solar_control/attackby(obj/item/I, mob/user, params)
+/obj/machinery/power/solar_control/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(I.use_tool(src, user, 20, volume=50))
 			if (src.machine_stat & BROKEN)
-				to_chat(user, span_notice("Сломанное стекло выпадает."))
+				to_chat(user, span_notice("The broken glass falls out."))
 				var/obj/structure/frame/computer/A = new /obj/structure/frame/computer( src.loc )
 				new /obj/item/shard( src.loc )
 				var/obj/item/circuitboard/computer/solar_control/M = new /obj/item/circuitboard/computer/solar_control( A )
@@ -532,7 +538,7 @@
 				A.set_anchored(TRUE)
 				qdel(src)
 			else
-				to_chat(user, span_notice("Отсоединяю монитор."))
+				to_chat(user, span_notice("You disconnect the monitor."))
 				var/obj/structure/frame/computer/A = new /obj/structure/frame/computer( src.loc )
 				var/obj/item/circuitboard/computer/solar_control/M = new /obj/item/circuitboard/computer/solar_control( A )
 				for (var/obj/C in src)
@@ -542,7 +548,7 @@
 				A.icon_state = "4"
 				A.set_anchored(TRUE)
 				qdel(src)
-	else if(user.a_intent != INTENT_HARM && !(I.item_flags & NOBLUDGEON))
+	else if(!user.combat_mode && !(I.item_flags & NOBLUDGEON))
 		attack_hand(user)
 	else
 		return ..()
@@ -557,7 +563,7 @@
 		if(BURN)
 			playsound(src.loc, 'sound/items/welder.ogg', 100, TRUE)
 
-/obj/machinery/power/solar_control/obj_break(damage_flag)
+/obj/machinery/power/solar_control/atom_break(damage_flag)
 	. = ..()
 	if(.)
 		playsound(loc, 'sound/effects/glassbr3.ogg', 100, TRUE)
@@ -565,9 +571,9 @@
 /obj/machinery/power/solar_control/process()
 	lastgen = gen
 	gen = 0
-
 	if(connected_tracker && (!powernet || connected_tracker.powernet != powernet))
 		connected_tracker.unset_control()
+	record()
 
 ///Ran every time the sun updates.
 /obj/machinery/power/solar_control/proc/timed_track()
@@ -594,11 +600,10 @@
 //
 
 /obj/item/paper/guides/jobs/engi/solars
-	name = "paper- 'Создание солнечных панелей'"
-	info = "<h1> Добро пожаловать </h1> <p> В Зелёных Корпорациях мы любим окружающую среду и пространство. С помощью этого ящика вы можете помочь матери-природе и производить энергию без использования ископаемого топлива или плазмы! Энергия сингулярности опасна, а солнечная энергия безопасна, поэтому она лучше. Теперь вот как вы настраиваете свою собственную солнечную батарею. </ P> <p> Можно сделать солнечную панель, прикрутив солнечную батарею к кабельному узлу. Добавление стеклянной панели, армированного или обычного стекла завершит строительство вашей солнечной панели. Это так просто! </ P> <p> Теперь, после установки еще 19 таких солнечных панелей, вы захотите создать солнечный остлеживатель для отслеживания дара нашей матери-природы - солнца. Это те же шаги, что и ранее, за исключением того, что вы вставляете схему оборудования трекера в сборку перед выполнением последнего шага добавления стекла. Теперь у вас есть Остлеживатель! Теперь последний шаг - добавить компьютер для расчета движений солнца и посылать команды на солнечные панели для изменения направления движения с солнцем. Настройка солнечного компьютера аналогична настройке любого компьютера, поэтому у вас не должно возникнуть никаких проблем. Вам необходимо поместить проводной узел под компьютер, а провод должен быть подключен к трекеру. </ P> <p> Поздравляем, у вас должна быть работающая солнечная батарея. Если у вас возникли проблемы, вот несколько советов. Убедитесь, что все солнечное оборудование находится на кабельном узле, даже компьютер. Вы всегда можете деконструировать свои творения, если допустите ошибку. </ P> <p> Вот и все, будьте в безопасности, будьте зелеными! </ P> "
+	name = "paper- 'Going green! Setup your own solar array instructions.'"
+	default_raw_text = "<h1>Welcome</h1><p>At greencorps we love the environment, and space. With this package you are able to help mother nature and produce energy without any usage of fossil fuel or plasma! Singularity energy is dangerous while solar energy is safe, which is why it's better. Now here is how you setup your own solar array.</p><p>You can make a solar panel by wrenching the solar assembly onto a cable node. Adding a glass panel, reinforced or regular glass will do, will finish the construction of your solar panel. It is that easy!</p><p>Now after setting up 19 more of these solar panels you will want to create a solar tracker to keep track of our mother nature's gift, the sun. These are the same steps as before except you insert the tracker equipment circuit into the assembly before performing the final step of adding the glass. You now have a tracker! Now the last step is to add a computer to calculate the sun's movements and to send commands to the solar panels to change direction with the sun. Setting up the solar computer is the same as setting up any computer, so you should have no trouble in doing that. You do need to put a wire node under the computer, and the wire needs to be connected to the tracker.</p><p>Congratulations, you should have a working solar array. If you are having trouble, here are some tips. Make sure all solar equipment are on a cable node, even the computer. You can always deconstruct your creations if you make a mistake.</p><p>That's all to it, be safe, be green!</p>"
 
 #undef SOLAR_GEN_RATE
 #undef OCCLUSION_DISTANCE
 #undef PANEL_Z_OFFSET
 #undef PANEL_EDGE_Z_OFFSET
-#undef SOLAR_ALPHA_MINIMUM_TO_GENERATE_POWER

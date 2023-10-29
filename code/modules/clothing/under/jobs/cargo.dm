@@ -3,59 +3,68 @@
 	worn_icon = 'icons/mob/clothing/under/cargo.dmi'
 
 /obj/item/clothing/under/rank/cargo/qm
-	name = "комбинезон завхоза"
-	desc = "Создан для защиты от травм при работе с бумагой."
+	name = "quartermaster's uniform"
+	desc = "A brown dress shirt, coupled with a pair of black slacks. It's specially designed to prevent back injuries caused by pushing paper."
 	icon_state = "qm"
 	inhand_icon_state = "lb_suit"
 
 /obj/item/clothing/under/rank/cargo/qm/skirt
-	name = "юбкомбез завхоза"
-	desc = "Создан для защиты от травм при работе с бумагой."
+	name = "quartermaster's skirt"
+	desc = "A brown dress shirt, coupled with a long pleated black skirt. It's specially designed to prevent back injuries caused by pushing paper."
 	icon_state = "qm_skirt"
 	inhand_icon_state = "lb_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/cargo/tech
-	name = "комбинезон грузчика"
-	desc = "Шооооорты! Они комфортные и легко сидят!"
+	name = "cargo technician's uniform"
+	desc = "A brown sweater and black jeans, because, honestly, who likes shorts?"
 	icon_state = "cargotech"
 	inhand_icon_state = "lb_suit"
+
+/obj/item/clothing/under/rank/cargo/tech/alt
+	name = "cargo technician's shorts"
+	desc = "I like shooooorts! They're comfy and easy to wear!"
+	icon_state = "cargotech_alt"
+	inhand_icon_state = "lb_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
-	mutantrace_variation = MUTANTRACE_VARIATION
-	alt_covers_chest = TRUE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/rank/cargo/tech/skirt
-	name = "юбкомбез грузчика"
-	desc = "Юбооооочки! Они комфортные и легко сидят!"
+	name = "cargo technician's skirt"
+	desc = "A brown sweater and a black skirt to match."
 	icon_state = "cargo_skirt"
 	inhand_icon_state = "lb_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
-	mutantrace_variation = NO_MUTANTRACE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+
+/obj/item/clothing/under/rank/cargo/tech/skirt/alt
+	name = "cargo technician's shortskirt"
+	desc = "I like skiiiiirts! They're comfy and easy to wear!"
+	icon_state = "cargo_skirt_alt"
 
 /obj/item/clothing/under/rank/cargo/miner
-	desc = "Униформа для работы в экстремальных условиях. Грязная."
-	name = "комбинезон шахтёра"
+	name = "shaft miner's jumpsuit"
+	desc = "It's a snappy jumpsuit with a sturdy set of overalls. It is very dirty."
 	icon_state = "miner"
-	inhand_icon_state = "miner"
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 80, ACID = 0, WOUND = 10)
+	inhand_icon_state = null
+	armor_type = /datum/armor/clothing_under/cargo_miner
 	resistance_flags = NONE
 
-/obj/item/clothing/under/rank/cargo/miner/lavaland
-	desc = "Униформа для работы в экстремальных условиях."
-	name = "комбинезон шахтёра"
-	icon_state = "explorer"
-	inhand_icon_state = "explorer"
-	can_adjust = FALSE
+/datum/armor/clothing_under/cargo_miner
+	fire = 80
+	wound = 10
 
-/obj/item/clothing/under/rank/cargo/exploration
-	name = "комбинезон рейнджера"
-	desc = "В самый раз для похода в самую жопу космоса."
-	icon = 'white/valtos/icons/clothing/uniforms.dmi'
-	worn_icon = 'white/valtos/icons/clothing/mob/uniform.dmi'
-	icon_state = "ranger"
-	inhand_icon_state = "miner"
-	can_adjust = FALSE
+/obj/item/clothing/under/rank/cargo/miner/lavaland
+	name = "shaft miner's jumpsuit"
+	desc = "A grey uniform for operating in hazardous environments."
+	icon_state = "explorer"
+	inhand_icon_state = null
+
+/obj/item/clothing/under/rank/cargo/bitrunner
+	name = "bitrunner's jumpsuit"
+	desc = "It's a leathery jumpsuit worn by a bitrunner. Tacky, but comfortable to wear if sitting for prolonged periods of time."
+	icon_state = "bitrunner"
+	inhand_icon_state = "w_suit"

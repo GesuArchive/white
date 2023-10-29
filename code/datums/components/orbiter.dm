@@ -69,6 +69,8 @@
 			orbiter.orbiting.end_orbit(orbiter)
 	orbiter_list[orbiter] = TRUE
 	orbiter.orbiting = src
+
+	ADD_TRAIT(orbiter, TRAIT_NO_FLOATING_ANIM, ORBITING_TRAIT)
 	RegisterSignal(orbiter, COMSIG_MOVABLE_MOVED, PROC_REF(orbiter_move_react))
 
 	SEND_SIGNAL(parent, COMSIG_ATOM_ORBIT_BEGIN, orbiter)
@@ -98,8 +100,8 @@
 		var/atom/movable/movable_parent = parent
 		orbiter.glide_size = movable_parent.glide_size
 
-	to_chat(orbiter, span_notice("Следим за <b>[parent]</b>."))
 	orbiter.abstract_move(get_turf(parent))
+	to_chat(orbiter, span_notice("Now orbiting [parent]."))
 
 /datum/component/orbiter/proc/end_orbit(atom/movable/orbiter, refreshing=FALSE)
 	if(!orbiter_list[orbiter])
@@ -117,6 +119,8 @@
 		var/mob/orbiter_mob = orbiter
 		orbiter_mob.updating_glide_size = TRUE
 		orbiter_mob.glide_size = 8
+
+	REMOVE_TRAIT(orbiter, TRAIT_NO_FLOATING_ANIM, ORBITING_TRAIT)
 
 	if(!refreshing && !length(orbiter_list) && !QDELING(src))
 		qdel(src)
@@ -159,6 +163,10 @@
 
 /atom/movable/proc/orbit(atom/A, radius = 10, clockwise = FALSE, rotation_speed = 20, rotation_segments = 36, pre_rotation = TRUE)
 	if(!istype(A) || !get_turf(A) || A == src)
+		return
+	if (HAS_TRAIT(A, TRAIT_ORBITING_FORBIDDEN))
+		// Stealth-mins have an empty name, don't want "You cannot orbit   at this time."
+		to_chat(src, span_notice("You cannot orbit ["[A]" || "them"] at this time."))
 		return
 	orbit_target = A
 	return A.AddComponent(/datum/component/orbiter, src, radius, clockwise, rotation_speed, rotation_segments, pre_rotation)

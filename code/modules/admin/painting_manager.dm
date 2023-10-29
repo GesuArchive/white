@@ -1,6 +1,6 @@
 /datum/admins/proc/paintings_manager()
-	set name = "Управление картинами"
-	set category = "Адм"
+	set name = "Paintings Manager"
+	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))
 		return
@@ -55,12 +55,12 @@
 					QDEL_NULL(painting.current_canvas)
 					painting.update_appearance()
 			log_admin("[key_name(user)] has deleted a persistent painting made by [chosen_painting.creator_ckey].")
-			message_admins(span_notice("[key_name_admin(user)] удаляет картину созданную [chosen_painting.creator_ckey]."))
+			message_admins(span_notice("[key_name_admin(user)] has deleted persistent painting made by [chosen_painting.creator_ckey]."))
 			return TRUE
 		if("rename")
 			//Modify the metadata
 			var/old_title = chosen_painting.title
-			var/new_title = stripped_input(user, "Новое название картины?", "Переименовать картину", chosen_painting.title)
+			var/new_title = tgui_input_text(user, "New painting title?", "Painting Rename", chosen_painting.title)
 			if(!new_title)
 				return
 			chosen_painting.title = new_title
@@ -68,7 +68,7 @@
 			return TRUE
 		if("rename_author")
 			var/old_name = chosen_painting.creator_name
-			var/new_name = tgui_input_text(user, "Новый автор картины?", "Переименовать картину", chosen_painting.creator_name)
+			var/new_name = tgui_input_text(user, "New painting author name?", "Painting Rename", chosen_painting.creator_name)
 			if(!new_name)
 				return
 			chosen_painting.creator_name = new_name
@@ -88,7 +88,7 @@
 			log_admin("[key_name(user)] has removed tag [params["tag"]] from persistent painting made by [chosen_painting.creator_ckey] with id [chosen_painting.md5].")
 			return TRUE
 		if("add_tag")
-			var/tag_name = tgui_input_text(user, "Новый тег?", "Добавить тег")
+			var/tag_name = tgui_input_text(user, "New tag name?", "Add Tag")
 			if(!tag_name)
 				return
 			if(!chosen_painting.tags)

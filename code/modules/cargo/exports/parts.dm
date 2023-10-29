@@ -2,44 +2,34 @@
 
 /datum/export/solar/assembly
 	cost = CARGO_CRATE_VALUE * 0.25
-	unit_name = "солнечная панель"
+	unit_name = "solar panel assembly"
 	export_types = list(/obj/item/solar_assembly)
 
 /datum/export/solar/tracker_board
 	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "плата отслеживателя солнечных лучей"
+	unit_name = "solar tracker board"
 	export_types = list(/obj/item/electronics/tracker)
 
 /datum/export/solar/control_board
 	cost = CARGO_CRATE_VALUE * 0.75
-	unit_name = "плата консоли управления солнечными панелями"
+	unit_name = "solar panel control board"
 	export_types = list(/obj/item/circuitboard/computer/solar_control)
 
-//Computer Tablets and Parts
-/datum/export/modular_part
-	cost = CARGO_CRATE_VALUE * 0.075
-	unit_name = "любое компьютерное оборудование"
-	export_types = list(/obj/item/computer_hardware)
-	include_subtypes = TRUE
+//Data Disks
+/datum/export/modular_part/portabledrive/advanced
+	cost = CARGO_CRATE_VALUE * 0.4
+	unit_name = "advanced data disk"
+	export_types = list(/obj/item/computer_disk/advanced)
+	include_subtypes = FALSE
 
-//Batteries.
+/datum/export/modular_part/portabledrive/super
+	cost = CARGO_CRATE_VALUE * 0.6
+	unit_name = "super data disk"
+	export_types = list(/obj/item/computer_disk/super)
+	include_subtypes = FALSE
 
-/datum/export/modular_part/battery
+/datum/export/modular_part/portabledrive/standard
 	cost = CARGO_CRATE_VALUE * 0.2
-	unit_name = "Нано батарея ПК"
-	export_types = list(/obj/item/stock_parts/cell/computer/nano)
-	include_subtypes = FALSE
-
-
-/datum/export/modular_part/battery/upgraded
-	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "Микро батарея ПК"
-	export_types = list(/obj/item/stock_parts/cell/computer/micro)
-	include_subtypes = FALSE
-
-
-/datum/export/modular_part/battery/advanced
-	cost = CARGO_CRATE_VALUE * 0.75
-	unit_name = "Стандартная батарея ПК"
-	export_types = list(/obj/item/stock_parts/cell/computer)
-	include_subtypes = FALSE
+	unit_name = "data disk"
+	export_types = list(/obj/item/computer_disk)
+	include_subtypes = TRUE

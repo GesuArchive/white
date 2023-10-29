@@ -1,29 +1,43 @@
 /obj/item/clothing/under/color
-	desc = "Стандартный цветной комбинезон. Разнообразие - это часть жизни!"
+	name = "jumpsuit"
+	desc = "A standard issue colored jumpsuit. Variety is the spice of life!"
 	dying_key = DYE_REGISTRY_UNDER
 	greyscale_colors = "#3f3f3f"
 	greyscale_config = /datum/greyscale_config/jumpsuit
-	greyscale_config_inhand_left = /datum/greyscale_config/jumpsuit_inhand_left
-	greyscale_config_inhand_right = /datum/greyscale_config/jumpsuit_inhand_right
-	greyscale_config_worn = /datum/greyscale_config/jumpsuit_worn
+	greyscale_config_worn = /datum/greyscale_config/jumpsuit/worn
+	greyscale_config_inhand_left = /datum/greyscale_config/jumpsuit/inhand_left
+	greyscale_config_inhand_right = /datum/greyscale_config/jumpsuit/inhand_right
 	icon = 'icons/obj/clothing/under/color.dmi'
 	icon_state = "jumpsuit"
 	inhand_icon_state = "jumpsuit"
+	worn_icon_state = "jumpsuit"
 	worn_icon = 'icons/mob/clothing/under/color.dmi'
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/color/jumpskirt
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	fitted = FEMALE_UNIFORM_TOP
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	icon_state = "jumpskirt"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/// Returns a random, acceptable jumpsuit typepath
+/proc/get_random_jumpsuit()
+	return pick(
+		subtypesof(/obj/item/clothing/under/color) \
+			- typesof(/obj/item/clothing/under/color/jumpskirt) \
+			- /obj/item/clothing/under/color/random \
+			- /obj/item/clothing/under/color/grey/ancient \
+			- /obj/item/clothing/under/color/black/ghost \
+			- /obj/item/clothing/under/rank/prisoner \
+	)
 
 /obj/item/clothing/under/color/random
 	icon_state = "random_jumpsuit"
 
 /obj/item/clothing/under/color/random/Initialize(mapload)
 	..()
-	var/obj/item/clothing/under/color/C = pick(subtypesof(/obj/item/clothing/under/color) - typesof(/obj/item/clothing/under/color/jumpskirt) - /obj/item/clothing/under/color/random - /obj/item/clothing/under/color/grey/ancient - /obj/item/clothing/under/color/black/ghost - /obj/item/clothing/under/rank/prisoner)
+	var/obj/item/clothing/under/color/C = get_random_jumpsuit()
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		H.equip_to_slot_or_del(new C(H), ITEM_SLOT_ICLOTHING, initial=TRUE) //or else you end up with naked assistants running around everywhere...
@@ -31,12 +45,20 @@
 		new C(loc)
 	return INITIALIZE_HINT_QDEL
 
+/// Returns a random, acceptable jumpskirt typepath
+/proc/get_random_jumpskirt()
+	return pick(
+		subtypesof(/obj/item/clothing/under/color/jumpskirt) \
+			- /obj/item/clothing/under/color/jumpskirt/random \
+			- /obj/item/clothing/under/rank/prisoner/skirt \
+	)
+
 /obj/item/clothing/under/color/jumpskirt/random
-	icon_state = "random_jumpsuit"		//Skirt variant needed
+	icon_state = "random_jumpsuit" //Skirt variant needed
 
 /obj/item/clothing/under/color/jumpskirt/random/Initialize(mapload)
 	..()
-	var/obj/item/clothing/under/color/jumpskirt/C = pick(subtypesof(/obj/item/clothing/under/color/jumpskirt) - /obj/item/clothing/under/color/jumpskirt/random - /obj/item/clothing/under/rank/prisoner/skirt)
+	var/obj/item/clothing/under/color/jumpskirt/C = get_random_jumpskirt()
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		H.equip_to_slot_or_del(new C(H), ITEM_SLOT_ICLOTHING, initial=TRUE)
@@ -45,11 +67,11 @@
 	return INITIALIZE_HINT_QDEL
 
 /obj/item/clothing/under/color/black
-	name = "чёрный комбинезон"
+	name = "black jumpsuit"
 	resistance_flags = NONE
 
 /obj/item/clothing/under/color/jumpskirt/black
-	name = "чёрный юбкомбезон"
+	name = "black jumpskirt"
 
 /obj/item/clothing/under/color/black/ghost
 	item_flags = DROPDEL
@@ -59,143 +81,143 @@
 	ADD_TRAIT(src, TRAIT_NODROP, CULT_TRAIT)
 
 /obj/item/clothing/under/color/grey
-	name = "серый комбинезон"
-	desc = "Изящный серый комбинезон, напоминающий вам о старых добрых временах."
+	name = "grey jumpsuit"
+	desc = "A tasteful grey jumpsuit that reminds you of the good old days."
 	greyscale_colors = "#b3b3b3"
 
 /obj/item/clothing/under/color/jumpskirt/grey
-	name = "серый юбкомбезон"
-	desc = "Изящный серый юбкомбезон, напоминающий вам о старых добрых временах."
+	name = "grey jumpskirt"
+	desc = "A tasteful grey jumpskirt that reminds you of the good old days."
 	greyscale_colors = "#b3b3b3"
 
 /obj/item/clothing/under/color/grey/ancient
-	name = "древний комбинезон"
-	desc = "Ужасно оборванный и потрепанный серый комбинезон. Похоже, его не стирали уже больше десяти лет."
+	name = "ancient jumpsuit"
+	desc = "A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade."
 	icon_state = "grey_ancient"
 	inhand_icon_state = "gy_suit"
 	greyscale_config = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
-	can_adjust = TRUE
+	can_adjust = FALSE
 
 /obj/item/clothing/under/color/blue
-	name = "синий комбинезон"
+	name = "blue jumpsuit"
 	greyscale_colors = "#52aecc"
 
 /obj/item/clothing/under/color/jumpskirt/blue
-	name = "синий юбкомбезон"
+	name = "blue jumpskirt"
 	greyscale_colors = "#52aecc"
 
 /obj/item/clothing/under/color/green
-	name = "зелёный комбинезон"
+	name = "green jumpsuit"
 	greyscale_colors = "#9ed63a"
 
 /obj/item/clothing/under/color/jumpskirt/green
-	name = "зелёный юбкомбезон"
+	name = "green jumpskirt"
 	greyscale_colors = "#9ed63a"
 
 /obj/item/clothing/under/color/orange
-	name = "оранжевый комбинезон"
-	desc = "Не носите это рядом с параноидальными офицерами."
+	name = "orange jumpsuit"
+	desc = "Don't wear this near paranoid security officers."
 	greyscale_colors = "#ff8c19"
 
 /obj/item/clothing/under/color/jumpskirt/orange
-	name = "оранжевый юбкомбезон"
+	name = "orange jumpskirt"
 	greyscale_colors = "#ff8c19"
 
 /obj/item/clothing/under/color/pink
-	name = "розовый комбинезон"
-	desc = "Достаточно посмотреть на этот костюм и почувствовать себя <i>неповторимым</i> парнем на деревне."
+	name = "pink jumpsuit"
+	desc = "Just looking at this makes you feel <i>fabulous</i>."
 	greyscale_colors = "#ffa69b"
 
 /obj/item/clothing/under/color/jumpskirt/pink
-	name = "розовый юбкомбезон"
+	name = "pink jumpskirt"
 	greyscale_colors = "#ffa69b"
 
 /obj/item/clothing/under/color/red
-	name = "красный комбинезон"
+	name = "red jumpsuit"
 	greyscale_colors = "#eb0c07"
 
 /obj/item/clothing/under/color/jumpskirt/red
-	name = "красный юбкомбезон"
+	name = "red jumpskirt"
 	greyscale_colors = "#eb0c07"
 
 /obj/item/clothing/under/color/white
-	name = "белый комбинезон"
+	name = "white jumpsuit"
 	greyscale_colors = "#ffffff"
 
 /obj/item/clothing/under/color/jumpskirt/white
-	name = "белый юбкомбезон"
+	name = "white jumpskirt"
 	greyscale_colors = "#ffffff"
 
 /obj/item/clothing/under/color/yellow
-	name = "желтый комбинезон"
+	name = "yellow jumpsuit"
 	greyscale_colors = "#ffe14d"
 
 /obj/item/clothing/under/color/jumpskirt/yellow
-	name = "желтый юбкомбезон"
+	name = "yellow jumpskirt"
 	greyscale_colors = "#ffe14d"
 
 /obj/item/clothing/under/color/darkblue
-	name = "тёмно-синий комбинезон"
+	name = "dark blue jumpsuit"
 	greyscale_colors = "#3285ba"
 
 /obj/item/clothing/under/color/jumpskirt/darkblue
-	name = "тёмно-синий юбкомбезон"
+	name = "dark blue jumpskirt"
 	greyscale_colors = "#3285ba"
 
 /obj/item/clothing/under/color/teal
-	name = "сине-зеленый комбинезон"
+	name = "teal jumpsuit"
 	greyscale_colors = "#77f3b7"
 
 /obj/item/clothing/under/color/jumpskirt/teal
-	name = "сине-зеленый юбкомбезон"
+	name = "teal jumpskirt"
 	greyscale_colors = "#77f3b7"
 
 /obj/item/clothing/under/color/lightpurple
-	name = "светло-фиолетовый комбинезон"
+	name = "light purple jumpsuit"
 	greyscale_colors = "#9f70cc"
 
 /obj/item/clothing/under/color/jumpskirt/lightpurple
-	name = "светло-фиолетовый юбкомбезон"
+	name = "light purple jumpskirt"
 	greyscale_colors = "#9f70cc"
 
 /obj/item/clothing/under/color/darkgreen
-	name = "тёмно-зелёный комбинезон"
+	name = "dark green jumpsuit"
 	greyscale_colors = "#6fbc22"
 
 /obj/item/clothing/under/color/jumpskirt/darkgreen
-	name = "тёмно-зелёный юбкомбезон"
+	name = "dark green jumpskirt"
 	greyscale_colors = "#6fbc22"
 
 /obj/item/clothing/under/color/lightbrown
-	name = "светло-коричневый комбинезон"
+	name = "light brown jumpsuit"
 	greyscale_colors = "#c59431"
 
 /obj/item/clothing/under/color/jumpskirt/lightbrown
-	name = "светло-коричневый юбкомбезон"
+	name = "light brown jumpskirt"
 	greyscale_colors = "#c59431"
 
 /obj/item/clothing/under/color/brown
-	name = "коричневый комбинезон"
+	name = "brown jumpsuit"
 	greyscale_colors = "#a17229"
 
 /obj/item/clothing/under/color/jumpskirt/brown
-	name = "коричневый юбкомбезон"
+	name = "brown jumpskirt"
 	greyscale_colors = "#a17229"
 
 /obj/item/clothing/under/color/maroon
-	name = "бордовый комбинезон"
+	name = "maroon jumpsuit"
 	greyscale_colors = "#cc295f"
 
 /obj/item/clothing/under/color/jumpskirt/maroon
-	name = "бордовый юбкомбезон"
+	name = "maroon jumpskirt"
 	greyscale_colors = "#cc295f"
 
 /obj/item/clothing/under/color/rainbow
-	name = "радужный комбинезон"
-	desc = "Многоцветный комбинезон!"
+	name = "rainbow jumpsuit"
+	desc = "A multi-colored jumpsuit!"
 	icon_state = "rainbow"
 	inhand_icon_state = "rainbow"
 	greyscale_config = null
@@ -206,8 +228,8 @@
 	flags_1 = NONE
 
 /obj/item/clothing/under/color/jumpskirt/rainbow
-	name = "радужный юбкомбезон"
-	desc = "Многоцветный комбинезон!"
+	name = "rainbow jumpskirt"
+	desc = "A multi-colored jumpskirt!"
 	icon_state = "rainbow_skirt"
 	inhand_icon_state = "rainbow"
 	greyscale_config = null

@@ -45,7 +45,7 @@
 	full_name = "Quick equip bag"
 	description = "Put held thing in backpack or take out most recent thing from backpack"
 	slot_type = ITEM_SLOT_BACK
-	slot_item_name = "рюкзак"
+	slot_item_name = "backpack"
 	keybind_signal = COMSIG_KB_HUMAN_BAGEQUIP_DOWN
 
 /datum/keybinding/human/quick_equip_belt/quick_equip_suit_storage

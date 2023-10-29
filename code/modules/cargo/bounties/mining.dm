@@ -1,71 +1,71 @@
 /datum/bounty/item/mining/goliath_steaks
-	name = "Приготовленные на лаве стейки голиафа"
-	description = "Адмирал Павлов объявил голодовку с тех пор, как в столовой начали обслуживать только обезьяну и побочные продукты обезьяны. Он требует вареных лавой стейков Голиафа."
-	reward = CARGO_CRATE_VALUE * 150
+	name = "Lava-Cooked Goliath Steaks"
+	description = "Admiral Pavlov has gone on hunger strike ever since the canteen started serving only monkey and monkey byproducts. She is demanding lava-cooked goliath steaks."
+	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
-	wanted_types = list(/obj/item/food/meat/steak/goliath)
+	wanted_types = list(/obj/item/food/meat/steak/goliath = TRUE)
 
 /datum/bounty/item/mining/goliath_boat
-	name = "Лодка из кожи голиафа"
-	description = "Командующий Меньков хочет участвовать в ежегодной регате Лаваланда. Он просит ваших работников построить самую быструю лодку, известную человеку."
-	reward = CARGO_CRATE_VALUE * 200
-	wanted_types = list(/obj/vehicle/ridden/lavaboat)
+	name = "Goliath Hide Boat"
+	description = "Commander Menkov wants to participate in the annual Lavaland Regatta. He is asking your shipwrights to build the swiftest boat known to man."
+	reward = CARGO_CRATE_VALUE * 20
+	wanted_types = list(/obj/vehicle/ridden/lavaboat = TRUE)
 
 /datum/bounty/item/mining/bone_oar
-	name = "Костяные весла"
-	description = "Командующий Меньков требует весла для участия в ежегодной регате Лаваленда. Отправь пару."
-	reward = CARGO_CRATE_VALUE * 100
+	name = "Bone Oars"
+	description = "Commander Menkov requires oars to participate in the annual Lavaland Regatta. Ship a pair over."
+	reward = CARGO_CRATE_VALUE * 8
 	required_count = 2
-	wanted_types = list(/obj/item/oar)
+	wanted_types = list(/obj/item/oar = TRUE)
 
 /datum/bounty/item/mining/bone_axe
-	name = "Костяной топор"
-	description = "У станции 12 были похищены пожарные топоры клоунами-мародерами. Доставьте им костяной топор в качестве замены."
-	reward = CARGO_CRATE_VALUE * 150
-	wanted_types = list(/obj/item/fireaxe/boneaxe)
+	name = "Bone Axe"
+	description = "Station 12 has had their fire axes stolen by marauding clowns. Ship them a bone axe as a replacement."
+	reward = CARGO_CRATE_VALUE * 15
+	wanted_types = list(/obj/item/fireaxe/boneaxe = TRUE)
 
 /datum/bounty/item/mining/bone_armor
-	name = "Костяная броня"
-	description = "Станция 14 вызвала их команду ящериц для испытания баллистической брони. Отправьте им костяную броню."
-	reward = CARGO_CRATE_VALUE * 145
-	wanted_types = list(/obj/item/clothing/suit/armor/bone)
+	name = "Bone Armor"
+	description = "Station 14 has volunteered their lizard crew for ballistic armor testing. Ship over some bone armor."
+	reward = CARGO_CRATE_VALUE * 10
+	wanted_types = list(/obj/item/clothing/suit/armor/bone = TRUE)
 
 /datum/bounty/item/mining/skull_helmet
-	name = "Костяной шлем"
-	description = "У ХОСа станции 42 завтра день рождения! Мы хотим удивить его с модным черепом."
-	reward = CARGO_CRATE_VALUE * 120
-	wanted_types = list(/obj/item/clothing/head/helmet/skull)
+	name = "Skull Helmet"
+	description = "Station 42's Head of Security has her birthday tomorrow! We want to suprise her with a fashionable skull helmet."
+	reward = CARGO_CRATE_VALUE * 8
+	wanted_types = list(/obj/item/clothing/head/helmet/skull = TRUE)
 
 /datum/bounty/item/mining/bone_talisman
-	name = "Костяной талисман"
-	description = "Директор исследования станции 14 утверждает, что талисманы язычников из костей защищают своего владельца. Отправьте несколько, чтобы они могли начать тестирование."
-	reward = CARGO_CRATE_VALUE * 100
+	name = "Bone Talismans"
+	description = "Station 14's Research Director claims that pagan bone talismans protect their wearer. Ship them a few so they can start testing."
+	reward = CARGO_CRATE_VALUE * 15
 	required_count = 3
-	wanted_types = list(/obj/item/clothing/accessory/talisman)
+	wanted_types = list(/obj/item/clothing/accessory/talisman = TRUE)
 
 /datum/bounty/item/mining/bone_dagger
-	name = "Костяные кинжалы"
-	description = "Столовая ЦК подвергается сокращению бюджета. Отправьте несколько костяных кинжалов, чтобы наш шеф-повар продолжал работать."
-	reward = CARGO_CRATE_VALUE * 60
+	name = "Bone Daggers"
+	description = "Central Command's canteen is undergoing budget cuts. Ship over some bone daggers so our chef can keep working."
+	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
-	wanted_types = list(/obj/item/kitchen/knife/combat/bone)
+	wanted_types = list(/obj/item/knife/combat/bone = TRUE)
 
 /datum/bounty/item/mining/polypore_mushroom
-	name = "Грибная миска"
-	description = "Лейтенант Джеб уронил свою любимую миску с грибами. Ободри его, отправив новую, ладно?"
-	reward = CARGO_CRATE_VALUE * 60
-	wanted_types = list(/obj/item/reagent_containers/glass/bowl/mushroom_bowl)
+	name = "Mushroom Bowl"
+	description = "Lieutenant Jeb dropped his favorite mushroom bowl. Cheer him up by shipping a new one, will you?"
+	reward = CARGO_CRATE_VALUE * 15 //5x mushroom shavings
+	wanted_types = list(/obj/item/reagent_containers/cup/bowl/mushroom_bowl = TRUE)
 
 /datum/bounty/item/mining/inocybe_mushroom
-	name = "Грибные Inocybe"
-	description = "Наш ботаник утверждает, что может отогнать вкусный ликер абсолютно с любого растения. Посмотрим, что он будет делать с грибными шапочками."
-	reward = CARGO_CRATE_VALUE * 45
+	name = "Mushroom Caps"
+	description = "Our botanist claims that he can distill tasty liquor from absolutely any plant. Let's see what he'll do with Inocybe mushroom caps."
+	reward = CARGO_CRATE_VALUE * 9
 	required_count = 3
-	wanted_types = list(/obj/item/food/grown/ash_flora/mushroom_cap)
+	wanted_types = list(/obj/item/food/grown/ash_flora/mushroom_cap = TRUE)
 
 /datum/bounty/item/mining/porcini_mushroom
-	name = "Грибы Porcini"
-	description = "По слухам, белые грибы обладают целебными свойствами. Наши исследователи хотят проверить это."
-	reward = CARGO_CRATE_VALUE * 90
+	name = "Mushroom Leaves"
+	description = "Porcini mushroom leaves are rumored to have healing properties. Our researchers want to put that claim to the test."
+	reward = CARGO_CRATE_VALUE * 9
 	required_count = 3
-	wanted_types = list(/obj/item/food/grown/ash_flora/mushroom_leaf)
+	wanted_types = list(/obj/item/food/grown/ash_flora/mushroom_leaf = TRUE)

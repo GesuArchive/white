@@ -10,12 +10,12 @@
 	fade = 1 SECONDS
 	grow = -0.01
 	velocity = list(0, 0)
-	position = generator("circle", 0, 16, NORMAL_RAND)
-	drift = generator("vector", list(0, -0.2), list(0, 0.2))
+	position = generator(GEN_CIRCLE, 0, 16, NORMAL_RAND)
+	drift = generator(GEN_VECTOR, list(0, -0.2), list(0, 0.2))
 	gravity = list(0, 0.95)
-	scale = generator("vector", list(0.3, 0.3), list(1,1), NORMAL_RAND)
+	scale = generator(GEN_VECTOR, list(0.3, 0.3), list(1,1), NORMAL_RAND)
 	rotation = 30
-	spin = generator("num", -20, 20)
+	spin = generator(GEN_NUM, -20, 20)
 
 /particles/embers
 	icon = 'icons/effects/particles/generic.dmi'
@@ -29,7 +29,7 @@
 	color = 0
 	color_change = 0.05
 	gradient = list("#FBAF4D", "#FCE6B6", "#FD481C")
-	position = generator("box", list(-12,-16,0), list(12,16,0), NORMAL_RAND)
-	drift = generator("vector", list(-0.1,0), list(0.1,0.025), UNIFORM_RAND)
-	spin = generator("num", list(-15,15), NORMAL_RAND)
-	scale = generator("vector", list(0.5,0.5), list(2,2), NORMAL_RAND)
+	position = generator(GEN_BOX, list(-12,-16,0), list(12,16,0), NORMAL_RAND)
+	drift = generator(GEN_VECTOR, list(-0.1,0), list(0.1,0.025), UNIFORM_RAND)
+	spin = generator(GEN_NUM, list(-15,15), NORMAL_RAND)
+	scale = generator(GEN_VECTOR, list(0.5,0.5), list(2,2), NORMAL_RAND)

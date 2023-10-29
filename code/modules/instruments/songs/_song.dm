@@ -6,7 +6,7 @@
  */
 /datum/song
 	/// Name of the song
-	var/name = "Без названия"
+	var/name = "Untitled"
 
 	/// The atom we're attached to/playing from
 	var/atom/parent
@@ -201,11 +201,11 @@
 	if(playing)
 		return
 	if(!using_instrument?.ready())
-		to_chat(user, span_warning("Произошла ошибка с [src]. Пожалуйста, перезагрузите инструмент."))
+		to_chat(user, span_warning("An error has occured with [src]. Please reset the instrument."))
 		return
 	compile_chords()
 	if(!length(compiled_chords))
-		to_chat(user, span_warning("Песня пуста."))
+		to_chat(user, span_warning("Song is empty."))
 		return
 	playing = TRUE
 	//we can not afford to runtime, since we are going to be doing sound channel reservations and if we runtime it means we have a channel allocation leak.
@@ -250,7 +250,8 @@
 		stop_playing(FALSE)
 		return
 	var/list/chord = compiled_chords[current_chord]
-	if(++elapsed_delay < delay_by)
+	elapsed_delay++
+	if(elapsed_delay < delay_by)
 		return
 	play_chord(chord)
 	elapsed_delay = 0
@@ -270,7 +271,7 @@
  */
 /datum/song/proc/tempodiv_to_delay(tempodiv)
 	if(!tempodiv)
-		tempodiv = 2		// no division by 0. some song converters tend to use 0 for when it wants to have no div, for whatever reason.
+		tempodiv = 1 // no division by 0. some song converters tend to use 0 for when it wants to have no div, for whatever reason.
 	return max(1, round((tempo/tempodiv) / world.tick_lag, 1))
 
 /**
@@ -380,7 +381,7 @@
  * Setter for setting linear falloff duration.
  */
 /datum/song/proc/set_linear_falloff_duration(duration)
-	sustain_linear_duration = clamp(round(duration * 10, world.tick_lag), 0.1, INSTRUMENT_MAX_TOTAL_SUSTAIN)
+	sustain_linear_duration = clamp(round(duration * 10, world.tick_lag), world.tick_lag, INSTRUMENT_MAX_TOTAL_SUSTAIN)
 	update_sustain()
 	updateDialog()
 

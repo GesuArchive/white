@@ -3,545 +3,760 @@
 ///////////////////////////////////
 
 /datum/design/board/ripley_main
-	name = "АПЛУ \"Рипли\" - Основной контролер"
-	desc = "Необходима для строительства экзокостюма \"Рипли\" - Основной контролер."
+	name = "APLU \"Ripley\" Central Control module"
+	desc = "Allows for the construction of a \"Ripley\" Central Control module."
 	id = "ripley_main"
 	build_path = /obj/item/circuitboard/mecha/ripley/main
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_RIPLEY
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/ripley_peri
-	name = "АПЛУ \"Рипли\" - Вспомогательный контролер"
-	desc = "Необходима для строительства экзокостюма \"Рипли\" - Вспомогательный контролер."
+	name = "APLU \"Ripley\" Peripherals Control module"
+	desc = "Allows for the construction of a \"Ripley\" Peripheral Control module."
 	id = "ripley_peri"
 	build_path = /obj/item/circuitboard/mecha/ripley/peripherals
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_RIPLEY
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/odysseus_main
-	name = "\"Одиссей\" - Основной контролер"
-	desc = "Необходима для строительства экзокостюма \"Одиссей\" - Основной контролер."
+	name = "\"Odysseus\" Central Control module"
+	desc = "Allows for the construction of a \"Odysseus\" Central Control module."
 	id = "odysseus_main"
 	build_path = /obj/item/circuitboard/mecha/odysseus/main
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_ODYSSEUS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/odysseus_peri
-	name = "\"Одиссей\" - Вспомогательный контролер"
-	desc = "Необходима для строительства экзокостюма \"Одиссей\" - Вспомогательный контролер."
+	name = "\"Odysseus\" Peripherals Control module"
+	desc = "Allows for the construction of a \"Odysseus\" Peripheral Control module."
 	id = "odysseus_peri"
 	build_path = /obj/item/circuitboard/mecha/odysseus/peripherals
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_ODYSSEUS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/gygax_main
-	name = "\"Гигакс\" - Основной контролер"
-	desc = "Необходима для строительства экзокостюма \"Гигакс\" - Основной контролер."
+	name = "\"Gygax\" Central Control module"
+	desc = "Allows for the construction of a \"Gygax\" Central Control module."
 	id = "gygax_main"
 	build_path = /obj/item/circuitboard/mecha/gygax/main
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_GYGAX
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/gygax_peri
-	name = "\"Гигакс\" - Вспомогательный контролер"
-	desc = "Необходима для строительства экзокостюма \"Гигакс\" - Вспомогательный контролер."
+	name = "\"Gygax\" Peripherals Control module"
+	desc = "Allows for the construction of a \"Gygax\" Peripheral Control module."
 	id = "gygax_peri"
 	build_path = /obj/item/circuitboard/mecha/gygax/peripherals
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_GYGAX
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/gygax_targ
-	name = "\"Гигакс\" - Орудийный контролер"
-	desc = "Необходима для строительства экзокостюма \"Гигакс\" - Орудийный контролер."
+	name = "\"Gygax\" Weapons & Targeting Control module"
+	desc = "Allows for the construction of a \"Gygax\" Weapons & Targeting Control module."
 	id = "gygax_targ"
 	build_path = /obj/item/circuitboard/mecha/gygax/targeting
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_GYGAX
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/durand_main
-	name = "\"Дюранд\" - Основной контролер"
-	desc = "Необходима для строительства экзокостюма \"Дюранд\" - Основной контролер."
+	name = "\"Durand\" Central Control module"
+	desc = "Allows for the construction of a \"Durand\" Central Control module."
 	id = "durand_main"
 	build_path = /obj/item/circuitboard/mecha/durand/main
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_DURAND
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/durand_peri
-	name = "\"Дюранд\" - Вспомогательный контролер"
-	desc = "Необходима для строительства экзокостюма \"Дюранд\" - Вспомогательный контролер."
+	name = "\"Durand\" Peripherals Control module"
+	desc = "Allows for the construction of a \"Durand\" Peripheral Control module."
 	id = "durand_peri"
 	build_path = /obj/item/circuitboard/mecha/durand/peripherals
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_DURAND
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/durand_targ
-	name = "\"Дюранд\" - Орудийный контролер"
-	desc = "Необходима для строительства экзокостюма \"Дюранд\" - Орудийный контролер."
+	name = "\"Durand\" Weapons & Targeting Control module"
+	desc = "Allows for the construction of a \"Durand\" Weapons & Targeting Control module."
 	id = "durand_targ"
 	build_path = /obj/item/circuitboard/mecha/durand/targeting
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_DURAND
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/honker_main
-	name = "\"Х.О.Н.К\" - Основной контролер"
-	desc = "Необходима для строительства экзокостюма \"Х.О.Н.К\" - Основной контролер."
+	name = "\"H.O.N.K.\" Central Control module"
+	desc = "Allows for the construction of a \"H.O.N.K.\" Central Control module."
 	id = "honker_main"
 	build_path = /obj/item/circuitboard/mecha/honker/main
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_HONK
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/honker_peri
-	name = "\"Х.О.Н.К\" - Вспомогательный контролер"
-	desc = "Необходима для строительства экзокостюма \"Х.О.Н.К\" - Вспомогательный контролер."
+	name = "\"H.O.N.K.\" Peripherals Control module"
+	desc = "Allows for the construction of a \"H.O.N.K.\" Peripheral Control module."
 	id = "honker_peri"
 	build_path = /obj/item/circuitboard/mecha/honker/peripherals
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_HONK
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/honker_targ
-	name = "\"Х.О.Н.К\" - Орудийный контролер"
-	desc = "Необходима для строительства экзокостюма \"Х.О.Н.К\" - Орудийный контролер."
+	name = "\"H.O.N.K.\" Weapons & Targeting Control module"
+	desc = "Allows for the construction of a \"H.O.N.K.\" Weapons & Targeting Control module."
 	id = "honker_targ"
 	build_path = /obj/item/circuitboard/mecha/honker/targeting
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_HONK
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/phazon_main
-	name = "\"Фазон\" - Основной контролер"
-	desc = "Необходима для строительства экзокостюма \"Фазон\" - Основной контролер."
+	name = "\"Phazon\" Central Control module"
+	desc = "Allows for the construction of a \"Phazon\" Central Control module."
 	id = "phazon_main"
-	materials = list(/datum/material/glass = 1000, /datum/material/bluespace = 100)
+	materials = list(/datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace =SMALL_MATERIAL_AMOUNT)
 	build_path = /obj/item/circuitboard/mecha/phazon/main
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_PHAZON
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/phazon_peri
-	name = "\"Фазон\" - Вспомогательный контролер"
-	desc = "Необходима для строительства экзокостюма \"Фазон\" - Вспомогательный контролер."
+	name = "\"Phazon\" Peripherals Control module"
+	desc = "Allows for the construction of a \"Phazon\" Peripheral Control module."
 	id = "phazon_peri"
-	materials = list(/datum/material/glass = 1000, /datum/material/bluespace = 100)
+	materials = list(/datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace =SMALL_MATERIAL_AMOUNT)
 	build_path = /obj/item/circuitboard/mecha/phazon/peripherals
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_PHAZON
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/phazon_targ
-	name = "\"Фазон\" - Орудийный контролер"
-	desc = "Необходима для строительства экзокостюма \"Фазон\" - Орудийный контролер."
+	name = "\"Phazon\" Weapons & Targeting Control module"
+	desc = "Allows for the construction of a \"Phazon\" Weapons & Targeting Control module."
 	id = "phazon_targ"
-	materials = list(/datum/material/glass = 1000, /datum/material/bluespace = 100)
+	materials = list(/datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace =SMALL_MATERIAL_AMOUNT)
 	build_path = /obj/item/circuitboard/mecha/phazon/targeting
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_PHAZON
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/clarke_main
-	name = "\"Кларк\" - Основной контролер"
-	desc = "Необходима для строительства экзокостюма \"Кларк\" - Основной контролер."
+	name = "\"Clarke\" Central Control module"
+	desc = "Allows for the construction of a \"Clarke\" Central Control module."
 	id = "clarke_main"
 	build_path = /obj/item/circuitboard/mecha/clarke/main
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_CLARKE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/clarke_peri
-	name = "\"Кларк\" - Вспомогательный контролер"
-	desc = "Необходима для строительства экзокостюма \"Кларк\" - Вспомогательный контролер."
+	name = "\"Clarke\" Peripherals Control module"
+	desc = "Allows for the construction of a \"Clarke\" Peripheral Control module."
 	id = "clarke_peri"
 	build_path = /obj/item/circuitboard/mecha/clarke/peripherals
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_CLARKE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/savannah_ivanov_main
-	name = "\"Саванна-Иванов\" - Основной контролер"
-	desc = "Необходима для строительства экзокостюма \"Саванна-Иванов\" - Основной контролер."
+	name = "\"Savannah-Ivanov\" Central Control module"
+	desc = "Allows for the construction of a \"Savannah-Ivanov\" Central Control module."
 	id = "savannah_ivanov_main"
 	build_path = /obj/item/circuitboard/mecha/savannah_ivanov/main
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_SAVANNAH_IVANOV
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/savannah_ivanov_peri
-	name = "\"Саванна-Иванов\" - Вспомогательный контролер"
-	desc = "Необходима для строительства экзокостюма \"Саванна-Иванов\" - Вспомогательный контролер."
+	name = "\"Savannah-Ivanov\" Peripherals Control module"
+	desc = "Allows for the construction of a \"Savannah-Ivanov\" Peripheral Control module."
 	id = "savannah_ivanov_peri"
 	build_path = /obj/item/circuitboard/mecha/savannah_ivanov/peripherals
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_SAVANNAH_IVANOV
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/savannah_ivanov_targ
-	name = "\"Саванна-Иванов\" - Орудийный контролер"
-	desc = "Необходима для строительства экзокостюма \"Саванна-Иванов\" - Орудийный контролер."
+	name = "\"Savannah-Ivanov\" Weapons & Targeting Control module"
+	desc = "Allows for the construction of a \"Savannah-Ivanov\" Weapons & Targeting Control module."
 	id = "savannah_ivanov_targ"
 	build_path = /obj/item/circuitboard/mecha/savannah_ivanov/targeting
-	category = list("Модули экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	category = list(
+		RND_CATEGORY_EXOSUIT_BOARDS + RND_SUBCATEGORY_EXOSUIT_BOARDS_SAVANNAH_IVANOV
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 ////////////////////////////////////////
 /////////// Mecha Equpment /////////////
 ////////////////////////////////////////
 
 /datum/design/mech_scattershot
-	name = "Тяжелая картечница \"Дуплет\""
-	desc = "Оружие для боевых экзокостюмов. Стреляет шквалом крупной картечи."
+	name = "LBX AC 10 \"Scattershot\""
+	desc = "Allows for the construction of LBX AC 10."
 	id = "mech_scattershot"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
-	materials = list(/datum/material/iron=10000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	category = list("Орудийные модули")
-	sub_category = list("Огнестрельное вооружение")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_scattershot_ammo
-	name = "Картечные боеприпасы к \"Дуплету\""
-	desc = "Коробка крупной картечи для использования в дробовиках для экзокостюмов."
+	name = "LBX AC 10 Ammunition"
+	desc = "Ammunition for the LBX AC 10 exosuit weapon."
 	id = "mech_scattershot_ammo"
-	build_type = PROTOLATHE | MECHFAB
+	build_type = MECHFAB
 	build_path = /obj/item/mecha_ammo/scattershot
-	materials = list(/datum/material/iron=6000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*3)
 	construction_time = 20
-	category = list("Орудийные модули", "Боеприпасы")
-	sub_category = list("Боеприпасы экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_carbine
-	name = "Легкий зажигательный карабин БК-БЗ \"Аид\""
-	desc = "Оружие для боевых экзокостюмов. Стреляет зажигательными пулями."
+	name = "FNX-99 \"Hades\" Carbine"
+	desc = "Allows for the construction of FNX-99 \"Hades\" Carbine."
 	id = "mech_carbine"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/carbine
-	materials = list(/datum/material/iron=10000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	category = list("Орудийные модули")
-	sub_category = list("Огнестрельное вооружение")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_carbine_ammo
-	name = "Зажигательные боеприпасы к БК-БЗ \"Аид\""
-	desc = "Коробка зажигательных боеприпасов для использования в карабинах для экзокостюмов."
+	name = "FNX-99 Carbine Ammunition"
+	desc = "Ammunition for the FNX-99 \"Hades\" Carbine."
 	id = "mech_carbine_ammo"
-	build_type = PROTOLATHE | MECHFAB
-	build_path = /obj/item/mecha_ammo/incendiary
-	materials = list(/datum/material/iron=6000)
-	construction_time = 20
-	category = list("Орудийные модули", "Боеприпасы")
-	sub_category = list("Боеприпасы экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
-
-/datum/design/mech_bfg
-	name = "Радиоактивная пушка \"Грейз\""
-	desc = "Позволяет создать Радиоактивную пушку \"Грейз\"."
-	id = "mech_bfg"
 	build_type = MECHFAB
-	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/bfg
-	materials = list(/datum/material/iron=12000,/datum/material/uranium=6000,/datum/material/diamond=2000)
-	construction_time = 10 SECONDS
-	category = list("Орудийные модули")
-	sub_category = list("Плазменное вооружение")
-
-/datum/design/mech_bfg_ammo
-	name = "Энергоячейки к Радиоактивной пушке \"Грейз\"."
-	desc = "Позволяет создавать энергоячейки к Радиоактивной пушке \"Грейз\"."
-	id = "mech_bfg_ammo"
-	build_type = PROTOLATHE | MECHFAB
-	build_path = /obj/item/mecha_ammo/bfg
-	materials = list(/datum/material/iron=6000,/datum/material/uranium=6000,/datum/material/diamond=2000)
+	build_path = /obj/item/mecha_ammo/incendiary
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*3)
 	construction_time = 20
-	category = list("Орудийные модули", "Боеприпасы")
-	sub_category = list("Боеприпасы экзокостюмов")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_ion
-	name = "Тяжелое ионное орудие МК-4"
-	desc = "Оружие для боевых экзокостюмов. Стреляет эми импульсами повреждающими технику. Не попадите под собственный выстрел!"
+	name = "MKIV Ion Heavy Cannon"
+	desc = "Allows for the construction of MKIV Ion Heavy Cannon."
 	id = "mech_ion"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/ion
-	materials = list(/datum/material/iron=20000,/datum/material/silver=6000,/datum/material/uranium=2000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,/datum/material/uranium=SHEET_MATERIAL_AMOUNT)
 	construction_time = 100
-	category = list("Орудийные модули")
-	sub_category = list("Энергетическое вооружение")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_tesla
-	name = "Орудие Теслы МК-1"
-	desc = "Оружие для боевых экзокостюмов. Стреляет разветвленными разрядами электричества, прицельный огонь невозможен."
+	name = "MKI Tesla Cannon"
+	desc = "Allows for the construction of MKI Tesla Cannon."
 	id = "mech_tesla"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/tesla
-	materials = list(/datum/material/iron=20000,/datum/material/silver=8000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,/datum/material/silver=SHEET_MATERIAL_AMOUNT*4)
 	construction_time = 100
-	category = list("Орудийные модули")
-	sub_category = list("Энергетическое вооружение")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_laser
-	name = "Легкий лазер ЭВ-ЛЛ \"Выжигатель\""
-	desc = "Оружие для боевых экзокостюмов. Стреляет слабыми лазерами."
+	name = "CH-PS \"Immolator\" Laser"
+	desc = "Allows for the construction of CH-PS Laser."
 	id = "mech_laser"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser
-	materials = list(/datum/material/iron=10000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	category = list("Орудийные модули")
-	sub_category = list("Энергетическое вооружение")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_laser_heavy
-	name = "Тяжелый лазер ЭВ-ТЛ \"Солярис\""
-	desc = "Оружие для боевых экзокостюмов. Стреляет мощными лазерами."
+	name = "CH-LC \"Solaris\" Laser Cannon"
+	desc = "Allows for the construction of CH-LC Laser Cannon."
 	id = "mech_laser_heavy"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy
-	materials = list(/datum/material/iron=10000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	category = list("Орудийные модули")
-	sub_category = list("Энергетическое вооружение")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_disabler
-	name = "Усмиритель ЭВ-УЛ \"Миротворец\""
-	desc = "Оружие для боевых экзокостюмов. Стреляет слабыми парализующими лучами."
+	name = "CH-DS \"Peacemaker\" Disabler"
+	desc = "Allows for the construction of CH-DS Disabler."
 	id = "mech_disabler"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/disabler
-	materials = list(/datum/material/iron=10000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	category = list("Орудийные модули")
-	sub_category = list("Энергетическое вооружение")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_grenade_launcher
-	name = "Автоматический гранатомет АГС \"Заря\""
-	desc = "Оружие для боевых экзокостюмов. Автоматическая гранатометная система запускающая светошумовые гранаты."
+	name = "SGL-6 Grenade Launcher"
+	desc = "Allows for the construction of SGL-6 Grenade Launcher."
 	id = "mech_grenade_launcher"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/flashbang
-	materials = list(/datum/material/iron=22000,/datum/material/gold=6000,/datum/material/silver=8000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*11,/datum/material/gold=SHEET_MATERIAL_AMOUNT*3,/datum/material/silver=SHEET_MATERIAL_AMOUNT*4)
 	construction_time = 100
-	category = list("Орудийные модули")
-	sub_category = list("Системы залпового огня")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_grenade_launcher_ammo
-	name = "Светошумовые граната к АГС \"Заря\""
-	desc = "Коробка гранат для использования в АГС экзокостюма. Оснащены электрическим детонатором и немогут быть использованы вне АГЦ."
+	name = "SGL-6 Grenade Launcher Ammunition"
+	desc = "Ammunition for the SGL-6 Grenade Launcher."
 	id = "mech_grenade_launcher_ammo"
-	build_type = PROTOLATHE | MECHFAB
+	build_type = MECHFAB
 	build_path = /obj/item/mecha_ammo/flashbang
-	materials = list(/datum/material/iron=4000,/datum/material/gold=500,/datum/material/iron=500)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*2,/datum/material/gold=SMALL_MATERIAL_AMOUNT*5)
 	construction_time = 20
-	category = list("Орудийные модули", "Боеприпасы")
-	sub_category = list("Боеприпасы экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_missile_rack
-	name = "Легкая ракетная установка РСЗО \"Пробой-6\""
-	desc = "Оружие для боевых экзокостюмов. Запускает маловзрывоопасные разрывные ракеты, предназначенные для взрыва только при попадании в прочную цель."
+	name = "PEP-6 Missile Rack"
+	desc = "Allows for the construction of an PEP-6 Breaching Missile Rack."
 	id = "mech_missile_rack"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/breaching
-	materials = list(/datum/material/iron=22000,/datum/material/gold=6000,/datum/material/silver=8000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*11,/datum/material/gold=SHEET_MATERIAL_AMOUNT*3,/datum/material/silver=SHEET_MATERIAL_AMOUNT*4)
 	construction_time = 100
-	category = list("Орудийные модули")
-	sub_category = list("Системы залпового огня")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_missile_rack_ammo
-	name = "Ракеты РСЗО \"Пробой-6\""
-	desc = "Коробка с ракетами, готовая к загрузке в ракетную систему экзокостюма."
+	name = "PEP-6 Missile Rack Ammunition"
+	desc = "Ammunition for the PEP-6 Missile Rack."
 	id = "mech_missile_rack_ammo"
-	build_type = PROTOLATHE | MECHFAB
-	build_path = /obj/item/mecha_ammo/missiles_br
-	materials = list(/datum/material/iron=8000,/datum/material/gold=500,/datum/material/iron=500)
+	build_type = MECHFAB
+	build_path = /obj/item/mecha_ammo/missiles_pep
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*4,/datum/material/gold=SMALL_MATERIAL_AMOUNT*5)
 	construction_time = 20
-	category = list("Орудийные модули", "Боеприпасы")
-	sub_category = list("Боеприпасы экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/clusterbang_launcher
-	name = "Касетный гранатомет АГС \"Матрёшка\""
-	desc = "Оружие для боевых экзокостюмов. Запускает кластерные светошумовые гранаты. Ты чудовище."
+	name = "SOB-3 Clusterbang Launcher"
+	desc = "A weapon that violates the Geneva Convention at 3 rounds per minute."
 	id = "clusterbang_launcher"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/flashbang/clusterbang
-	materials = list(/datum/material/iron=20000,/datum/material/gold=10000,/datum/material/uranium=10000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,/datum/material/gold=SHEET_MATERIAL_AMOUNT*5,/datum/material/uranium=SHEET_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	category = list("Орудийные модули")
-	sub_category = list("Системы залпового огня")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/clusterbang_launcher_ammo
-	name = "Светошумовые граната к АГС \"Матрёшка\""
-	desc = "Коробка кластерных гранат для использования в АГС экзокостюма. Оснащены электрическим детонатором и немогут быть использованы вне АГЦ."
+	name = "SOB-3 Clusterbang Launcher Ammunition"
+	desc = "Ammunition for the SOB-3 Clusterbang Launcher"
 	id = "clusterbang_launcher_ammo"
-	build_type = PROTOLATHE | MECHFAB
+	build_type = MECHFAB
 	build_path = /obj/item/mecha_ammo/clusterbang
-	materials = list(/datum/material/iron=6000,/datum/material/gold=1500,/datum/material/uranium=1500)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*3,/datum/material/gold=HALF_SHEET_MATERIAL_AMOUNT * 1.5,/datum/material/uranium=HALF_SHEET_MATERIAL_AMOUNT * 1.5)
 	construction_time = 20
-	category = list("Орудийные модули", "Боеприпасы")
-	sub_category = list("Боеприпасы экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_WEAPONS,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_wormhole_gen
-	name = "Генератор червоточин экзокостюма"
-	desc = "Модуль экзокостюма, который позволяет создавать небольшие квазистабильные червоточины, позволяющие осуществлять неточную телепортацию на большие расстояния."
+	name = "Localized Wormhole Generator"
+	desc = "An exosuit module that allows generating of small quasi-stable wormholes."
 	id = "mech_wormhole_gen"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/wormhole_generator
-	materials = list(/datum/material/iron=10000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	category = list("Модули экзокостюмов")
-	sub_category = list("Универсальные системы")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MISC,
+		RND_CATEGORY_MECHFAB_RIPLEY + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_ODYSSEUS + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_CLARKE + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_teleporter
-	name = "Телепортер экзокостюма"
-	desc = "Модуль экзокостюма, который позволяет им телепортироваться в любое место в поле зрения."
+	name = "Teleporter Module"
+	desc = "An exosuit module that allows exosuits to teleport to any position in view."
 	id = "mech_teleporter"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/teleporter
-	materials = list(/datum/material/iron=10000,/datum/material/diamond=10000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5,/datum/material/diamond=SHEET_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	category = list("Модули экзокостюмов")
-	sub_category = list("Универсальные системы")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MISC,
+		RND_CATEGORY_MECHFAB_RIPLEY + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_ODYSSEUS + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_CLARKE + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_rcd
-	name = "РЦД экзокостюма"
-	desc = "Обладает меньшим функционалом, однако работает от батареи."
+	name = "RCD Module"
+	desc = "An exosuit-mounted Rapid Construction Device."
 	id = "mech_rcd"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/rcd
-	materials = list(/datum/material/iron=30000,/datum/material/gold=20000,/datum/material/plasma=25000,/datum/material/silver=20000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*15,/datum/material/gold=SHEET_MATERIAL_AMOUNT*10,/datum/material/plasma=SHEET_MATERIAL_AMOUNT*12.5,/datum/material/silver=SHEET_MATERIAL_AMOUNT*10)
 	construction_time = 1200
-	category = list("Модули экзокостюмов")
-	sub_category = list("Инженерные системы")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MISC,
+		RND_CATEGORY_MECHFAB_RIPLEY + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_ODYSSEUS + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_CLARKE + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_thrusters
-	name = "Реактивные двигатели экзокостюма"
-	desc = "Набор двигателей, которые позволяют передвигаться в экзокостюме в условиях невесомости, потребляя газ из внутреннего бака жизнеобеспечения."
+	name = "RCS Thruster Package"
+	desc = "A thruster package for exosuits. Expells gas from the internal life-support air tank to generate thrust."
 	id = "mech_thrusters"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/thrusters/gas
-	materials = list(/datum/material/iron=25000,/datum/material/titanium=5000,/datum/material/silver=3000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*12.5,/datum/material/titanium=SHEET_MATERIAL_AMOUNT * 2.5,/datum/material/silver=SHEET_MATERIAL_AMOUNT*1.5)
 	construction_time = 100
-	category = list("Модули экзокостюмов")
-	sub_category = list("Универсальные системы")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MODULES,
+		RND_CATEGORY_MECHFAB_RIPLEY + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_ODYSSEUS + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_CLARKE + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_gravcatapult
-	name = "Гравитационная катапульта экзокостюма"
-	desc = "Гравитационная катапульта, установленная в экзокостюме."
+	name = "Gravitational Catapult Module"
+	desc = "An exosuit mounted Gravitational Catapult."
 	id = "mech_gravcatapult"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/gravcatapult
-	materials = list(/datum/material/iron=10000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	category = list("Модули экзокостюмов")
-	sub_category = list("Инженерные системы")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MISC,
+		RND_CATEGORY_MECHFAB_RIPLEY + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_ODYSSEUS + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_CLARKE + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_repair_droid
-	name = "Ремонтный дрон экзокостюма"
-	desc = "Автоматический ремонтный дроид для экзокостюмов. Сканирует на наличие повреждений и восстанавливает их. Может устранить практически все виды внешних или внутренних повреждений."
+	name = "Repair Droid Module"
+	desc = "Automated Repair Droid. BEEP BOOP"
 	id = "mech_repair_droid"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/repair_droid
-	materials = list(/datum/material/iron=10000,/datum/material/glass = 5000,/datum/material/gold=1000,/datum/material/silver=2000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5,/datum/material/glass =SHEET_MATERIAL_AMOUNT * 2.5,/datum/material/gold=HALF_SHEET_MATERIAL_AMOUNT,/datum/material/silver=SHEET_MATERIAL_AMOUNT)
 	construction_time = 100
-	category = list("Модули экзокостюмов")
-	sub_category = list("Системы обслуживания")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MODULES,
+		RND_CATEGORY_MECHFAB_RIPLEY + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_ODYSSEUS + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_CLARKE + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_ccw_armor
-	name = "Демпферная броня (ближний бой)"
-	desc = "Усиливает броню экзокостюма против атак ближнего боя. Потребляет энергию для работы."
+	name = "Reactive Armor Booster Module"
+	desc = "Exosuit-mounted melee armor booster."
 	id = "mech_ccw_armor"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/armor/anticcw_armor_booster
-	materials = list(/datum/material/iron=20000,/datum/material/silver=5000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,/datum/material/silver=SHEET_MATERIAL_AMOUNT * 2.5)
 	construction_time = 100
-	category = list("Модули экзокостюмов")
-	sub_category = list("Системы обслуживания")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MODULES,
+		RND_CATEGORY_MECHFAB_RIPLEY + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_ODYSSEUS + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_CLARKE + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_proj_armor
-	name = "Композитная броня (дальний бой)"
-	desc = "Усиливает броню экзокостюма против дальних атак. Полностью блокирует выстрелы из электрошокера. Потребляет энергию для работы."
+	name = "Reflective Armor Booster Module"
+	desc = "Exosuit-mounted ranged armor booster."
 	id = "mech_proj_armor"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/armor/antiproj_armor_booster
-	materials = list(/datum/material/iron=20000,/datum/material/gold=5000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,/datum/material/gold=SHEET_MATERIAL_AMOUNT * 2.5)
 	construction_time = 100
-	category = list("Модули экзокостюмов")
-	sub_category = list("Системы обслуживания")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MODULES,
+		RND_CATEGORY_MECHFAB_RIPLEY + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_ODYSSEUS + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_CLARKE + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_diamond_drill
-	name = "Алмазный бур экзокостюма"
-	desc = "Оборудование для инженерных и боевых экзокостюмов. Это усовершенствованная версия!"
+	name = "Diamond Mining Drill"
+	desc = "An upgraded version of the standard drill."
 	id = "mech_diamond_drill"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/drill/diamonddrill
-	materials = list(/datum/material/iron=10000,/datum/material/diamond=6500)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5,/datum/material/diamond=SHEET_MATERIAL_AMOUNT*3.25)
 	construction_time = 100
-	category = list("Модули экзокостюмов")
-	sub_category = list("Инженерные системы")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MINING,
+		RND_CATEGORY_MECHFAB_RIPLEY + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MINING,
+		RND_CATEGORY_MECHFAB_CLARKE + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MINING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_plasma_cutter
-	name = "Тяжелый плазменный резак 217-Д"
-	desc = "Устройство, которое стреляет резонансными плазменными вспышками с предельной скоростью. Взрывы способны дробить скалы и разрушать твердые препятствия."
+	name = "217-D Heavy Plasma Cutter"
+	desc = "A device that shoots resonant plasma bursts at extreme velocity. The blasts are capable of crushing rock and demolishing solid obstacles."
 	id = "mech_plasma_cutter"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma
-	materials = list(/datum/material/iron = 8000, /datum/material/glass = 1000, /datum/material/plasma = 2000)
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*4, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plasma =SHEET_MATERIAL_AMOUNT)
 	construction_time = 100
-	category = list("Модули экзокостюмов")
-	sub_category = list("Инженерные системы")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MINING,
+		RND_CATEGORY_MECHFAB_RIPLEY + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_CLARKE + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mecha_kineticgun
-	name = "Тяжелый прото-кинетический аксселератор"
-	desc = "Установленный на экзокостюме аксселератор, наносящий повышенный урон при низком давлении. Питание от бортового источника позволяет ему проецироваться дальше, чем ручная версия."
+	name = "Exosuit Proto-Kinetic Accelerator"
+	desc = "An exosuit-mounted mining tool that does increased damage in low pressure. Drawing from an onboard power source allows it to project further than the handheld version."
 	id = "mecha_kineticgun"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/mecha_kineticgun
-	materials = list(/datum/material/iron = 8000, /datum/material/glass = 1000)
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*4, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT)
 	construction_time = 100
-	category = list("Модули экзокостюмов")
-	sub_category = list("Инженерные системы")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MINING,
+		RND_CATEGORY_MECHFAB_RIPLEY + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_HONK + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_CLARKE + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_lmg
-	name = "Легкий пулемет Ультра АК-2"
-	desc = "Оружие для боевых экзокостюмов. Стреляет короткой очередью из трех выстрелов."
+	name = "Ultra AC 2 LMG"
+	desc = "A weapon for combat exosuits. Shoots a rapid, three shot burst."
 	id = "mech_lmg"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg
-	materials = list(/datum/material/iron=10000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	category = list("Орудийные модули")
-	sub_category = list("Огнестрельное вооружение")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MINING,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_lmg_ammo
-	name = "Пулеметные боеприпасы к Ультра АК-2"
-	desc = "Коробка ленточных боеприпасов, предназначенная для пулемета в экзокостюмах."
+	name = "Ultra AC 2 Ammunition"
+	desc = "Ammunition for the Ultra AC 2 LMG"
 	id = "mech_lmg_ammo"
-	build_type = PROTOLATHE | MECHFAB
+	build_type = MECHFAB
 	build_path = /obj/item/mecha_ammo/lmg
-	materials = list(/datum/material/iron=4000)
+	materials = list(/datum/material/iron= SHEET_MATERIAL_AMOUNT *2)
 	construction_time = 20
-	category = list("Орудийные модули", "Боеприпасы")
-	sub_category = list("Боеприпасы экзокостюмов")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MINING,
+		RND_CATEGORY_MECHFAB_GYGAX + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_DURAND + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT,
+		RND_CATEGORY_MECHFAB_PHAZON + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_sleeper
-	name = "Криокапсула экзокостюма"
-	desc = "Оборудование для медицинских экзокостюмов. Подвесная криокапсула, которое стабилизирует пациентов и может вводить реагенты из синтезатора экзокостюма."
+	name = "Mounted Sleeper"
+	desc = "Equipment for medical exosuits. A mounted sleeper that stabilizes patients and can inject reagents in the exosuit's reserves."
 	id = "mech_sleeper"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/medical/sleeper
-	materials = list(/datum/material/iron=5000, /datum/material/glass =  10000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT*5)
 	construction_time = 100
-	category = list("Модули экзокостюмов")
-	sub_category = list("Одиссей")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MEDICAL,
+		RND_CATEGORY_MECHFAB_ODYSSEUS + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_syringe_gun
-	name = "Шприцемет экзокостюма"
-	desc = "Оборудование для медицинских экзокостюмов. Химический синтезатор со шприц-пистолетом. Реагенты внутри находятся в состоянии стазиса, поэтому никаких реакций не произойдет."
+	name = "Exosuit Medical (Syringe Gun)"
+	desc = "Equipment for medical exosuits. A chem synthesizer with syringe gun. Reagents inside are held in stasis, so no reactions will occur."
 	id = "mech_syringe_gun"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/medical/syringe_gun
-	materials = list(/datum/material/iron=3000, /datum/material/glass = 2000)
+	materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT*1.5, /datum/material/glass =SHEET_MATERIAL_AMOUNT)
 	construction_time = 200
-	category = list("Модули экзокостюмов")
-	sub_category = list("Одиссей")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MEDICAL,
+		RND_CATEGORY_MECHFAB_ODYSSEUS + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/mech_medical_beamgun
-	name = "Медлуч экзокостюма"
-	desc = "Оборудование для медицинских экзокостюмов. Генерирует сфокусированный луч медицинских нанитов."
+	name = "Exosuit Medical (Medical Beamgun)"
+	desc = "Equipment for medical exosuits. A mounted medical nanite projector which will treat patients with a focused beam."
 	id = "mech_medi_beam"
 	build_type = MECHFAB
-	materials = list(/datum/material/iron = 15000, /datum/material/glass = 8000, /datum/material/plasma = 3000, /datum/material/gold = 8000, /datum/material/diamond = 2000)
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*7.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT*4, /datum/material/plasma =SHEET_MATERIAL_AMOUNT*1.5, /datum/material/gold = SHEET_MATERIAL_AMOUNT*4, /datum/material/diamond =SHEET_MATERIAL_AMOUNT)
 	construction_time = 250
 	build_path = /obj/item/mecha_parts/mecha_equipment/medical/mechmedbeam
-	category = list("Модули экзокостюмов")
-	sub_category = list("Одиссей")
+	category = list(
+		RND_CATEGORY_MECHFAB_EQUIPMENT + RND_SUBCATEGORY_MECHFAB_EQUIPMENT_MEDICAL,
+		RND_CATEGORY_MECHFAB_ODYSSEUS + RND_SUBCATEGORY_MECHFAB_SUPPORTED_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE

@@ -58,7 +58,7 @@
 
 	// if we did indeed suck up something, play a funny noise
 	if (sucked)
-		playsound(parent, "rustle", 50, TRUE, -5)
+		playsound(parent, SFX_RUSTLE, 50, TRUE, -5)
 
 /**
  * Handler for when a new trash bag is attached
@@ -71,7 +71,7 @@
 	SIGNAL_HANDLER
 
 	vacuum_bag = new_bag
-	RegisterSignal(new_bag, COMSIG_PARENT_QDELETING, PROC_REF(detach_bag))
+	RegisterSignal(new_bag, COMSIG_QDELETING, PROC_REF(detach_bag))
 
 /**
  * Handler for when a trash bag is detached
@@ -82,5 +82,5 @@
 /datum/component/vacuum/proc/detach_bag(datum/source)
 	SIGNAL_HANDLER
 	if (vacuum_bag) // null check to avoid runtime on bag being deleted then sending detach as a result from parent
-		UnregisterSignal(vacuum_bag, COMSIG_PARENT_QDELETING)
+		UnregisterSignal(vacuum_bag, COMSIG_QDELETING)
 		vacuum_bag = null

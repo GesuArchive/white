@@ -4,8 +4,8 @@
  * Converts any value into a string
  */
 /obj/item/circuit_component/tostring
-	display_name = "В строку"
-	desc = "Компонент, который преобразует входные данные в текст."
+	display_name = "To String"
+	desc = "A component that converts its input to text."
 	category = "String"
 
 	/// The input port
@@ -19,8 +19,8 @@
 	var/max_range = 7
 
 /obj/item/circuit_component/tostring/populate_ports()
-	input_port = add_input_port("Вход", PORT_TYPE_ANY)
-	output = add_output_port("Выход", PORT_TYPE_STRING)
+	input_port = add_input_port("Input", PORT_TYPE_ANY)
+	output = add_output_port("Output", PORT_TYPE_STRING)
 
 /obj/item/circuit_component/tostring/input_received(datum/port/input/port)
 
@@ -33,3 +33,4 @@
 			return
 
 	output.set_output("[value]")
+

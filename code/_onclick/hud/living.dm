@@ -4,26 +4,15 @@
 /datum/hud/living/New(mob/living/owner)
 	..()
 
-	pull_icon = new /atom/movable/screen/pull()
-	pull_icon.icon = retro_hud ? ui_style : pull_icon.icon
-	pull_icon.update_icon()
-	pull_icon.screen_loc = retro_hud ? UI_LIVING_PULL_RETRO : UI_LIVING_PULL
-	pull_icon.hud = src
+	pull_icon = new /atom/movable/screen/pull(null, src)
+	pull_icon.icon = ui_style
+	pull_icon.update_appearance()
+	pull_icon.screen_loc = ui_living_pull
 	static_inventory += pull_icon
 
-	combo_display = new /atom/movable/screen/combo()
-	combo_display.icon = retro_hud ? combo_display.icon : ui_style
-	combo_display.icon_state = retro_hud ? "" : "combo_bg"
-	combo_display.screen_loc = retro_hud ? UI_COMBO_RETRO : UI_COMBO
-	combo_display.retro_hud = retro_hud
+	combo_display = new /atom/movable/screen/combo(null, src)
 	infodisplay += combo_display
 
 	//mob health doll! assumes whatever sprite the mob is
-	healthdoll = new /atom/movable/screen/healthdoll/living()
-	healthdoll.screen_loc = retro_hud ? UI_LIVING_HEALTHDOLL_RETRO : UI_LIVING_HEALTHDOLL
-	healthdoll.hud = src
+	healthdoll = new /atom/movable/screen/healthdoll/living(null, src)
 	infodisplay += healthdoll
-
-	typer = new /atom/movable/screen/typer()
-	typer.hud = src
-	infodisplay += typer

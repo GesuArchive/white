@@ -13,10 +13,10 @@
 	if(..())
 		return
 	var/mob/living/silicon/robot/R = usr
-	if(R.module.type != /obj/item/robot_module)
+	if(R.model.type != /obj/item/robot_model)
 		R.hud_used.toggle_show_robot_modules()
 		return 1
-	R.pick_module()
+	R.pick_model()
 
 /atom/movable/screen/robot/module1
 	name = "module1"
@@ -77,65 +77,52 @@
 	var/mob/living/silicon/robot/robit = mymob
 	var/atom/movable/screen/using
 
-	using = new/atom/movable/screen/language_menu
-	using.icon = retro_hud ? ui_style : using.icon
-	using.screen_loc = retro_hud ? UI_BORG_LANGUAGE_MENU_RETRO : UI_BORG_LANGUAGE_MENU
+	using = new/atom/movable/screen/language_menu(null, src)
+	using.screen_loc = ui_borg_language_menu
 	static_inventory += using
 
 // Navigation
-	using = new /atom/movable/screen/navigate
-	using.icon = retro_hud ? ui_style : using.icon
-	using.screen_loc = retro_hud ? UI_BORG_NAVIGATION_RETRO : UI_BORG_NAVIGATION
+	using = new /atom/movable/screen/navigate(null, src)
+	using.screen_loc = ui_borg_navigate_menu
 	static_inventory += using
 
 //Radio
-	using = new /atom/movable/screen/robot/radio()
-	using.screen_loc = retro_hud ? UI_BORG_RADIO_RETRO : UI_BORG_RADIO
-	using.hud = src
+	using = new /atom/movable/screen/robot/radio(null, src)
+	using.screen_loc = ui_borg_radio
 	static_inventory += using
 
 //Module select
 	if(!robit.inv1)
-		robit.inv1 = new /atom/movable/screen/robot/module1()
-
-	robit.inv1.screen_loc = UI_INV1
-	robit.inv1.hud = src
+		robit.inv1 = new /atom/movable/screen/robot/module1(null, src)
+	robit.inv1.screen_loc = ui_inv1
 	static_inventory += robit.inv1
 
 	if(!robit.inv2)
-		robit.inv2 = new /atom/movable/screen/robot/module2()
-
-	robit.inv2.screen_loc = UI_INV2
-	robit.inv2.hud = src
+		robit.inv2 = new /atom/movable/screen/robot/module2(null, src)
+	robit.inv2.screen_loc = ui_inv2
 	static_inventory += robit.inv2
 
 	if(!robit.inv3)
-		robit.inv3 = new /atom/movable/screen/robot/module3()
-
-	robit.inv3.screen_loc = UI_INV3
-	robit.inv3.hud = src
+		robit.inv3 = new /atom/movable/screen/robot/module3(null, src)
+	robit.inv3.screen_loc = ui_inv3
 	static_inventory += robit.inv3
 
 //End of module select
-
-	using = new /atom/movable/screen/robot/lamp()
-	using.screen_loc = retro_hud ? UI_BORG_LAMP_RETRO : UI_BORG_LAMP
-	using.hud = src
+	using = new /atom/movable/screen/robot/lamp(null, src)
+	using.screen_loc = ui_borg_lamp
 	static_inventory += using
 	robit.lampButton = using
 	var/atom/movable/screen/robot/lamp/lampscreen = using
 	lampscreen.robot = robit
 
 //Photography stuff
-	using = new /atom/movable/screen/ai/image_take()
-	using.screen_loc = retro_hud ? UI_BORG_CAMERA_RETRO : UI_BORG_CAMERA
-	using.hud = src
+	using = new /atom/movable/screen/ai/image_take(null, src)
+	using.screen_loc = ui_borg_camera
 	static_inventory += using
 
 //Borg Integrated Tablet
-	using = new /atom/movable/screen/robot/modpc()
-	using.screen_loc = retro_hud ? UI_BORG_TABLET_RETRO : UI_BORG_TABLET
-	using.hud = src
+	using = new /atom/movable/screen/robot/modpc(null, src)
+	using.screen_loc = ui_borg_tablet
 	static_inventory += using
 	robit.interfaceButton = using
 	if(robit.modularInterface)
@@ -146,54 +133,40 @@
 	tabletbutton.robot = robit
 
 //Alerts
-	using = new /atom/movable/screen/robot/alerts()
-	using.screen_loc = retro_hud ? UI_BORG_ALERTS_RETRO : UI_BORG_ALERTS
-	using.hud = src
+	using = new /atom/movable/screen/robot/alerts(null, src)
+	using.screen_loc = ui_borg_alerts
 	static_inventory += using
 
-//Intent
-	action_intent = new /atom/movable/screen/act_intent/robot()
-	action_intent.screen_loc = retro_hud ? UI_BORG_INTENTS_RETRO : UI_BORG_INTENTS
-	action_intent.icon_state = mymob.a_intent
-	action_intent.hud = src
+	//Combat Mode
+	action_intent = new /atom/movable/screen/combattoggle/robot(null, src)
+	action_intent.icon = ui_style
+	action_intent.screen_loc = ui_combat_toggle
 	static_inventory += action_intent
 
 //Health
-	healths = new /atom/movable/screen/healths/robot()
-	healths.screen_loc = retro_hud ? UI_BORG_HEALTH_RETRO : UI_BORG_HEALTH
-	healths.hud = src
+	healths = new /atom/movable/screen/healths/robot(null, src)
 	infodisplay += healths
 
 //Installed Module
-	robit.hands = new /atom/movable/screen/robot/module()
-	robit.hands.screen_loc = UI_BORG_MODULE
-	robit.hands.hud = src
+	robit.hands = new /atom/movable/screen/robot/module(null, src)
+	robit.hands.screen_loc = ui_borg_module
 	static_inventory += robit.hands
 
 //Store
-	module_store_icon = new /atom/movable/screen/robot/store()
-	module_store_icon.screen_loc = UI_BORG_STORE
-	module_store_icon.hud = src
+	module_store_icon = new /atom/movable/screen/robot/store(null, src)
+	module_store_icon.screen_loc = ui_borg_store
 
-	pull_icon = new /atom/movable/screen/pull()
+	pull_icon = new /atom/movable/screen/pull(null, src)
 	pull_icon.icon = 'icons/hud/screen_cyborg.dmi'
-	pull_icon.screen_loc = retro_hud ? UI_BORG_PULL_RETRO : UI_BORG_PULL
-	pull_icon.hud = src
-	pull_icon.update_icon()
+	pull_icon.screen_loc = ui_borg_pull
+	pull_icon.update_appearance()
 	hotkeybuttons += pull_icon
 
 
-	zone_select = new /atom/movable/screen/zone_sel/robot()
-	zone_select.retro_hud = retro_hud
-	zone_select.icon = retro_hud ? 'icons/hud/screen_cyborg.dmi' : zone_select.icon
-	zone_select.overlay_icon = retro_hud ? 'icons/hud/screen_gen.dmi' : zone_select.icon
-	zone_select.screen_loc = retro_hud ? UI_ZONESEL_RETRO : UI_ZONESEL
-	zone_select.hud = src
-	zone_select.update_icon()
+	zone_select = new /atom/movable/screen/zone_sel/robot(null, src)
+	zone_select.update_appearance()
 	static_inventory += zone_select
 
-	if(owner)
-		add_emote_panel(owner)
 
 /datum/hud/proc/toggle_show_robot_modules()
 	if(!iscyborg(mymob))
@@ -212,7 +185,7 @@
 
 	var/mob/screenmob = viewer || R
 
-	if(!R.module)
+	if(!R.model)
 		return
 
 	if(!R.client)
@@ -220,23 +193,23 @@
 
 	if(R.shown_robot_modules && screenmob.hud_used.hud_shown)
 		//Modules display is shown
-		screenmob.client.screen += module_store_icon	//"store" icon
+		screenmob.client.screen += module_store_icon //"store" icon
 
-		if(!R.module.modules)
-			to_chat(usr, span_warning("Selected module has no modules to select!"))
+		if(!R.model.modules)
+			to_chat(usr, span_warning("Selected model has no modules to select!"))
 			return
 
 		if(!R.robot_modules_background)
 			return
 
-		var/display_rows = max(CEILING(length(R.module.get_inactive_modules()) / 8, 1),1)
+		var/display_rows = max(CEILING(length(R.model.get_inactive_modules()) / 8, 1),1)
 		R.robot_modules_background.screen_loc = "CENTER-4:16,SOUTH+1:7 to CENTER+3:16,SOUTH+[display_rows]:7"
 		screenmob.client.screen += R.robot_modules_background
 
-		var/x = -4	//Start at CENTER-4,SOUTH+1
+		var/x = -4 //Start at CENTER-4,SOUTH+1
 		var/y = 1
 
-		for(var/atom/movable/A in R.module.get_inactive_modules())
+		for(var/atom/movable/A in R.model.get_inactive_modules())
 			//Module is not currently active
 			screenmob.client.screen += A
 			if(x < 0)
@@ -252,9 +225,9 @@
 
 	else
 		//Modules display is hidden
-		screenmob.client.screen -= module_store_icon	//"store" icon
+		screenmob.client.screen -= module_store_icon //"store" icon
 
-		for(var/atom/A in R.module.get_inactive_modules())
+		for(var/atom/A in R.model.get_inactive_modules())
 			//Module is not currently active
 			screenmob.client.screen -= A
 		R.shown_robot_modules = 0
@@ -274,11 +247,11 @@
 				if(I)
 					switch(i)
 						if(BORG_CHOOSE_MODULE_ONE)
-							I.screen_loc = UI_INV1
+							I.screen_loc = ui_inv1
 						if(BORG_CHOOSE_MODULE_TWO)
-							I.screen_loc = UI_INV2
+							I.screen_loc = ui_inv2
 						if(BORG_CHOOSE_MODULE_THREE)
-							I.screen_loc = UI_INV3
+							I.screen_loc = ui_inv3
 						else
 							return
 					screenmob.client.screen += I
@@ -289,6 +262,7 @@
 /atom/movable/screen/robot/lamp
 	name = "headlamp"
 	icon_state = "lamp_off"
+	base_icon_state = "lamp"
 	var/mob/living/silicon/robot/robot
 
 /atom/movable/screen/robot/lamp/Click()
@@ -296,14 +270,11 @@
 	if(.)
 		return
 	robot?.toggle_headlamp()
-	update_icon()
+	update_appearance()
 
-/atom/movable/screen/robot/lamp/update_icon()
-	. = ..()
-	if(robot?.lamp_enabled)
-		icon_state = "lamp_on"
-	else
-		icon_state = "lamp_off"
+/atom/movable/screen/robot/lamp/update_icon_state()
+	icon_state = "[base_icon_state]_[robot?.lamp_enabled ? "on" : "off"]"
+	return ..()
 
 /atom/movable/screen/robot/lamp/Destroy()
 	if(robot)

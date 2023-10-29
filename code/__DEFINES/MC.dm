@@ -1,7 +1,5 @@
 #define MC_TICK_CHECK ( ( TICK_USAGE > Master.current_ticklimit || src.state != SS_RUNNING ) ? pause() : 0 )
 
-#define MC_TICK_REMAINING_MS ((Master.current_ticklimit - TICK_USAGE) * world.tick_lag)
-
 #define MC_SPLIT_TICK_INIT(phase_count) var/original_tick_limit = Master.current_ticklimit; var/split_tick_phases = ##phase_count
 #define MC_SPLIT_TICK \
 	if(split_tick_phases > 1){\
@@ -19,10 +17,19 @@
 #define MC_AVG_FAST_UP_SLOW_DOWN(average, current) (average > current ? MC_AVERAGE_SLOW(average, current) : MC_AVERAGE_FAST(average, current))
 #define MC_AVG_SLOW_UP_FAST_DOWN(average, current) (average < current ? MC_AVERAGE_SLOW(average, current) : MC_AVERAGE_FAST(average, current))
 
+///creates a running average of "things elapsed" per time period when you need to count via a smaller time period.
+///eg you want an average number of things happening per second but you measure the event every tick (50 milliseconds).
+///make sure both time intervals are in the same units. doesnt work if current_duration > total_duration or if total_duration == 0
+#define MC_AVG_OVER_TIME(average, current, total_duration, current_duration) ((((total_duration) - (current_duration)) / (total_duration)) * (average) + (current))
+
+#define MC_AVG_MINUTES(average, current, current_duration) (MC_AVG_OVER_TIME(average, current, 1 MINUTES, current_duration))
+
+#define MC_AVG_SECONDS(average, current, current_duration) (MC_AVG_OVER_TIME(average, current, 1 SECONDS, current_duration))
+
 #define NEW_SS_GLOBAL(varname) if(varname != src){if(istype(varname)){Recover();qdel(varname);}varname = src;}
 
 #define START_PROCESSING(Processor, Datum) if (!(Datum.datum_flags & DF_ISPROCESSING)) {Datum.datum_flags |= DF_ISPROCESSING;Processor.processing += Datum}
-#define STOP_PROCESSING(Processor, Datum) Datum.datum_flags &= ~DF_ISPROCESSING;Processor.processing -= Datum
+#define STOP_PROCESSING(Processor, Datum) Datum.datum_flags &= ~DF_ISPROCESSING;Processor.processing -= Datum;Processor.currentrun -= Datum
 
 /// Returns true if the MC is initialized and running.
 /// Optional argument init_stage controls what stage the mc must have initializted to count as initialized. Defaults to INITSTAGE_MAX if not specified.
@@ -68,12 +75,12 @@
 #define SS_OK_TO_FAIL_INIT (1 << 6)
 
 //! SUBSYSTEM STATES
-#define SS_IDLE 0		/// ain't doing shit.
-#define SS_QUEUED 1		/// queued to run
-#define SS_RUNNING 2	/// actively running
-#define SS_PAUSED 3		/// paused by mc_tick_check
-#define SS_SLEEPING 4	/// fire() slept.
-#define SS_PAUSING 5 	/// in the middle of pausing
+#define SS_IDLE 0 /// ain't doing shit.
+#define SS_QUEUED 1 /// queued to run
+#define SS_RUNNING 2 /// actively running
+#define SS_PAUSED 3 /// paused by mc_tick_check
+#define SS_SLEEPING 4 /// fire() slept.
+#define SS_PAUSING 5 /// in the middle of pausing
 
 // Subsystem init stages
 #define INITSTAGE_EARLY 1 //! Early init stuff that doesn't need to wait for mapload
@@ -92,6 +99,7 @@
 	NEW_SS_GLOBAL(SS##X);\
 	PreInit();\
 }\
+/datum/controller/subsystem/timer/##X/fire() {..() /*just so it shows up on the profiler*/} \
 /datum/controller/subsystem/timer/##X
 
 #define MOVEMENT_SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/movement/##X);\
@@ -99,6 +107,7 @@
 	NEW_SS_GLOBAL(SS##X);\
 	PreInit();\
 }\
+/datum/controller/subsystem/movement/##X/fire() {..() /*just so it shows up on the profiler*/} \
 /datum/controller/subsystem/movement/##X
 
 #define PROCESSING_SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/processing/##X);\
@@ -106,6 +115,7 @@
 	NEW_SS_GLOBAL(SS##X);\
 	PreInit();\
 }\
+/datum/controller/subsystem/processing/##X/fire() {..() /*just so it shows up on the profiler*/} \
 /datum/controller/subsystem/processing/##X
 
 #define FLUID_SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/fluids/##X);\
@@ -115,3 +125,11 @@
 }\
 /datum/controller/subsystem/fluids/##X/fire() {..() /*just so it shows up on the profiler*/} \
 /datum/controller/subsystem/fluids/##X
+
+#define VERB_MANAGER_SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/verb_manager/##X);\
+/datum/controller/subsystem/verb_manager/##X/New(){\
+	NEW_SS_GLOBAL(SS##X);\
+	PreInit();\
+}\
+/datum/controller/subsystem/verb_manager/##X/fire() {..() /*just so it shows up on the profiler*/} \
+/datum/controller/subsystem/verb_manager/##X

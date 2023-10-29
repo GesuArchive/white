@@ -7,6 +7,7 @@
 	name = "circuit assembly"
 	desc = "A small electronic device that can house an integrated circuit."
 	icon_state = "wiremod"
+	attachable = TRUE
 
 /obj/item/assembly/wiremod/Initialize(mapload)
 	. = ..()
@@ -55,7 +56,7 @@
 
 /obj/item/circuit_component/assembly_output/register_shell(atom/movable/shell)
 	. = ..()
-	if(istype(shell, /obj/item/assembly))
+	if(isassembly(shell))
 		attached_assembly = shell
 
 /obj/item/circuit_component/assembly_output/unregister_shell(atom/movable/shell)
@@ -63,4 +64,4 @@
 	return ..()
 
 /obj/item/circuit_component/assembly_output/input_received(datum/port/input/port, list/return_values)
-	attached_assembly.pulse(FALSE)
+	attached_assembly.pulse()

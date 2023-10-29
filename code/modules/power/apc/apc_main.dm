@@ -6,9 +6,9 @@
 // three different channels (lighting/equipment/environ) - may each be set to on, off, or auto
 
 /obj/machinery/power/apc
-	name = "энергощиток АПЦ"
-	desc = "Терминал управления для электрических систем отсека."
-
+	name = "area power controller"
+	desc = "A control terminal for the area's electrical systems."
+	icon = 'icons/obj/machines/wallmounts.dmi'
 	icon_state = "apc0"
 	use_power = NO_POWER_USE
 	req_access = null
@@ -109,31 +109,37 @@
 	var/datum/alarm_handler/alarm_manager
 	/// Offsets the object by APC_PIXEL_OFFSET (defined in apc_defines.dm) pixels in the direction we want it placed in. This allows the APC to be embedded in a wall, yet still inside an area (like mapping).
 	var/offset_old
-	//Clockcult - Has the reward for converting an APC been given?
-	var/clock_cog_rewarded = FALSE
-	//Clockcult - The integration cog inserted inside of us
-	var/integration_cog = null
+	/// Used for apc helper called cut_AI_wire to make apc's wore responsible for ai connectione mended.
+	var/cut_AI_wire = FALSE
+	/// Used for apc helper called unlocked to make apc unlocked.
+	var/unlocked = FALSE
+	/// Used for apc helper called syndicate_access to make apc's required access syndicate_access.
+	var/syndicate_access = FALSE
+	/// Used for apc helper called away_general_access to make apc's required access away_general_access.
+	var/away_general_access = FALSE
+	/// Used for apc helper called cell_5k to install 5k cell into apc.
+	var/cell_5k = FALSE
+	/// Used for apc helper called cell_10k to install 10k cell into apc.
+	var/cell_10k = FALSE
+	/// Used for apc helper called no_charge to make apc's charge at 0% meter.
+	var/no_charge = FALSE
+	/// Used for apc helper called full_charge to make apc's charge at 100% meter.
+	var/full_charge = FALSE
+	armor_type = /datum/armor/power_apc
 
-/obj/machinery/power/apc/New(turf/loc, ndir, building=0)
-	if(!req_access)
-		req_access = list(ACCESS_ENGINE_EQUIP)
-	if(!armor)
-		armor = list(MELEE = 20, BULLET = 20, LASER = 10, ENERGY = 100, BOMB = 30, BIO = 0, FIRE = 90, ACID = 50)
-	..()
-	GLOB.apcs_list += src
+/datum/armor/power_apc
+	melee = 20
+	bullet = 20
+	laser = 10
+	energy = 100
+	bomb = 30
+	fire = 90
+	acid = 50
 
-	wires = new /datum/wires/apc(src)
-
-	if(building)
-		area = get_area(src)
-		opened = APC_COVER_OPENED
-		operating = FALSE
-		name = "энергощиток [get_area_name(area, TRUE)]"
-		set_machine_stat(machine_stat | MAINT)
-		update_appearance()
-		addtimer(CALLBACK(src, PROC_REF(update)), 5)
-		dir = ndir
-
+/obj/machinery/power/apc/Initialize(mapload, ndir)
+	. = ..()
+	//Pixel offset its appearance based on its direction
+	dir = ndir
 	switch(dir)
 		if(NORTH)
 			offset_old = pixel_y
@@ -148,22 +154,8 @@
 			offset_old = pixel_x
 			pixel_x = -APC_PIXEL_OFFSET
 
-/obj/machinery/power/apc/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/atmos_sensitive, mapload)
-	alarm_manager = new(src)
-
-	if(!mapload)
-		return
-	has_electronics = APC_ELECTRONICS_SECURED
-	// is starting with a power cell installed, create it and set its charge level
-	if(cell_type)
-		cell = new cell_type(src)
-		cell.charge = start_charge * cell.maxcharge / 100 // (convert percentage to actual value)
-
+	//Assign it to its area. If mappers already assigned an area string fast load the area from it else get the current area
 	var/area/our_area = get_area(loc)
-
-	//if area isn't specified use current
 	if(areastring)
 		area = get_area_instance_from_text(areastring)
 		if(!area)
@@ -171,36 +163,61 @@
 			stack_trace("Bad areastring path for [src], [areastring]")
 	else if(isarea(our_area) && areastring == null)
 		area = our_area
-
-	if(auto_name)
-		name = "энергощиток [get_area_name(area, TRUE)]"
-
 	if(area)
 		if(area.apc)
-			log_mapping("Duplicate APC created at [AREACOORD(src)]. Original at [AREACOORD(area.apc)].")
+			log_mapping("Duplicate APC created at [AREACOORD(src)] [area.type]. Original at [AREACOORD(area.apc)] [area.type].")
 		area.apc = src
 
+	//Initialize name & access of the apc. Name requires area to be assigned first
+	if(!req_access)
+		req_access = list(ACCESS_ENGINE_EQUIP)
+	if(auto_name)
+		name = "\improper [get_area_name(area, TRUE)] APC"
+
+	//Initialize its electronics
+	set_wires(new /datum/wires/apc(src))
+	alarm_manager = new(src)
+	AddElement(/datum/element/atmos_sensitive, mapload)
+	// for apcs created during map load make them fully functional
+	if(mapload)
+		has_electronics = APC_ELECTRONICS_SECURED
+		// is starting with a power cell installed, create it and set its charge level
+		if(cell_type)
+			cell = new cell_type(src)
+			cell.charge = start_charge * cell.maxcharge / 100 // (convert percentage to actual value)
+		make_terminal()
+		///This is how we test to ensure that mappers use the directional subtypes of APCs, rather than use the parent and pixel-shift it themselves.
+		if(abs(offset_old) != APC_PIXEL_OFFSET)
+			log_mapping("APC: ([src]) at [AREACOORD(src)] with dir ([dir] | [uppertext(dir2text(dir))]) has pixel_[dir & (WEST|EAST) ? "x" : "y"] value [offset_old] - should be [dir & (SOUTH|EAST) ? "-" : ""][APC_PIXEL_OFFSET]. Use the directional/ helpers!")
+	// For apcs created during the round players need to configure them from scratch
+	else
+		opened = APC_COVER_OPENED
+		operating = FALSE
+		set_machine_stat(machine_stat | MAINT)
+
+	//Make the apc visually interactive
+	register_context()
+	addtimer(CALLBACK(src, PROC_REF(update)), 5)
+	RegisterSignal(SSdcs, COMSIG_GLOB_GREY_TIDE, PROC_REF(grey_tide))
 	update_appearance()
 
-	make_terminal()
+	var/static/list/hovering_mob_typechecks = list(
+		/mob/living/silicon = list(
+			SCREENTIP_CONTEXT_CTRL_LMB = "Toggle power",
+			SCREENTIP_CONTEXT_ALT_LMB = "Toggle equipment power",
+			SCREENTIP_CONTEXT_SHIFT_LMB = "Toggle lighting power",
+			SCREENTIP_CONTEXT_CTRL_SHIFT_LMB = "Toggle environment power",
+		)
+	)
 
-	addtimer(CALLBACK(src, PROC_REF(update)), 5)
-
-	///This is how we test to ensure that mappers use the directional subtypes of APCs, rather than use the parent and pixel-shift it themselves.
-	if(abs(offset_old) != APC_PIXEL_OFFSET)
-		log_mapping("APC: ([src]) at [AREACOORD(src)] with dir ([dir] | [uppertext(dir2text(dir))]) has pixel_[dir & (WEST|EAST) ? "x" : "y"] value [offset_old] - should be [dir & (SOUTH|EAST) ? "-" : ""][APC_PIXEL_OFFSET]. Use the directional/ helpers!")
+	AddElement(/datum/element/contextual_screentip_bare_hands, rmb_text = "Toggle interface lock")
+	AddElement(/datum/element/contextual_screentip_mob_typechecks, hovering_mob_typechecks)
+	find_and_hang_on_wall()
 
 /obj/machinery/power/apc/Destroy()
-	GLOB.apcs_list -= src
-
 	if(malfai && operating)
-		malfai.malf_picker.processing_time = clamp(malfai.malf_picker.processing_time - 10,0,1000)
-	if(area)
-		area.power_light = FALSE
-		area.power_equip = FALSE
-		area.power_environ = FALSE
-		area.power_change()
-		area.apc = null
+		malfai.malf_picker.processing_time = clamp(malfai.malf_picker.processing_time - 10, 0, 1000)
+	disconnect_from_area()
 	QDEL_NULL(alarm_manager)
 	if(occupier)
 		malfvacate(TRUE)
@@ -210,43 +227,72 @@
 		QDEL_NULL(cell)
 	if(terminal)
 		disconnect_terminal()
-	. = ..()
 
-/obj/machinery/power/apc/handle_atom_del(atom/deleting_atom)
-	if(deleting_atom == cell)
+	return ..()
+
+/obj/machinery/power/apc/proc/assign_to_area(area/target_area = get_area(src))
+	if(area == target_area)
+		return
+
+	disconnect_from_area()
+	area = target_area
+	area.power_light = TRUE
+	area.power_equip = TRUE
+	area.power_environ = TRUE
+	area.power_change()
+	area.apc = src
+	auto_name = TRUE
+
+	update_appearance(UPDATE_NAME)
+
+/obj/machinery/power/apc/update_name(updates)
+	. = ..()
+	if(auto_name)
+		name = "\improper [get_area_name(area, TRUE)] APC"
+
+/obj/machinery/power/apc/proc/disconnect_from_area()
+	if(isnull(area))
+		return
+
+	area.power_light = FALSE
+	area.power_equip = FALSE
+	area.power_environ = FALSE
+	area.power_change()
+	area.apc = null
+	area = null
+
+/obj/machinery/power/apc/Exited(atom/movable/gone, direction)
+	. = ..()
+	if(gone == cell)
+		cell.update_appearance()
 		cell = null
 		charging = APC_NOT_CHARGING
 		update_appearance()
 		if(!QDELING(src))
 			SStgui.update_uis(src)
-	return ..()
 
 /obj/machinery/power/apc/examine(mob/user)
 	. = ..()
 	if(machine_stat & BROKEN)
+		if(opened != APC_COVER_REMOVED)
+			. += "The cover is broken and can probably be <i>pried</i> off with enough force."
+			return
+		if(terminal && has_electronics)
+			. += "The cover is missing but can be replaced using a new frame."
 		return
-	. += "<hr>"
-	. += "Отвечает за зону: <i>[get_area_name(area, TRUE)]</i>"
 	if(opened)
 		if(has_electronics && terminal)
-			. += "</br>Крышка [opened==APC_COVER_REMOVED?"снята":"открыта"] и батарея [ cell ? "установлена" : "отсутствует"]."
+			. += "The cover is [opened == APC_COVER_REMOVED?"removed":"open"] and the power cell is [ cell ? "installed" : "missing"]."
 		else
-			. += {"</br>Это [ !terminal ? "не" : "" ] соединено кабелями.\n
-			Микросхема [!has_electronics?"не":""] установлена."}
-		if(integration_cog || (user.hallucinating() && prob(20)))
-			. += "Небольшая шестерёнка виднеется внутри."
+			. += {"It's [ !terminal ? "not" : "" ] wired up.\n
+			The electronics are[!has_electronics?"n't":""] installed."}
 	else
 		if(machine_stat & MAINT)
-			. += "</br>Крышка закрыта. Что-то не так с этим. Не работает"
+			. += "The cover is closed. Something is wrong with it. It doesn't work."
 		else if(malfhack)
-			. += "</br>Крышка повреждена. Может быть трудно заставить это открыться."
+			. += "The cover is broken. It may be hard to force it open."
 		else
-			. += "</br>Крышка закрыта."
-
-	. += "<hr><span class='notice'>ПКМ на энергощитке чтобы [ locked ? "разблокировать" : "заблокировать"] его интерфейс.</span>"
-
-	if(issilicon(user))
-		. += "</br><span class='notice'>Ctrl-Клик на энергощитке чтобы переключить питание в состояние [ operating ? "выкл" : "вкл"].</span>"
+			. += "The cover is closed."
 
 /obj/machinery/power/apc/deconstruct(disassembled = TRUE)
 	if(flags_1 & NODECONSTRUCT_1)
@@ -256,7 +302,7 @@
 	if(opened != APC_COVER_REMOVED)
 		opened = APC_COVER_REMOVED
 		coverlocked = FALSE
-		visible_message(span_warning("Крышка энергощитка закрыта!"))
+		visible_message(span_warning("The APC cover is knocked down!"))
 		update_appearance()
 
 /obj/machinery/power/apc/ui_interact(mob/user, datum/tgui/ui)
@@ -285,7 +331,7 @@
 
 		"powerChannels" = list(
 			list(
-				"title" = "Оборудование",
+				"title" = "Equipment",
 				"powerLoad" = display_power(lastused_equip),
 				"status" = equipment,
 				"topicParams" = list(
@@ -295,7 +341,7 @@
 				)
 			),
 			list(
-				"title" = "Освещение",
+				"title" = "Lighting",
 				"powerLoad" = display_power(lastused_light),
 				"status" = lighting,
 				"topicParams" = list(
@@ -305,7 +351,7 @@
 				)
 			),
 			list(
-				"title" = "Окружение",
+				"title" = "Environment",
 				"powerLoad" = display_power(lastused_environ),
 				"status" = environ,
 				"topicParams" = list(
@@ -324,8 +370,8 @@
 	remote_control_user = remote_user
 	ui_interact(remote_user)
 	remote_user.log_message("remotely accessed [src].", LOG_GAME)
-	say("Обнаружен удалённый доступ.[locked ? " Интерфейс разблокирован." : ""]")
-	to_chat(remote_control_user, span_danger("[icon2html(src, remote_control_user)] Подключение к [src]."))
+	say("Remote access detected.[locked ? " Interface unlocked." : ""]")
+	to_chat(remote_control_user, span_danger("[icon2html(src, remote_control_user)] Connected to [src]."))
 	if(locked)
 		playsound(src, 'sound/machines/terminal_on.ogg', 25, FALSE)
 		locked = FALSE
@@ -337,8 +383,8 @@
 	if(isnull(remote_control_user))
 		return
 	locked = TRUE
-	say("Удалённый доступ прекращён. Интерфейс заблокирован.")
-	to_chat(remote_control_user, span_danger("[icon2html(src, remote_control_user)] Отключение от [src]."))
+	say("Remote access canceled. Interface locked.")
+	to_chat(remote_control_user, span_danger("[icon2html(src, remote_control_user)] Disconnected from [src]."))
 	playsound(src, 'sound/machines/terminal_off.ogg', 25, FALSE)
 	playsound(src, 'sound/machines/terminal_alert.ogg', 50, FALSE)
 	update_appearance()
@@ -358,7 +404,7 @@
 		if("lock")
 			if(usr.has_unlimited_silicon_privilege)
 				if((obj_flags & EMAGGED) || (machine_stat & (BROKEN|MAINT)) || remote_control_user)
-					to_chat(usr, span_warning("Энергощиток не отвечает!"))
+					to_chat(usr, span_warning("The APC does not respond to the command!"))
 				else
 					locked = !locked
 					update_appearance()
@@ -413,9 +459,9 @@
 		if("emergency_lighting")
 			emergency_lights = !emergency_lights
 			for(var/obj/machinery/light/L in area)
-				if(!initial(L.no_emergency)) //If there was an override set on creation, keep that override
-					L.no_emergency = emergency_lights
-					INVOKE_ASYNC(L, TYPE_PROC_REF(/obj/machinery/light, update), FALSE)
+				if(!initial(L.no_low_power)) //If there was an override set on creation, keep that override
+					L.no_low_power = emergency_lights
+					INVOKE_ASYNC(L, TYPE_PROC_REF(/obj/machinery/light/, update), FALSE)
 				CHECK_TICK
 	return TRUE
 
@@ -566,12 +612,6 @@
 			charging = APC_NOT_CHARGING
 			chargecount = 0
 
-		//=====Clock Cult=====
-		if(integration_cog && cell.charge >= cell.maxcharge/2)
-			var/power_delta = clamp(cell.charge - 20, 0, 20)
-			GLOB.clockcult_power += power_delta
-			cell.charge -= power_delta
-
 	else // no cell, switch everything off
 
 		charging = APC_NOT_CHARGING
@@ -627,10 +667,53 @@
 	take_damage(min(exposed_temperature/100, 10), BURN)
 
 /obj/machinery/power/apc/proc/report()
-	return "[area.name] : [equipment]/[lighting]/[environ] ([lastused_total]) : [cell? cell.percent() : "Н/Б"] ([charging])"
+	return "[area.name] : [equipment]/[lighting]/[environ] ([lastused_total]) : [cell? cell.percent() : "N/C"] ([charging])"
+
+/obj/machinery/power/apc/proc/grey_tide(datum/source, list/grey_tide_areas)
+	SIGNAL_HANDLER
+
+	if(!is_station_level(z))
+		return
+
+	for(var/area_type in grey_tide_areas)
+		if(!istype(get_area(src), area_type))
+			continue
+		lighting = APC_CHANNEL_OFF //Escape (or sneak in) under the cover of darkness
+		update_appearance(UPDATE_ICON)
+		update()
+
+///Used for cell_5k apc helper, which installs 5k cell into apc.
+/obj/machinery/power/apc/proc/install_cell_5k()
+	cell_type = /obj/item/stock_parts/cell/upgraded/plus
+	cell = new cell_type(src)
+
+/// Used for cell_10k apc helper, which installs 10k cell into apc.
+/obj/machinery/power/apc/proc/install_cell_10k()
+	cell_type = /obj/item/stock_parts/cell/high
+	cell = new cell_type(src)
+
+/// Used for unlocked apc helper, which unlocks the apc.
+/obj/machinery/power/apc/proc/unlock()
+	locked = FALSE
+
+/// Used for syndicate_access apc helper, which sets apc's required access to syndicate_access.
+/obj/machinery/power/apc/proc/give_syndicate_access()
+	req_access = list(ACCESS_SYNDICATE)
+
+///Used for away_general_access apc helper, which set apc's required access to away_general_access.
+/obj/machinery/power/apc/proc/give_away_general_access()
+	req_access = list(ACCESS_AWAY_GENERAL)
+
+/// Used for no_charge apc helper, which sets apc charge to 0%.
+/obj/machinery/power/apc/proc/set_no_charge()
+	cell.charge = 0
+
+/// Used for full_charge apc helper, which sets apc charge to 100%.
+/obj/machinery/power/apc/proc/set_full_charge()
+	cell.charge = cell.maxcharge
 
 /*Power module, used for APC construction*/
 /obj/item/electronics/apc
-	name = "контролер энергощитка АПЦ"
+	name = "power control module"
 	icon_state = "power_mod"
-	desc = "Промышленный перещёлкиватель проводков."
+	desc = "Heavy-duty switching circuits for power control."

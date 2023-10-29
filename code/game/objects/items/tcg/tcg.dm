@@ -1,11 +1,3 @@
-
-GLOBAL_LIST_EMPTY(cached_guar_rarity)
-GLOBAL_LIST_EMPTY(cached_rarity_table)
-//Global list of all cards by series, with cards cached by rarity to make those lookups faster
-GLOBAL_LIST_EMPTY(cached_cards)
-
-#define DEFAULT_TCG_DMI_ICON 'icons/runtime/tcg/default.dmi'
-#define DEFAULT_TCG_DMI "icons/runtime/tcg/default.dmi"
 #define TAPPED_ANGLE 90
 #define UNTAPPED_ANGLE 0
 
@@ -23,6 +15,8 @@ GLOBAL_LIST_EMPTY(cached_cards)
 	var/flipped = FALSE
 	///Has this card been "tapped"? AKA, is it horizontal?
 	var/tapped = FALSE
+	///Cached icon used for inspecting the card
+	var/icon/cached_flat_icon
 
 /obj/item/tcgcard/Initialize(mapload, datum_series, datum_id)
 	. = ..()
@@ -32,10 +26,10 @@ GLOBAL_LIST_EMPTY(cached_cards)
 		datum_series = series
 	if(!datum_id)
 		datum_id = id
-	var/list/L = GLOB.cached_cards[datum_series]
-	if(!L)
+	var/list/temp_list = SStrading_card_game.cached_cards[datum_series]
+	if(!temp_list)
 		return
-	var/datum/card/temp = L["ALL"][datum_id]
+	var/datum/card/temp = temp_list["ALL"][datum_id]
 	if(!temp)
 		return
 	name = temp.name
@@ -51,29 +45,36 @@ GLOBAL_LIST_EMPTY(cached_cards)
  * This proc gets the card's associated card datum to play with
  */
 /obj/item/tcgcard/proc/extract_datum()
-	var/list/cached_cards = GLOB.cached_cards[series]
+	var/list/cached_cards = SStrading_card_game.cached_cards[series]
 	if(!cached_cards)
 		return null
 	if(!cached_cards["ALL"][id])
-		CRASH("A card without a datum has appeared, either the global list is empty, or you fucked up bad. Series{[series]} ID{[id]} Len{[GLOB.cached_cards.len]}")
+		CRASH("A card without a datum has appeared, either the global list is empty, or you fucked up bad. Series{[series]} ID{[id]} Len{[SStrading_card_game.cached_cards.len]}")
 	return cached_cards["ALL"][id]
 
 /obj/item/tcgcard/get_name_chaser(mob/user, list/name_chaser = list())
 	if(flipped)
 		return ..()
 	var/datum/card/data_holder = extract_datum()
-	name_chaser += "<hr>"
+
 	name_chaser += "Faction: [data_holder.faction]"
-	name_chaser += "\nCost: [data_holder.summoncost]"
-	name_chaser += "\nType: [data_holder.cardtype] - [data_holder.cardsubtype]"
-	name_chaser += "\nPower/Resolve: [data_holder.power]/[data_holder.resolve]"
+	name_chaser += "Cost: [data_holder.summoncost]"
+	name_chaser += "Type: [data_holder.cardtype] - [data_holder.cardsubtype]"
+	name_chaser += "Power/Resolve: [data_holder.power]/[data_holder.resolve]"
 	if(data_holder.rules) //This can sometimes be empty
-		name_chaser += "\nRuleset: [data_holder.rules]"
+		name_chaser += "Ruleset: [data_holder.rules]"
+	name_chaser += list("[icon2html(get_cached_flat_icon(), user, "extra_classes" = "hugeicon")]")
+
 	return name_chaser
+
+/obj/item/tcgcard/proc/get_cached_flat_icon()
+	if(!cached_flat_icon)
+		cached_flat_icon = getFlatIcon(src)
+	return cached_flat_icon
 
 GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 
-/obj/item/tcgcard/attack_hand(mob/user)
+/obj/item/tcgcard/attack_hand(mob/user, list/modifiers)
 	if(!isturf(loc))
 		return ..()
 	var/list/choices = GLOB.tcgcard_radial_choices
@@ -100,37 +101,51 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 	. = ..()
 	flip_card(user)
 
-/obj/item/tcgcard/update_icon_state()
+/obj/item/tcgcard/update_name(updates)
 	. = ..()
 	if(!flipped)
 		var/datum/card/template = extract_datum()
 		name = template.name
-		desc = "<i>[template.desc]</i>"
-		icon_state = template.icon_state
-
 	else
 		name = "Trading Card"
-		desc = "It's the back of a trading card... no peeking!"
-		icon_state = "cardback"
 
-/obj/item/tcgcard/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/tcgcard))
-		var/obj/item/tcgcard/second_card = I
+/obj/item/tcgcard/update_desc(updates)
+	. = ..()
+	if(!flipped)
+		var/datum/card/template = extract_datum()
+		desc = "<i>[template.desc]</i>"
+	else
+		desc = "It's the back of a trading card... no peeking!"
+
+/obj/item/tcgcard/update_icon_state()
+	if(flipped)
+		icon_state = "cardback"
+		return ..()
+
+	var/datum/card/template = extract_datum()
+	if(!template)
+		return
+	icon_state = template.icon_state
+	return ..()
+
+/obj/item/tcgcard/attackby(obj/item/item, mob/living/user, params)
+	if(istype(item, /obj/item/tcgcard))
+		var/obj/item/tcgcard/second_card = item
 		var/obj/item/tcgcard_deck/new_deck = new /obj/item/tcgcard_deck(drop_location())
 		new_deck.flipped = flipped
 		user.transferItemToLoc(second_card, new_deck)//Start a new pile with both cards, in the order of card placement.
 		user.transferItemToLoc(src, new_deck)
 		new_deck.update_icon_state()
 		user.put_in_hands(new_deck)
-	if(istype(I, /obj/item/tcgcard_deck))
-		var/obj/item/tcgcard_deck/old_deck = I
+	if(istype(item, /obj/item/tcgcard_deck))
+		var/obj/item/tcgcard_deck/old_deck = item
 		if(length(old_deck.contents) >= 30)
 			to_chat(user, span_notice("This pile has too many cards for a regular deck!"))
 			return
 		user.transferItemToLoc(src, old_deck)
 		flipped = old_deck.flipped
-		old_deck.update_icon()
-		update_icon()
+		old_deck.update_appearance()
+		update_appearance()
 	return ..()
 
 /obj/item/tcgcard/proc/check_menu(mob/living/user)
@@ -169,8 +184,9 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 /obj/item/tcgcard_deck
 	name = "Trading Card Pile"
 	desc = "A stack of TCG cards."
-	icon = 'icons/obj/tcgmisc.dmi'
+	icon = 'icons/obj/toys/tcgmisc.dmi'
 	icon_state = "deck_up"
+	base_icon_state = "deck"
 	obj_flags = UNIQUE_RENAME
 	var/flipped = FALSE
 	var/static/radial_draw = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_draw")
@@ -179,26 +195,29 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 
 /obj/item/tcgcard_deck/Initialize(mapload)
 	. = ..()
-	create_storage(type = /datum/storage/tcg)
+	create_storage(storage_type = /datum/storage/tcg)
 
 /obj/item/tcgcard_deck/update_icon_state()
-	. = ..()
-	if(flipped)
-		switch(contents.len)
-			if(1 to 10)
-				icon_state = "deck_tcg_low"
-			if(11 to 20)
-				icon_state = "deck_tcg_half"
-			if(21 to INFINITY)
-				icon_state = "deck_tcg_full"
-	else
-		icon_state = "deck_up"
+	if(!flipped)
+		icon_state = "[base_icon_state]_up"
+		return ..()
+
+	switch(contents.len)
+		if(1 to 10)
+			icon_state = "[base_icon_state]_tcg_low"
+		if(11 to 20)
+			icon_state = "[base_icon_state]_tcg_half"
+		if(21 to INFINITY)
+			icon_state = "[base_icon_state]_tcg_full"
+		else
+			icon_state = "[base_icon_state]_tcg"
+	return ..()
 
 /obj/item/tcgcard_deck/examine(mob/user)
 	. = ..()
-	. += span_notice("<b>[capitalize(src)]</b> has [contents.len] cards inside.")
+	. += span_notice("\The [src] has [contents.len] cards inside.")
 
-/obj/item/tcgcard_deck/attack_hand(mob/user)
+/obj/item/tcgcard_deck/attack_hand(mob/user, list/modifiers)
 	var/list/choices = list(
 		"Draw" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_draw"),
 		"Shuffle" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_shuffle"),
@@ -233,13 +252,13 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 		return FALSE
 	return TRUE
 
-/obj/item/tcgcard_deck/attackby(obj/item/I, mob/living/user, params)
+/obj/item/tcgcard_deck/attackby(obj/item/item, mob/living/user, params)
 	. = ..()
-	if(istype(I, /obj/item/tcgcard))
-		if(contents.len > 30)
+	if(istype(item, /obj/item/tcgcard))
+		if(contents.len >= 30)
 			to_chat(user, span_notice("This pile has too many cards for a regular deck!"))
 			return FALSE
-		var/obj/item/tcgcard/new_card = I
+		var/obj/item/tcgcard/new_card = item
 		new_card.flipped = flipped
 		new_card.forceMove(src)
 
@@ -258,8 +277,8 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 	user.put_in_hands(drawn_card)
 	drawn_card.flipped = flipped //If it's a face down deck, it'll be drawn face down, if it's a face up pile you'll draw it face up.
 	drawn_card.update_icon_state()
-	user.visible_message(span_notice("[user] draws a card from <b>[src.name]</b>!") , \
-					span_notice("You draw a card from <b>[src.name]</b>!"))
+	user.visible_message(span_notice("[user] draws a card from \the [src]!"), \
+					span_notice("You draw a card from \the [src]!"))
 	if(contents.len <= 1)
 		var/obj/item/tcgcard/final_card = contents[1]
 		user.transferItemToLoc(final_card, drop_location())
@@ -278,8 +297,8 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 	if(user.active_storage)
 		user.active_storage.hide_contents(user)
 	if(visable)
-		user.visible_message(span_notice("[user] shuffles <b>[src.name]</b>!") , \
-						span_notice("You shuffle <b>[src.name]</b>!"))
+		user.visible_message(span_notice("[user] shuffles \the [src]!"), \
+						span_notice("You shuffle \the [src]!"))
 
 
 /**
@@ -290,8 +309,7 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 	var/list/temp_deck = contents.Copy()
 	contents = reverse_range(temp_deck)
 	//Now flip the cards to their opposite positions.
-	for(var/a in 1 to contents.len)
-		var/obj/item/tcgcard/nu_card = contents[a]
+	for (var/obj/item/tcgcard/nu_card as anything in contents)
 		nu_card.flipped = flipped
 		nu_card.update_icon_state()
 	update_icon_state()
@@ -299,10 +317,10 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 /obj/item/cardpack
 	name = "Trading Card Pack: Coder"
 	desc = "Contains six complete fuckups by the coders. Report this on github please!"
-	icon = 'icons/obj/tcgmisc.dmi'
-	icon_state = "cardback_nt"
+	icon = 'icons/obj/toys/tcgmisc.dmi'
+	icon_state = "error"
 	w_class = WEIGHT_CLASS_TINY
-	custom_price = PAYCHECK_ASSISTANT * 1.5 //Effectively expensive as long as you're not a very high paying job... in which case, why are you playing trading card games?
+	custom_price = PAYCHECK_CREW * 0.75 //Price reduced from * 2 to * 0.75, this is planned as a temporary measure until card persistance is added.
 	///The card series to look in
 	var/series = "MEME"
 	///Chance of the pack having a coin in it out of 10
@@ -325,6 +343,7 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 		"epic" = 9,
 		"rare" = 30,
 		"uncommon" = 60)
+	var/drop_all_cards = FALSE
 
 /obj/item/cardpack/series_one
 	name = "Trading Card Pack: Series 1"
@@ -349,20 +368,17 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 /obj/item/cardpack/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/item_scaling, 0.4, 1)
-	//Pass by refrance moment
-	//This lets us only have one rarity table per pack, badmins beware
-	if(GLOB.cached_rarity_table[type])
-		rarity_table = GLOB.cached_rarity_table[type]
-	else
-		GLOB.cached_rarity_table[type] = rarity_table
-	if(GLOB.cached_guar_rarity[type])
-		guar_rarity = GLOB.cached_guar_rarity[type]
-	else
-		GLOB.cached_guar_rarity[type] = guar_rarity
+	rarity_table = SStrading_card_game.get_rarity_table(type, rarity_table)
+	guar_rarity = SStrading_card_game.get_guarenteed_rarity_table(type, guar_rarity)
 
 /obj/item/cardpack/attack_self(mob/user)
 	. = ..()
-	var/list/cards = buildCardListWithRarity(card_count, guaranteed_count)
+	var/list/cards
+	if(drop_all_cards)
+		cards = SStrading_card_game.cached_cards[series]["ALL"]
+	else
+		cards = buildCardListWithRarity(card_count, guaranteed_count)
+
 	for(var/template in cards)
 		//Makes a new card based of the series of the pack.
 		new /obj/item/tcgcard(get_turf(user), series, template)
@@ -377,24 +393,21 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 /obj/item/coin/thunderdome
 	name = "\improper TGC Flipper"
 	desc = "A TGC flipper, for deciding who gets to go first. Also conveniently acts as a counter, for various purposes."
-	icon = 'icons/obj/tcgmisc.dmi'
+	icon = 'icons/obj/toys/tcgmisc.dmi'
 	icon_state = "coin_nanotrasen"
-	custom_materials = list(/datum/material/plastic = 400)
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT*5)
 	material_flags = NONE
 	sideslist = list("nanotrasen", "syndicate")
-
-/obj/item/coin/thunderdome/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/item_scaling, 0.4, 1)
+	override_material_worth = TRUE
 
 /obj/item/storage/card_binder
 	name = "card binder"
 	desc = "The perfect way to keep your collection of cards safe and valuable."
-	icon = 'icons/obj/tcgmisc.dmi'
+	icon = 'icons/obj/toys/tcgmisc.dmi'
 	icon_state = "binder"
 	inhand_icon_state = "album"
-	lefthand_file = 'icons/mob/inhands/misc/books_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/books_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/books_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/books_righthand.dmi'
 	resistance_flags = FLAMMABLE //burn your enemies' collections, for only you can Collect Them All!
 	w_class = WEIGHT_CLASS_SMALL
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
@@ -432,7 +445,7 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 		//What we're doing here is using the cached the results of the rarity we find.
 		//This allows us to only have to run this once per rarity, ever.
 		//Unless you reload the cards of course, in which case we have to do this again.
-		var/list/cards = GLOB.cached_cards[series][rarity]
+		var/list/cards = SStrading_card_game.cached_cards[series][rarity]
 		if(cards.len)
 			toReturn += pick(cards)
 		else
@@ -467,13 +480,19 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 	///The rarity of this card, determines how much (or little) it shows up in packs. Rarities are common, uncommon, rare, epic, legendary and misprint.
 	var/rarity = "uber rare to the extreme"
 
+	///Icon file that summons are pulled from
+	var/summon_icon_file = "icons/obj/toys/tcgmisc.dmi"
+	///Icon state for summons to use
+	var/summon_icon_state = "template"
+
 /datum/card/New(list/data = list(), list/templates = list())
 	applyTemplates(data, templates)
 	apply(data)
+	applyKeywords(data | templates)
 
 ///For each var that the card datum and the json entry share, we set the datum var to the json entry
 /datum/card/proc/apply(list/data)
-	for(var/name in (vars & data))
+	for(var/name in (data & vars))
 		vars[name] = data[name]
 
 ///Applies a json file to a card datum
@@ -481,113 +500,15 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 	apply(templates["default"])
 	apply(templates[data["template"]])
 
-///Loads all the card files
-/proc/loadAllCardFiles(cardFiles, directory)
-	var/list/templates = list()
-	for(var/cardFile in cardFiles)
-		loadCardFile(cardFile, directory, templates)
-
-///Prints all the cards names
-/proc/printAllCards()
-	for(var/card_set in GLOB.cached_cards)
-		message_admins("Printing the [card_set] set")
-		for(var/card in GLOB.cached_cards[card_set]["ALL"])
-			var/datum/card/toPrint = GLOB.cached_cards[card_set]["ALL"][card]
-			message_admins(toPrint.name)
-
-///Checks the passed type list for missing raritys, or raritys out of bounds
-/proc/checkCardpacks(cardPackList)
-	var/toReturn = ""
-	for(var/cardPack in cardPackList)
-		var/obj/item/cardpack/pack = new cardPack()
-		//Lets see if someone made a type yeah?
-		if(!GLOB.cached_cards[pack.series])
-			toReturn += "[pack.series] does not have any cards in it\n"
+///Searches for keywords in the card's variables, marked by wrapping them in {$}
+///Adds on hovor logic to them, using the passed in list
+///We use the changed_vars list just to make the var searching faster
+/datum/card/proc/applyKeywords(list/changed_vars)
+	for(var/name in (changed_vars & vars))
+		var/value = vars[name]
+		if(!istext(value))
 			continue
-		for(var/card in GLOB.cached_cards[pack.series]["ALL"])
-			var/datum/card/template = GLOB.cached_cards[pack.series]["ALL"][card]
-			if(template.rarity == "ALL")
-				toReturn += "[pack.type] has a rarity [template.rarity] on the card [template.id] that needs to be changed to something that isn't \"ALL\"\n"
-				continue
-			if(!(template.rarity in pack.rarity_table))
-				toReturn += "[pack.type] has a rarity [template.rarity] on the card [template.id] that does not exist\n"
-				continue
-		//Lets run a check to see if all the rarities exist that we want to exist exist
-		for(var/I in pack.rarity_table)
-			if(!GLOB.cached_cards[pack.series][I])
-				toReturn += "[pack.type] does not have the required rarity [I]\n"
-		qdel(pack)
-	return toReturn
+		vars[name] = SStrading_card_game.resolve_keywords(value)
 
-///Checks the global card list for cards that don't override all the default values of the card datum
-/proc/checkCardDatums()
-	var/toReturn = ""
-	var/datum/thing = new()
-	for(var/series in GLOB.cached_cards)
-		var/cards = GLOB.cached_cards[series]["ALL"]
-		for(var/card in cards)
-			var/datum/card/target = GLOB.cached_cards[series]["ALL"][card]
-			var/toAdd = "The card [target.id] in [series] has the following default variables:"
-			var/shouldAdd = FALSE
-			for(var/a in (target.vars ^ thing.vars))
-				if(a == "icon" && target.vars[a] == DEFAULT_TCG_DMI)
-					continue
-				if(target.vars[a] == initial(target.vars[a]))
-					shouldAdd = TRUE
-					toAdd += "\n[a] with a value of [target.vars[a]]"
-			if(shouldAdd)
-				toReturn += toAdd
-	qdel(thing)
-	return toReturn
-
-///Used to test open a large amount of cardpacks
-/proc/checkCardDistribution(cardPack, batchSize, batchCount, guaranteed)
-	var/totalCards = 0
-	//Gotta make this look like an associated list so the implicit "does this exist" checks work proper later
-	var/list/cardsByCount = list("" = 0)
-	var/obj/item/cardpack/pack = new cardPack()
-	for(var/index in 1 to batchCount)
-		var/list/cards = pack.buildCardListWithRarity(batchSize, guaranteed)
-		for(var/id in cards)
-			totalCards++
-			cardsByCount[id] += 1
-	var/toSend = "Out of [totalCards] cards"
-	for(var/id in sort_list(cardsByCount, GLOBAL_PROC_REF(cmp_num_string_asc)))
-		if(id)
-			var/datum/card/template = GLOB.cached_cards[pack.series]["ALL"][id]
-			toSend += "\nID:[id] [template.name] [(cardsByCount[id] * 100) / totalCards]% Total:[cardsByCount[id]]"
-	message_admins(toSend)
-	qdel(pack)
-
-///Empty the rarity cache so we can safely add new cards
-/proc/clearCards()
-	SStrading_card_game.loaded = FALSE
-	GLOB.cached_cards = list()
-
-///Reloads all card files
-/proc/reloadAllCardFiles(cardFiles, directory)
-	clearCards()
-	loadAllCardFiles(cardFiles, directory)
-	SStrading_card_game.loaded = TRUE
-
-///Loads the contents of a json file into our global card list
-/proc/loadCardFile(filename, directory = "strings/tcg")
-	var/list/json = json_decode(file2text("[directory]/[filename]"))
-	var/list/cards = json["cards"]
-	var/list/templates = list()
-	for(var/list/data in json["templates"])
-		templates[data["template"]] = data
-	for(var/list/data in cards)
-		var/datum/card/c = new(data, templates)
-		//Lets cache the id by rarity, for top speed lookup later
-		if(!GLOB.cached_cards[c.series])
-			GLOB.cached_cards[c.series] = list()
-			GLOB.cached_cards[c.series]["ALL"] = list()
-		if(!GLOB.cached_cards[c.series][c.rarity])
-			GLOB.cached_cards[c.series][c.rarity] = list()
-		GLOB.cached_cards[c.series][c.rarity] += c.id
-		//Let's actually store the datum here
-		GLOB.cached_cards[c.series]["ALL"][c.id] = c
-
-#undef DEFAULT_TCG_DMI_ICON
-#undef DEFAULT_TCG_DMI
+#undef TAPPED_ANGLE
+#undef UNTAPPED_ANGLE

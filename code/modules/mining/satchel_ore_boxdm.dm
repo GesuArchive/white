@@ -4,8 +4,8 @@
 /obj/structure/ore_box
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "orebox"
-	name = "ящик для руды"
-	desc = "Тяжелый деревянный ящик, который можно наполнить большим количеством руды."
+	name = "ore box"
+	desc = "A heavy wooden box, which can be filled with a lot of ores."
 	density = TRUE
 	pressure_resistance = 5*ONE_ATMOSPHERE
 
@@ -14,18 +14,14 @@
 		user.transferItemToLoc(W, src)
 	else if(W.atom_storage)
 		W.atom_storage.remove_type(/obj/item/stack/ore, src, INFINITY, TRUE, FALSE, user, null)
-		to_chat(user, span_notice("You empty the ore in [W] into <b>[src.name]</b>."))
+		to_chat(user, span_notice("You empty the ore in [W] into \the [src]."))
 	else
 		return ..()
 
-/obj/structure/ore_box/ComponentInitialize()
-	. = ..()
-	AddElement(/datum/element/rad_insulation, 0.01) //please datum mats no more cancer
-
 /obj/structure/ore_box/crowbar_act(mob/living/user, obj/item/I)
 	if(I.use_tool(src, user, 50, volume=50))
-		user.visible_message(span_notice("[user] pries <b>[src.name]</b> apart.") ,
-			span_notice("You pry apart <b>[src.name]</b>.") ,
+		user.visible_message(span_notice("[user] pries \the [src] apart."),
+			span_notice("You pry apart \the [src]."),
 			span_hear("You hear splitting wood."))
 		deconstruct(TRUE, user)
 	return TRUE
@@ -35,7 +31,7 @@
 		ui_interact(user)
 	. = ..()
 
-/obj/structure/ore_box/attack_hand(mob/user)
+/obj/structure/ore_box/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(.)
 		return

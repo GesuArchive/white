@@ -15,7 +15,7 @@ type AirAlarmData = {
   fireAlarm: BooleanLike;
   sensor: BooleanLike;
   allowLinkChange: BooleanLike;
-  environment_data: {
+  envData: {
     name: string;
     value: string; // preformatted in backend, shorter code that way.
     danger: 0 | 1 | 2;
@@ -47,7 +47,7 @@ export const AirAlarm = (props, context) => {
   const { act, data } = useBackend<AirAlarmData>(context);
   const locked = data.locked && !data.siliconUser;
   return (
-    <Window width={500} height={650}>
+    <Window width={475} height={650}>
       <Window.Content scrollable>
         <InterfaceLockNoticeBox />
         <AirAlarmStatus />
@@ -59,28 +59,28 @@ export const AirAlarm = (props, context) => {
 
 const AirAlarmStatus = (props, context) => {
   const { data } = useBackend<AirAlarmData>(context);
-  const { environment_data } = data;
+  const { envData } = data;
   const dangerMap = {
     0: {
       color: 'good',
-      localStatusText: 'Оптимально',
+      localStatusText: 'Optimal',
     },
     1: {
       color: 'average',
-      localStatusText: 'Нестабильно',
+      localStatusText: 'Caution',
     },
     2: {
       color: 'bad',
-      localStatusText: 'Опасно (Требуется Диагностика)',
+      localStatusText: 'Danger (Internals Required)',
     },
   };
   const localStatus = dangerMap[data.dangerLevel] || dangerMap[0];
   return (
-    <Section title="Состояние атмосферы">
+    <Section title="Air Status">
       <LabeledList>
-        {(environment_data.length > 0 && (
+        {(envData.length > 0 && (
           <>
-            {environment_data.map((entry) => {
+            {envData.map((entry) => {
               const status = dangerMap[entry.danger] || dangerMap[0];
               return (
                 <LabeledList.Item
@@ -91,25 +91,25 @@ const AirAlarmStatus = (props, context) => {
                 </LabeledList.Item>
               );
             })}
-            <LabeledList.Item label="Статус" color={localStatus.color}>
+            <LabeledList.Item label="Local status" color={localStatus.color}>
               {localStatus.localStatusText}
             </LabeledList.Item>
             <LabeledList.Item
-              label="Состояние зоны"
+              label="Area status"
               color={data.atmosAlarm || data.fireAlarm ? 'bad' : 'good'}>
-              {(data.atmosAlarm && 'Атмосферная тревога') ||
-                (data.fireAlarm && 'Пожарная тревога') ||
-                'Оптимально'}
+              {(data.atmosAlarm && 'Atmosphere Alarm') ||
+                (data.fireAlarm && 'Fire Alarm') ||
+                'Nominal'}
             </LabeledList.Item>
           </>
         )) || (
-          <LabeledList.Item label="Опасно" color="bad">
-            Нет возможности определить состав атмосферы.
+          <LabeledList.Item label="Warning" color="bad">
+            Cannot obtain air sample for analysis.
           </LabeledList.Item>
         )}
         {!!data.emagged && (
-          <LabeledList.Item label="Опасно" color="bad">
-            Протоколы безопасности нарушены. Гарантия обнулена.
+          <LabeledList.Item label="Warning" color="bad">
+            Safety measures offline. Device may exhibit abnormal behavior.
           </LabeledList.Item>
         )}
       </LabeledList>
@@ -119,23 +119,23 @@ const AirAlarmStatus = (props, context) => {
 
 const AIR_ALARM_ROUTES = {
   home: {
-    title: 'Контроль атмосферы',
+    title: 'Air Controls',
     component: () => AirAlarmControlHome,
   },
   vents: {
-    title: 'Управление вентиляцией',
+    title: 'Vent Controls',
     component: () => AirAlarmControlVents,
   },
   scrubbers: {
-    title: 'Управление фильтрами',
+    title: 'Scrubber Controls',
     component: () => AirAlarmControlScrubbers,
   },
   modes: {
-    title: 'Режим работы',
+    title: 'Operating Mode',
     component: () => AirAlarmControlModes,
   },
   thresholds: {
-    title: 'Пороги тревог',
+    title: 'Alarm Thresholds',
     component: () => AirAlarmControlThresholds,
   },
 } as const;
@@ -153,7 +153,7 @@ const AirAlarmControl = (props, context) => {
         screen && (
           <Button
             icon="arrow-left"
-            content="Назад"
+            content="Back"
             onClick={() => setScreen('home')}
           />
         )
@@ -183,14 +183,14 @@ const AirAlarmControlHome = (props, context) => {
       <Button
         icon={atmosAlarm ? 'exclamation-triangle' : 'exclamation'}
         color={atmosAlarm && 'caution'}
-        content="Локальная тревога"
+        content="Area Atmosphere Alarm"
         onClick={() => act(atmosAlarm ? 'reset' : 'alarm')}
       />
       <Box mt={1} />
       <Button
         icon={isPanicSiphoning ? 'exclamation-triangle' : 'exclamation'}
         color={isPanicSiphoning && 'danger'}
-        content="Паническая откачка"
+        content="Panic Siphon"
         onClick={() =>
           act('mode', {
             mode: isPanicSiphoning ? filteringPath : panicSiphonPath,
@@ -200,32 +200,32 @@ const AirAlarmControlHome = (props, context) => {
       <Box mt={2} />
       <Button
         icon="sign-out-alt"
-        content="Управление вентиляцией"
+        content="Vent Controls"
         onClick={() => setScreen('vents')}
       />
       <Box mt={1} />
       <Button
         icon="filter"
-        content="Управление фильтрами"
+        content="Scrubber Controls"
         onClick={() => setScreen('scrubbers')}
       />
       <Box mt={1} />
       <Button
         icon="cog"
-        content="Режим работы"
+        content="Operating Mode"
         onClick={() => setScreen('modes')}
       />
       <Box mt={1} />
       <Button
         icon="chart-bar"
-        content="Пороги тревог"
+        content="Alarm Thresholds"
         onClick={() => setScreen('thresholds')}
       />
       {!!sensor && !!allowLinkChange && (
         <Box mt={1}>
           <Button.Confirm
             icon="link-slash"
-            content="Отключить сенсоры"
+            content="Disconnect Sensor"
             color="danger"
             onClick={() => act('disconnect_sensor')}
           />
@@ -242,7 +242,7 @@ const AirAlarmControlVents = (props, context) => {
   const { data } = useBackend<AirAlarmData>(context);
   const { vents } = data;
   if (!vents || vents.length === 0) {
-    return <span>Нечего показывать</span>;
+    return <span>Nothing to show</span>;
   }
   return (
     <>
@@ -260,7 +260,7 @@ const AirAlarmControlScrubbers = (props, context) => {
   const { data } = useBackend<AirAlarmData>(context);
   const { scrubbers } = data;
   if (!scrubbers || scrubbers.length === 0) {
-    return <span>Нечего показывать</span>;
+    return <span>Nothing to show</span>;
   }
   return (
     <>
@@ -278,7 +278,7 @@ const AirAlarmControlModes = (props, context) => {
   const { act, data } = useBackend<AirAlarmData>(context);
   const { modes, selectedModePath } = data;
   if (!modes || modes.length === 0) {
-    return <span>Нечего показывать</span>;
+    return <span>Nothing to show</span>;
   }
   return (
     <>
@@ -321,10 +321,10 @@ const EditingModal = (props: EditingModalProps, context) => {
   return (
     <Modal>
       <Section
-        title={'Редактор лимитов'}
+        title={'Threshold Value Editor'}
         buttons={<Button onClick={() => finish()} icon="times" color="red" />}>
         <Box mb={1.5}>
-          {`Редактируем ${typeName.toLowerCase()} ${name.toLowerCase()}...`}
+          {`Editing the ${typeName.toLowerCase()} value for ${name.toLowerCase()}...`}
         </Box>
         {oldValue === -1 ? (
           <Button
@@ -335,7 +335,7 @@ const EditingModal = (props: EditingModalProps, context) => {
                 value: 0,
               })
             }>
-            {'Включить'}
+            {'Enable'}
           </Button>
         ) : (
           <>
@@ -361,7 +361,7 @@ const EditingModal = (props: EditingModalProps, context) => {
                   value: -1,
                 })
               }>
-              {'Отключить'}
+              {'Disable'}
             </Button>
           </>
         )}
@@ -381,20 +381,20 @@ const AirAlarmControlThresholds = (props, context) => {
     <>
       <Table>
         <Table.Row>
-          <Table.Cell bold>Лимиты</Table.Cell>
+          <Table.Cell bold>Threshold</Table.Cell>
           <Table.Cell bold color="bad">
-            Крайне низкое
+            Danger Below
           </Table.Cell>
           <Table.Cell bold color="average">
-            Низкое
+            Warning Below
           </Table.Cell>
           <Table.Cell bold color="average">
-            Высокое
+            Warning Above
           </Table.Cell>
           <Table.Cell bold color="bad">
-            Крайне высокое
+            Danger Above
           </Table.Cell>
-          <Table.Cell bold>Действия</Table.Cell>
+          <Table.Cell bold>Actions</Table.Cell>
         </Table.Row>
         {tlvSettings.map((tlv) => (
           <Table.Row key={tlv.name}>
@@ -408,13 +408,13 @@ const AirAlarmControlThresholds = (props, context) => {
                     name: tlv.name,
                     type: thresholdTypeMap['hazard_min'],
                     typeVar: 'hazard_min',
-                    typeName: 'Минимально опасно',
+                    typeName: 'Minimum Hazard',
                     unit: tlv.unit,
                     finish: () => setActiveModal(null),
                   })
                 }>
                 {tlv.hazard_min === -1
-                  ? 'Отключено'
+                  ? 'Disabled'
                   : tlv.hazard_min + ' ' + tlv.unit}
               </Button>
             </Table.Cell>
@@ -427,13 +427,13 @@ const AirAlarmControlThresholds = (props, context) => {
                     name: tlv.name,
                     type: thresholdTypeMap['warning_min'],
                     typeVar: 'warning_min',
-                    typeName: 'Минимально',
+                    typeName: 'Minimum Warning',
                     unit: tlv.unit,
                     finish: () => setActiveModal(null),
                   })
                 }>
                 {tlv.warning_min === -1
-                  ? 'Отключено'
+                  ? 'Disabled'
                   : tlv.warning_min + ' ' + tlv.unit}
               </Button>
             </Table.Cell>
@@ -446,13 +446,13 @@ const AirAlarmControlThresholds = (props, context) => {
                     name: tlv.name,
                     type: thresholdTypeMap['warning_max'],
                     typeVar: 'warning_max',
-                    typeName: 'Максимально',
+                    typeName: 'Maximum Warning',
                     unit: tlv.unit,
                     finish: () => setActiveModal(null),
                   })
                 }>
                 {tlv.warning_max === -1
-                  ? 'Отключено'
+                  ? 'Disabled'
                   : tlv.warning_max + ' ' + tlv.unit}
               </Button>
             </Table.Cell>
@@ -465,13 +465,13 @@ const AirAlarmControlThresholds = (props, context) => {
                     name: tlv.name,
                     type: thresholdTypeMap['hazard_max'],
                     typeVar: 'hazard_max',
-                    typeName: 'Максимально опасно',
+                    typeName: 'Maximum Hazard',
                     unit: tlv.unit,
                     finish: () => setActiveModal(null),
                   })
                 }>
                 {tlv.hazard_max === -1
-                  ? 'Отключено'
+                  ? 'Disabled'
                   : tlv.hazard_max + ' ' + tlv.unit}
               </Button>
             </Table.Cell>

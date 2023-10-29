@@ -4,8 +4,9 @@
  * Returns the temperature of the tile
  */
 /obj/item/circuit_component/tempsensor
-	display_name = "Датчик Температуры"
-	desc = "Возвращает текущую температуру окружающей среды"
+	display_name = "Temperature Sensor"
+	desc = "Outputs the current temperature of the tile"
+	category = "Sensor"
 
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
@@ -26,7 +27,7 @@
 	var/total_moles = environment.total_moles()
 	if(total_moles)
 		//If there's atmos, return temperature
-		result.set_output(round(environment.return_temperature(),1))
+		result.set_output(round(environment.temperature,1))
 	else
 		result.set_output(0)
 

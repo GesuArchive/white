@@ -1,8 +1,7 @@
 /obj/machinery/atmospherics/components/binary/pressure_valve
 	icon_state = "pvalve_map-3"
-	name = "Вентиль давления"
-	desc = "Переключаемый вентиль, который позволяет газу пройти если внешнее давление выше чем давление источника. Только в одну сторону."
-
+	name = "pressure valve"
+	desc = "An activable one way valve that let gas pass through if the pressure on the input side is higher than the set pressure."
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
 	construction_type = /obj/item/pipe/directional
@@ -106,7 +105,7 @@
 /obj/machinery/atmospherics/components/binary/pressure_valve/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!"))
+		to_chat(user, span_warning("You cannot unwrench [src], turn it off first!"))
 		return FALSE
 
 

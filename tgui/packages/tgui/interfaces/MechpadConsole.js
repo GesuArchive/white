@@ -5,13 +5,13 @@ import { Window } from '../layouts';
 export const MechpadControl = (props, context) => {
   const { topLevel } = props;
   const { act, data } = useBackend(context);
-  const { pad_name, connected_mechpad } = data;
+  const { pad_name, connected_mechpad, pad_active, mechonly } = data;
   return (
     <Section
       title={
         <Input
           value={pad_name}
-          width="240px"
+          width="200px"
           onChange={(e, value) =>
             act('rename', {
               name: value,
@@ -23,20 +23,22 @@ export const MechpadControl = (props, context) => {
       buttons={
         <Button
           icon="times"
-          content="Удалить"
+          content="Remove"
           color="bad"
           onClick={() => act('remove')}
         />
       }>
       {(!connected_mechpad && (
         <Box color="bad" textAlign="center">
-          Не обнаружена платформа.
+          No Launch Pad Connected.
         </Box>
       )) || (
         <Button
           fluid
           icon="upload"
-          content="Запустить"
+          disabled={!pad_active}
+          content={mechonly ? 'Launch (Mech Only)' : 'Launch'}
+          color={mechonly ? 'default' : 'good'}
           textAlign="center"
           onClick={() => act('launch')}
         />
@@ -49,14 +51,14 @@ export const MechpadConsole = (props, context) => {
   const { act, data } = useBackend(context);
   const { mechpads = [], selected_id } = data;
   return (
-    <Window width={555} height={125}>
+    <Window width={475} height={130}>
       <Window.Content>
         {(mechpads.length === 0 && (
-          <NoticeBox>Не подключена платформа.</NoticeBox>
+          <NoticeBox>No Pads Connected</NoticeBox>
         )) || (
           <Section>
             <Flex minHeight="70px">
-              <Flex.Item width="190px" minHeight="70px">
+              <Flex.Item width="140px" minHeight="70px">
                 {mechpads.map((mechpad) => (
                   <Button
                     fluid
@@ -64,6 +66,7 @@ export const MechpadConsole = (props, context) => {
                     key={mechpad.name}
                     content={mechpad.name}
                     selected={selected_id === mechpad.id}
+                    color="transparent"
                     onClick={() =>
                       act('select_pad', {
                         id: mechpad.id,
@@ -77,7 +80,7 @@ export const MechpadConsole = (props, context) => {
               </Flex.Item>
               <Flex.Item grow={1} basis={0} minHeight="100%">
                 {(selected_id && <MechpadControl />) || (
-                  <Box>Выбрать платформу.</Box>
+                  <Box>Please select a pad</Box>
                 )}
               </Flex.Item>
             </Flex>

@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////PIES////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/bananacreampie
-	name = "Банановый пирог со сливками"
+	name = "Banana cream pie"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/obj/item/food/pie/plain = 1,
@@ -14,7 +14,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/meatpie
-	name = "Мясной пирог"
+	name = "Meat pie"
 	reqs = list(
 		/datum/reagent/consumable/blackpepper = 1,
 		/datum/reagent/consumable/salt = 1,
@@ -25,7 +25,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/tofupie
-	name = "Пирог с тофу"
+	name = "Tofu pie"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/tofu = 1
@@ -34,7 +34,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/xenopie
-	name = "Ксено пирог"
+	name = "Xeno pie"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/meat/cutlet/xeno = 1
@@ -43,7 +43,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/cherrypie
-	name = "Вишневый пирог"
+	name = "Cherry pie"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/cherries = 1
@@ -52,7 +52,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/berryclafoutis
-	name = "Ягодный клафути"
+	name = "Berry clafoutis"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/berries = 1
@@ -61,7 +61,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/bearypie
-	name = "Медвежий пирог"
+	name = "Beary Pie"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/berries = 1,
@@ -71,7 +71,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/amanitapie
-	name = "Пирог с мухоморами"
+	name = "Amanita pie"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/mushroom/amanita = 1
@@ -80,7 +80,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/plumppie
-	name = "Пирог с толстошлемником"
+	name = "Plump pie"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/mushroom/plumphelmet = 1
@@ -89,7 +89,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/applepie
-	name = "Яблочный пирог"
+	name = "Apple pie"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/apple = 1
@@ -98,7 +98,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/pumpkinpie
-	name = "Тыквенный пирог"
+	name = "Pumpkin pie"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
@@ -109,7 +109,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/goldenappletart
-	name = "Торт со стружкой из золотого яблока"
+	name = "Golden apple tart"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
@@ -120,7 +120,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/grapetart
-	name = "Виноградный торт"
+	name = "Grape tart"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
@@ -131,7 +131,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/mimetart
-	name = "Мимовый торт"
+	name = "Mime tart"
 	always_available = FALSE
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
@@ -143,7 +143,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/berrytart
-	name = "Ягодный торт"
+	name = "Berry tart"
 	always_available = FALSE
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
@@ -155,31 +155,31 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/cocolavatart
-	name = "Шоколадный лавовый торт"
+	name = "Chocolate Lava tart"
 	always_available = FALSE
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/chocolatebar = 3,
-		/obj/item/slime_extract = 1
+		/obj/item/slime_extract = 1 //The reason you dont know how to make it!
 	)
 	result = /obj/item/food/pie/cocolavatart
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/blumpkinpie
-	name = "Синетыквенный пирог"
+	name = "Blumpkin pie"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
 		/obj/item/food/pie/plain = 1,
-		/obj/item/food/grown/blumpkin = 1
+		/obj/item/food/grown/pumpkin/blumpkin = 1
 	)
 	result = /obj/item/food/pie/blumpkinpie
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/dulcedebatata
-	name = "Дульсе де батата"
+	name = "Dulce de batata"
 	reqs = list(
 		/datum/reagent/consumable/vanilla = 5,
 		/datum/reagent/water = 5,
@@ -189,7 +189,7 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/frostypie
-	name = "Ледяной пирог"
+	name = "Frosty pie"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/bluecherries = 1
@@ -198,11 +198,42 @@
 	category = CAT_PIE
 
 /datum/crafting_recipe/food/baklava
-	name = "Пахлава"
+	name = "Baklava pie"
 	reqs = list(
-		/obj/item/food/butter = 2,
-		/obj/item/food/tortilla = 4,
+		/obj/item/food/butterslice = 2,
+		/obj/item/food/tortilla = 4, //Layers
 		/obj/item/seeds/wheat/oat = 4
 	)
 	result = /obj/item/food/pie/baklava
+	category = CAT_PIE
+
+/datum/crafting_recipe/food/frenchsilkpie
+	name = "French silk pie"
+	reqs = list(
+		/datum/reagent/consumable/sugar = 5,
+		/obj/item/food/pie/plain = 1,
+		/obj/item/food/chocolatebar = 2,
+	)
+	result = /obj/item/food/pie/frenchsilkpie
+	category = CAT_PIE
+
+/datum/crafting_recipe/food/shepherds_pie
+	name = "Shepherds pie"
+	reqs = list(
+		/obj/item/food/mashed_potatoes = 1,
+		/obj/item/food/meat/cutlet = 3,
+		/obj/item/food/grown/onion = 1,
+		/obj/item/food/grown/peas = 1,
+		/obj/item/food/grown/corn = 1,
+		/obj/item/food/grown/garlic = 1,
+	)
+	result = /obj/item/food/pie/shepherds_pie
+	category = CAT_PIE
+
+/datum/crafting_recipe/food/asdfpie
+	name = "Pie-flavored pie"
+	reqs = list(
+		/obj/item/food/pie/plain = 2,
+	)
+	result = /obj/item/food/pie/asdfpie
 	category = CAT_PIE

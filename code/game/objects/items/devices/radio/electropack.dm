@@ -1,15 +1,15 @@
 /obj/item/electropack
-	name = "электропак"
-	desc = "Танцуйте, мои мартышки! ТАНЦУЙТЕ!!!"
+	name = "electropack"
+	desc = "Dance my monkeys! DANCE!!!"
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "electropack0"
 	inhand_icon_state = "electropack"
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_HUGE
-	custom_materials = list(/datum/material/iron=10000, /datum/material/glass=2500)
+	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT *5, /datum/material/glass=SHEET_MATERIAL_AMOUNT * 1.25)
 
 	var/on = TRUE
 	var/code = 2
@@ -24,26 +24,26 @@
 	SSradio.remove_object(src, frequency)
 	return ..()
 
-/obj/item/electropack/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] hooks [user.ru_na()]self to the electropack and spams the trigger! It looks like [user.p_theyre()] trying to commit suicide!"))
-	return (FIRELOSS)
+/obj/item/electropack/suicide_act(mob/living/user)
+	user.visible_message(span_suicide("[user] hooks [user.p_them()]self to the electropack and spams the trigger! It looks like [user.p_theyre()] trying to commit suicide!"))
+	return FIRELOSS
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/item/electropack/attack_hand(mob/user)
+/obj/item/electropack/attack_hand(mob/user, list/modifiers)
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(src == C.back)
-			to_chat(user, span_warning("Мне потребуется чья-то помощь!"))
+			to_chat(user, span_warning("You need help taking this off!"))
 			return
 	return ..()
 
 /obj/item/electropack/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/clothing/head/helmet))
 		var/obj/item/assembly/shock_kit/A = new /obj/item/assembly/shock_kit(user)
-		A.icon = 'icons/obj/assemblies.dmi'
+		A.icon = 'icons/obj/assemblies/assemblies.dmi'
 
 		if(!user.transferItemToLoc(W, A))
-			to_chat(user, span_warning("[capitalize(W.name)] застрял в моей руки, не получится прикрепить это к [src.name]!"))
+			to_chat(user, span_warning("[W] is stuck to your hand, you cannot attach it to [src]!"))
 			return
 		W.master = A
 		A.helmet_part = W
@@ -68,7 +68,7 @@
 		var/mob/living/L = loc
 		step(L, pick(GLOB.cardinals))
 
-		to_chat(L, span_userdanger("МЕНЯ УДАРИЛО ТОКОМ!!!"))
+		to_chat(L, span_danger("You feel a sharp shock!"))
 		var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 		s.set_up(3, 1, L)
 		s.start()

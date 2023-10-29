@@ -9,11 +9,12 @@
 #define TUT_MISSING 10
 
 /obj/machinery/chem_heater
-	name = "Реакционная камера"
-	desc = "Миниатюрная термомашина способная быстро изменять и удерживать температуру состава, а так же мануально контролировать баланс ПШ."
+	name = "reaction chamber" //Maybe this name is more accurate?
 	density = TRUE
-	icon = 'icons/obj/chemical.dmi'
+	pass_flags_self = PASSMACHINE | LETPASSTHROW
+	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "mixer0b"
+	base_icon_state = "mixer"
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.4
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	circuit = /obj/item/circuitboard/machine/chem_heater
@@ -33,8 +34,6 @@
 /obj/machinery/chem_heater/Initialize(mapload)
 	. = ..()
 	create_reagents(200, NO_REACT)//Lets save some calculations here
-	reagents.add_reagent(/datum/reagent/reaction_agent/basic_buffer, 20)
-	reagents.add_reagent(/datum/reagent/reaction_agent/acidic_buffer, 20)
 	//TODO: comsig reaction_start and reaction_end to enable/disable the UI autoupdater - this doesn't work presently as there's a hard divide between instant and processed reactions
 
 /obj/machinery/chem_heater/deconstruct(disassembled)
@@ -50,50 +49,56 @@
 		QDEL_NULL(beaker)
 	return ..()
 
-/obj/machinery/chem_heater/handle_atom_del(atom/A)
+/obj/machinery/chem_heater/Exited(atom/movable/gone, direction)
 	. = ..()
-	if(A == beaker)
+	if(gone == beaker)
 		beaker = null
-		update_icon()
+		update_appearance()
 
 /obj/machinery/chem_heater/update_icon_state()
-	. = ..()
-	if(beaker)
-		icon_state = "mixer1b"
-	else
-		icon_state = "mixer0b"
+	icon_state = "[base_icon_state][beaker ? 1 : 0]b"
+	return ..()
 
-/obj/machinery/chem_heater/AltClick(mob/living/user)
+/obj/machinery/chem_heater/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
-	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
+	if(!can_interact(user) || !user.can_perform_action(src, ALLOW_SILICON_REACH|FORBID_TELEKINESIS_REACH))
 		return
 	replace_beaker(user)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/machinery/chem_heater/attack_robot_secondary(mob/user, list/modifiers)
+	return attack_hand_secondary(user, modifiers)
+
+/obj/machinery/chem_heater/attack_ai_secondary(mob/user, list/modifiers)
+	return attack_hand_secondary(user, modifiers)
 
 /obj/machinery/chem_heater/proc/replace_beaker(mob/living/user, obj/item/reagent_containers/new_beaker)
 	if(!user)
 		return FALSE
 	if(beaker)
-		try_put_in_hand(beaker, user)
 		UnregisterSignal(beaker.reagents, COMSIG_REAGENTS_REACTION_STEP)
+		try_put_in_hand(beaker, user)
 		beaker = null
 	if(new_beaker)
 		beaker = new_beaker
 		RegisterSignal(beaker.reagents, COMSIG_REAGENTS_REACTION_STEP, PROC_REF(on_reaction_step))
-	update_icon()
+	update_appearance()
 	return TRUE
 
 /obj/machinery/chem_heater/RefreshParts()
 	. = ..()
 	heater_coefficient = 0.1
-	for(var/obj/item/stock_parts/micro_laser/M in component_parts)
-		heater_coefficient *= M.rating
+	for(var/datum/stock_part/micro_laser/micro_laser in component_parts)
+		heater_coefficient *= micro_laser.tier
 
 /obj/machinery/chem_heater/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Скорость нагревательных реагентов на <b>[heater_coefficient*1000]%</b>.</span>"
+		. += span_notice("The status display reads: Heating reagents at <b>[heater_coefficient*1000]%</b> speed.")
 
-/obj/machinery/chem_heater/process(delta_time)
+/obj/machinery/chem_heater/process(seconds_per_tick)
 	..()
 	//Tutorial logics
 	if(tutorial_active)
@@ -145,10 +150,15 @@
 			if(beaker.reagents.is_reacting)//on_reaction_step() handles this
 				return
 			//keep constant with the chemical acclimator please
-			beaker.reagents.adjust_thermal_energy((target_temperature - beaker.reagents.chem_temp) * heater_coefficient * delta_time * SPECIFIC_HEAT_DEFAULT * beaker.reagents.total_volume)
+			beaker.reagents.adjust_thermal_energy((target_temperature - beaker.reagents.chem_temp) * heater_coefficient * seconds_per_tick * SPECIFIC_HEAT_DEFAULT * beaker.reagents.total_volume)
 			beaker.reagents.handle_reactions()
 
-			use_power(active_power_usage * delta_time)
+			use_power(active_power_usage * seconds_per_tick)
+
+/obj/machinery/chem_heater/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
+	default_unfasten_wrench(user, tool)
+	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/machinery/chem_heater/attackby(obj/item/I, mob/user, params)
 	if(default_deconstruction_screwdriver(user, "mixer0b", "mixer0b", I))
@@ -157,18 +167,15 @@
 	if(default_deconstruction_crowbar(I))
 		return
 
-	if(default_unfasten_wrench(user, I))
-		return
-
-	if(istype(I, /obj/item/reagent_containers) && !(I.item_flags & ABSTRACT) && I.is_open_container())
+	if(is_reagent_container(I) && !(I.item_flags & ABSTRACT) && I.is_open_container())
 		. = TRUE //no afterattack
 		var/obj/item/reagent_containers/B = I
 		if(!user.transferItemToLoc(B, src))
 			return
 		replace_beaker(user, B)
-		to_chat(user, span_notice("Добавил [B] к [src]."))
-		updateUsrDialog()
-		update_icon()
+		to_chat(user, span_notice("You add [B] to [src]."))
+		ui_interact(user)
+		update_appearance()
 		return
 
 	if(beaker)
@@ -187,10 +194,10 @@
 	return ..()
 
 ///Forces a UI update every time a reaction step happens inside of the beaker it contains. This is so the UI is in sync with the reaction since it's important that the output matches the current conditions for pH adjustment and temperature.
-/obj/machinery/chem_heater/proc/on_reaction_step(datum/reagents/holder, num_reactions, delta_time)
+/obj/machinery/chem_heater/proc/on_reaction_step(datum/reagents/holder, num_reactions, seconds_per_tick)
 	SIGNAL_HANDLER
 	if(on)
-		holder.adjust_thermal_energy((target_temperature - beaker.reagents.chem_temp) * heater_coefficient * delta_time * SPECIFIC_HEAT_DEFAULT * beaker.reagents.total_volume * (rand(8,11) * 0.1))//Give it a little wiggle room since we're actively reacting
+		holder.adjust_thermal_energy((target_temperature - beaker.reagents.chem_temp) * heater_coefficient * seconds_per_tick * SPECIFIC_HEAT_DEFAULT * beaker.reagents.total_volume * (rand(8,11) * 0.1))//Give it a little wiggle room since we're actively reacting
 	for(var/ui_client in ui_client_list)
 		var/datum/tgui/ui = ui_client
 		if(!ui)
@@ -206,7 +213,7 @@
 		ui.open()
 		add_ui_client_list(ui)
 
-/obj/machinery/chem_heater/ui_close(mob/user, datum/tgui/tgui)
+/obj/machinery/chem_heater/ui_close(mob/user)
 	for(var/ui_client in ui_client_list)
 		var/datum/tgui/ui = ui_client
 		if(ui.user == user)
@@ -220,11 +227,11 @@
 */
 /obj/machinery/chem_heater/proc/add_ui_client_list(new_ui)
 	LAZYADD(ui_client_list, new_ui)
-	RegisterSignal(new_ui, COMSIG_PARENT_QDELETING, PROC_REF(on_ui_deletion))
+	RegisterSignal(new_ui, COMSIG_QDELETING, PROC_REF(on_ui_deletion))
 
 ///This removes an open ui instance from the ui list and deregsiters the signal
 /obj/machinery/chem_heater/proc/remove_ui_client_list(old_ui)
-	UnregisterSignal(old_ui, COMSIG_PARENT_QDELETING)
+	UnregisterSignal(old_ui, COMSIG_QDELETING)
 	LAZYREMOVE(ui_client_list, old_ui)
 
 ///This catches a signal and uses it to delete the ui instance from the list
@@ -307,35 +314,47 @@
 	if(tutorial_active)
 		switch(tutorial_state)
 			if(TUT_NO_BUFFER)//missing buffer
-				data["tutorialMessage"] = {"Похоже, у вас мало буферов, вот как сделать больше:
-Кислотный буфер:	2 единицы Sodium
-			2 единицы Hydrogen
-			2 единицы Ethanol
-			2 единицы Water
-Базовый буфер:	3 единицы Ammonia
-			2 единицы Chlorine
-			2 единицы Hydrogen
-			2 единицы Oxygen
-Нагрейте либо, чтобы ускорить реакцию.
-Когда реакции будут выполнены, наполните камеру, нажав кнопки справа от соответствующих индикаторов объема.
-Чтобы продолжить обучение, заполните как кислотный, так и щелочной объем как минимум 5 ед."}
+				data["tutorialMessage"] = {"It looks like you’re a little low on buffers, here’s how to make more:
+
+Acidic buffer: 2 parts Sodium
+			2 parts Hydrogen
+			2 parts Ethanol
+			2 parts Water
+
+Basic buffer: 3 parts Ammonia
+			2 parts Chlorine
+			2 parts Hydrogen
+			2 parts Oxygen
+
+Heat either up to speed up the reaction.
+
+When the reactions are done, refill your chamber by pressing the Draw all buttons, to the right of the respective volume indicators.
+
+To continue with the tutorial, fill both of your acidic and alkaline volumes to at least 5u."}
 			if(TUT_START)//Default start
-				data["tutorialMessage"] = {"Здравствуйте и добро пожаловать в увлекательный мир химии! Этот вариант помощи научит вас основам реакций, проведя вас через каломельную реакцию.
-Для большинства реакций температура перегрева составляет 900K, а диапазон pH составляет 5-9, хотя всегда стоит искать диапазоны, поскольку они меняются. Каломель ничем не отличается.
-Чтобы продолжить обучение, вставьте стакан с добавлением не менее 10 мкл ртути и 10 мкл хлора."}
+				data["tutorialMessage"] = {"Hello and welcome to the exciting world of chemistry! This help option will teach you the basic of reactions by guiding you through a calomel reaction.
+
+For the majority of reactions, the overheat temperature is 900K, and the pH range is 5-9, though it's always worth looking up the ranges as these are changing. Calomel is no different.
+
+To continue the tutorial, insert a beaker with at least 10u mercury and 10u chlorine added."}
 			if(TUT_HAS_REAGENTS) //10u Hg and Cl
-				data["tutorialMessage"] = {"Молодец! Вы увидите, что в настоящее время это не реагирует. Это потому, что для этой реакции требуется минимальная температура 375 К.
-По большей части, чем горячее ваша реакция, тем быстрее она отреагирует, когда температура превысит минимальную. Но будьте осторожны, не нагревайте его слишком сильно! «Если ваша реакция медленная, ваша температура слишком низкая»!
-Когда будете готовы, установите температуру 375 К и нагрейте стакан до этой величины."}
+				data["tutorialMessage"] = {"Good job! You'll see that at present this isn't reacting. That's because this reaction needs a minimum temperature of 375K.
+
+For the most part the hotter your reaction is, the faster it will react when it’s past it’s minimum temperature. But be careful to not heat it too much! "If your reaction is slow, your temperature is too low"!
+
+When you’re ready, set your temperature to 375K and heat up the beaker to that amount."}
 			if(TUT_IS_ACTIVE) //heat 375K
-				data["tutorialMessage"] = {"Отлично! Требуется увидеть, как ваша реакция медленно прогрессирует.
-Обратите внимание на шкалу pH справа; Суммарный pH должен медленно сдвигаться влево на шкале. Степень чистоты раствора в конечном итоге зависит от того, насколько хорошо вы поддерживаете свою реакцию в оптимальном диапазоне pH. Циферблат будет мигать, если какая-либо из текущих реакций выходит за рамки оптимальных. «Если вы получаете отстой, подтолкните свой pH»!
-Через мгновение мы увеличим температуру, чтобы наша скорость была быстрее. Вам решать, чтобы поддерживать уровень pH в установленных пределах, поэтому следите за шкалой и будьте готовы добавить базовый буфер, используя кнопку инъекции слева от индикатора объема.
-Чтобы продолжить, установите целевую температуру на 390 К."}
+				data["tutorialMessage"] = {"Great! You should see your reaction slowly progressing.
+
+Notice the pH dial on the right; the sum pH should be slowly drifting towards the left on the dial. How pure your solution is at the end depends on how well you keep your reaction within the optimal pH range. The dial will flash if any of the present reactions are outside their optimal. "If you're getting sludge, give your pH a nudge"!
+
+In a moment, we’ll increase the temperature so that our rate is faster. It’s up to you to keep your pH within the limits, so keep an eye on that dial, and get ready to add basic buffer using the injection button to the left of the volume indicator.
+
+To continue set your target temperature to 390K."}
 			if(TUT_IS_REACTING) //Heat 390K
-				data["tutorialMessage"] = "Сосредоточьтесь на реакции! Вы сможете это сделать!"
+				data["tutorialMessage"] = "Stay focused on the reaction! You can do it!"
 			if(TUT_FAIL) //Sludge
-				data["tutorialMessage"] = "Ах, к сожалению, ваша чистота была слишком низкой, и реакция рассыпалась в беспорядочный осадок. Не волнуйтесь, вы всегда можете попробовать еще раз! Однако будьте осторожны, для некоторых реакций неудача не так проста."
+				data["tutorialMessage"] = "Ah, unfortunately your purity was too low and the reaction fell apart into errant sludge. Don't worry, you can always try again! Be careful though, for some reactions, failing isn't nearly as forgiving."
 			if(TUT_COMPLETE) //Complete
 				var/datum/reagent/calo = beaker?.reagents.has_reagent(/datum/reagent/medicine/calomel)
 				if(!calo)
@@ -343,21 +362,21 @@
 					return
 				switch(calo.purity)
 					if(-INFINITY to 0.25)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Это довольно близко к чистоте отказа 0,15, что часто может вызвать взрыв некоторых реакций. Этот химикат превращается в токсичный осадок при проглатывании другим человеком и не вызывает нормальных эффектов каломели. Подлый, а?"
+						data["tutorialMessage"] = "You did it! Congratulations! I can tell you that your final purity was [calo.purity]. That's pretty close to the fail purity of 0.15 - which can often make some reactions explode. This chem will invert into Toxic sludge when ingested by another person, and will not cause of calomel's normal effects. Sneaky, huh?"
 					if(0.25 to 0.6)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Обычно эта реакция разрешается выше 0,7 без вмешательства. Вы восхваляете нечистые реакции? Чем ниже вы опускаетесь, тем выше вероятность получения опасных эффектов во время реакции. В некоторых более опасных реакциях вы находитесь на тонкой грани между смертью и обратной химией, не забывайте, что вы всегда можете охладить свою реакцию, чтобы дать себе больше времени, чтобы справиться с ней!"
+						data["tutorialMessage"] = "You did it! Congratulations! I can tell you that your final purity was [calo.purity]. Normally, this reaction will resolve above 0.7 without intervention. Are you praticing impure reactions? The lower you go, the higher change you have of getting dangerous effects during a reaction. In some more dangerous reactions, you're riding a fine line between death and an inverse chem, don't forget you can always chill your reaction to give yourself more time to manage it!"
 					if(0.6 to 0.75)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Обычно эта реакция разрешается выше 0,7 без вмешательства. Возможно, вы добавили слишком много базового буфера и перешли через 9? Если хотите - можете попробовать еще раз. Просто дважды нажмите кнопку справки!"
+						data["tutorialMessage"] = "You did it! Congratulations! I can tell you that your final purity was [calo.purity]. Normally, this reaction will resolve above 0.7 without intervention. Did you maybe add too much basic buffer and go past 9? If you like - you're welcome to try again. Just double press the help button!"
 					if(0.75 to 0.85)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Вы очень близки к оптимальному! Если хотите, попробуйте еще раз, дважды нажав кнопку справки."
+						data["tutorialMessage"] = "You did it! Congratulations! I can tell you that your final purity was [calo.purity]. You got pretty close to optimal! Feel free to try again if you like by double pressing the help button."
 					if(0.75 to 0.99)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Вы очень близки к оптимальному! Не стесняйтесь попробовать еще раз, если хотите, дважды нажав кнопку справки, но это респектабельная чистота."
+						data["tutorialMessage"] = "You did it! Congratulations! I can tell you that your final purity was [calo.purity]. You got pretty close to optimal! Feel free to try again if you like by double pressing the help button, but this is a respectable purity."
 					if(0.99 to 1)
-						data["tutorialMessage"] = "Вы сделали это! Поздравляю! Можно сказать вам, что ваша последняя чистота была [calo.purity]. Ваша каломель такая же чистая, как и приходит! Вы освоили основы химии, но впереди еще много испытаний. Удачи!"
-						user.client?.give_award(/datum/award/achievement/misc/chemistry_tut, user)
-				data["tutorialMessage"] += "\n\nВы заметили, что ваша температура поднялась выше 390K, пока была реакция? Это потому, что эта реакция экзотермическая (с тепловыделением), поэтому для некоторых реакций вам, возможно, придется скорректировать цель, чтобы компенсировать это. Да, и вы можете проверить свою чистоту, исследуя и распечатав химический анализатор на медлисте (пока)!"
+						data["tutorialMessage"] = "You did it! Congratulations! I can tell you that your final purity was [calo.purity]. Your calomel is as pure as they come! You've mastered the basics of chemistry, but there's plenty more challenges on the horizon. Good luck!"
+						user.client?.give_award(/datum/award/achievement/jobs/chemistry_tut, user)
+				data["tutorialMessage"] += "\n\nDid you notice that your temperature increased past 390K while reacting too? That's because this reaction is exothermic (heat producing), so for some reactions you might have to adjust your target to compensate. Oh, and you can check your purity by researching and printing off a chemical analyzer at the medlathe (for now)!"
 			if(TUT_MISSING) //Missing
-				data["tutorialMessage"] = "Ой, что-то пошло не так. Вы вынули мензурку, слишком быстро ее нагрели или в стакане есть что-то еще? Попробуйте перезапустить руководство, дважды нажав кнопку справки."
+				data["tutorialMessage"] = "Uh oh, something went wrong. Did you take the beaker out, heat it up too fast, or have other things in the beaker? Try restarting the tutorial by double pressing the help button."
 
 	return data
 
@@ -415,13 +434,13 @@
 ///Moves a type of buffer from the heater to the beaker, or vice versa
 /obj/machinery/chem_heater/proc/move_buffer(buffer_type, volume)
 	if(!beaker)
-		say("Не вижу пробирку!")
+		say("No beaker found!")
 		return
 	if(buffer_type == "acid")
 		if(volume < 0)
 			var/datum/reagent/acid_reagent = beaker.reagents.get_reagent(/datum/reagent/reaction_agent/acidic_buffer)
 			if(!acid_reagent)
-				say("Невозможно найти кислотный буфер в пробирке! Вставьте стакан с кислотным буфером.")
+				say("Unable to find acidic buffer in beaker to draw from! Please insert a beaker containing acidic buffer.")
 				return
 			var/datum/reagent/acid_reagent_heater = reagents.get_reagent(/datum/reagent/reaction_agent/acidic_buffer)
 			var/cur_vol = 0
@@ -438,7 +457,7 @@
 		if(volume < 0)
 			var/datum/reagent/basic_reagent = beaker.reagents.get_reagent(/datum/reagent/reaction_agent/basic_buffer)
 			if(!basic_reagent)
-				say("Невозможно найти щелочной буфер в пробирке! Пожалуйста, вставьте стакан с щелочным буфером.")
+				say("Unable to find basic buffer in beaker to draw from! Please insert a beaker containing basic buffer.")
 				return
 			var/datum/reagent/basic_reagent_heater = reagents.get_reagent(/datum/reagent/reaction_agent/basic_buffer)
 			var/cur_vol = 0
@@ -474,8 +493,8 @@
 /obj/machinery/chem_heater/debug/Initialize(mapload)
 	. = ..()
 	reagents.maximum_volume = 2000
-	reagents.add_reagent(/datum/reagent/reaction_agent/basic_buffer, 980)
-	reagents.add_reagent(/datum/reagent/reaction_agent/acidic_buffer, 980)
+	reagents.add_reagent(/datum/reagent/reaction_agent/basic_buffer, 1000)
+	reagents.add_reagent(/datum/reagent/reaction_agent/acidic_buffer, 1000)
 	heater_coefficient = 0.4 //hack way to upgrade
 
 //map load types

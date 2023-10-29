@@ -5,18 +5,16 @@
 
 .Notifications {
   position: absolute;
-  bottom: 2em;
+  bottom: 1em;
   left: 1em;
   right: 2em;
 }
 
 .Notification {
-  color: #000;
-  background-color: white;
+  color: #fff;
+  background-color: crimson;
   padding: 0.5em;
   margin: 1em 0;
-  display: block;
-  border: 1px solid crimson;
 
   &:first-child {
     margin-top: 0;
@@ -25,17 +23,4 @@
   &:last-child {
     margin-bottom: 0;
   }
-}
-
-.Notification__rightSlot {
-  margin-top: 8px;
-  display: flex;
-  align-items: stretch;
-}
-
-.Notification__rightSlot .Button {
-  width: 100%;
-  height: 20px;
-  font-size: 14px;
-  text-align: center;
 }

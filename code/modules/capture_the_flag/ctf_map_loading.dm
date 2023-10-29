@@ -2,6 +2,7 @@ GLOBAL_DATUM(ctf_spawner, /obj/effect/landmark/ctf)
 
 /obj/effect/landmark/ctf
 	name = "CTF Map Spawner"
+	var/game_id = CTF_GHOST_CTF_GAME_ID
 	var/list/map_bounds
 
 /obj/effect/landmark/ctf/Initialize(mapload)
@@ -48,10 +49,13 @@ GLOBAL_DATUM(ctf_spawner, /obj/effect/landmark/ctf)
 		else
 			current_map = map_choices[chosen_map]
 
-	if(!user || chosen_map=="Random")
+	if(!user || chosen_map == "Random")
 		current_map = pick(map_options)
 
 	current_map = new current_map()
+
+	var/datum/ctf_controller/ctf_controller = GLOB.ctf_games[CTF_GHOST_CTF_GAME_ID]
+	ctf_controller.setup_rules(current_map.points_to_win)
 
 	if(!spawn_area)
 		CRASH("No spawn area detected for CTF!")
@@ -63,29 +67,38 @@ GLOBAL_DATUM(ctf_spawner, /obj/effect/landmark/ctf)
 	return TRUE
 
 /datum/map_template/ctf
+	should_place_on_top = FALSE
 	var/description = ""
+	///Score required to win CTF on this map.
+	var/points_to_win = 3
 
 /datum/map_template/ctf/classic
 	name = "Classic"
 	description = "The original CTF map."
-	mappath = "_maps/ctf/classic.dmm"
+	mappath = "_maps/map_files/CTF/classic.dmm"
 
-/datum/map_template/ctf/fourSide
+/datum/map_template/ctf/four_side
 	name = "Four Side"
 	description = "A CTF map created to demonstrate 4 team CTF, features a single centred flag rather than one per team."
-	mappath = "_maps/ctf/fourSide.dmm"
+	mappath = "_maps/map_files/CTF/fourSide.dmm"
 
 /datum/map_template/ctf/downtown
 	name = "Downtown"
 	description = "A CTF map that takes place in a terrestrial city."
-	mappath = "_maps/ctf/downtown.dmm"
+	mappath = "_maps/map_files/CTF/downtown.dmm"
 
 /datum/map_template/ctf/limbo
 	name = "Limbo"
 	description = "A KOTH map that takes place in a wizard den with looping hallways"
-	mappath = "_maps/ctf/limbo.dmm"
+	mappath = "_maps/map_files/CTF/limbo.dmm"
+	points_to_win = 180
 
 /datum/map_template/ctf/cruiser
 	name = "Crusier"
-	description = "A CTF map that takes place across multiple space ships, one carring a powerful device that can accelerate those who obtain it"
-	mappath = "_maps/ctf/cruiser.dmm"
+	description = "A CTF map that takes place across multiple space ships, one carrying a powerful device that can accelerate those who obtain it"
+	mappath = "_maps/map_files/CTF/cruiser.dmm"
+
+/datum/map_template/ctf/turbine
+	name = "Turbine"
+	description = "A CTF map that takes place in a familiar facility. Don't try to hold out mid- Theres no sentries in this version."
+	mappath = "_maps/map_files/CTF/turbine.dmm"

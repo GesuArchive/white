@@ -8,24 +8,24 @@ export const MechBayPowerConsole = (props, context) => {
   const mech = recharge_port && recharge_port.mech;
   const cell = mech && mech.cell;
   return (
-    <Window width={400} height={145}>
+    <Window width={400} height={200}>
       <Window.Content>
         <Section
-          title="Состояние меха"
+          title="Mech status"
           textAlign="center"
           buttons={
             <Button
               icon="sync"
-              content="Синхр."
+              content="Sync"
               onClick={() => act('reconnect')}
             />
           }>
           <LabeledList>
-            <LabeledList.Item label="Состояние">
+            <LabeledList.Item label="Integrity">
               {(!recharge_port && (
-                <NoticeBox>Не обнаружено энергопортов.</NoticeBox>
+                <NoticeBox>No power port detected. Please re-sync.</NoticeBox>
               )) ||
-                (!mech && <NoticeBox>Не обнаружено меха.</NoticeBox>) || (
+                (!mech && <NoticeBox>No mech detected.</NoticeBox>) || (
                   <ProgressBar
                     value={mech.health / mech.maxhealth}
                     ranges={{
@@ -36,12 +36,12 @@ export const MechBayPowerConsole = (props, context) => {
                   />
                 )}
             </LabeledList.Item>
-            <LabeledList.Item label="Питание">
+            <LabeledList.Item label="Power">
               {(!recharge_port && (
-                <NoticeBox>Не обнаружено энергопортов.</NoticeBox>
+                <NoticeBox>No power port detected. Please re-sync.</NoticeBox>
               )) ||
-                (!mech && <NoticeBox>Не обнаружено меха.</NoticeBox>) ||
-                (!cell && <NoticeBox>Нет аккумулятора.</NoticeBox>) || (
+                (!mech && <NoticeBox>No mech detected.</NoticeBox>) ||
+                (!cell && <NoticeBox>No cell is installed.</NoticeBox>) || (
                   <ProgressBar
                     value={cell.charge / cell.maxcharge}
                     ranges={{

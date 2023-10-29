@@ -9,12 +9,12 @@
 	valueholder = null
 	return ..()
 
-/datum/buildmode_mode/varedit/show_help(client/c)
-	to_chat(c, span_notice("***********************************************************"))
-	to_chat(c, span_notice("Right Mouse Button on buildmode button = Select var(type) & value"))
-	to_chat(c, span_notice("Left Mouse Button on turf/obj/mob = Set var(type) & value"))
-	to_chat(c, span_notice("Right Mouse Button on turf/obj/mob = Reset var's value"))
-	to_chat(c, span_notice("***********************************************************"))
+/datum/buildmode_mode/varedit/show_help(client/builder)
+	to_chat(builder, span_purple(examine_block(
+		"[span_bold("Select var(type) & value")] -> Right Mouse Button on buildmode button\n\
+		[span_bold("Set var(type) & value")] -> Left Mouse Button on turf/obj/mob\n\
+		[span_bold("Reset var's value")] -> Right Mouse Button on turf/obj/mob"))
+	)
 
 /datum/buildmode_mode/varedit/Reset()
 	. = ..()
@@ -22,7 +22,7 @@
 	valueholder = null
 
 /datum/buildmode_mode/varedit/change_settings(client/c)
-	varholder = tgui_input_text(c, "Enter variable name:" ,"Name", "name")
+	varholder = input(c, "Enter variable name:" ,"Name", "name")
 
 	if(!vv_varname_lockcheck(varholder))
 		return
@@ -35,28 +35,26 @@
 	valueholder = temp_value["value"]
 
 /datum/buildmode_mode/varedit/handle_click(client/c, params, obj/object)
-	var/list/pa = params2list(params)
-	var/left_click = pa.Find("left")
-	var/right_click = pa.Find("right")
+	var/list/modifiers = params2list(params)
 
 	if(isnull(varholder))
 		to_chat(c, span_warning("Choose a variable to modify first."))
 		return
-	if(left_click)
+	if(LAZYACCESS(modifiers, LEFT_CLICK))
 		if(object.vars.Find(varholder))
 			if(object.vv_edit_var(varholder, valueholder) == FALSE)
 				to_chat(c, span_warning("Your edit was rejected by the object."))
 				return
-			log_admin("Build Mode: [key_name(c)] modified [object.name] [varholder] to [valueholder]")
+			log_admin("Build Mode: [key_name(c)] modified [object.name]'s [varholder] to [valueholder]")
 		else
 			to_chat(c, span_warning("[initial(object.name)] does not have a var called '[varholder]'"))
-	if(right_click)
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		if(object.vars.Find(varholder))
 			var/reset_value = initial(object.vars[varholder])
 			if(object.vv_edit_var(varholder, reset_value) == FALSE)
 				to_chat(c, span_warning("Your edit was rejected by the object."))
 				return
-			log_admin("Build Mode: [key_name(c)] modified [object.name] [varholder] to [reset_value]")
+			log_admin("Build Mode: [key_name(c)] modified [object.name]'s [varholder] to [reset_value]")
 		else
 			to_chat(c, span_warning("[initial(object.name)] does not have a var called '[varholder]'"))
 

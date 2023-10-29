@@ -1,15 +1,15 @@
 // The language of the podpeople. Yes, it's a shameless ripoff of elvish.
 /datum/language/sylvan
-	name = "Сильванский"
-	desc = "Сложный древний язык, на котором говорят живые растения."
+	name = "Sylvan"
+	desc = "A complicated, ancient language spoken by sentient plants."
 	key = "h"
 	space_chance = 20
 	syllables = list(
-		"фии", "сии", "рии", "рел", "маа", "ала", "сан", "тол", "ток", "диа", "ерес",
-		"фал", "тис", "бис", "qел", "арас", "лоск", "раса", "еоб", "хил", "танл", "аере",
-		"фер", "бал", "пии", "дала", "бан", "фое", "доа", "ции", "уис", "мел", "веx",
-		"инцас", "инт", "елц", "ент", "авс", "qип", "нас", "вил", "йенс", "дила", "фа",
-		"ла", "ре", "до", "йи", "ае", "со", "qе", "це", "на", "мо", "ха", "ю"
+		"fii", "sii", "rii", "rel", "maa", "ala", "san", "tol", "tok", "dia", "eres",
+		"fal", "tis", "bis", "qel", "aras", "losk", "rasa", "eob", "hil", "tanl", "aere",
+		"fer", "bal", "pii", "dala", "ban", "foe", "doa", "cii", "uis", "mel", "wex",
+		"incas", "int", "elc", "ent", "aws", "qip", "nas", "vil", "jens", "dila", "fa",
+		"la", "re", "do", "ji", "ae", "so", "qe", "ce", "na", "mo", "ha", "yu"
 	)
 	icon_state = "plant"
 	default_priority = 90

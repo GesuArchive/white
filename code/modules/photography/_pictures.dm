@@ -1,8 +1,12 @@
 /datum/picture
-	var/picture_name = "изображение"
-	var/picture_desc = "ЭтО иЗоБрАжЕнИе."
+	var/picture_name = "picture"
+	var/picture_desc = "This is a picture."
+	/// List of weakrefs pointing at mobs that appear in this photo
 	var/list/mobs_seen = list()
+	/// List of weakrefs pointing at dead mobs that appear in this photo
 	var/list/dead_seen = list()
+	/// List of strings of face-visible humans in this photo
+	var/list/names_seen = list()
 	var/caption
 	var/icon/picture_image
 	var/icon/picture_icon
@@ -14,15 +18,20 @@
 	///Was this image capable of seeing ghosts?
 	var/see_ghosts = CAMERA_NO_GHOSTS
 
-/datum/picture/New(name, desc, mobs_spotted, dead_spotted, image, icon, size_x, size_y, bp, caption_, autogenerate_icon, can_see_ghosts)
+/datum/picture/New(name, desc, mobs_spotted, dead_spotted, names, image, icon, size_x, size_y, bp, caption_, autogenerate_icon, can_see_ghosts)
 	if(!isnull(name))
 		picture_name = name
 	if(!isnull(desc))
 		picture_desc = desc
 	if(!isnull(mobs_spotted))
-		mobs_seen = mobs_spotted
+		for(var/mob/seen as anything in mobs_spotted)
+			mobs_seen += WEAKREF(seen)
 	if(!isnull(dead_spotted))
-		dead_seen = dead_spotted
+		for(var/mob/seen as anything in dead_spotted)
+			dead_seen += WEAKREF(seen)
+	if(!isnull(names))
+		for(var/seen in names)
+			names_seen += seen
 	if(!isnull(image))
 		picture_image = image
 	if(!isnull(icon))
@@ -49,13 +58,14 @@
 	if(!picture_image)
 		return
 	var/icon/small_img = icon(picture_image)
-	var/icon/ic = icon('icons/obj/items_and_weapons.dmi', iconstate ? iconstate :"photo")
+	var/icon/ic = icon('icons/obj/art/camera.dmi', iconstate ? iconstate :"photo")
 	small_img.Scale(8, 8)
 	ic.Blend(small_img,ICON_OVERLAY, 13, 13)
 	picture_icon = ic
 
-/datum/picture/serialize_list(list/options)
+/datum/picture/serialize_list(list/options, list/semvers)
 	. = ..()
+
 	.["id"] = id
 	.["desc"] = picture_desc
 	.["name"] = picture_name
@@ -65,15 +75,19 @@
 	.["blueprints"] = has_blueprints
 	.["logpath"] = logpath
 
+	SET_SERIALIZATION_SEMVER(semvers, "1.0.0")
 	return .
 
 /datum/picture/deserialize_list(list/input, list/options)
+	if((SCHEMA_VERSION in options) && (options[SCHEMA_VERSION] != "1.0.0"))
+		CRASH("Invalid schema version for datum/picture: [options[SCHEMA_VERSION]] (expected 1.0.0)")
 	. = ..()
 	if(!.)
 		return .
 
 	if(!input["logpath"] || !fexists(input["logpath"]) || !input["id"] || !input["pixel_size_x"] || !input["pixel_size_y"])
-		return
+		return FALSE
+
 	picture_image = icon(file(input["logpath"]))
 	logpath = input["logpath"]
 	id = input["id"]
@@ -87,7 +101,6 @@
 		picture_desc = input["desc"]
 	if(input["name"])
 		picture_name = input["name"]
-	return src
 
 /proc/load_photo_from_disk(id, location)
 	var/datum/picture/P = load_picture_from_disk(id)

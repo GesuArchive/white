@@ -28,20 +28,20 @@ export const AtmosFilter = (props, context) => {
           buttons={
             <Button
               icon={on ? 'power-off' : 'times'}
-              content={on ? 'Вкл' : 'Выкл'}
+              content={on ? 'On' : 'Off'}
               selected={on}
               onClick={() => act('power')}
             />
           }
           fill
-          title="Фильтр">
+          title="Gas Filter">
           <LabeledList>
-            <LabeledList.Item label="Скорость передачи">
+            <LabeledList.Item label="Transfer Rate">
               <NumberInput
                 animated
                 value={rate}
                 width="63px"
-                unit="Л/с"
+                unit="L/s"
                 minValue={0}
                 maxValue={max_rate}
                 onDrag={(_, value) =>
@@ -53,7 +53,7 @@ export const AtmosFilter = (props, context) => {
               <Button
                 ml={1}
                 icon="plus"
-                content="Максимум"
+                content="Max"
                 disabled={rate === max_rate}
                 onClick={() =>
                   act('rate', {
@@ -62,7 +62,7 @@ export const AtmosFilter = (props, context) => {
                 }
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Фильтры">
+            <LabeledList.Item label="Filter Types">
               {filter_types.map(({ enabled, gas_id }, index) => (
                 <Button
                   key={index}

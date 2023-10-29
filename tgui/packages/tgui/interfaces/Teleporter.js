@@ -13,27 +13,27 @@ export const Teleporter = (props, context) => {
     target,
   } = data;
   return (
-    <Window width={360} height={138}>
+    <Window width={360} height={130}>
       <Window.Content>
         <Section>
           {(!power_station && (
             <Box color="bad" textAlign="center">
-              Не подключена энергостанция.
+              No power station linked.
             </Box>
           )) ||
             (!teleporter_hub && (
               <Box color="bad" textAlign="center">
-                Не подключен хаб.
+                No hub linked.
               </Box>
             )) || (
               <LabeledList>
-                <LabeledList.Item label="Режим">
+                <LabeledList.Item label="Regime">
                   <Button
                     content={regime_set}
                     onClick={() => act('regimeset')}
                   />
                 </LabeledList.Item>
-                <LabeledList.Item label="Цель">
+                <LabeledList.Item label="Target">
                   <Button
                     icon="edit"
                     content={target}
@@ -41,17 +41,17 @@ export const Teleporter = (props, context) => {
                   />
                 </LabeledList.Item>
                 <LabeledList.Item
-                  label="Калибровка"
+                  label="Calibration"
                   buttons={
                     <Button
                       icon="tools"
-                      content="Калибровать"
+                      content="Calibrate"
                       onClick={() => act('calibrate')}
                     />
                   }>
-                  {(calibrating && <Box color="average">В процессе</Box>) ||
-                    (calibrated && <Box color="good">Оптимальная</Box>) || (
-                      <Box color="bad">Почти оптимальная</Box>
+                  {(calibrating && <Box color="average">In Progress</Box>) ||
+                    (calibrated && <Box color="good">Optimal</Box>) || (
+                      <Box color="bad">Sub-Optimal</Box>
                     )}
                 </LabeledList.Item>
               </LabeledList>

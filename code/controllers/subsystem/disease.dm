@@ -28,4 +28,4 @@ SUBSYSTEM_DEF(disease)
 	if(A.name)
 		return A.name
 	else
-		return "Неизвестно"
+		return "Unknown"

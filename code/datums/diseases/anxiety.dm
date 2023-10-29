@@ -1,44 +1,44 @@
 /datum/disease/anxiety
-	name = "Сильное беспокойство"
-	form = "Инфекционное заболевание"
+	name = "Severe Anxiety"
+	form = "Infection"
 	max_stages = 4
-	spread_text = "При контакте"
+	spread_text = "On contact"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = "Этанол"
+	cure_text = "Ethanol"
 	cures = list(/datum/reagent/consumable/ethanol)
-	agent = "Избыток лепидоптицидов"
+	agent = "Excess Lepidopticides"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	desc = "Если не лечить, у субъекта будут извергаться бабочки."
+	desc = "If left untreated subject will regurgitate butterflies."
 	severity = DISEASE_SEVERITY_MINOR
 
 
-/datum/disease/anxiety/stage_act(delta_time, times_fired)
+/datum/disease/anxiety/stage_act(seconds_per_tick, times_fired)
 	. = ..()
 	if(!.)
 		return
 
 	switch(stage)
 		if(2) //also changes say, see say.dm
-			if(DT_PROB(2.5, delta_time))
-				to_chat(affected_mob, span_notice("Беспокойно."))
+			if(SPT_PROB(2.5, seconds_per_tick))
+				to_chat(affected_mob, span_notice("You feel anxious."))
 		if(3)
-			if(DT_PROB(5, delta_time))
-				to_chat(affected_mob, span_notice("Живот трепещет."))
-			if(DT_PROB(2.5, delta_time))
-				to_chat(affected_mob, span_notice("Паника накатывает."))
-			if(DT_PROB(1, delta_time))
-				to_chat(affected_mob, span_danger("ПАНИКУЮ!"))
-				affected_mob.add_confusion(rand(2,3))
+			if(SPT_PROB(5, seconds_per_tick))
+				to_chat(affected_mob, span_notice("Your stomach flutters."))
+			if(SPT_PROB(2.5, seconds_per_tick))
+				to_chat(affected_mob, span_notice("You feel panicky."))
+			if(SPT_PROB(1, seconds_per_tick))
+				to_chat(affected_mob, span_danger("You're overtaken with panic!"))
+				affected_mob.adjust_confusion(rand(2 SECONDS, 3 SECONDS))
 		if(4)
-			if(DT_PROB(5, delta_time))
-				to_chat(affected_mob, span_danger("Ощущаю бабочек в своём животе."))
-			if(DT_PROB(2.5, delta_time))
-				affected_mob.visible_message(span_danger("[affected_mob] спотыкается в панике.") , \
-												span_userdanger("ПАНИЧЕСКАЯ АТАКА!"))
-				affected_mob.add_confusion(rand(6,8))
-				affected_mob.jitteriness += (rand(6,8))
-			if(DT_PROB(1, delta_time))
-				affected_mob.visible_message(span_danger("[affected_mob] выкашливает бабочек!") , \
-													span_userdanger("Выкашливаю бабочек!"))
-				new /mob/living/simple_animal/butterfly(affected_mob.loc)
-				new /mob/living/simple_animal/butterfly(affected_mob.loc)
+			if(SPT_PROB(5, seconds_per_tick))
+				to_chat(affected_mob, span_danger("You feel butterflies in your stomach."))
+			if(SPT_PROB(2.5, seconds_per_tick))
+				affected_mob.visible_message(span_danger("[affected_mob] stumbles around in a panic."), \
+												span_userdanger("You have a panic attack!"))
+				affected_mob.adjust_confusion(rand(6 SECONDS, 8 SECONDS))
+				affected_mob.adjust_jitter(rand(12 SECONDS, 16 SECONDS))
+			if(SPT_PROB(1, seconds_per_tick))
+				affected_mob.visible_message(span_danger("[affected_mob] coughs up butterflies!"), \
+													span_userdanger("You cough up butterflies!"))
+				new /mob/living/basic/butterfly(affected_mob.loc)
+				new /mob/living/basic/butterfly(affected_mob.loc)

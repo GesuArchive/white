@@ -53,7 +53,7 @@
 /**
  * Initializes the instrument, calculating its samples if necessary.
  */
-/datum/instrument/proc/Initialize(mapload)
+/datum/instrument/proc/Initialize()
 	if(instrument_flags & (INSTRUMENT_LEGACY | INSTRUMENT_DO_NOT_AUTOSAMPLE))
 		return
 	calculate_samples()
@@ -96,7 +96,7 @@
 		var/to_key = real_keys[i+1]
 		var/sample1 = real_samples[num2text(from_key)]
 		var/sample2 = real_samples[num2text(to_key)]
-		var/pivot = FLOOR((from_key + to_key) / 2, 1)			//original code was a round but I replaced it because that's effectively a floor, thanks Baystation! who knows what was intended.
+		var/pivot = FLOOR((from_key + to_key) / 2, 1) //original code was a round but I replaced it because that's effectively a floor, thanks Baystation! who knows what was intended.
 		for(var/key in from_key to pivot)
 			samples[num2text(key)] = new /datum/instrument_key(sample1, key, key - from_key)
 		for(var/key in (pivot + 1) to to_key)

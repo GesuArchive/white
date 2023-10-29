@@ -1,5 +1,5 @@
 /obj/machinery/portable_atmospherics/scrubber
-	name = "портативный газоочиститель"
+	name = "portable air scrubber"
 	icon_state = "scrubber"
 	density = TRUE
 	max_integrity = 250

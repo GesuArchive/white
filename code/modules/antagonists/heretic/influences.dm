@@ -1,6 +1,6 @@
 
 /// The number of influences spawned per heretic
-#define NUM_INFLUENCES_PER_HERETIC 4
+#define NUM_INFLUENCES_PER_HERETIC 5
 
 /**
  * #Reality smash tracker
@@ -65,10 +65,6 @@
  * and the number of minds we're tracking.
  */
 /datum/reality_smash_tracker/proc/generate_new_influences()
-	// 1 heretic = 4 influences
-	// 2 heretics = 7 influences
-	// 3 heretics = 9 influences
-	// 4 heretics = 10 influences, +1 for each onwards.
 	var/how_many_can_we_make = 0
 	for(var/heretic_number in 1 to length(tracked_heretics))
 		how_many_can_we_make += max(NUM_INFLUENCES_PER_HERETIC - heretic_number + 1, 1)
@@ -115,11 +111,11 @@
 	remove_from_smashes(heretic)
 
 /obj/effect/visible_heretic_influence
-	name = "разорванная реальность"
+	name = "pierced reality"
 	icon = 'icons/effects/eldritch.dmi'
 	icon_state = "pierced_illusion"
 	anchored = TRUE
-	interaction_flags_atom = INTERACT_ATOM_NO_FINGERPRINT_ATTACK_HAND
+	interaction_flags_atom = INTERACT_ATOM_NO_FINGERPRINT_ATTACK_HAND|INTERACT_ATOM_NO_FINGERPRINT_INTERACT
 	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	alpha = 0
 
@@ -145,17 +141,17 @@
 		return
 
 	if(IS_HERETIC(user))
-		to_chat(user, span_boldwarning("Уж я то найду этому применение..."))
+		to_chat(user, span_boldwarning("You know better than to tempt forces out of your control!"))
 		return TRUE
 
 	var/mob/living/carbon/human/human_user = user
 	var/obj/item/bodypart/their_poor_arm = human_user.get_active_hand()
 	if(prob(25))
-		to_chat(human_user, span_userdanger("Сверхъестественная энергия окутывает мою [their_poor_arm.name] и мгновенно распыляет ее на атомы!"))
+		to_chat(human_user, span_userdanger("An otherwordly presence tears and atomizes your [their_poor_arm.name] as you try to touch the hole in the very fabric of reality!"))
 		their_poor_arm.dismember()
 		qdel(their_poor_arm)
 	else
-		to_chat(human_user,span_danger("Еле успеваю отдернуть руку от странной аномалии, прямо перед тем как сверхъестественная энергия смыкается на том месте где была моя рука!"))
+		to_chat(human_user,span_danger("You pull your hand away from the hole as the eldritch energy flails, trying to latch onto existance itself!"))
 	return TRUE
 
 /obj/effect/visible_heretic_influence/attack_tk(mob/user)
@@ -165,21 +161,21 @@
 	. = COMPONENT_CANCEL_ATTACK_CHAIN
 
 	if(IS_HERETIC(user))
-		to_chat(user, span_boldwarning("Уж я то найду этому применение..."))
+		to_chat(user, span_boldwarning("You know better than to tempt forces out of your control!"))
 		return
 
 	var/mob/living/carbon/human/human_user = user
 
 	// A very elaborate way to suicide
-	to_chat(human_user, span_userdanger("Я чувствую как сверхъестественная энергия проникает в мой мозг! Сознание покидает меня..."))
+	to_chat(human_user, span_userdanger("Eldritch energy lashes out, piercing your fragile mind, tearing it to pieces!"))
 	human_user.ghostize()
 	var/obj/item/bodypart/head/head = locate() in human_user.bodyparts
 	if(head)
 		head.dismember()
 		qdel(head)
 	else
-		human_user.gib()
-
+		human_user.gib(DROP_ALL_REMAINS)
+	human_user.investigate_log("has died from using telekinesis on a heretic influence.", INVESTIGATE_DEATHS)
 	var/datum/effect_system/reagents_explosion/explosion = new()
 	explosion.set_up(1, get_turf(human_user), TRUE, 0)
 	explosion.start(src)
@@ -190,15 +186,15 @@
 		return
 
 	var/mob/living/carbon/human/human_user = user
-	to_chat(human_user, span_userdanger("При попытке всмотреться в разлом в голове возникает чудовищная боль!"))
+	to_chat(human_user, span_userdanger("Your mind burns as you stare at the tear!"))
 	human_user.adjustOrganLoss(ORGAN_SLOT_BRAIN, 10, 190)
-	SEND_SIGNAL(human_user, COMSIG_ADD_MOOD_EVENT, "gates_of_mansus", /datum/mood_event/gates_of_mansus)
+	human_user.add_mood_event("gates_of_mansus", /datum/mood_event/gates_of_mansus)
 
 /obj/effect/heretic_influence
-	name = "разлом в реальности"
+	name = "reality smash"
 	icon = 'icons/effects/eldritch.dmi'
 	anchored = TRUE
-	interaction_flags_atom = INTERACT_ATOM_NO_FINGERPRINT_ATTACK_HAND
+	interaction_flags_atom = INTERACT_ATOM_NO_FINGERPRINT_ATTACK_HAND|INTERACT_ATOM_NO_FINGERPRINT_INTERACT
 	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	invisibility = INVISIBILITY_OBSERVER
 	/// Whether we're currently being drained or not.
@@ -209,12 +205,28 @@
 	var/list/datum/mind/minds = list()
 	/// The image shown to heretics
 	var/image/heretic_image
+	/// We hold the turf we're on so we can remove and add the 'no prints' flag.
+	var/turf/on_turf
 
 /obj/effect/heretic_influence/Initialize(mapload)
 	. = ..()
 	GLOB.reality_smash_track.smashes += src
 	heretic_image = image(icon, src, real_icon_state, OBJ_LAYER)
 	generate_name()
+	on_turf = get_turf(src)
+	if(!istype(on_turf))
+		return
+	on_turf.interaction_flags_atom |= INTERACT_ATOM_NO_FINGERPRINT_ATTACK_HAND
+	RegisterSignal(on_turf, COMSIG_TURF_CHANGE, PROC_REF(replace_our_turf))
+
+/obj/effect/heretic_influence/proc/replace_our_turf(datum/source, path, new_baseturfs, flags, post_change_callbacks)
+	SIGNAL_HANDLER
+	post_change_callbacks += CALLBACK(src, PROC_REF(replace_our_turf_two))
+	on_turf = null //hard del ref?
+
+/obj/effect/heretic_influence/proc/replace_our_turf_two(turf/new_turf)
+	new_turf.interaction_flags_atom |= INTERACT_ATOM_NO_FINGERPRINT_ATTACK_HAND
+	on_turf = new_turf
 
 /obj/effect/heretic_influence/Destroy()
 	GLOB.reality_smash_track.smashes -= src
@@ -222,6 +234,8 @@
 		remove_mind(heretic)
 
 	heretic_image = null
+	on_turf?.interaction_flags_atom &= ~INTERACT_ATOM_NO_FINGERPRINT_ATTACK_HAND
+	on_turf = null
 	return ..()
 
 /obj/effect/heretic_influence/attack_hand_secondary(mob/user, list/modifiers)
@@ -229,7 +243,7 @@
 		return SECONDARY_ATTACK_CALL_NORMAL
 
 	if(being_drained)
-		balloon_alert(user, "Разлом истощен!")
+		balloon_alert(user, "already being drained!")
 	else
 		INVOKE_ASYNC(src, PROC_REF(drain_influence), user, 1)
 
@@ -243,7 +257,8 @@
 	// Using a codex will give you two knowledge points for draining.
 	if(!being_drained && istype(weapon, /obj/item/codex_cicatrix))
 		var/obj/item/codex_cicatrix/codex = weapon
-		codex.open_animation()
+		if(!codex.book_open)
+			codex.attack_self(user) // open booke
 		INVOKE_ASYNC(src, PROC_REF(drain_influence), user, 2)
 		return TRUE
 
@@ -257,18 +272,15 @@
 /obj/effect/heretic_influence/proc/drain_influence(mob/living/user, knowledge_to_gain)
 
 	being_drained = TRUE
-	balloon_alert(user, "впитываю эссенцию...")
-	RegisterSignal(user, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
+	balloon_alert(user, "draining influence...")
 
 	if(!do_after(user, 10 SECONDS, src))
 		being_drained = FALSE
-		balloon_alert(user, "прервано!")
-		UnregisterSignal(user, COMSIG_PARENT_EXAMINE)
+		balloon_alert(user, "interrupted!")
 		return
 
 	// We don't need to set being_drained back since we delete after anyways
-	UnregisterSignal(user, COMSIG_PARENT_EXAMINE)
-	balloon_alert(user, "эссенция усвоена")
+	balloon_alert(user, "influence drained")
 
 	var/datum/antagonist/heretic/heretic_datum = IS_HERETIC(user)
 	heretic_datum.knowledge_points += knowledge_to_gain
@@ -282,26 +294,13 @@
 /obj/effect/heretic_influence/proc/after_drain(mob/living/user)
 	if(user)
 		to_chat(user, span_hypnophrase(pick(strings(HERETIC_INFLUENCE_FILE, "drain_message"))))
-		to_chat(user, span_warning("[src] мерцает и закрывается поволокой!"))
+		to_chat(user, span_warning("[src] begins to fade into reality!"))
 
 	var/obj/effect/visible_heretic_influence/illusion = new /obj/effect/visible_heretic_influence(drop_location())
 	illusion.name = "\improper" + pick(strings(HERETIC_INFLUENCE_FILE, "drained")) + " " + format_text(name)
 
 	GLOB.reality_smash_track.num_drained++
 	qdel(src)
-
-/*
- * Signal proc for [COMSIG_PARENT_EXAMINE], registered on the user draining the influence.
- *
- * Gives a chance for examiners to see that the heretic is interacting with an infuence.
- */
-/obj/effect/heretic_influence/proc/on_examine(atom/source, mob/user, list/examine_list)
-	SIGNAL_HANDLER
-
-	if(prob(50))
-		return
-
-	examine_list += span_warning("Рука [source] мерцает [span_hypnophrase("странным фиолетовым цветом")]...")
 
 /*
  * Add a mind to the list of tracked minds,

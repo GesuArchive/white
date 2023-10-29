@@ -25,16 +25,23 @@
 	var/atom/dried_atom = source
 	if(dry_result == dried_atom.type)//if the dried type is the same as our currrent state, don't bother creating a whole new item, just re-color it.
 		var/atom/movable/resulting_atom = dried_atom
-		resulting_atom.add_atom_colour("#ad7257", FIXED_COLOUR_PRIORITY)
+		resulting_atom.add_atom_colour(COLOR_DRIED_TAN, FIXED_COLOUR_PRIORITY)
 		ADD_TRAIT(resulting_atom, TRAIT_DRIED, ELEMENT_TRAIT(type))
 		resulting_atom.forceMove(source.drop_location())
 		return
-
-	else if(istype(source, /obj/item/stack)) //Check if its a sheet
+	else if(isstack(source)) //Check if its a sheet
 		var/obj/item/stack/itemstack = dried_atom
 		for(var/i in 1 to itemstack.amount)
 			var/atom/movable/resulting_atom = new dry_result(source.drop_location())
 			ADD_TRAIT(resulting_atom, TRAIT_DRIED, ELEMENT_TRAIT(type))
+		qdel(source)
+		return
+	else if(istype(source, /obj/item/food) && ispath(dry_result, /obj/item/food))
+		var/obj/item/food/source_food = source
+		var/obj/item/food/resulting_food = new dry_result(source.drop_location())
+		resulting_food.reagents.clear_reagents()
+		source_food.reagents.trans_to(resulting_food, source_food.reagents.total_volume)
+		ADD_TRAIT(resulting_food, TRAIT_DRIED, ELEMENT_TRAIT(type))
 		qdel(source)
 		return
 	else

@@ -8,45 +8,45 @@ export const DisposalUnit = (props, context) => {
   let stateText;
   if (data.full_pressure) {
     stateColor = 'good';
-    stateText = 'Готов';
+    stateText = 'Ready';
   } else if (data.panel_open) {
     stateColor = 'bad';
-    stateText = 'Питание отключено';
+    stateText = 'Power Disabled';
   } else if (data.pressure_charging) {
     stateColor = 'average';
-    stateText = 'Герметизация';
+    stateText = 'Pressurizing';
   } else {
     stateColor = 'bad';
-    stateText = 'Выключено';
+    stateText = 'Off';
   }
   return (
-    <Window width={300} height={172}>
+    <Window width={300} height={180}>
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Состояние" color={stateColor}>
+            <LabeledList.Item label="State" color={stateColor}>
               {stateText}
             </LabeledList.Item>
-            <LabeledList.Item label="Давление">
+            <LabeledList.Item label="Pressure">
               <ProgressBar value={data.per} color="good" />
             </LabeledList.Item>
-            <LabeledList.Item label="Ручка">
+            <LabeledList.Item label="Handle">
               <Button
                 icon={data.flush ? 'toggle-on' : 'toggle-off'}
                 disabled={data.isai || data.panel_open}
-                content={data.flush ? 'Отжать' : 'Нажать'}
+                content={data.flush ? 'Disengage' : 'Engage'}
                 onClick={() => act(data.flush ? 'handle-0' : 'handle-1')}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Содержимое">
+            <LabeledList.Item label="Eject">
               <Button
                 icon="sign-out-alt"
                 disabled={data.isai}
-                content="Изъять"
+                content="Eject Contents"
                 onClick={() => act('eject')}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Питание">
+            <LabeledList.Item label="Power">
               <Button
                 icon="power-off"
                 disabled={data.panel_open}

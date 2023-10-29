@@ -7,27 +7,17 @@
 	if (user == src)
 		return .
 
-	if(user.zone_selected == BODY_ZONE_PRECISE_GROIN)
-		if (user.a_intent == INTENT_GRAB)
-			context[SCREENTIP_CONTEXT_LMB] = "Проверить задний карман"
-		else if (user.a_intent == INTENT_DISARM)
-			context[SCREENTIP_CONTEXT_LMB] = "Шлёпнуть"
-
-	if(user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
-		if (user.a_intent == INTENT_DISARM)
-			context[SCREENTIP_CONTEXT_LMB] = "Дать пощёчину"
-
 	if (pulledby == user)
 		switch (user.grab_state)
 			if (GRAB_PASSIVE)
-				context[SCREENTIP_CONTEXT_CTRL_LMB] = "Захват"
+				context[SCREENTIP_CONTEXT_CTRL_LMB] = "Grip"
 			if (GRAB_AGGRESSIVE)
-				context[SCREENTIP_CONTEXT_CTRL_LMB] = "Удушающий"
+				context[SCREENTIP_CONTEXT_CTRL_LMB] = "Choke"
 			if (GRAB_NECK)
-				context[SCREENTIP_CONTEXT_CTRL_LMB] = "Душить"
+				context[SCREENTIP_CONTEXT_CTRL_LMB] = "Strangle"
 			else
 				return .
 	else
-		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Тащить"
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Pull"
 
 	return CONTEXTUAL_SCREENTIP_SET

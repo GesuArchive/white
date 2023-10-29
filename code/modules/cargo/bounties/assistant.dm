@@ -1,422 +1,290 @@
 /datum/bounty/item/assistant/strange_object
-	name = "Аномальный объект"
-	description = "НаноТрейзен интересуется странными предметами. Найдите один в исправности и сразу же отправьте его на ЦК."
-	reward = CARGO_CRATE_VALUE * 20
-	wanted_types = list(/obj/item/relic)
+	name = "Strange Object"
+	description = "Nanotrasen has taken an interest in strange objects. Find one in maintenance, and ship it off to CentCom right away."
+	reward = CARGO_CRATE_VALUE * 2.4
+	wanted_types = list(/obj/item/relic = TRUE)
 
 /datum/bounty/item/assistant/scooter
-	name = "Скутер"
-	description = "НаноТрейзен решила, что пеший шаг вышел из моды. Отправьте скутер на ЦК, чтобы ускорить работу."
-	reward = CARGO_CRATE_VALUE * 50
-	wanted_types = list(/obj/vehicle/ridden/scooter)
+	name = "Scooter"
+	description = "Nanotrasen has determined walking to be wasteful. Ship a scooter to CentCom to speed operations up."
+	reward = CARGO_CRATE_VALUE * 2.16 // the mat hoffman
+	wanted_types = list(/obj/vehicle/ridden/scooter = TRUE)
 	include_subtypes = FALSE
 
 /datum/bounty/item/assistant/skateboard
-	name = "Скейтборд"
-	description = "НаноТрейзен решила, что ходить бессмысленно. Отправьте скейтборд на ЦК, чтобы ускорить работу."
-	reward = CARGO_CRATE_VALUE * 40
-	wanted_types = list(/obj/vehicle/ridden/scooter/skateboard, /obj/item/melee/skateboard)
+	name = "Skateboard"
+	description = "Nanotrasen has determined walking to be wasteful. Ship a skateboard to CentCom to speed operations up."
+	reward = CARGO_CRATE_VALUE * 1.8 // the tony hawk
+	wanted_types = list(
+		/obj/vehicle/ridden/scooter/skateboard = TRUE,
+		/obj/item/melee/skateboard = TRUE,
+	)
 
 /datum/bounty/item/assistant/stunprod
-	name = "Самодельный электрошокер"
-	description = "ЦК требует использовать палка-оглушалки против диссидентов. Сделайте одну и отправьте на ЦК."
-	reward = CARGO_CRATE_VALUE * 30
-	wanted_types = list(/obj/item/melee/baton/cattleprod)
+	name = "Stunprod"
+	description = "CentCom demands a stunprod to use against dissidents. Craft one, then ship it."
+	reward = CARGO_CRATE_VALUE * 2.6
+	wanted_types = list(/obj/item/melee/baton/security/cattleprod = TRUE)
 
 /datum/bounty/item/assistant/soap
-	name = "Мыло"
-	description = "Мыло пропало из ванных комнат ЦК. Никто не знает, кто его взял. Отправьте мыло и станьте героем, в котором нуждается ЦК."
-	reward = CARGO_CRATE_VALUE * 40
+	name = "Soap"
+	description = "Soap has gone missing from CentCom's bathrooms and nobody knows who took it. Replace it and be the hero CentCom needs."
+	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
-	wanted_types = list(/obj/item/soap)
+	wanted_types = list(/obj/item/soap = TRUE)
 
 /datum/bounty/item/assistant/spear
-	name = "Копья"
-	description = "У Службы Безопасности ЦК сокращение бюджета. Вам заплатят, если вы отправите им набор копий."
-	reward = CARGO_CRATE_VALUE * 80
+	name = "Spears"
+	description = "CentCom's security forces are going through budget cuts. You will be paid if you ship a set of spears."
+	reward = CARGO_CRATE_VALUE * 4
 	required_count = 5
-	wanted_types = list(/obj/item/spear)
+	wanted_types = list(/obj/item/spear = TRUE)
 
 /datum/bounty/item/assistant/toolbox
-	name = "Ящик с инструментами"
-	description = "На ЦК нехватка робаста! Поспешите и отправьте несколько ящиков с инструментами в качестве решения проблемы."
-	reward = CARGO_CRATE_VALUE * 50
+	name = "Toolboxes"
+	description = "There's an absence of robustness at Central Command. Hurry up and ship some toolboxes as a solution."
+	reward = CARGO_CRATE_VALUE * 4
 	required_count = 6
-	wanted_types = list(/obj/item/storage/toolbox)
+	wanted_types = list(/obj/item/storage/toolbox = TRUE)
 
 /datum/bounty/item/assistant/statue
-	name = "Статуя"
-	description = "ЦК заказало статую художника для вестибюля. Отправьте одну, когда это будет возможно."
-	reward = CARGO_CRATE_VALUE * 100
-	wanted_types = list(/obj/structure/statue)
+	name = "Statue"
+	description = "Central Command would like to commision an artsy statue for the lobby. Ship one out, when possible."
+	reward = CARGO_CRATE_VALUE * 4
+	wanted_types = list(/obj/structure/statue = TRUE)
 
 /datum/bounty/item/assistant/clown_box
-	name = "Коробка клоуна"
-	description = "Вселенной нужен смех. Отпечатайте коробку штампом клоуна и отправьте его."
-	reward = CARGO_CRATE_VALUE * 50
-	wanted_types = list(/obj/item/storage/box/clown)
+	name = "Clown Box"
+	description = "The universe needs laughter. Stamp cardboard with a clown stamp and ship it out."
+	reward = CARGO_CRATE_VALUE * 3
+	wanted_types = list(/obj/item/storage/box/clown = TRUE)
 
 /datum/bounty/item/assistant/cheesiehonkers
-	name = "Сырные Хонкеры"
-	description = "Очевидно, что компания, которая делает Сырные Хонкеры, скоро уходит из бизнеса. ЦК хочет запастись ими до того, как это произойдет!"
-	reward = CARGO_CRATE_VALUE * 30
+	name = "Cheesie Honkers"
+	description = "Apparently the company that makes Cheesie Honkers is going out of business soon. CentCom wants to stock up before it happens!"
+	reward = CARGO_CRATE_VALUE * 2.4
 	required_count = 3
-	wanted_types = list(/obj/item/food/cheesiehonkers)
+	wanted_types = list(/obj/item/food/cheesiehonkers = TRUE)
 
 /datum/bounty/item/assistant/baseball_bat
-	name = "Бейсбольная бита"
-	description = "В ЦентКоме продолжается бейсбольная лихорадка! Будьте добрыми и отправьте им несколько бейсбольных бит, чтобы руководство смогло осуществить их детскую мечту."
-	reward = CARGO_CRATE_VALUE * 35
+	name = "Baseball Bat"
+	description = "Baseball fever is going on at CentCom! Be a dear and ship them some baseball bats, so that management can live out their childhood dream."
+	reward = CARGO_CRATE_VALUE * 4
 	required_count = 5
-	wanted_types = list(/obj/item/melee/baseball_bat)
+	wanted_types = list(/obj/item/melee/baseball_bat = TRUE)
 
 /datum/bounty/item/assistant/extendohand
-	name = "Расширяющаяся рука"
-	description = "Коммандер Бетси стареет и больше не может наклоняться, чтобы достать пульт. Руководство попросило отправить руку, чтобы помочь ей."
-	reward = CARGO_CRATE_VALUE * 55
-	wanted_types = list(/obj/item/extendohand)
+	name = "Extendo-Hand"
+	description = "Commander Betsy is getting old, and can't bend over to get the telescreen remote anymore. Management has requested an extendo-hand to help her out."
+	reward = CARGO_CRATE_VALUE * 5
+	wanted_types = list(/obj/item/extendohand = TRUE)
 
 /datum/bounty/item/assistant/donut
-	name = "Пончики"
-	description = "Силы безопасности ЦК несут большие потери против Синдиката. Отправьте им пончики, чтобы поднять боевой дух."
-	reward = CARGO_CRATE_VALUE * 100
-	required_count = 10
-	wanted_types = list(/obj/item/food/donut)
+	name = "Donuts"
+	description = "CentCom's security forces are facing heavy losses against the Syndicate. Ship donuts to raise morale."
+	reward = CARGO_CRATE_VALUE * 6
+	required_count = 6
+	wanted_types = list(/obj/item/food/donut = TRUE)
 
 /datum/bounty/item/assistant/donkpocket
-	name = "Донк-Покеты"
-	description = "Отзыв безопасности потребителей: Внимание! Донк-Покеты, изготовленные в прошлом году, содержат опасную биоматерию ящерицы. Верните их на ЦК немедленно."
-	reward = CARGO_CRATE_VALUE * 100
+	name = "Donk-Pockets"
+	description = "Consumer safety recall: Warning. Donk-Pockets manufactured in the past year contain hazardous lizard biomatter. Return units to CentCom immediately."
+	reward = CARGO_CRATE_VALUE * 6
 	required_count = 10
-	wanted_types = list(/obj/item/food/donkpocket)
-
-/datum/bounty/item/assistant/briefcase
-	name = "Портфель"
-	description = "Центральное командование в этом году проведет деловую конвенцию. Отправьте несколько портфелей в их поддержку."
-	reward = CARGO_CRATE_VALUE * 50
-	required_count = 5
-	wanted_types = list(/obj/item/storage/briefcase, /obj/item/storage/secure/briefcase)
-
-/datum/bounty/item/assistant/sunglasses
-	name = "Солнечные очки"
-	description = "Известный блюзовый дуэт проходит через наш сектор, но они потеряли свои очки и они не могут выступать. Отправьте новые очки на ЦК чтобы исправить это."
-	reward = CARGO_CRATE_VALUE * 50
-	required_count = 2
-	wanted_types = list(/obj/item/clothing/glasses/sunglasses)
+	wanted_types = list(/obj/item/food/donkpocket = TRUE)
 
 /datum/bounty/item/assistant/monkey_hide
-	name = "Кожа обезьяны"
-	description = "Один из учёных с ЦК заинтересован тестированием продуктов из кожи обезьяны. Ваша задача достать кожу и отправить её на ЦК."
-	reward = CARGO_CRATE_VALUE * 25
-	wanted_types = list(/obj/item/stack/sheet/animalhide/monkey)
+	name = "Monkey Hide"
+	description = "One of the scientists at CentCom is interested in testing products on monkey skin. Your mission is to acquire monkey's hide and ship it."
+	reward = CARGO_CRATE_VALUE * 3
+	wanted_types = list(/obj/item/stack/sheet/animalhide/monkey = TRUE)
 
-/datum/bounty/item/assistant/shard
-	name = "Осколки стекла"
-	description = "ЦК преследует убийцу-клоуна и сотрудники не могут поймать его, потому что он не носит обувь. Пожалуйста, отправьте несколько осколков, чтобы сделать ловушку."
-	reward = CARGO_CRATE_VALUE * 35
-	required_count = 15
-	wanted_types = list(/obj/item/shard)
+/datum/bounty/item/assistant/dead_mice
+	name = "Dead Mice"
+	description = "Station 14 ran out of freeze-dried mice. Ship some fresh ones so their janitor doesn't go on strike."
+	reward = CARGO_CRATE_VALUE * 10
+	required_count = 5
+	wanted_types = list(/obj/item/food/deadmouse = TRUE)
 
 /datum/bounty/item/assistant/comfy_chair
-	name = "Удобные кресла"
-	description = "Коммандер Пэт недоволен своим креслом. Он утверждает, что у него болит спина. Отправьте несколько кресел, чтобы ублажить его."
-	reward = CARGO_CRATE_VALUE * 15
+	name = "Comfy Chairs"
+	description = "Commander Pat is unhappy with his chair. He claims it hurts his back. Ship some alternatives out to humor him."
+	reward = CARGO_CRATE_VALUE * 3
 	required_count = 5
-	wanted_types = list(/obj/structure/chair/comfy)
+	wanted_types = list(/obj/structure/chair/comfy = TRUE)
 
 /datum/bounty/item/assistant/geranium
-	name = "Герань"
-	description = "У командира Зота любовь к командиру Зена. Отправьте партию герани - её любимого цветка и он с радостью наградит вас."
-	reward = CARGO_CRATE_VALUE * 120
+	name = "Geraniums"
+	description = "Commander Zot has the hots for Commander Zena. Send a shipment of geraniums - her favorite flower - and he'll happily reward you."
+	reward = CARGO_CRATE_VALUE * 8
 	required_count = 3
-	wanted_types = list(/obj/item/food/grown/poppy/geranium)
+	wanted_types = list(/obj/item/food/grown/poppy/geranium = TRUE)
 	include_subtypes = FALSE
 
 /datum/bounty/item/assistant/poppy
-	name = "Мак"
-	description = "Командир Зот хочет подарить цветы офицеру безопасности Оливии. Отправьте партию маков, и он с радостью наградит вас."
-	reward = CARGO_CRATE_VALUE * 50
+	name = "Poppies"
+	description = "Commander Zot really wants to sweep Security Officer Olivia off her feet. Send a shipment of Poppies - her favorite flower - and he'll happily reward you."
+	reward = CARGO_CRATE_VALUE * 2
 	required_count = 3
-	wanted_types = list(/obj/item/food/grown/poppy)
+	wanted_types = list(/obj/item/food/grown/poppy = TRUE)
 	include_subtypes = FALSE
-
-/datum/bounty/item/assistant/shadyjims
-	name = "Шейди Джим"
-	description = "В ЦК разгневанный офицер требует, чтобы он получил пачку сигарет Шейди Джима. Пожалуйста, отправьте одну. Он начинает угрожать."
-	reward = CARGO_CRATE_VALUE * 100
-	wanted_types = list(/obj/item/storage/fancy/cigarettes/cigpack_shadyjims)
 
 /datum/bounty/item/assistant/potted_plants
-	name = "Растения в горшке"
-	description = "ЦК планирует ввести в эксплуатацию новую станцию класса BirdBoat. Вам было приказано отправить растения в горшках."
-	reward = CARGO_CRATE_VALUE * 70
+	name = "Potted Plants"
+	description = "Central Command is looking to commission a new BirdBoat-class station. You've been ordered to supply the potted plants."
+	reward = CARGO_CRATE_VALUE * 4
 	required_count = 8
-	wanted_types = list(/obj/item/kirbyplants)
-
-/datum/bounty/item/assistant/earmuffs
-	name = "Наушники"
-	description = "Центральное командование устало от сообщений вашей станции. Они приказали вам отправить несколько наушников, чтобы уменьшить раздражение."
-	reward = CARGO_CRATE_VALUE * 100
-	wanted_types = list(/obj/item/clothing/ears/earmuffs)
-
-/datum/bounty/item/assistant/handcuffs
-	name = "Наручники"
-	description = "Большой поток сбежавших осужденных прибыло на ЦК. Сейчас самое подходящее время для отправки запасных наручников."
-	reward = CARGO_CRATE_VALUE * 10
-	required_count = 5
-	wanted_types = list(/obj/item/restraints/handcuffs)
+	wanted_types = list(/obj/item/kirbyplants = TRUE)
 
 /datum/bounty/item/assistant/monkey_cubes
-	name = "Кубики с обезьянами"
-	description = "Из-за недавней генетической аварии ЦК остро нуждается в обезьянах. Ваша миссия состоит в том, чтобы отправить им кубики обезьян."
-	reward = CARGO_CRATE_VALUE * 70
+	name = "Monkey Cubes"
+	description = "Due to a recent genetics accident, Central Command is in serious need of monkeys. Your mission is to ship monkey cubes."
+	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
-	wanted_types = list(/obj/item/food/monkeycube)
-
-/datum/bounty/item/assistant/chainsaw
-	name = "Бензопила"
-	description = "У шеф-повара на ЦК возникают проблемы с разделкой животных. Он просит одну бензопилу..."
-	reward = CARGO_CRATE_VALUE * 90
-	wanted_types = list(/obj/item/chainsaw)
+	wanted_types = list(/obj/item/food/monkeycube = TRUE)
 
 /datum/bounty/item/assistant/ied
-	name = "Самодельная зажигательная бомба"
-	description = "Тюрьма строгого режима NT на ЦК проходит обучение персонала. Отправьте несколько устройств самодельной взрывчатки, которые будут служить им учебным пособием..."
-	reward = CARGO_CRATE_VALUE * 40
+	name = "IED"
+	description = "Nanotrasen's maximum security prison at CentCom is undergoing personnel training. Ship a handful of IEDs to serve as a training tools."
+	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
-	wanted_types = list(/obj/item/grenade/iedcasing)
-
-/datum/bounty/item/assistant/bonfire
-	name = "Горящий костёр"
-	description = "Обогреватели неисправны, и грузовой экипаж Центрального командования начинает мерзнуть. Поставьте зажженный костер, чтобы согреть их."
-	reward = CARGO_CRATE_VALUE * 50
-	wanted_types = list(/obj/structure/bonfire)
-
-/datum/bounty/item/assistant/bonfire/applies_to(obj/O)
-	if(!..())
-		return FALSE
-	var/obj/structure/bonfire/B = O
-	return !!B.burning
+	wanted_types = list(/obj/item/grenade/iedcasing = TRUE)
 
 /datum/bounty/item/assistant/corgimeat
-	name = "Свежее мясо корги"
-	description = "Синдикат недавно украл всё мясо корги у ЦК. Отправьте замену немедленно."
-	reward = CARGO_CRATE_VALUE * 10
-	wanted_types = list(/obj/item/food/meat/slab/corgi)
+	name = "Raw Corgi Meat"
+	description = "The Syndicate recently stole all of CentCom's corgi meat. Ship out a replacement immediately."
+	reward = CARGO_CRATE_VALUE * 6
+	wanted_types = list(/obj/item/food/meat/slab/corgi = TRUE)
 
 /datum/bounty/item/assistant/action_figures
-	name = "Фигурки"
-	description = "Сын вице-президента увидел рекламу телешоу по телевизору, и теперь он не умолкает про них. Отправьте немного фигурок, чтобы успокоить сына."
-	reward = CARGO_CRATE_VALUE * 100
+	name = "Action Figures"
+	description = "The vice president's son saw an ad for action figures on the telescreen and now he won't shut up about them. Ship some to ease his complaints."
+	reward = CARGO_CRATE_VALUE * 8
 	required_count = 5
-	wanted_types = list(/obj/item/toy/figure)
-
-/datum/bounty/item/assistant/tail_whip
-	name = "Девятихвостый кнут"
-	description = "Коммандер Джексон ищет прекрасное дополнение к своей коллекции экзотического оружия. Она щедро вознаградит вас за девятихвостый кнут (кнут из ящера учитывается также)"
-	reward = CARGO_CRATE_VALUE * 300
-	wanted_types = list(/obj/item/melee/chainofcommand/tailwhip)
-
-/datum/bounty/item/assistant/dead_mice
-	name = "Мёртвая мышь"
-	description = "Недавно открылась сеть ресторанов быстрого питания Хорошая Мышь. Отправьте партию свежих мертвых мышей."
-	reward = CARGO_CRATE_VALUE * 35
-	required_count = 5
-	wanted_types = list(/obj/item/food/deadmouse)
+	wanted_types = list(/obj/item/toy/figure = TRUE)
 
 /datum/bounty/item/assistant/paper_bin
-	name = "Контейнеры для бумаги"
-	description = "В нашем бухгалтерском отделе совсем нет бумаги. Нам немедленно нужна новая партия."
-	reward = CARGO_CRATE_VALUE * 50
-	required_count = 8
-	wanted_types = list(/obj/item/paper_bin)
+	name = "Paper Bins"
+	description = "Our accounting division is all out of paper. We need a new shipment immediately."
+	reward = CARGO_CRATE_VALUE * 5
+	required_count = 5
+	wanted_types = list(/obj/item/paper_bin = TRUE)
 
 /datum/bounty/item/assistant/crayons
-	name = "Мелки"
-	description = "Ребенок доктора Джонса снова съел все наши мелки. Пожалуйста, пришлите нам свои."
-	reward = CARGO_CRATE_VALUE * 50
+	name = "Crayons"
+	description = "Dr. Jones's kid ate all of our crayons again. Please send us yours."
+	reward = CARGO_CRATE_VALUE * 4
 	required_count = 24
-	wanted_types = list(/obj/item/toy/crayon)
+	wanted_types = list(/obj/item/toy/crayon = TRUE)
 
 /datum/bounty/item/assistant/pens
-	name = "Ручки"
-	description = "Мы проводим межгалактический конкурс по балансировке пера. Нам нужно, чтобы вы прислали стандартные шариковые ручки."
-	reward = CARGO_CRATE_VALUE * 40
+	name = "Pens"
+	description = "We are hosting the intergalactic pen balancing competition. We need you to send us some standardized black ballpoint pens."
+	reward = CARGO_CRATE_VALUE * 4
 	required_count = 10
-	include_subtypes = TRUE
-	wanted_types = list(/obj/item/pen)
-
-/datum/bounty/item/assistant/guitar
-	name = "Гитара"
-	description = "Мы проводим межгалактический конкурс по игре на музыкальных инструментах. Нам нужно, чтобы вы прислали гитару."
-	reward = CARGO_CRATE_VALUE * 50
-	required_count = 1
 	include_subtypes = FALSE
-	wanted_types = list(/obj/item/instrument/guitar)
+	wanted_types = list(/obj/item/pen = TRUE)
 
-/datum/bounty/item/assistant/eguitar
-	name = "Электрогитара"
-	description = "Мы проводим межгалактический конкурс по игре на музыкальных инструментах. Нам нужно, чтобы вы прислали электрогитару."
-	reward = CARGO_CRATE_VALUE * 50
-	required_count = 1
-	include_subtypes = FALSE
-	wanted_types = list(/obj/item/instrument/eguitar)
+/datum/bounty/item/assistant/water_tank
+	name = "Water Tank"
+	description = "We need more water for our hydroponics bay. Find a water tank and ship it out to us."
+	reward = CARGO_CRATE_VALUE * 5
+	wanted_types = list(/obj/structure/reagent_dispensers/watertank = TRUE)
 
-/datum/bounty/item/assistant/violin
-	name = "Скрипка"
-	description = "Мы проводим межгалактический конкурс по игре на музыкальных инструментах. Нам нужно, чтобы вы прислали скрипку."
-	reward = CARGO_CRATE_VALUE * 60
-	required_count = 1
-	include_subtypes = FALSE
-	wanted_types = list(/obj/item/instrument/violin)
+/datum/bounty/item/assistant/pneumatic_cannon
+	name = "Pneumatic Cannon"
+	description = "We're figuring out how hard we can launch supermatter shards out of a pneumatic cannon. Send us one as soon as possible."
+	reward = CARGO_CRATE_VALUE * 4
+	wanted_types = list(/obj/item/pneumatic_cannon/ghetto = TRUE)
 
-/datum/bounty/item/assistant/donbas
-	name = "Рыба с Дебальцево"
-	description = "У сотрудников ЦК закончилось сало. Доставьте им сушёной рыбы"
-	reward = CARGO_CRATE_VALUE * 150
+/datum/bounty/item/assistant/improvised_shells
+	name = "Improvised Shotgun Shells"
+	description = "Budget cuts are hitting our security department pretty hard. Send some improvised shotgun shells when you can."
+	reward = CARGO_CRATE_VALUE * 4
+	required_count = 5
+	wanted_types = list(/obj/item/ammo_casing/shotgun/improvised = TRUE)
+
+/datum/bounty/item/assistant/flamethrower
+	name = "Flamethrower"
+	description = "We have a moth infestation, send a flamethrower to help deal with the situation."
+	reward = CARGO_CRATE_VALUE * 4
+	wanted_types = list(/obj/item/flamethrower = TRUE)
+
+/datum/bounty/item/assistant/fish
+	name = "Fish"
+	description = "We need fish to populate our aquariums with. Fishes that are dead or bought from cargo will only be paid half as much."
+	reward = CARGO_CRATE_VALUE * 9
+	required_count = 4
+	wanted_types = list(/obj/item/fish = TRUE)
+	///the penalty for shipping dead/bought fish, which can subtract up to half the reward in total.
+	var/shipping_penalty
+
+/datum/bounty/item/assistant/fish/New()
+	..()
+	shipping_penalty = reward * 0.5 / required_count
+
+/datum/bounty/item/assistant/fish/ship(obj/shipped)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/fish/fishie = shipped
+	if(fishie.status == FISH_DEAD || HAS_TRAIT(fishie, TRAIT_FISH_FROM_CASE))
+		reward -= shipping_penalty
+
+///A subtype of the fish bounty that requires fish with a specific fluid type
+/datum/bounty/item/assistant/fish/fluid
+	reward = CARGO_CRATE_VALUE * 11
+	///The required fluid type of the fish for it to be shipped
+	var/fluid_type
+
+/datum/bounty/item/assistant/fish/fluid/New()
+	..()
+	fluid_type = pick(AQUARIUM_FLUID_FRESHWATER, AQUARIUM_FLUID_SALTWATER, AQUARIUM_FLUID_SULPHWATEVER)
+	name = "[fluid_type] Fish"
+	description = "We need [lowertext(fluid_type)] fish to populate our aquariums with. Fishes that are dead or bought from cargo will only be paid half as much."
+
+/datum/bounty/item/assistant/fish/fluid/applies_to(obj/shipped)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/fish/fishie = shipped
+	return compatible_fluid_type(fishie.required_fluid_type, fluid_type)
+
+///A subtype of the fish bounty that requires specific fish types. The higher their rarity, the better the pay.
+/datum/bounty/item/assistant/fish/specific
+	description = "Our prestigious fish collection is currently lacking a few specific species. Fishes that are dead or bought from cargo will only be paid half as much."
+	reward = CARGO_CRATE_VALUE * 16
 	required_count = 3
-	include_subtypes = FALSE
-	wanted_types = list(/obj/item/food/fishmeat/carp/dry/donbas)
+	wanted_types = list()
 
-/datum/bounty/item/assistant/donbas
-	name = "Русская поваренная книга"
-	description = "На станции 16 умер русский повар. Отправьте им несколько 'Русская поваренная книга', чтобы обучить новых специалистов."
-	required_count = 2
-	include_subtypes = FALSE
-	wanted_types = list(/obj/item/book/granter/crafting_recipe/cookbook)
+/datum/bounty/item/assistant/fish/specific/New()
+	var/static/list/choosable_fishes
+	if(isnull(choosable_fishes))
+		choosable_fishes = list()
+		for(var/obj/item/fish/prototype as anything in subtypesof(/obj/item/fish))
+			if(initial(prototype.experisci_scannable) && initial(prototype.show_in_catalog))
+				choosable_fishes += prototype
 
-/datum/bounty/item/assistant/gloves
-	name = "Резиновые перчатки"
-	description = "Асисстенты станции 14 украли все резиновые перчатки. Доставьте им новые!"
-	reward = CARGO_CRATE_VALUE * 300
-	required_count = 5
-	include_subtypes = FALSE
-	wanted_types = list(/obj/item/clothing/gloves/color/yellow)
+	var/list/fishes_copylist = choosable_fishes.Copy()
+	///Used to calculate the extra reward
+	var/total_rarity = 0
+	var/list/name_list = list()
+	var/num_paths = rand(2,3)
+	for(var/i in 1 to num_paths)
+		var/obj/item/fish/chosen_path = pick_n_take(fishes_copylist)
+		wanted_types[chosen_path] = TRUE
+		name_list += initial(chosen_path.name)
+		total_rarity += initial(chosen_path.random_case_rarity) / num_paths
+	name = english_list(name_list)
 
-/datum/bounty/item/assistant/watertank
-	name = "Бак с водой"
-	description = "На ЦК случился пожар! Доставьте им баки с водой!"
-	reward = CARGO_CRATE_VALUE * 150
-	required_count = 5
-	include_subtypes = FALSE
-	wanted_types = list(/obj/structure/reagent_dispensers/watertank)
+	switch(total_rarity)
+		if(FISH_RARITY_NOPE to FISH_RARITY_GOOD_LUCK_FINDING_THIS)
+			reward += CARGO_CRATE_VALUE * 14
+		if(FISH_RARITY_GOOD_LUCK_FINDING_THIS to FISH_RARITY_VERY_RARE)
+			reward += CARGO_CRATE_VALUE * 6.5
+		if(FISH_RARITY_VERY_RARE to FISH_RARITY_RARE)
+			reward += CARGO_CRATE_VALUE * 3
+		if(FISH_RARITY_RARE to FISH_RARITY_BASIC-1)
+			reward += CARGO_CRATE_VALUE * 1
 
-/datum/bounty/item/assistant/fueltank
-	name = "Бак с топливом"
-	description = "На ЦК случился пожар! Доставьте клоуну баки с топливом!"
-	reward = CARGO_CRATE_VALUE * 200
-	required_count = 5
-	include_subtypes = FALSE
-	wanted_types = list(/obj/structure/reagent_dispensers/fueltank)
-
-/datum/bounty/item/assistant/turntable
-	name = "Взрыв Каробка"
-	description = "На станции 15 произошло чаепитие. Они просят музыкальный автомат для продолжения смены."
-	reward = CARGO_CRATE_VALUE * 200
-	required_count = 1
-	include_subtypes = FALSE
-	wanted_types = list(/obj/machinery/turntable)
-
-/datum/bounty/item/assistant/loyalty
-	name = "Кейс с имплантами щита разума"
-	description = "Одна из станций просит доставить кейс с майндшилд имплантами в связи с революцией на их станции."
-	reward = CARGO_CRATE_VALUE * 250
-	required_count = 1
-	include_subtypes = FALSE
-	wanted_types = list(/obj/item/storage/lockbox/loyalty)
-
-/datum/bounty/item/assistant/captains_spare
-	name = "Карта Капитана"
-	description = "У одной из станций отсутствует капитанская карточка. Отправьте им свою, получив щедрую награду."
-	reward = CARGO_CRATE_VALUE * 5000
-	required_count = 1
-	include_subtypes = TRUE
-	wanted_types = list(/obj/item/card/id/advanced/gold/captains_spare)
-
-/datum/bounty/item/assistant/closet
-	name = "Шкафчики и ящики"
-	description = "После пожара на одном из штабов ЦК, командованию некуда складывать свои личные вещи. Отправьте им шкафчики или ящики со своей станции."
-	reward = CARGO_CRATE_VALUE * 100
-	required_count = 10
-	include_subtypes = TRUE
-	wanted_types = list(/obj/structure/closet)
-
-/datum/bounty/item/assistant/champion
-	name = "Пояс Чемпиона"
-	description = "Представитель нашей станции выиграл чемпионат по робасту, только вот организаторы забыли купить пояс Чемпиона. СРОЧНО ОТПРАВЬТЕ ЕГО ИМ!!!"
-	reward = CARGO_CRATE_VALUE * 1500
-	required_count = 1
-	include_subtypes = TRUE
-	wanted_types = list(/obj/item/storage/belt/champion)
-
-/datum/bounty/item/assistant/space_heater
-	name = "Обогреватель"
-	description = "После пожара на ЦК система обогрева станции сгорела. Отправьте им обогреватели!"
-	reward = CARGO_CRATE_VALUE * 60
-	required_count = 5
-	include_subtypes = FALSE
-	wanted_types = list(/obj/machinery/space_heater)
-
-/datum/bounty/item/assistant/pumpup
-	name = "Самопальный адреналин"
-	description = "ДАННЫЕ УДАЛЕНЫ"
-	reward = CARGO_CRATE_VALUE * 15
-	required_count = 5
-	include_subtypes = FALSE
-	wanted_types = list(/obj/item/reagent_containers/hypospray/medipen/pumpup)
-
-/datum/bounty/item/assistant/monkey_recycler
-	name = "Переработчик макак"
-	description = "Одна из станций просит доставить им плату переработчика макак."
-	reward = CARGO_CRATE_VALUE * 30
-	required_count = 5
-	include_subtypes = FALSE
-	wanted_types = list(/obj/item/circuitboard/machine/monkey_recycler)
-
-/datum/bounty/item/assistant/relic
-	name = "Странный предмет"
-	description = "ЦК заметило аномальную активность на нашей станции. Отправьте им подозрительные на вид предметы!"
-	reward = CARGO_CRATE_VALUE * 70
-	required_count = 5
-	include_subtypes = FALSE
-	wanted_types = list(/obj/item/relic)
-
-/datum/bounty/item/assistant/nuclearbomb
-	name = "Ядерная бомба"
-	description = "Мы не знаем, как вы это получите, но если вы случайно её найдёте, то отправьте её нам."
-	reward = CARGO_CRATE_VALUE * 5000
-	required_count = 1
-	include_subtypes = FALSE
-	wanted_types = list(/obj/machinery/nuclearbomb)
-
-/datum/bounty/item/assistant/nuclearbomb_beer
-	name = "Пивная ядерная бомба"
-	description = "ЦК устроил праздник в честь дня рождения одного из их глав, но у них закончилось пиво. Отправьте им пивную ядерную бомбу!"
-	reward = CARGO_CRATE_VALUE * 200
-	required_count = 1
-	include_subtypes = FALSE
-	wanted_types = list(/obj/machinery/nuclearbomb/beer)
-
-/datum/bounty/item/assistant/tackler
-	name = "Перчатки Гориллы"
-	description = "На одной из станций произошёл бунт. Отправьте им перчатки перехвата"
-	reward = CARGO_CRATE_VALUE * 300
-	required_count = 2
-	include_subtypes = TRUE
-	wanted_types = list(/obj/item/clothing/gloves/tackler)
-
-/datum/bounty/item/assistant/breath
-	name = "Дыхательные маски"
-	description = "На одной из станций произошёл пожар. Отправьте им дыхательные маски"
-	reward = CARGO_CRATE_VALUE * 40
-	required_count = 5
-	include_subtypes = TRUE
-	wanted_types = list(/obj/item/clothing/mask/breath)
-
-/datum/bounty/item/assistant/blackmarket_uplink
-	name = "Терминал Чёрного Рынка"
-	description = "Не забывайте, что у нас действует программа устранения источников контрабанды!"
-	reward = CARGO_CRATE_VALUE * 100
-	required_count = 1
-	include_subtypes = TRUE
-	wanted_types = list(/obj/item/blackmarket_uplink)
+	..()

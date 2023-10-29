@@ -7,10 +7,13 @@
 	typepath = /datum/round_event/wizard/shuffleloc
 	max_occurrences = 5
 	earliest_start = 0 MINUTES
+	description = "Shuffles everyone around on the station."
+	min_wizard_trigger_potency = 0
+	max_wizard_trigger_potency = 7
 
 /datum/round_event/wizard/shuffleloc/start()
 	var/list/moblocs = list()
-	var/list/mobs	 = list()
+	var/list/mobs = list()
 
 	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
 		if(!is_station_level(H.z))
@@ -24,15 +27,15 @@
 	shuffle_inplace(moblocs)
 	shuffle_inplace(mobs)
 
-	for(var/mob/living/carbon/human/H in mobs)
+	for(var/mob/living/carbon/human/victim in mobs)
 		if(!moblocs)
 			break //locs aren't always unique, so this may come into play
-		do_teleport(H, moblocs[moblocs.len], channel = TELEPORT_CHANNEL_MAGIC)
+		do_teleport(victim, moblocs[moblocs.len], channel = TELEPORT_CHANNEL_MAGIC)
 		moblocs.len -= 1
 
-	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
+	for(var/mob/living/carbon/human/victim in GLOB.alive_mob_list)
 		var/datum/effect_system/fluid_spread/smoke/smoke = new
-		smoke.set_up(0, holder = src, location = H.loc)
+		smoke.set_up(0, holder = victim, location = victim.loc)
 		smoke.start()
 
 //---//
@@ -43,10 +46,11 @@
 	typepath = /datum/round_event/wizard/shufflenames
 	max_occurrences = 5
 	earliest_start = 0 MINUTES
+	description = "Shuffles the names of everyone around the station."
 
 /datum/round_event/wizard/shufflenames/start()
 	var/list/mobnames = list()
-	var/list/mobs	 = list()
+	var/list/mobs = list()
 
 	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
 		mobnames += H.real_name
@@ -58,15 +62,15 @@
 	shuffle_inplace(mobnames)
 	shuffle_inplace(mobs)
 
-	for(var/mob/living/carbon/human/H in mobs)
+	for(var/mob/living/carbon/human/victim in mobs)
 		if(!mobnames)
 			break
-		H.real_name = mobnames[mobnames.len]
+		victim.real_name = mobnames[mobnames.len]
 		mobnames.len -= 1
 
-	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
+	for(var/mob/living/carbon/human/victim in GLOB.alive_mob_list)
 		var/datum/effect_system/fluid_spread/smoke/smoke = new
-		smoke.set_up(0, holder = src, location = H.loc)
+		smoke.set_up(0, holder = victim, location = victim.loc)
 		smoke.start()
 
 //---//
@@ -77,6 +81,7 @@
 	typepath = /datum/round_event/wizard/shuffleminds
 	max_occurrences = 3
 	earliest_start = 0 MINUTES
+	description = "Shuffles the minds of everyone around the station, except for the wizard."
 
 /datum/round_event/wizard/shuffleminds/start()
 	var/list/mobs_to_swap = list()
@@ -103,5 +108,5 @@
 
 	for(var/mob/living/carbon/human/alive_human in GLOB.alive_mob_list)
 		var/datum/effect_system/fluid_spread/smoke/smoke = new()
-		smoke.set_up(0, holder = src, location = alive_human.loc)
+		smoke.set_up(0, holder = alive_human, location = alive_human.loc)
 		smoke.start()

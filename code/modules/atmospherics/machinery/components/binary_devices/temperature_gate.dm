@@ -1,8 +1,7 @@
 /obj/machinery/atmospherics/components/binary/temperature_gate
 	icon_state = "tgate_map-3"
-	name = "Температурные врата"
-	desc = "Переключаемые врата, которые сравнивают температуру поступающего газа с выставленной в интерфейсе и пропускают газ если он подходит по условиям."
-
+	name = "temperature gate"
+	desc = "An activable gate that compares the input temperature with the interface set temperature to check if the gas can flow from the input side to the output side or not."
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
 	construction_type = /obj/item/pipe/directional
@@ -47,11 +46,11 @@
 
 /obj/machinery/atmospherics/components/binary/temperature_gate/examine(mob/user)
 	. = ..()
-	. += "<hr>This device will let gas flow if the temperature of the gas in the input is [inverted ? "higher" : "lower"] than the temperature set in the interface."
+	. += "This device will let gas flow if the temperature of the gas in the input is [inverted ? "higher" : "lower"] than the temperature set in the interface."
 	if(inverted)
-		. += "\nThe device settings can be restored if a multitool is used on it."
+		. += "The device settings can be restored if a multitool is used on it."
 	else
-		. += "\nThe sensor's settings can be changed by using a multitool on the device."
+		. += "The sensor's settings can be changed by using a multitool on the device."
 
 /obj/machinery/atmospherics/components/binary/temperature_gate/update_icon_nopipes()
 	if(on && is_operational && is_gas_flowing)
@@ -129,7 +128,7 @@
 /obj/machinery/atmospherics/components/binary/temperature_gate/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!"))
+		to_chat(user, span_warning("You cannot unwrench [src], turn it off first!"))
 		return FALSE
 
 /obj/machinery/atmospherics/components/binary/temperature_gate/multitool_act(mob/living/user, obj/item/multitool/I)
@@ -137,7 +136,7 @@
 	if (istype(I))
 		inverted = !inverted
 		if(inverted)
-			to_chat(user, span_notice("Ставлю сенсоры [src] так, что они будут пропускать газы только если температура выше чем выставленная."))
+			to_chat(user, span_notice("You set the [src]'s sensors to release gases when the temperature is higher than the setted one."))
 		else
-			to_chat(user, span_notice("Выставляю сенсоры [src] на стандартные настройки."))
+			to_chat(user, span_notice("You set the [src]'s sensors to the default settings."))
 	return TRUE

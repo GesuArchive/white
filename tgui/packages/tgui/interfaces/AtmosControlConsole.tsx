@@ -35,7 +35,7 @@ export const AtmosControlConsole = (props, context) => {
     <Window width={550} height={350}>
       <Window.Content scrollable>
         {chambers.length > 1 && (
-          <Section title="Камера">
+          <Section title="Chamber Selection">
             <Dropdown
               width="100%"
               options={chambers.map((chamber) => chamber.name)}
@@ -50,12 +50,12 @@ export const AtmosControlConsole = (props, context) => {
           </Section>
         )}
         <Section
-          title={selectedChamber ? selectedChamber.name : 'Состояние камеры'}
+          title={selectedChamber ? selectedChamber.name : 'Chamber Reading'}
           buttons={
             !!data.reconnecting && (
               <Button
                 icon="undo"
-                content="Переподключиться"
+                content="Reconnect"
                 onClick={() => act('reconnect')}
               />
             )
@@ -67,16 +67,16 @@ export const AtmosControlConsole = (props, context) => {
               reactionOnClick={setActiveReactionId}
             />
           ) : (
-            <Box italic> {'Нет сенсоров!'}</Box>
+            <Box italic> {'No Sensors Detected!'}</Box>
           )}
         </Section>
         {!!selectedChamber && !!data.control && (
-          <Section title="Управление камерой">
+          <Section title="Chamber Controls">
             <Stack>
               <Stack.Item grow>
                 {selectedChamber.input_info ? (
                   <LabeledList>
-                    <LabeledList.Item label="Ввод">
+                    <LabeledList.Item label="Input Injector">
                       <Button
                         icon={
                           selectedChamber.input_info.active
@@ -85,8 +85,8 @@ export const AtmosControlConsole = (props, context) => {
                         }
                         content={
                           selectedChamber.input_info.active
-                            ? 'Вкачивание'
-                            : 'Выключено'
+                            ? 'Injecting'
+                            : 'Off'
                         }
                         selected={selectedChamber.input_info.active}
                         onClick={() =>
@@ -96,10 +96,10 @@ export const AtmosControlConsole = (props, context) => {
                         }
                       />
                     </LabeledList.Item>
-                    <LabeledList.Item label="Скорость ввода">
+                    <LabeledList.Item label="Input Rate">
                       <NumberInput
                         value={Number(selectedChamber.input_info.amount)}
-                        unit="Л/с"
+                        unit="L/s"
                         width="63px"
                         minValue={0}
                         maxValue={data.maxInput}
@@ -116,13 +116,13 @@ export const AtmosControlConsole = (props, context) => {
                     </LabeledList.Item>
                   </LabeledList>
                 ) : (
-                  <Box italic> {'Не обнаружено устройство ввода!'}</Box>
+                  <Box italic> {'No Input Device Detected!'}</Box>
                 )}
               </Stack.Item>
               <Stack.Item grow>
                 {selectedChamber.output_info ? (
                   <LabeledList>
-                    <LabeledList.Item label="Вывод">
+                    <LabeledList.Item label="Output Regulator">
                       <Button
                         icon={
                           selectedChamber.output_info.active
@@ -130,7 +130,7 @@ export const AtmosControlConsole = (props, context) => {
                             : 'times'
                         }
                         content={
-                          selectedChamber.output_info.active ? 'Открыто' : 'Закрыто'
+                          selectedChamber.output_info.active ? 'Open' : 'Closed'
                         }
                         selected={selectedChamber.output_info.active}
                         onClick={() =>
@@ -140,10 +140,10 @@ export const AtmosControlConsole = (props, context) => {
                         }
                       />
                     </LabeledList.Item>
-                    <LabeledList.Item label="Выводное давление">
+                    <LabeledList.Item label="Output Pressure">
                       <NumberInput
                         value={Number(selectedChamber.output_info.amount)}
-                        unit="кПа"
+                        unit="kPa"
                         width="75px"
                         minValue={0}
                         maxValue={data.maxOutput}
@@ -161,7 +161,7 @@ export const AtmosControlConsole = (props, context) => {
                     </LabeledList.Item>
                   </LabeledList>
                 ) : (
-                  <Box italic> {'Не обнаружено устройство вывода!'} </Box>
+                  <Box italic> {'No Output Device Detected !'} </Box>
                 )}
               </Stack.Item>
             </Stack>

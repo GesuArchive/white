@@ -1,13 +1,14 @@
 /obj/item/airlock_painter
-	name = "маркировщик шлюзов"
-	desc = "An advanced autopainter preprogrammed with several paintjobs for airlocks. Use it on an airlock during or after construction to change the paintjob. Alt-Click to remove the ink cartridge."
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "paint sprayer"
-	inhand_icon_state = "paint sprayer"
+	name = "airlock painter"
+	desc = "An advanced autopainter preprogrammed with several paintjobs for airlocks. Use it on an airlock during or after construction to change the paintjob."
+	desc_controls = "Alt-Click to remove the ink cartridge."
+	icon = 'icons/obj/device.dmi'
+	icon_state = "paint_sprayer"
+	inhand_icon_state = "paint_sprayer"
 	worn_icon_state = "painter"
 	w_class = WEIGHT_CLASS_SMALL
 
-	custom_materials = list(/datum/material/iron=50, /datum/material/glass=50)
+	custom_materials = list(/datum/material/iron= SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/glass= SMALL_MATERIAL_AMOUNT * 0.5)
 
 	flags_1 = CONDUCT_1
 	item_flags = NOBLUDGEON
@@ -26,20 +27,27 @@
 		"Security" = /obj/machinery/door/airlock/security,
 		"Command" = /obj/machinery/door/airlock/command,
 		"Medical" = /obj/machinery/door/airlock/medical,
+		"Virology" = /obj/machinery/door/airlock/virology,
 		"Research" = /obj/machinery/door/airlock/research,
+		"Hydroponics" = /obj/machinery/door/airlock/hydroponics,
 		"Freezer" = /obj/machinery/door/airlock/freezer,
 		"Science" = /obj/machinery/door/airlock/science,
 		"Mining" = /obj/machinery/door/airlock/mining,
 		"Maintenance" = /obj/machinery/door/airlock/maintenance,
 		"External" = /obj/machinery/door/airlock/external,
 		"External Maintenance"= /obj/machinery/door/airlock/maintenance/external,
-		"Virology" = /obj/machinery/door/airlock/virology,
 		"Standard" = /obj/machinery/door/airlock
 	)
 
 /obj/item/airlock_painter/Initialize(mapload)
 	. = ..()
 	ink = new initial_ink_type(src)
+
+
+/obj/item/airlock_painter/Destroy(force)
+	QDEL_NULL(ink)
+	return ..()
+
 
 //This proc doesn't just check if the painter can be used, but also uses it.
 //Only call this if you are certain that the painter will be used right after this check!
@@ -56,16 +64,16 @@
 //because you're expecting user input.
 /obj/item/airlock_painter/proc/can_use(mob/user)
 	if(!ink)
-		to_chat(user, span_warning("There is no toner cartridge installed in [src]!"))
+		balloon_alert(user, "no cartridge!")
 		return FALSE
 	else if(ink.charges < 1)
-		to_chat(user, span_warning("[capitalize(src.name)] is out of ink!"))
+		balloon_alert(user, "out of ink!")
 		return FALSE
 	else
 		return TRUE
 
-/obj/item/airlock_painter/suicide_act(mob/user)
-	var/obj/item/organ/lungs/L = user.get_organ_slot(ORGAN_SLOT_LUNGS)
+/obj/item/airlock_painter/suicide_act(mob/living/user)
+	var/obj/item/organ/internal/lungs/L = user.get_organ_slot(ORGAN_SLOT_LUNGS)
 
 	if(can_use(user) && L)
 		user.visible_message(span_suicide("[user] is inhaling toner from [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -94,27 +102,27 @@
 
 		// TODO maybe add some colorful vomit?
 
-		user.visible_message(span_suicide("[user] vomits out [user.ru_ego()] [L]!"))
+		user.visible_message(span_suicide("[user] vomits out [user.p_their()] [L]!"))
 		playsound(user.loc, 'sound/effects/splat.ogg', 50, TRUE)
 
 		L.forceMove(T)
 
 		return (TOXLOSS|OXYLOSS)
 	else if(can_use(user) && !L)
-		user.visible_message(span_suicide("[user] is spraying toner on [user.ru_na()]self from [src]! It looks like [user.p_theyre()] trying to commit suicide."))
+		user.visible_message(span_suicide("[user] is spraying toner on [user.p_them()]self from [src]! It looks like [user.p_theyre()] trying to commit suicide."))
 		user.reagents.add_reagent(/datum/reagent/colorful_reagent, 1)
 		user.reagents.expose(user, TOUCH, 1)
 		return TOXLOSS
 
 	else
-		user.visible_message(span_suicide("[user] пытается inhale toner from [src]! It might be a suicide attempt if [src] had any toner."))
+		user.visible_message(span_suicide("[user] is trying to inhale toner from [src]! It might be a suicide attempt if [src] had any toner."))
 		return SHAME
 
 
 /obj/item/airlock_painter/examine(mob/user)
 	. = ..()
 	if(!ink)
-		. += "<hr><span class='notice'>It doesn't have a toner cartridge installed.</span>"
+		. += span_notice("It doesn't have a toner cartridge installed.")
 		return
 	var/ink_level = "high"
 	if(ink.charges < 1)
@@ -123,13 +131,13 @@
 		ink_level = "low"
 	else if((ink.charges/ink.max_charges) > 1) //Over 100% (admin var edit)
 		ink_level = "dangerously high"
-	. += "<hr><span class='notice'>Its ink levels look [ink_level].</span>"
+	. += span_notice("Its ink levels look [ink_level].")
 
 
 /obj/item/airlock_painter/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/toner))
 		if(ink)
-			to_chat(user, span_warning("[capitalize(src.name)] already contains \a [ink]!"))
+			to_chat(user, span_warning("[src] already contains \a [ink]!"))
 			return
 		if(!user.transferItemToLoc(W, src))
 			return
@@ -141,7 +149,7 @@
 
 /obj/item/airlock_painter/AltClick(mob/user)
 	. = ..()
-	if(ink)
+	if(ink && user.can_perform_action(src))
 		playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 		ink.forceMove(user.drop_location())
 		user.put_in_hands(ink)
@@ -149,12 +157,13 @@
 		ink = null
 
 /obj/item/airlock_painter/decal
-	name = "красильщик пола"
-	desc = "Создает разметку на полу. Alt-клик для изъятия картриджа."
-	icon = 'icons/obj/objects.dmi'
+	name = "decal painter"
+	desc = "An airlock painter, reprogramed to use a different style of paint in order to apply decals for floor tiles as well, in addition to repainting doors. Decals break when the floor tiles are removed."
+	desc_controls = "Alt-Click to remove the ink cartridge."
+	icon = 'icons/obj/device.dmi'
 	icon_state = "decal_sprayer"
-	inhand_icon_state = "decalsprayer"
-	custom_materials = list(/datum/material/iron=50, /datum/material/glass=50)
+	inhand_icon_state = "decal_sprayer"
+	custom_materials = list(/datum/material/iron= SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/glass= SMALL_MATERIAL_AMOUNT * 0.5)
 	initial_ink_type = /obj/item/toner/large
 	/// The current direction of the decal being printed
 	var/stored_dir = 2
@@ -211,7 +220,7 @@
 /obj/item/airlock_painter/decal/afterattack(atom/target, mob/user, proximity)
 	. = ..()
 	if(!proximity)
-		to_chat(user, span_notice("You need to get closer!"))
+		balloon_alert(user, "get closer!")
 		return
 
 	if(isfloorturf(target) && use_paint(user))
@@ -226,7 +235,7 @@
  * * target - The turf being painted to
 */
 /obj/item/airlock_painter/decal/proc/paint_floor(turf/open/floor/target)
-	target.AddElement(/datum/element/decal, 'icons/turf/decals.dmi', stored_decal_total, stored_dir, null, null, alpha, color, null, CLEAN_TYPE_PAINT, null)
+	target.AddElement(/datum/element/decal, 'icons/turf/decals.dmi', stored_decal_total, stored_dir, null, null, alpha, color, null, FALSE, null)
 
 /**
  * Return the final icon_state for the given decal options
@@ -283,7 +292,6 @@
 			"dir" = dir[2],
 		))
 
-
 /obj/item/airlock_painter/decal/ui_data(mob/user)
 	. = ..()
 	.["current_decal"] = stored_decal
@@ -322,7 +330,7 @@
 	cross_round_cachable = TRUE
 
 	/// The floor icon used for blend_preview_floor()
-	var/preview_floor_icon = DEFAULT_FLOORS_ICON
+	var/preview_floor_icon = 'icons/turf/floors.dmi'
 	/// The floor icon state used for blend_preview_floor()
 	var/preview_floor_state = "floor"
 	/// The associated decal painter type to grab decals, colors, etc from.
@@ -373,18 +381,20 @@
 	initial_ink_type = /obj/item/toner/extreme
 
 /obj/item/airlock_painter/decal/tile
-	name = "полокрас"
-	desc = "Маркировщик шлюзов, переделанный для работы с напольной плиткой, в дополнение к перекраске дверей. При демонтаже напольной плитки краска удаляется. Щелкните ПКМ чтобы изменить дизайн."
+	name = "tile sprayer"
+	desc = "An airlock painter, reprogramed to use a different style of paint in order to spray colors on floor tiles as well, in addition to repainting doors. Decals break when the floor tiles are removed."
+	desc_controls = "Alt-Click to remove the ink cartridge."
 	icon_state = "tile_sprayer"
 	stored_dir = 2
-	stored_color = "#D4D4D4"
+	stored_color = "#D4D4D432"
 	stored_decal = "tile_corner"
 	spritesheet_type = /datum/asset/spritesheet/decals/tiles
 	supports_custom_color = TRUE
+	// Colors can have a an alpha component as RGBA, or just be RGB and use default alpha
 	color_list = list(
-		list("White", "#D4D4D4"),
-		list("Black", "#0e0f0f"),
-		list("Bar Burgundy", "#791500"),
+		list("Neutral", "#D4D4D432"),
+		list("Dark", "#0e0f0f"),
+		list("Bar Burgundy", "#79150082"),
 		list("Sec Red", "#DE3A3A"),
 		list("Cargo Brown", "#A46106"),
 		list("Engi Yellow", "#EFB341"),
@@ -409,8 +419,11 @@
 		"trimline_box_fill",
 	)
 
-	/// The alpha value to paint the tiles at. The decal mapping helper creates tile overlays at alpha 110.
-	var/stored_alpha = 110
+	/// Regex to split alpha out.
+	var/static/regex/rgba_regex = new(@"(#[0-9a-fA-F]{6})([0-9a-fA-F]{2})")
+
+	/// Default alpha for /obj/effect/turf_decal/tile
+	var/default_alpha = 110
 
 /obj/item/airlock_painter/decal/tile/paint_floor(turf/open/floor/target)
 	// Account for 8-sided decals.
@@ -420,7 +433,14 @@
 		source_decal = splicetext(stored_decal, -3, 0, "")
 		source_dir = turn(stored_dir, 45)
 
-	target.AddElement(/datum/element/decal, 'icons/turf/decals.dmi', source_decal, source_dir, null, null, stored_alpha, stored_color, null, CLEAN_TYPE_PAINT, null)
+	var/decal_color = stored_color
+	var/decal_alpha = default_alpha
+	// Handle the RGBA case.
+	if(rgba_regex.Find(decal_color))
+		decal_color = rgba_regex.group[1]
+		decal_alpha = text2num(rgba_regex.group[2], 16)
+
+	target.AddElement(/datum/element/decal, 'icons/turf/decals.dmi', source_decal, source_dir, null, null, decal_alpha, decal_color, null, FALSE, null)
 
 /datum/asset/spritesheet/decals/tiles
 	name = "floor_tile_decals"
@@ -434,183 +454,21 @@
 		source_decal = splicetext(decal, -3, 0, "")
 		source_dir = turn(dir, 45)
 
+	// Handle the RGBA case.
+	var/obj/item/airlock_painter/decal/tile/tile_type = painter_type
+	var/render_color = color
+	var/render_alpha = initial(tile_type.default_alpha)
+	if(tile_type.rgba_regex.Find(color))
+		render_color = tile_type.rgba_regex.group[1]
+		render_alpha = text2num(tile_type.rgba_regex.group[2], 16)
+
 	var/icon/colored_icon = icon('icons/turf/decals.dmi', source_decal, dir=source_dir)
-	colored_icon.ChangeOpacity(110)
+	colored_icon.ChangeOpacity(render_alpha * 0.008)
 	if(color == "custom")
 		// Do a fun rainbow pattern to stand out while still being static.
 		colored_icon.Blend(icon('icons/effects/random_spawners.dmi', "rainbow"), ICON_MULTIPLY)
 	else
-		colored_icon.Blend(color, ICON_MULTIPLY)
+		colored_icon.Blend(render_color, ICON_MULTIPLY)
 
 	colored_icon = blend_preview_floor(colored_icon)
 	Insert("[decal]_[dir]_[replacetext(color, "#", "")]", colored_icon)
-
-// Floor painter
-/obj/item/floor_painter
-	name = "Маркировщик пола"
-	icon = 'white/valtos/icons/objects.dmi'
-	icon_state = "floor_sprayer"
-	desc = "Используется для покраски полов. Круто?"
-
-	var/floor_icon
-	var/floor_state = "floor"
-	var/floor_dir = SOUTH
-
-	worn_icon_state = "electronic"
-
-	var/static/list/star_directions = list(
-		"north",
-		"northeast",
-		"east",
-		"southeast",
-		"south",
-		"southwest",
-		"west",
-		"northwest",
-	)
-
-	var/static/list/cardinal_directions = list(
-		"north",
-		"east",
-		"south",
-		"west",
-	)
-	var/list/allowed_directions = list("south")
-
-	var/static/list/allowed_states = list(
-		"floor",
-		"monofloor",
-		"monowhite",
-		"monodarkfull",
-		"white",
-		"cafeteria",
-		"whitehall",
-		"whitecorner",
-		"stairs-old",
-		"stairs",
-		"stairs-l",
-		"stairs-m",
-		"stairs-r",
-		"grimy",
-		"yellowsiding",
-		"yellowcornersiding",
-		"chapel",
-		"pinkblack",
-		"darkfull",
-		"checker",
-		"dark",
-		"darkcorner",
-		"solarpanel",
-		"freezerfloor",
-		"showroomfloor","elevatorshaft",
-		"recharge_floor",
-		"sepia",
-	)
-
-/obj/item/floor_painter/afterattack(atom/A, mob/user, proximity, params)
-	if(!proximity)
-		return
-
-	var/turf/open/floor/plasteel/F = A
-	if(!istype(F))
-		to_chat(user, span_warning("[src] может быть использован только на станционной плитке."))
-		return
-
-	if(F.dir == floor_dir && F.icon_state == floor_state && F.base_icon_state == floor_state)
-		return //No point wasting ink
-
-	F.icon_state = floor_state
-	F.base_icon_state = floor_state
-	F.dir = floor_dir
-	playsound(src.loc, 'sound/effects/spray2.ogg', 50, TRUE)
-
-/obj/item/floor_painter/attack_self(mob/user)
-	if(!user)
-		return FALSE
-	user.set_machine(src)
-	interact(user)
-	return TRUE
-
-/obj/item/floor_painter/interact(mob/user as mob) //TODO: Make TGUI for this because ouch
-	if(!floor_icon)
-		floor_icon = icon(DEFAULT_FLOORS_ICON, floor_state, floor_dir)
-	user << browse_rsc(floor_icon, "floor.png")
-	var/dat = {"
-		<center>
-			<img style="-ms-interpolation-mode: nearest-neighbor;" src="floor.png" width=128 height=128 border=4>
-		</center>
-		<center>
-			<a href="?src=[REF(src)];cycleleft=1">&lt;-</a>
-			<a href="?src=[REF(src)];choose_state=1">Выбрать</a>
-			<a href="?src=[REF(src)];cycleright=1">-&gt;</a>
-		</center>
-		<div class='statusDisplay'>Стиль: [floor_state]</div>
-		<center>
-			<a href="?src=[REF(src)];cycledirleft=1">&lt;-</a>
-			<a href="?src=[REF(src)];choose_dir=1">Выбрать</a>
-			<a href="?src=[REF(src)];cycledirright=1">-&gt;</a>
-		</center>
-		<div class='statusDisplay'>Направление: [dir2ru_text(floor_dir)]</div>
-	"}
-
-	var/datum/browser/popup = new(user, "floor_painter", name, 225, 300)
-	popup.set_content(dat)
-	popup.open()
-
-/obj/item/floor_painter/Topic(href, href_list)
-	if(..())
-		return
-
-	if(href_list["choose_state"])
-		var/state = tgui_input_list(usr, "Выберем стиль", "[src]", allowed_states)
-		if(state)
-			floor_state = state
-			check_directional_tile()
-	if(href_list["choose_dir"])
-		var/seldir = tgui_input_list(usr, "Выберем направление", "[src]", allowed_directions)
-		if(seldir)
-			floor_dir = text2dir(seldir)
-	if(href_list["cycledirleft"])
-		var/index = allowed_directions.Find(dir2text(floor_dir))
-		index--
-		if(index < 1)
-			index = allowed_directions.len
-		floor_dir = text2dir(allowed_directions[index])
-	if(href_list["cycledirright"])
-		var/index = allowed_directions.Find(dir2text(floor_dir))
-		index++
-		if(index > allowed_directions.len)
-			index = 1
-		floor_dir = text2dir(allowed_directions[index])
-	if(href_list["cycleleft"])
-		var/index = allowed_states.Find(floor_state)
-		index--
-		if(index < 1)
-			index = allowed_states.len
-		floor_state = allowed_states[index]
-		check_directional_tile()
-	if(href_list["cycleright"])
-		var/index = allowed_states.Find(floor_state)
-		index++
-		if(index > allowed_states.len)
-			index = 1
-		floor_state = allowed_states[index]
-		check_directional_tile()
-
-	floor_icon = icon(DEFAULT_FLOORS_ICON, floor_state, floor_dir)
-	if(usr)
-		attack_self(usr)
-
-/obj/item/floor_painter/proc/check_directional_tile()
-	var/icon/current = icon(DEFAULT_FLOORS_ICON, floor_state, NORTHWEST)
-	if(current.GetPixel(1,1) != null)
-		allowed_directions = star_directions
-	else
-		current = icon(DEFAULT_FLOORS_ICON, floor_state, WEST)
-		if(current.GetPixel(1,1) != null)
-			allowed_directions = cardinal_directions
-		else
-			allowed_directions = list("south")
-
-	if(!(dir2text(floor_dir) in allowed_directions))
-		floor_dir = SOUTH

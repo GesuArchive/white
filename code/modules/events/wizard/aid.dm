@@ -1,4 +1,5 @@
-//in this file: Various events that directly aid the wizard. This is the "lets entice the wizard to use summon events!" file.
+// Various events that directly aid the wizard.
+// This is the "lets entice the wizard to use summon events!" file.
 
 /datum/round_event_control/wizard/robelesscasting //EI NUDTH!
 	name = "Robeless Casting"
@@ -6,6 +7,9 @@
 	typepath = /datum/round_event/wizard/robelesscasting
 	max_occurrences = 1
 	earliest_start = 0 MINUTES
+	description = "Wizard no longer needs robes to cast spells."
+	min_wizard_trigger_potency = 4
+	max_wizard_trigger_potency = 7
 
 /datum/round_event/wizard/robelesscasting/start()
 
@@ -31,6 +35,9 @@
 	typepath = /datum/round_event/wizard/improvedcasting
 	max_occurrences = 4 //because that'd be max level spells
 	earliest_start = 0 MINUTES
+	description = "Levels up the wizard's spells."
+	min_wizard_trigger_potency = 0
+	max_wizard_trigger_potency = 7
 
 /datum/round_event/wizard/improvedcasting/start()
 	for(var/mob/living/caster as anything in GLOB.mob_living_list)

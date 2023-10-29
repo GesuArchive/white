@@ -1,30 +1,45 @@
 /obj/item/clothing/neck
-	name = "ожерелье"
+	name = "necklace"
 	icon = 'icons/obj/clothing/neck.dmi'
 	body_parts_covered = NECK
 	slot_flags = ITEM_SLOT_NECK
 	strip_delay = 40
 	equip_delay_other = 40
 
-/obj/item/clothing/neck/worn_overlays(mutable_appearance/standing, isinhands = TRUE, icon_file)
+/obj/item/clothing/neck/worn_overlays(mutable_appearance/standing, isinhands = FALSE)
 	. = ..()
-	if(!isinhands)
-		if(body_parts_covered & HEAD)
-			if(damaged_clothes)
-				. += mutable_appearance('icons/effects/item_damage.dmi', "damagedmask")
-			if(GET_ATOM_BLOOD_DNA_LENGTH(src))
-				. += mutable_appearance('icons/effects/blood.dmi', "maskblood")
+	if(isinhands)
+		return
+
+	if(body_parts_covered & HEAD)
+		if(damaged_clothes)
+			. += mutable_appearance('icons/effects/item_damage.dmi', "damagedmask")
+		if(GET_ATOM_BLOOD_DNA_LENGTH(src))
+			. += mutable_appearance('icons/effects/blood.dmi', "maskblood")
+
+/obj/item/clothing/neck/bowtie
+	name = "bow tie"
+	desc = "A small neosilk bowtie."
+	icon = 'icons/obj/clothing/neck.dmi'
+	icon_state = "bowtie_greyscale"
+	inhand_icon_state = "" //no inhands
+	w_class = WEIGHT_CLASS_SMALL
+	custom_price = PAYCHECK_CREW
+	greyscale_config = /datum/greyscale_config/ties
+	greyscale_config_worn = /datum/greyscale_config/ties/worn
+	greyscale_colors = "#151516ff"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/neck/tie
-	name = "галстук"
-	desc = "Привязной галстук из неоткани."
+	name = "slick tie"
+	desc = "A neosilk tie."
 	icon = 'icons/obj/clothing/neck.dmi'
 	icon_state = "tie_greyscale_tied"
 	inhand_icon_state = "" //no inhands
 	w_class = WEIGHT_CLASS_SMALL
-	custom_price = PAYCHECK_EASY
+	custom_price = PAYCHECK_CREW
 	greyscale_config = /datum/greyscale_config/ties
-	greyscale_config_worn = /datum/greyscale_config/ties_worn
+	greyscale_config_worn = /datum/greyscale_config/ties/worn
 	greyscale_colors = "#4d4e4e"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	/// All ties start untied unless otherwise specified
@@ -59,6 +74,9 @@
 	// Mirrors give you a boost to your tying speed. I realize this stacks and I think that's hilarious.
 	for(var/obj/structure/mirror/reflection in view(2, user))
 		tie_timer_actual /= 1.25
+	// Heads of staff are experts at tying their ties.
+	if(user.mind?.assigned_role.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND)
+		tie_timer_actual /= 2
 	// Tie/Untie our tie
 	if(!do_after(user, tie_timer_actual))
 		to_chat(user, span_notice("Your fingers fumble away from [src] as your concentration breaks."))
@@ -78,6 +96,8 @@
 
 /obj/item/clothing/neck/tie/update_icon()
 	. = ..()
+	if(clip_on)
+		return
 	// Normal strip & equip delay, along with 2 second self equip since you need to squeeze your head through the hole.
 	if(is_tied)
 		icon_state = "tie_greyscale_tied"
@@ -95,18 +115,18 @@
 	if(clip_on)
 		return
 	if(is_tied)
-		context[SCREENTIP_CONTEXT_ALT_LMB] = "Развязать"
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Untie"
 	else
-		context[SCREENTIP_CONTEXT_ALT_LMB] = "Завязать"
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Tie"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/clothing/neck/tie/blue
-	name = "синий галстук"
+	name = "blue tie"
 	icon_state = "tie_greyscale_untied"
 	greyscale_colors = "#5275b6ff"
 
 /obj/item/clothing/neck/tie/red
-	name = "красный галстук"
+	name = "red tie"
 	icon_state = "tie_greyscale_untied"
 	greyscale_colors = "#c23838ff"
 
@@ -122,7 +142,7 @@
 	is_tied = TRUE
 
 /obj/item/clothing/neck/tie/black
-	name = "чёрный галстук"
+	name = "black tie"
 	icon_state = "tie_greyscale_untied"
 	greyscale_colors = "#151516ff"
 
@@ -130,8 +150,8 @@
 	is_tied = TRUE
 
 /obj/item/clothing/neck/tie/horrible
-	name = "ужасный галстук"
-	desc = "Привязной галстук из неоткани. Выглядит отвратительно."
+	name = "horrible tie"
+	desc = "A neosilk tie. This one is disgusting."
 	icon_state = "horribletie"
 	clip_on = TRUE
 	greyscale_config = null
@@ -148,8 +168,8 @@
 	greyscale_colors = null
 
 /obj/item/clothing/neck/tie/detective
-	name = "провисший галстук"
-	desc = "Свободно связанный галстук, идеальный аксессуар для переутомленного детектива."
+	name = "loose tie"
+	desc = "A loosely tied necktie, a perfect accessory for the over-worked detective."
 	icon_state = "detective"
 	clip_on = TRUE
 	greyscale_config = null
@@ -157,178 +177,256 @@
 	greyscale_colors = null
 
 /obj/item/clothing/neck/maid
-	name = "кружевной воротничок служанки"
-	desc = "Кружевной воротничок для форменной одежды служанки."
+	name = "maid neck cover"
+	desc = "A neckpiece for a maid costume, it smells faintly of disappointment."
 	icon_state = "maid_neck"
 
 /obj/item/clothing/neck/stethoscope
-	name = "стетоскоп"
-	desc = "Устаревший медицинский аппарат для прослушивания звуков человеческого тела. Это также заставляет вас выглядеть так, как будто вы знаете, что делаете."
+	name = "stethoscope"
+	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
 	icon_state = "stethoscope"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/neck/stethoscope/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] puts <b>[src.name]</b> to [user.ru_ego()] chest! It looks like [user.ru_who()] won't hear much!"))
+	user.visible_message(span_suicide("[user] puts \the [src] to [user.p_their()] chest! It looks like [user.p_they()] won't hear much!"))
 	return OXYLOSS
 
-/obj/item/clothing/neck/stethoscope/attack(mob/living/carbon/human/M, mob/living/user)
-	if(ishuman(M) && isliving(user))
-		if(user.a_intent == INTENT_HELP)
-			var/body_part = parse_zone(user.zone_selected)
+/obj/item/clothing/neck/stethoscope/attack(mob/living/M, mob/living/user)
+	if(!ishuman(M) || !isliving(user))
+		return ..()
+	if(user.combat_mode)
+		return
 
-			var/heart_strength = span_danger("отсутствие")
-			var/lung_strength = span_danger("отсутствие")
+	var/mob/living/carbon/carbon_patient = M
+	var/body_part = parse_zone(user.zone_selected)
+	var/oxy_loss = carbon_patient.getOxyLoss()
 
-			var/obj/item/organ/heart/heart = M.get_organ_slot(ORGAN_SLOT_HEART)
-			var/obj/item/organ/lungs/lungs = M.get_organ_slot(ORGAN_SLOT_LUNGS)
+	var/heart_strength
+	var/pulse_pressure
 
-			if(!(M.stat == DEAD || (HAS_TRAIT(M, TRAIT_FAKEDEATH))))
-				if(heart && istype(heart))
-					heart_strength = span_danger("нестабильность")
-					if(heart.beating)
-						heart_strength = "здоровый звук"
-				if(lungs && istype(lungs))
-					lung_strength = span_danger("напряженно")
-					if(!(M.failed_last_breath || M.losebreath))
-						lung_strength = "здоровый звук"
+	var/obj/item/organ/internal/heart/heart = carbon_patient.get_organ_slot(ORGAN_SLOT_HEART)
+	var/obj/item/organ/internal/lungs/lungs = carbon_patient.get_organ_slot(ORGAN_SLOT_LUNGS)
+	var/obj/item/organ/internal/liver/liver = carbon_patient.get_organ_slot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/internal/appendix/appendix = carbon_patient.get_organ_slot(ORGAN_SLOT_APPENDIX)
 
-			var/diagnosis = (body_part == BODY_ZONE_CHEST ? "Слышу [heart_strength] пульса и [lung_strength] дыхания." : "Я еле слышу [heart_strength] пульса.")
-			user.visible_message(span_notice("[user] пристраивает [src] в [ru_exam_parse_zone(body_part)] [M] и слушает внимательно.") , span_notice("Прикладываю [src] к [ru_exam_parse_zone(body_part)] [M]. [diagnosis]"))
+	var/render_list = list()//information will be packaged in a list for clean display to the user
+
+	//determine what specific action we're taking
+	switch (body_part)
+		if(BODY_ZONE_CHEST)//Listening to the chest
+			user.visible_message(span_notice("[user] places [src] against [carbon_patient]'s [body_part] and listens attentively."), ignored_mobs = user)
+			if(!user.can_hear())
+				to_chat(user, span_notice("You place [src] against [carbon_patient]'s [body_part]. Fat load of good it does you though, since you can't hear"))
+				return
+			else
+				render_list += span_info("You place [src] against [carbon_patient]'s [body_part]:\n")
+
+			//assess breathing
+			if(!lungs)//sanity check, enusure patient actually has lungs
+				render_list += "<span class='danger ml-1'>[M] doesn't have any lungs!</span>\n"
+			else
+				if(carbon_patient.stat == DEAD || (HAS_TRAIT(carbon_patient, TRAIT_FAKEDEATH)) || (HAS_TRAIT(carbon_patient, TRAIT_NOBREATH))|| carbon_patient.failed_last_breath || carbon_patient.losebreath)//If pt is dead or otherwise not breathing
+					render_list += "<span class='danger ml-1'>[M.p_Theyre()] not breathing!</span>\n"
+				else if(lungs.damage > 10)//if breathing, check for lung damage
+					render_list += "<span class='danger ml-1'>You hear fluid in [M.p_their()] lungs!</span>\n"
+				else if(oxy_loss > 10)//if they have suffocation damage
+					render_list += "<span class='danger ml-1'>[M.p_Theyre()] breathing heavily!</span>\n"
+				else
+					render_list += "<span class='notice ml-1'>[M.p_Theyre()] breathing normally.</span>\n"//they're okay :D
+
+			//assess heart
+			if(body_part == BODY_ZONE_CHEST)//if we're listening to the chest
+				if(!heart)//sanity check, ensure the patient actually has a heart
+					render_list += "<span class='danger ml-1'>[M] doesn't have a heart!</span>\n"
+				else
+					if(!heart.beating || carbon_patient.stat == DEAD)
+						render_list += "<span class='danger ml-1'>You don't hear a heartbeat!</span>\n"//they're dead or their heart isn't beating
+					else if(heart.damage > 10 || carbon_patient.blood_volume <= BLOOD_VOLUME_OKAY)
+						render_list += "<span class='danger ml-1'>You hear a weak heartbeat.</span>\n"//their heart is damaged, or they have critical blood
+					else
+						render_list += "<span class='notice ml-1'>You hear a healthy heartbeat.</span>\n"//they're okay :D
+
+		if(BODY_ZONE_PRECISE_GROIN)//If we're targeting the groin
+			render_list += span_info("You carefully press down on [carbon_patient]'s abdomen:\n")
+			user.visible_message(span_notice("[user] presses their hands against [carbon_patient]'s abdomen."), ignored_mobs = user)
+
+			//assess abdominal organs
+			if(body_part == BODY_ZONE_PRECISE_GROIN)
+				var/appendix_okay = TRUE
+				var/liver_okay = TRUE
+				if(!liver)//sanity check, ensure the patient actually has a liver
+					render_list += "<span class='danger ml-1'>[M] doesn't have a liver!</span>\n"
+					liver_okay = FALSE
+				else
+					if(liver.damage > 10)
+						render_list += "<span class='danger ml-1'>[M.p_Their()] liver feels firm.</span>\n"//their liver is damaged
+						liver_okay = FALSE
+
+				if(!appendix)//sanity check, ensure the patient actually has an appendix
+					render_list += "<span class='danger ml-1'>[M] doesn't have an appendix!</span>\n"
+					appendix_okay = FALSE
+				else
+					if(appendix.damage > 10 && carbon_patient.stat == CONSCIOUS)
+						render_list += "<span class='danger ml-1'>[M] screams when you lift your hand from [M.p_their()] appendix!</span>\n"//scream if their appendix is damaged and they're awake
+						M.emote("scream")
+						appendix_okay = FALSE
+
+				if(liver_okay && appendix_okay)//if they have all their organs and have no detectable damage
+					render_list += "<span class='notice ml-1'>You don't find anything abnormal.</span>\n"//they're okay :D
+
+		if(BODY_ZONE_PRECISE_EYES)
+			balloon_alert(user, "can't do that!")
 			return
-	return ..(M,user)
+
+		if(BODY_ZONE_PRECISE_MOUTH)
+			balloon_alert(user, "can't do that!")
+			return
+
+		else//targeting an extremity or the head
+			if(body_part ==  BODY_ZONE_HEAD)
+				render_list += span_info("You carefully press your fingers to [carbon_patient]'s neck:\n")
+				user.visible_message(span_notice("[user] presses their fingers against [carbon_patient]'s neck."), ignored_mobs = user)
+			else
+				render_list += span_info("You carefully press your fingers to [carbon_patient]'s [body_part]:\n")
+				user.visible_message(span_notice("[user] presses their fingers against [carbon_patient]'s [body_part]."), ignored_mobs = user)
+
+			//assess pulse (heart & blood level)
+			if(!heart)//sanity check, ensure the patient actually has a heart
+				render_list += "<span class='danger ml-1'>[M] doesn't have a heart!</span>\n"
+			else
+				if(!heart.beating || carbon_patient.blood_volume <= BLOOD_VOLUME_OKAY || carbon_patient.stat == DEAD)
+					render_list += "<span class='danger ml-1'>You can't find a pulse!</span>\n"//they're dead, their heart isn't beating, or they have critical blood
+				else
+					if(heart.damage > 10)
+						heart_strength = span_danger("irregular")//their heart is damaged
+					else
+						heart_strength = span_notice("regular")//they're okay :D
+
+					if(carbon_patient.blood_volume <= BLOOD_VOLUME_SAFE && carbon_patient.blood_volume > BLOOD_VOLUME_OKAY)
+						pulse_pressure = span_danger("thready")//low blood
+					else
+						pulse_pressure = span_notice("strong")//they're okay :D
+
+					render_list += "<span class='notice ml-1'>[M.p_Their()] pulse is [pulse_pressure] and [heart_strength].</span>\n"
+
+	//display our packaged information in an examine block for easy reading
+	to_chat(user, examine_block(jointext(render_list, "")), type = MESSAGE_TYPE_INFO)
 
 ///////////
 //SCARVES//
 ///////////
 
-/obj/item/clothing/neck/scarf //Default white color, same functionality as beanies.
-	name = "белый шарф"
+/obj/item/clothing/neck/scarf
+	name = "scarf"
 	icon_state = "scarf"
-	icon_preview = 'icons/obj/previews.dmi'
+	icon_preview = 'icons/obj/fluff/previews.dmi'
 	icon_state_preview = "scarf_cloth"
-	desc = "Стильный шарф. Идеальный зимний аксессуар для тех, у кого острое чувство моды, и для тех, кто просто не может справиться с холодным бризом на шеях."
+	desc = "A stylish scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks."
 	w_class = WEIGHT_CLASS_TINY
-	dog_fashion = /datum/dog_fashion/head
-	custom_price = PAYCHECK_EASY
+	custom_price = PAYCHECK_CREW
 	greyscale_colors = "#EEEEEE#EEEEEE"
 	greyscale_config = /datum/greyscale_config/scarf
-	greyscale_config_worn = /datum/greyscale_config/scarf_worn
+	greyscale_config_worn = /datum/greyscale_config/scarf/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/neck/scarf/black
-	name = "чёрный шарф"
+	name = "black scarf"
 	greyscale_colors = "#4A4A4B#4A4A4B"
 
 /obj/item/clothing/neck/scarf/pink
-	name = "розовый шарф"
+	name = "pink scarf"
 	greyscale_colors = "#F699CD#F699CD"
 
 /obj/item/clothing/neck/scarf/red
-	name = "красный шарф"
+	name = "red scarf"
 	greyscale_colors = "#D91414#D91414"
 
 /obj/item/clothing/neck/scarf/green
-	name = "зелёный шарф"
+	name = "green scarf"
 	greyscale_colors = "#5C9E54#5C9E54"
 
 /obj/item/clothing/neck/scarf/darkblue
-	name = "тёмно-синий шарф"
+	name = "dark blue scarf"
 	greyscale_colors = "#1E85BC#1E85BC"
 
 /obj/item/clothing/neck/scarf/purple
-	name = "фиолетовый шарф"
+	name = "purple scarf"
 	greyscale_colors = "#9557C5#9557C5"
 
 /obj/item/clothing/neck/scarf/yellow
-	name = "жёлтый шарф"
+	name = "yellow scarf"
 	greyscale_colors = "#E0C14F#E0C14F"
 
 /obj/item/clothing/neck/scarf/orange
-	name = "оранжевый шарф"
+	name = "orange scarf"
 	greyscale_colors = "#C67A4B#C67A4B"
 
 /obj/item/clothing/neck/scarf/cyan
-	name = "голубой шарф"
+	name = "cyan scarf"
 	greyscale_colors = "#54A3CE#54A3CE"
 
-
-//Striped scarves get their own icons
-
 /obj/item/clothing/neck/scarf/zebra
-	name = "зебровый шарф"
+	name = "zebra scarf"
 	greyscale_colors = "#333333#EEEEEE"
 
 /obj/item/clothing/neck/scarf/christmas
-	name = "рождественский шарф"
+	name = "christmas scarf"
 	greyscale_colors = "#038000#960000"
 
-//The three following scarves don't have the scarf subtype
-//This is because Ian can equip anything from that subtype
-//However, these 3 don't have corgi versions of their sprites
-/obj/item/clothing/neck/stripedredscarf
-	name = "полосатый красный шарф"
-	icon_state = "stripedredscarf"
-	custom_price = PAYCHECK_ASSISTANT * 0.2
-	w_class = WEIGHT_CLASS_SMALL
-
-/obj/item/clothing/neck/stripedgreenscarf
-	name = "полосатый зелёный шарф"
-	icon_state = "stripedgreenscarf"
-	custom_price = PAYCHECK_ASSISTANT * 0.2
-	w_class = WEIGHT_CLASS_SMALL
-
-/obj/item/clothing/neck/stripedbluescarf
-	name = "полосатый синий шарф"
-	icon_state = "stripedbluescarf"
-	custom_price = PAYCHECK_ASSISTANT * 0.2
-	w_class = WEIGHT_CLASS_SMALL
-
-/obj/item/clothing/neck/petcollar
-	name = "ошейник"
-	desc = "Для домашних животных."
-	icon_state = "petcollar"
-	var/tagname = null
-
 /obj/item/clothing/neck/large_scarf
-	name = "огромный шарф"
+	name = "large scarf"
 	icon_state = "large_scarf"
 	w_class = WEIGHT_CLASS_TINY
-	custom_price = PAYCHECK_EASY
+	custom_price = PAYCHECK_CREW
 	greyscale_colors = "#C6C6C6#EEEEEE"
-	greyscale_config = /datum/greyscale_config/large_scarf
-	greyscale_config_worn = /datum/greyscale_config/large_scarf_worn
+	greyscale_config = /datum/greyscale_config/scarf
+	greyscale_config_worn = /datum/greyscale_config/scarf/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/neck/large_scarf/red
-	name = "огромный красный шарф"
+	name = "large red scarf"
 	greyscale_colors = "#8A2908#A06D66"
 
 /obj/item/clothing/neck/large_scarf/green
-	name = "огромный зелёный шарф"
+	name = "large green scarf"
 	greyscale_colors = "#525629#888674"
 
 /obj/item/clothing/neck/large_scarf/blue
-	name = "огромный синий шарф"
+	name = "large blue scarf"
 	greyscale_colors = "#20396C#6F7F91"
 
 /obj/item/clothing/neck/large_scarf/syndie
-	name = "подозрительный огромный шарф"
-	desc = "Готов к операции."
+	name = "suspicious looking striped scarf"
+	desc = "Ready to operate."
 	greyscale_colors = "#B40000#545350"
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 40)
+	armor_type = /datum/armor/large_scarf_syndie
 
 /obj/item/clothing/neck/infinity_scarf
-	name = "бесконечный шарф"
+	name = "infinity scarf"
 	icon_state = "infinity_scarf"
 	w_class = WEIGHT_CLASS_TINY
-	custom_price = PAYCHECK_EASY
+	custom_price = PAYCHECK_CREW
 	greyscale_colors = "#EEEEEE"
 	greyscale_config = /datum/greyscale_config/infinity_scarf
-	greyscale_config_worn = /datum/greyscale_config/infinity_scarf_worn
+	greyscale_config_worn = /datum/greyscale_config/infinity_scarf/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/neck/petcollar
+	name = "pet collar"
+	desc = "It's for pets."
+	icon_state = "petcollar"
+	var/tagname = null
+
+/datum/armor/large_scarf_syndie
+	fire = 50
+	acid = 40
+
+/obj/item/clothing/neck/petcollar/mob_can_equip(mob/M, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
+	if(!ismonkey(M))
+		return FALSE
+	return ..()
+
 /obj/item/clothing/neck/petcollar/attack_self(mob/user)
-	tagname = stripped_input(user, "Хотите изменить имя на теге?", "Назовите своего нового питомца", "Шепард", MAX_NAME_LEN)
+	tagname = sanitize_name(tgui_input_text(user, "Would you like to change the name on the tag?", "Pet Naming", "Spot", MAX_NAME_LEN))
 	name = "[initial(name)] - [tagname]"
 
 //////////////
@@ -336,81 +434,52 @@
 //////////////
 
 /obj/item/clothing/neck/necklace/dope
-	name = "золотая цепочка"
-	desc = "Как же чётко быть гангстером."
+	name = "gold necklace"
+	desc = "Damn, it feels good to be a gangster."
 	icon = 'icons/obj/clothing/neck.dmi'
 	icon_state = "bling"
 
 /obj/item/clothing/neck/necklace/dope/merchant
-	desc = "Не спрашивай меня как это работает, важно то, что эта штука делает голочипы!"
+	desc = "Don't ask how it works, the proof is in the holochips!"
 	/// scales the amount received in case an admin wants to emulate taxes/fees.
-	var/profit_scaling = 0.9
+	var/profit_scaling = 1
 	/// toggles between sell (TRUE) and get price post-fees (FALSE)
 	var/selling = FALSE
-	var/sell_mom = FALSE
 
 /obj/item/clothing/neck/necklace/dope/merchant/attack_self(mob/user)
 	. = ..()
 	selling = !selling
-	to_chat(user, span_notice("[capitalize(src.name)] теперь в режиме [selling ? "'ПРОДАВАТЬ'" : "'УЗНАТЬ ЦЕНУ'"]."))
+	to_chat(user, span_notice("[src] has been set to [selling ? "'Sell'" : "'Get Price'"] mode."))
 
 /obj/item/clothing/neck/necklace/dope/merchant/afterattack(obj/item/I, mob/user, proximity)
 	. = ..()
 	if(!proximity)
 		return
-
-	if(ismob(I) && !sell_mom)
-		return
-
-	var/datum/export_report/ex = export_item_and_contents(I, dry_run=TRUE, delete_unsold = FALSE)
+	. |= AFTERATTACK_PROCESSED_ITEM
+	var/datum/export_report/ex = export_item_and_contents(I, delete_unsold = selling, dry_run = !selling)
 	var/price = 0
 	for(var/x in ex.total_amount)
 		price += ex.total_value[x]
 
 	if(price)
 		var/true_price = round(price*profit_scaling)
-		to_chat(user, span_notice("[selling ? "Продаём" : "Оцениваем"] [I], стоимость: <b>[true_price]</b> кредитов[I.contents.len ? " (содержимое включено)" : ""].[profit_scaling < 1 && selling ? "<b>[round(price-true_price)]</b> кредитов было взято как процент." : ""]"))
+		to_chat(user, span_notice("[selling ? "Sold" : "Getting the price of"] [I], value: <b>[true_price]</b> credits[I.contents.len ? " (exportable contents included)" : ""].[profit_scaling < 1 && selling ? "<b>[round(price-true_price)]</b> credit\s taken as processing fee\s." : ""]"))
 		if(selling)
 			new /obj/item/holochip(get_turf(user),true_price)
-			for(var/i in ex.exported_atoms_ref)
-				if(ismob(i) && !sell_mom)
-					continue
-				var/atom/movable/AM = i
-				if(QDELETED(AM))
-					continue
-				qdel(AM)
 	else
-		to_chat(user, span_warning("[capitalize(I.name)] ничего не стоит."))
+		to_chat(user, span_warning("There is no export value for [I] or any items within it."))
+
+	return .
 
 /obj/item/clothing/neck/beads
-	name = "пластиковые бусы"
-	desc = "Дешевые бусы из пластика. Прояви командный дух! Собери их! Раскидай их! Возможности безграничны!"
+	name = "plastic bead necklace"
+	desc = "A cheap, plastic bead necklace. Show team spirit! Collect them! Throw them away! The posibilites are endless!"
 	icon = 'icons/obj/clothing/neck.dmi'
 	icon_state = "beads"
 	color = "#ffffff"
-	custom_price = PAYCHECK_ASSISTANT * 0.2
-	custom_materials = (list(/datum/material/plastic = 500))
+	custom_price = PAYCHECK_CREW * 0.2
+	custom_materials = (list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT*5))
 
 /obj/item/clothing/neck/beads/Initialize(mapload)
 	. = ..()
 	color = color = pick("#ff0077","#d400ff","#2600ff","#00ccff","#00ff2a","#e5ff00","#ffae00","#ff0000", "#ffffff")
-
-/obj/item/clothing/neck/christ
-	name = "Крестик"
-	desc = "Он наполняет тебя надеждой, что бог защитит тебя на этой непредсказуемой станции"
-	icon = 'white/IvanDog11/clothing/neck.dmi'
-	worn_icon = 'white/IvanDog11/clothing/mob/neck.dmi'
-	icon_state = "christ"
-	resistance_flags = FIRE_PROOF
-
-/obj/item/clothing/neck/christ/equipped(mob/user, slot)
-	. = ..()
-	if(slot == ITEM_SLOT_NECK)
-		if(user.mind)
-			SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "christ", /datum/mood_event/christ)
-
-/obj/item/clothing/neck/christ/dropped(mob/user)
-	. = ..()
-	if(user.mind)
-		SEND_SIGNAL(user, COMSIG_CLEAR_MOOD_EVENT, "christ")
-

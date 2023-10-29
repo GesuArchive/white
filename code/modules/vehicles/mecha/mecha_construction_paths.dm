@@ -1,3 +1,4 @@
+
 ////////////////////////////////
 ///// Construction datums //////
 ////////////////////////////////
@@ -18,25 +19,20 @@
 	// Armor plating typepaths. both must be defined
 	// unless relevant step procs are overriden. amounts
 	// must be defined if using /obj/item/stack/sheet types
-	var/inner_plating
+	var/obj/inner_plating
 	var/inner_plating_amount
 
-	var/outer_plating
+	var/obj/outer_plating
 	var/outer_plating_amount
 
 /datum/component/construction/mecha/spawn_result()
 	if(!result)
 		return
 	// Remove default mech power cell, as we replace it with a new one.
-	var/obj/vehicle/sealed/mecha/M = new result(drop_location())
-	QDEL_NULL(M.cell)
-	QDEL_NULL(M.scanmod)
-	QDEL_NULL(M.capacitor)
-
+	var/obj/vehicle/sealed/mecha/mech = new result(drop_location(), /* built_manually = */ TRUE)
 	var/obj/item/mecha_parts/chassis/parent_chassis = parent
-	M.CheckParts(parent_chassis.contents)
-
-	SSblackbox.record_feedback("tally", "mechas_created", 1, M.name)
+	mech.CheckParts(parent_chassis.contents)
+	SSblackbox.record_feedback("tally", "mechas_created", 1, mech.name)
 	QDEL_NULL(parent)
 
 // Default proc to generate mech steps.
@@ -50,7 +46,7 @@
 	..()
 	// By default, each step in mech construction has a single icon_state:
 	// "[base_icon][index - 1]"
-	// For example, Ripley's step 1 icon_state is "ripley0".
+	// For example, Ripley's step 1 icon_state is "ripley0"
 	var/atom/parent_atom = parent
 	if(!steps[index]["icon_state"] && base_icon)
 		parent_atom.icon_state = "[base_icon][index - 1]"
@@ -59,13 +55,13 @@
 	. = user.transferItemToLoc(I, parent)
 	if(.)
 		var/atom/parent_atom = parent
-		user.visible_message(span_notice("<b>[user]</b> подключает <b>[I]</b> к <b>[parent]</b>.") , span_notice("Подключаю <b>[I.name]</b> к <b>[parent]</b>."))
+		user.balloon_alert_to_viewers("connected [I]")
 		parent_atom.add_overlay(I.icon_state+"+o")
 		qdel(I)
 
 /datum/component/construction/unordered/mecha_chassis/spawn_result()
 	var/atom/parent_atom = parent
-	parent_atom.icon = 'icons/mecha/mech_construction.dmi'
+	parent_atom.icon = 'icons/mob/mech_construction.dmi'
 	parent_atom.set_density(TRUE)
 	parent_atom.cut_overlays()
 	..()
@@ -75,23 +71,30 @@
 	return list(
 		list(
 			"key" = TOOL_WRENCH,
-			"desc" = "Гидравлические системы отключены."
+			"desc" = "The hydraulic systems can be connected with a <b>wrench</b>.",
+			"forward_message" = "connected the hydraulic systems",
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_WRENCH,
-			"desc" = "Гидравлические системы подключены."
+			"desc" = "The hydraulic systems are connected, and can be activated with a <b>screwdriver</b>.",
+			"forward_message" = "activated the hydraulic systems",
+			"backward_message" = "disconnected the hydraulic systems"
 		),
 		list(
 			"key" = /obj/item/stack/cable_coil,
 			"amount" = 5,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Гидравлические системы активны."
+			"desc" = "The hydraulic systems are active, and the frame can be <b>wired</b>.",
+			"forward_message" = "added wiring",
+			"backward_message" = "deactivated the hydraulic systems"
 		),
 		list(
 			"key" = TOOL_WIRECUTTER,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Проводка добавлена."
+			"desc" = "The wiring is added, and can be adjusted with <b>wirecutters</b>.",
+			"forward_message" = "adjusted wiring",
+			"backward_message" = "removed wiring"
 		)
 	)
 
@@ -103,23 +106,31 @@
 			"key" = circuit_control,
 			"action" = ITEM_DELETE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Проводка настроена."
+			"desc" = "The wiring is adjusted, and the <b>central control module</b> slot has opened.",
+			"forward_message" = "added central control module",
+			"backward_message" = "disconnected wiring"
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Модуль центрального управления установлен."
+			"desc" = "Central control module is installed, and can be <b>screwed</b> into place.",
+			"forward_message" = "secured central control module",
+			"backward_message" = "removed central control module"
 		),
 		list(
 			"key" = circuit_periph,
 			"action" = ITEM_DELETE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Модуль центрального управления закреплён."
+			"desc" = "Central control module is secured, and the <b>peripheral control module</b> slot has opened.",
+			"forward_message" = "added peripheral control module",
+			"backward_message" = "unsecured central control module"
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Модуль управления периферией установлен."
+			"desc" = "Peripheral control module is installed, and can be <b>screwed</b> into place.",
+			"forward_message" = "secured peripheral control module",
+			"backward_message" = "removed peripheral control module"
 		)
 	)
 
@@ -131,52 +142,85 @@
 			"key" = circuit_weapon,
 			"action" = ITEM_DELETE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Модуль управления периферией закреплён."
+			"desc" = "Peripherals control module is secured, and the <b>weapon control module<b> slot has opened.",
+			"forward_message" = "added weapon control module",
+			"backward_message" = "unsecured peripheral control module"
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Модуль управления оружием установлен."
+			"desc" = "Weapon control module is installed, and can be <b>screwed</b> into place.",
+			"forward_message" = "secured weapon control module",
+			"backward_message" = "removed weapon control module"
 		)
 	)
 
 // Default proc for stock part installation
 // Third set of steps by default
 /datum/component/construction/mecha/proc/get_stockpart_steps()
-	var/prevstep_text = circuit_weapon ? "Модуль управления оружием закреплён." : "Модуль управления периферией закреплён."
+	var/prevstep_text = circuit_weapon ? "Weapon control module is secured" : "Peripherals control module is secured"
+	prevstep_text += ", and the <b>scanning module</b> can be added."
+	var/backward_text = circuit_weapon ? "unsecured weapon control module" : "unsecured peripheral module"
 	return list(
 		list(
 			"key" = /obj/item/stock_parts/scanning_module,
 			"action" = ITEM_MOVE_INSIDE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = prevstep_text
+			"desc" = prevstep_text,
+			"forward_message" = "added scanning module",
+			"backward_message" = backward_text
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Модуль сканирования установлен."
+			"desc" = "Scanning module is installed, and can be <b>screwed</b> into place.",
+			"forward_message" = "secured scanning module",
+			"backward_message" = "removed scanning module"
 		),
 		list(
 			"key" = /obj/item/stock_parts/capacitor,
 			"action" = ITEM_MOVE_INSIDE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Модуль сканирования закреплён."
+			"desc" = "Scanning module is secured, the <b>capacitor</b> can be added.",
+			"forward_message" = "added capacitor",
+			"backward_message" = "unscecured scanning module"
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Конденсатор установлен."
+			"desc" = "Capacitor is installed, and can be <b>screwed</b> into place.",
+			"forward_message" = "secured capacitor",
+			"backward_message" = "removed capacitor"
+		),
+		list(
+			"key" = /obj/item/stock_parts/servo,
+			"action" = ITEM_MOVE_INSIDE,
+			"back_key" = TOOL_SCREWDRIVER,
+			"desc" = "Scanning module is secured, the <b> micro-servo</b> can be added.",
+			"forward_message" = "added micro-servo",
+			"backward_message" = "unsecured capacitor"
+		),
+		list(
+			"key" = TOOL_SCREWDRIVER,
+			"back_key" = TOOL_CROWBAR,
+			"desc" = "Micro-servo is installed, and can be <b>screwed</b> into place.",
+			"forward_message" = "secured micro-servo",
+			"backward_message" = "removed micro-servo"
 		),
 		list(
 			"key" = /obj/item/stock_parts/cell,
 			"action" = ITEM_MOVE_INSIDE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Конденсатор закреплён."
+			"desc" = "Micro-servo is secured, and the <b>power cell</b> can be added.",
+			"forward_message" = "added power cell",
+			"backward_message" = "unsecured micro-servo"
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Аккумулятор установлен."
+			"desc" = "The power cell is installed, and can be <b>screwed</b> into place.",
+			"forward_message" = "secured power cell",
+			"backward_message" = "removed power cell"
 		)
 	)
 
@@ -190,7 +234,9 @@
 				"key" = inner_plating,
 				"amount" = inner_plating_amount,
 				"back_key" = TOOL_SCREWDRIVER,
-				"desc" = "Аккумулятор закреплён."
+				"desc" = "The power cell is secured, [inner_plating_amount] sheets of [initial(inner_plating.name)] can be used as inner plating.",
+				"forward_message" = "installed internal armor layer",
+				"backward_message" = "unsecured power cell"
 			)
 		)
 	else
@@ -199,7 +245,9 @@
 				"key" = inner_plating,
 				"action" = ITEM_DELETE,
 				"back_key" = TOOL_SCREWDRIVER,
-				"desc" = "Аккумулятор закреплён."
+				"desc" = "The power cell is secured, [initial(inner_plating.name)] can be used as inner plating.",
+				"forward_message" = "installed internal armor layer",
+				"backward_message" = "unsecured power cell"
 			)
 		)
 
@@ -207,12 +255,16 @@
 		list(
 			"key" = TOOL_WRENCH,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Внутренняя обшивка установлена."
+			"desc" = "Inner plating is installed, and can be <b>wrenched</b> into place.",
+			"forward_message" = "secured internal armor layer",
+			"backward_message" = "pried off internal armor layer"
 		),
 		list(
 			"key" = TOOL_WELDER,
 			"back_key" = TOOL_WRENCH,
-			"desc" = "Внутренняя обшивка прикручена."
+			"desc" = "Inner plating is wrenched, and can be <b>welded</b>.",
+			"forward_message" = "welded internal armor layer",
+			"backward_message" = "unfastened internal armor layer"
 		)
 	)
 
@@ -226,7 +278,9 @@
 				"key" = outer_plating,
 				"amount" = outer_plating_amount,
 				"back_key" = TOOL_WELDER,
-				"desc" = "Внутренняя обшивка приварена."
+				"desc" = "Inner plating is welded, [outer_plating_amount] sheets of [initial(outer_plating.name)] can be used as external armor.",
+				"forward_message" = "installed external armor layer",
+				"backward_message" = "cut off internal armor layer"
 			)
 		)
 	else
@@ -235,7 +289,9 @@
 				"key" = outer_plating,
 				"action" = ITEM_DELETE,
 				"back_key" = TOOL_WELDER,
-				"desc" = "Внутренняя обшивка приварена."
+				"desc" = "Inner plating is welded, [initial(outer_plating.name)] can be used as external armor.",
+				"forward_message" = "installed external armor layer",
+				"backward_message" = "cut off internal armor layer"
 			)
 		)
 
@@ -243,16 +299,32 @@
 		list(
 			"key" = TOOL_WRENCH,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Внешняя обшивка установлена."
+			"desc" = "External armor is installed, and can be <b>wrenched</b> into place.",
+			"forward_message" = "secured external armor layer",
+			"backward_message" = "pried off external armor layer"
 		),
 		list(
 			"key" = TOOL_WELDER,
 			"back_key" = TOOL_WRENCH,
-			"desc" = "Внешняя обшивка прикручена."
+			"desc" = "External armor is wrenched, and can be <b>welded</b>.",
+			"forward_message" = "welded external armor layer",
+			"backward_message" = "unfastened external armor layer"
 		)
 	)
 
+/// Generic mech construction messages
+/datum/component/construction/mecha/custom_action(obj/item/I, mob/living/user, diff)
+	if(!..())
+		return FALSE
 
+	if(diff == FORWARD && steps[index]["forward_message"])
+		user.balloon_alert_to_viewers(steps[index]["forward_message"])
+	else if(steps[index]["backward_message"])
+		user.balloon_alert_to_viewers(steps[index]["backward_message"])
+
+	return TRUE
+
+//RIPLEY
 /datum/component/construction/unordered/mecha_chassis/ripley
 	result = /datum/component/construction/mecha/ripley
 	steps = list(
@@ -264,7 +336,7 @@
 	)
 
 /datum/component/construction/mecha/ripley
-	result = /obj/vehicle/sealed/mecha/working/ripley
+	result = /obj/vehicle/sealed/mecha/ripley
 	base_icon = "ripley"
 
 	circuit_control = /obj/item/circuitboard/mecha/ripley/main
@@ -282,119 +354,20 @@
 			"key" = /obj/item/stack/rods,
 			"amount" = 10,
 			"back_key" = TOOL_WELDER,
-			"desc" = "Наружное покрытие приварено."
+			"desc" = "Outer plating is welded, and 10 <b>rods</b> can be used to install the cockpit.",
+			"forward_message" = "installed cockpit",
+			"backward_message" = "cut off outer armor layer"
 		),
 		list(
 			"key" = TOOL_WELDER,
 			"back_key" = TOOL_WIRECUTTER,
-			"desc" = "Защита кабины установлена."
+			"desc" = "Cockpit wire screen is installed, and can be <b>welded</b>.",
+			"forward_message" = "welded cockpit",
+			"backward_message" = "cut off cockpit"
 		),
 	)
 
-/datum/component/construction/mecha/ripley/custom_action(obj/item/I, mob/living/user, diff)
-	if(!..())
-		return FALSE
-
-	switch(index)
-		if(1)
-			user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
-		if(2)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
-		if(3)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
-		if(4)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
-		if(5)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
-		if(6)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
-		if(7)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
-		if(8)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
-		if(9)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
-		if(10)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
-		if(11)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
-		if(12)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет <b>[I.name]</b>.") , span_notice("<b>[user]</b> закрепляю <b>[I.name]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
-		if(13)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b>.") , span_notice("Устанавливаю <b>[I.name]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор в <b>[parent]</b>.") , span_notice("Откручиваю конденсатор в <b>[parent]</b>."))
-		if(14)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
-		if(15)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внутреннюю обшивку <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
-		if(16)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет внутреннюю обшивку.") , span_notice("Закрепляю внутреннюю обшивку."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внутреннюю обшивку <b>[parent]</b>."))
-		if(17)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает внутреннюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внутреннюю обшивку к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает внутреннюю обшивку.") , span_notice("Откручиваю внутреннюю обшивку."))
-		if(18)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает внешнюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внешнюю обшивку на <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> срезает внутреннюю обшивку с <b>[parent]</b>.") , span_notice("Срезаю внутреннюю обшивку с <b>[parent]</b>."))
-		if(19)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет внешнюю обшивку.") , span_notice("Закрепляю внешнюю обшивку."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает внешнюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внешнюю обшивку <b>[parent]</b>."))
-		if(20)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает внешнюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внешнюю обшивку к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает внешнюю обшивку.") , span_notice("Откручиваю внешнюю обшивку."))
-	return TRUE
-
+//GYGAX
 /datum/component/construction/unordered/mecha_chassis/gygax
 	result = /datum/component/construction/mecha/gygax
 	steps = list(
@@ -407,7 +380,7 @@
 	)
 
 /datum/component/construction/mecha/gygax
-	result = /obj/vehicle/sealed/mecha/combat/gygax
+	result = /obj/vehicle/sealed/mecha/gygax
 	base_icon = "gygax"
 
 	circuit_control = /obj/item/circuitboard/mecha/gygax/main
@@ -425,120 +398,7 @@
 		. = check_step(used_atom, user)
 	return .
 
-/datum/component/construction/mecha/gygax/custom_action(obj/item/I, mob/living/user, diff)
-	if(!..())
-		return FALSE
-
-	switch(index)
-		if(1)
-			user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
-		if(2)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
-		if(3)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
-		if(4)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
-		if(5)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
-		if(6)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
-		if(7)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
-		if(8)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
-		if(9)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
-		if(10)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления оружием.") , span_notice("Закрепляю модуль управления оружием."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления оружием из <b>[parent]</b>.") , span_notice("Удаляю модуль управления оружием из <b>[parent]</b>."))
-		if(11)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления оружием.") , span_notice("Откручиваю модуль управления оружием."))
-		if(12)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
-		if(13)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
-		if(14)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет конденсатор.") , span_notice("Закрепляю конденсатор."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
-		if(15)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор.") , span_notice("Откручиваю конденсатор."))
-		if(16)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
-		if(17)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внутреннюю обшивку <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
-		if(18)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет внутреннюю обшивку.") , span_notice("Закрепляю внутреннюю обшивку."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внутреннюю обшивку <b>[parent]</b>."))
-		if(19)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает внутреннюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внутреннюю обшивку к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает внутреннюю обшивку.") , span_notice("Откручиваю внутреннюю обшивку."))
-		if(20)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> срезает внутреннюю обшивку с <b>[parent]</b>.") , span_notice("Срезаю внутреннюю обшивку с <b>[parent]</b>."))
-		if(21)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет Gygax Armor Plates.") , span_notice("Закрепляю Gygax Armor Plates."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает Gygax Armor Plates с <b>[parent]</b>.") , span_notice("Снимаю Gygax Armor Plates с <b>[parent]</b>."))
-		if(22)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает Gygax Armor Plates к <b>[parent]</b>.") , span_notice("Привариваю Gygax Armor Plates к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает Gygax Armor Plates.") , span_notice("Откручиваю Gygax Armor Plates."))
-	return TRUE
-
+//CLARKE
 /datum/component/construction/unordered/mecha_chassis/clarke
 	result = /datum/component/construction/mecha/clarke
 	steps = list(
@@ -549,7 +409,7 @@
 	)
 
 /datum/component/construction/mecha/clarke
-	result = /obj/vehicle/sealed/mecha/working/clarke
+	result = /obj/vehicle/sealed/mecha/clarke
 	base_icon = "clarke"
 
 	circuit_control = /obj/item/circuitboard/mecha/clarke/main
@@ -566,145 +426,41 @@
 		list(
 			"key" = /obj/item/stack/conveyor,
 			"amount" = 4,
-			"desc" = "Гусеницы установлены."
+			"desc" = "The treads can be added using 4 sheets of conveyor belts.",
+			"forward_message" = "added tread systems",
 		),
 		list(
 			"key" = TOOL_WRENCH,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Гидравлические системы отключены."
+			"desc" = "The treads are installed, and the hydraulic systems can be connected with a <b>wrench</b>.",
+			"forward_message" = "connected the hydraulic systems",
+			"backward_message" = "removed tread systems"
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_WRENCH,
-			"desc" = "Гидравлические системы подключены."
+			"desc" = "The hydraulic systems are connected, and can be activated with a <b>screwdriver</b>.",
+			"forward_message" = "activated hydraulic systems",
+			"backward_message" = "disconnected hydraulic systems"
 		),
 		list(
 			"key" = /obj/item/stack/cable_coil,
 			"amount" = 5,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Гидравлические системы активны."
+			"desc" = "The hydraulic systems are active, and the frame can be <b>wired</b>.",
+			"forward_message" = "added wiring",
+			"backward_message" = "deactivated hydraulic systems"
 		),
 		list(
 			"key" = TOOL_WIRECUTTER,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Проводка добавлена."
+			"desc" = "The wiring is added, and can be adjusted with <b>wirecutters</b>.",
+			"forward_message" = "adjusted wiring",
+			"backward_message" = "removed wiring"
 		)
 	)
 
-
-
-/datum/component/construction/mecha/clarke/custom_action(obj/item/I, mob/living/user, diff)
-	if(!..())
-		return FALSE
-
-	//TODO: better messages.
-	switch(index)
-		if(1)
-			user.visible_message(span_notice("<b>[user]</b> устанавливает гусеницы.") , span_notice("Устанавливаю гусеницы."))
-		if(2)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает гусеницы.") , span_notice("Снимаю гусеницы."))
-
-		if(3)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
-		if(4)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
-		if(5)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
-		if(6)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
-		if(7)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
-		if(8)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
-		if(9)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
-		if(10)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
-		if(11)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
-		if(12)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
-		if(13)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет конденсатор.") , span_notice("Закрепляю конденсатор."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
-		if(14)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор.") , span_notice("Откручиваю конденсатор."))
-		if(15)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
-		if(16)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внутреннюю обшивку <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
-		if(17)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет внутреннюю обшивку.") , span_notice("Закрепляю внутреннюю обшивку."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внутреннюю обшивку <b>[parent]</b>."))
-		if(18)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает внутреннюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внутреннюю обшивку к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает внутреннюю обшивку.") , span_notice("Откручиваю внутреннюю обшивку."))
-		if(19)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает внешнюю обшивку на <b>[parent]</b>.") , span_notice("Устанавливаю внешнюю обшивку на <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> срезает внутреннюю обшивку с <b>[parent]</b>.") , span_notice("Срезаю внутреннюю обшивку с <b>[parent]</b>."))
-		if(20)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет внешнюю обшивку.") , span_notice("Закрепляю внешнюю обшивку."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает внешнюю обшивку с <b>[parent]</b>.") , span_notice("Снимаю внешнюю обшивку с <b>[parent]</b>."))
-		if(21)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает внешнюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внешнюю обшивку к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает внешнюю обшивку.") , span_notice("Откручиваю внешнюю обшивку."))
-	return TRUE
-
-
+//HONKER
 /datum/component/construction/unordered/mecha_chassis/honker
 	result = /datum/component/construction/mecha/honker
 	steps = list(
@@ -717,66 +473,102 @@
 	)
 
 /datum/component/construction/mecha/honker
-	result = /obj/vehicle/sealed/mecha/combat/honker
+	result = /obj/vehicle/sealed/mecha/honker
 	steps = list(
 		list(
-			"key" = /obj/item/bikehorn
+			"key" = /obj/item/bikehorn,
+			"desc" = "HONK!"
 		),
 		list(
 			"key" = /obj/item/circuitboard/mecha/honker/main,
-			"action" = ITEM_DELETE
+			"action" = ITEM_DELETE,
+			"desc" = "Fun <b>central board</b> can be added!",
+			"forward_message" = "added fun"
+
 		),
 		list(
-			"key" = /obj/item/bikehorn
+			"key" = /obj/item/bikehorn,
+			"desc" = "HONK!!"
 		),
 		list(
 			"key" = /obj/item/circuitboard/mecha/honker/peripherals,
-			"action" = ITEM_DELETE
+			"action" = ITEM_DELETE,
+			"desc" = "Joke <b>peripheral board</b> can be added!",
+			"forward_message" = "added joke"
 		),
 		list(
-			"key" = /obj/item/bikehorn
+			"key" = /obj/item/bikehorn,
+			"desc" = "HONK!!!"
 		),
 		list(
 			"key" = /obj/item/circuitboard/mecha/honker/targeting,
-			"action" = ITEM_DELETE
+			"action" = ITEM_DELETE,
+			"desc" = "Prank <b>targetting board</b> can be added!",
+			"forward_message" = "added prank"
 		),
 		list(
-			"key" = /obj/item/bikehorn
+			"key" = /obj/item/bikehorn,
+			"desc" = "HONK!!!!"
 		),
 		list(
 			"key" = /obj/item/stock_parts/scanning_module,
-			"action" = ITEM_MOVE_INSIDE
+			"action" = ITEM_MOVE_INSIDE,
+			"desc" = "Silly <b>scanning</b> module can be added!",
+			"forward_message" = "added silly"
 		),
 		list(
-			"key" = /obj/item/bikehorn
+			"key" = /obj/item/bikehorn,
+			"desc" = "HONK!!!!!"
 		),
 		list(
 			"key" = /obj/item/stock_parts/capacitor,
-			"action" = ITEM_MOVE_INSIDE
+			"action" = ITEM_MOVE_INSIDE,
+			"desc" = "Humor <b>capacitor</b> can be added!",
+			"forward_message" = "added humor"
 		),
 		list(
-			"key" = /obj/item/bikehorn
+			"key" = /obj/item/bikehorn,
+			"desc" = "HONK!!!!!!"
+		),
+		list(
+			"key" = /obj/item/stock_parts/servo,
+			"action" = ITEM_MOVE_INSIDE,
+			"desc" = "Humor <b>micro-servo</b> can be added!",
+			"forward_message" = "added smile"
+		),
+		list(
+			"key" = /obj/item/bikehorn,
+			"desc" = "HONK!!!!!!"
 		),
 		list(
 			"key" = /obj/item/stock_parts/cell,
-			"action" = ITEM_MOVE_INSIDE
+			"action" = ITEM_MOVE_INSIDE,
+			"desc" = "Laughter <b>cell</b> can be added!",
+			"forward_message" = "added laughter"
 		),
 		list(
-			"key" = /obj/item/bikehorn
+			"key" = /obj/item/bikehorn,
+			"desc" = "HONK!!!!!!!"
 		),
 		list(
 			"key" = /obj/item/clothing/mask/gas/clown_hat,
-			"action" = ITEM_DELETE
+			"action" = ITEM_DELETE,
+			"desc" = "Clown mask can be ceremoniously added!",
+			"forward_message" = "added mask"
 		),
 		list(
-			"key" = /obj/item/bikehorn
+			"key" = /obj/item/bikehorn,
+			"desc" = "HONK!!!!!!!!"
 		),
 		list(
 			"key" = /obj/item/clothing/shoes/clown_shoes,
-			"action" = ITEM_DELETE
+			"action" = ITEM_DELETE,
+			"desc" = "Clown shoes can be reverently added!",
+			"forward_message" = "added shoes"
 		),
 		list(
-			"key" = /obj/item/bikehorn
+			"key" = /obj/item/bikehorn,
+			"desc" = "Honk again, if you are brave enough."
 		),
 	)
 
@@ -787,38 +579,19 @@
 /datum/component/construction/mecha/honker/update_parent(step_index)
 	if(step_index == 1)
 		var/atom/parent_atom = parent
-		parent_atom.icon = 'icons/mecha/mech_construct.dmi'
+		parent_atom.icon = 'icons/mob/mech_construct.dmi'
 		parent_atom.icon_state = "honker_chassis"
 	..()
 
 /datum/component/construction/mecha/honker/custom_action(obj/item/I, mob/living/user, diff)
-	if(!..())
-		return FALSE
-
 	if(istype(I, /obj/item/bikehorn))
 		playsound(parent, 'sound/items/bikehorn.ogg', 50, TRUE)
-		user.visible_message(span_danger("ХОНК!"))
+		user.balloon_alert_to_viewers("HONK!")
+		return TRUE
 
-	//TODO: better messages.
-	switch(index)
-		if(2)
-			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-		if(4)
-			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-		if(6)
-			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-		if(8)
-			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-		if(10)
-			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-		if(12)
-			user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-		if(14)
-			user.visible_message(span_notice("<b>[user]</b> гениально устанавливает <b>[I.name]</b> на <b>[parent]</b>.") , span_notice("Гениально устанавливаю <b>[I.name]</b> на <b>[parent]</b>."))
-		if(16)
-			user.visible_message(span_notice("<b>[user]</b> гениально устанавливает <b>[I.name]</b> на <b>[parent]</b>.") , span_notice("Гениально устанавливаю <b>[I.name]</b> на <b>[parent]</b>."))
-	return TRUE
+	return ..()
 
+//DURAND
 /datum/component/construction/unordered/mecha_chassis/durand
 	result = /datum/component/construction/mecha/durand
 	steps = list(
@@ -831,7 +604,7 @@
 	)
 
 /datum/component/construction/mecha/durand
-	result = /obj/vehicle/sealed/mecha/combat/durand
+	result = /obj/vehicle/sealed/mecha/durand
 	base_icon = "durand"
 
 	circuit_control = /obj/item/circuitboard/mecha/durand/main
@@ -844,123 +617,7 @@
 	outer_plating = /obj/item/mecha_parts/part/durand_armor
 	outer_plating_amount = 1
 
-/datum/component/construction/mecha/durand/custom_action(obj/item/I, mob/living/user, diff)
-	if(!..())
-		return FALSE
-
-	//TODO: better messages.
-	switch(index)
-		if(1)
-			user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
-		if(2)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
-		if(3)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
-		if(4)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
-		if(5)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
-		if(6)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
-		if(7)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
-		if(8)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
-		if(9)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
-		if(10)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления оружием.") , span_notice("Закрепляю модуль управления оружием."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления оружием из <b>[parent]</b>.") , span_notice("Удаляю модуль управления оружием из <b>[parent]</b>."))
-		if(11)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления оружием.") , span_notice("Откручиваю модуль управления оружием."))
-		if(12)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
-		if(13)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
-		if(14)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет конденсатор.") , span_notice("Закрепляю конденсатор."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
-		if(15)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор.") , span_notice("Откручиваю конденсатор."))
-		if(16)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
-		if(17)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внутреннюю обшивку <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
-		if(18)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет внутреннюю обшивку.") , span_notice("Закрепляю внутреннюю обшивку."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внутреннюю обшивку <b>[parent]</b>."))
-		if(19)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает внутреннюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внутреннюю обшивку к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает внутреннюю обшивку.") , span_notice("Откручиваю внутреннюю обшивку."))
-		if(20)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> срезает внутреннюю обшивку с <b>[parent]</b>.") , span_notice("Срезаю внутреннюю обшивку с <b>[parent]</b>."))
-		if(21)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет Durand Armor Plates.") , span_notice("Закрепляю Durand Armor Plates."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает Durand Armor Plates с <b>[parent]</b>.") , span_notice("Снимаю Durand Armor Plates с <b>[parent]</b>."))
-		if(22)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает Durand Armor Plates к <b>[parent]</b>.") , span_notice("Привариваю Durand Armor Plates к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает Durand Armor Plates.") , span_notice("Откручиваю Durand Armor Plates."))
-	return TRUE
-
 //PHAZON
-
 /datum/component/construction/unordered/mecha_chassis/phazon
 	result = /datum/component/construction/mecha/phazon
 	steps = list(
@@ -973,7 +630,7 @@
 	)
 
 /datum/component/construction/mecha/phazon
-	result = /obj/vehicle/sealed/mecha/combat/phazon
+	result = /obj/vehicle/sealed/mecha/phazon
 	base_icon = "phazon"
 
 	circuit_control = /obj/item/circuitboard/mecha/phazon/main
@@ -992,52 +649,85 @@
 			"key" = /obj/item/stock_parts/scanning_module,
 			"action" = ITEM_MOVE_INSIDE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Модуль управления оружием."
+			"desc" = "Weapon control module is secured, and the <b>scanning module</b> can be added.",
+			"forward_message" = "added scanning module",
+			"backward_message" = "unsecured weapon control module"
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Модуль сканирования установлен."
+			"desc" = "Scanning module is installed, and can be <b>screwed</b> into place.",
+			"forward_message" = "secured scanning module",
+			"backward_message" = "removed scanning module"
 		),
 		list(
 			"key" = /obj/item/stock_parts/capacitor,
 			"action" = ITEM_MOVE_INSIDE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Модуль сканирования закреплён."
+			"desc" = "Scanning module is secured, and the <b>capacitor</b> can be added.",
+			"forward_message" = "added capacitor",
+			"backward_message" = "unsecured scanning module"
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Конденсатор установлен."
+			"desc" =  "Capacitor is installed, and can be <b>screwed</b> into place.",
+			"forward_message" = "secured capacitor",
+			"backward_message" = "removed capacitor"
+		),
+		list(
+			"key" = /obj/item/stock_parts/servo,
+			"action" = ITEM_MOVE_INSIDE,
+			"back_key" = TOOL_SCREWDRIVER,
+			"desc" = "Capacitor is secured, the <b>micro-servo</b> can be added.",
+			"forward_message" = "added micro-servo",
+			"backward_message" = "unsecured capacitor"
+		),
+		list(
+			"key" = TOOL_SCREWDRIVER,
+			"back_key" = TOOL_CROWBAR,
+			"desc" = "Micro-servo is installed, and can be <b>screwed</b> into place.",
+			"forward_message" = "secured micro-servo",
+			"backward_message" = "removed micro-servo"
 		),
 		list(
 			"key" = /obj/item/stack/ore/bluespace_crystal,
 			"amount" = 1,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Конденсатор закреплён."
+			"desc" = "Micro-servo is secured, and the <b>bluespace crystal</b> can be added.",
+			"forward_message" = "added bluespace crystal",
+			"backward_message" = "unsecured micro-servo"
 		),
 		list(
 			"key" = /obj/item/stack/cable_coil,
 			"amount" = 5,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Блюспейс кристалл установлен."
+			"desc" = "The bluespace crystal is installed, and can be <b>wired</b> to the mech systems.",
+			"forward_message" = "connected bluespace crystal",
+			"backward_message" = "removed bluespace crystal"
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_WIRECUTTER,
-			"desc" = "Блюспейс кристалл подключен."
+			"desc" = "The bluespace crystal is connected, and the system can be engaged with a <b>screwdriver</b>.",
+			"forward_message" = "engaded bluespace crystal",
+			"backward_message" = "disconnected bluespace crystal"
 		),
 		list(
 			"key" = /obj/item/stock_parts/cell,
 			"action" = ITEM_MOVE_INSIDE,
 			"back_key" = TOOL_SCREWDRIVER,
-			"desc" = "Блюспейс кристалл активен."
+			"desc" = "The bluespace crystal is engaged, and the <b>power cell</b> can be added.",
+			"forward_message" = "added power cell",
+			"backward_message" = "disengaged bluespace crystal"
 		),
 		list(
 			"key" = TOOL_SCREWDRIVER,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Аккумулятор установлен.",
-			"icon_state" = "phazon17"
+			"desc" = "The power cell is installed, and can be <b>screwed</b> into place.",,
+			"forward_message" = "secured power cell",
+			"backward_message" = "removed power cell",
+			"icon_state" = "phazon19"
 			// This is the point where a step icon is skipped, so "icon_state" had to be set manually starting from here.
 		)
 	)
@@ -1049,294 +739,36 @@
 			"amount" = 1,
 			"action" = ITEM_DELETE,
 			"back_key" = TOOL_WELDER,
-			"desc" = "Внутренняя обшивка приварена."
+			"desc" = "Internal armor is welded, [initial(outer_plating.name)] can be used as external armor.",
+			"forward_message" = "added external armor layer",
+			"backward_message" = "cut off internal armor layer"
 		),
 		list(
 			"key" = TOOL_WRENCH,
 			"back_key" = TOOL_CROWBAR,
-			"desc" = "Внешняя обшивка установлена."
+			"desc" = "External armor is installed, and can be <b>wrenched</b> into place.",
+			"forward_message" = "secured external armor layer",
+			"backward_message" = "pried off external armor"
 		),
 		list(
 			"key" = TOOL_WELDER,
 			"back_key" = TOOL_WRENCH,
-			"desc" = "Внешняя обшивка прикручена."
+			"desc" = "External armor is wrenched, and can be <b>welded</b>.",
+			"forward_message" = "welded external armor",
+			"backward_message" = "unfastened external armor layer"
 		),
 		list(
 			"key" = /obj/item/assembly/signaler/anomaly/bluespace,
 			"action" = ITEM_DELETE,
 			"back_key" = TOOL_WELDER,
-			"desc" = "Отсек для ядра блюспейс-аномалии свободен.",
-			"icon_state" = "phazon24"
+			"desc" = "The external armor is welded, and the <b>bluespace anomaly core</b> socket is open.",
+			"icon_state" = "phazon26",
+			"forward_message" = "inserted bluespace anomaly core",
+			"backward_message" = "cut off external armor"
 		)
 	)
 
-/datum/component/construction/mecha/phazon/custom_action(obj/item/I, mob/living/user, diff)
-	if(!..())
-		return FALSE
-
-	//TODO: better messages.
-	switch(index)
-		if(1)
-			user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
-		if(2)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
-		if(3)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
-		if(4)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
-		if(5)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
-		if(6)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
-		if(7)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
-		if(8)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
-		if(9)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
-		if(10)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления оружием.") , span_notice("Закрепляю модуль управления оружием."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления оружием из <b>[parent]</b>.") , span_notice("Удаляю модуль управления оружием из <b>[parent]</b>."))
-		if(11)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления оружием.") , span_notice("Откручиваю модуль управления оружием."))
-		if(12)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
-		if(13)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
-		if(14)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет конденсатор.") , span_notice("Закрепляю конденсатор."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
-		if(15)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b>.") , span_notice("Устанавливаю <b>[I.name]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор в <b>[parent]</b>.") , span_notice("Откручиваю конденсатор в <b>[parent]</b>."))
-		if(16)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> подключает блюспейс кристалл.") , span_notice("Подключаю блюспейс кристалл."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет блюспейс кристалл из <b>[parent]</b>.") , span_notice("Удаляю блюспейс кристалл из <b>[parent]</b>."))
-		if(17)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> активирует блюспейс кристалл.") , span_notice("Активирую блюспейс кристалл."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает блюспейс кристалл от <b>[parent]</b>.") , span_notice("Отключаю блюспейс кристалл от <b>[parent]</b>."))
-		if(18)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("Деактивирует блюспейс кристалл.") , span_notice("Деактивирую блюспейс кристалл."))
-		if(19)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
-		if(20)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает фазовую броню на <b>[parent]</b>.") , span_notice("Устанавливаю фазовую броню на <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
-		if(21)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет фазовую броню.") , span_notice("Закрепляю фазовую броню."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает фазовую броню с <b>[parent]</b>.") , span_notice("Снимаю фазовую броню с <b>[parent]</b>."))
-		if(22)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает фазовую броню к <b>[parent]</b>.") , span_notice("Привариваю фазовую броню к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает фазовую броню.") , span_notice("Откручиваю фазовую броню."))
-		if(23)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> срезает фазовую броню с <b>[parent]</b>.") , span_notice("Срезаю фазовую броню с <b>[parent]</b>."))
-		if(24)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет Phazon Armor Plates.") , span_notice("Закрепляю Phazon Armor Plates."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает Phazon Armor Plates с <b>[parent]</b>.") , span_notice("Снимаю Phazon Armor Plates с <b>[parent]</b>."))
-		if(25)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает Phazon Armor Plates к <b>[parent]</b>.") , span_notice("Привариваю Phazon Armor Plates к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает Phazon Armor Plates.") , span_notice("Откручиваю Phazon Armor Plates."))
-		if(26)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> аккуратно вставляет ядро блюспейс аномалии в <b>[parent]</b> и закрепляет его.") ,
-					span_notice("Аккуратно вставляю ядро блюспейс аномалии в специальный отсек и закрепляю его."))
-	return TRUE
-
-//ODYSSEUS
-
-/datum/component/construction/unordered/mecha_chassis/odysseus
-	result = /datum/component/construction/mecha/odysseus
-	steps = list(
-		/obj/item/mecha_parts/part/odysseus_torso,
-		/obj/item/mecha_parts/part/odysseus_head,
-		/obj/item/mecha_parts/part/odysseus_left_arm,
-		/obj/item/mecha_parts/part/odysseus_right_arm,
-		/obj/item/mecha_parts/part/odysseus_left_leg,
-		/obj/item/mecha_parts/part/odysseus_right_leg
-	)
-
-/datum/component/construction/mecha/odysseus
-	result = /obj/vehicle/sealed/mecha/medical/odysseus
-	base_icon = "odysseus"
-
-	circuit_control = /obj/item/circuitboard/mecha/odysseus/main
-	circuit_periph = /obj/item/circuitboard/mecha/odysseus/peripherals
-
-	inner_plating = /obj/item/stack/sheet/iron
-	inner_plating_amount = 5
-
-	outer_plating = /obj/item/stack/sheet/plasteel
-	outer_plating_amount = 5
-
-/datum/component/construction/mecha/odysseus/custom_action(obj/item/I, mob/living/user, diff)
-	if(!..())
-		return FALSE
-
-	//TODO: better messages.
-	switch(index)
-		if(1)
-			user.visible_message(span_notice("<b>[user]</b> подключает гидравлическую систему <b>[parent]</b>.") , span_notice("Подключаю гидравлическую систему <b>[parent]</b>."))
-		if(2)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> активирует гидравлическую систему <b>[parent]</b>.") , span_notice("Активирую гидравлическую систему <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает гидравлическую систему <b>[parent]</b>.") , span_notice("Отключаю гидравлическую систему <b>[parent]</b>."))
-		if(3)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает проводку в <b>[parent]</b>.") , span_notice("Устанавливаю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> деактивирует гидравлическую систему <b>[parent]</b>.") , span_notice("Деактивирую гидравлическую систему <b>[parent]</b>."))
-		if(4)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> настраивает проводку в <b>[parent]</b>.") , span_notice("Настраиваю проводку в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет проводку из <b>[parent]</b>.") , span_notice("Удаляю проводку из <b>[parent]</b>."))
-		if(5)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> отключает проводку в <b>[parent]</b>.") , span_notice("Отключаю проводку в <b>[parent]</b>."))
-		if(6)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет основную плату.") , span_notice("Закрепляю основную плату."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль центрального управления из <b>[parent]</b>.") , span_notice("Удаляю модуль центрального управления из <b>[parent]</b>."))
-		if(7)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает основную плату.") , span_notice("Откручиваю основную плату."))
-		if(8)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль управления периферией.") , span_notice("Закрепляю модуль управления периферией."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль управления периферией из <b>[parent]</b>.") , span_notice("Удаляю модуль управления периферией из <b>[parent]</b>."))
-		if(9)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль управления периферией.") , span_notice("Откручиваю модуль управления периферией."))
-		if(10)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет модуль сканирования.") , span_notice("Закрепляю модуль сканирования."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет модуль сканирования из <b>[parent]</b>.") , span_notice("Удаляю модуль сканирования из <b>[parent]</b>."))
-		if(11)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает модуль сканирования.") , span_notice("Откручиваю модуль сканирования."))
-		if(12)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет конденсатор.") , span_notice("Закрепляю конденсатор."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> удаляет конденсатор из <b>[parent]</b>.") , span_notice("Удаляю конденсатор из <b>[parent]</b>."))
-		if(13)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает <b>[I.name]</b> в <b>[parent]</b>.") , span_notice("Устанавливаю <b>[I.name]</b> в <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает конденсатор.") , span_notice("Откручиваю конденсатор."))
-		if(14)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет аккумулятор.") , span_notice("Закрепляю аккумулятор."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> вытаскивает аккумулятор из <b>[parent]</b>.") , span_notice("Вытаскиваю аккумулятор из <b>[parent]</b>."))
-		if(15)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Устанавливаю внутреннюю обшивку <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает аккумулятор.") , span_notice("Откручиваю аккумулятор."))
-		if(16)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет внутреннюю обшивку.") , span_notice("Закрепляю внутреннюю обшивку."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает внутреннюю обшивку <b>[parent]</b>.") , span_notice("Снимаю внутреннюю обшивку <b>[parent]</b>."))
-		if(17)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает внутреннюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внутреннюю обшивку к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает внутреннюю обшивку.") , span_notice("Откручиваю внутреннюю обшивку."))
-		if(18)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> устанавливает внешнюю обшивку на <b>[parent]</b>.") , span_notice("Устанавливаю внешнюю обшивку на <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> срезает внутреннюю обшивку с <b>[parent]</b>.") , span_notice("Срезаю внутреннюю обшивку с <b>[parent]</b>."))
-		if(19)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> закрепляет внешнюю обшивку.") , span_notice("Закрепляю внешнюю обшивку."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> снимает внешнюю обшивку с <b>[parent]</b>.") , span_notice("Снимаю внешнюю обшивку с <b>[parent]</b>."))
-		if(20)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("<b>[user]</b> приваривает внешнюю обшивку к <b>[parent]</b>.") , span_notice("Привариваю внешнюю обшивку к <b>[parent]</b>."))
-			else
-				user.visible_message(span_notice("<b>[user]</b> откручивает внешнюю обшивку.") , span_notice("Откручиваю внешнюю обшивку."))
-	return TRUE
-
-//savannah_ivanov
-
+//SAVANNAH-IVANOV
 /datum/component/construction/unordered/mecha_chassis/savannah_ivanov
 	result = /datum/component/construction/mecha/savannah_ivanov
 	steps = list(
@@ -1349,7 +781,7 @@
 	)
 
 /datum/component/construction/mecha/savannah_ivanov
-	result = /obj/vehicle/sealed/mecha/combat/savannah_ivanov
+	result = /obj/vehicle/sealed/mecha/savannah_ivanov
 	base_icon = "savannah_ivanov"
 
 	circuit_control = /obj/item/circuitboard/mecha/savannah_ivanov/main
@@ -1362,117 +794,27 @@
 	outer_plating = /obj/item/mecha_parts/part/savannah_ivanov_armor
 	outer_plating_amount = 1
 
-/datum/component/construction/mecha/savannah_ivanov/custom_action(obj/item/I, mob/living/user, diff)
-	. = ..()
-	if(!.)
-		return FALSE
+//ODYSSEUS
+/datum/component/construction/unordered/mecha_chassis/odysseus
+	result = /datum/component/construction/mecha/odysseus
+	steps = list(
+		/obj/item/mecha_parts/part/odysseus_torso,
+		/obj/item/mecha_parts/part/odysseus_head,
+		/obj/item/mecha_parts/part/odysseus_left_arm,
+		/obj/item/mecha_parts/part/odysseus_right_arm,
+		/obj/item/mecha_parts/part/odysseus_left_leg,
+		/obj/item/mecha_parts/part/odysseus_right_leg
+	)
 
-	switch(index)
-		if(1)
-			user.visible_message(span_notice("[user] присоединяет гидравлическую систему [parent]."), span_notice("Подключаю гидравлическую систему [parent]."))
-		if(2)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] активирует гидравлическую систему [parent]."), span_notice("Активирую гидравлическую систему [parent]."))
-			else
-				user.visible_message(span_notice("[user] отключает гидравлическую систему [parent]."), span_notice("Отключаю гидравлическую систему [parent]."))
-		if(3)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] добавляет проводку в [parent]."), span_notice("Добавляю проводку в [parent]."))
-			else
-				user.visible_message(span_notice("[user] дeактивирует гидравлическую систему [parent]."), span_notice("Деактивирую гидравлическую систему [parent]."))
-		if(4)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] настраивает проводку [parent]."), span_notice("Настраиваю проводку [parent]."))
-			else
-				user.visible_message(span_notice("[user] удаляет проводку из [parent]."), span_notice("Удаляю проводку из [parent]."))
-		if(5)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] устанавливает [I] в [parent]."), span_notice("Устанавливаю [I] в [parent]."))
-			else
-				user.visible_message(span_notice("[user] отключает проводку [parent]."), span_notice("Отключаю проводку [parent]."))
-		if(6)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] прикручивает основную плату."), span_notice("Прикручиваю основную плату."))
-			else
-				user.visible_message(span_notice("[user] удаляет основную плату из [parent]."), span_notice("Удаляю основную плату из [parent]."))
-		if(7)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] устанавливает [I] в [parent]."), span_notice("Устанавливаю [I] в [parent]."))
-			else
-				user.visible_message(span_notice("[user] Откручивает основную плату."), span_notice("Откручиваю основную плату."))
-		if(8)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] прикручивает периферийный модуль Иванова."), span_notice("Прикручиваю периферийный модуль Иванова."))
-			else
-				user.visible_message(span_notice("[user] удаляет периферийный модуль Иванова из [parent]."), span_notice("Удаляю периферийный модуль Иванова из [parent]."))
-		if(9)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] устанавливает [I] в [parent]."), span_notice("Устанавливаю [I] в [parent]."))
-			else
-				user.visible_message(span_notice("[user] откручивает периферийный модуль Иванова."), span_notice("Откручиваю периферийный модуль Иванова."))
-		if(10)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] прикручивает модуль управления оружием."), span_notice("Прикручиваю модуль управления оружием."))
-			else
-				user.visible_message(span_notice("[user] удаляет модуль управления оружием из [parent]."), span_notice("Удаляю модуль управления оружием из [parent]."))
-		if(11)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] устанавливает [I] в [parent]."), span_notice("Устанавливаю [I] в [parent]."))
-			else
-				user.visible_message(span_notice("[user] откручивает модуль управления оружием."), span_notice("Откручиваю модуль управления оружием."))
-		if(12)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] прикручивает модуль сканера."), span_notice("Прикручиваю модуль сканера."))
-			else
-				user.visible_message(span_notice("[user] удаляет модуль сканера из [parent]."), span_notice("Удаляю модуль сканера из [parent]."))
-		if(13)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] устанавливает [I] в [parent]."), span_notice("Устанавливаю [I] в [parent]."))
-			else
-				user.visible_message(span_notice("[user] откручивает модуль сканера."), span_notice("Откручиваю модуль сканера."))
-		if(14)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] прикручивает конденсатор."), span_notice("Прикручиваю конденсатор."))
-			else
-				user.visible_message(span_notice("[user] удаляет конденсатор из [parent]."), span_notice("Удаляю конденсатор из [parent]."))
-		if(15)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] устанавливает [I] в [parent]."), span_notice("Устанавливаю [I] в [parent]."))
-			else
-				user.visible_message(span_notice("[user] откручивает конденсатор."), span_notice("Откручиваю конденсатор."))
-		if(16)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] прикручивает аккумулятор."), span_notice("Прикручиваю аккумулятор."))
-			else
-				user.visible_message(span_notice("[user] вытаскивает аккумулятор из [parent]."), span_notice("Вытаскиваю аккумулятор из [parent]."))
-		if(17)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] устанавливает внутреннюю обшивку в [parent]."), span_notice("Устанавливаю внутреннюю обшивку в [parent]."))
-			else
-				user.visible_message(span_notice("[user] откручивает аккумулятор."), span_notice("Откручиваю аккумулятор."))
-		if(18)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] прикручивает внутреннюю обшивку."), span_notice("Прикручиваю внутреннюю обшивку."))
-			else
-				user.visible_message(span_notice("[user] срывает внутреннюю обшивку с [parent]."), span_notice("Срываю внутреннюю обшивку с [parent]."))
-		if(19)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] приваривает внутреннюю обшивку к [parent]."), span_notice("Привариваю внутреннюю обшивку к [parent]."))
-			else
-				user.visible_message(span_notice("[user] откручивает внутреннюю обшивку."), span_notice("Откручиваю внутреннюю обшивку."))
-		if(20)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] устанавливает [I] в [parent]."), span_notice("Устанавливаю [I] в [parent]."))
-			else
-				user.visible_message(span_notice("[user] срезает внутреннюю обшивку с [parent]."), span_notice("Срезаю внутреннюю обшивку с [parent]."))
-		if(21)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] устанавливает бронепластины Саванны-Иванова."), span_notice("Устанавливаю бронепластины Саванны-Иванова."))
-			else
-				user.visible_message(span_notice("[user] срывает бронепластины Саванны-Иванова с [parent]."), span_notice("Срываю бронепластины Саванны-Иванова с [parent]."))
-		if(22)
-			if(diff==FORWARD)
-				user.visible_message(span_notice("[user] приваривает бронепластины Саванны-Иванова к [parent]."), span_notice("Привариваю бронепластины Саванны-Иванова к [parent]."))
-			else
-				user.visible_message(span_notice("[user] откручивает бронепластины Саванны-Иванова."), span_notice("Откручиваю бронепластины Саванны-Иванова."))
-	return TRUE
+/datum/component/construction/mecha/odysseus
+	result = /obj/vehicle/sealed/mecha/odysseus
+	base_icon = "odysseus"
+
+	circuit_control = /obj/item/circuitboard/mecha/odysseus/main
+	circuit_periph = /obj/item/circuitboard/mecha/odysseus/peripherals
+
+	inner_plating = /obj/item/stack/sheet/iron
+	inner_plating_amount = 5
+
+	outer_plating = /obj/item/stack/sheet/plasteel
+	outer_plating_amount = 5

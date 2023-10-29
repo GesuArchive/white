@@ -30,9 +30,11 @@
 	icon_state = "track"
 
 /atom/movable/screen/ai/camera_track/Click()
-	if(..())
+	. = ..()
+	if(.)
 		return
-	GLOB.AI_track_menu.show(usr)
+	var/mob/living/silicon/ai/AI = usr
+	AI.ai_camera_track()
 
 /atom/movable/screen/ai/camera_light
 	name = "Toggle Camera Light"
@@ -180,107 +182,89 @@
 	var/mob/living/silicon/ai/myai = mymob
 
 // Language menu
-	using = new /atom/movable/screen/language_menu
-	//using.icon = retro_hud ? ui_style : using.icon
-	using.screen_loc = UI_AI_LANGUAGE_MENU
-	using.hud = src
+	using = new /atom/movable/screen/language_menu(null, src)
+	using.screen_loc = ui_ai_language_menu
 	static_inventory += using
 
 //AI core
-	using = new /atom/movable/screen/ai/aicore()
-	using.screen_loc = retro_hud ? UI_AI_CORE_RETRO : UI_AI_CORE
-	using.hud = src
+	using = new /atom/movable/screen/ai/aicore(null, src)
+	using.screen_loc = ui_ai_core
 	static_inventory += using
 
 //Camera list
-	using = new /atom/movable/screen/ai/camera_list()
-	using.screen_loc = retro_hud ? UI_AI_CAMERA_LIST_RETRO : UI_AI_CAMERA_LIST
-	using.hud = src
+	using = new /atom/movable/screen/ai/camera_list(null, src)
+	using.screen_loc = ui_ai_camera_list
 	static_inventory += using
 
 //Track
-	using = new /atom/movable/screen/ai/camera_track()
-	using.screen_loc = retro_hud ? UI_AI_TRACK_WITH_CAMERA_RETRO : UI_AI_TRACK_WITH_CAMERA
-	using.hud = src
+	using = new /atom/movable/screen/ai/camera_track(null, src)
+	using.screen_loc = ui_ai_track_with_camera
 	static_inventory += using
 
 //Camera light
-	using = new /atom/movable/screen/ai/camera_light()
-	using.screen_loc = retro_hud ? UI_AI_CAMERA_LIGHT_RETRO : UI_AI_CAMERA_LIGHT
-	using.hud = src
+	using = new /atom/movable/screen/ai/camera_light(null, src)
+	using.screen_loc = ui_ai_camera_light
 	static_inventory += using
 
 //Crew Monitoring
-	using = new /atom/movable/screen/ai/crew_monitor()
-	using.screen_loc = retro_hud ? UI_AI_CREW_MONITOR_RETRO : UI_AI_CREW_MONITOR
-	using.hud = src
+	using = new /atom/movable/screen/ai/crew_monitor(null, src)
+	using.screen_loc = ui_ai_crew_monitor
 	static_inventory += using
 
 //Crew Manifest
-	using = new /atom/movable/screen/ai/crew_manifest()
-	using.screen_loc = retro_hud ? UI_AI_CREW_MANIFEST_RETRO : UI_AI_CREW_MANIFEST
-	using.hud = src
+	using = new /atom/movable/screen/ai/crew_manifest(null, src)
+	using.screen_loc = ui_ai_crew_manifest
 	static_inventory += using
 
 //Alerts
-	using = new /atom/movable/screen/ai/alerts()
-	using.screen_loc = retro_hud ? UI_AI_ALERTS_RETRO : UI_AI_ALERTS
-	using.hud = src
+	using = new /atom/movable/screen/ai/alerts(null, src)
+	using.screen_loc = ui_ai_alerts
 	static_inventory += using
 
 //Announcement
-	using = new /atom/movable/screen/ai/announcement()
-	using.screen_loc = retro_hud ? UI_AI_ANNOUNCEMENT_RETRO : UI_AI_ANNOUNCEMENT
-	using.hud = src
+	using = new /atom/movable/screen/ai/announcement(null, src)
+	using.screen_loc = ui_ai_announcement
 	static_inventory += using
 
 //Shuttle
-	using = new /atom/movable/screen/ai/call_shuttle()
-	using.screen_loc = retro_hud ? UI_AI_SHUTTLE_RETRO : UI_AI_SHUTTLE
-	using.hud = src
+	using = new /atom/movable/screen/ai/call_shuttle(null, src)
+	using.screen_loc = ui_ai_shuttle
 	static_inventory += using
 
 //Laws
-	using = new /atom/movable/screen/ai/state_laws()
-	using.screen_loc = retro_hud ? UI_AI_STATE_LAWS_RETRO : UI_AI_STATE_LAWS
-	using.hud = src
+	using = new /atom/movable/screen/ai/state_laws(null, src)
+	using.screen_loc = ui_ai_state_laws
 	static_inventory += using
 
 // Modular Interface
-	using = new /atom/movable/screen/ai/modpc()
-	using.screen_loc = retro_hud ? UI_AI_MOD_INT_RETRO : UI_AI_MOD_INT
-	using.hud = src
+	using = new /atom/movable/screen/ai/modpc(null, src)
+	using.screen_loc = ui_ai_mod_int
 	static_inventory += using
 	myai.interfaceButton = using
 	var/atom/movable/screen/ai/modpc/tabletbutton = using
 	tabletbutton.robot = myai
 
 //Take image
-	using = new /atom/movable/screen/ai/image_take()
-	using.screen_loc = retro_hud ? UI_AI_TAKE_PICTURE_RETRO : UI_AI_TAKE_PICTURE
-	using.hud = src
+	using = new /atom/movable/screen/ai/image_take(null, src)
+	using.screen_loc = ui_ai_take_picture
 	static_inventory += using
 
 //View images
-	using = new /atom/movable/screen/ai/image_view()
-	using.screen_loc = retro_hud ? UI_AI_VIEW_IMAGES_RETRO : UI_AI_VIEW_IMAGES
-	using.hud = src
+	using = new /atom/movable/screen/ai/image_view(null, src)
+	using.screen_loc = ui_ai_view_images
 	static_inventory += using
 
 //Medical/Security sensors
-	using = new /atom/movable/screen/ai/sensors()
-	using.screen_loc = retro_hud ? UI_AI_SENSOR_RETRO : UI_AI_SENSOR
-	using.hud = src
+	using = new /atom/movable/screen/ai/sensors(null, src)
+	using.screen_loc = ui_ai_sensor
 	static_inventory += using
 
 //Multicamera mode
-	using = new /atom/movable/screen/ai/multicam()
-	using.screen_loc = retro_hud ? UI_AI_MULTICAM_RETRO : UI_AI_MULTICAM
-	using.hud = src
+	using = new /atom/movable/screen/ai/multicam(null, src)
+	using.screen_loc = ui_ai_multicam
 	static_inventory += using
 
 //Add multicamera camera
-	using = new /atom/movable/screen/ai/add_multicam()
-	using.screen_loc = retro_hud ? UI_AI_ADD_MULTICAM_RETRO : UI_AI_ADD_MULTICAM
-	using.hud = src
+	using = new /atom/movable/screen/ai/add_multicam(null, src)
+	using.screen_loc = ui_ai_add_multicam
 	static_inventory += using

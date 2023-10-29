@@ -1,5 +1,5 @@
-import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section, Stack } from '../components';
+import { useBackend, useSharedState } from '../backend';
+import { Box, Button, Dropdown, LabeledList, ProgressBar, Section, Stack, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 const getMuleByRef = (mules, ref) => {
@@ -8,27 +8,82 @@ const getMuleByRef = (mules, ref) => {
 
 export const NtosRoboControl = (props, context) => {
   const { act, data } = useBackend(context);
-  const { bots, id_owner, has_id } = data;
+  const [tab_main, setTab_main] = useSharedState(context, 'tab_main', 1);
+  const { bots, drones, id_owner, droneaccess, dronepingtypes } = data;
   return (
     <NtosWindow width={550} height={550}>
       <NtosWindow.Content scrollable>
-        <Section title="Консоль управления роботами">
+        <Section title="Robot Control Console">
           <LabeledList>
-            <LabeledList.Item label="ID-карта">{id_owner}</LabeledList.Item>
-            <LabeledList.Item label="Роботы в радиусе">
+            <LabeledList.Item label="ID Card">{id_owner}</LabeledList.Item>
+            <LabeledList.Item label="Bots In Range">
               {data.botcount}
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        {bots?.map((robot) => (
-          <RobotInfo key={robot.bot_ref} robot={robot} />
-        ))}
+        <Stack.Item>
+          <Tabs>
+            <Tabs.Tab
+              icon="robot"
+              lineHeight="23px"
+              selected={tab_main === 1}
+              onClick={() => setTab_main(1)}>
+              Bots
+            </Tabs.Tab>
+            <Tabs.Tab
+              icon="hammer"
+              lineHeight="23px"
+              selected={tab_main === 2}
+              onClick={() => setTab_main(2)}>
+              Drones
+            </Tabs.Tab>
+          </Tabs>
+        </Stack.Item>
+        {tab_main === 1 && (
+          <Stack.Item>
+            <Section>
+              <LabeledList>
+                <LabeledList.Item label="Bots in range">
+                  {data.botcount}
+                </LabeledList.Item>
+              </LabeledList>
+            </Section>
+            {bots?.map((robot) => (
+              <RobotInfo key={robot.bot_ref} robot={robot} />
+            ))}
+          </Stack.Item>
+        )}
+        {tab_main === 2 && (
+          <Stack.Item grow>
+            <Section>
+              <Button
+                icon="address-card"
+                tooltip="Grant/Remove Drone access to interact with machines and wires that would otherwise be deemed dangerous."
+                content={
+                  droneaccess ? 'Grant Drone Access' : 'Revoke Drone Access'
+                }
+                color={droneaccess ? 'good' : 'bad'}
+                onClick={() => act('changedroneaccess')}
+              />
+              <Dropdown
+                tooltip="Drone pings"
+                width="100%"
+                displayText={'Drone pings'}
+                options={dronepingtypes}
+                onSelected={(value) => act('ping_drones', { ping_type: value })}
+              />
+            </Section>
+            {drones?.map((drone) => (
+              <DroneInfo key={drone.drone_ref} drone={drone} />
+            ))}
+          </Stack.Item>
+        )}
       </NtosWindow.Content>
     </NtosWindow>
   );
 };
 
-const RobotInfo = (props, context) => {
+export const RobotInfo = (props, context) => {
   const { robot } = props;
   const { act, data } = useBackend(context);
   const mules = data.mules || [];
@@ -48,7 +103,7 @@ const RobotInfo = (props, context) => {
           <>
             <Button
               icon="play"
-              tooltip="Двигаться к цели."
+              tooltip="Go to Destination."
               onClick={() =>
                 act('go', {
                   robot: mule.mule_ref,
@@ -57,7 +112,7 @@ const RobotInfo = (props, context) => {
             />
             <Button
               icon="pause"
-              tooltip="Прекратить движение."
+              tooltip="Stop Moving."
               onClick={() =>
                 act('stop', {
                   robot: mule.mule_ref,
@@ -66,7 +121,7 @@ const RobotInfo = (props, context) => {
             />
             <Button
               icon="home"
-              tooltip="Вернуться домой."
+              tooltip="Travel Home."
               tooltipPosition="bottom-start"
               onClick={() =>
                 act('home', {
@@ -80,21 +135,19 @@ const RobotInfo = (props, context) => {
       <Stack>
         <Stack.Item grow={1} basis={0}>
           <LabeledList>
-            <LabeledList.Item label="Модель">{robot.model}</LabeledList.Item>
-            <LabeledList.Item label="Местоположение">
-              {robot.locat}
-            </LabeledList.Item>
-            <LabeledList.Item label="Состояние">{robot.mode}</LabeledList.Item>
+            <LabeledList.Item label="Model">{robot.model}</LabeledList.Item>
+            <LabeledList.Item label="Location">{robot.locat}</LabeledList.Item>
+            <LabeledList.Item label="Status">{robot.mode}</LabeledList.Item>
             {mule && (
               <>
-                <LabeledList.Item label="Груз">
+                <LabeledList.Item label="Loaded Cargo">
                   {data.load || 'N/A'}
                 </LabeledList.Item>
-                <LabeledList.Item label="Дом">{mule.home}</LabeledList.Item>
-                <LabeledList.Item label="Цель">
+                <LabeledList.Item label="Home">{mule.home}</LabeledList.Item>
+                <LabeledList.Item label="Destination">
                   {mule.dest || 'N/A'}
                 </LabeledList.Item>
-                <LabeledList.Item label="Заряд">
+                <LabeledList.Item label="Power">
                   <ProgressBar
                     value={mule.power}
                     minValue={0}
@@ -115,7 +168,7 @@ const RobotInfo = (props, context) => {
             <>
               <Button
                 fluid
-                content="Выбрать цель"
+                content="Set Destination"
                 onClick={() =>
                   act('destination', {
                     robot: mule.mule_ref,
@@ -124,7 +177,7 @@ const RobotInfo = (props, context) => {
               />
               <Button
                 fluid
-                content="Установить ID"
+                content="Set ID"
                 onClick={() =>
                   act('setid', {
                     robot: mule.mule_ref,
@@ -133,7 +186,7 @@ const RobotInfo = (props, context) => {
               />
               <Button
                 fluid
-                content="Выбрать дом"
+                content="Set Home"
                 onClick={() =>
                   act('sethome', {
                     robot: mule.mule_ref,
@@ -142,7 +195,7 @@ const RobotInfo = (props, context) => {
               />
               <Button
                 fluid
-                content="Разгрузиться"
+                content="Unload Cargo"
                 onClick={() =>
                   act('unload', {
                     robot: mule.mule_ref,
@@ -151,7 +204,7 @@ const RobotInfo = (props, context) => {
               />
               <Button.Checkbox
                 fluid
-                content="Авто-возвращение"
+                content="Auto Return"
                 checked={mule.autoReturn}
                 onClick={() =>
                   act('autoret', {
@@ -161,7 +214,7 @@ const RobotInfo = (props, context) => {
               />
               <Button.Checkbox
                 fluid
-                content="Авто-подбор"
+                content="Auto Pickup"
                 checked={mule.autoPickup}
                 onClick={() =>
                   act('autopick', {
@@ -171,7 +224,7 @@ const RobotInfo = (props, context) => {
               />
               <Button.Checkbox
                 fluid
-                content="Сообщать о дост."
+                content="Delivery Report"
                 checked={mule.reportDelivery}
                 onClick={() =>
                   act('report', {
@@ -185,7 +238,7 @@ const RobotInfo = (props, context) => {
             <>
               <Button
                 fluid
-                content="Прекратить патруль"
+                content="Stop Patrol"
                 onClick={() =>
                   act('patroloff', {
                     robot: robot.bot_ref,
@@ -194,7 +247,7 @@ const RobotInfo = (props, context) => {
               />
               <Button
                 fluid
-                content="Начать патруль"
+                content="Start Patrol"
                 onClick={() =>
                   act('patrolon', {
                     robot: robot.bot_ref,
@@ -203,7 +256,7 @@ const RobotInfo = (props, context) => {
               />
               <Button
                 fluid
-                content="Призвать"
+                content="Summon"
                 onClick={() =>
                   act('summon', {
                     robot: robot.bot_ref,
@@ -212,7 +265,7 @@ const RobotInfo = (props, context) => {
               />
               <Button
                 fluid
-                content="Изъять пИИ"
+                content="Eject PAi"
                 onClick={() =>
                   act('ejectpai', {
                     robot: robot.bot_ref,
@@ -221,6 +274,32 @@ const RobotInfo = (props, context) => {
               />
             </>
           )}
+        </Stack.Item>
+      </Stack>
+    </Section>
+  );
+};
+
+export const DroneInfo = (props, context) => {
+  const { drone } = props;
+  const { act, data } = useBackend(context);
+  const color = 'rgba(74, 59, 140, 1)';
+
+  return (
+    <Section
+      title={drone.name}
+      style={{
+        border: `4px solid ${color}`,
+      }}>
+      <Stack>
+        <Stack.Item grow={1} basis={0}>
+          <LabeledList>
+            <LabeledList.Item label="Status">
+              <Box color={drone.status ? 'bad' : 'good'}>
+                {drone.status ? 'Not Responding' : 'Nominal'}
+              </Box>
+            </LabeledList.Item>
+          </LabeledList>
         </Stack.Item>
       </Stack>
     </Section>

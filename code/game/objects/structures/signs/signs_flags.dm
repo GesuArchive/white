@@ -1,9 +1,8 @@
 /obj/structure/sign/flag
 	name = "flag of the IT Division"
 	desc = "The flag of the Nanotrasen IT Division. Bears a symbol that only makes sense to those that understand."
-	icon = 'icons/obj/flags.dmi'
+	icon = 'icons/obj/fluff/flags.dmi'
 	icon_state = "flag_coder"
-	is_editable = TRUE
 
 /obj/structure/sign/flag/nanotrasen
 	name = "flag of Nanotrasen"
@@ -46,43 +45,3 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/mothic, 32)
 	icon_state = "flag_mars"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/mars, 32)
-
-/obj/structure/sign/flag/che
-	name = "Флаг Чечни"
-	sign_change_name = "Флаг - Чечня"
-	desc = "Круто!"
-	icon_state = "flag_chechen"
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/che, 32)
-
-/obj/structure/sign/flag/soviet
-	name = "Флаг Совка"
-	sign_change_name = "Флаг - Совок"
-	desc = "+15 социальный рейтинг!"
-	icon_state = "flag_soviet"
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/soviet, 32)
-
-/obj/structure/sign/flag/russia
-	name = "Флаг России"
-	sign_change_name = "Флаг - Россия"
-	desc = "Выебет вас!"
-	icon_state = "flag_russia"
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/russia, 32)
-
-/obj/structure/sign/flag/kazakh
-	name = "Флаг Казахстана"
-	sign_change_name = "Флаг - Казахстан"
-	desc = "Жумайсынба!"
-	icon_state = "flag_kazakh"
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/kazakh, 32)
-
-/obj/structure/sign/flag/ua
-	name = "Флаг Украины"
-	sign_change_name = "Флаг - Украина"
-	desc = "Героям Слава!"
-	icon_state = "flag_ua"
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/ua, 32)

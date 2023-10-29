@@ -96,23 +96,23 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /datum/gateway_destination/gateway/home/incoming_pass_check(atom/movable/AM)
 	if(isliving(AM))
-		if(check_exile_implant(AM) || is_species(AM, /datum/species/lizard/ashwalker) || ismegafauna(AM) || iselite(AM))
+		if(check_exile_implant(AM))
 			return FALSE
 	else
 		for(var/mob/living/L in AM.contents)
-			if(check_exile_implant(L) || is_species(L, /datum/species/lizard/ashwalker))
-				target_gateway.say("Отвергаю [AM]: Обнаружен имплант изгнания или неавторизованная форма жизни.")
+			if(check_exile_implant(L))
+				target_gateway.say("Rejecting [AM]: Exile implant detected in contained lifeform.")
 				return FALSE
 	if(AM.has_buckled_mobs())
 		for(var/mob/living/L in AM.buckled_mobs)
-			if(check_exile_implant(L) || is_species(L, /datum/species/lizard/ashwalker))
-				target_gateway.say("Отвергаю [AM]: Обнаружен имплант изгнания или неавторизованная форма жизни.")
+			if(check_exile_implant(L))
+				target_gateway.say("Rejecting [AM]: Exile implant detected in close proximity lifeform.")
 				return FALSE
 	return TRUE
 
 /datum/gateway_destination/gateway/home/proc/check_exile_implant(mob/living/L)
 	for(var/obj/item/implant/exile/E in L.implants)//Checking that there is an exile implant
-		to_chat(L, span_userdanger("Механизм врат обнаружил твой имплант ссылки и не пропускает тебя."))
+		to_chat(L, span_userdanger("The station gate has detected your exile implant and is blocking your entry."))
 		return TRUE
 	return FALSE
 
@@ -131,12 +131,9 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	var/obj/machinery/gateway/gateway
 	density = TRUE
 	invisibility = INVISIBILITY_ABSTRACT
-	var/cooldown = 1 SECONDS
-	var/last_bump = 0
 
 /obj/effect/gateway_portal_bumper/Bumped(atom/movable/AM)
-	if(get_dir(src,AM) == SOUTH && world.time > last_bump + cooldown)
-		last_bump = world.time
+	if(get_dir(src,AM) == SOUTH)
 		gateway.Transfer(AM)
 
 /obj/effect/gateway_portal_bumper/Destroy(force)
@@ -144,8 +141,8 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	gateway = null
 
 /obj/machinery/gateway
-	name = "Врата"
-	desc = "Позволяют путешествовать в отдаленные места на сверхсветовых скоростях."
+	name = "gateway"
+	desc = "A mysterious gateway built by unknown hands, it allows for faster than light travel to far-flung locations."
 	icon = 'icons/obj/machines/gateway.dmi'
 	icon_state = "portal_frame"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -165,7 +162,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	/// Type of instanced gateway destination, needs to be subtype of /datum/gateway_destination/gateway
 	var/destination_type = /datum/gateway_destination/gateway
 	/// Name of the generated destination
-	var/destination_name = "Неизвестные врата"
+	var/destination_name = "Unknown Gateway"
 	/// This is our own destination, pointing at this gateway
 	var/datum/gateway_destination/gateway/destination
 	/// This is current active destination
@@ -177,20 +174,9 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	var/teleportion_possible = FALSE
 	var/transport_active = FALSE
 
-	var/requires_key = FALSE
-	var/key_used = FALSE
-
-/obj/machinery/gateway/attacked_by(obj/item/I, mob/living/user)
-	. = ..()
-	if(istype(I, /obj/item/key/gateway) && requires_key)
-		to_chat(user, "<span class='notice'>Вставляю [src] в замочную скважину, врата разблокированы!</span>")
-		key_used = TRUE
-		qdel(I)
-		return
-
 /obj/machinery/gateway/Initialize(mapload)
 	generate_destination()
-	update_icon()
+	update_appearance()
 	portal_visuals = new
 	portal_visuals.generate_view("gateway_popup_[REF(src)]")
 	portal_visuals.update_portal_filters()
@@ -270,8 +256,6 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/gateway/proc/activate(datum/gateway_destination/D)
 	if(!powered() || target)
 		return
-	if(requires_key && !key_used)
-		return
 	target = D
 	target.activate(destination)
 	portal_visuals.setup_visuals(target)
@@ -286,17 +270,23 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	AM.forceMove(target.get_target_turf())
 	target.post_transfer(AM)
 
+/obj/machinery/gateway/attack_ghost(mob/user)
+	. = ..()
+	if(.)
+		return
+	var/turf/tar_turf = target?.get_target_turf()
+	if(isnull(tar_turf))
+		to_chat(user, span_warning("There's no active destination for the gateway... or it's broken. Maybe try again later?"))
+		return
+	if(is_secret_level(tar_turf.z) && !user.client?.holder)
+		to_chat(user, span_warning("The gateway destination is secret."))
+		return
+	Transfer(user)
+
 /* Station's primary gateway */
 /obj/machinery/gateway/centerstation
 	destination_type = /datum/gateway_destination/gateway/home
-	destination_name = "Станция"
-
-/obj/machinery/gateway/lavaland
-	destination_name = "Лаваленд"
-
-/obj/machinery/gateway/lavaland/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/gps, "Шахтерская база")
+	destination_name = "Home Gateway"
 
 /obj/machinery/gateway/centerstation/Initialize(mapload)
 	. = ..()
@@ -310,9 +300,9 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /obj/machinery/gateway/multitool_act(mob/living/user, obj/item/I)
 	if(calibrated)
-		to_chat(user, span_alert("Врата откалиброваны, больше ничего делать не нужно."))
+		to_chat(user, span_alert("The gate is already calibrated, there is no work for you to do here."))
 	else
-		to_chat(user, "<span class='boldnotice'>Успешная рекалибровка!</span>: Системы врат налажены. Теперь через них можно проходить.")
+		to_chat(user, "[span_boldnotice("Recalibration successful!")]: \black This gate's systems have been fine tuned. Travel to this gate will now be on target.")
 		calibrated = TRUE
 	return TRUE
 
@@ -325,7 +315,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	. = ..()
 	if(!target)
 		if(!GLOB.the_gateway)
-			to_chat(user,span_warning("Начальные врата не отвечают!"))
+			to_chat(user,span_warning("Home gateway is not responding!"))
 		if(GLOB.the_gateway.target)
 			GLOB.the_gateway.deactivate() //this will turn the home gateway off so that it's free for us to connect to
 		activate(GLOB.the_gateway.destination)
@@ -334,10 +324,8 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /* Gateway control computer */
 /obj/machinery/computer/gateway_control
-	name = "Интерфейс врат"
-	desc = "Удобный человеческому глазу интерфейс для врат, стоящих рядом."
-//	req_access = list(ACCESS_HEADS, ACCESS_EXPLORATION)
-	req_one_access = list(ACCESS_HEADS, ACCESS_EXPLORATION)
+	name = "Gateway Control"
+	desc = "Human friendly interface to the mysterious gate next to it."
 	var/obj/machinery/gateway/G
 
 /obj/machinery/computer/gateway_control/Initialize(mapload, obj/item/circuitboard/C)
@@ -355,10 +343,9 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/computer/gateway_control/ui_data(mob/user)
 	. = ..()
 	.["gateway_present"] = G
-	.["gateway_found"]   = GLOB.isGatewayLoaded
-	.["gateway_status"]  = G ? G.powered() : FALSE
-	.["current_target"]  = G?.target?.get_ui_data()
-	.["gateway_mapkey"]  = G.portal_visuals.assigned_map
+	.["gateway_status"] = G ? G.powered() : FALSE
+	.["current_target"] = G?.target?.get_ui_data()
+	.["gateway_mapkey"] = G.portal_visuals.assigned_map
 	var/list/destinations = list()
 	if(G)
 		for(var/datum/gateway_destination/possible_destination in GLOB.gateway_destinations)
@@ -383,19 +370,6 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 			if(G?.target)
 				G.deactivate()
 			return TRUE
-		if("find_new")
-			if(!GLOB.isGatewayLoaded)
-				if(isliving(usr))
-					var/mob/living/L = usr
-					if(!check_access(L.get_idcard()))
-						say("Доступ к открытию врат авторизован только для Глав и корпуса Рейнджеров.")
-						return
-				message_admins("[ADMIN_LOOKUPFLW(usr)] активирует врата.")
-				log_game("[key_name(usr)] активирует врата.")
-				priority_announce("Началась операция по поиску новых врат в отдалённых секторах. Это займёт некоторое время.", "Звёздные врата", sound('white/valtos/sounds/trevoga4.ogg'))
-				GLOB.isGatewayLoaded = TRUE
-				createRandomZlevel()
-			return TRUE
 
 /obj/machinery/computer/gateway_control/ui_close(mob/user)
 	. = ..()
@@ -412,15 +386,15 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	G.activate(D)
 
 /obj/item/paper/fluff/gateway
-	info = "Поздравляем,<br><br>Ваша станция была выбрана для нашего проекта \"Врата\".<br><br>Мы пришлем вам оборудование в следующем квартале.<br> Оборудуйте защищенное помещение по требованиям, приведенным в прикрепленных документах.<br><br>--Исследовательский Центр Блюспейса NanoTrasen"
-	name = "Конфиденциальная переписка, стр 1"
+	default_raw_text = "Congratulations,<br><br>Your station has been selected to carry out the Gateway Project.<br><br>The equipment will be shipped to you at the start of the next quarter.<br> You are to prepare a secure location to house the equipment as outlined in the attached documents.<br><br>--Nanotrasen Bluespace Research"
+	name = "Confidential Correspondence, Pg 1"
 
 /atom/movable/screen/map_view/gateway_port
 	var/datum/gateway_destination/our_destination
 	/// Handles the background of the portal, ensures the effect well, works properly
 	var/atom/movable/screen/background/cam_background
 
-/atom/movable/screen/map_view/gateway_port/Initialize(mapload)
+/atom/movable/screen/map_view/gateway_port/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	cam_background = new
 	cam_background.del_on_map_removal = FALSE
@@ -428,6 +402,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	cam_background.layer = 200
 	cam_background.plane = HIGHEST_EVER_PLANE
 	cam_background.blend_mode = BLEND_OVERLAY
+
 
 /atom/movable/screen/map_view/gateway_port/generate_view(map_key)
 	. = ..()
@@ -459,7 +434,8 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	// Rather then that, let's just render a little preview port to the console, because for reasons that's trivial
 	vis_contents = null
 
-	if(!our_destination)
+	var/turf/center_turf = our_destination?.get_target_turf()
+	if(!center_turf)
 		// Draw static
 		cam_background.icon_state = "scanline2"
 		cam_background.color = null
@@ -468,9 +444,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 	cam_background.add_filter("portal_blur", 1, list("type" = "blur", "size" = 0.5))
 
-	var/turf/center_turf = our_destination.get_target_turf()
-	if(center_turf)
-		vis_contents += block(locate(center_turf.x - 1, center_turf.y - 1, center_turf.z), locate(center_turf.x + 1, center_turf.y + 1, center_turf.z))
+	vis_contents += TURF_NEIGHBORS(center_turf)
 	cam_background.icon_state = "scanline4"
 	cam_background.color = "#adadff"
 	cam_background.alpha = 128

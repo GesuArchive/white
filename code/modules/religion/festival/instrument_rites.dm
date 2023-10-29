@@ -24,10 +24,10 @@
  * Perform the song effect.
  *
  * Arguments:
- * * song_player - parent of the smooth_tunes component. This is limited to the compatible items of said component, which currently includes mobs and objects so we'll have to type appropriately.
- * * song_datum - Datum song being played
+ * * listener - A mob, listening to the song
+ * * song_source - parent of the smooth_tunes component. This is limited to the compatible items of said component, which currently includes mobs and objects so we'll have to type appropriately.
  */
-/datum/religion_rites/song_tuner/proc/song_effect(atom/song_player, datum/song/song_datum)
+/datum/religion_rites/song_tuner/proc/song_effect(mob/living/carbon/human/listener, atom/song_source)
 	return
 
 /**
@@ -36,87 +36,68 @@
  * If you want something that ALWAYS goes off regardless of song length, affix it to the Destroy proc. The rite is destroyed when smooth tunes is done.
  *
  * Arguments:
- * * song_player - parent of the smooth_tunes component. This is limited to the compatible items of said component, which currently includes mobs and objects so we'll have to type appropriately.
- * * song_datum - Datum song being played
+ * * listener - A mob, listening to the song
+ * * song_source - parent of the smooth_tunes component. This is limited to the compatible items of said component, which currently includes mobs and objects so we'll have to type appropriately.
  */
-/datum/religion_rites/song_tuner/proc/finish_effect(atom/song_player, datum/song/song_datum)
+/datum/religion_rites/song_tuner/proc/finish_effect(mob/living/carbon/human/listener, atom/song_source)
 	return
 
 /datum/religion_rites/song_tuner/evangelism
-	name = "евангелический гимн"
-	desc = "Распространяет слово вашего Бога, вы получаете благосклонность за каждого слушателя. В конце песни вы благословляете всех слушателей, поднимая им настроение."
+	name = "Evangelical Hymn"
+	desc = "Spreads the word of your god, gaining favor for each non-holy listener. At the end of the song, you'll bless all listeners, improving mood."
 	particles_path = /particles/musical_notes/holy
-	song_invocation_message = "Подготавливаю священную песню!"
-	song_start_message = span_notice("Эта музыка звучит благословенно!")
+	song_invocation_message = "You've prepared a holy song!"
+	song_start_message = span_notice("This music sounds blessed!")
 	glow_color = "#FEFFE0"
 	favor_cost = 0
 
-/datum/religion_rites/song_tuner/evangelism/song_effect(atom/song_player, datum/song/song_datum)
-	if(!song_datum || !GLOB.religious_sect)
+/datum/religion_rites/song_tuner/evangelism/song_effect(mob/living/carbon/human/listener, atom/song_source)
+	// A ckey requirement is good to have for gaining favor, to stop monkey farms and such.
+	if(!GLOB.religious_sect || listener.mind?.holy_role || !listener.ckey)
 		return
-	for(var/mob/living/carbon/human/listener in song_datum.hearing_mobs)
-		if(listener == song_player || listener.anti_magic_check(TRUE, TRUE))
-			continue
-		if(listener.mind?.holy_role)
-			continue
-		if(!listener.ckey) //good requirement to have for favor, trust me
-			continue
-		GLOB.religious_sect.adjust_favor(0.2)
+	GLOB.religious_sect.adjust_favor(0.2)
 
-/datum/religion_rites/song_tuner/evangelism/finish_effect(atom/song_player, datum/song/song_datum)
-	for(var/mob/living/carbon/human/listener in song_datum.hearing_mobs)
-		SEND_SIGNAL(listener, COMSIG_ADD_MOOD_EVENT, "blessing", /datum/mood_event/blessing)
+/datum/religion_rites/song_tuner/evangelism/finish_effect(mob/living/carbon/human/listener, atom/song_source)
+	listener.add_mood_event("blessing", /datum/mood_event/blessing)
 
 /datum/religion_rites/song_tuner/nullwave
-	name = "антимагическое вибрато"
-	desc = "Спойте тихую песню, защищая тех, кто слушает от волшебства."
+	name = "Nullwave Vibrato"
+	desc = "Sing a dull song, protecting those who listen from magic."
 	particles_path = /particles/musical_notes/nullwave
-	song_invocation_message = "Подготавливаю антимагическую песню!"
-	song_start_message = span_nicegreen("Слушая эту музыку, чувствую себя защищенным!")
+	song_invocation_message = "You've prepared an antimagic song!"
+	song_start_message = span_nicegreen("This music makes you feel protected!")
 	glow_color = "#a9a9b8"
 	repeats_okay = FALSE
 
-/datum/religion_rites/song_tuner/nullwave/song_effect(atom/song_player, datum/song/song_datum)
-	if(!song_datum)
-		return
-	for(var/mob/living/listener in song_datum.hearing_mobs)
-		if(listener.anti_magic_check(TRUE, TRUE))
-			continue
-		listener.apply_status_effect(/datum/status_effect/antimagic, 2 MINUTES)
+/datum/religion_rites/song_tuner/nullwave/song_effect(mob/living/carbon/human/listener, atom/song_source)
+	listener.apply_status_effect(/datum/status_effect/song/antimagic)
 
 /datum/religion_rites/song_tuner/pain
-	name = "убийственный аккорд"
-	desc = "Спойте резкую песню, разрезая окружающих. В конце песни ты вскроешь вены всех слушателей."
+	name = "Murderous Chord"
+	desc = "Sing a sharp song, cutting those around you. Works less effectively on fellow priests. At the end of the song, you'll open the wounds of all listeners."
 	particles_path = /particles/musical_notes/harm
-	song_invocation_message = "Подготавливаю болезненную песню!"
-	song_start_message = span_danger("Эта музыка режет меня, как нож масло!")
+	song_invocation_message = "You've prepared a painful song!"
+	song_start_message = span_danger("This music cuts like a knife!")
 	glow_color = "#FF4460"
 	repeats_okay = FALSE
 
-/datum/religion_rites/song_tuner/pain/song_effect(atom/song_player, datum/song/song_datum)
-	if(!song_datum)
-		return
-	for(var/mob/living/listener in song_datum.hearing_mobs)
-		if(listener.anti_magic_check(TRUE, TRUE))
-			continue
-		var/pain_juice = 1
-		if(listener.mind?.holy_role)
-			pain_juice *= 0.5
-		listener.adjustBruteLoss(pain_juice)
+/datum/religion_rites/song_tuner/pain/song_effect(mob/living/carbon/human/listener, atom/song_source)
+	var/damage_dealt = 1
+	if(listener.mind?.holy_role)
+		damage_dealt *= 0.5
 
-/datum/religion_rites/song_tuner/pain/finish_effect(atom/song_player, datum/song/song_datum)
-	for(var/mob/living/carbon/human/listener in song_datum.hearing_mobs)
-		if(listener.anti_magic_check(TRUE, TRUE))
-			continue
-		var/obj/item/bodypart/sliced_limb = pick(listener.bodyparts)
-		sliced_limb.force_wound_upwards(/datum/wound/slash/moderate/many_cuts)
+	listener.adjustBruteLoss(damage_dealt)
+
+/datum/religion_rites/song_tuner/pain/finish_effect(mob/living/carbon/human/listener, atom/song_source)
+	var/obj/item/bodypart/sliced_limb = pick(listener.bodyparts)
+	sliced_limb.force_wound_upwards(/datum/wound/slash/flesh/moderate/many_cuts)
 
 /datum/religion_rites/song_tuner/lullaby
-	name = "духовная колыбельная"
-	desc = "Спойте колыбельную, утомляя окружающих, замедляя их. В конце песни вы вынудите людей, которые достаточно устали, заснуть."
+	name = "Spiritual Lullaby"
+	desc = "Sing a lullaby, tiring those around you, making them slower. At the end of the song, you'll put people who are tired enough to sleep."
 	particles_path = /particles/musical_notes/sleepy
-	song_invocation_message = "Подготавливаю сонливую песню!"
-	song_start_message = span_warning("Эта музыка... такая спокойная... хочется спать...")
+	song_invocation_message = "You've prepared a sleepy song!"
+	song_start_message = span_warning("This music's making you feel drowsy...")
 	favor_cost = 40 //actually really strong
 	glow_color = "#83F6FF"
 	repeats_okay = FALSE
@@ -127,23 +108,21 @@
 	listener_counter.Cut()
 	return ..()
 
-/datum/religion_rites/song_tuner/lullaby/song_effect(atom/song_player, datum/song/song_datum)
-	if(!song_datum)
+/datum/religion_rites/song_tuner/lullaby/song_effect(mob/living/carbon/human/listener, atom/song_source)
+	if(listener.mind?.holy_role)
 		return
-	for(var/mob/living/listener in song_datum.hearing_mobs)
-		if(listener.anti_magic_check(TRUE, TRUE))
-			continue
-		if(listener.mind?.holy_role)
-			continue
-		if(prob(20))
-			to_chat(listener, span_warning(pick("Музыка усыпляет меня...", "Музыка вынуждает меня заснуть на мгновение.", "Вы пытаетесь сосредоточиться на бодрствовании и не слушать песню.")))
-			listener.emote("yawn")
-		listener.blur_eyes(2)
 
-/datum/religion_rites/song_tuner/lullaby/finish_effect(atom/song_player, datum/song/song_datum)
-	for(var/mob/living/carbon/human/listener in song_datum.hearing_mobs)
-		if(listener.anti_magic_check(TRUE, TRUE))
-			continue
-		to_chat(listener, span_danger("Вау, конец этой песни был... довольно...z-z-z"))//#ZА МИР!!!
-		listener.AdjustSleeping(5 SECONDS)
+	var/static/list/sleepy_messages = list(
+		"The music is putting you to sleep...",
+		"The music makes you nod off for a moment.",
+		"You try to focus on staying awake through the song.",
+	)
 
+	if(prob(20))
+		to_chat(listener, span_warning(pick(sleepy_messages)))
+		listener.emote("yawn")
+	listener.set_eye_blur_if_lower(4 SECONDS)
+
+/datum/religion_rites/song_tuner/lullaby/finish_effect(mob/living/carbon/human/listener, atom/song_source)
+	to_chat(listener, span_danger("Wow, the ending of that song was... pretty..."))
+	listener.AdjustSleeping(5 SECONDS)

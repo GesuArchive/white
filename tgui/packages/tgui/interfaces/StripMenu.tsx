@@ -43,32 +43,32 @@ type AlternateAction = {
 const ALTERNATE_ACTIONS: Record<string, AlternateAction> = {
   knot: {
     icon: 'shoe-prints',
-    text: 'Завязать',
+    text: 'Knot',
   },
 
   untie: {
     icon: 'shoe-prints',
-    text: 'Развязать',
+    text: 'Untie',
   },
 
   unknot: {
     icon: 'shoe-prints',
-    text: 'Развязать',
+    text: 'Unknot',
   },
 
   enable_internals: {
     icon: 'tg-air-tank',
-    text: 'Включить подачу',
+    text: 'Enable internals',
   },
 
   disable_internals: {
     icon: 'tg-air-tank-slash',
-    text: 'Выключить подачу',
+    text: 'Disable internals',
   },
 
   adjust_jumpsuit: {
     icon: 'tshirt',
-    text: 'Подтянуть костюм',
+    text: 'Adjust jumpsuit',
   },
 };
 
@@ -82,97 +82,97 @@ const SLOTS: Record<
   }
 > = {
   eyes: {
-    displayName: 'глаза',
+    displayName: 'eyewear',
     gridSpot: getGridSpotKey([0, 1]),
     image: 'inventory-glasses.png',
   },
 
   head: {
-    displayName: 'голова',
+    displayName: 'headwear',
     gridSpot: getGridSpotKey([0, 2]),
     image: 'inventory-head.png',
   },
 
   neck: {
-    displayName: 'шея',
+    displayName: 'neckwear',
     gridSpot: getGridSpotKey([1, 1]),
     image: 'inventory-neck.png',
   },
 
   mask: {
-    displayName: 'маска',
+    displayName: 'mask',
     gridSpot: getGridSpotKey([1, 2]),
     image: 'inventory-mask.png',
   },
 
-  corgi_collar: {
-    displayName: 'ошейник',
+  pet_collar: {
+    displayName: 'collar',
     gridSpot: getGridSpotKey([1, 2]),
     image: 'inventory-collar.png',
   },
 
   ears: {
-    displayName: 'уши',
+    displayName: 'earwear',
     gridSpot: getGridSpotKey([1, 3]),
     image: 'inventory-ears.png',
   },
 
   parrot_headset: {
-    displayName: 'наушник',
+    displayName: 'headset',
     gridSpot: getGridSpotKey([1, 3]),
     image: 'inventory-ears.png',
   },
 
   handcuffs: {
-    displayName: 'наручники',
+    displayName: 'handcuffs',
     gridSpot: getGridSpotKey([1, 4]),
   },
 
   legcuffs: {
-    displayName: 'наножники',
+    displayName: 'legcuffs',
     gridSpot: getGridSpotKey([1, 5]),
   },
 
   jumpsuit: {
-    displayName: 'униформа',
+    displayName: 'uniform',
     gridSpot: getGridSpotKey([2, 1]),
     image: 'inventory-uniform.png',
   },
 
   suit: {
-    displayName: 'костюм',
+    displayName: 'suit',
     gridSpot: getGridSpotKey([2, 2]),
     image: 'inventory-suit.png',
   },
 
   gloves: {
-    displayName: 'перчатки',
+    displayName: 'gloves',
     gridSpot: getGridSpotKey([2, 3]),
     image: 'inventory-gloves.png',
   },
 
   right_hand: {
-    displayName: 'правая рука',
+    displayName: 'right hand',
     gridSpot: getGridSpotKey([2, 4]),
     image: 'inventory-hand_r.png',
-    additionalComponent: <CornerText align="left">П</CornerText>,
+    additionalComponent: <CornerText align="left">R</CornerText>,
   },
 
   left_hand: {
-    displayName: 'левая рука',
+    displayName: 'left hand',
     gridSpot: getGridSpotKey([2, 5]),
     image: 'inventory-hand_l.png',
-    additionalComponent: <CornerText align="right">Л</CornerText>,
+    additionalComponent: <CornerText align="right">L</CornerText>,
   },
 
   shoes: {
-    displayName: 'ботинки',
+    displayName: 'shoes',
     gridSpot: getGridSpotKey([3, 2]),
     image: 'inventory-shoes.png',
   },
 
   suit_storage: {
-    displayName: 'хранилище костюма',
+    displayName: 'suit storage item',
     gridSpot: getGridSpotKey([4, 0]),
     image: 'inventory-suit_storage.png',
   },
@@ -184,25 +184,25 @@ const SLOTS: Record<
   },
 
   belt: {
-    displayName: 'пояс',
+    displayName: 'belt',
     gridSpot: getGridSpotKey([4, 2]),
     image: 'inventory-belt.png',
   },
 
   back: {
-    displayName: 'спина',
+    displayName: 'backpack',
     gridSpot: getGridSpotKey([4, 3]),
     image: 'inventory-back.png',
   },
 
   left_pocket: {
-    displayName: 'левый карман',
+    displayName: 'left pocket',
     gridSpot: getGridSpotKey([4, 4]),
     image: 'inventory-pocket.png',
   },
 
   right_pocket: {
-    displayName: 'правый карман',
+    displayName: 'right pocket',
     gridSpot: getGridSpotKey([4, 5]),
     image: 'inventory-pocket.png',
   },
@@ -256,7 +256,7 @@ export const StripMenu = (props, context) => {
   }
 
   return (
-    <Window title={`Инвентарь ${data.name}`} width={340} height={350}>
+    <Window title={`Stripping ${data.name}`} width={400} height={400}>
       <Window.Content>
         <Stack fill vertical>
           {range(0, ROWS).map((row) => (
@@ -326,7 +326,7 @@ export const StripMenu = (props, context) => {
                       />
                     );
 
-                    tooltip = `скрыто: ${slot.displayName}`;
+                    tooltip = `obscured ${slot.displayName}`;
                   }
 
                   return (
@@ -362,17 +362,9 @@ export const StripMenu = (props, context) => {
                           {slot.image && (
                             <Box
                               as="img"
+                              className="centered-image"
                               src={resolveAsset(slot.image)}
                               opacity={0.7}
-                              style={{
-                                position: 'absolute',
-                                width: '32px',
-                                height: '32px',
-                                left: '50%',
-                                top: '50%',
-                                transform:
-                                  'translateX(-50%) translateY(-50%) scale(0.8)',
-                              }}
                             />
                           )}
 

@@ -26,6 +26,18 @@
 	var/initial_inline_css
 	var/mouse_event_macro_set = FALSE
 
+	/**
+	 * Static list used to map in macros that will then emit execute events to the tgui window
+	 * A small disclaimer though I'm no tech wiz: I don't think it's possible to map in right or middle
+	 * clicks in the current state, as they're keywords rather than modifiers.
+	 */
+	var/static/list/byondToTguiEventMap = list(
+		"MouseDown" = "byond/mousedown",
+		"MouseUp" = "byond/mouseup",
+		"Ctrl" = "byond/ctrldown",
+		"Ctrl+UP" = "byond/ctrlup",
+	)
+
 /**
  * public
  *
@@ -363,7 +375,7 @@
 	// If not locked, handle these message types
 	switch(type)
 		if("ping")
-			send_message("pingReply", payload)
+			send_message("ping/reply", payload)
 		if("suspend")
 			close(can_be_suspended = TRUE)
 		if("close")
@@ -376,14 +388,10 @@
 /datum/tgui_window/vv_edit_var(var_name, var_value)
 	return var_name != NAMEOF(src, id) && ..()
 
+
 /datum/tgui_window/proc/set_mouse_macro()
 	if(mouse_event_macro_set)
 		return
-
-	var/list/byondToTguiEventMap = list(
-		"MouseDown" = "byond/mousedown",
-		"MouseUp" = "byond/mouseup"
-	)
 
 	for(var/mouseMacro in byondToTguiEventMap)
 		var/command_template = ".output CONTROL PAYLOAD"
@@ -405,10 +413,6 @@
 /datum/tgui_window/proc/remove_mouse_macro()
 	if(!mouse_event_macro_set)
 		stack_trace("Unsetting mouse macro on tgui window that has none")
-	var/list/byondToTguiEventMap = list(
-		"MouseDown" = "byond/mousedown",
-		"MouseUp" = "byond/mouseup"
-	)
 	for(var/mouseMacro in byondToTguiEventMap)
 		winset(client, null, "[mouseMacro]Window[id]Macro.parent=null")
 	mouse_event_macro_set = FALSE

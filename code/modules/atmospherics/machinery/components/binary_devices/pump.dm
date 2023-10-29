@@ -5,16 +5,15 @@
 //
 // Thus, the two variables affect pump operation are set in New():
 //   air1.volume
-//     This is the volume of gas available to the pump that may be transfered to the output
+//     This is the volume of gas available to the pump that may be transferred to the output
 //   air2.volume
 //     Higher quantities of this cause more air to be perfected later
 //     but overall network volume is also increased as this increases...
 
 /obj/machinery/atmospherics/components/binary/pump
 	icon_state = "pump_map-3"
-	name = "газовый насос"
-	desc = "Базовый насос, обладает отличными скоростными характеристиками, однако его максимальное рабочее давление не может превысить 4500 кПа. Хорошо подходит для поддержания точного уровня давления."
-
+	name = "gas pump"
+	desc = "A pump that moves gas by pressure."
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
 	construction_type = /obj/item/pipe/directional
@@ -48,7 +47,7 @@
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)
-		balloon_alert(user, "максимально выкручиваю давление на [target_pressure] кПа")
+		balloon_alert(user, "pressure output set to [target_pressure] kPa")
 		update_appearance()
 	return ..()
 
@@ -103,7 +102,7 @@
 /obj/machinery/atmospherics/components/binary/pump/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!"))
+		to_chat(user, span_warning("You cannot unwrench [src], turn it off first!"))
 		return FALSE
 
 /obj/machinery/atmospherics/components/binary/pump/layer2

@@ -19,7 +19,7 @@ export const createPage = (obj) => {
 
   return {
     id: createUuid(),
-    name: 'Новая вкладка',
+    name: 'New Tab',
     acceptedTypes: acceptedTypes,
     unreadCount: 0,
     createdAt: Date.now(),
@@ -33,7 +33,7 @@ export const createMainPage = () => {
     acceptedTypes[typeDef.type] = true;
   }
   return createPage({
-    name: 'Основной',
+    name: 'Main',
     acceptedTypes,
   });
 };

@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Box, Flex, Icon, Table, Tabs } from '../components';
+import { Box, Flex, Icon, Table, Tabs, Tooltip } from '../components';
 import { Window } from '../layouts';
 
 export const Achievements = (props, context) => {
@@ -14,7 +14,7 @@ export const Achievements = (props, context) => {
     (x) => x.category === selectedCategory
   );
   return (
-    <Window title="Ачивки" width={540} height={680}>
+    <Window title="Achievements" width={540} height={680}>
       <Window.Content scrollable>
         <Tabs>
           {categories.map((category) => (
@@ -26,12 +26,12 @@ export const Achievements = (props, context) => {
             </Tabs.Tab>
           ))}
           <Tabs.Tab
-            selected={selectedCategory === 'Рекорды'}
-            onClick={() => setSelectedCategory('Рекорды')}>
+            selected={selectedCategory === 'High Scores'}
+            onClick={() => setSelectedCategory('High Scores')}>
             High Scores
           </Tabs.Tab>
         </Tabs>
-        {(selectedCategory === 'Рекорды' && <HighScoreTable />) || (
+        {(selectedCategory === 'High Scores' && <HighScoreTable />) || (
           <AchievementTable achievements={achievements} />
         )}
       </Window.Content>
@@ -52,7 +52,15 @@ const AchievementTable = (props, context) => {
 
 const Achievement = (props) => {
   const { achievement } = props;
-  const { name, desc, icon_class, value, score } = achievement;
+  const {
+    name,
+    desc,
+    icon_class,
+    value,
+    score,
+    achieve_info,
+    achieve_tooltip,
+  } = achievement;
   return (
     <Table.Row key={name}>
       <Table.Cell collapsing>
@@ -63,12 +71,19 @@ const Achievement = (props) => {
         {desc}
         {(score && (
           <Box color={value > 0 ? 'good' : 'bad'}>
-            {value > 0 ? `Достигнуто ${value} раз` : 'Не открыто'}
+            {value > 0 ? `Earned ${value} times` : 'Locked'}
           </Box>
         )) || (
           <Box color={value ? 'good' : 'bad'}>
-            {value ? 'Открыто' : 'Не открыто'}
+            {value ? 'Unlocked' : 'Locked'}
           </Box>
+        )}
+        {!!achieve_info && (
+          <Tooltip position="bottom" content={achieve_tooltip}>
+            <Box fontSize={0.9} opacity={0.8}>
+              {achieve_info}
+            </Box>
+          </Tooltip>
         )}
       </Table.Cell>
     </Table.Row>
@@ -110,7 +125,7 @@ const HighScoreTable = (props, context) => {
           <Table.Row header>
             <Table.Cell textAlign="center">#</Table.Cell>
             <Table.Cell textAlign="center">Key</Table.Cell>
-            <Table.Cell textAlign="center">Счёт</Table.Cell>
+            <Table.Cell textAlign="center">Score</Table.Cell>
           </Table.Row>
           {scores.map((score, i) => (
             <Table.Row key={score.ckey} className="candystripe" m={2}>

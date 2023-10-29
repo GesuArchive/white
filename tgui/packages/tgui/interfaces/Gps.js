@@ -35,35 +35,35 @@ export const Gps = (props, context) => {
     <Window title="Global Positioning System" width={470} height={700}>
       <Window.Content scrollable>
         <Section
-          title="Управление"
+          title="Control"
           buttons={
             <Button
               icon="power-off"
-              content={power ? 'Вкл' : 'Выкл'}
+              content={power ? 'On' : 'Off'}
               selected={power}
               onClick={() => act('power')}
             />
           }>
           <LabeledList>
-            <LabeledList.Item label="Тэг">
+            <LabeledList.Item label="Tag">
               <Button
                 icon="pencil-alt"
                 content={tag}
                 onClick={() => act('rename')}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Сканирование">
+            <LabeledList.Item label="Scan Mode">
               <Button
                 icon={updating ? 'unlock' : 'lock'}
-                content={updating ? 'АВТО' : 'ВРУЧНУЮ'}
+                content={updating ? 'AUTO' : 'MANUAL'}
                 color={!updating && 'bad'}
                 onClick={() => act('updating')}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Радиус">
+            <LabeledList.Item label="Range">
               <Button
                 icon="sync"
-                content={globalmode ? 'МАКСИМУМ' : 'МЕСТНЫЙ'}
+                content={globalmode ? 'MAXIMUM' : 'LOCAL'}
                 selected={!globalmode}
                 onClick={() => act('globalmode')}
               />
@@ -72,17 +72,17 @@ export const Gps = (props, context) => {
         </Section>
         {!!power && (
           <>
-            <Section title="Текущее местоположение">
+            <Section title="Current Location">
               <Box fontSize="18px">
                 {currentArea} ({currentCoords})
               </Box>
             </Section>
-            <Section title="Обнаруженные сигналы">
+            <Section title="Detected Signals">
               <Table>
                 <Table.Row bold>
-                  <Table.Cell content="Имя" />
-                  <Table.Cell collapsing content="Направление" />
-                  <Table.Cell collapsing content="Координаты" />
+                  <Table.Cell content="Name" />
+                  <Table.Cell collapsing content="Direction" />
+                  <Table.Cell collapsing content="Coordinates" />
                 </Table.Row>
                 {signals.map((signal) => (
                   <Table.Row
@@ -105,7 +105,7 @@ export const Gps = (props, context) => {
                           rotation={signal.degrees}
                         />
                       )}
-                      {signal.dist !== undefined && signal.dist + 'м'}
+                      {signal.dist !== undefined && signal.dist + 'm'}
                     </Table.Cell>
                     <Table.Cell collapsing>{signal.coords}</Table.Cell>
                   </Table.Row>

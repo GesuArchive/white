@@ -1,9 +1,10 @@
 //Used by spraybottles.
 /obj/effect/decal/chempuff
 	name = "chemicals"
-	icon = 'icons/obj/chempuff.dmi'
+	icon = 'icons/obj/medical/chempuff.dmi'
 	pass_flags = PASSTABLE | PASSGRILLE
 	layer = FLY_LAYER
+	plane = ABOVE_GAME_PLANE
 	///The mob who sourced this puff, if one exists
 	var/mob/user
 	///The sprayer who fired this puff
@@ -38,7 +39,7 @@
 		end_life(source)
 		return
 
-	var/puff_reagents_string = reagents.log_list()
+	var/puff_reagents_string = reagents.get_reagent_log_string()
 	var/travelled_max_distance = (source.lifetime - source.delay <= 0)
 	var/turf/our_turf = get_turf(src)
 

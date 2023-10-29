@@ -1,9 +1,10 @@
 ///Tool capable of taking biological samples from mobs
 /obj/item/biopsy_tool
-	name = "инструмент для биопсии"
-	desc = "Не волнуйся, это не будет больно."
-	icon = 'icons/obj/xenobiology/vatgrowing.dmi'
+	name = "biopsy tool"
+	desc = "Don't worry, it won't sting."
+	icon = 'icons/obj/science/vatgrowing.dmi'
 	icon_state = "biopsy"
+	worn_icon_state = "biopsy"
 
 ///Adds the swabbing component to the biopsy tool
 /obj/item/biopsy_tool/Initialize(mapload)

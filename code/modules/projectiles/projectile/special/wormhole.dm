@@ -1,9 +1,8 @@
 /obj/projectile/beam/wormhole
-	name = "блюспейс-луч"
+	name = "bluespace beam"
 	icon_state = "spark"
-	hitsound = "zap"
+	hitsound = SFX_SPARKS
 	damage = 0
-	nodamage = TRUE
 	pass_flags = PASSGLASS | PASSTABLE | PASSGRILLE | PASSMOB
 	//Weakref to the thing that shot us
 	var/datum/weakref/gun
@@ -14,7 +13,7 @@
 	hitscan = TRUE
 
 /obj/projectile/beam/wormhole/orange
-	name = "оранжевый блюспейс-луч"
+	name = "orange bluespace beam"
 	color = "#FF6600"
 
 /obj/projectile/beam/wormhole/Initialize(mapload, obj/item/ammo_casing/energy/wormhole/casing)
@@ -23,9 +22,11 @@
 		gun = casing.gun
 
 
-/obj/projectile/beam/wormhole/on_hit(atom/target)
+/obj/projectile/beam/wormhole/on_hit(atom/target, blocked = 0, pierce_hit)
 	var/obj/item/gun/energy/wormhole_projector/projector = gun.resolve()
 	if(!projector)
 		qdel(src)
-		return
+		return BULLET_ACT_BLOCK
+
+	. = ..()
 	projector.create_portal(src, get_turf(src))

@@ -15,7 +15,9 @@ $border-radius: Input.$border-radius !default;
 .TextArea {
   position: relative;
   display: inline-block;
-  border: none;
+  border: base.em(1px) solid $border-color;
+  border: base.em(1px) solid rgba($border-color, 0.75);
+  border-radius: $border-radius;
   background-color: $background-color;
   margin-right: base.em(2px);
   line-height: base.em(17px);
@@ -27,6 +29,16 @@ $border-radius: Input.$border-radius !default;
   display: block;
   width: auto;
   height: auto;
+}
+
+.TextArea--noborder {
+  border: 0px;
+}
+
+.TextArea__textarea.TextArea__textarea--scrollable {
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .TextArea__textarea {
@@ -58,4 +70,15 @@ $border-radius: Input.$border-radius !default;
     color: #777;
     color: rgba(255, 255, 255, 0.45);
   }
+}
+
+.TextArea__textarea_custom {
+  overflow: visible;
+  white-space: pre-wrap;
+}
+
+.TextArea__nowrap {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  overflow-x: scroll;
 }

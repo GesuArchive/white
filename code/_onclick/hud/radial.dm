@@ -11,10 +11,10 @@ GLOBAL_LIST_EMPTY(radial_menus)
 
 /atom/movable/screen/radial/proc/set_parent(new_value)
 	if(parent)
-		UnregisterSignal(parent, COMSIG_PARENT_QDELETING)
+		UnregisterSignal(parent, COMSIG_QDELETING)
 	parent = new_value
 	if(parent)
-		RegisterSignal(parent, COMSIG_PARENT_QDELETING, PROC_REF(handle_parent_del))
+		RegisterSignal(parent, COMSIG_QDELETING, PROC_REF(handle_parent_del))
 
 /atom/movable/screen/radial/proc/handle_parent_del()
 	SIGNAL_HANDLER
@@ -50,14 +50,14 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		closeToolTip(usr)
 
 /atom/movable/screen/radial/slice/Click(location, control, params)
-	if(usr.client == parent?.current_user)
+	if(usr.client == parent.current_user)
 		if(next_page)
 			parent.next_page()
 		else
 			parent.element_chosen(choice, usr, params)
 
 /atom/movable/screen/radial/center
-	name = "Закрыть"
+	name = "Close Menu"
 	icon_state = "radial_center"
 
 /atom/movable/screen/radial/center/MouseEntered(location, control, params)
@@ -198,6 +198,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 
 /datum/radial_menu/proc/HideElement(atom/movable/screen/radial/slice/E)
 	E.cut_overlays()
+	E.vis_contents.Cut()
 	E.alpha = 0
 	E.name = "None"
 	E.maptext = null
@@ -226,7 +227,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	E.cut_overlays()
 	E.vis_contents.Cut()
 	if(choice_id == NEXT_PAGE_ID)
-		E.name = "Далее"
+		E.name = "Next Page"
 		E.next_page = TRUE
 		E.icon_state = "radial_slice" // Resets the bg icon state to the default for next page buttons.
 		E.add_overlay("radial_next")
@@ -336,7 +337,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 /datum/radial_menu/Destroy()
 	Reset()
 	hide()
-	QDEL_NULL(custom_check_callback)
+	custom_check_callback = null
 	. = ..()
 
 /*
@@ -392,3 +393,6 @@ GLOBAL_LIST_EMPTY(radial_menus)
 /datum/radial_menu_choice/Destroy(force, ...)
 	. = ..()
 	QDEL_NULL(image)
+
+#undef NEXT_PAGE_ID
+#undef DEFAULT_CHECK_DELAY

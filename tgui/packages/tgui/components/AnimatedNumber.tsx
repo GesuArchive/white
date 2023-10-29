@@ -16,58 +16,58 @@ const isSafeNumber = (value: number) => {
 
 export type AnimatedNumberProps = {
   /**
-  * The target value to approach.
-  */
+   * The target value to approach.
+   */
   value: number;
 
   /**
-  * If provided, the initial value displayed. By default, the same as `value`.
-  * If `initial` and `value` are different, the component immediately starts
-  * animating.
-  */
+   * If provided, the initial value displayed. By default, the same as `value`.
+   * If `initial` and `value` are different, the component immediately starts
+   * animating.
+   */
   initial?: number;
 
   /**
-  * If provided, a function that formats the inner string. By default,
-  * attempts to match the numeric precision of `value`.
-  */
+   * If provided, a function that formats the inner string. By default,
+   * attempts to match the numeric precision of `value`.
+   */
   format?: (value: number) => string;
 };
 
 /**
-* Animated numbers are animated at roughly 60 frames per second.
-*/
+ * Animated numbers are animated at roughly 60 frames per second.
+ */
 const SIXTY_HZ = 1_000.0 / 60.0;
 
 /**
-* The exponential moving average coefficient. Larger values result in a faster
-* convergence.
-*/
+ * The exponential moving average coefficient. Larger values result in a faster
+ * convergence.
+ */
 const Q = 0.8333;
 
 /**
-* A small number.
-*/
+ * A small number.
+ */
 const EPSILON = 10e-4;
 
 /**
-* An animated number label. Shows a number, formatted with an optionally
-* provided function, and animates it towards its target value.
-*/
+ * An animated number label. Shows a number, formatted with an optionally
+ * provided function, and animates it towards its target value.
+ */
 export class AnimatedNumber extends Component<AnimatedNumberProps> {
   /**
-  * The inner `<span/>` being updated sixty times per second.
-  */
+   * The inner `<span/>` being updated sixty times per second.
+   */
   ref = createRef<HTMLSpanElement>();
 
   /**
-  * The interval being used to update the inner span.
-  */
+   * The interval being used to update the inner span.
+   */
   interval?: NodeJS.Timeout;
 
   /**
-  * The current value. This values approaches the target value.
-  */
+   * The current value. This values approaches the target value.
+   */
   currentValue: number = 0;
 
   constructor(props: AnimatedNumberProps) {
@@ -106,9 +106,9 @@ export class AnimatedNumber extends Component<AnimatedNumberProps> {
   }
 
   /**
-  * Starts animating the inner span. If the inner span is already animating,
-  * this is a no-op.
-  */
+   * Starts animating the inner span. If the inner span is already animating,
+   * this is a no-op.
+   */
   startTicking() {
     if (this.interval !== undefined) {
       // We're already ticking; do nothing.
@@ -119,8 +119,8 @@ export class AnimatedNumber extends Component<AnimatedNumberProps> {
   }
 
   /**
-  * Stops animating the inner span.
-  */
+   * Stops animating the inner span.
+   */
   stopTicking() {
     if (this.interval === undefined) {
       // We're not ticking; do nothing.
@@ -133,8 +133,8 @@ export class AnimatedNumber extends Component<AnimatedNumberProps> {
   }
 
   /**
-  * Steps forward one frame.
-  */
+   * Steps forward one frame.
+   */
   tick() {
     const { currentValue } = this;
     const { value } = this.props;
@@ -147,7 +147,9 @@ export class AnimatedNumber extends Component<AnimatedNumberProps> {
       this.stopTicking();
     }
 
-    if (Math.abs(value - this.currentValue) < EPSILON) {
+    if (
+      Math.abs(value - this.currentValue) < Math.max(EPSILON, EPSILON * value)
+    ) {
       // We're about as close as we're going to get--snap to the value and
       // stop ticking.
       this.currentValue = value;
@@ -161,8 +163,8 @@ export class AnimatedNumber extends Component<AnimatedNumberProps> {
   }
 
   /**
-  * Gets the inner text of the span.
-  */
+   * Gets the inner text of the span.
+   */
   getText() {
     const { props, currentValue } = this;
     const { format, value } = props;

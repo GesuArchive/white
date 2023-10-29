@@ -1,6 +1,6 @@
 /obj/machinery/fat_sucker
-	name = "Авто-Экстрактор липидов МК IV"
-	desc = "Безопасно и эффективно удаляет лишний жир."
+	name = "lipid extractor"
+	desc = "Safely and efficiently extracts excess fat from a subject."
 	icon = 'icons/obj/machines/fat_sucker.dmi'
 	icon_state = "fat"
 	circuit = /obj/item/circuitboard/machine/fat_sucker
@@ -19,18 +19,18 @@
 
 	var/next_fact = 10 //in ticks, so about 20 seconds
 	var/static/list/fat_facts = list(\
-	"Жиры - это триглицериды, состоящие из комбинации различных строительных блоков; глицерин и жирные кислоты.", \
-	"Взрослые должны получать 20-35% своей калорийности из жиров.", \
-	"Избыточный вес или ожирение подвергают вас повышенному риску хронических заболеваний, таких как сердечно-сосудистые заболевания, метаболический синдром, диабет 2 типа и некоторые виды рака.", \
-	"Не все жиры плохие. Определенное количество жира - важная часть здорового сбалансированного питания. " , \
-	"Насыщенные жиры должны составлять не более 11% ваших ежедневных калорий.", \
-	"Ненасыщенные жиры, то есть мононенасыщенные жиры, полиненасыщенные жиры и жирные кислоты омега-3, содержатся в растительной пище и рыбе." \
+	"Fats are triglycerides made up of a combination of different building blocks; glycerol and fatty acids.", \
+	"Adults should get a recommended 20-35% of their energy intake from fat.", \
+	"Being overweight or obese puts you at an increased risk of chronic diseases, such as cardiovascular diseases, metabolic syndrome, type 2 diabetes and some types of cancers.", \
+	"Not all fats are bad. A certain amount of fat is an essential part of a healthy balanced diet. " , \
+	"Saturated fat should form no more than 11% of your daily calories.", \
+	"Unsaturated fat, that is monounsaturated fats, polyunsaturated fats and omega-3 fatty acids, is found in plant foods and fish." \
 	)
 
 /obj/machinery/fat_sucker/Initialize(mapload)
 	. = ..()
 	soundloop = new(src,  FALSE)
-	update_icon()
+	update_appearance()
 
 /obj/machinery/fat_sucker/Destroy()
 	QDEL_NULL(soundloop)
@@ -39,20 +39,20 @@
 /obj/machinery/fat_sucker/RefreshParts()
 	. = ..()
 	var/rating = 0
-	for(var/obj/item/stock_parts/micro_laser/L in component_parts)
-		rating += L.rating
+	for(var/datum/stock_part/micro_laser/micro_laser in component_parts)
+		rating += micro_laser.tier
 	bite_size = initial(bite_size) + rating * 2.5
 	nutrient_to_meat = initial(nutrient_to_meat) - rating * 5
 
 /obj/machinery/fat_sucker/examine(mob/user)
 	. = ..()
-	. += {"<hr><span class='notice'>ПКМ для разблокировки или блокировки люка.</span>
-				<span class='notice'>Удаляем [bite_size] единиц питательных веществ за операцию.</span>
-				<span class='notice'>Требует [nutrient_to_meat] единиц питательных веществ на кусок мяса.</span>"}
+	. += {"[span_notice("Alt-Click to toggle the safety hatch.")]
+				[span_notice("Removing [bite_size] nutritional units per operation.")]
+				[span_notice("Requires [nutrient_to_meat] nutritional units per meat slab.")]"}
 
-/obj/machinery/fat_sucker/close_machine(mob/user)
+/obj/machinery/fat_sucker/close_machine(mob/user, density_to_set = TRUE)
 	if(panel_open)
-		to_chat(user, span_warning("Нужно закрыть техническую панель сначала!"))
+		to_chat(user, span_warning("You need to close the maintenance hatch first!"))
 		return
 	..()
 	playsound(src, 'sound/machines/click.ogg', 50)
@@ -61,11 +61,11 @@
 			occupant.forceMove(drop_location())
 			set_occupant(null)
 			return
-		to_chat(occupant, span_notice("Вхожу в [src.name]."))
+		to_chat(occupant, span_notice("You enter [src]."))
 		addtimer(CALLBACK(src, PROC_REF(start_extracting)), 20, TIMER_OVERRIDE|TIMER_UNIQUE)
-		update_icon()
+		update_appearance()
 
-/obj/machinery/fat_sucker/open_machine(mob/user)
+/obj/machinery/fat_sucker/open_machine(mob/user, density_to_set = FALSE)
 	make_meat()
 	playsound(src, 'sound/machines/click.ogg', 50)
 	if(processing)
@@ -74,18 +74,18 @@
 
 /obj/machinery/fat_sucker/container_resist_act(mob/living/user)
 	if(!free_exit || state_open)
-		to_chat(user, span_notice("Аварийный выход не работает! СЕЙЧАС БУДУ ЛОМАТЬ ЭТО ВСЁ!!!"))
+		to_chat(user, span_notice("The emergency release is not responding! You start pushing against the hull!"))
 		user.changeNext_move(CLICK_CD_BREAKOUT)
 		user.last_special = world.time + CLICK_CD_BREAKOUT
-		user.visible_message(span_notice("[user] пытается выломать дверь [src.name]!") , \
-			span_notice("Упираюсь в стенку [src.name] и начинаю выдавливать дверь... (это займёт примерно [DisplayTimeText(breakout_time)].)") , \
-			span_hear("Слышу металлический стук исходящий из [src.name]."))
+		user.visible_message(span_notice("You see [user] kicking against the door of [src]!"), \
+			span_notice("You lean on the back of [src] and start pushing the door open... (this will take about [DisplayTimeText(breakout_time)].)"), \
+			span_hear("You hear a metallic creaking from [src]."))
 		if(do_after(user, breakout_time, target = src))
 			if(!user || user.stat != CONSCIOUS || user.loc != src || state_open)
 				return
 			free_exit = TRUE
-			user.visible_message(span_warning("[user] успешно вырывается из [src.name]!") , \
-				span_notice("Успешно вырываюсь из [src.name]!"))
+			user.visible_message(span_warning("[user] successfully broke out of [src]!"), \
+				span_notice("You successfully break out of [src]!"))
 			open_machine()
 		return
 	open_machine()
@@ -96,19 +96,19 @@
 	else if(!processing || free_exit)
 		open_machine()
 	else
-		to_chat(user, span_warning("Люк отключен!"))
+		to_chat(user, span_warning("The safety hatch has been disabled!"))
 
 /obj/machinery/fat_sucker/AltClick(mob/living/user)
-	if(!user.canUseTopic(src, BE_CLOSE))
+	if(!user.can_perform_action(src))
 		return
 	if(user == occupant)
-		to_chat(user, span_warning("Не могу достать до панели управления изнутри!"))
+		to_chat(user, span_warning("You can't reach the controls from inside!"))
 		return
 	if(!(obj_flags & EMAGGED) && !allowed(user))
-		to_chat(user, span_warning("Доступ не подходит."))
+		to_chat(user, span_warning("You lack the required access."))
 		return
 	free_exit = !free_exit
-	to_chat(user, span_notice("Люк [free_exit ? "разблокирован" : "заблокирован"]."))
+	to_chat(user, span_notice("Safety hatch [free_exit ? "unlocked" : "locked"]."))
 
 /obj/machinery/fat_sucker/update_overlays()
 	. = ..()
@@ -132,7 +132,7 @@
 	if(panel_open)
 		. += "[icon_state]_panel"
 
-/obj/machinery/fat_sucker/process(delta_time)
+/obj/machinery/fat_sucker/process(seconds_per_tick)
 	if(!processing)
 		return
 	if(!powered() || !occupant || !iscarbon(occupant))
@@ -144,8 +144,8 @@
 		open_machine()
 		playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
 		return
-	C.adjust_nutrition(-bite_size * delta_time)
-	nutrients += bite_size * delta_time
+	C.adjust_nutrition(-bite_size * seconds_per_tick)
+	nutrients += bite_size * seconds_per_tick
 
 	if(next_fact <= 0)
 		next_fact = initial(next_fact)
@@ -163,11 +163,11 @@
 		if(C.nutrition > start_at)
 			processing = TRUE
 			soundloop.start()
-			update_icon()
+			update_appearance()
 			set_light(2, 1, "#ff0000")
 		else
-			say("Пациент недостаточно жирный.")
-			playsound(src, 'white/valtos/sounds/error1.ogg', 40, FALSE)
+			say("Subject not fat enough.")
+			playsound(src, 'sound/machines/buzz-sigh.ogg', 40, FALSE)
 			overlays += "[icon_state]_red" //throw a red light icon over it, to show that it won't work
 
 /obj/machinery/fat_sucker/proc/stop()
@@ -184,11 +184,11 @@
 			while(nutrients >= nutrient_to_meat)
 				nutrients -= nutrient_to_meat
 				var/atom/meat = new C.type_of_meat (drop_location())
-				meat.set_custom_materials(list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, C) = MINERAL_MATERIAL_AMOUNT * 4))
+				meat.set_custom_materials(list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, C) = SHEET_MATERIAL_AMOUNT * 4))
 			while(nutrients >= nutrient_to_meat / 3)
 				nutrients -= nutrient_to_meat / 3
 				var/atom/meat = new /obj/item/food/meat/rawcutlet/plain (drop_location())
-				meat.set_custom_materials(list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, C) = round(MINERAL_MATERIAL_AMOUNT * (4/3))))
+				meat.set_custom_materials(list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, C) = round(SHEET_MATERIAL_AMOUNT * (4/3))))
 			nutrients = 0
 
 /obj/machinery/fat_sucker/screwdriver_act(mob/living/user, obj/item/I)
@@ -196,13 +196,13 @@
 	if(..())
 		return
 	if(occupant)
-		to_chat(user, span_warning("[capitalize(src.name)] уже занят!"))
+		to_chat(user, span_warning("[src] is currently occupied!"))
 		return
 	if(state_open)
-		to_chat(user, span_warning("[capitalize(src.name)] имеет [panel_open ? "закрытую" : "открытую"] техническую панель!"))
+		to_chat(user, span_warning("[src] must be closed to [panel_open ? "close" : "open"] its maintenance hatch!"))
 		return
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, I))
-		update_icon()
+		update_appearance()
 		return
 	return FALSE
 
@@ -210,10 +210,11 @@
 	if(default_deconstruction_crowbar(I))
 		return TRUE
 
-/obj/machinery/fat_sucker/emag_act(mob/living/user)
+/obj/machinery/fat_sucker/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
-		return
+		return FALSE
 	start_at = 100
 	stop_at = 0
-	to_chat(user, span_notice("Снимаю ограничения доступа и понижаю порог автоматического выброса!"))
+	to_chat(user, span_notice("You remove the access restrictions and lower the automatic ejection threshold!"))
 	obj_flags |= EMAGGED
+	return TRUE

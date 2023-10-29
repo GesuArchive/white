@@ -1,3 +1,4 @@
+
 //////////////////////////
 //Movable Screen Objects//
 //   By RemieRichards //
@@ -45,7 +46,7 @@
 
 //Debug procs
 /client/proc/test_movable_UI()
-	set category = "Дбг.Интерфейс"
+	set category = "Debug"
 	set name = "Spawn Movable UI Object"
 
 	var/atom/movable/screen/movable/M = new()
@@ -54,7 +55,7 @@
 	M.maptext = MAPTEXT("Movable")
 	M.maptext_width = 64
 
-	var/screen_l = tgui_input_text(usr, "Where on the screen? (Formatted as 'X,Y' e.g: '1,1' for bottom left)","Spawn Movable UI Object")
+	var/screen_l = input(usr,"Where on the screen? (Formatted as 'X,Y' e.g: '1,1' for bottom left)","Spawn Movable UI Object") as text|null
 	if(!screen_l)
 		return
 
@@ -62,8 +63,9 @@
 
 	screen += M
 
+
 /client/proc/test_snap_UI()
-	set category = "Дбг.Интерфейс"
+	set category = "Debug"
 	set name = "Spawn Snap UI Object"
 
 	var/atom/movable/screen/movable/snap/S = new()
@@ -72,7 +74,7 @@
 	S.maptext = MAPTEXT("Snap")
 	S.maptext_width = 64
 
-	var/screen_l = tgui_input_text(usr, "Where on the screen? (Formatted as 'X,Y' e.g: '1,1' for bottom left)","Spawn Snap UI Object")
+	var/screen_l = input(usr,"Where on the screen? (Formatted as 'X,Y' e.g: '1,1' for bottom left)","Spawn Snap UI Object") as text|null
 	if(!screen_l)
 		return
 

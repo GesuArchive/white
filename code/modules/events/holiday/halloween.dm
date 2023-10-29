@@ -2,9 +2,11 @@
 	name = "2 SPOOKY! (Halloween)"
 	holidayID = HALLOWEEN
 	typepath = /datum/round_event/spooky
-	weight = -1							//forces it to be called, regardless of weight
+	weight = -1 //forces it to be called, regardless of weight
 	max_occurrences = 1
 	earliest_start = 0 MINUTES
+	category = EVENT_CATEGORY_HOLIDAY
+	description = "Gives everyone treats, and turns Ian and Poly into their festive versions."
 
 /datum/round_event/spooky/start()
 	..()
@@ -14,7 +16,7 @@
 		if(b)
 			new /obj/item/storage/spooky(b)
 
-	for(var/mob/living/simple_animal/pet/dog/corgi/ian/Ian in GLOB.mob_living_list)
+	for(var/mob/living/basic/pet/dog/corgi/ian/Ian in GLOB.mob_living_list)
 		Ian.place_on_head(new /obj/item/bedsheet(Ian))
 	for(var/mob/living/simple_animal/parrot/poly/Poly in GLOB.mob_living_list)
 		new /mob/living/simple_animal/parrot/poly/ghost(Poly.loc)
@@ -27,21 +29,23 @@
 /obj/item/food/cookie/sugar/spookyskull
 	name = "skull cookie"
 	desc = "Spooky! It's got delicious calcium flavouring!"
-	icon = 'icons/obj/halloween_items.dmi'
+	icon = 'icons/obj/holiday/halloween_items.dmi'
 	icon_state = "skeletoncookie"
+	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/cookie/sugar/spookycoffin
 	name = "coffin cookie"
 	desc = "Spooky! It's got delicious coffee flavouring!"
-	icon = 'icons/obj/halloween_items.dmi'
+	icon = 'icons/obj/holiday/halloween_items.dmi'
 	icon_state = "coffincookie"
+	crafting_complexity = FOOD_COMPLEXITY_2
 
 //spooky items
 
 /obj/item/storage/spooky
 	name = "trick-o-treat bag"
 	desc = "A pumpkin-shaped bag that holds all sorts of goodies!"
-	icon = 'icons/obj/halloween_items.dmi'
+	icon = 'icons/obj/holiday/halloween_items.dmi'
 	icon_state = "treatbag"
 
 /obj/item/storage/spooky/Initialize(mapload)
@@ -53,5 +57,5 @@
 		/obj/item/food/candy,
 		/obj/item/food/candiedapple,
 		/obj/item/food/chocolatebar,
-		/obj/item/organ/brain ) // OH GOD THIS ISN'T CANDY!
+		/obj/item/organ/internal/brain ) // OH GOD THIS ISN'T CANDY!
 		new type(src)

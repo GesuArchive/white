@@ -1,23 +1,17 @@
 /obj/projectile/magic
-	name = "пустяк"
+	name = "bolt"
 	icon_state = "energy"
-	damage = 0
+	damage = 0 // MOST magic projectiles pass the "not a hostile projectile" test, despite many having negative effects
 	damage_type = OXY
-	nodamage = TRUE
 	armour_penetration = 100
+	armor_flag = NONE
 	/// determines what type of antimagic can block the spell projectile
 	var/antimagic_flags = MAGIC_RESISTANCE
 	/// determines the drain cost on the antimagic item
 	var/antimagic_charge_cost = 1
 
-/obj/projectile/magic/death
-	name = "заряд смерти"
-	icon_state = "pulse1_bl"
-
-/obj/projectile/magic/death/on_hit(mob/living/target)
+/obj/projectile/magic/prehit_pierce(atom/target)
 	. = ..()
-	if(!istype(target))
-		return
 
 	if(isliving(target))
 		var/mob/living/victim = target
@@ -25,58 +19,74 @@
 			visible_message(span_warning("[src] fizzles on contact with [victim]!"))
 			return PROJECTILE_DELETE_WITHOUT_HITTING
 
-	if(target.mob_biotypes & MOB_UNDEAD) //negative energy heals the undead
-		if(target.hellbound && target.stat == DEAD)
-			return BULLET_ACT_BLOCK
-		if(target.revive(full_heal = TRUE, admin_revive = TRUE))
-			target.grab_ghost(force = TRUE) // even suicides
-			to_chat(target, span_notice("Восстаю. Я НЕЖИТЬ!!!"))
-		else if(target.stat != DEAD)
-			to_chat(target, span_notice("Чувствую себя отлично!"))
-		return
+	if(istype(target, /obj/machinery/hydroponics)) // even plants can block antimagic
+		var/obj/machinery/hydroponics/plant_tray = target
+		if(!plant_tray.myseed)
+			return
+		if(plant_tray.myseed.get_gene(/datum/plant_gene/trait/anti_magic))
+			visible_message(span_warning("[src] fizzles on contact with [plant_tray]!"))
+			return PROJECTILE_DELETE_WITHOUT_HITTING
 
-	target.death()
+/obj/projectile/magic/death
+	name = "bolt of death"
+	icon_state = "pulse1_bl"
+
+/obj/projectile/magic/death/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+
+	if(isliving(target))
+		var/mob/living/victim = target
+		if(victim.mob_biotypes & MOB_UNDEAD) //negative energy heals the undead
+			if(victim.revive(ADMIN_HEAL_ALL, force_grab_ghost = TRUE)) // This heals suicides
+				victim.grab_ghost(force = TRUE)
+				to_chat(victim, span_notice("You rise with a start, you're undead!!!"))
+			else if(victim.stat != DEAD)
+				to_chat(victim, span_notice("You feel great!"))
+			return
+		victim.investigate_log("has been killed by a bolt of death.", INVESTIGATE_DEATHS)
+		victim.death()
+
+	if(istype(target, /obj/machinery/hydroponics))
+		var/obj/machinery/hydroponics/plant_tray = target
+		if(!plant_tray.myseed)
+			return
+		plant_tray.set_weedlevel(0) // even the weeds perish
+		plant_tray.plantdies()
 
 /obj/projectile/magic/resurrection
-	name = "заряд воскрешения"
+	name = "bolt of resurrection"
 	icon_state = "ion"
-	damage = 0
-	damage_type = OXY
-	nodamage = TRUE
 
-/obj/projectile/magic/resurrection/on_hit(mob/living/carbon/target)
+/obj/projectile/magic/resurrection/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
+
 	if(isliving(target))
-		if(target.anti_magic_check())
-			target.visible_message(span_warning("[capitalize(src.name)] испаряется при контакте с [target]!"))
-			return BULLET_ACT_BLOCK
-		if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
-			target.death(0)
-		else
-			if(target.hellbound && target.stat == DEAD)
-				return BULLET_ACT_BLOCK
-			if(target.revive(full_heal = TRUE, admin_revive = TRUE))
-				target.grab_ghost(force = TRUE) // even suicides
-				to_chat(target, span_notice("ЖИВУ!"))
-			else if(target.stat != DEAD)
-				to_chat(target, span_notice("Чувствую себя прекрасно!"))
+		var/mob/living/victim = target
+
+		if(victim.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
+			victim.investigate_log("has been killed by a bolt of life.", INVESTIGATE_DEATHS)
+			victim.death()
+			return
+
+		if(victim.revive(ADMIN_HEAL_ALL, force_grab_ghost = TRUE)) // This heals suicides
+			to_chat(victim, span_notice("You rise with a start, you're alive!!!"))
+		else if(victim.stat != DEAD)
+			to_chat(victim, span_notice("You feel great!"))
+
+	if(istype(target, /obj/machinery/hydroponics))
+		var/obj/machinery/hydroponics/plant_tray = target
+		if(!plant_tray.myseed)
+			return
+		plant_tray.set_plant_health(plant_tray.myseed.endurance, forced = TRUE)
 
 /obj/projectile/magic/teleport
-	name = "заряд телепортации"
+	name = "bolt of teleportation"
 	icon_state = "bluespace"
-	damage = 0
-	damage_type = OXY
-	nodamage = TRUE
 	var/inner_tele_radius = 0
 	var/outer_tele_radius = 6
 
-/obj/projectile/magic/teleport/on_hit(mob/target)
+/obj/projectile/magic/teleport/on_hit(mob/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(ismob(target))
-		var/mob/M = target
-		if(M.anti_magic_check())
-			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			return BULLET_ACT_BLOCK
 	var/teleammount = 0
 	var/teleloc = target
 	if(!isturf(target))
@@ -85,24 +95,17 @@
 		if(!stuff.anchored && stuff.loc && !isobserver(stuff))
 			if(do_teleport(stuff, stuff, 10, channel = TELEPORT_CHANNEL_MAGIC))
 				teleammount++
+				var/smoke_range = max(round(4 - teleammount), 0)
 				var/datum/effect_system/fluid_spread/smoke/smoke = new
-				smoke.set_up(max(round(4 - teleammount),0), holder = src, location = stuff.loc) //Smoke drops off if a lot of stuff is moved for the sake of sanity
+				smoke.set_up(smoke_range, holder = src, location = stuff.loc) //Smoke drops off if a lot of stuff is moved for the sake of sanity
 				smoke.start()
 
 /obj/projectile/magic/safety
-	name = "заряд безопасности"
+	name = "bolt of safety"
 	icon_state = "bluespace"
-	damage = 0
-	damage_type = OXY
-	nodamage = TRUE
 
-/obj/projectile/magic/safety/on_hit(atom/target)
+/obj/projectile/magic/safety/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(ismob(target))
-		var/mob/M = target
-		if(M.anti_magic_check())
-			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			return BULLET_ACT_BLOCK
 	if(isturf(target))
 		return BULLET_ACT_HIT
 
@@ -116,14 +119,11 @@
 			smoke.start()
 
 /obj/projectile/magic/door
-	name = "заряд создания дверей"
+	name = "bolt of door creation"
 	icon_state = "energy"
-	damage = 0
-	damage_type = OXY
-	nodamage = TRUE
 	var/list/door_types = list(/obj/structure/mineral_door/wood, /obj/structure/mineral_door/iron, /obj/structure/mineral_door/silver, /obj/structure/mineral_door/gold, /obj/structure/mineral_door/uranium, /obj/structure/mineral_door/sandstone, /obj/structure/mineral_door/transparent/plasma, /obj/structure/mineral_door/transparent/diamond)
 
-/obj/projectile/magic/door/on_hit(atom/target)
+/obj/projectile/magic/door/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(istype(target, /obj/machinery/door))
 		OpenDoor(target)
@@ -141,198 +141,48 @@
 /obj/projectile/magic/door/proc/OpenDoor(obj/machinery/door/D)
 	if(istype(D, /obj/machinery/door/airlock))
 		var/obj/machinery/door/airlock/A = D
-		A.locked = FALSE
+		A.unlock()
 	D.open()
 
 /obj/projectile/magic/change
-	name = "заряд изменений"
+	name = "bolt of change"
 	icon_state = "ice_1"
-	damage = 0
 	damage_type = BURN
-	nodamage = TRUE
+	/// If set, this projectile will only do a certain wabbajack effect
+	var/set_wabbajack_effect
+	/// If set, this projectile will only pass certain changeflags to wabbajack
+	var/set_wabbajack_changeflags
 
-/obj/projectile/magic/change/on_hit(atom/change)
+/obj/projectile/magic/change/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(ismob(change))
-		var/mob/M = change
-		if(M.anti_magic_check())
-			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [M]!"))
-			qdel(src)
-			return BULLET_ACT_BLOCK
-	wabbajack(change)
-	qdel(src)
 
-/proc/wabbajack(mob/living/M, randomize)
-	// If the mob has a shapeshifted form, we want to pull out the reference of the caster's original body from it.
-	// We then want to restore this original body through the shapeshift holder itself.
-	var/obj/shapeshift_holder/shapeshift = locate() in M
-	if(shapeshift)
-		M = shapeshift.stored
-		shapeshift.restore()
+	if(isliving(target))
+		var/mob/living/victim = target
+		victim.wabbajack(set_wabbajack_effect, set_wabbajack_changeflags)
 
-	if(!istype(M) || M.stat == DEAD || M.notransform || (GODMODE & M.status_flags))
-		return
-
-	M.notransform = TRUE
-	ADD_TRAIT(M, TRAIT_IMMOBILIZED, MAGIC_TRAIT)
-	ADD_TRAIT(M, TRAIT_HANDS_BLOCKED, MAGIC_TRAIT)
-	M.icon = null
-	M.cut_overlays()
-	M.invisibility = INVISIBILITY_ABSTRACT
-
-	var/list/contents = M.contents.Copy()
-
-	if(iscyborg(M))
-		var/mob/living/silicon/robot/Robot = M
-		// Disconnect AI's in shells
-		if(Robot.connected_ai)
-			Robot.connected_ai.disconnect_shell()
-		if(Robot.mmi)
-			qdel(Robot.mmi)
-		Robot.notify_ai(NEW_BORG)
-	else
-		for(var/obj/item/W in contents)
-			if(!M.dropItemToGround(W))
-				qdel(W)
-
-	var/mob/living/new_mob
-
-	if(!randomize)
-		randomize = pick("monkey","robot","slime","xeno","humanoid","animal")
-	switch(randomize)
-		if("monkey")
-			new_mob = new /mob/living/carbon/human/species/monkey(M.loc)
-
-		if("robot")
-			var/robot = pick(200;/mob/living/silicon/robot,
-							/mob/living/silicon/robot/modules/syndicate,
-							/mob/living/silicon/robot/modules/syndicate/medical,
-							/mob/living/silicon/robot/modules/syndicate/saboteur,
-							200;/mob/living/simple_animal/drone/polymorphed)
-			new_mob = new robot(M.loc)
-			if(issilicon(new_mob))
-				new_mob.gender = M.gender
-				new_mob.invisibility = 0
-				new_mob.job = JOB_CYBORG
-				var/mob/living/silicon/robot/Robot = new_mob
-				Robot.lawupdate = FALSE
-				Robot.connected_ai = null
-				Robot.mmi.transfer_identity(M)	//Does not transfer key/client.
-				Robot.clear_inherent_laws(0)
-				Robot.clear_zeroth_law(0)
-
-		if("slime")
-			new_mob = new /mob/living/simple_animal/slime/random(M.loc)
-
-		if("xeno")
-			var/Xe
-			if(M.ckey)
-				Xe = pick(/mob/living/carbon/alien/humanoid/hunter,/mob/living/carbon/alien/humanoid/sentinel)
-			else
-				Xe = pick(/mob/living/carbon/alien/humanoid/hunter,/mob/living/simple_animal/hostile/alien/sentinel)
-			new_mob = new Xe(M.loc)
-
-		if("animal")
-			var/path = pick(/mob/living/simple_animal/hostile/carp,
-							/mob/living/simple_animal/hostile/bear,
-							/mob/living/simple_animal/hostile/mushroom,
-							/mob/living/simple_animal/hostile/netherworld/statue,
-							/mob/living/simple_animal/hostile/retaliate/bat,
-							/mob/living/simple_animal/hostile/retaliate/goat,
-							/mob/living/simple_animal/hostile/killertomato,
-							/mob/living/simple_animal/hostile/giant_spider,
-							/mob/living/simple_animal/hostile/giant_spider/hunter,
-							/mob/living/simple_animal/hostile/blob/blobbernaut/independent,
-							/mob/living/simple_animal/hostile/carp/ranged,
-							/mob/living/simple_animal/hostile/carp/ranged/chaos,
-							/mob/living/simple_animal/hostile/asteroid/basilisk/watcher,
-							/mob/living/simple_animal/hostile/asteroid/goliath/beast,
-							/mob/living/simple_animal/hostile/headcrab,
-							/mob/living/simple_animal/hostile/morph,
-							/mob/living/simple_animal/hostile/stickman,
-							/mob/living/simple_animal/hostile/stickman/dog,
-							/mob/living/simple_animal/hostile/megafauna/dragon/lesser,
-							/mob/living/simple_animal/hostile/gorilla,
-							/mob/living/simple_animal/parrot,
-							/mob/living/simple_animal/pet/dog/corgi,
-							/mob/living/simple_animal/crab,
-							/mob/living/simple_animal/pet/dog/pug,
-							/mob/living/simple_animal/pet/cat,
-							/mob/living/simple_animal/mouse,
-							/mob/living/simple_animal/chicken,
-							/mob/living/simple_animal/cow,
-							/mob/living/simple_animal/hostile/lizard,
-							/mob/living/simple_animal/pet/fox,
-							/mob/living/simple_animal/butterfly,
-							/mob/living/simple_animal/pet/cat/cak,
-							/mob/living/simple_animal/chick)
-			new_mob = new path(M.loc)
-
-		if("humanoid")
-			new_mob = new /mob/living/carbon/human(M.loc)
-
-			if(prob(50))
-				var/list/chooseable_races = list()
-				for(var/speciestype in subtypesof(/datum/species))
-					var/datum/species/S = speciestype
-					if(initial(S.changesource_flags) & WABBAJACK)
-						chooseable_races += speciestype
-
-				if(chooseable_races.len)
-					new_mob.set_species(pick(chooseable_races))
-
-			var/datum/preferences/A = new()	//Randomize appearance for the human
-			A.copy_to(new_mob, icon_updates=0)
-
-			var/mob/living/carbon/human/H = new_mob
-			H.update_body()
-			H.update_hair()
-			H.update_body_parts()
-			H.dna.update_dna_identity()
-
-	if(!new_mob)
-		return
-
-	// Some forms can still wear some items
-	for(var/obj/item/W in contents)
-		new_mob.equip_to_appropriate_slot(W)
-
-	M.log_message("became [new_mob.real_name]", LOG_ATTACK, color="orange")
-
-	new_mob.a_intent = INTENT_HARM
-
-	M.wabbajack_act(new_mob)
-
-	to_chat(new_mob, span_warning("Внезапно становлюсь [randomize]."))
-
-	var/poly_msg = get_policy(POLICY_POLYMORPH)
-	if(poly_msg)
-		to_chat(new_mob, poly_msg)
-
-	M.transfer_observers_to(new_mob)
-
-	qdel(M)
-	return new_mob
+	if(istype(target, /obj/machinery/hydroponics))
+		var/obj/machinery/hydroponics/plant_tray = target
+		if(!plant_tray.myseed)
+			return
+		plant_tray.polymorph()
 
 /obj/projectile/magic/animate
-	name = "заряд анимации"
+	name = "bolt of animation"
 	icon_state = "red_1"
-	damage = 0
 	damage_type = BURN
-	nodamage = TRUE
 
-/obj/projectile/magic/animate/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/magic/animate/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	target.animate_atom_living(firer)
 
 /atom/proc/animate_atom_living(mob/living/owner = null)
-	if((isitem(src) || isstructure(src)) && !is_type_in_list(src, GLOB.protected_objects))
+	if((isitem(src) || isstructure(src)) && !is_type_in_list(src, GLOB.animatable_blacklist))
 		if(istype(src, /obj/structure/statue/petrified))
 			var/obj/structure/statue/petrified/P = src
 			if(P.petrified_mob)
 				var/mob/living/L = P.petrified_mob
-				var/mob/living/simple_animal/hostile/netherworld/statue/S = new(P.loc, owner)
-				S.name = "статуя [L.name]"
+				var/mob/living/basic/statue/S = new(P.loc, owner)
+				S.name = "statue of [L.name]"
 				if(owner)
 					S.faction = list("[REF(owner)]")
 				S.icon = P.icon
@@ -343,12 +193,12 @@
 				if(L.mind)
 					L.mind.transfer_to(S)
 					if(owner)
-						to_chat(S, span_userdanger("Ты одушевленная статуя. Ты не можешь двигаться, когда за тобой следят, но они почти неуязвимы и смертельно опасны, когда их не замечают! Не навреди [owner], твоему создателю."))
+						to_chat(S, span_userdanger("You are an animate statue. You cannot move when monitored, but are nearly invincible and deadly when unobserved! Do not harm [owner], your creator."))
 				P.forceMove(S)
 				return
 		else
 			var/obj/O = src
-			if(istype(O, /obj/item/gun))
+			if(isgun(O))
 				new /mob/living/simple_animal/hostile/mimic/copy/ranged(drop_location(), src, owner)
 			else
 				new /mob/living/simple_animal/hostile/mimic/copy(drop_location(), src, owner)
@@ -360,48 +210,22 @@
 			C.ChangeOwner(owner)
 
 /obj/projectile/magic/spellblade
-	name = "энергия лезвия"
+	name = "blade energy"
 	icon_state = "lavastaff"
 	damage = 15
 	damage_type = BURN
-	flag = MAGIC
 	dismemberment = 50
-	nodamage = FALSE
-
-/obj/projectile/magic/spellblade/on_hit(target)
-	if(ismob(target))
-		var/mob/M = target
-		if(M.anti_magic_check())
-			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			qdel(src)
-			return BULLET_ACT_BLOCK
-	. = ..()
 
 /obj/projectile/magic/arcane_barrage
-	name = "тайный заряд"
+	name = "arcane bolt"
 	icon_state = "arcane_barrage"
 	damage = 20
 	damage_type = BURN
-	nodamage = FALSE
-	armour_penetration = 0
-	flag = MAGIC
 	hitsound = 'sound/weapons/barragespellhit.ogg'
 
-/obj/projectile/magic/arcane_barrage/on_hit(target)
-	if(ismob(target))
-		var/mob/M = target
-		if(M.anti_magic_check())
-			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			qdel(src)
-			return BULLET_ACT_BLOCK
-	. = ..()
-
-
 /obj/projectile/magic/locker
-	name = "шкафозаряд"
+	name = "locker bolt"
 	icon_state = "locker"
-	nodamage = TRUE
-	flag = MAGIC
 	var/weld = TRUE
 	var/created = FALSE //prevents creation of more then one locker if it has multiple hits
 	var/locker_suck = TRUE
@@ -414,18 +238,20 @@
 
 /obj/projectile/magic/locker/prehit_pierce(atom/A)
 	. = ..()
-	if(isliving(A) && locker_suck)
-		var/mob/living/M = A
-		if(M.anti_magic_check()) // no this doesn't check if ..() returned to phase through do I care no it's magic ain't gotta explain shit
-			M.visible_message(span_warning("[src] vanishes on contact with [A]!"))
-			return PROJECTILE_DELETE_WITHOUT_HITTING
+	if(. == PROJECTILE_DELETE_WITHOUT_HITTING)
 		var/obj/structure/closet/decay/locker_temp_instance = locker_ref.resolve()
-		if(!locker_temp_instance?.insertion_allowed(M))
+		qdel(locker_temp_instance)
+		return PROJECTILE_DELETE_WITHOUT_HITTING
+
+	if(isliving(A) && locker_suck)
+		var/mob/living/target = A
+		var/obj/structure/closet/decay/locker_temp_instance = locker_ref.resolve()
+		if(!locker_temp_instance?.insertion_allowed(target))
 			return
-		M.forceMove(src)
+		target.forceMove(src)
 		return PROJECTILE_PIERCE_PHASE
 
-/obj/projectile/magic/locker/on_hit(target)
+/obj/projectile/magic/locker/on_hit(atom/target, blocked = 0, pierce_hit)
 	if(created)
 		return ..()
 	if(LAZYLEN(contents))
@@ -435,7 +261,7 @@
 		for(var/atom/movable/AM in contents)
 			locker_temp_instance.insert(AM)
 		locker_temp_instance.welded = weld
-		locker_temp_instance.update_icon()
+		locker_temp_instance.update_appearance()
 	created = TRUE
 	return ..()
 
@@ -450,6 +276,7 @@
 	breakout_time = 600
 	icon_welded = null
 	icon_state = "cursed"
+	paint_jobs = null
 	var/weakened_icon = "decursed"
 	var/auto_destroy = TRUE
 
@@ -458,99 +285,83 @@
 	if(auto_destroy)
 		addtimer(CALLBACK(src, PROC_REF(bust_open)), 5 MINUTES)
 
+/obj/structure/closet/decay/after_open(mob/living/user, force)
+	. = ..()
+	unmagify()
+
 /obj/structure/closet/decay/after_weld(weld_state)
 	if(weld_state)
-		unmagify()
-
-///Fade away into nothing
-/obj/structure/closet/decay/proc/decay()
-	animate(src, alpha = 0, time = 30)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), 30)
-
-/obj/structure/closet/decay/open(mob/living/user, force = FALSE)
-	. = ..()
-	if(.)
 		unmagify()
 
 ///Give it the lesser magic icon and tell it to delete itself
 /obj/structure/closet/decay/proc/unmagify()
 	icon_state = weakened_icon
-	update_icon()
+	update_appearance()
 
 	addtimer(CALLBACK(src, PROC_REF(decay)), 15 SECONDS)
 
+///Fade away into nothing
+/obj/structure/closet/decay/proc/decay()
+	animate(src, alpha = 0, time = 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(decay_finished)), 3 SECONDS)
+
+/obj/structure/closet/decay/proc/decay_finished()
+	dump_contents()
+	qdel(src)
+
 /obj/projectile/magic/flying
-	name = "заряд полёта"
+	name = "bolt of flying"
 	icon_state = "flight"
 
-/obj/projectile/magic/flying/on_hit(target)
+/obj/projectile/magic/flying/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(isliving(target))
-		var/mob/living/L = target
-		if(L.anti_magic_check())
-			L.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			return BULLET_ACT_BLOCK
-		var/atom/throw_target = get_edge_target_turf(L, angle2dir(Angle))
-		L.throw_at(throw_target, 200, 4)
+		var/atom/throw_target = get_edge_target_turf(target, angle2dir(Angle))
+		target.throw_at(throw_target, 200, 4)
 
 /obj/projectile/magic/bounty
-	name = "заряд награды"
+	name = "bolt of bounty"
 	icon_state = "bounty"
 
-/obj/projectile/magic/bounty/on_hit(target)
+/obj/projectile/magic/bounty/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(isliving(target))
-		var/mob/living/L = target
-		if(L.anti_magic_check() || !firer)
-			L.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			return BULLET_ACT_BLOCK
-		L.apply_status_effect(STATUS_EFFECT_BOUNTY, firer)
+		target.apply_status_effect(/datum/status_effect/bounty, firer)
 
 /obj/projectile/magic/antimagic
-	name = "заряд антимагии"
+	name = "bolt of antimagic"
 	icon_state = "antimagic"
 
-/obj/projectile/magic/antimagic/on_hit(target)
+/obj/projectile/magic/antimagic/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(isliving(target))
-		var/mob/living/L = target
-		if(L.anti_magic_check())
-			L.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			return BULLET_ACT_BLOCK
-		L.apply_status_effect(STATUS_EFFECT_ANTIMAGIC)
+	if(istype(target))
+		target.apply_status_effect(/datum/status_effect/song/antimagic)
 
 /obj/projectile/magic/fetch
-	name = "заряд извлечения"
+	name = "bolt of fetching"
 	icon_state = "fetch"
 
-/obj/projectile/magic/fetch/on_hit(target)
+/obj/projectile/magic/fetch/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(isliving(target))
-		var/mob/living/L = target
-		if(L.anti_magic_check() || !firer)
-			L.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			return BULLET_ACT_BLOCK
-		var/atom/throw_target = get_edge_target_turf(L, get_dir(L, firer))
-		L.throw_at(throw_target, 200, 4)
+		var/atom/throw_target = get_edge_target_turf(target, get_dir(target, firer))
+		target.throw_at(throw_target, 200, 4)
 
-/obj/projectile/magic/sapping
-	name = "заряд иссушения"
-	icon_state = "sapping"
+/obj/projectile/magic/babel
+	name = "bolt of babel"
+	icon_state = "babel"
 
-/obj/projectile/magic/sapping/on_hit(target)
+/obj/projectile/magic/babel/on_hit(mob/living/carbon/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(ismob(target))
-		var/mob/M = target
-		if(M.anti_magic_check())
-			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			return BULLET_ACT_BLOCK
-		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, src, /datum/mood_event/sapped)
+	if(iscarbon(target))
+		if(curse_of_babel(target))
+			target.add_mood_event("curse_of_babel", /datum/mood_event/tower_of_babel)
 
 /obj/projectile/magic/necropotence
-	name = "заряд некротической силы"
+	name = "bolt of necropotence"
 	icon_state = "necropotence"
 
-/obj/projectile/magic/necropotence/on_hit(mob/living/target)
+/obj/projectile/magic/necropotence/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(!isliving(target))
 		return
@@ -564,52 +375,49 @@
 	qdel(tap)
 
 /obj/projectile/magic/wipe
-	name = "заряд одержимости"
+	name = "bolt of possession"
 	icon_state = "wipe"
 
-/obj/projectile/magic/wipe/on_hit(target)
+/obj/projectile/magic/wipe/on_hit(mob/living/carbon/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iscarbon(target))
-		var/mob/living/carbon/M = target
-		if(M.anti_magic_check())
-			M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			return BULLET_ACT_BLOCK
-		for(var/x in M.get_traumas())//checks to see if the victim is already going through possession
+		for(var/x in target.get_traumas())//checks to see if the victim is already going through possession
 			if(istype(x, /datum/brain_trauma/special/imaginary_friend/trapped_owner))
-				M.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
+				target.visible_message(span_warning("[src] vanishes on contact with [target]!"))
 				return BULLET_ACT_BLOCK
-		to_chat(M, span_warning("Мой разум открыт для любого желающего!"))
-		possession_test(M)
+		to_chat(target, span_warning("Your mind has been opened to possession!"))
+		possession_test(target)
 		return BULLET_ACT_HIT
 
-/obj/projectile/magic/wipe/proc/possession_test(mob/living/carbon/M)
-	var/datum/brain_trauma/special/imaginary_friend/trapped_owner/trauma = M.gain_trauma(/datum/brain_trauma/special/imaginary_friend/trapped_owner)
-	var/poll_message = "Хотите быть [M.real_name]?"
-	if(M.mind && M.mind.assigned_role)
-		poll_message = "[poll_message] Профессия:[M.mind.assigned_role]."
-	if(M.mind && M.mind.special_role)
-		poll_message = "[poll_message] Статус:[M.mind.special_role]."
-	else if(M.mind)
-		var/datum/antagonist/A = M.mind.has_antag_datum(/datum/antagonist/)
+/obj/projectile/magic/wipe/proc/possession_test(mob/living/carbon/target)
+	var/datum/brain_trauma/special/imaginary_friend/trapped_owner/trauma = target.gain_trauma(/datum/brain_trauma/special/imaginary_friend/trapped_owner)
+	var/poll_message = "Do you want to play as [target.real_name]?"
+	if(target.mind)
+		poll_message = "[poll_message] Job:[target.mind.assigned_role.title]."
+	if(target.mind && target.mind.special_role)
+		poll_message = "[poll_message] Status:[target.mind.special_role]."
+	else if(target.mind)
+		var/datum/antagonist/A = target.mind.has_antag_datum(/datum/antagonist/)
 		if(A)
-			poll_message = "[poll_message] Статус:[A.name]."
-	var/list/mob/dead/observer/candidates = poll_candidates_for_mob(poll_message, ROLE_PAI, null, 100, M)
-	if(M.stat == DEAD)//boo.
+			poll_message = "[poll_message] Status:[A.name]."
+	var/list/mob/dead/observer/candidates = poll_candidates_for_mob(poll_message, ROLE_PAI, FALSE, 10 SECONDS, target)
+	if(target.stat == DEAD)//boo.
 		return
 	if(LAZYLEN(candidates))
-		var/mob/dead/observer/C = pick(candidates)
-		to_chat(M, span_boldnotice("Был замечен призраком, и он овладел мною!"))
-		var/oldkey = M.key
-		M.ghostize(0)
-		M.key = C.key
+		var/mob/dead/observer/ghost = pick(candidates)
+		to_chat(target, span_boldnotice("You have been noticed by a ghost and it has possessed you!"))
+		var/oldkey = target.key
+		target.ghostize(FALSE)
+		target.key = ghost.key
 		trauma.friend.key = oldkey
 		trauma.friend.reset_perspective(null)
 		trauma.friend.Show()
 		trauma.friend_initialized = TRUE
 	else
-		to_chat(M, span_notice("Мой разум сумел остаться незамеченным в духовном мире."))
+		to_chat(target, span_notice("Your mind has managed to go unnoticed in the spirit world."))
 		qdel(trauma)
 
+/// Gives magic projectiles an area of effect radius that will bump into any nearby mobs
 /obj/projectile/magic/aoe
 	damage = 0
 
@@ -623,9 +431,9 @@
 	/// The duration of the trail before deleting.
 	var/trail_lifespan = 0 SECONDS
 	/// The icon the trail uses.
-	var/trail_icon = 'icons/obj/wizard.dmi'
+	var/trail_icon = 'icons/effects/magic.dmi'
 	/// The icon state the trail uses.
-	var/trail_icon_state = "trail"
+	var/trail_icon_state = "arrow"
 
 /obj/projectile/magic/aoe/Range()
 	if(trigger_range >= 1)
@@ -639,86 +447,101 @@
 
 	return ..()
 
+/obj/projectile/magic/aoe/can_hit_target(atom/target, list/passthrough, direct_target = FALSE, ignore_loc = FALSE)
+	if(can_only_hit_target && target != original)
+		return FALSE
+	return ..()
+
+/obj/projectile/magic/aoe/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
+	. = ..()
+	if(trail)
+		create_trail()
+
+/// Creates and handles the trail that follows the projectile.
+/obj/projectile/magic/aoe/proc/create_trail()
+	if(!trajectory)
+		return
+
+	var/datum/point/vector/previous = trajectory.return_vector_after_increments(1, -1)
+	var/obj/effect/overlay/trail = new /obj/effect/overlay(previous.return_turf())
+	trail.pixel_x = previous.return_px()
+	trail.pixel_y = previous.return_py()
+	trail.icon = trail_icon
+	trail.icon_state = trail_icon_state
+	//might be changed to temp overlay
+	trail.set_density(FALSE)
+	trail.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	QDEL_IN(trail, trail_lifespan)
+
 /obj/projectile/magic/aoe/lightning
-	name = "заряд молнии"
-	icon_state = "tesla_projectile"	//Better sprites are REALLY needed and appreciated!~
+	name = "lightning bolt"
+	icon_state = "tesla_projectile" //Better sprites are REALLY needed and appreciated!~
 	damage = 15
 	damage_type = BURN
-	nodamage = FALSE
 	speed = 0.3
-	flag = MAGIC
 
-	var/zap_power = 20000
+	/// The power of the zap itself when it electrocutes someone
+	var/zap_power = 8e6
+	/// The range of the zap itself when it electrocutes someone
 	var/zap_range = 15
+	/// The flags of the zap itself when it electrocutes someone
 	var/zap_flags = ZAP_MOB_DAMAGE | ZAP_MOB_STUN | ZAP_OBJ_DAMAGE | ZAP_LOW_POWER_GEN
-	var/chain
-	var/mob/living/caster
+	/// A reference to the chain beam between the caster and the projectile
+	var/datum/beam/chain
 
 /obj/projectile/magic/aoe/lightning/fire(setAngle)
-	if(caster)
-		chain = caster.Beam(src, icon_state = "lightning[rand(1, 12)]")
-	..()
+	if(firer)
+		chain = firer.Beam(src, icon_state = "lightning[rand(1, 12)]")
+	return ..()
 
-/obj/projectile/magic/aoe/lightning/on_hit(target)
+/obj/projectile/magic/aoe/lightning/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(ismob(target))
-		var/mob/M = target
-		if(M.anti_magic_check())
-			visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			qdel(src)
-			return BULLET_ACT_BLOCK
 	tesla_zap(src, zap_range, zap_power, zap_flags)
-	qdel(src)
-
-/obj/projectile/magic/aoe/lightning/no_zap
-	zap_power = 10000
-	zap_range = 4
-	zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE
 
 /obj/projectile/magic/aoe/lightning/Destroy()
-	qdel(chain)
-	. = ..()
+	QDEL_NULL(chain)
+	return ..()
+
+/obj/projectile/magic/aoe/lightning/no_zap
+	zap_power = 4e6
+	zap_range = 4
+	zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_LOW_POWER_GEN
 
 /obj/projectile/magic/fireball
-	name = "огненный шар"
+	name = "bolt of fireball"
 	icon_state = "fireball"
 	damage = 10
 	damage_type = BRUTE
-	nodamage = FALSE
 
-	//explosion values
+	/// Heavy explosion range of the fireball
 	var/exp_heavy = 0
+	/// Light explosion range of the fireball
 	var/exp_light = 2
-	var/exp_flash = 3
+	/// Fire radius of the fireball
 	var/exp_fire = 2
+	/// Flash radius of the fireball
+	var/exp_flash = 3
 
-/obj/projectile/magic/fireball/infernal
-	name = "infernal fireball"
-	exp_heavy = -1
-	exp_light = -1
-	exp_flash = 4
-	exp_fire= 5
-
-/obj/projectile/magic/fireball/infernal/on_hit(target)
+/obj/projectile/magic/fireball/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(ismob(target))
-		var/mob/living/M = target
-		if(M.anti_magic_check())
-			return BULLET_ACT_BLOCK
-	var/turf/T = get_turf(target)
-	for(var/i=0, i<50, i+=10)
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(explosion), T, -1, exp_heavy, exp_light, exp_flash, FALSE, FALSE, exp_fire), i)
+	if(isliving(target))
+		var/mob/living/mob_target = target
+		// between this 10 burn, the 10 brute, the explosion brute, and the onfire burn,
+		// you are at about 65 damage if you stop drop and roll immediately
+		mob_target.take_overall_damage(burn = 10)
 
-/obj/projectile/magic/fireball/on_hit(target)
-	. = ..()
-	if(ismob(target))
-		var/mob/living/M = target
-		if(M.anti_magic_check())
-			visible_message(span_warning("[capitalize(src.name)] затухает при контакте с [target]!"))
-			return BULLET_ACT_BLOCK
-		M.take_overall_damage(0,10) //between this 10 burn, the 10 brute, the explosion brute, and the onfire burn, your at about 65 damage if you stop drop and roll immediately
-	var/turf/T = get_turf(target)
-	explosion(T, devastation_range = -1, heavy_impact_range = exp_heavy, light_impact_range = exp_light, flame_range = exp_fire, flash_range = exp_flash, adminlog = FALSE, explosion_cause = src)
+	var/turf/target_turf = get_turf(target)
+
+	explosion(
+		target_turf,
+		devastation_range = -1,
+		heavy_impact_range = exp_heavy,
+		light_impact_range = exp_light,
+		flame_range = exp_fire,
+		flash_range = exp_flash,
+		adminlog = FALSE,
+		explosion_cause = src,
+	)
 
 /obj/projectile/magic/aoe/magic_missile
 	name = "magic missile"
@@ -728,7 +551,6 @@
 	pixel_speed_multiplier = 0.2
 	trigger_range = 0
 	can_only_hit_target = TRUE
-	nodamage = FALSE
 	paralyze = 6 SECONDS
 	hitsound = 'sound/magic/mm_hit.ogg'
 
@@ -750,12 +572,12 @@
 	hitsound = 'sound/weapons/punch3.ogg'
 	trigger_range = 0
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
-	ignored_factions = list("cult")
+	ignored_factions = list(FACTION_CULT)
 	range = 105
 	speed = 1
 	pixel_speed_multiplier = 1/7
 
-/obj/projectile/magic/spell/juggernaut/on_hit(atom/target, blocked)
+/obj/projectile/magic/aoe/juggernaut/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	var/turf/target_turf = get_turf(src)
 	playsound(target_turf, 'sound/weapons/resonator_blast.ogg', 100, FALSE)
@@ -772,17 +594,14 @@
 //still magic related, but a different path
 
 /obj/projectile/temp/chill
-	name = "заряд озноба"
+	name = "bolt of chills"
 	icon_state = "ice_2"
-	damage = 0
 	damage_type = BURN
-	nodamage = FALSE
 	armour_penetration = 100
 	temperature = -200 // Cools you down greatly per hit
-	flag = MAGIC
 
 /obj/projectile/magic/nothing
-	name = "заряд пустоты"
+	name = "bolt of nothing"
 
 /obj/projectile/magic/spellcard
 	name = "enchanted card"
@@ -790,5 +609,4 @@
 	icon_state = "spellcard"
 	damage_type = BURN
 	damage = 2
-	nodamage = FALSE
 	antimagic_charge_cost = 0 // since the cards gets spammed like a shotgun

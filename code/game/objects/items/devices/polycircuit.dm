@@ -6,28 +6,29 @@
 	w_class = WEIGHT_CLASS_TINY
 	max_amount = 8
 	merge_type = /obj/item/stack/circuit_stack
+	singular_name = "circuit aggregate"
 	var/circuit_type = /obj/item/electronics/airlock
 	var/chosen_circuit = "airlock"
 
 /obj/item/stack/circuit_stack/attack_self(mob/user)// Prevents the crafting menu, and tells you how to use it.
 	to_chat(user, span_warning("You can't use [src] by itself, you'll have to try and remove one of these circuits by hand... carefully."))
 
-/obj/item/stack/circuit_stack/attack_hand(mob/user)
+/obj/item/stack/circuit_stack/attack_hand(mob/user, list/modifiers)
 	var/mob/living/carbon/human/H = user
 	if(user.get_inactive_held_item() != src)
 		return ..()
 	else
-		if(is_zero_amount())
+		if(is_zero_amount(delete_if_zero = TRUE))
 			return
-		chosen_circuit = tgui_input_list(usr, "What type of circuit would you like to remove?", "Choose a Circuit Type", list("airlock","firelock","fire alarm","air alarm","APC","cancel"), chosen_circuit)
-		if(is_zero_amount())
+		chosen_circuit = tgui_input_list(user, "Circuit to remove", "Circuit Removal", list("airlock","firelock","fire alarm","air alarm","APC"), chosen_circuit)
+		if(isnull(chosen_circuit))
+			to_chat(user, span_notice("You wisely avoid putting your hands anywhere near [src]."))
+			return
+		if(is_zero_amount(delete_if_zero = TRUE))
 			return
 		if(loc != user)
 			return
 		switch(chosen_circuit)
-			if("cancel")
-				to_chat(user, span_notice("You wisely avoid putting your hands anywhere near [src]."))
-				return
 			if("airlock")
 				circuit_type = /obj/item/electronics/airlock
 			if("firelock")
@@ -50,8 +51,8 @@
 			else
 				to_chat(user, span_notice("You navigate the sharp edges of circuitry and remove a single board from [src]"))
 		else
-			H.apply_damage(15, BRUTE, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
-			to_chat(user, span_warning("You give yourself a wicked cut on [src] many sharp corners and edges!"))
+			H.apply_damage(15, BRUTE, pick(GLOB.arm_zones))
+			to_chat(user, span_warning("You give yourself a wicked cut on [src]'s many sharp corners and edges!"))
 
 /obj/item/stack/circuit_stack/full
 	amount = 8

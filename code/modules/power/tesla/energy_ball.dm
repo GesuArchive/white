@@ -1,5 +1,5 @@
-#define TESLA_DEFAULT_POWER 2172825
-#define TESLA_MINI_POWER 1086412
+#define TESLA_DEFAULT_POWER 6.95304e8
+#define TESLA_MINI_POWER 3.47652e8
 //Zap constants, speeds up targeting
 #define BIKE (COIL + 1)
 #define COIL (ROD + 1)
@@ -12,15 +12,15 @@
 
 /// The Tesla engine
 /obj/energy_ball
-	name = "шаровая молния"
-	desc = "Кругленький."
-	icon = 'icons/obj/tesla_engine/energy_ball.dmi'
+	name = "energy ball"
+	desc = "An energy ball."
+	icon = 'icons/obj/machines/engine/energy_ball.dmi'
 	icon_state = "energy_ball"
 	anchored = TRUE
 	appearance_flags = LONG_GLIDE
 	density = TRUE
 	plane = MASSIVE_OBJ_PLANE
-	layer = SINGULARITY_LAYER
+	plane = ABOVE_LIGHTING_PLANE
 	light_range = 6
 	move_resist = INFINITY
 	obj_flags = CAN_BE_HIT | DANGEROUS_POSSESSION
@@ -38,9 +38,6 @@
 	var/energy_to_lower = -20
 	var/list/shocked_things = list()
 
-	var/atom/movable/singularity_effect/singulo_effect
-	var/atom/movable/singularity_lens/singulo_lens
-
 /obj/energy_ball/Initialize(mapload, starting_energy = 50, is_miniball = FALSE)
 	. = ..()
 
@@ -53,17 +50,12 @@
 
 		var/turf/spawned_turf = get_turf(src)
 		message_admins("A tesla has been created at [ADMIN_VERBOSEJMP(spawned_turf)].")
-		investigate_log("(tesla) was created at [AREACOORD(spawned_turf)].", INVESTIGATE_SINGULO)
-
-	update_icon(STAGE_ONE)
+		investigate_log("was created at [AREACOORD(spawned_turf)].", INVESTIGATE_ENGINE)
 
 /obj/energy_ball/Destroy()
 	if(orbiting && istype(orbiting.parent, /obj/energy_ball))
 		var/obj/energy_ball/parent_energy_ball = orbiting.parent
 		parent_energy_ball.orbiting_balls -= src
-
-	vis_contents -= singulo_effect
-	QDEL_NULL(singulo_effect)
 
 	QDEL_LIST(orbiting_balls)
 	STOP_PROCESSING(SSobj, src)
@@ -78,13 +70,13 @@
 
 		move(4 + orbiting_balls.len * 1.5)
 
-		playsound(src.loc, 'sound/magic/lightningbolt.ogg', 50, TRUE, extrarange = 10)
+		playsound(src.loc, 'sound/magic/lightningbolt.ogg', 100, TRUE, extrarange = 30)
 
 		pixel_x = 0
 		pixel_y = 0
 		shocked_things.Cut(1, shocked_things.len / 1.3)
 		var/list/shocking_info = list()
-		tesla_zap(src, 7, TESLA_DEFAULT_POWER, zap_flags = ZAP_TESLA_FLAGS, shocked_targets = shocking_info)
+		tesla_zap(src, 3, TESLA_DEFAULT_POWER, shocked_targets = shocking_info)
 
 		pixel_x = -32
 		pixel_y = -32
@@ -92,14 +84,14 @@
 			var/range = rand(1, clamp(orbiting_balls.len, 2, 3))
 			var/list/temp_shock = list()
 			//We zap off the main ball instead of ourselves to make things looks proper
-			tesla_zap(src, range, TESLA_MINI_POWER/7*range, zap_flags = ZAP_TESLA_FLAGS, shocked_targets = temp_shock)
+			tesla_zap(src, range, TESLA_MINI_POWER/7*range, shocked_targets = temp_shock)
 			shocking_info += temp_shock
 		shocked_things += shocking_info
 
 /obj/energy_ball/examine(mob/user)
 	. = ..()
 	if(orbiting_balls.len)
-		. += "\nМать моя! Здесь уже [orbiting_balls.len] мини-шаров."
+		. += "There are [orbiting_balls.len] mini-balls orbiting it."
 
 /obj/energy_ball/proc/move(move_amount)
 	var/list/dirs = GLOB.alldirs.Copy()
@@ -113,8 +105,6 @@
 			move_dir = get_dir(src, target)
 		var/turf/turf_to_move = get_step(src, move_dir)
 		if (can_move(turf_to_move))
-			if (!locate(/obj/effect/shield) in get_turf(src))
-				GLOB.is_engine_sabotaged = TRUE //я к этому решению слишком долго приходил
 			forceMove(turf_to_move)
 			setDir(move_dir)
 			for (var/mob/living/carbon/mob_to_dust in loc)
@@ -156,11 +146,10 @@
 	)
 
 	miniball.transform *= pick(0.3, 0.4, 0.5, 0.6, 0.7)
-	var/icon/I = icon(icon, icon_state,dir)
+	var/list/icon_dimensions = get_icon_dimensions(icon)
 
-	var/orbitsize = (I.Width() + I.Height()) * pick(0.4, 0.5, 0.6, 0.7, 0.8)
+	var/orbitsize = (icon_dimensions["width"] + icon_dimensions["height"]) * pick(0.4, 0.5, 0.6, 0.7, 0.8)
 	orbitsize -= (orbitsize / world.icon_size) * (world.icon_size * 0.25)
-
 	miniball.orbit(src, orbitsize, pick(FALSE, TRUE), rand(10, 25), pick(3, 4, 5, 6, 36))
 
 /obj/energy_ball/Bump(atom/A)
@@ -173,11 +162,12 @@
 	if(!iscarbon(user))
 		return
 	var/mob/living/carbon/jedi = user
-	to_chat(jedi, span_userdanger("Шокирующе-глупая идея."))
-	var/obj/item/organ/brain/rip_u = locate(/obj/item/organ/brain) in jedi.internal_organs
+	to_chat(jedi, span_userdanger("That was a shockingly dumb idea."))
+	var/obj/item/organ/internal/brain/rip_u = locate(/obj/item/organ/internal/brain) in jedi.organs
 	jedi.ghostize(jedi)
 	if(rip_u)
 		qdel(rip_u)
+	jedi.investigate_log("had [jedi.p_their()] brain dusted by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
 	jedi.death()
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
@@ -202,39 +192,20 @@
 			return
 	if(!iscarbon(A))
 		return
-	for(var/obj/machinery/power/grounding_rod/GR in orange(src, 2))
+	for(var/obj/machinery/power/energy_accumulator/grounding_rod/GR in orange(src, 2))
 		if(GR.anchored)
 			return
 	var/mob/living/carbon/C = A
+	C.investigate_log("has been dusted by an energy ball.", INVESTIGATE_DEATHS)
 	C.dust()
 
-/obj/energy_ball/update_icon(stage)
-	. = ..()
-
-	if(!singulo_effect)
-		singulo_effect = new(src)
-		singulo_effect.transform = matrix().Scale(1.25)
-		vis_contents += singulo_effect
-
-	if(!singulo_lens)
-		singulo_lens = new(src)
-		singulo_lens.transform = matrix().Scale(0.2)
-		singulo_lens.pixel_x = -96
-		singulo_lens.pixel_y = -96
-		vis_contents += singulo_lens
-
-	singulo_effect.icon = icon
-	singulo_effect.icon_state = icon_state
-
-	singulo_lens.icon_state = "gravitational_anti_lens"
-
-/proc/tesla_zap(atom/source, zap_range = 3, power, zap_flags = ZAP_DEFAULT_FLAGS, list/shocked_targets = list())
+/proc/tesla_zap(atom/source, zap_range = 3, power, cutoff = 4e5, zap_flags = ZAP_DEFAULT_FLAGS, list/shocked_targets = list())
 	if(QDELETED(source))
 		return
 	if(!(zap_flags & ZAP_ALLOW_DUPLICATES))
 		LAZYSET(shocked_targets, source, TRUE) //I don't want no null refs in my list yeah?
 	. = source.dir
-	if(power < 1000)
+	if(power < cutoff)
 		return
 
 	/*
@@ -242,31 +213,30 @@
 	*/
 	var/atom/closest_atom
 	var/closest_type = 0
-	var/static/things_to_shock = typecacheof(list(/obj/machinery, /mob/living, /obj/structure, /obj/vehicle/ridden))
-	var/static/blacklisted_tesla_types = typecacheof(list(/obj/machinery/atmospherics,
-										/obj/machinery/portable_atmospherics,
-										/obj/machinery/power/emitter,
-										/obj/machinery/field/generator,
-										/obj/machinery/power/generator,
-										/obj/machinery/atmospherics/components/binary/circulator,
-										/mob/living/simple_animal,
-										/obj/machinery/particle_accelerator/control_box,
-										/obj/structure/particle_accelerator/fuel_chamber,
-										/obj/structure/particle_accelerator/particle_emitter/center,
-										/obj/structure/particle_accelerator/particle_emitter/left,
-										/obj/structure/particle_accelerator/particle_emitter/right,
-										/obj/structure/particle_accelerator/power_box,
-										/obj/structure/particle_accelerator/end_cap,
-										/obj/machinery/field/containment,
-										/obj/structure/disposalpipe,
-										/obj/structure/disposaloutlet,
-										/obj/machinery/disposal/delivery_chute,
-										/obj/machinery/camera,
-										/obj/structure/sign,
-										/obj/machinery/gateway,
-										/obj/structure/lattice,
-										/obj/structure/grille,
-										/obj/structure/frame/machine))
+	var/static/list/things_to_shock = zebra_typecacheof(list(
+		// Things that we want to shock.
+		/obj/machinery = TRUE,
+		/mob/living = TRUE,
+		/obj/structure = TRUE,
+		/obj/vehicle/ridden = TRUE,
+
+		// Things that we don't want to shock.
+		/obj/machinery/atmospherics = FALSE,
+		/obj/machinery/portable_atmospherics = FALSE,
+		/obj/machinery/power/emitter = FALSE,
+		/obj/machinery/field/generator = FALSE,
+		/obj/machinery/field/containment = FALSE,
+		/obj/machinery/camera = FALSE,
+		/obj/machinery/gateway = FALSE,
+		/mob/living/simple_animal = FALSE,
+		/obj/structure/disposalpipe = FALSE,
+		/obj/structure/disposaloutlet = FALSE,
+		/obj/machinery/disposal/delivery_chute = FALSE,
+		/obj/structure/sign = FALSE,
+		/obj/structure/lattice = FALSE,
+		/obj/structure/grille = FALSE,
+		/obj/structure/frame/machine = FALSE,
+	))
 
 	//Ok so we are making an assumption here. We assume that view() still calculates from the center out.
 	//This means that if we find an object we can assume it is the closest one of its type. This is somewhat of a speed increase.
@@ -274,10 +244,11 @@
 
 	//Darkness fucks oview up hard. I've tried dview() but it doesn't seem to work
 	//I hate existance
-	for(var/a in typecache_filter_multi_list_exclusion(oview(zap_range+2, source), things_to_shock, blacklisted_tesla_types))
-		var/atom/A = a
+	for(var/atom/A as anything in typecache_filter_list(oview(zap_range+2, source), things_to_shock))
 		if(!(zap_flags & ZAP_ALLOW_DUPLICATES) && LAZYACCESS(shocked_targets, A))
 			continue
+		// NOTE: these type checks are safe because CURRENTLY the range family of procs returns turfs in least to greatest distance order
+		// This is unspecified behavior tho, so if it ever starts acting up just remove these optimizations and include a distance check
 		if(closest_type >= BIKE)
 			break
 
@@ -292,7 +263,7 @@
 		else if(closest_type >= COIL)
 			continue //no need checking these other things
 
-		else if(istype(A, /obj/machinery/power/tesla_coil))
+		else if(istype(A, /obj/machinery/power/energy_accumulator/tesla_coil))
 			if(!HAS_TRAIT(A, TRAIT_BEING_SHOCKED))
 				closest_type = COIL
 				closest_atom = A
@@ -300,7 +271,7 @@
 		else if(closest_type >= ROD)
 			continue
 
-		else if(istype(A, /obj/machinery/power/grounding_rod))
+		else if(istype(A, /obj/machinery/power/energy_accumulator/grounding_rod))
 			closest_type = ROD
 			closest_atom = A
 
@@ -363,7 +334,7 @@
 		var/mob/living/closest_mob = closest_atom
 		ADD_TRAIT(closest_mob, TRAIT_BEING_SHOCKED, WAS_SHOCKED)
 		addtimer(TRAIT_CALLBACK_REMOVE(closest_mob, TRAIT_BEING_SHOCKED, WAS_SHOCKED), 1 SECONDS)
-		var/shock_damage = (zap_flags & ZAP_MOB_DAMAGE) ? (min(round(power/600), 90) + rand(-5, 5)) : 0
+		var/shock_damage = (zap_flags & ZAP_MOB_DAMAGE) ? (min(round(power/2.4e5), 90) + rand(-5, 5)) : 0
 		closest_mob.electrocute_act(shock_damage, source, 1, SHOCK_TESLA | ((zap_flags & ZAP_MOB_STUN) ? NONE : SHOCK_NOSTUN))
 		if(issilicon(closest_mob))
 			var/mob/living/silicon/S = closest_mob
@@ -376,6 +347,7 @@
 
 	else
 		power = closest_atom.zap_act(power, zap_flags)
+
 	if(prob(20))//I know I know
 		var/list/shocked_copy = shocked_targets.Copy()
 		tesla_zap(closest_atom, next_range, power * 0.5, zap_flags, shocked_copy)//Normally I'd copy here so grounding rods work properly, but it fucks with movement
@@ -392,3 +364,6 @@
 #undef MACHINERY
 #undef BLOB
 #undef STRUCTURE
+
+#undef TESLA_DEFAULT_POWER
+#undef TESLA_MINI_POWER

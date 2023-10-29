@@ -2,159 +2,174 @@
 //Hat Station 13
 
 /obj/item/clothing/head/collectable
-	name = "коллекционная шляпа"
-	desc = "Редкая коллекционная шляпа."
+	name = "collectable hat"
+	desc = "A rare collectable hat."
+	icon = 'icons/obj/clothing/head/costume.dmi'
+	worn_icon = 'icons/mob/clothing/head/costume.dmi'
 	icon_state = null
 
+/obj/item/clothing/head/collectable/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/series, /obj/item/clothing/head/collectable, "Super duper collectable hats")
+
 /obj/item/clothing/head/collectable/petehat
-	name = "супер редкая шляпа Пита!"
-	desc = "Пахнет плазмой."
+	name = "ultra rare Pete's hat!"
+	desc = "It smells faintly of plasma."
 	icon_state = "petehat"
 
 /obj/item/clothing/head/collectable/xenom
-	name = "коллекционный шлем ксеноморфа!"
-	desc = "Хисс хисс хисс!"
+	name = "collectable xenomorph helmet!"
+	desc = "Hiss hiss hiss!"
 	clothing_flags = SNUG_FIT
 	icon_state = "xenom"
 
 /obj/item/clothing/head/collectable/chef
-	name = "коллекционная шапочка шэф-повара"
-	desc = "Редкий поварской колпак, предназначенный для коллекционеров колпаков!"
+	name = "collectable chef's hat"
+	desc = "A rare chef's hat meant for hat collectors!"
+	icon = 'icons/obj/clothing/head/utility.dmi'
+	worn_icon = 'icons/mob/clothing/head/utility.dmi'
 	icon_state = "chef"
-	inhand_icon_state = "chef"
-	dynamic_hair_suffix = ""
-
+	inhand_icon_state = "chefhat"
 	dog_fashion = /datum/dog_fashion/head/chef
 
 /obj/item/clothing/head/collectable/paper
-	name = "коллекционная бумажная шляпа"
-	desc = "То, что выглядит как обычная бумажная шапка, на самом деле является редкой и ценной коллекционной бумажной шапкой. Держитесь подальше от воды, огня и кураторов."
+	name = "collectable paper hat"
+	desc = "What looks like an ordinary paper hat is actually a rare and valuable collector's edition paper hat. Keep away from water, fire, and Curators."
+	worn_icon = 'icons/mob/clothing/head/costume.dmi'
 	icon_state = "paper"
-
 	dog_fashion = /datum/dog_fashion/head
 
 /obj/item/clothing/head/collectable/tophat
-	name = "коллекционная топ-шляпа"
-	desc = "Верхнюю шляпу носят только самые престижные коллекционеры шляп."
+	name = "collectable top hat"
+	desc = "A top hat worn by only the most prestigious hat collectors."
+	icon = 'icons/obj/clothing/head/hats.dmi'
+	worn_icon = 'icons/mob/clothing/head/hats.dmi'
 	icon_state = "tophat"
 	inhand_icon_state = "that"
 
 /obj/item/clothing/head/collectable/captain
-	name = "коллекционная капитанская шляпа"
-	desc = "Коллекционная шляпа, которая заставит вас выглядеть как настоящий комдом!"
+	name = "collectable captain's hat"
+	desc = "A collectable hat that'll make you look just like a real comdom!"
+	icon = 'icons/obj/clothing/head/hats.dmi'
+	worn_icon = 'icons/mob/clothing/head/hats.dmi'
 	icon_state = "captain"
-	inhand_icon_state = "caphat"
-
+	inhand_icon_state = null
 	dog_fashion = /datum/dog_fashion/head/captain
 
 /obj/item/clothing/head/collectable/police
-	name = "коллекционная шляпа офицера полиции"
-	desc = "Коллекционная полицейская шляпа. Эта шляпа подчеркивает, что ты - ЗАКОН."
+	name = "collectable police officer's hat"
+	desc = "A collectable police officer's Hat. This hat emphasizes that you are THE LAW."
+	icon = 'icons/obj/clothing/head/hats.dmi'
+	worn_icon = 'icons/mob/clothing/head/hats.dmi'
 	icon_state = "policehelm"
-	dynamic_hair_suffix = ""
-
 	dog_fashion = /datum/dog_fashion/head/warden
 
 /obj/item/clothing/head/collectable/beret
-	name = "коллекционный берет"
-	desc = "Коллекционный красный берет. Пахнет чуть-чуть чесноком."
+	name = "collectable beret"
+	desc = "A collectable red beret. It smells faintly of garlic."
 	icon_state = "beret"
 	greyscale_config = /datum/greyscale_config/beret
 	greyscale_config_worn = /datum/greyscale_config/beret/worn
 	greyscale_colors = "#972A2A"
-
 	dog_fashion = /datum/dog_fashion/head/beret
 
 /obj/item/clothing/head/collectable/welding
-	name = "коллекционный сварочный шлем"
-	desc = "Коллекционный сварочный шлем. Теперь на 80% меньше свинца! Не для реальной сварки. Любая сварка, выполняемая во время ношения шлема, выполняется на собственный страх и риск владельца!"
+	name = "collectable welding helmet"
+	desc = "A collectable welding helmet. Now with 80% less lead! Not for actual welding. Any welding done while wearing this helmet is done so at the owner's own risk!"
+	icon = 'icons/obj/clothing/head/utility.dmi'
+	worn_icon = 'icons/mob/clothing/head/utility.dmi'
 	icon_state = "welding"
 	inhand_icon_state = "welding"
+	lefthand_file = 'icons/mob/inhands/clothing/masks_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/masks_righthand.dmi'
 	clothing_flags = SNUG_FIT
 
 /obj/item/clothing/head/collectable/slime
-	name = "коллекционный слаймовый шлем"
-	desc = "Прямо как настоящая мозговая пуля!"
+	name = "collectable slime hat"
+	desc = "Just like a real brain slug!"
 	icon_state = "headslime"
-	inhand_icon_state = "headslime"
+	inhand_icon_state = null
 	clothing_flags = SNUG_FIT
-	dynamic_hair_suffix = ""
 
 /obj/item/clothing/head/collectable/flatcap
-	name = "коллекционный кепарик"
-	desc = "Коллекционная колпачок крестьянина!"
+	name = "collectable flat cap"
+	desc = "A collectible farmer's flat cap!"
 	icon_state = "beret_flat"
 	greyscale_config = /datum/greyscale_config/beret
 	greyscale_config_worn = /datum/greyscale_config/beret/worn
 	greyscale_colors = "#8F7654"
-	inhand_icon_state = "detective"
+	inhand_icon_state = null
 
 /obj/item/clothing/head/collectable/pirate
-	name = "коллекционная пиратская шляпа"
-	desc = "Из меня получился бы отличный Дредовый Синди Робертс!"
+	name = "collectable pirate hat"
+	desc = "You'd make a great Dread Syndie Roberts!"
 	icon_state = "pirate"
-	inhand_icon_state = "pirate"
-
+	inhand_icon_state = null
 	dog_fashion = /datum/dog_fashion/head/pirate
 
 /obj/item/clothing/head/collectable/kitty
-	name = "коллекционные котоушки"
-	desc = "Мех кажется... слишком реалистичным."
+	name = "collectable kitty ears"
+	desc = "The fur feels... a bit too realistic."
 	icon_state = "kitty"
-	inhand_icon_state = "kitty"
-	dynamic_hair_suffix = ""
-
+	inhand_icon_state = null
 	dog_fashion = /datum/dog_fashion/head/kitty
 
 /obj/item/clothing/head/collectable/rabbitears
-	name = "коллекционные кроличьи ушки"
-	desc = "Не так повезло, как ногам!"
+	name = "collectable rabbit ears"
+	desc = "Not as lucky as the feet!"
 	icon_state = "bunny"
-	inhand_icon_state = "bunny"
-	dynamic_hair_suffix = ""
-
+	inhand_icon_state = null
 	dog_fashion = /datum/dog_fashion/head/rabbit
 
 /obj/item/clothing/head/collectable/wizard
-	name = "коллекционная шляпа волшебника"
-	desc = "ПРИМЕЧАНИЕ: Любая магическая сила, полученная от ношения этой шляпы, совершенно случайна."
+	name = "collectable wizard's hat"
+	desc = "NOTE: Any magical powers gained from wearing this hat are purely coincidental."
+	icon = 'icons/obj/clothing/head/wizard.dmi'
+	worn_icon = 'icons/mob/clothing/head/wizard.dmi'
 	icon_state = "wizard"
-
 	dog_fashion = /datum/dog_fashion/head/blue_wizard
 
 /obj/item/clothing/head/collectable/hardhat
-	name = "коллекционная каска"
-	desc = "ВНИМАНИЕ! Не предлагает никакой реальной защиты, или яркости, но черт возьми, это так причудливо!"
+	name = "collectable hard hat"
+	desc = "WARNING! Offers no real protection, or luminosity, but damn, is it fancy!"
+	icon = 'icons/obj/clothing/head/utility.dmi'
+	worn_icon = 'icons/mob/clothing/head/utility.dmi'
 	clothing_flags = SNUG_FIT
 	icon_state = "hardhat0_yellow"
-	inhand_icon_state = "hardhat0_yellow"
-
+	inhand_icon_state = null
 	dog_fashion = /datum/dog_fashion/head
 
 /obj/item/clothing/head/collectable/hos
-	name = "коллекционная шляпа главы безопасности"
-	desc = "Теперь вы тоже можете бить заключенных, выносить глупые приговоры и арестовывать без всякой причины!"
+	name = "collectable HoS hat"
+	desc = "Now you too can beat prisoners, set silly sentences, and arrest for no reason!"
+	icon = 'icons/obj/clothing/head/hats.dmi'
+	worn_icon = 'icons/mob/clothing/head/hats.dmi'
 	icon_state = "hoscap"
-	dynamic_hair_suffix = ""
 
 /obj/item/clothing/head/collectable/hop
-	name = "коллекционная шляпа главы персонала"
-	desc = "Теперь ваша очередь требовать чрезмерной бумажной работы, подписей, штампов и нанимать больше клоунов! Документы, пожалуйста!"
+	name = "collectable HoP hat"
+	desc = "It's your turn to demand excessive paperwork, signatures, stamps, and hire more clowns! Papers, please!"
+	icon = 'icons/obj/clothing/head/hats.dmi'
+	worn_icon = 'icons/mob/clothing/head/hats.dmi'
 	icon_state = "hopcap"
 	dog_fashion = /datum/dog_fashion/head/hop
 
 /obj/item/clothing/head/collectable/thunderdome
-	name = "коллекционный шлем 'купола грома'"
-	desc = "НА КРАСНУЮ! Я ИМЕЛ В ВИДУ ЗЕЛЁНУЮ! Я ИМЕЛ В ВИДУ КРАСНУЮ! НЕ ЗЕЛЕНУЮ!"
+	name = "collectable Thunderdome helmet"
+	desc = "Go Red! I mean Green! I mean Red! No Green!"
+	icon = 'icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
 	icon_state = "thunderdome"
-	inhand_icon_state = "thunderdome"
+	inhand_icon_state = "thunderdome_helmet"
 	clothing_flags = SNUG_FIT
-	flags_inv = HIDEHAIR
+	flags_inv = HIDEHAIR|HIDEHAIR
 
 /obj/item/clothing/head/collectable/swat
-	name = "коллекционный шлем спецназа"
-	desc = "Это не настоящая кровь. Это красная краска." //Reference to the actual description
-	icon_state = "swat"
-	inhand_icon_state = "swat"
+	name = "collectable SWAT helmet"
+	desc = "That's not real blood. That's red paint." //Reference to the actual description
+	icon = 'icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
+	icon_state = "swatsyndie"
+	inhand_icon_state = "swatsyndie_helmet"
 	clothing_flags = SNUG_FIT
 	flags_inv = HIDEHAIR

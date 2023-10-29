@@ -1,5 +1,5 @@
 /proc/get_abductor_console(team_number)
-	for(var/obj/machinery/abductor/console/C in GLOB.machines)
+	for(var/obj/machinery/abductor/console/C as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/abductor/console))
 		if(C.team_number == team_number)
 			return C
 
@@ -15,7 +15,7 @@
 /obj/machinery/abductor/console
 	name = "abductor console"
 	desc = "Ship command center."
-	icon = 'icons/obj/abductor.dmi'
+	icon = 'icons/obj/antags/abductor.dmi'
 	icon_state = "console"
 	density = TRUE
 	var/obj/item/abductor/gizmo/gizmo
@@ -35,6 +35,21 @@
 	. = ..()
 	possible_gear = get_abductor_gear()
 
+/obj/machinery/abductor/console/Destroy()
+	if(gizmo)
+		gizmo.console = null
+		gizmo = null
+	if(experiment)
+		experiment.console = null
+		experiment = null
+	if(pad)
+		pad.console = null
+		pad = null
+	if(camera)
+		camera.console = null
+		camera = null
+	return ..()
+
 /**
  * get_abductor_gear: Returns a list of a filtered abductor gear sorted by categories
  */
@@ -47,11 +62,11 @@
 		filtered_modules[AG.category][AG] = AG
 	return filtered_modules
 
-/obj/machinery/abductor/console/attack_hand(mob/user)
+/obj/machinery/abductor/console/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(.)
 		return
-	if(!HAS_TRAIT(user, TRAIT_ABDUCTOR_TRAINING) && !HAS_TRAIT(user.mind, TRAIT_ABDUCTOR_TRAINING))
+	if(!HAS_MIND_TRAIT(user, TRAIT_ABDUCTOR_TRAINING))
 		to_chat(user, span_warning("You start mashing alien buttons at random!"))
 		if(do_after(user,100, target = src))
 			TeleporterSend()
@@ -96,7 +111,7 @@
 		data["credits"] = experiment.credits
 	data["pad"] = pad ? TRUE : FALSE
 	if(pad)
-		data["gizmo"] = gizmo && gizmo.marked ? TRUE : FALSE
+		data["gizmo"] = gizmo && gizmo.marked_target_weakref?.resolve() ? TRUE : FALSE
 	data["vest"] = vest ? TRUE : FALSE
 	if(vest)
 		data["vest_mode"] = vest.mode
@@ -144,8 +159,9 @@
 			return TRUE
 
 /obj/machinery/abductor/console/proc/TeleporterRetrieve()
-	if(pad && gizmo?.marked)
-		pad.Retrieve(gizmo.marked)
+	var/mob/living/marked = gizmo.marked_target_weakref?.resolve()
+	if(pad && marked)
+		pad.Retrieve(marked)
 
 /obj/machinery/abductor/console/proc/TeleporterSend()
 	if(pad)
@@ -190,30 +206,31 @@
 	if(!team_number)
 		return
 
-	for(var/obj/machinery/abductor/pad/p in GLOB.machines)
+	for(var/obj/machinery/abductor/pad/p as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/abductor/pad))
 		if(p.team_number == team_number)
 			pad = p
+			pad.console = src
 			break
 
-	for(var/obj/machinery/abductor/experiment/e in GLOB.machines)
+	for(var/obj/machinery/abductor/experiment/e as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/abductor/experiment))
 		if(e.team_number == team_number)
 			experiment = e
 			e.console = src
 
-	for(var/obj/machinery/computer/camera_advanced/abductor/c in GLOB.machines)
+	for(var/obj/machinery/computer/camera_advanced/abductor/c as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/computer/camera_advanced/abductor))
 		if(c.team_number == team_number)
 			camera = c
 			c.console = src
 
 /obj/machinery/abductor/console/proc/AddSnapshot(mob/living/carbon/human/target)
-	if(target.anti_magic_check(FALSE, FALSE, TRUE, 0))
-		say("Subject wearing specialized protective tinfoil gear, unable to get a proper scan!")
+	if(target.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
+		say("Unable to get a proper scan of subject! Something is shielding [target]'s mind!")
 		return
 	var/datum/icon_snapshot/entry = new
 	entry.name = target.name
 	entry.icon = target.icon
 	entry.icon_state = target.icon_state
-	entry.overlays = target.get_overlays_copy(list(HANDS_LAYER))	//ugh
+	entry.overlays = target.get_overlays_copy(list(HANDS_LAYER)) //ugh
 	//Update old disguise instead of adding new one
 	if(disguises[entry.name])
 		disguises[entry.name] = entry
@@ -235,7 +252,7 @@
 	if(vest == V)
 		return FALSE
 
-	for(var/obj/machinery/abductor/console/C in GLOB.machines)
+	for(var/obj/machinery/abductor/console/C as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/abductor/console))
 		if(C.vest == V)
 			C.vest = null
 			break
@@ -251,7 +268,7 @@
 	else
 		return ..()
 
-/obj/machinery/abductor/console/proc/Dispense(item,cost=1)
+/obj/machinery/abductor/console/proc/Dispense(items_list, cost=1)
 	if(experiment && experiment.credits >= cost)
 		experiment.credits -=cost
 		say("Incoming supply!")
@@ -259,7 +276,8 @@
 		if(pad)
 			flick("alien-pad", pad)
 			drop_location = pad.loc
-		new item(drop_location)
-
+		for(var/each_item in items_list)
+			for(var/i in 1 to items_list[each_item])
+				new each_item(drop_location)
 	else
 		say("Insufficent data!")

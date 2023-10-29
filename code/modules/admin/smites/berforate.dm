@@ -7,12 +7,12 @@
 
 /datum/smite/berforate/configure(client/user)
 	var/static/list/how_fucked_is_this_dude = list("A little", "A lot", "So fucking much", "FUCK THIS DUDE")
-	hatred = tgui_input_list(user, "How much do you hate this guy?", ,how_fucked_is_this_dude)
+	hatred = input(user, "How much do you hate this guy?") in how_fucked_is_this_dude
 
 /datum/smite/berforate/effect(client/user, mob/living/target)
 	. = ..()
 	if (!iscarbon(target))
-		to_chat(user, span_warning("This must be used on a carbon mob."))
+		to_chat(user, span_warning("This must be used on a carbon mob."), confidential = TRUE)
 		return
 
 	var/repetitions

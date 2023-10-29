@@ -23,8 +23,8 @@
 	if(QDELETED(item_module))
 		CRASH("activate_module called with improper item_module")
 
-	if(!(item_module in module.modules))
-		CRASH("activate_module called with item_module not in module.modules")
+	if(!(item_module in model.modules))
+		CRASH("activate_module called with item_module not in model.modules")
 
 	if(activated(item_module))
 		to_chat(src, span_warning("That module is already activated."))
@@ -64,7 +64,6 @@
 			item_module.screen_loc = inv3.screen_loc
 
 	held_items[module_num] = item_module
-	item_module.equipped(src, ITEM_SLOT_HANDS)
 	item_module.mouse_opacity = initial(item_module.mouse_opacity)
 	SET_PLANE_EXPLICIT(item_module, ABOVE_HUD_PLANE, src)
 	item_module.forceMove(src)
@@ -78,6 +77,7 @@
 
 	if(storage_was_closed)
 		hud_used.toggle_show_robot_modules()
+	item_module.on_equipped(src, ITEM_SLOT_HANDS)
 	return TRUE
 
 /**
@@ -91,8 +91,8 @@
 	if(QDELETED(item_module))
 		CRASH("unequip_module_from_slot called with improper item_module")
 
-	if(!(item_module in module.modules))
-		CRASH("unequip_module_from_slot called with item_module not in module.modules")
+	if(!(item_module in model.modules))
+		CRASH("unequip_module_from_slot called with item_module not in model.modules")
 
 	item_module.mouse_opacity = MOUSE_OPACITY_OPAQUE
 
@@ -125,7 +125,7 @@
 
 	held_items[module_num] = null
 	item_module.cyborg_unequip(src)
-	item_module.forceMove(module) //Return item to module so it appears in its contents, so it can be taken out again.
+	item_module.forceMove(model) //Return item to configuration so it appears in its contents, so it can be taken out again.
 
 	observer_screen_update(item_module, FALSE)
 	hud_used.update_robot_modules_display()
@@ -154,7 +154,7 @@
 			disabled_modules |= BORG_MODULE_ALL_DISABLED
 
 			playsound(src, 'sound/machines/warning-buzzer.ogg', 75, TRUE, TRUE)
-			audible_message(span_warning("[capitalize(src.name)] sounds an alarm! \"CRITICAL ERROR: ALL modules OFFLINE.\""))
+			audible_message(span_warning("[src] sounds an alarm! \"CRITICAL ERROR: ALL modules OFFLINE.\""))
 
 			if(builtInCamera)
 				builtInCamera.status = FALSE
@@ -170,7 +170,7 @@
 			disabled_modules |= BORG_MODULE_TWO_DISABLED
 
 			playsound(src, 'sound/machines/warning-buzzer.ogg', 60, TRUE, TRUE)
-			audible_message(span_warning("[capitalize(src.name)] sounds an alarm! \"SYSTEM ERROR: Module [module_num] OFFLINE.\""))
+			audible_message(span_warning("[src] sounds an alarm! \"SYSTEM ERROR: Module [module_num] OFFLINE.\""))
 			to_chat(src, span_userdanger("SYSTEM ERROR: Module [module_num] OFFLINE."))
 
 		if(BORG_CHOOSE_MODULE_THREE)
@@ -181,7 +181,7 @@
 			disabled_modules |= BORG_MODULE_THREE_DISABLED
 
 			playsound(src, 'sound/machines/warning-buzzer.ogg', 50, TRUE, TRUE)
-			audible_message(span_warning("[capitalize(src.name)] sounds an alarm! \"SYSTEM ERROR: Module [module_num] OFFLINE.\""))
+			audible_message(span_warning("[src] sounds an alarm! \"SYSTEM ERROR: Module [module_num] OFFLINE.\""))
 			to_chat(src, span_userdanger("SYSTEM ERROR: Module [module_num] OFFLINE."))
 
 	return TRUE
@@ -265,11 +265,9 @@
 	if(module_active)
 		unequip_module_from_slot(module_active, get_selected_module())
 
-/**
- * Unequips all held items.
- */
-/mob/living/silicon/robot/proc/uneq_all()
-	for(var/cyborg_slot in 1 to 3)
+// Technically none of the items are dropped, only unequipped
+/mob/living/silicon/robot/drop_all_held_items()
+	for(var/cyborg_slot in 1 to length(held_items))
 		if(!held_items[cyborg_slot])
 			continue
 		unequip_module_from_slot(held_items[cyborg_slot], cyborg_slot)
@@ -283,6 +281,8 @@
  */
 /mob/living/silicon/robot/proc/activated(obj/item/item_module)
 	if(item_module in held_items)
+		return TRUE
+	if(item_module.loc in held_items) //Apparatus check
 		return TRUE
 	return FALSE
 
@@ -399,8 +399,9 @@
 		if(slot_num > 4) // not >3 otherwise cycling with just one item on module 3 wouldn't work
 			slot_num = 1 //Wrap around.
 
-/mob/living/silicon/robot/swap_hand()
+/mob/living/silicon/robot/perform_hand_swap()
 	cycle_modules()
+	return TRUE
 
 /mob/living/silicon/robot/can_hold_items(obj/item/I)
-	return (I && (I in module.modules)) //Only if it's part of our module.
+	return (I && (I in model.modules)) //Only if it's part of our model.

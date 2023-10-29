@@ -5,7 +5,7 @@
 /obj/machinery/chem_recipe_debug
 	name = "chemical reaction tester"
 	density = TRUE
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "HPLC_debug"
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.4
 	resistance_flags = FIRE_PROOF | ACID_PROOF | INDESTRUCTIBLE
@@ -76,10 +76,10 @@
 /obj/machinery/chem_recipe_debug/proc/setup_reactions()
 	cached_reactions = list()
 	if(process_all)
-		for(var/reaction in GLOB.chemical_reactions_list)
-			if(is_type_in_list(GLOB.chemical_reactions_list[reaction], cached_reactions))
+		for(var/reaction in GLOB.chemical_reactions_list_reactant_index)
+			if(is_type_in_list(GLOB.chemical_reactions_list_reactant_index[reaction], cached_reactions))
 				continue
-			cached_reactions += GLOB.chemical_reactions_list[reaction]
+			cached_reactions += GLOB.chemical_reactions_list_reactant_index[reaction]
 	else
 		cached_reactions = reaction_names
 	reagents.clear_reagents()
@@ -90,7 +90,7 @@
 * The main loop that sets up, creates and displays results from a reaction
 * warning: this code is a hot mess
 */
-/obj/machinery/chem_recipe_debug/process(delta_time)
+/obj/machinery/chem_recipe_debug/process(seconds_per_tick)
 	if(processing == FALSE)
 		setup_reactions()
 	if(should_force_ph)
@@ -98,7 +98,7 @@
 	if(should_force_temp)
 		reagents.chem_temp = force_temp
 	if(reagents.is_reacting == TRUE)
-		react_time += delta_time
+		react_time += seconds_per_tick
 		return
 	if(reaction_stated == TRUE)
 		reaction_stated = FALSE
@@ -111,9 +111,9 @@
 
 /obj/machinery/chem_recipe_debug/proc/relay_all_reactions()
 	say("Completed testing, missing reactions products (may have exploded) are:")
-	say("[problem_string]")
+	say("[problem_string]", sanitize=FALSE)
 	say("Problem with results are:")
-	say("[impure_string]")
+	say("[impure_string]", sanitize=FALSE)
 	say("Reactions with minor impurity: [minorImpurity], reactions with major impurity: [majorImpurity]")
 	processing = FALSE
 	problem_string = null
@@ -128,30 +128,30 @@
 		say("Reaction completed for [cached_reactions[index]] final temperature = [reagents.chem_temp], ph = [reagents.ph], time taken = [react_time]s.")
 		var/datum/chemical_reaction/reaction = cached_reactions[index]
 		for(var/reagent_type in reaction.results)
-			var/datum/reagent/reagent =  reagents.get_reagent(reagent_type)
+			var/datum/reagent/reagent = reagents.get_reagent(reagent_type)
 			if(!reagent)
 				say(span_warning("Unable to find product [reagent_type] in holder after reaction! reagents found are:"))
 				for(var/other_reagent in reagents.reagent_list)
 					say("[other_reagent]")
-				var/obj/item/reagent_containers/glass/beaker/bluespace/beaker = new /obj/item/reagent_containers/glass/beaker/bluespace(loc)
+				var/obj/item/reagent_containers/cup/beaker/bluespace/beaker = new /obj/item/reagent_containers/cup/beaker/bluespace(loc)
 				reagents.trans_to(beaker)
 				beaker.name = "[cached_reactions[index]] failed"
 				if(!failed)
-					problem_string += "[cached_reactions[index]] <span class='warning'>Unable to find product [reagent_type] in holder after reaction! Trying alternative setup. index:[index]</span>\n"
+					problem_string += "[cached_reactions[index]] [span_warning("Unable to find product [reagent_type] in holder after reaction! Trying alternative setup. index:[index]")]\n"
 					failed++
 					return
 			say("Reaction has a product [reagent_type] [reagent.volume]u purity of [reagent.purity]")
 			if(reagent.purity < 0.9)
-				impure_string += "Reaction [cached_reactions[index]] has a product [reagent_type] [reagent.volume]u <span class='boldwarning'>purity of [reagent.purity]</span> index:[index]\n"
+				impure_string += "Reaction [cached_reactions[index]] has a product [reagent_type] [reagent.volume]u [span_boldwarning("purity of [reagent.purity]")] index:[index]\n"
 				majorImpurity++
 			else if (reagent.purity < 1)
-				impure_string += "Reaction [cached_reactions[index]] has a product [reagent_type] [reagent.volume]u <span class='warning'>purity of [reagent.purity]</span> index:[index]\n"
+				impure_string += "Reaction [cached_reactions[index]] has a product [reagent_type] [reagent.volume]u [span_warning("purity of [reagent.purity]")] index:[index]\n"
 				minorImpurity++
 			if(reagent.volume < reaction.results[reagent_type])
-				impure_string += "Reaction [cached_reactions[index]] has a product [reagent_type] <span class='warning'>[reagent.volume]u</span> purity of [reagent.purity] index:[index]\n"
+				impure_string += "Reaction [cached_reactions[index]] has a product [reagent_type] [span_warning("[reagent.volume]u")] purity of [reagent.purity] index:[index]\n"
 			cached_purity = reagent.purity
 		if(beaker_spawn && reagents.total_volume)
-			var/obj/item/reagent_containers/glass/beaker/bluespace/beaker = new /obj/item/reagent_containers/glass/beaker/bluespace(loc)
+			var/obj/item/reagent_containers/cup/beaker/bluespace/beaker = new /obj/item/reagent_containers/cup/beaker/bluespace(loc)
 			reagents.trans_to(beaker)
 			beaker.name = "[cached_reactions[index]] purity: [cached_purity]"
 		reagents.clear_reagents()
@@ -190,7 +190,7 @@
 	if(min_temp)
 		say("Overriding temperature to required temp.")
 		reagents.chem_temp = reaction.is_cold_recipe ? reaction.required_temp - 1 : reaction.required_temp + 1
-	say("Reacting <span class='nicegreen'>[cached_reactions[index]]</span> starting pH: [reagents.ph] index [index] of [cached_reactions.len]")
+	say("Reacting [span_nicegreen("[cached_reactions[index]]")] starting pH: [reagents.ph] index [index] of [cached_reactions.len]")
 
 /obj/machinery/chem_recipe_debug/ui_data(mob/user)
 	var/data = list()
@@ -320,7 +320,7 @@
 			beaker_spawn = !beaker_spawn
 			return TRUE
 		if("setTargetList")
-			var/text = stripped_input(usr,"List","Enter a list of Recipe product names separated by commas", "Recipe", MAX_MESSAGE_LEN)
+			var/text = tgui_input_text(usr, "Enter a list of Recipe product names separated by commas", "Recipe List", multiline = TRUE)
 			reaction_names = list()
 			if(!text)
 				say("Could not find reaction")

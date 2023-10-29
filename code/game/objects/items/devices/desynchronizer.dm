@@ -1,14 +1,14 @@
 /obj/item/desynchronizer
-	name = "десинхронизатор"
-	desc = "Технология позволяющая грубо вмешаться в структуру блюспейс пространства и способная повлиять на пространственно-временной континиум. Строго запрещена космической академией наук."
+	name = "desynchronizer"
+	desc = "An experimental device that can temporarily desynchronize the user from spacetime, effectively making them disappear while it's active."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "desynchronizer"
 	inhand_icon_state = "electronic"
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = NOBLUDGEON
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
-	custom_materials = list(/datum/material/iron=250, /datum/material/glass=500)
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
+	custom_materials = list(/datum/material/iron= SMALL_MATERIAL_AMOUNT * 2.5, /datum/material/glass= SMALL_MATERIAL_AMOUNT * 5)
 	var/max_duration = 3000
 	var/duration = 300
 	var/last_use = 0
@@ -18,7 +18,7 @@
 
 /obj/item/desynchronizer/attack_self(mob/living/user)
 	if(world.time < next_use)
-		to_chat(user, span_warning("[capitalize(src.name)] is still recharging."))
+		to_chat(user, span_warning("[src] is still recharging."))
 		return
 	if(!sync_holder)
 		desync(user)
@@ -28,31 +28,26 @@
 /obj/item/desynchronizer/examine(mob/user)
 	. = ..()
 	if(world.time < next_use)
-		. += "<hr><span class='warning'>До перезарядки осталось: [DisplayTimeText(next_use - world.time)]</span>"
-	. += "<hr><span class='notice'>ПКМ для изменения длительности, текущая длительность: [DisplayTimeText(duration)].</span>"
-	. += span_notice("\nЭффект десинхронизации можно прервать досрочно, при этом перезарядка будет равняться продолжительности воздействия.")
+		. += span_warning("Time left to recharge: [DisplayTimeText(next_use - world.time)]")
+	. += span_notice("Alt-click to customize the duration. Current duration: [DisplayTimeText(duration)].")
+	. += span_notice("Can be used again to interrupt the effect early. The recharge time is the same as the time spent in desync.")
 
 /obj/item/desynchronizer/AltClick(mob/living/user)
-	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
+	if(!user.can_perform_action(src, NEED_DEXTERITY))
 		return
-	var/new_duration = input(user, "Установите время работы (5-300) секунд:", "Desynchronizer", duration / 10) as null|num
-	if(new_duration)
-		new_duration = new_duration SECONDS
-		new_duration = clamp(new_duration, 50, max_duration)
-		duration = new_duration
-		to_chat(user, span_notice("Устанавливаю время на [DisplayTimeText(duration)]."))
+	var/new_duration = tgui_input_number(user, "Set the duration", "Desynchronizer", duration / 10, max_duration, 5)
+	if(!new_duration || QDELETED(user) || QDELETED(src) || !usr.can_perform_action(src, NEED_DEXTERITY))
+		return
+	duration = new_duration
+	to_chat(user, span_notice("You set the duration to [DisplayTimeText(duration)]."))
 
 /obj/item/desynchronizer/proc/desync(mob/living/user)
 	if(sync_holder)
 		return
 	sync_holder = new(drop_location())
 	new /obj/effect/temp_visual/desynchronizer(drop_location())
-	to_chat(user, span_notice("Активирую [src], десинхронизируя себя с пространством и временем. С одной стороны ничего не изменилось, а с другой стороны изменилось абсолютно все. Мир отдалился и стал чуждым, я здесь лишь сторонний наблюдатель."))
+	to_chat(user, span_notice("You activate [src], desynchronizing yourself from the present. You can still see your surroundings, but you feel eerily dissociated from reality."))
 	user.forceMove(sync_holder)
-	SEND_SIGNAL(user, COMSIG_MOVABLE_SECLUDED_LOCATION)
-	for(var/thing in user)
-		var/atom/movable/AM = thing
-		SEND_SIGNAL(AM, COMSIG_MOVABLE_SECLUDED_LOCATION)
 	last_use = world.time
 	icon_state = "desynchronizer-on"
 	resync_timer = addtimer(CALLBACK(src, PROC_REF(resync)), duration , TIMER_STOPPABLE)
@@ -72,8 +67,8 @@
 	return ..()
 
 /obj/effect/abstract/sync_holder
-	name = "пространственно-временная аномалия"
-	desc = "Аномалия квантовой неопределенности."
+	name = "desyncronized pocket"
+	desc = "A pocket in spacetime, keeping the user a fraction of a second in the future."
 	icon = null
 	icon_state = null
 	alpha = 0
@@ -81,6 +76,14 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE
+
+/obj/effect/abstract/sync_holder/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_SECLUDED_LOCATION, INNATE_TRAIT)
+
+/obj/effect/abstract/sync_holder/relaymove(mob/living/user, direction)
+	// While faded out of spacetime, no, you cannot move.
+	return
 
 /obj/effect/abstract/sync_holder/Destroy()
 	for(var/I in contents)

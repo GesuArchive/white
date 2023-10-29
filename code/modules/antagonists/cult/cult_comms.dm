@@ -4,8 +4,9 @@
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	background_icon_state = "bg_demon"
 	overlay_icon_state = "bg_demon_border"
+
 	buttontooltipstyle = "cult"
-	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_CONSCIOUS
+	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_CONSCIOUS
 	ranged_mousepointer = 'icons/effects/mouse_pointers/cult_target.dmi'
 
 /datum/action/innate/cult/IsAvailable(feedback = FALSE)
@@ -17,30 +18,48 @@
 	name = "Communion"
 	desc = "Whispered words that all cultists can hear.<br><b>Warning:</b>Nearby non-cultists can still hear you."
 	button_icon_state = "cult_comms"
+	// Unholy words dont require hands or mobility
+	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_CONSCIOUS
+
+/datum/action/innate/cult/comm/IsAvailable(feedback = FALSE)
+	if(isshade(owner) && IS_CULTIST(owner))
+		return TRUE
+	return ..()
 
 /datum/action/innate/cult/comm/Activate()
 	var/input = tgui_input_text(usr, "Message to tell to the other acolytes", "Voice of Blood")
-	if(!input || !IsAvailable())
+	if(!input || !IsAvailable(feedback = TRUE))
 		return
 
+	var/list/filter_result = CAN_BYPASS_FILTER(usr) ? null : is_ic_filtered(input)
+	if(filter_result)
+		REPORT_CHAT_FILTER_TO_USER(usr, filter_result)
+		return
+
+	var/list/soft_filter_result = CAN_BYPASS_FILTER(usr) ? null : is_soft_ic_filtered(input)
+	if(soft_filter_result)
+		if(tgui_alert(usr,"Your message contains \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\". \"[soft_filter_result[CHAT_FILTER_INDEX_REASON]]\", Are you sure you want to say it?", "Soft Blocked Word", list("Yes", "No")) != "Yes")
+			return
+		message_admins("[ADMIN_LOOKUPFLW(usr)] has passed the soft filter for \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Message: \"[html_encode(input)]\"")
+		log_admin_private("[key_name(usr)] has passed the soft filter for \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Message: \"[input]\"")
 	cultist_commune(usr, input)
 
 /datum/action/innate/cult/comm/proc/cultist_commune(mob/living/user, message)
 	var/my_message
-	if(!message)
+	if(!message || !user.mind)
 		return
 	user.whisper("O bidai nabora se[pick("'","`")]sma!", language = /datum/language/common)
-	user.whisper(html_decode(message))
+	user.whisper(html_decode(message), filterproof = TRUE)
 	var/title = "Acolyte"
 	var/span = "cult italic"
-	if(user.mind && user.mind.has_antag_datum(/datum/antagonist/cult/master))
+	var/datum/antagonist/cult/cult_datum = user.mind.has_antag_datum(/datum/antagonist/cult)
+	if(cult_datum.is_cult_leader())
 		span = "cultlarge"
 		title = "Master"
 	else if(!ishuman(user))
 		title = "Construct"
 	my_message = "<span class='[span]'><b>[title] [findtextEx(user.name, user.real_name) ? user.name : "[user.real_name] (as [user.name])"]:</b> [message]</span>"
-	for(var/i in GLOB.player_list)
-		var/mob/M = i
+	for(var/mob/M as anything in GLOB.player_list)
 		if(IS_CULTIST(M))
 			to_chat(M, my_message)
 		else if(M in GLOB.dead_mob_list)
@@ -56,25 +75,30 @@
 /datum/action/innate/cult/comm/spirit/IsAvailable(feedback = FALSE)
 	if(IS_CULTIST(owner.mind.current))
 		return TRUE
+	return ..()
 
 /datum/action/innate/cult/comm/spirit/cultist_commune(mob/living/user, message)
 	var/my_message
 	if(!message)
 		return
 	my_message = span_cultboldtalic("The [user.name]: [message]")
-	for(var/i in GLOB.player_list)
-		var/mob/M = i
-		if(IS_CULTIST(M))
-			to_chat(M, my_message)
-		else if(M in GLOB.dead_mob_list)
-			var/link = FOLLOW_LINK(M, user)
-			to_chat(M, "[link] [my_message]")
+	for(var/mob/player_list as anything in GLOB.player_list)
+		if(IS_CULTIST(player_list))
+			to_chat(player_list, my_message)
+		else if(player_list in GLOB.dead_mob_list)
+			var/link = FOLLOW_LINK(player_list, user)
+			to_chat(player_list, "[link] [my_message]")
 
 /datum/action/innate/cult/mastervote
 	name = "Assert Leadership"
 	button_icon_state = "cultvote"
+	// So you can use it while your hands are cuffed or you are bucked
+	// If you want to assert your leadership while handcuffed to a chair, be my guest
+	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED
 
 /datum/action/innate/cult/mastervote/IsAvailable(feedback = FALSE)
+	if(!owner || !owner.mind)
+		return FALSE
 	var/datum/antagonist/cult/C = owner.mind.has_antag_datum(/datum/antagonist/cult,TRUE)
 	if(!C || C.cult_team.cult_vote_called || !ishuman(owner))
 		return FALSE
@@ -86,7 +110,7 @@
 		var/datum/antagonist/cult/C = owner.mind.has_antag_datum(/datum/antagonist/cult,TRUE)
 		pollCultists(owner,C.cult_team)
 
-/proc/pollCultists(mob/living/Nominee,datum/team/cult/team) //Cult Master Poll
+/proc/pollCultists(mob/living/Nominee, datum/team/cult/team) //Cult Master Poll
 	if(world.time < CULT_POLL_WAIT)
 		to_chat(Nominee, "It would be premature to select a leader while everyone is still settling in, try again in [DisplayTimeText(CULT_POLL_WAIT-world.time)].")
 		return
@@ -97,7 +121,7 @@
 			if(!B.current.incapacitated())
 				SEND_SOUND(B.current, 'sound/hallucinations/im_here1.ogg')
 				to_chat(B.current, span_cultlarge("Acolyte [Nominee] has asserted that [Nominee.p_theyre()] worthy of leading the cult. A vote will be called shortly."))
-	sleep(100)
+	sleep(10 SECONDS)
 	var/list/asked_cultists = list()
 	for(var/datum/mind/B in team.members)
 		if(B.current && B.current != Nominee && !B.current.incapacitated())
@@ -128,22 +152,16 @@
 				if(!B.current.incapacitated())
 					to_chat(B.current, span_cultlarge("[Nominee] could not win the cult's support and shall continue to serve as an acolyte."))
 		return FALSE
-	team.cult_master = Nominee
-	var/datum/antagonist/cult/cultist = Nominee.mind.has_antag_datum(/datum/antagonist/cult)
-	if (cultist)
-		cultist.silent = TRUE
-		cultist.on_removal()
-	Nominee.mind.add_antag_datum(/datum/antagonist/cult/master)
-	for(var/datum/mind/B in team.members)
-		if(B.current)
-			for(var/datum/action/innate/cult/mastervote/vote in B.current.actions)
-				vote.Remove(B.current)
-			if(!B.current.incapacitated())
-				to_chat(B.current,span_cultlarge("[Nominee] has won the cult's support and is now their master. Follow [Nominee.p_their()] orders to the best of your ability!"))
+	var/datum/antagonist/cult/cult_datum = Nominee.mind.has_antag_datum(/datum/antagonist/cult)
+	if(!cult_datum.make_cult_leader())
+		CRASH("[cult_datum.owner.current] was supposed to turn into the leader, but they didn't for some reason. This isn't supposed to happen unless an Admin messed with it.")
 	return TRUE
 
 /datum/action/innate/cult/master/IsAvailable(feedback = FALSE)
-	if(!owner.mind || !owner.mind.has_antag_datum(/datum/antagonist/cult/master) || GLOB.cult_narsie)
+	if(!owner.mind || GLOB.cult_narsie)
+		return FALSE
+	var/datum/antagonist/cult/cult_datum = owner.mind.has_antag_datum(/datum/antagonist/cult)
+	if(!cult_datum.is_cult_leader())
 		return FALSE
 	return ..()
 
@@ -193,7 +211,7 @@
 									S.release_shades(owner)
 								B.current.setDir(SOUTH)
 								new /obj/effect/temp_visual/cult/blood(final)
-								addtimer(CALLBACK(B.current, TYPE_PROC_REF(/mob, reckon), final), 10)
+								addtimer(CALLBACK(B.current, TYPE_PROC_REF(/mob/, reckon), final), 10)
 		else
 			return
 	antag.cult_team.reckoning_complete = TRUE
@@ -244,7 +262,7 @@
 
 	return ..()
 
-/datum/action/innate/cult/master/cultmark/do_ability(mob/living/caller, params, atom/clicked_on)
+/datum/action/innate/cult/master/cultmark/do_ability(mob/living/caller, atom/clicked_on)
 	var/datum/antagonist/cult/cultist = caller.mind.has_antag_datum(/datum/antagonist/cult, TRUE)
 	if(!cultist)
 		CRASH("[type] was casted by someone without a cult antag datum.")
@@ -271,6 +289,7 @@
 	name = "Blood Mark your Target"
 	desc = "Marks whatever you are orbiting for the entire cult to track."
 	button_icon_state = "cult_mark"
+	check_flags = NONE
 	/// The duration of the mark on the target
 	var/cult_mark_duration = 60 SECONDS
 	/// The cooldown between marks - the ability can be used in between cooldowns, but can't mark (only clear)
@@ -279,7 +298,7 @@
 	COOLDOWN_DECLARE(cult_mark_cooldown)
 
 /datum/action/innate/cult/ghostmark/IsAvailable(feedback = FALSE)
-	return ..() && istype(owner, /mob/dead/observer)
+	return ..() && isobserver(owner)
 
 /datum/action/innate/cult/ghostmark/Activate()
 	var/datum/antagonist/cult/cultist = owner.mind?.has_antag_datum(/datum/antagonist/cult, TRUE)
@@ -310,7 +329,7 @@
 	if(cult_team.set_blood_target(mark_target, owner, 60 SECONDS))
 		to_chat(owner, span_cultbold("You have marked [mark_target] for the cult! It will last for [DisplayTimeText(cult_mark_duration)]."))
 		COOLDOWN_START(src, cult_mark_cooldown, cult_mark_cooldown_duration)
-		update_button_status()
+		build_all_button_icons(UPDATE_BUTTON_NAME|UPDATE_BUTTON_ICON)
 		addtimer(CALLBACK(src, PROC_REF(reset_button)), cult_mark_cooldown_duration + 1)
 		return TRUE
 
@@ -318,9 +337,6 @@
 	return FALSE
 
 /datum/action/innate/cult/ghostmark/update_button_name(atom/movable/screen/movable/action_button/current_button, force = FALSE)
-	if(!owner)
-		return
-
 	if(COOLDOWN_FINISHED(src, cult_mark_duration))
 		name = initial(name)
 		desc = initial(desc)
@@ -335,6 +351,7 @@
 		button_icon_state = initial(button_icon_state)
 	else
 		button_icon_state = "emp"
+
 	return ..()
 
 /datum/action/innate/cult/ghostmark/proc/reset_button()
@@ -344,7 +361,6 @@
 	SEND_SOUND(owner, 'sound/magic/enter_blood.ogg')
 	to_chat(owner, span_cultbold("Your previous mark is gone - you are now ready to create a new blood mark."))
 	build_all_button_icons(UPDATE_BUTTON_NAME|UPDATE_BUTTON_ICON)
-
 
 //////// ELDRITCH PULSE /////////
 
@@ -379,7 +395,7 @@
 
 	return ..()
 
-/datum/action/innate/cult/master/pulse/do_ability(mob/living/caller, params, atom/clicked_on)
+/datum/action/innate/cult/master/pulse/do_ability(mob/living/caller, atom/clicked_on)
 	var/atom/throwee = throwee_ref?.resolve()
 
 	if(QDELETED(throwee))

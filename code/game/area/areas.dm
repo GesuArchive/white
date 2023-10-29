@@ -4,19 +4,14 @@
  * A grouping of tiles into a logical space, mostly used by map editors
  */
 /area
-	name = "Космос"
-	icon = 'icons/turf/areas.dmi'
+	name = "Space"
+	icon = 'icons/area/areas_misc.dmi'
 	icon_state = "unknown"
 	layer = AREA_LAYER
 	//Keeping this on the default plane, GAME_PLANE, will make area overlays fail to render on FLOOR_PLANE.
 	plane = AREA_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_LIGHTING
-
-	// ЗДЕСЬ ЗОНА, БРАТАН
-	var/description = null
-	// список тех, кто прочитал смешное
-	var/list/visitors_that_know_some_shit = list()
 
 	/// List of all turfs currently inside this area. Acts as a filtered bersion of area.contents
 	/// For faster lookup (area.contents is actually a filtered loop over world)
@@ -37,13 +32,13 @@
 	var/list/firedoors
 	///A list of firelocks currently active. Used by fire alarms when setting their icons.
 	var/list/active_firelocks
-	///A list of all fire alarms in this area. Used by fire locks and burglar alarms to tell the fire alarm to change its icon.
-	var/list/firealarms
+	///A list of all fire alarms in this area. Used by firelocks and burglar alarms to change icon state.
+	var/list/firealarms = list()
 	///Alarm type to count of sources. Not usable for ^ because we handle fires differently
 	var/list/active_alarms = list()
 	///List of all lights in our area
 	var/list/lights = list()
-	///We use this just for fire alarms, because they're area based right now so one alarm going poof shouldn't prevent you from clearing your alarms listing
+	///We use this just for fire alarms, because they're area based right now so one alarm going poof shouldn't prevent you from clearing your alarms listing. Fire alarms and fire locks will set and clear alarms.
 	var/datum/alarm_handler/alarm_manager
 
 	var/lightswitch = TRUE
@@ -58,16 +53,13 @@
 	/// For space, the asteroid, lavaland, etc. Used with blueprints or with weather to determine if we are adding a new area (vs editing a station room)
 	var/outdoors = FALSE
 
-	/// Is this area considered underground? As in, is it not the top most Z level of a map? Used for determining if the day/night system should touch this area.
-	var/underground = FALSE
-
 	/// Size of the area in open turfs, only calculated for indoors areas.
 	var/areasize = 0
 
 	/// Bonus mood for being in this area
 	var/mood_bonus = 0
 	/// Mood message for being here, only shows up if mood_bonus != 0
-	var/mood_message = span_nicegreen("Здесь круто!\n")
+	var/mood_message = "This area is pretty nice!"
 	/// Does the mood bonus require a trait?
 	var/mood_trait
 
@@ -86,10 +78,20 @@
 
 	var/parallax_movedir = 0
 
-	var/ambience_volume = 15
 	var/ambience_index = AMBIENCE_GENERIC
-	var/list/ambientsounds = GENERIC
-	var/list/ambigensounds
+	///A list of sounds to pick from every so often to play to clients.
+	var/list/ambientsounds
+	///Does this area immediately play an ambience track upon enter?
+	var/forced_ambience = FALSE
+	///The background droning loop that plays 24/7
+	var/ambient_buzz = 'sound/ambience/shipambience.ogg'
+	///The volume of the ambient buzz
+	var/ambient_buzz_vol = 35
+	///Used to decide what the minimum time between ambience is
+	var/min_ambience_cooldown = 30 SECONDS
+	///Used to decide what the maximum time between ambience is
+	var/max_ambience_cooldown = 60 SECONDS
+
 	flags_1 = CAN_BE_DIRTY_1
 
 	var/list/cameras
@@ -105,21 +107,8 @@
 	///This datum, if set, allows terrain generation behavior to be ran on Initialize()
 	var/datum/map_generator/map_generator
 
-	/// Default network root for this area aka station, lavaland, etc
-	var/network_root_id = null
-	/// Area network id when you want to find all devices hooked up to this area
-	var/network_area_id = null
-
 	///Used to decide what kind of reverb the area makes sound have
-	var/sound_environment = SOUND_ENVIRONMENT_HANGAR
-
-	///Used to decide what the minimum time between ambience is
-	var/min_ambience_cooldown = 30 SECONDS
-	///Used to decide what the maximum time between ambience is
-	var/max_ambience_cooldown = 90 SECONDS
-
-	//Lighting overlay
-	var/obj/effect/lighting_overlay
+	var/sound_environment = SOUND_ENVIRONMENT_NONE
 
 	/// List of all air vents in the area
 	var/list/obj/machinery/atmospherics/components/unary/vent_pump/air_vents = list()
@@ -180,18 +169,9 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  */
 /area/Initialize(mapload)
 	icon_state = ""
+	if(!ambientsounds)
+		ambientsounds = GLOB.ambience_assoc[ambience_index]
 
-	if(!ambigensounds)
-		ambigensounds = GLOB.ambience_assoc[ambience_index]
-
-	/*
-	if(area_flags & AREA_USES_STARLIGHT && CONFIG_GET(flag/starlight))
-		// Areas lit by starlight are not supposed to be fullbright 4head
-		base_lighting_alpha = 0
-		base_lighting_color = null
-		static_lighting = TRUE
-
-	*/
 	if(requires_power)
 		luminosity = 0
 	else
@@ -209,11 +189,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 
 	reg_in_areas_in_z()
 
-	if(!mapload)
-		if(!network_root_id)
-			network_root_id = STATION_NETWORK_ROOT // default to station root because this might be created with a blueprint
-		SSnetworks.assign_area_network_id(src)
-
 	update_base_lighting()
 
 	return INITIALIZE_HINT_LATELOAD
@@ -225,13 +200,22 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	power_change() // all machines set to current power level, also updates icon
 	update_beauty()
 
-/area/proc/RunGeneration()
+/// Generate turfs, including cool cave wall gen
+/area/proc/RunTerrainGeneration()
 	if(map_generator)
 		map_generator = new map_generator()
 		var/list/turfs = list()
 		for(var/turf/T in contents)
 			turfs += T
 		map_generator.generate_terrain(turfs, src)
+
+/// Populate the previously generated terrain with mobs and objects
+/area/proc/RunTerrainPopulation()
+	if(map_generator)
+		var/list/turfs = list()
+		for(var/turf/T in contents)
+			turfs += T
+		map_generator.populate_terrain(turfs, src)
 
 /area/proc/test_gen()
 	if(map_generator)
@@ -304,6 +288,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	//turf cleanup
 	contained_turfs = null
 	turfs_to_uncontain = null
+	//parent cleanup
 	return ..()
 
 /**
@@ -325,13 +310,12 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  * Alarm auto resets after 600 ticks
  */
 /area/proc/burglaralert(obj/trigger)
-	if (area_flags & NO_ALERTS)
-		return
 	//Trigger alarm effect
 	set_fire_effect(TRUE)
 	//Lockdown airlocks
 	for(var/obj/machinery/door/door in src)
 		close_and_lock_door(door)
+
 
 /**
  * Set the fire alarm visual affects in an area
@@ -462,67 +446,48 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /area/Entered(atom/movable/arrived, area/old_area)
 	set waitfor = FALSE
 	SEND_SIGNAL(src, COMSIG_AREA_ENTERED, arrived, old_area)
-	if(!LAZYACCESS(arrived.important_recursive_contents, RECURSIVE_CONTENTS_AREA_SENSITIVE))
+
+	if(!arrived.important_recursive_contents?[RECURSIVE_CONTENTS_AREA_SENSITIVE])
 		return
 	for(var/atom/movable/recipient as anything in arrived.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
 		SEND_SIGNAL(recipient, COMSIG_ENTER_AREA, src)
 
-	if(!ismob(arrived) || isnewplayer(arrived))
+	if(!isliving(arrived))
 		return
 
-	var/mob/M = arrived
-	if(!M.ckey)
+	var/mob/living/L = arrived
+	if(!L.ckey)
 		return
 
-	//Ship ambience just loops if turned on.
-	if(M.client?.prefs.toggles & SOUND_SHIP_AMBIENCE)
-		SEND_SOUND(M, sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 15, channel = CHANNEL_BUZZ))
+	if(ambient_buzz != old_area.ambient_buzz)
+		L.refresh_looping_ambience()
 
-	if(M?.client && (M.client.prefs.toggles & SOUND_AMBIENCE))
-		play_ambience(M.client)
+///Tries to play looping ambience to the mobs.
+/mob/proc/refresh_looping_ambience()
+	SIGNAL_HANDLER
 
-	show_area_description(M)
+	var/area/my_area = get_area(src)
 
-/area/proc/show_area_description(mob/living/L)
-	if(isnull(description))
+	if(!(client?.prefs.read_preference(/datum/preference/toggle/sound_ship_ambience)) || !my_area.ambient_buzz)
+		SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
 		return
 
-	if(!(L.client in visitors_that_know_some_shit))
-		visitors_that_know_some_shit += L.client
-		L.client.show_area_description(50, description)
+	SEND_SOUND(src, sound(my_area.ambient_buzz, repeat = 1, wait = 0, volume = my_area.ambient_buzz_vol, channel = CHANNEL_BUZZ))
 
-/area/proc/play_ambience(client/C)
 
-	if(!C?.mob)
+/**
+ * Called when an atom exits an area
+ *
+ * Sends signals COMSIG_AREA_EXITED and COMSIG_EXIT_AREA (to a list of atoms)
+ */
+/area/Exited(atom/movable/gone, direction)
+	SEND_SIGNAL(src, COMSIG_AREA_EXITED, gone, direction)
+	SEND_SIGNAL(gone, COMSIG_MOVABLE_EXITED_AREA, src, direction)
+
+	if(!gone.important_recursive_contents?[RECURSIVE_CONTENTS_AREA_SENSITIVE])
 		return
-
-	if(!C.played)
-		var/sound/S = sound(pick(ambientsounds))
-
-		S.repeat = TRUE
-		S.channel = CHANNEL_AMBIENCE
-		S.wait = FALSE
-		S.volume = ambience_volume
-		S.status = SOUND_STREAM
-
-		SEND_SOUND(C.mob, S)
-
-		C.played = TRUE
-
-		spawn(30)
-			var/soundLen = 30
-			if(C)
-				var/list/sounds_list = C.SoundQuery()
-
-				for(var/playing_sound in sounds_list)
-					var/sound/found = playing_sound
-					if(found.file == S.file)
-						soundLen = found.len
-
-				addtimer(CALLBACK(src, TYPE_PROC_REF(/area, reset_ambience_played), C), soundLen * 10)
-
-/area/proc/reset_ambience_played(client/C)
-	C?.played = FALSE
+	for(var/atom/movable/recipient as anything in gone.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
+		SEND_SIGNAL(recipient, COMSIG_EXIT_AREA, src)
 
 ///Divides total beauty in the room by roomsize to allow us to get an average beauty per tile.
 /area/proc/update_beauty()
@@ -533,19 +498,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		beauty = 0
 		return FALSE //Too big
 	beauty = totalbeauty / areasize
-
-
-/**
- * Called when an atom exits an area
- *
- * Sends signals COMSIG_AREA_EXITED and COMSIG_EXIT_AREA (to a list of atoms)
- */
-/area/Exited(atom/movable/gone, direction)
-	SEND_SIGNAL(src, COMSIG_AREA_EXITED, gone, direction)
-	if(!LAZYACCESS(gone.important_recursive_contents, RECURSIVE_CONTENTS_AREA_SENSITIVE))
-		return
-	for(var/atom/movable/recipient as anything in gone.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
-		SEND_SIGNAL(recipient, COMSIG_EXIT_AREA, src)
 
 /**
  * Setup an area (with the given name)
@@ -558,10 +510,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	power_light = FALSE
 	power_environ = FALSE
 	always_unpowered = FALSE
-	area_flags &= ~VALID_TERRITORY
-	area_flags &= ~BLOBS_ALLOWED
+	area_flags &= ~(VALID_TERRITORY|BLOBS_ALLOWED|CULT_PERMITTED)
 	require_area_resort()
-
 /**
  * Set the area size of the area
  *
@@ -588,10 +538,29 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	CRASH("Bad op: area/drop_location() called")
 
 /// A hook so areas can modify the incoming args (of what??)
-/area/proc/PlaceOnTopReact(turf/T, list/new_baseturfs, turf/fake_turf_type, flags)
+/area/proc/PlaceOnTopReact(list/new_baseturfs, turf/fake_turf_type, flags)
 	return flags
 
 
 /// Called when a living mob that spawned here, joining the round, receives the player client.
 /area/proc/on_joining_game(mob/living/boarder)
 	return
+
+/**
+ * Returns the name of an area, with the original name if the area name has been changed.
+ *
+ * If an area has not been renamed, returns the area name. If it has been modified (by blueprints or other means)
+ * returns the current name, as well as the initial value, in the format of [Current Location Name (Original Name)]
+ */
+
+/area/proc/get_original_area_name()
+	if(name == initial(name))
+		return name
+	return "[name] ([initial(name)])"
+
+/**
+ * A blank area subtype solely used by the golem area editor for the purpose of
+ * allowing golems to create new areas without suffering from the hazard_area debuffs.
+ */
+/area/golem
+	name = "Golem Territory"

@@ -45,7 +45,11 @@
 			continue
 
 		if (!ruleset.acceptable(GLOB.alive_player_list.len, threat_level))
-			log_dynamic("FAIL: [ruleset] is not acceptable with the current parameters. Alive players: [GLOB.alive_player_list.len], threat level: [threat_level]")
+			var/ruleset_forced = GLOB.dynamic_forced_rulesets[type] || RULESET_NOT_FORCED
+			if (ruleset_forced == RULESET_NOT_FORCED)
+				log_dynamic("FAIL: [ruleset] is not acceptable with the current parameters. Alive players: [GLOB.alive_player_list.len], threat level: [threat_level]")
+			else
+				log_dynamic("FAIL: [ruleset] was disabled.")
 			continue
 
 		if (mid_round_budget < ruleset.cost)
@@ -62,6 +66,7 @@
 			continue
 
 		ruleset.trim_candidates()
+		ruleset.load_templates()
 		if (!ruleset.ready())
 			log_dynamic("FAIL: [ruleset] is not ready()")
 			continue
@@ -92,10 +97,10 @@
 	if (random_event_hijacked != HIJACKED_NOTHING)
 		chance_modifier += (hijacked_random_event_injection_chance_modifier / 100)
 
-	if (current_players[CURRENT_LIVING_ANTAGS].len == 0)
+	if (GLOB.current_living_antags.len == 0)
 		chance_modifier += 0.5
 
-	if (current_players[CURRENT_DEAD_PLAYERS].len > GLOB.alive_player_list.len)
+	if (GLOB.dead_player_list.len > GLOB.alive_player_list.len)
 		chance_modifier -= 0.3
 
 	var/heavy_coefficient = CLAMP01((next_midround_roll - midround_light_upper_bound) / (midround_heavy_lower_bound - midround_light_upper_bound))

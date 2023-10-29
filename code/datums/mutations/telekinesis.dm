@@ -1,17 +1,19 @@
 ///Telekinesis lets you interact with objects from range, and gives you a light blue halo around your head.
 /datum/mutation/human/telekinesis
-	name = "Телекинез"
-	desc = "Мутация, позволяющая владельцу перемещать предметы силой мысли."
+	name = "Telekinesis"
+	desc = "A strange mutation that allows the holder to interact with objects through thought."
 	quality = POSITIVE
 	difficulty = 18
-	text_gain_indication = span_notice("Хм, у меня такое ощущение что я могу дотянуться до чего угодно!")
+	text_gain_indication = "<span class='notice'>You feel smarter!</span>"
 	limb_req = BODY_ZONE_HEAD
 	instability = 30
+	///Typecache of atoms that TK shouldn't interact with
+	var/static/list/blacklisted_atoms = typecacheof(list(/atom/movable/screen))
 
 /datum/mutation/human/telekinesis/New(class_ = MUT_OTHER, timer, datum/mutation/human/copymut)
 	..()
 	if(!(type in visual_indicators))
-		visual_indicators[type] = list(mutable_appearance('icons/effects/genetics.dmi', "telekinesishead", -MUTATIONS_LAYER))
+		visual_indicators[type] = list(mutable_appearance('icons/mob/effects/genetics.dmi', "telekinesishead", -MUTATIONS_LAYER))
 
 /datum/mutation/human/telekinesis/on_acquiring(mob/living/carbon/human/H)
 	. = ..()
@@ -31,4 +33,8 @@
 ///Triggers on COMSIG_MOB_ATTACK_RANGED. Usually handles stuff like picking up items at range.
 /datum/mutation/human/telekinesis/proc/on_ranged_attack(mob/source, atom/target)
 	SIGNAL_HANDLER
+	if(is_type_in_typecache(target, blacklisted_atoms))
+		return
+	if(!tkMaxRangeCheck(source, target) || source.z != target.z)
+		return
 	return target.attack_tk(source)

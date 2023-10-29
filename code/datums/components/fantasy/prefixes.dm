@@ -8,27 +8,27 @@
 
 /datum/fantasy_affix/cosmetic_prefixes/New()
 	goodPrefixes = list(
-		"большой",
-		"главный",
-		"благословенный",
-		"превосходный",
-		"усиленный",
-		"отточенный",
-		"истинный",
-		"славный",
-		"крепкий",
+		"greater",
+		"major",
+		"blessed",
+		"superior",
+		"empowered",
+		"honed",
+		"true",
+		"glorious",
+		"robust",
 		)
 	badPrefixes = list(
-		"меньший",
-		"незначительный",
-		"испорченный",
-		"низший",
-		"ослабленный",
-		"ржавый",
-		"неустойчивый",
-		"трагический",
-		"забитый",
-		"проклятый",
+		"lesser",
+		"minor",
+		"blighted",
+		"inferior",
+		"enfeebled",
+		"rusted",
+		"unsteady",
+		"tragic",
+		"gimped",
+		"cursed",
 		)
 
 	weight = (length(goodPrefixes) + length(badPrefixes)) * 10
@@ -48,7 +48,7 @@
 /datum/fantasy_affix/tactical/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/tactical)
-	return "тактический [newName]"
+	return "tactical [newName]"
 
 /datum/fantasy_affix/pyromantic
 	name = "pyromantic"
@@ -58,7 +58,7 @@
 /datum/fantasy_affix/pyromantic/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/igniter, clamp(comp.quality, 1, 10))
-	return "пиромантический [newName]"
+	return "pyromantic [newName]"
 
 /datum/fantasy_affix/vampiric
 	name = "vampiric"
@@ -72,7 +72,7 @@
 /datum/fantasy_affix/vampiric/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	master.AddElement(/datum/element/lifesteal, comp.quality)
-	return "вампирический [newName]"
+	return "vampiric [newName]"
 
 /datum/fantasy_affix/vampiric/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -100,7 +100,7 @@
 /datum/fantasy_affix/ugly/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	master.AddElement(/datum/element/beauty, min(comp.quality, -1) * 250)
-	return "[pick("унылый", "уродливый", "гротескный", "отвратительный")] [newName]"
+	return "[pick("fugly", "ugly", "grotesque", "hideous")] [newName]"
 
 /datum/fantasy_affix/ugly/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -144,3 +144,20 @@
 /datum/fantasy_affix/venomous/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
 	master.RemoveElement(/datum/element/venomous)
+
+/datum/fantasy_affix/soul_stealer
+	name = "soul-stealing"
+	placement = AFFIX_PREFIX
+	alignment = AFFIX_GOOD
+
+/datum/fantasy_affix/soul_stealer/validate(obj/item/attached)
+	if(attached.force)
+		return FALSE
+	if(attached.atom_storage)
+		return FALSE
+	return TRUE
+
+/datum/fantasy_affix/soul_stealer/apply(datum/component/fantasy/comp, newName)
+	var/obj/item/master = comp.parent
+	comp.appliedComponents += master.AddComponent(/datum/component/soul_stealer)
+	return "soul-[pick("stealing", "hungering", "devouring")] [newName]"

@@ -6,15 +6,15 @@ export const MassDriverControl = (props, context) => {
   const { act, data } = useBackend(context);
   const { connected, minutes, seconds, timing, power, poddoor } = data;
   return (
-    <Window width={300} height={connected ? 225 : 107}>
+    <Window width={300} height={connected ? 215 : 107}>
       <Window.Content>
         {!!connected && (
           <Section
-            title="Авто-запуск"
+            title="Auto Launch"
             buttons={
               <Button
                 icon={'clock-o'}
-                content={timing ? 'Стоп' : 'Старт'}
+                content={timing ? 'Stop' : 'Start'}
                 selected={timing}
                 onClick={() => act('time')}
               />
@@ -44,11 +44,11 @@ export const MassDriverControl = (props, context) => {
           </Section>
         )}
         <Section
-          title="Управление"
+          title="Controls"
           buttons={
             <Button
               icon={'toggle-on'}
-              content="Внешний шлюз"
+              content="Toggle Outer Door"
               disabled={timing || !poddoor}
               onClick={() => act('door')}
             />
@@ -57,11 +57,11 @@ export const MassDriverControl = (props, context) => {
             <>
               <LabeledList>
                 <LabeledList.Item
-                  label="Сила"
+                  label="Power Level"
                   buttons={
                     <Button
                       icon={'bomb'}
-                      content="Тест"
+                      content="Test Fire"
                       disabled={timing}
                       onClick={() => act('driver_test')}
                     />
@@ -81,7 +81,7 @@ export const MassDriverControl = (props, context) => {
               </LabeledList>
               <Button
                 fluid
-                content="Старт"
+                content="Launch"
                 disabled={timing}
                 mt={1.5}
                 icon="arrow-up"
@@ -89,7 +89,7 @@ export const MassDriverControl = (props, context) => {
                 onClick={() => act('launch')}
               />
             </>
-          )) || <Box color="bad">Не подключен масс-драйвер.</Box>}
+          )) || <Box color="bad">No connected mass driver</Box>}
         </Section>
       </Window.Content>
     </Window>

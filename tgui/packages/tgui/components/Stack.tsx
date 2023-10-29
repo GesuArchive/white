@@ -5,6 +5,7 @@
  */
 
 import { classes } from 'common/react';
+import { RefObject } from 'inferno';
 import { computeFlexClassName, computeFlexItemClassName, computeFlexItemProps, computeFlexProps, FlexItemProps, FlexProps } from './Flex';
 
 type StackProps = FlexProps & {
@@ -31,8 +32,12 @@ export const Stack = (props: StackProps) => {
   );
 };
 
-const StackItem = (props: FlexProps) => {
-  const { className, ...rest } = props;
+type StackItemProps = FlexProps & {
+  innerRef?: RefObject<HTMLDivElement>;
+};
+
+const StackItem = (props: StackItemProps) => {
+  const { className, innerRef, ...rest } = props;
   return (
     <div
       className={classes([
@@ -40,6 +45,7 @@ const StackItem = (props: FlexProps) => {
         className,
         computeFlexItemClassName(rest),
       ])}
+      ref={innerRef}
       {...computeFlexItemProps(rest)}
     />
   );

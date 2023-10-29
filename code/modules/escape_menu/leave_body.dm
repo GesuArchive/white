@@ -10,8 +10,8 @@
 
 	page_holder.give_screen_object(new /atom/movable/screen/escape_menu/leave_body_button(
 		src,
-		"Драма",
-		"Совершить драматический уход",
+		"Suicide",
+		"Perform a dramatic suicide in game",
 		/* pixel_offset = */ -105,
 		CALLBACK(src, PROC_REF(leave_suicide)),
 		/* button_overlay = */ dead_clown,
@@ -20,8 +20,8 @@
 	page_holder.give_screen_object(
 		new /atom/movable/screen/escape_menu/leave_body_button(
 			src,
-			"Призрак",
-			"Покинуть тело, тихо",
+			"Ghost",
+			"Exit quietly, leaving your body",
 			/* pixel_offset = */ 0,
 			CALLBACK(src, PROC_REF(leave_ghost)),
 			/* button_overlay = */ "ghost",
@@ -31,7 +31,7 @@
 	page_holder.give_screen_object(
 		new /atom/movable/screen/escape_menu/leave_body_button(
 			src,
-			"Назад",
+			"Back",
 			/* tooltip_text = */ null,
 			/* pixel_offset = */ 105,
 			CALLBACK(src, PROC_REF(open_home_page)),
@@ -42,7 +42,7 @@
 /datum/escape_menu/proc/create_dead_clown()
 	PRIVATE_PROC(TRUE)
 
-	var/mob/living/carbon/human/dummy/human = new
+	var/mob/living/carbon/human/consistent/human = new
 	human.equipOutfit(/datum/outfit/job/clown)
 
 	var/mutable_appearance/appearance = new(human.appearance)
@@ -62,7 +62,7 @@
 
 	// Not guaranteed to be living. Everything defines verb/ghost separately. Fuck you.
 	var/mob/living/living_user = client?.mob
-	living_user?.ghostize(FALSE)
+	living_user?.ghost()
 
 /datum/escape_menu/proc/leave_suicide()
 	PRIVATE_PROC(TRUE)
@@ -101,7 +101,7 @@
 	screen_loc = "CENTER:[pixel_offset],CENTER-1"
 
 /atom/movable/screen/escape_menu/leave_body_button/Destroy()
-	QDEL_NULL(on_click_callback)
+	on_click_callback = null
 
 	return ..()
 

@@ -12,23 +12,23 @@ const lawtype_to_color = {
 } as const;
 
 const lawtype_to_tooltip = {
-  'inherent': `Основные законы.
-            Неотъемлемые законы - это "основные" законы ИИ.
-            Перезагрузка ИИ не приведет к их удалению,
-            они присущи тому набору законов, которым он управляет.`,
-  'supplied': `Дополнительные законы.
-              Дополнительные законы - это то, что поставляется в дополнение к присущим законам.
-              Эти законы исчезают при перезагрузке ИИ.`,
-  'ion': `Ионные законы.
-         Особые, (обычно) рандомизированные законы, которые стоят выше всех остальных законов.
-        Эти законы исчезают при перезагрузке ИИ.`,
+  'inherent': `Core laws.
+    Inherent laws are the "core" laws of the AI.
+    Resetting the AI will not remove these,
+    these are intrinsic to whatever lawset they are running.`,
+  'supplied': `Supplied laws.
+    Supplied laws are, well, supplied in addition to the inherent laws.
+    These laws will go away when an AI is reset.`,
+  'ion': `Ion laws.
+    Special, (usually) randomized laws which are above all over laws.
+    These laws will go away when an AI is reset.`,
   'hacked': `Hacked laws.
-        Загруженные Синдикатские законы, которые стоят выше всех остальных законов.
-        Эти законы исчезают при перезагрузке ИИ.`,
+    Syndicate uploaded laws which are above all other laws.
+    These laws will go away when an AI is reset.`,
   'zeroth': `Zeroth law.
-        В наборе законов может быть только один нулевой закон, он является главным.
-        Выдается неисправными ИИ, чтобы позволить им делать все, что угодно.
-        Ничто, якобы, это не отменит, если только админ не заставит.`,
+    A lawset can only have 1 zeroth law, it's the top dog.
+    Given out by malfunctioning AIs to allow them to do whatever.
+    Nothing will remove this, allegedly, unless it's admin forced.`,
 } as const;
 
 type Law = {
@@ -48,9 +48,9 @@ type Silicon = {
   // List of our laws, this is almost never null. If it is null, that's an error.
   laws: null | Law[];
   // String, name of our master AI. Null means no master or we're not a borg
-  master_ai: null | string;
+  master_ai?: null | string;
   // TRUE, we're law-synced to our master AI. FALSE, we're not, null, we're not a borg
-  borg_synced: null | BooleanLike;
+  borg_synced?: null | BooleanLike;
   // REF() to our silicon
   ref: string;
 };
@@ -106,9 +106,9 @@ export const LawPrintout = (
                     icon="question"
                     tooltip={
                       lawtype_to_tooltip[law.lawtype] ||
-                      `По каким-то причинам этот закон не распознается,
-                        причина может заключаться в "баге".
-                        Отправьте репорт кодерам.`
+                      `This lawtype is unrecognized for some reason,
+                        that reason probably being "a bug".
+                        Make an issue report with this please.`
                     }
                     color={lawtype_to_color[law.lawtype] || 'pink'}
                   />
@@ -132,7 +132,7 @@ export const LawPrintout = (
                   <Button
                     icon="pen-ruler"
                     color={'green'}
-                    tooltip={'Редактирование текста закона.'}
+                    tooltip={'Edit the text of the law.'}
                     onClick={() =>
                       act('edit_law_text', {
                         ref: cyborg_ref,
@@ -183,7 +183,7 @@ export const LawPrintout = (
                     <Button
                       icon="pen-to-square"
                       color={'green'}
-                      tooltip={'Редактирование приоритета закона.'}
+                      tooltip={'Edit the priority of the law.'}
                       onClick={() =>
                         act('edit_law_prio', {
                           ref: cyborg_ref,
@@ -204,7 +204,7 @@ export const LawPrintout = (
         <Button
           icon="plus"
           color={'green'}
-          content={'Добавить закон'}
+          content={'Add Law'}
           onClick={() => act('add_law', { ref: cyborg_ref })}
         />
       </LabeledList.Item>
@@ -222,15 +222,19 @@ export const SiliconReadout = (props: { cyborg: Silicon }, context) => {
       <Flex.Item grow>
         <Collapsible title={`${cyborg.borg_type}: ${cyborg.borg_name}`}>
           <Section backgroundColor={'black'}>
-            {cyborg.master_ai && cyborg.borg_synced && (
+            {cyborg.master_ai && !!cyborg.borg_synced && (
               <SyncedBorgDimmer master={cyborg.master_ai} />
             )}
             <Stack vertical>
               <Stack.Item>
                 {cyborg.laws === null ? (
                   <Button
-                    content={`Этот юнит имеет нулевой датум законов. Это проблема!
-                Тык сюда, чтобы создать ему датум.`}
+                    fluid
+                    textAlign="center"
+                    color="danger"
+                    content={`This silicon has a null law datum. This isn't
+                      supposed to ever happen! Issue report
+                      and then click this this give them one.`}
                     onClick={() => act('give_law_datum', { ref: cyborg.ref })}
                   />
                 ) : (
@@ -242,9 +246,9 @@ export const SiliconReadout = (props: { cyborg: Silicon }, context) => {
                   <Stack.Item>
                     <Button
                       icon="bullhorn"
-                      content={'Заставить сказать законы'}
-                      tooltip={`Заставляет силикон сказать свои законы.
-                        Заставляет сказать только основные / законы.`}
+                      content={'Force State Laws'}
+                      tooltip={`Forces the silicon to state laws.
+                        Only states inherent / core laws.`}
                       onClick={() =>
                         act('force_state_laws', { ref: cyborg.ref })
                       }
@@ -253,10 +257,10 @@ export const SiliconReadout = (props: { cyborg: Silicon }, context) => {
                   <Stack.Item>
                     <Button
                       icon="message"
-                      content={'Приватно аннонсировать законы'}
-                      tooltip={`Отображает все законы юнита
-                      в своем чате. Также отображается для всех
-                      связанным киборгам для ИИ.`}
+                      content={'Privately Announce Laws'}
+                      tooltip={`Displays all of the silicon's laws
+                        in their chat box. Also shows to all
+                        linked cyborgs for AIs.`}
                       onClick={() =>
                         act('announce_law_changes', { ref: cyborg.ref })
                       }
@@ -265,10 +269,10 @@ export const SiliconReadout = (props: { cyborg: Silicon }, context) => {
                   <Stack.Item>
                     <Button
                       icon="bell"
-                      content={'Оповещение о смене законов'}
-                      tooltip={`Выводит на экран сообщение юниту о том,
-                      что его законы были обновлены. Также отображает законы в чате
-                      и предупреждает дедчат.`}
+                      content={'"Laws Updated" Alert'}
+                      tooltip={`Throws a screen alert to the silicon that their
+                        laws have been updated. Also displays the laws in chat
+                        and alerts deadchat.`}
                       onClick={() =>
                         act('laws_updated_alert', { ref: cyborg.ref })
                       }
@@ -293,7 +297,7 @@ export const Lawpanel = (props, context) => {
       <Window.Content>
         <Section
           fill
-          title="Все законы юнита"
+          title="All Silicon Laws"
           scrollable
           buttons={
             <Button
@@ -311,7 +315,7 @@ export const Lawpanel = (props, context) => {
               ))
             ) : (
               <Stack.Item>
-                <NoticeBox>Юнитов пока что нет.</NoticeBox>
+                <NoticeBox>There are no silicons in existence.</NoticeBox>
               </Stack.Item>
             )}
           </Stack>

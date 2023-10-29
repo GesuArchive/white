@@ -1,7 +1,7 @@
 /client/verb/update_ping(time as num)
 	set instant = TRUE
 	set name = ".update_ping"
-	var/ping = (pingfromtime(time)/4) //MASTERMIND
+	var/ping = pingfromtime(time)
 	lastping = ping
 	if (!avgping)
 		avgping = ping
@@ -14,9 +14,9 @@
 /client/verb/display_ping(time as num)
 	set instant = TRUE
 	set name = ".display_ping"
-	to_chat(src, span_notice("Время отклика [round(pingfromtime(time)/4, 1)]мс."))
+	to_chat(src, span_notice("Round trip ping took [round(pingfromtime(time),1)]ms"))
 
 /client/verb/ping()
-	set name = "Пинг"
+	set name = "Ping"
 	set category = "OOC"
 	winset(src, null, "command=.display_ping+[world.time+world.tick_lag*TICK_USAGE_REAL/100]")

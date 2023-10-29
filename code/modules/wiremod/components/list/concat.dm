@@ -4,8 +4,8 @@
  * Concatenates a list with a separator
  */
 /obj/item/circuit_component/concat_list
-	display_name = "Объединить список"
-	desc = "Компонент, который преобразует список с разделителем в одну строку."
+	display_name = "Concatenate List"
+	desc = "A component that joins up a list with a separator into a single string."
 	category = "List"
 
 	/// The input port
@@ -22,7 +22,7 @@
 	list_port = add_input_port("List", PORT_TYPE_LIST(PORT_TYPE_ANY))
 	separator = add_input_port("Seperator", PORT_TYPE_STRING)
 
-	output = add_output_port("Выход", PORT_TYPE_STRING)
+	output = add_output_port("Output", PORT_TYPE_STRING)
 
 /obj/item/circuit_component/concat_list/input_received(datum/port/input/port)
 
@@ -42,3 +42,4 @@
 			text_list += "[entry]"
 
 	output.set_output(text_list.Join(seperator))
+

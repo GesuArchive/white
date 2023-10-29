@@ -1,60 +1,84 @@
 /obj/projectile/beam
-	name = "луч"
+	name = "laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	damage = 20
 	damage_type = BURN
 	hitsound = 'sound/weapons/sear.ogg'
 	hitsound_wall = 'sound/weapons/effects/searwall.ogg'
-	flag = LASER
-	eyeblur = 2
+	armor_flag = LASER
+	eyeblur = 4 SECONDS
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
 	light_system = MOVABLE_LIGHT
 	light_range = 1
 	light_power = 1
 	light_color = COLOR_SOFT_RED
-	ricochets_max = 50	//Honk!
+	ricochets_max = 50 //Honk!
 	ricochet_chance = 80
 	reflectable = REFLECT_NORMAL
 	wound_bonus = -20
 	bare_wound_bonus = 10
-	aim_mod = 1.25
 
 
 /obj/projectile/beam/laser
 	tracer_type = /obj/effect/projectile/tracer/laser
 	muzzle_type = /obj/effect/projectile/muzzle/laser
 	impact_type = /obj/effect/projectile/impact/laser
-	wound_bonus = -30
+	wound_bonus = -20
+	damage = 25
 	bare_wound_bonus = 40
+
+/obj/projectile/beam/laser/carbine
+	icon_state = "carbine_laser"
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/yellow_laser
+	damage = 10
+
+/obj/projectile/beam/laser/carbine/practice
+	name = "practice laser"
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/yellow_laser
+	damage = 0
 
 //overclocked laser, does a bit more damage but has much higher wound power (-0 vs -20)
 /obj/projectile/beam/laser/hellfire
-	name = "адский луч"
+	name = "hellfire laser"
 	wound_bonus = 0
 	damage = 30
-	speed = 0.5 // higher power = faster, that's how light works right
+	speed = 0.6 // higher power = faster, that's how light works right
 
 /obj/projectile/beam/laser/hellfire/Initialize(mapload)
 	. = ..()
 	transform *= 2
 
 /obj/projectile/beam/laser/heavylaser
-	name = "тяжелый луч"
+	name = "heavy laser"
 	icon_state = "heavylaser"
 	damage = 40
-	aim_mod = 2
 	tracer_type = /obj/effect/projectile/tracer/heavy_laser
 	muzzle_type = /obj/effect/projectile/muzzle/heavy_laser
 	impact_type = /obj/effect/projectile/impact/heavy_laser
 
-/obj/projectile/beam/laser/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/laser/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/M = target
 		M.ignite_mob()
 	else if(isturf(target))
 		impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser/wall
+
+/obj/projectile/beam/laser/musket
+	name = "low-power laser"
+	icon_state = "laser_musket"
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/purple_laser
+	damage = 25
+	stamina = 40
+	light_color = COLOR_STRONG_VIOLET
+	weak_against_armour = TRUE
+
+/obj/projectile/beam/laser/musket/prime
+	name = "mid-power laser"
+	damage = 30
+	stamina = 45
+	weak_against_armour = FALSE
 
 /obj/projectile/beam/weak
 	damage = 15
@@ -63,22 +87,33 @@
 	armour_penetration = 50
 
 /obj/projectile/beam/practice
-	name = "безвредный луч"
+	name = "practice laser"
 	damage = 0
-	nodamage = TRUE
 
 /obj/projectile/beam/scatter
-	name = "лучевой осколок"
+	name = "laser pellet"
 	icon_state = "scatterlaser"
-	damage = 5
+	damage = 7.5
+	wound_bonus = 5
+	bare_wound_bonus = 5
+	damage_falloff_tile = -0.45
+	wound_falloff_tile = -2.5
+
+/obj/projectile/beam/scatter/pathetic
+	name = "extremely weak laser pellet"
+	damage = 1
+	wound_bonus = 0
+	damage_falloff_tile = -0.1
+	color = "#dbc11d"
+	hitsound = 'sound/items/bikehorn.ogg' //honk
+	hitsound_wall = 'sound/items/bikehorn.ogg'
 
 /obj/projectile/beam/xray
-	name = "\improper X-ray луч"
+	name = "\improper X-ray beam"
 	icon_state = "xray"
-	flag = RAD
 	damage = 15
-	irradiate = 300
 	range = 15
+	armour_penetration = 100
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSCLOSEDTURF | PASSMACHINE | PASSSTRUCTURE | PASSDOORS
 
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/green_laser
@@ -88,21 +123,32 @@
 	impact_type = /obj/effect/projectile/impact/xray
 
 /obj/projectile/beam/disabler
-	name = "останавливающий луч"
+	name = "disabler beam"
 	icon_state = "omnilaser"
 	damage = 30
 	damage_type = STAMINA
-	flag = ENERGY
-	hitsound = 'sound/weapons/tap.ogg'
-	eyeblur = 0
+	armor_flag = ENERGY
+	hitsound = 'sound/weapons/sear_disabler.ogg'
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
 	light_color = LIGHT_COLOR_BLUE
 	tracer_type = /obj/effect/projectile/tracer/disabler
 	muzzle_type = /obj/effect/projectile/muzzle/disabler
 	impact_type = /obj/effect/projectile/impact/disabler
 
+/obj/projectile/beam/disabler/weak
+	damage = 15
+
+/obj/projectile/beam/disabler/smoothbore
+	name = "unfocused disabler beam"
+	weak_against_armour = TRUE
+
+/obj/projectile/beam/disabler/smoothbore/prime
+	name = "focused disabler beam"
+	weak_against_armour = FALSE
+	damage = 35 //slight increase in damage just for the hell of it
+
 /obj/projectile/beam/pulse
-	name = "импульсный луч"
+	name = "pulse"
 	icon_state = "u_laser"
 	damage = 50
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
@@ -111,11 +157,10 @@
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
 	impact_type = /obj/effect/projectile/impact/pulse
 	wound_bonus = 10
-	aim_mod = 3 //ПУЛЬСАЧ БЬЕТ ЧЕРЕЗ 3 ЭКРАНА.
 
-/obj/projectile/beam/pulse/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/pulse/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
-	if (!QDELETED(target) && (isturf(target) || istype(target, /obj/structure/)))
+	if (!QDELETED(target) && (isturf(target) || isstructure(target)))
 		if(isobj(target))
 			SSexplosions.med_mov_atom += target
 		else
@@ -125,19 +170,19 @@
 	damage = 30
 
 /obj/projectile/beam/pulse/heavy
-	name = "тяжелый импульсный луч"
+	name = "heavy pulse laser"
 	icon_state = "pulse1_bl"
 	projectile_piercing = ALL
 	var/pierce_hits = 2
 
-/obj/projectile/beam/pulse/heavy/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/pulse/heavy/on_hit(atom/target, blocked = 0, pierce_hit)
 	if(pierce_hits <= 0)
 		projectile_piercing = NONE
 	pierce_hits -= 1
 	..()
 
 /obj/projectile/beam/emitter
-	name = "луч излучателя"
+	name = "emitter beam"
 	icon_state = "emitter"
 	damage = 30
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/green_laser
@@ -165,17 +210,16 @@
 	impact_light_color_override = COLOR_LIME
 
 /obj/projectile/beam/lasertag
-	name = "луч тэга"
+	name = "laser tag beam"
 	icon_state = "omnilaser"
 	hitsound = null
 	damage = 0
 	damage_type = STAMINA
-	flag = LASER
 	var/suit_types = list(/obj/item/clothing/suit/redtag, /obj/item/clothing/suit/bluetag)
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
 	light_color = LIGHT_COLOR_BLUE
 
-/obj/projectile/beam/lasertag/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/lasertag/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/M = target
@@ -205,76 +249,23 @@
 /obj/projectile/beam/lasertag/bluetag/hitscan
 	hitscan = TRUE
 
-/obj/projectile/beam/instakill
-	name = "взрыватор"
-	icon_state = "purple_laser"
-	damage = 200
-	damage_type = BURN
-	impact_effect_type = /obj/effect/temp_visual/impact_effect/purple_laser
-	light_color = LIGHT_COLOR_PURPLE
-
-/obj/projectile/beam/instakill/blue
-	icon_state = "blue_laser"
-	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
-	light_color = LIGHT_COLOR_BLUE
-
-/obj/projectile/beam/instakill/red
-	icon_state = "red_laser"
-	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
-	light_color = COLOR_SOFT_RED
-
-/obj/projectile/beam/instakill/green
-	icon_state = "green_laser"
-	impact_effect_type = /obj/effect/temp_visual/impact_effect/green_laser
-	light_color = COLOR_VERY_PALE_LIME_GREEN
-
-/obj/projectile/beam/instakill/yellow
-	icon_state = "yellow_laser"
-	impact_effect_type = /obj/effect/temp_visual/impact_effect/yellow_laser
-	light_color = COLOR_VERY_SOFT_YELLOW
-
-/obj/projectile/beam/instakill/on_hit(atom/target)
-	. = ..()
-	if(iscarbon(target))
-		var/mob/living/carbon/M = target
-		M.visible_message(span_danger("[M] explodes into a shower of gibs!"))
-		M.gib()
-
 //a shrink ray that shrinks stuff, which grows back after a short while.
 /obj/projectile/beam/shrink
-	name = "уменьшающий луч"
+	name = "shrink ray"
 	icon_state = "blue_laser"
 	hitsound = 'sound/weapons/shrink_hit.ogg'
 	damage = 0
 	damage_type = STAMINA
-	flag = ENERGY
+	armor_flag = ENERGY
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/shrink
 	light_color = LIGHT_COLOR_BLUE
 	var/shrink_time = 90
 
-/obj/projectile/beam/shrink/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/shrink/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(isopenturf(target) || istype(target, /turf/closed/indestructible))//shrunk floors wouldnt do anything except look weird, i-walls shouldn't be bypassable
+	if(isopenturf(target) || isindestructiblewall(target))//shrunk floors wouldnt do anything except look weird, i-walls shouldn't be bypassable
 		return
 	target.AddComponent(/datum/component/shrink, shrink_time)
 
-/// BFG
-/obj/projectile/beam/bfg
-	name = "плазменный снаряд"
-	icon_state = "lava"
-	damage = 35
-	light_power = 2
-	light_color = "#ffff00"
-	speed = 1
-
-/obj/projectile/beam/bfg/Range()
-	. = ..()
-	for(var/atom/movable/passed in range(1, src))
-		if(passed == src)
-			continue
-		if(isliving(passed))
-			var/mob/living/m_passed = passed
-			m_passed.apply_damage(HEAT_DAMAGE_LEVEL_3, BURN)
-			new /obj/effect/temp_visual/ratvar/ocular_warden(get_turf(m_passed))
-		else
-			passed.fire_act(460, 100)
+/obj/projectile/beam/shrink/is_hostile_projectile()
+	return TRUE

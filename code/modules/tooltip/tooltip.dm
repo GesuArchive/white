@@ -36,14 +36,14 @@ Notes:
 	..()
 
 
-/datum/tooltip/proc/show(atom/movable/thing, params = null, title = null, content = null, theme = "default")
+/datum/tooltip/proc/show(atom/movable/thing, params = null, title = null, content = null, theme = "default", special = "none")
 	if (!thing || !params || (!title && !content) || !owner || !isnum(world.icon_size))
 		return FALSE
 
 	if (!isnull(last_target))
-		UnregisterSignal(last_target, COMSIG_PARENT_QDELETING)
+		UnregisterSignal(last_target, COMSIG_QDELETING)
 
-	RegisterSignal(thing, COMSIG_PARENT_QDELETING, PROC_REF(on_target_qdel))
+	RegisterSignal(thing, COMSIG_QDELETING, PROC_REF(on_target_qdel))
 
 	last_target = thing
 
@@ -71,7 +71,7 @@ Notes:
 
 	//Send stuff to the tooltip
 	var/view_size = getviewsize(owner.view)
-	owner << output(list2params(list(params, view_size[1], view_size[2], "[title][content]", theme)), "[control]:tooltip.update")
+	owner << output(list2params(list(params, view_size[1] , view_size[2], "[title][content]", theme, special)), "[control]:tooltip.update")
 
 	//If a hide() was hit while we were showing, run hide() again to avoid stuck tooltips
 	showing = 0
@@ -110,11 +110,12 @@ Notes:
 /proc/openToolTip(mob/user = null, atom/movable/tip_src = null, params = null,title = "",content = "",theme = "")
 	if(istype(user))
 		if(user.client && user.client.tooltips)
-			if(!theme && user.client.prefs && user.client.prefs.UI_style)
-				theme = lowertext(user.client.prefs.UI_style)
+			var/ui_style = user.client?.prefs?.read_preference(/datum/preference/choiced/ui_style)
+			if(!theme && ui_style)
+				theme = lowertext(ui_style)
 			if(!theme)
 				theme = "default"
-			user.client.tooltips.show(tip_src, params, title, content, theme)
+			user.client.tooltips.show(tip_src, params,title,content,theme)
 
 
 //Arbitrarily close a user's tooltip

@@ -3,17 +3,10 @@
 	required_reagents = list(/datum/reagent/mercury = 1, /datum/reagent/consumable/sugar = 1, /datum/reagent/lithium = 1)
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DRUG
 
-/datum/chemical_reaction/crank
-	results = list(/datum/reagent/drug/crank = 5)
-	required_reagents = list(/datum/reagent/medicine/diphenhydramine = 1, /datum/reagent/ammonia = 1, /datum/reagent/lithium = 1, /datum/reagent/toxin/acid = 1, /datum/reagent/fuel = 1)
-	mix_message = "Смесь начала бурную реакцию, оставив после себя несколько кристаллических осколков."
-	required_temp = 390
-	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DRUG
-
 /datum/chemical_reaction/krokodil
 	results = list(/datum/reagent/drug/krokodil = 6)
 	required_reagents = list(/datum/reagent/medicine/diphenhydramine = 1, /datum/reagent/medicine/morphine = 1, /datum/reagent/space_cleaner = 1, /datum/reagent/potassium = 1, /datum/reagent/phosphorus = 1, /datum/reagent/fuel = 1)
-	mix_message = "Высохнув, смесь превратилась в бледно-голубой порошок."
+	mix_message = "The mixture dries into a pale blue powder."
 	required_temp = 380
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DRUG
 
@@ -70,6 +63,7 @@
 	if(ismob(holder.my_atom))
 		var/mob/M = holder.my_atom
 		inside_msg = " inside [ADMIN_LOOKUPFLW(M)]"
+		return
 	var/lastkey = holder.my_atom.fingerprintslast
 	var/touch_msg = "N/A"
 	if(lastkey)
@@ -135,7 +129,7 @@
 
 /datum/chemical_reaction/moon_rock/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/location = get_turf(holder.my_atom)
-	for(var/i = 1, i <= created_volume, i++)
+	for(var/i in 1 to created_volume)
 		var/obj/item/food/drug/moon_rock/new_rock = new(location)
 		new_rock.pixel_x = rand(-6, 6)
 		new_rock.pixel_y = rand(-6, 6)
@@ -147,8 +141,8 @@
 
 /datum/chemical_reaction/blastoff_ampoule/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/location = get_turf(holder.my_atom)
-	for(var/iteration = 1, iteration <= created_volume, iteration++)
-		var/obj/item/reagent_containers/glass/blastoff_ampoule/new_ampoule = new(location)
+	for(var/iteration in 1 to created_volume)
+		var/obj/item/reagent_containers/cup/blastoff_ampoule/new_ampoule = new(location)
 		new_ampoule.pixel_x = rand(-6, 6)
 		new_ampoule.pixel_y = rand(-6, 6)
 
@@ -159,11 +153,7 @@
 
 /datum/chemical_reaction/saturnx_glob/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/location = get_turf(holder.my_atom)
-	for(var/iteration = 1, iteration <= created_volume, iteration++)
+	for(var/iteration in 1 to created_volume)
 		var/obj/item/food/drug/saturnx/new_glob = new(location)
 		new_glob.pixel_x = rand(-6, 6)
 		new_glob.pixel_y = rand(-6, 6)
-
-/datum/chemical_reaction/hyperpsy
-	results = list(/datum/reagent/toxin/hyperpsy = 1)
-	required_reagents = list(/datum/reagent/consumable/ethanol/neurotoxin = 1, /datum/reagent/medicine/strange_reagent = 1, /datum/reagent/medicine/mannitol = 1)

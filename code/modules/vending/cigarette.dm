@@ -1,9 +1,10 @@
 /obj/machinery/vending/cigarette
-	name = "Смог"
-	desc = "Если вы хотите заболеть раком, сделайте это стильно."
-	product_slogans = "Космические сигареты имеют приятный вкус, как и должна быть настоящая сигарета.;Я бы предпочел удар от ящика с инструментами по голове, чем бросать курить!;Кури!;"
-	product_ads = "Точно не навредит вам!;Не верьте ученым!;Это не навредит вам!;Не бросайте, покупайте больше!;Кури!;Никотиновый рай только здесь.;Лучшие сигареты с 2150 года;Отмеченные наградами сигареты."
+	name = "\improper ShadyCigs Deluxe"
+	desc = "If you want to get cancer, might as well do it in style."
+	product_slogans = "Space cigs taste good like a cigarette should.;I'd rather toolbox than switch.;Smoke!;Don't believe the reports - smoke today!"
+	product_ads = "Probably not bad for you!;Don't believe the scientists!;It's good for you!;Don't quit, buy more!;Smoke!;Nicotine heaven.;Best cigarettes since 2150.;Award-winning cigs."
 	icon_state = "cigs"
+	panel_type = "panel5"
 	products = list(
 		/obj/item/storage/fancy/cigarettes = 5,
 		/obj/item/storage/fancy/cigarettes/cigpack_candy = 4,
@@ -14,18 +15,22 @@
 		/obj/item/storage/box/matches = 10,
 		/obj/item/lighter/greyscale = 4,
 		/obj/item/storage/fancy/rollingpapers = 5,
-		/obj/item/storage/ashtray = 2)
-	contraband = list(/obj/item/clothing/mask/vape = 5)
+	)
+	contraband = list(
+		/obj/item/clothing/mask/vape = 5,
+	)
 	premium = list(
 		/obj/item/storage/fancy/cigarettes/cigpack_robustgold = 3,
 		/obj/item/storage/box/gum/nicotine = 2,
 		/obj/item/lighter = 3,
 		/obj/item/storage/fancy/cigarettes/cigars = 1,
 		/obj/item/storage/fancy/cigarettes/cigars/havana = 1,
-		/obj/item/storage/fancy/cigarettes/cigars/cohiba = 1)
+		/obj/item/storage/fancy/cigarettes/cigars/cohiba = 1,
+	)
+
 	refill_canister = /obj/item/vending_refill/cigarette
-	default_price = PAYCHECK_ASSISTANT
-	extra_price = PAYCHECK_HARD
+	default_price = PAYCHECK_CREW
+	extra_price = PAYCHECK_COMMAND
 	payment_department = ACCOUNT_SRV
 	light_mask = "cigs-light-mask"
 
@@ -40,13 +45,14 @@
 		/obj/item/storage/box/matches = 10,
 		/obj/item/lighter/greyscale = 4,
 		/obj/item/storage/fancy/rollingpapers = 5,
-		/obj/item/storage/ashtray = 2)
+	)
+	initial_language_holder = /datum/language_holder/syndicate
 
 /obj/machinery/vending/cigarette/beach //Used in the lavaland_biodome_beach.dmm ruin
-	name = "Смог ультра"
-	desc = "Теперь с дополнительными продуктами премиум-класса!"
-	product_ads = "Космические сигареты имеют приятный вкус, как и должна быть настоящая сигарета.;Я бы предпочел удар от ящика с инструментами по голове, чем бросать курить!;Кури!;"
-	product_slogans = "Включись, настройся, выпадай!;Лучше жить через химию!;Пыхнем?;Не забудь сохранить улыбку на губах и песенку в душе!"
+	name = "\improper ShadyCigs Ultra"
+	desc = "Now with extra premium products!"
+	product_ads = "Probably not bad for you!;Dope will get you through times of no money better than money will get you through times of no dope!;It's good for you!"
+	product_slogans = "Turn on, tune in, drop out!;Better living through chemistry!;Toke!;Don't forget to keep a smile on your lips and a song in your heart!"
 	products = list(
 		/obj/item/storage/fancy/cigarettes = 5,
 		/obj/item/storage/fancy/cigarettes/cigpack_uplift = 3,
@@ -57,14 +63,16 @@
 		/obj/item/storage/box/matches = 10,
 		/obj/item/lighter/greyscale = 4,
 		/obj/item/storage/fancy/rollingpapers = 5,
-		/obj/item/storage/ashtray = 2)
+	)
 	premium = list(
 		/obj/item/storage/fancy/cigarettes/cigpack_mindbreaker = 5,
 		/obj/item/clothing/mask/vape = 5,
-		/obj/item/lighter = 3)
+		/obj/item/lighter = 3,
+	)
+	initial_language_holder = /datum/language_holder/beachbum
 
 /obj/item/vending_refill/cigarette
-	machine_name = "Смог"
+	machine_name = "ShadyCigs Deluxe"
 	icon_state = "refill_smoke"
 
 /obj/machinery/vending/cigarette/pre_throw(obj/item/I)

@@ -91,7 +91,7 @@ const GasHandbook = (props, context) => {
     <Section
       title={
         <GasSearchBar
-          title={relevantGas ? 'Газ: ' + relevantGas.name : 'Газы'}
+          title={relevantGas ? 'Gas: ' + relevantGas.name : 'Gas Lookup'}
           onChange={(keyword) =>
             setActiveGasId(
               gasInfo.find((gas) =>
@@ -107,9 +107,9 @@ const GasHandbook = (props, context) => {
         <>
           <Box mb="0.5em">{relevantGas.description}</Box>
           <Box mb="0.5em">
-            {'Тепло: ' + relevantGas.specific_heat + ' Джоуль/КельвинМоль'}
+            {'Specific heat: ' + relevantGas.specific_heat + ' Joule/KelvinMol'}
           </Box>
-          <Box mb="0.5em">{'Подходящие реакции:'}</Box>
+          <Box mb="0.5em">{'Relevant Reactions:'}</Box>
           {Object.entries(relevantGas.reactions).map(
             ([reaction_id, reaction_name]) => (
               <Box key={reaction_id} mb="0.5em">

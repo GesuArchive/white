@@ -1,20 +1,9 @@
 /datum/language/monkey
-	name = "Обезьяний"
-	desc = "Уук уук уук."
+	name = "Chimpanzee"
+	desc = "Ook ook ook."
 	key = "1"
 	space_chance = 100
-	syllables = list("ууп", "аак", "чии", "иик")
+	syllables = list("oop", "aak", "chee", "eek")
 	default_priority = 80
 
 	icon_state = "animal"
-
-/datum/language/monkey/caucasian
-	name = "Язык народов Дагестана"
-	desc = "Нихуя не понятно."
-	key = "d"
-	space_chance = 100
-	syllables = list("э", "ара", "ора", "уцик")
-	default_priority = 80
-
-	icon_state = "animal"
-

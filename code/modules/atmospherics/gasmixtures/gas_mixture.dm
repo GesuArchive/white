@@ -101,33 +101,10 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	if(!.)
 		. += HEAT_CAPACITY_VACUUM //we want vacuums in turfs to have the same heat capacity as space
 
-
-/datum/gas_mixture/proc/get_gases()
-	return gases
-
 /// Calculate moles
 /datum/gas_mixture/proc/total_moles()
 	var/cached_gases = gases
 	TOTAL_MOLES(cached_gases, .)
-
-// ?????????????????
-
-/datum/gas_mixture/proc/get_moles(gas_id)
-	var/gas_path = gas_id2path(gas_id)
-	ASSERT_GAS(gas_path, src)
-	return gases[gas_path][MOLES]
-
-/datum/gas_mixture/proc/set_moles(gas_id, amount)
-	var/gas_path = gas_id2path(gas_id)
-	ASSERT_GAS(gas_path, src)
-	gases[gas_path][MOLES] = amount
-	garbage_collect()
-
-/datum/gas_mixture/proc/adjust_moles(gas_id, amount)
-	var/gas_path = gas_id2path(gas_id)
-	ASSERT_GAS(gas_path, src)
-	gases[gas_path][MOLES] += amount
-	garbage_collect()
 
 /// Checks to see if gas amount exists in mixture.
 /// Do NOT use this in code where performance matters!
@@ -150,15 +127,9 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 /datum/gas_mixture/proc/return_temperature()
 	return temperature
 
-/datum/gas_mixture/proc/set_temperature(new_temperature)
-	temperature = new_temperature
-
 /// Calculate volume in liters
 /datum/gas_mixture/proc/return_volume()
 	return max(0, volume)
-
-/datum/gas_mixture/proc/set_volume(amount)
-	volume = amount
 
 /// Gets the gas visuals for everything in this mixture
 /datum/gas_mixture/proc/return_visuals(turf/z_context)

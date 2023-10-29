@@ -9,7 +9,7 @@
 
 $bg-map: colors.$bg-map !default;
 $fg-map: colors.$fg-map !default;
-$ring-color: colors.$primary !default;
+$ring-color: #6a96c9 !default;
 $knob-color: #333333 !default;
 $popup-background-color: #000000 !default;
 $popup-text-color: #ffffff !default;
@@ -119,7 +119,7 @@ $pi: 3.1416;
   stroke-width: 8;
   stroke-linecap: round;
   stroke-dasharray: 100 * $pi;
-  transition: stroke 50ms;
+  transition: stroke 50ms ease-out;
 }
 
 @each $color-name, $color-value in $fg-map {

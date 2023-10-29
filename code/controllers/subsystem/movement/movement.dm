@@ -112,3 +112,4 @@ SUBSYSTEM_DEF(movement)
 /datum/controller/subsystem/movement/proc/remove_loop(datum/move_loop/remove)
 	dequeue_loop(remove)
 	remove.loop_stopped()
+

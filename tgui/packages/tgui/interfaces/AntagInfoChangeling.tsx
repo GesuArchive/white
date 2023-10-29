@@ -1,7 +1,9 @@
+import { BooleanLike } from 'common/react';
 import { multiline } from 'common/string';
 import { useBackend, useSharedState } from '../backend';
-import { Box, Button, Dimmer, Dropdown, Section, Stack } from '../components';
+import { Button, Dimmer, Dropdown, Section, Stack, NoticeBox } from '../components';
 import { Window } from '../layouts';
+import { ObjectivePrintout, Objective, ReplaceObjectivesButton } from './common/Objectives';
 
 const hivestyle = {
   fontWeight: 'bold',
@@ -28,10 +30,14 @@ const storestyle = {
   fontWeight: 'bold',
 };
 
-type Objective = {
-  count: number;
-  name: string;
-  explanation: string;
+const hivemindstyle = {
+  color: 'violet',
+  fontWeight: 'bold',
+};
+
+const fallenstyle = {
+  color: 'black',
+  fontWeight: 'bold',
 };
 
 type Memory = {
@@ -40,33 +46,78 @@ type Memory = {
 };
 
 type Info = {
+  true_name: string;
   hive_name: string;
   stolen_antag_info: string;
   memories: Memory[];
   objectives: Objective[];
+  can_change_objective: BooleanLike;
 };
 
-const ObjectivePrintout = (props, context) => {
-  const { data } = useBackend<Info>(context);
-  const { objectives } = data;
+export const AntagInfoChangeling = (props, context) => {
   return (
-    <Stack vertical>
-      <Stack.Item bold>Your current objectives:</Stack.Item>
-      <Stack.Item>
-        {(!objectives && 'None!') ||
-          objectives.map((objective) => (
-            <Stack.Item key={objective.count}>
-              #{objective.count}: {objective.explanation}
-            </Stack.Item>
-          ))}
-      </Stack.Item>
-    </Stack>
+    <Window width={720} height={750}>
+      <Window.Content
+        style={{
+          'backgroundImage': 'none',
+        }}>
+        <Stack vertical fill>
+          <Stack.Item maxHeight={16}>
+            <IntroductionSection />
+          </Stack.Item>
+          <Stack.Item grow={4}>
+            <AbilitiesSection />
+          </Stack.Item>
+          <Stack.Item>
+            <HivemindSection />
+          </Stack.Item>
+          <Stack.Item grow={3}>
+            <Stack fill>
+              <Stack.Item grow basis={0}>
+                <MemoriesSection />
+              </Stack.Item>
+              <Stack.Item grow basis={0}>
+                <VictimPatternsSection />
+              </Stack.Item>
+            </Stack>
+          </Stack.Item>
+        </Stack>
+      </Window.Content>
+    </Window>
+  );
+};
+
+const HivemindSection = (props, context) => {
+  const { act, data } = useBackend<Info>(context);
+  const { true_name } = data;
+  return (
+    <Section fill title="Hivemind">
+      <Stack vertical fill>
+        <Stack.Item textColor="label">
+          All Changelings, regardless of origin, are linked together by the{' '}
+          <span style={hivemindstyle}>hivemind</span>. You may communicate to
+          other Changelings under your mental alias,{' '}
+          <span style={hivemindstyle}>{true_name}</span>, by starting a message
+          with <span style={hivemindstyle}>:g</span>. Work together, and you
+          will bring the station to new heights of terror.
+        </Stack.Item>
+        <Stack.Item>
+          <NoticeBox danger>
+            Other Changelings are strong allies, but some Changelings may betray
+            you. Changelings grow in power greatly by absorbing their kind, and
+            getting absorbed by another Changeling will leave you as a{' '}
+            <span style={fallenstyle}>Fallen Changeling</span>. There is no
+            greater humiliation.
+          </NoticeBox>
+        </Stack.Item>
+      </Stack>
+    </Section>
   );
 };
 
 const IntroductionSection = (props, context) => {
   const { act, data } = useBackend<Info>(context);
-  const { hive_name, objectives } = data;
+  const { true_name, hive_name, objectives, can_change_objective } = data;
   return (
     <Section
       fill
@@ -74,11 +125,20 @@ const IntroductionSection = (props, context) => {
       scrollable={!!objectives && objectives.length > 4}>
       <Stack vertical fill>
         <Stack.Item fontSize="25px">
-          You are the Changeling from the
-          <span style={hivestyle}>&ensp;{hive_name}</span>.
+          You are {true_name} from the
+          <span style={hivestyle}> {hive_name}</span>.
         </Stack.Item>
-        <Stack.Item grow>
-          <ObjectivePrintout />
+        <Stack.Item>
+          <ObjectivePrintout
+            objectives={objectives}
+            objectiveFollowup={
+              <ReplaceObjectivesButton
+                can_change_objective={can_change_objective}
+                button_title={'Evolve New Directives'}
+                button_colour={'green'}
+              />
+            }
+          />
         </Stack.Item>
       </Stack>
     </Section>
@@ -94,12 +154,11 @@ const AbilitiesSection = (props, context) => {
           <Stack fill vertical>
             <Stack.Item basis={0} textColor="label" grow>
               Your
-              <span style={absorbstyle}>&ensp;Absorb</span> ability allows you
-              to steal the DNA and memories of a victim. The
-              <span style={absorbstyle}>&ensp;Transform Sting</span> ability
-              does the same instantly and quietly, but doesn&apos;t count for
-              objectives, kill them, or include their memories and speech
-              patterns.
+              <span style={absorbstyle}>&ensp;Absorb DNA</span> ability allows
+              you to steal the DNA and memories of a victim. The
+              <span style={absorbstyle}>&ensp;Extract DNA Sting</span> ability
+              also steals the DNA of a victim, and is undetectable, but does not
+              grant you their memories or speech patterns.
             </Stack.Item>
             <Stack.Divider />
             <Stack.Item basis={0} textColor="label" grow>
@@ -137,17 +196,22 @@ const AbilitiesSection = (props, context) => {
 };
 
 const MemoriesSection = (props, context) => {
-  const { act, data } = useBackend<Info>(context);
-  const { memories, stolen_antag_info } = data;
+  const { data } = useBackend<Info>(context);
+  const { memories } = data;
   const [selectedMemory, setSelectedMemory] = useSharedState(
     context,
     'memory',
     (!!memories && memories[0]) || null
   );
+  const memoryMap = {};
+  for (const index in memories) {
+    const memory = memories[index];
+    memoryMap[memory.name] = memory;
+  }
   return (
     <Section
       fill
-      scrollable={!!memories}
+      scrollable={!!memories && !!memories.length}
       title="Stolen Memories"
       buttons={
         <Button
@@ -160,26 +224,21 @@ const MemoriesSection = (props, context) => {
           `}
         />
       }>
-      {(!memories && (
-        <Box>
-          {!stolen_antag_info && (
-            <Dimmer mr="-100%" bold>
-              You need to absorb a victim first!
-            </Dimmer>
-          )}
-        </Box>
+      {(!!memories && !memories.length && (
+        <Dimmer fontSize="20px">Absorb a victim first!</Dimmer>
       )) || (
         <Stack vertical>
           <Stack.Item>
             <Dropdown
-              selected={selectedMemory}
-              options={Object.keys(memories).map((memory) => {
-                return memories[memory];
+              width="100%"
+              selected={selectedMemory?.name}
+              options={memories.map((memory) => {
+                return memory.name;
               })}
-              onSelected={(selected) => setSelectedMemory(selected)}
+              onSelected={(selected) => setSelectedMemory(memoryMap[selected])}
             />
           </Stack.Item>
-          <Stack.Item>{!!selectedMemory && selectedMemory}</Stack.Item>
+          <Stack.Item>{!!selectedMemory && selectedMemory.story}</Stack.Item>
         </Stack>
       )}
     </Section>
@@ -194,38 +253,9 @@ const VictimPatternsSection = (props, context) => {
       fill
       scrollable={!!stolen_antag_info}
       title="Additional Stolen Information">
-      {!!stolen_antag_info && stolen_antag_info}
+      {(!!stolen_antag_info && stolen_antag_info) || (
+        <Dimmer fontSize="20px">Absorb a victim first!</Dimmer>
+      )}
     </Section>
-  );
-};
-
-export const AntagInfoChangeling = (props, context) => {
-  const { data } = useBackend<Info>(context);
-  return (
-    <Window width={620} height={580}>
-      <Window.Content
-        style={{
-          'backgroundImage': 'none',
-        }}>
-        <Stack vertical fill>
-          <Stack.Item maxHeight={13.2} grow>
-            <IntroductionSection />
-          </Stack.Item>
-          <Stack.Item grow={4}>
-            <AbilitiesSection />
-          </Stack.Item>
-          <Stack.Item grow={3}>
-            <Stack fill>
-              <Stack.Item grow basis={0}>
-                <MemoriesSection />
-              </Stack.Item>
-              <Stack.Item grow ml={0} basis={0}>
-                <VictimPatternsSection />
-              </Stack.Item>
-            </Stack>
-          </Stack.Item>
-        </Stack>
-      </Window.Content>
-    </Window>
   );
 };

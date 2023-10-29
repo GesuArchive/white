@@ -11,10 +11,10 @@
  */
 /datum/computer_file/program/portrait_printer
 	filename = "PortraitPrinter"
-	filedesc = "Картины Марлоу Треби"
+	filedesc = "Marlowe Treeby's Art Galaxy"
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "dummy"
-	extended_desc = "Эта программа подключается к художественному сайту сообщества, находящегося в секторе Спинвард, для просмотра и печати произведений искусства."
+	extended_desc = "This program connects to a Spinward Sector community art site for viewing and printing art."
 	transfer_access = list(ACCESS_LIBRARY)
 	usage_flags = PROGRAM_CONSOLE
 	requires_ntnet = TRUE
@@ -43,10 +43,7 @@
 		get_asset_datum(/datum/asset/simple/portraits)
 	)
 
-/datum/computer_file/program/portrait_printer/ui_act(action, params)
-	. = ..()
-	if(.)
-		return
+/datum/computer_file/program/portrait_printer/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
 	switch(action)
 		if("search")
 			if(search_string != params["to_search"])
@@ -68,7 +65,7 @@
 
 /datum/computer_file/program/portrait_printer/proc/print_painting(selected_painting)
 	if(computer.stored_paper < CANVAS_PAPER_COST)
-		to_chat(usr, span_notice("Ошибка печати: Вашему принтеру требуется не менее [CANVAS_PAPER_COST] листов бумаги для печати картины."))
+		to_chat(usr, span_notice("Printing error: Your printer needs at least [CANVAS_PAPER_COST] paper to print a canvas."))
 		return
 	computer.stored_paper -= CANVAS_PAPER_COST
 
@@ -93,11 +90,11 @@
 	printed_canvas.generated_icon = art_icon
 	printed_canvas.icon_generated = TRUE
 	printed_canvas.finalized = TRUE
-	printed_canvas.name = "картина - [chosen_portrait.title]"
+	printed_canvas.name = "painting - [chosen_portrait.title]"
 	///this is a copy of something that is already in the database- it should not be able to be saved.
 	printed_canvas.no_save = TRUE
 	printed_canvas.update_icon()
-	to_chat(usr, span_notice("Печатаю [chosen_portrait.title] на новом холсте."))
+	to_chat(usr, span_notice("You have printed [chosen_portrait.title] onto a new canvas."))
 	playsound(computer.physical, 'sound/items/poster_being_created.ogg', 100, TRUE)
 
 #undef CANVAS_PAPER_COST

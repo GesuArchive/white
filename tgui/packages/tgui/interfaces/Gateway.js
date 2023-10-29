@@ -4,7 +4,7 @@ import { Window } from '../layouts';
 
 export const Gateway = () => {
   return (
-    <Window width={250} height={350}>
+    <Window width={350} height={440}>
       <Window.Content scrollable>
         <GatewayContent />
       </Window.Content>
@@ -16,7 +16,6 @@ const GatewayContent = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     gateway_present = false,
-    gateway_found = false,
     gateway_status = false,
     current_target = null,
     destinations = [],
@@ -25,9 +24,9 @@ const GatewayContent = (props, context) => {
   if (!gateway_present) {
     return (
       <Section>
-        <NoticeBox>Не привязаны врата</NoticeBox>
+        <NoticeBox>No linked gateway</NoticeBox>
         <Button fluid onClick={() => act('linkup')}>
-          Привязка
+          Linkup
         </Button>
       </Section>
     );
@@ -36,31 +35,28 @@ const GatewayContent = (props, context) => {
     return (
       <Section title={current_target.name}>
         <ByondUi
-          height="128px"
+          height="320px"
           params={{
             id: gateway_mapkey,
             type: 'map',
           }}
         />
-        <Button fluid onClick={() => act('deactivate')}>
-          Деактивация
+        <Button
+          mt="2px"
+          textAlign="center"
+          fluid
+          onClick={() => act('deactivate')}>
+          Deactivate
         </Button>
       </Section>
     );
   }
   if (!destinations.length) {
-    return <Section>Не обнаружено других врат.</Section>;
+    return <Section>No gateway nodes detected.</Section>;
   }
   return (
     <>
-      {!gateway_status && <NoticeBox>Врата не запитаны</NoticeBox>}
-      {!gateway_found && (
-        <Section>
-          <Button fluid onClick={() => act('find_new')}>
-            Найти новые врата
-          </Button>
-        </Section>
-      )}
+      {!gateway_status && <NoticeBox>Gateway Unpowered</NoticeBox>}
       {destinations.map((dest) => (
         <Section key={dest.ref} title={dest.name}>
           {(dest.available && (
@@ -71,7 +67,7 @@ const GatewayContent = (props, context) => {
                   destination: dest.ref,
                 })
               }>
-              Активировать
+              Activate
             </Button>
           )) || (
             <>
@@ -79,7 +75,7 @@ const GatewayContent = (props, context) => {
                 {dest.reason}
               </Box>
               {!!dest.timeout && (
-                <ProgressBar value={dest.timeout}>Калибровка...</ProgressBar>
+                <ProgressBar value={dest.timeout}>Calibrating...</ProgressBar>
               )}
             </>
           )}

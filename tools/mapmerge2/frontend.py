@@ -125,4 +125,3 @@ def process(settings, verb, *, modify=True, backup=None):
             print("Succeeded.")
 
     print("\nFinished.")
-    

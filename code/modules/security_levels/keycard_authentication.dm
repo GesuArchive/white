@@ -1,48 +1,37 @@
 GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 
-#define KEYCARD_RED_ALERT "Красный Код"
-#define KEYCARD_EMERGENCY_MAINTENANCE_ACCESS "Аварийный доступ к техтоннелям"
-#define KEYCARD_MIGGER_ALARM "Иммиграционная политика"
-#define KEYCARD_BSA_UNLOCK "Разблокировка Блюспейс Артиллерии"
+#define KEYCARD_RED_ALERT "Red Alert"
+#define KEYCARD_EMERGENCY_MAINTENANCE_ACCESS "Emergency Maintenance Access"
+#define KEYCARD_BSA_UNLOCK "Bluespace Artillery Unlock"
+
+#define ACCESS_GRANTING_COOLDOWN (30 SECONDS)
 
 /obj/machinery/keycard_auth
-	name = "Устройство аутентификации"
-	desc = "Используется для запуска функций станции, для аутентификации которых требуется более одной идентификационной карты."
-	icon = 'icons/obj/monitors.dmi'
+	name = "Keycard Authentication Device"
+	desc = "This device is used to trigger station functions, which require more than one ID card to authenticate, or to give the Janitor access to a department."
+	icon = 'icons/obj/machines/wallmounts.dmi'
 	icon_state = "auth_off"
 	power_channel = AREA_USAGE_ENVIRON
 	req_access = list(ACCESS_KEYCARD_AUTH)
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
-	var/datum/callback/ev
+	var/datum/callback/activated
 	var/event = ""
 	var/obj/machinery/keycard_auth/event_source
 	var/mob/triggerer = null
 	var/waiting = FALSE
 
-/obj/machinery/keycard_auth/directional/north
-	dir = SOUTH
-	pixel_y = 26
+	COOLDOWN_DECLARE(access_grant_cooldown)
 
-/obj/machinery/keycard_auth/directional/south
-	dir = NORTH
-	pixel_y = -26
-
-/obj/machinery/keycard_auth/directional/east
-	dir = WEST
-	pixel_x = 26
-
-/obj/machinery/keycard_auth/directional/west
-	dir = EAST
-	pixel_x = -26
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/keycard_auth, 26)
 
 /obj/machinery/keycard_auth/Initialize(mapload)
 	. = ..()
-	ev = GLOB.keycard_events.addEvent("triggerEvent", CALLBACK(src, PROC_REF(triggerEvent)))
+	activated = GLOB.keycard_events.addEvent("triggerEvent", CALLBACK(src, PROC_REF(triggerEvent)))
 
 /obj/machinery/keycard_auth/Destroy()
-	GLOB.keycard_events.clearEvent("triggerEvent", ev)
-	QDEL_NULL(ev)
+	GLOB.keycard_events.clearEvent("triggerEvent", activated)
+	activated = null
 	return ..()
 
 /obj/machinery/keycard_auth/ui_state(mob/user)
@@ -64,18 +53,20 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 	return data
 
 /obj/machinery/keycard_auth/ui_status(mob/user)
-	if(isanimal(user))
-		var/mob/living/simple_animal/A = user
-		if(!A.dextrous)
-			to_chat(user, span_warning("Очко и жопа! Гы-гы!"))
-			return UI_CLOSE
+	if(isdrone(user))
+		return UI_CLOSE
+	if(!isanimal_or_basicmob(user))
+		return ..()
+	if(!HAS_TRAIT(user, TRAIT_CAN_HOLD_ITEMS))
+		balloon_alert(user, "no hands!")
+		return UI_CLOSE
 	return ..()
 
 /obj/machinery/keycard_auth/ui_act(action, params)
 	. = ..()
-
 	if(. || waiting || !allowed(usr))
 		return
+
 	switch(action)
 		if("red_alert")
 			if(!event_source)
@@ -95,16 +86,30 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 			if(!event_source)
 				sendEvent(KEYCARD_BSA_UNLOCK)
 				. = TRUE
-		if("migger_alarm")
-			if(!event_source)
-				sendEvent(KEYCARD_MIGGER_ALARM)
-				. = TRUE
+		if("give_janitor_access")
+			var/mob/living/living_user = usr
+			if(!living_user || !istype(living_user))
+				return TRUE
+			if(!COOLDOWN_FINISHED(src, access_grant_cooldown))
+				balloon_alert(usr, "on cooldown!")
+				return TRUE
+			var/obj/item/card/id/advanced/card = living_user.get_idcard(hand_first = TRUE)
+			if(!card)
+				return TRUE
+			for(var/access_as_text in SSid_access.sub_department_managers_tgui)
+				var/list/info = SSid_access.sub_department_managers_tgui[access_as_text]
+				if(card.trim.assignment != info["head"])
+					continue
+				COOLDOWN_START(src, access_grant_cooldown, ACCESS_GRANTING_COOLDOWN)
+				SEND_GLOBAL_SIGNAL(COMSIG_ON_DEPARTMENT_ACCESS, info["regions"])
+				balloon_alert(usr, "key access sent")
+				return
 
 /obj/machinery/keycard_auth/update_appearance(updates)
 	. = ..()
 
 	if(event_source && !(machine_stat & (NOPOWER|BROKEN)))
-		set_light(1.4, 0.7, "#5668E1")
+		set_light(2, 1, "#5668E1")
 	else
 		set_light(0)
 
@@ -113,7 +118,7 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 
 	if(event_source && !(machine_stat & (NOPOWER|BROKEN)))
 		. += mutable_appearance(icon, "auth_on")
-		. += emissive_appearance(icon, "auth_on", alpha = src.alpha)
+		. += emissive_appearance(icon, "auth_on", src, alpha = src.alpha)
 
 /obj/machinery/keycard_auth/proc/sendEvent(event_type)
 	triggerer = usr
@@ -137,14 +142,14 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 	update_appearance()
 
 /obj/machinery/keycard_auth/proc/trigger_event(confirmer)
-	log_game("[key_name(triggerer)] triggered and [key_name(confirmer)] confirmed event [event]")
+	triggerer.log_message("triggered and [key_name(confirmer)] confirmed event [event].", LOG_GAME)
 	message_admins("[ADMIN_LOOKUPFLW(triggerer)] triggered and [ADMIN_LOOKUPFLW(confirmer)] confirmed event [event]")
 
 	var/area/A1 = get_area(triggerer)
-	deadchat_broadcast(" запускает [event] в локации <span class='name'>[A1.name]</span>.", span_name("[triggerer]") , triggerer, message_type=DEADCHAT_ANNOUNCEMENT)
+	deadchat_broadcast(" triggered [event] at [span_name("[A1.name]")].", span_name("[triggerer]"), triggerer, message_type=DEADCHAT_ANNOUNCEMENT)
 
 	var/area/A2 = get_area(confirmer)
-	deadchat_broadcast(" подтверждает [event] в локации <span class='name'>[A2.name]</span>.", span_name("[confirmer]") , confirmer, message_type=DEADCHAT_ANNOUNCEMENT)
+	deadchat_broadcast(" confirmed [event] at [span_name("[A2.name]")].", span_name("[confirmer]"), confirmer, message_type=DEADCHAT_ANNOUNCEMENT)
 	switch(event)
 		if(KEYCARD_RED_ALERT)
 			SSsecurity_level.set_level(SEC_LEVEL_RED)
@@ -152,43 +157,34 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 			make_maint_all_access()
 		if(KEYCARD_BSA_UNLOCK)
 			toggle_bluespace_artillery()
-		if(KEYCARD_MIGGER_ALARM)
-			toggle_migger_alarm()
 
 GLOBAL_VAR_INIT(emergency_access, FALSE)
 /proc/make_maint_all_access()
-	for(var/area/maintenance/A in GLOB.areas)
+	for(var/area/station/maintenance/A in GLOB.areas)
 		for(var/turf/in_area as anything in A.get_contained_turfs())
 			for(var/obj/machinery/door/airlock/D in in_area)
 				D.emergency = TRUE
 				D.update_icon(ALL, 0)
-	minor_announce("Были сняты ограничения доступа на технические тоннели и внешние шлюзы.", "Внимание! Объявлена чрезвычайная ситуация на всей станции!",1)
+	minor_announce("Access restrictions on maintenance and external airlocks have been lifted.", "Attention! Station-wide emergency declared!",1)
 	GLOB.emergency_access = TRUE
 	SSblackbox.record_feedback("nested tally", "keycard_auths", 1, list("emergency maintenance access", "enabled"))
 
 /proc/revoke_maint_all_access()
-	for(var/area/maintenance/A in GLOB.areas)
+	for(var/area/station/maintenance/A in GLOB.areas)
 		for(var/turf/in_area as anything in A.get_contained_turfs())
 			for(var/obj/machinery/door/airlock/D in in_area)
 				D.emergency = FALSE
 				D.update_icon(ALL, 0)
-	minor_announce("Восстановлены ограничения доступа в зоны обслуживания.", "Внимание! Аварийная ситуация на всей станции отменена!")
+	minor_announce("Access restrictions in maintenance areas have been restored.", "Attention! Station-wide emergency rescinded:")
 	GLOB.emergency_access = FALSE
 	SSblackbox.record_feedback("nested tally", "keycard_auths", 1, list("emergency maintenance access", "disabled"))
 
 /proc/toggle_bluespace_artillery()
 	GLOB.bsa_unlock = !GLOB.bsa_unlock
-	minor_announce("Протоколы блюспейс артиллерии были [GLOB.bsa_unlock? "разблокированы" : "заблокированы"].", "Обновление систем вооружения")
+	minor_announce("Bluespace Artillery firing protocols have been [GLOB.bsa_unlock? "unlocked" : "locked"]", "Weapons Systems Update:")
 	SSblackbox.record_feedback("nested tally", "keycard_auths", 1, list("bluespace artillery", GLOB.bsa_unlock? "unlocked" : "locked"))
 
-
-/proc/toggle_migger_alarm()
-	GLOB.migger_alarm = !GLOB.migger_alarm
-	spawn(rand(600, 3000))
-		GLOB.migger_alarm = FALSE
-	minor_announce("Отправка новых наёмных рабочих из дальних секторов была [GLOB.migger_alarm? "временно приостановлена" : "запущена вновь"].", "Миграционная политика станции")
-
+#undef ACCESS_GRANTING_COOLDOWN
 #undef KEYCARD_RED_ALERT
 #undef KEYCARD_EMERGENCY_MAINTENANCE_ACCESS
-#undef KEYCARD_MIGGER_ALARM
 #undef KEYCARD_BSA_UNLOCK

@@ -1,7 +1,7 @@
 #define TANK_PLATING_SHEETS 12
 
 /obj/machinery/atmospherics/components/tank
-	icon = 'icons/obj/atmospherics/stationary_canisters.dmi'
+	icon = 'icons/obj/pipes_n_cables/stationary_canisters.dmi'
 	icon_state = "smooth"
 
 	name = "pressure tank"
@@ -13,7 +13,7 @@
 	layer = ABOVE_WINDOW_LAYER
 
 	custom_materials = list(/datum/material/iron = TANK_PLATING_SHEETS * SHEET_MATERIAL_AMOUNT) // plasteel is not a material to prevent two bugs: one where the default pressure is 1.5 times higher as plasteel's material modifier is added, and a second one where the tank names could be "plasteel plasteel" tanks
-	material_flags = MATERIAL_GREYSCALE | MATERIAL_ADD_PREFIX | MATERIAL_AFFECT_STATISTICS
+	material_flags = MATERIAL_EFFECTS | MATERIAL_GREYSCALE | MATERIAL_ADD_PREFIX | MATERIAL_AFFECT_STATISTICS
 
 	pipe_flags = PIPING_ONE_PER_TURF
 	device_type = QUATERNARY
@@ -21,8 +21,8 @@
 	custom_reconcilation = TRUE
 
 	smoothing_flags = SMOOTH_CORNERS | SMOOTH_OBJ
-	smoothing_groups = list(SMOOTH_GROUP_GAS_TANK)
-	canSmoothWith = list(SMOOTH_GROUP_GAS_TANK)
+	smoothing_groups = SMOOTH_GROUP_GAS_TANK
+	canSmoothWith = SMOOTH_GROUP_GAS_TANK
 	appearance_flags = KEEP_TOGETHER|LONG_GLIDE
 
 	greyscale_config = /datum/greyscale_config/stationary_canister
@@ -67,7 +67,7 @@
 	if(!knob_overlays)
 		knob_overlays = list()
 		for(var/dir in GLOB.cardinals)
-			knob_overlays["[dir]"] = image('icons/obj/atmospherics/stationary_canisters.dmi', icon_state = "knob", dir = dir, layer = FLOAT_LAYER)
+			knob_overlays["[dir]"] = image('icons/obj/pipes_n_cables/stationary_canisters.dmi', icon_state = "knob", dir = dir, layer = FLOAT_LAYER)
 
 	if(!crack_states)
 		crack_states = list()
@@ -79,7 +79,7 @@
 
 	AddComponent(/datum/component/gas_leaker, leak_rate = 0.05)
 	AddElement(/datum/element/volatile_gas_storage)
-	AddElement(/datum/element/crackable, 'icons/obj/atmospherics/stationary_canisters.dmi', crack_states)
+	AddElement(/datum/element/crackable, 'icons/obj/pipes_n_cables/stationary_canisters.dmi', crack_states)
 
 	RegisterSignal(src, COMSIG_MERGER_ADDING, PROC_REF(merger_adding))
 	RegisterSignal(src, COMSIG_MERGER_REMOVING, PROC_REF(merger_removing))
@@ -302,7 +302,7 @@
 /obj/machinery/atmospherics/components/tank/welder_act(mob/living/user, obj/item/tool)
 	. = ..()
 	. = TRUE
-	if(obj_integrity >= max_integrity)
+	if(atom_integrity >= max_integrity)
 		return
 	if(!tool.tool_start_check(user, amount = 0))
 		return
@@ -432,7 +432,7 @@
 // Tank Frame Structure
 
 /obj/structure/tank_frame
-	icon = 'icons/obj/atmospherics/stationary_canisters.dmi'
+	icon = 'icons/obj/pipes_n_cables/stationary_canisters.dmi'
 	icon_state = "frame"
 	anchored = FALSE
 	density = TRUE

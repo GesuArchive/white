@@ -12,12 +12,9 @@
  * This one only works with numbers.
  */
 /obj/item/circuit_component/arithmetic
-	display_name = "Арифметика"
-	desc = "Основной арифметический компонент с арифметическими возможностями."
+	display_name = "Arithmetic"
+	desc = "General arithmetic component with arithmetic capabilities."
 	category = "Math"
-
-	/// The amount of input ports to have
-	var/input_port_amount = 4
 
 	var/datum/port/input/option/arithmetic_option
 
@@ -52,7 +49,7 @@
 		prefix = "Port", \
 		minimum_amount = 2 \
 	)
-	output = add_output_port("Выход", PORT_TYPE_NUMBER, order = 1.1)
+	output = add_output_port("Output", PORT_TYPE_NUMBER, order = 1.1)
 
 /obj/item/circuit_component/arithmetic/input_received(datum/port/input/port)
 

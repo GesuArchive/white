@@ -1,3 +1,8 @@
+/// Corner A area section for buildmode
+#define AREASELECT_CORNERA "corner A"
+/// Corner B area selection for buildmode
+#define AREASELECT_CORNERB "corner B"
+
 /datum/buildmode_mode
 	var/key = "oops"
 
@@ -70,10 +75,9 @@
 	cornerB = null
 
 /datum/buildmode_mode/proc/handle_click(client/c, params, object)
-	var/list/pa = params2list(params)
-	var/left_click = pa.Find("left")
+	var/list/modifiers = params2list(params)
 	if(use_corner_selection)
-		if(left_click)
+		if(LAZYACCESS(modifiers, LEFT_CLICK))
 			if(!cornerA)
 				cornerA = select_tile(get_turf(object), AREASELECT_CORNERA)
 				return
@@ -89,3 +93,6 @@
 	return
 
 /datum/buildmode_mode/proc/handle_selected_area(client/c, params)
+
+#undef AREASELECT_CORNERA
+#undef AREASELECT_CORNERB

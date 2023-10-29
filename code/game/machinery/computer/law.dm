@@ -3,11 +3,14 @@
 /obj/machinery/computer/upload
 	var/mob/living/silicon/current = null //The target of future law uploads
 	icon_screen = "command"
-	time_to_screwdrive = 60
+	time_to_unscrew = 6 SECONDS
 
 /obj/machinery/computer/upload/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/gps, "Зашифрованный канал загрузки")
+	AddComponent(/datum/component/gps, "Encrypted Upload")
+	if(!mapload)
+		log_silicon("\A [name] was created at [loc_name(src)].")
+		message_admins("\A [name] was created at [ADMIN_VERBOSEJMP(src)].")
 
 /obj/machinery/computer/upload/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/ai_module))
@@ -21,12 +24,10 @@
 			to_chat(user, span_alert("Upload failed! Check to make sure [current.name] is functioning properly."))
 			current = null
 			return
-		var/turf/currentloc = get_turf(current)
-		if(!is_station_level(currentloc.z) || !is_station_level(user.z))
-			if(currentloc && user.z != currentloc.z)
-				to_chat(user, span_alert("Upload failed! Unable to establish a connection to [current.name]. You're too far away!"))
-				current = null
-				return
+		if(!is_valid_z_level(get_turf(current), get_turf(user)))
+			to_chat(user, span_alert("Upload failed! Unable to establish a connection to [current.name]. You're too far away!"))
+			current = null
+			return
 		M.install(current.laws, user)
 	else
 		return ..()
@@ -37,8 +38,8 @@
 	return TRUE
 
 /obj/machinery/computer/upload/ai
-	name = "Консоль загрузки законов ИИ"
-	desc = "Используется для обновления законов  искусственного интеллекта станции."
+	name = "\improper AI upload console"
+	desc = "Used to upload laws to the AI."
 	circuit = /obj/item/circuitboard/computer/aiupload
 
 /obj/machinery/computer/upload/ai/interact(mob/user)
@@ -58,8 +59,8 @@
 
 
 /obj/machinery/computer/upload/borg
-	name = "Консоль загрузки законов Киборгов"
-	desc = "Используется для обновления законов Киборгов станции."
+	name = "cyborg upload console"
+	desc = "Used to upload laws to Cyborgs."
 	circuit = /obj/item/circuitboard/computer/borgupload
 
 /obj/machinery/computer/upload/borg/interact(mob/user)

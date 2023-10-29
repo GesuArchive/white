@@ -52,8 +52,8 @@
 /datum/chemical_reaction/reagent_explosion/rdx_explosion2/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/fire_range = round(created_volume/30)
 	var/turf/T = get_turf(holder.my_atom)
-	for(var/turf/turf in range(fire_range,T))
-		new /obj/effect/hotspot(turf)
+	for(var/turf/target as anything in RANGE_TURFS(fire_range,T))
+		new /obj/effect/hotspot(target)
 	holder.chem_temp = 500
 	..()
 
@@ -66,7 +66,7 @@
 /datum/chemical_reaction/reagent_explosion/rdx_explosion3/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/fire_range = round(created_volume/20)
 	var/turf/T = get_turf(holder.my_atom)
-	for(var/turf/turf in range(fire_range,T))
+	for(var/turf/turf as anything in RANGE_TURFS(fire_range,T))
 		new /obj/effect/hotspot(turf)
 	holder.chem_temp = 750
 	..()
@@ -125,19 +125,19 @@
 		///special size for anti cult effect
 		var/effective_size = round(created_volume/48)
 		playsound(T, 'sound/effects/pray.ogg', 80, FALSE, effective_size)
-		for(var/mob/living/simple_animal/revenant/R in get_hearers_in_view(7,T))
+		for(var/mob/living/basic/revenant/ghostie in get_hearers_in_view(7,T))
 			var/deity
 			if(GLOB.deity)
 				deity = GLOB.deity
 			else
 				deity = "Christ"
-			to_chat(R, span_userdanger("Сила [deity] заставляет меня!"))
-			R.stun(20)
-			R.reveal(100)
-			R.adjustHealth(50)
+			to_chat(ghostie, span_userdanger("The power of [deity] compels you!"))
+			ghostie.apply_status_effect(/datum/status_effect/incapacitating/paralyzed/revenant, 2 SECONDS)
+			ghostie.apply_status_effect(/datum/status_effect/revenant/revealed, 10 SECONDS)
+			ghostie.adjust_health(50)
 		for(var/mob/living/carbon/C in get_hearers_in_view(effective_size,T))
-			if(iscultist(C))
-				to_chat(C, span_userdanger("Божественный взрыв опаляет меня!"))
+			if(IS_CULTIST(C))
+				to_chat(C, span_userdanger("The divine explosion sears you!"))
 				C.Paralyze(40)
 				C.adjust_fire_stacks(5)
 				C.ignite_mob()
@@ -153,10 +153,10 @@
 	required_temp = 474
 	strengthdiv = 10
 	modifier = 5
-	mix_message = span_boldannounce("Искры начинают кружить вокруг пороха!")
+	mix_message = "<span class='boldnotice'>Sparks start flying around the gunpowder!</span>"
 
 /datum/chemical_reaction/reagent_explosion/gunpowder_explosion/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	addtimer(CALLBACK(src, PROC_REF(default_explode), holder, created_volume), rand(5,10) SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(default_explode), holder, created_volume, modifier, strengthdiv), rand(5,10) SECONDS)
 
 /datum/chemical_reaction/thermite
 	results = list(/datum/reagent/thermite = 3)
@@ -164,16 +164,17 @@
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE | REACTION_TAG_OTHER
 
 /datum/chemical_reaction/emp_pulse
-	required_reagents = list(/datum/reagent/uranium = 1, /datum/reagent/iron = 1) // Yes, laugh, it's the best recipe I could think of that makes a little bit of sense
+	required_reagents = list(/datum/reagent/uranium = 1, /datum/reagent/iron = 1, /datum/reagent/aluminium = 1)
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_EXPLOSIVE | REACTION_TAG_DANGEROUS
 
 /datum/chemical_reaction/emp_pulse/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
+	//pretending this reaction took two ingredients and not three for its effects
+	var/two_thirds = created_volume / 1.5
 	var/location = get_turf(holder.my_atom)
 	// 100 created volume = 4 heavy range & 7 light range. A few tiles smaller than traitor EMP grandes.
 	// 200 created volume = 8 heavy range & 14 light range. 4 tiles larger than traitor EMP grenades.
-	empulse(location, round(created_volume / 12), round(created_volume / 7), 1)
+	empulse(location, round(two_thirds / 12), round(two_thirds / 7), 1)
 	holder.clear_reagents()
-
 
 /datum/chemical_reaction/beesplosion
 	required_reagents = list(/datum/reagent/consumable/honey = 1, /datum/reagent/medicine/strange_reagent = 1, /datum/reagent/uranium/radium = 1)
@@ -192,7 +193,7 @@
 			beeagents += R
 		var/bee_amount = round(created_volume * 0.2)
 		for(var/i in 1 to bee_amount)
-			var/mob/living/simple_animal/hostile/poison/bees/short/new_bee = new(location)
+			var/mob/living/basic/bee/short/new_bee = new(location)
 			if(LAZYLEN(beeagents))
 				new_bee.assign_reagent(pick(beeagents))
 
@@ -211,8 +212,8 @@
 
 /datum/chemical_reaction/clf3/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/turf/T = get_turf(holder.my_atom)
-	for(var/turf/turf in range(1,T))
-		new /obj/effect/hotspot(turf)
+	for(var/turf/target as anything in RANGE_TURFS(1,T))
+		new /obj/effect/hotspot(target)
 	holder.chem_temp = 1000 // hot as shit
 
 /datum/chemical_reaction/reagent_explosion/methsplosion
@@ -224,8 +225,8 @@
 
 /datum/chemical_reaction/reagent_explosion/methsplosion/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/turf/T = get_turf(holder.my_atom)
-	for(var/turf/turf in range(1,T))
-		new /obj/effect/hotspot(turf)
+	for(var/turf/target in RANGE_TURFS(1,T))
+		new /obj/effect/hotspot(target)
 	holder.chem_temp = 1000 // hot as shit
 	..()
 
@@ -293,7 +294,7 @@
 	var/range = created_volume/3
 	if(isatom(holder.my_atom))
 		var/atom/A = holder.my_atom
-		A.flash_lighting_fx(_range = (range + 2))
+		A.flash_lighting_fx(range = (range + 2))
 	for(var/mob/living/C in get_hearers_in_view(range, location))
 		if(C.flash_act(affect_silicon = TRUE))
 			if(get_dist(C, location) < 4)
@@ -313,7 +314,7 @@
 	var/range = created_volume/10
 	if(isatom(holder.my_atom))
 		var/atom/A = holder.my_atom
-		A.flash_lighting_fx(_range = (range + 2))
+		A.flash_lighting_fx(range = (range + 2))
 	for(var/mob/living/C in get_hearers_in_view(range, location))
 		if(C.flash_act(affect_silicon = TRUE))
 			if(get_dist(C, location) < 4)
@@ -394,7 +395,7 @@
 		return
 	var/turf/open/T = get_turf(holder.my_atom)
 	if(istype(T))
-		T.atmos_spawn_air("plasma=[created_volume];TEMP=1000")
+		T.atmos_spawn_air("[GAS_PLASMA]=[created_volume];[TURF_TEMPERATURE(1000)]")
 	holder.clear_reagents()
 	return
 
@@ -428,7 +429,7 @@
 /datum/chemical_reaction/cryostylane/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/datum/reagent/oxygen = holder.has_reagent(/datum/reagent/oxygen) //If we have oxygen, bring in the old cooling effect
 	if(oxygen)
-		holder.chem_temp =  max(holder.chem_temp - (10 * oxygen.volume * 2),0)
+		holder.chem_temp = max(holder.chem_temp - (10 * oxygen.volume * 2),0)
 		holder.remove_reagent(/datum/reagent/oxygen, oxygen.volume) // halves the temperature - tried to bring in some of the old effects at least!
 	return
 
@@ -521,29 +522,29 @@
 /datum/chemical_reaction/teslium
 	results = list(/datum/reagent/teslium = 3)
 	required_reagents = list(/datum/reagent/stable_plasma = 1, /datum/reagent/silver = 1, /datum/reagent/gunpowder = 1)
-	mix_message = span_danger("Струйка искр исходит из смеси во время её слияния с мерцающей жидкостью.")
+	mix_message = "<span class='danger'>A jet of sparks flies from the mixture as it merges into a flickering slurry.</span>"
 	required_temp = 400
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_EXPLOSIVE
 
 /datum/chemical_reaction/energized_jelly
 	results = list(/datum/reagent/teslium/energized_jelly = 2)
 	required_reagents = list(/datum/reagent/toxin/slimejelly = 1, /datum/reagent/teslium = 1)
-	mix_message = span_danger("Желе слайма начало мерцать.")
+	mix_message = "<span class='danger'>The slime jelly starts glowing intermittently.</span>"
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DANGEROUS | REACTION_TAG_HEALING | REACTION_TAG_OTHER
 
 /datum/chemical_reaction/reagent_explosion/teslium_lightning
 	required_reagents = list(/datum/reagent/teslium = 1, /datum/reagent/water = 1)
 	strengthdiv = 100
 	modifier = -100
-	mix_message = span_boldannounce("Теслий начал искрить, когда электрическая дуга удалилась от него!")
+	mix_message = "<span class='boldannounce'>The teslium starts to spark as electricity arcs away from it!</span>"
 	mix_sound = 'sound/machines/defib_zap.ogg'
 	var/zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_LOW_POWER_GEN
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_EXPLOSIVE | REACTION_TAG_DANGEROUS
 
 /datum/chemical_reaction/reagent_explosion/teslium_lightning/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	var/T1 = created_volume * 20		//100 units : Zap 3 times, with powers 2000/5000/12000. Tesla revolvers have a power of 10000 for comparison.
-	var/T2 = created_volume * 50
-	var/T3 = created_volume * 120
+	var/T1 = created_volume * 8e3		//100 units : Zap 3 times, with powers 8e5/2e6/4.8e6. Tesla revolvers have a power of 10000 for comparison.
+	var/T2 = created_volume * 2e4
+	var/T3 = created_volume * 4.8e4
 	var/added_delay = 0.5 SECONDS
 	if(created_volume >= 75)
 		addtimer(CALLBACK(src, PROC_REF(zappy_zappy), holder, T1), added_delay)
@@ -553,7 +554,7 @@
 		added_delay += 1.5 SECONDS
 	if(created_volume >= 10) //10 units minimum for lightning, 40 units for secondary blast, 75 units for tertiary blast.
 		addtimer(CALLBACK(src, PROC_REF(zappy_zappy), holder, T3), added_delay)
-	addtimer(CALLBACK(src, PROC_REF(default_explode), holder, created_volume), added_delay)
+	addtimer(CALLBACK(src, PROC_REF(default_explode), holder, created_volume, modifier, strengthdiv), added_delay)
 
 /datum/chemical_reaction/reagent_explosion/teslium_lightning/proc/zappy_zappy(datum/reagents/holder, power)
 	if(QDELETED(holder.my_atom))
@@ -578,8 +579,8 @@
 	var/range = clamp(sqrt(created_volume*2), 1, 6)
 	//This first throws people away and then it explodes
 	goonchem_vortex(turfie, 1, range)
-	turfie.atmos_spawn_air("o2=[created_volume/2];TEMP=[575]")
-	turfie.atmos_spawn_air("n2=[created_volume/2];TEMP=[575]")
+	turfie.atmos_spawn_air("[GAS_O2]=[created_volume/2];[TURF_TEMPERATURE(575)]")
+	turfie.atmos_spawn_air("[GAS_N2]=[created_volume/2];[TURF_TEMPERATURE(575)]")
 	return ..()
 
 /datum/chemical_reaction/firefighting_foam
@@ -592,3 +593,8 @@
 	thermic_constant= -1
 	H_ion_release = -0.02
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
+
+/datum/chemical_reaction/reagent_explosion/patriotism_overload
+	required_reagents = list(/datum/reagent/consumable/ethanol/planet_cracker = 1, /datum/reagent/consumable/ethanol/triumphal_arch = 1)
+	strengthdiv = 20
+	mix_message = "<span class='boldannounce'>The two patriotic drinks instantly reject each other!</span>"

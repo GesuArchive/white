@@ -1,23 +1,28 @@
 /datum/job/chief_medical_officer
 	title = JOB_CHIEF_MEDICAL_OFFICER
+	description = "Coordinate doctors and other medbay employees, ensure they \
+		know how to save lives, check for injuries on the crew monitor."
 	department_head = list(JOB_CAPTAIN)
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	head_announce = list(RADIO_CHANNEL_MEDICAL)
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "капитану"
-	selection_color = "#ffddf0"
+	supervisors = SUPERVISOR_CAPTAIN
 	req_admin_notify = 1
-	minimal_player_age = 14
-	exp_requirements = 1200
-	exp_type = EXP_TYPE_CREW
-	exp_type_department = EXP_TYPE_MEDICAL
+	minimal_player_age = 7
+	exp_requirements = 180
+	exp_required_type = EXP_TYPE_CREW
+	exp_required_type_department = EXP_TYPE_MEDICAL
+	exp_granted_type = EXP_TYPE_CREW
+	config_tag = "CHIEF_MEDICAL_OFFICER"
 
 	outfit = /datum/outfit/job/cmo
-
-	skills = list(/datum/skill/surgery = SKILL_EXP_MASTER)
-	minimal_skills = list(/datum/skill/surgery = SKILL_EXP_MASTER)
+	plasmaman_outfit = /datum/outfit/plasmaman/chief_medical_officer
+	departments_list = list(
+		/datum/job_department/medical,
+		/datum/job_department/command,
+		)
 
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_MED
@@ -28,77 +33,62 @@
 	bounty_types = CIV_JOB_MED
 
 	mail_goodies = list(
-		/obj/effect/spawner/lootdrop/organ_spawner = 10,
-		/obj/effect/spawner/lootdrop/memeorgans = 8,
-		/obj/effect/spawner/lootdrop/space/fancytool/advmedicalonly = 4,
-		/obj/effect/spawner/lootdrop/space/fancytool/raremedicalonly = 1
+		/obj/effect/spawner/random/medical/organs = 10,
+		/obj/effect/spawner/random/medical/memeorgans = 8,
+		/obj/effect/spawner/random/medical/surgery_tool_advanced = 4,
+		/obj/effect/spawner/random/medical/surgery_tool_alien = 1
 	)
-
-	departments_list = list(
-		/datum/job_department/medical,
-		/datum/job_department/command,
-	)
-
+	family_heirlooms = list(/obj/item/storage/medkit/ancient/heirloom, /obj/item/scalpel, /obj/item/hemostat, /obj/item/circular_saw, /obj/item/retractor, /obj/item/cautery, /obj/item/statuebust/hippocratic)
 	rpg_title = "High Cleric"
-	rpg_title_ru = "Высший Клерик"
+	job_flags = STATION_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
 
-	allow_new_players = FALSE
+	voice_of_god_power = 1.4 //Command staff has authority
 
-/datum/job/chief_medical_officer/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
-	..()
-	if(announce_captaincy)
-		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(minor_announce), "Учитывая нехватку экипажа, текущим капитаном станции теперь является [H.real_name]!"))
 
-/obj/item/storage/belt/medical/cmo
-	name = "пояс главного врача"
-	desc = "Медицинский пояс с продвинутыми хирургическими инструментами."
-	icon = 'white/Feline/icons/med_items.dmi'
-	icon_state = "belt_cmo"
+/datum/job/chief_medical_officer/get_captaincy_announcement(mob/living/captain)
+	return "Due to staffing shortages, newly promoted Acting Captain [captain.real_name] on deck!"
 
-/obj/item/storage/belt/medical/cmo/PopulateContents()
-	new /obj/item/surgical_drapes(src)
-	new /obj/item/scalpel/advanced(src)
-	new /obj/item/retractor/advanced(src)
-	new /obj/item/cautery/advanced(src)
-	new /obj/item/bonesetter/advanced(src)
-	new /obj/item/reagent_containers/medigel/sal_acid_oxandrolone(src)
-	new /obj/item/reagent_containers/medigel/pen_acid(src)
-	new /obj/item/sensor_device(src)
 
 /datum/outfit/job/cmo
-	name = JOB_CHIEF_MEDICAL_OFFICER
+	name = "Chief Medical Officer"
 	jobtype = /datum/job/chief_medical_officer
 
 	id = /obj/item/card/id/advanced/silver
-	belt = /obj/item/storage/belt/medical/cmo
-	r_pocket = /obj/item/modular_computer/tablet/pda/heads/cmo
-	l_pocket = /obj/item/pinpointer/crew
-	ears = /obj/item/radio/headset/heads/cmo
-	head = /obj/item/clothing/head/surgerycap/cmo
+	id_trim = /datum/id_trim/job/chief_medical_officer
 	uniform = /obj/item/clothing/under/rank/medical/chief_medical_officer/scrubs
-	shoes = /obj/item/clothing/shoes/sneakers/brown
 	suit = /obj/item/clothing/suit/toggle/labcoat/cmo
-	l_hand = /obj/item/storage/firstaid/medical/surg
 	suit_store = /obj/item/flashlight/pen/paramedic
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/card/id/departmental_budget/med=1)
-
-	skillchips = list(/obj/item/skillchip/entrails_reader, /obj/item/skillchip/job/medic/super)
+	backpack_contents = list(
+		/obj/item/melee/baton/telescopic = 1,
+		)
+	belt = /obj/item/modular_computer/pda/heads/cmo
+	ears = /obj/item/radio/headset/heads/cmo
+	head = /obj/item/clothing/head/utility/surgerycap/cmo
+	shoes = /obj/item/clothing/shoes/sneakers/blue
+	l_pocket = /obj/item/laser_pointer/blue
+	r_pocket = /obj/item/pinpointer/crew
+	l_hand = /obj/item/storage/medkit/surgery
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
+	messenger = /obj/item/storage/backpack/messenger/med
+
 	box = /obj/item/storage/box/survival/medical
+	chameleon_extras = list(
+		/obj/item/gun/syringe,
+		/obj/item/stamp/head/cmo,
+		)
+	skillchips = list(/obj/item/skillchip/entrails_reader)
 
-	chameleon_extras = list(/obj/item/gun/syringe, /obj/item/stamp/cmo)
+/datum/outfit/job/cmo/mod
+	name = "Chief Medical Officer (MODsuit)"
 
-	id_trim = /datum/id_trim/job/chief_medical_officer
-	pda_slot = ITEM_SLOT_RPOCKET
-
-/datum/outfit/job/cmo/hardsuit
-	name = "Chief Medical Officer (Hardsuit)"
-
-	mask = /obj/item/clothing/mask/breath/medical
-	suit = /obj/item/clothing/suit/space/hardsuit/medical
 	suit_store = /obj/item/tank/internals/oxygen
+	back = /obj/item/mod/control/pre_equipped/rescue
+	suit = null
+	head = null
+	uniform = /obj/item/clothing/under/rank/medical/chief_medical_officer
+	mask = /obj/item/clothing/mask/breath/medical
 	r_pocket = /obj/item/flashlight/pen/paramedic
-
+	internals_slot = ITEM_SLOT_SUITSTORE

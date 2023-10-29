@@ -28,7 +28,7 @@ SUBSYSTEM_DEF(lag_switch)
 
 /datum/controller/subsystem/lag_switch/proc/client_connected(datum/source, client/connected)
 	SIGNAL_HANDLER
-	if(70 < trigger_pop)
+	if(TGS_CLIENT_COUNT < trigger_pop)
 		return
 
 	auto_switch = FALSE

@@ -6,9 +6,9 @@ import { Window } from '../layouts';
 
 const formatPressure = (value) => {
   if (value < 10000) {
-    return toFixed(value) + ' кПа';
+    return toFixed(value) + ' kPa';
   }
-  return formatSiUnit(value * 1000, 1, 'Па');
+  return formatSiUnit(value * 1000, 1, 'Pa');
 };
 
 export const Canister = (props, context) => {
@@ -39,7 +39,7 @@ export const Canister = (props, context) => {
         <Flex direction="column" height="100%">
           <Flex.Item mb={1}>
             <Section
-              title="Канистра"
+              title="Canister"
               buttons={
                 <>
                   {!!isPrototype && (
@@ -47,26 +47,26 @@ export const Canister = (props, context) => {
                       mr={1}
                       icon={restricted ? 'lock' : 'unlock'}
                       color="caution"
-                      content={restricted ? 'Инженерный' : 'Публичный'}
+                      content={restricted ? 'Engineering' : 'Public'}
                       onClick={() => act('restricted')}
                     />
                   )}
                   <Button
                     icon={data.shielding ? 'power-off' : 'times'}
-                    content={data.shielding ? 'Щит-ВКЛ' : 'Щит-ВЫКЛ'}
+                    content={data.shielding ? 'Shielding-ON' : 'Shielding-OFF'}
                     selected={data.shielding}
                     onClick={() => act('shielding')}
                   />
                   <Button
                     icon="pencil-alt"
-                    content="Переименовать"
+                    content="Relabel"
                     onClick={() => act('relabel')}
                   />
                   <Button icon="palette" onClick={() => act('recolor')} />
                 </>
               }>
               <LabeledControls>
-                <LabeledControls.Item minWidth="66px" label="Давление">
+                <LabeledControls.Item minWidth="66px" label="Pressure">
                   <RoundGauge
                     size={1.75}
                     value={tankPressure}
@@ -81,7 +81,7 @@ export const Canister = (props, context) => {
                     format={formatPressure}
                   />
                 </LabeledControls.Item>
-                <LabeledControls.Item label="Регулятор">
+                <LabeledControls.Item label="Regulator">
                   <Box position="relative" left="-8px">
                     <Knob
                       size={1.25}
@@ -126,7 +126,7 @@ export const Canister = (props, context) => {
                     />
                   </Box>
                 </LabeledControls.Item>
-                <LabeledControls.Item label="Вентиль">
+                <LabeledControls.Item label="Valve">
                   <Button
                     my={0.5}
                     width="50px"
@@ -135,13 +135,13 @@ export const Canister = (props, context) => {
                     color={
                       valveOpen ? (hasHoldingTank ? 'caution' : 'danger') : null
                     }
-                    content={valveOpen ? 'Открыт' : 'Закрыт'}
+                    content={valveOpen ? 'Open' : 'Closed'}
                     onClick={() => act('valve')}
                   />
                 </LabeledControls.Item>
                 <LabeledControls.Item mr={1} label="Port">
                   <Tooltip
-                    content={portConnected ? 'Подключен' : 'Отключен'}
+                    content={portConnected ? 'Connected' : 'Disconnected'}
                     position="top">
                     <Box position="relative">
                       <Icon
@@ -156,17 +156,17 @@ export const Canister = (props, context) => {
             </Section>
             <Section>
               <LabeledList>
-                <LabeledList.Item label="Заряд">
-                  {hasCell ? cellCharge + '%' : 'Нет батарейки'}
+                <LabeledList.Item label="Cell Charge">
+                  {hasCell ? cellCharge + '%' : 'Missing Cell'}
                 </LabeledList.Item>
                 {!!hasHypernobCrystal && (
-                  <LabeledList.Item label="Подавление реакций">
+                  <LabeledList.Item label="Reaction Suppression">
                     <Button
                       icon={
                         data.reactionSuppressionEnabled ? 'snowflake' : 'times'
                       }
                       content={
-                        data.reactionSuppressionEnabled ? 'Включено' : 'Выключено'
+                        data.reactionSuppressionEnabled ? 'Enabled' : 'Disabled'
                       }
                       selected={data.reactionSuppressionEnabled}
                       onClick={() => act('reaction_suppression')}
@@ -179,23 +179,23 @@ export const Canister = (props, context) => {
           <Flex.Item grow={1}>
             <Section
               height="100%"
-              title="Бак"
+              title="Holding Tank"
               buttons={
                 !!hasHoldingTank && (
                   <Button
                     icon="eject"
                     color={valveOpen && 'danger'}
-                    content="Изъять"
+                    content="Eject"
                     onClick={() => act('eject')}
                   />
                 )
               }>
               {!!hasHoldingTank && (
                 <LabeledList>
-                  <LabeledList.Item label="Метка">
+                  <LabeledList.Item label="Label">
                     {holdingTank.name}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Давление">
+                  <LabeledList.Item label="Pressure">
                     <RoundGauge
                       value={holdingTank.tankPressure}
                       minValue={0}
@@ -218,7 +218,7 @@ export const Canister = (props, context) => {
                   </LabeledList.Item>
                 </LabeledList>
               )}
-              {!hasHoldingTank && <Box color="average">Внутри нет бака</Box>}
+              {!hasHoldingTank && <Box color="average">No Holding Tank</Box>}
             </Section>
           </Flex.Item>
         </Flex>

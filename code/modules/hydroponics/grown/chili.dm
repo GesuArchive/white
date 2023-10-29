@@ -12,7 +12,7 @@
 	yield = 4
 	potency = 20
 	instability = 30
-	growing_icon = 'icons/obj/hydroponics/growing_vegetables.dmi'
+	growing_icon = 'icons/obj/service/hydroponics/growing_vegetables.dmi'
 	icon_grow = "chili-grow" // Uses one growth icons set for all the subtypes
 	icon_dead = "chili-dead" // Same for the dead icon
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
@@ -31,7 +31,7 @@
 // Ice Chili
 /obj/item/seeds/chili/ice
 	name = "pack of chilly pepper seeds"
-	desc = "Семена выросли в перец чили."
+	desc = "These seeds grow into chilly pepper plants."
 	icon_state = "seed-icepepper"
 	species = "chiliice"
 	plantname = "Chilly Pepper Plants"
@@ -41,23 +41,23 @@
 	production = 4
 	rarity = 20
 	genes = list(/datum/plant_gene/trait/chem_cooling)
-	mutatelist = list()
+	mutatelist = null
 	reagents_add = list(/datum/reagent/consumable/frostoil = 0.25, /datum/reagent/consumable/nutriment/vitamin = 0.02, /datum/reagent/consumable/nutriment = 0.02)
 	graft_gene = /datum/plant_gene/trait/chem_cooling
 
 /obj/item/food/grown/icepepper
 	seed = /obj/item/seeds/chili/ice
-	name = "перец чили"
-	desc = "Мутировавший сорт чили."
+	name = "chilly pepper"
+	desc = "It's a mutant strain of chili."
 	icon_state = "icepepper"
-	bite_consumption_mod = 2
+	bite_consumption_mod = 5
 	foodtypes = FRUIT
 	wine_power = 30
 
 // Ghost Chili
 /obj/item/seeds/chili/ghost
-	name = "Пачка семян призрачного чили"
-	desc = "Эти семена вырастают в перец чили, который считается самым острым в этой галактике."
+	name = "pack of ghost chili seeds"
+	desc = "These seeds grow into a chili said to be the hottest in the galaxy."
 	icon_state = "seed-chilighost"
 	species = "chilighost"
 	plantname = "Ghost Chili Plants"
@@ -67,40 +67,21 @@
 	production = 10
 	yield = 3
 	rarity = 20
-	genes = list(/datum/plant_gene/trait/chem_heating)
-	mutatelist = list()
+	genes = list(/datum/plant_gene/trait/chem_heating, /datum/plant_gene/trait/backfire/chili_heat)
+	mutatelist = null
 	reagents_add = list(/datum/reagent/consumable/condensedcapsaicin = 0.3, /datum/reagent/consumable/capsaicin = 0.55, /datum/reagent/consumable/nutriment = 0.04)
 	graft_gene = /datum/plant_gene/trait/chem_heating
 
 /obj/item/food/grown/ghost_chili
 	seed = /obj/item/seeds/chili/ghost
-	name = "призрачный чили"
-	desc = "Кажется, он немного вибрирует"
+	name = "ghost chili"
+	desc = "It seems to be vibrating gently."
 	icon_state = "ghostchilipepper"
-	var/mob/living/carbon/human/held_mob
-	bite_consumption_mod = 4
+	bite_consumption_mod = 5
 	foodtypes = FRUIT
 	wine_power = 50
 
-/obj/item/food/grown/ghost_chili/attack_hand(mob/user)
-	. = ..()
-	if(.)
-		return
-	if( ismob(loc) )
-		held_mob = loc
-		START_PROCESSING(SSobj, src)
-
-/obj/item/food/grown/ghost_chili/process(delta_time)
-	if(held_mob && loc == held_mob)
-		if(held_mob.is_holding(src))
-			if(istype(held_mob) && held_mob.gloves)
-				return
-			held_mob.adjust_bodytemperature(7.5 * TEMPERATURE_DAMAGE_COEFFICIENT * delta_time)
-			if(DT_PROB(5, delta_time))
-				to_chat(held_mob, span_warning("Моя рука, держащая [src], обожглась!"))
-	else
-		held_mob = null
-		..()
+// Bell Pepper
 /obj/item/seeds/chili/bell_pepper
 	name = "pack of bell pepper seeds"
 	desc = "These seeds grow into bell pepper plants. MILD! MILD! MILD!"
@@ -124,5 +105,5 @@
 	icon_state = "bell_pepper"
 	foodtypes = FRUIT
 
-/obj/item/food/grown/bell_pepper/MakeBakeable()
-	AddComponent(/datum/component/bakeable, /obj/item/food/roasted_bell_pepper, rand(15 SECONDS, 35 SECONDS), TRUE, TRUE)
+/obj/item/food/grown/bell_pepper/make_bakeable()
+	AddComponent(/datum/component/bakeable, /obj/item/food/roasted_bell_pepper, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)

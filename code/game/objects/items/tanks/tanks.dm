@@ -9,24 +9,24 @@
  */
 /obj/item/tank
 	name = "tank"
-	icon = 'white/valtos/icons/tank.dmi'
-	icon_preview = 'white/valtos/icons/tank.dmi'
-	icon_state_preview = "generic"
+	icon = 'icons/obj/canisters.dmi'
+	icon_state = "generic"
+	inhand_icon_state = "generic_tank"
 	lefthand_file = 'icons/mob/inhands/equipment/tanks_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tanks_righthand.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK
 	worn_icon = 'icons/mob/clothing/back.dmi' //since these can also get thrown into suit storage slots. if something goes on the belt, set this to null.
 	hitsound = 'sound/weapons/smash.ogg'
-	drop_sound = 'white/valtos/sounds/ballon_drop.ogg'
 	pressure_resistance = ONE_ATMOSPHERE * 5
 	force = 5
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 4
+	demolition_mod = 1.25
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*5)
 	actions_types = list(/datum/action/item_action/set_internals)
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 100, FIRE = 80, ACID = 10)
+	armor_type = /datum/armor/item_tank
 	integrity_failure = 0.5
 	/// If we are in the process of exploding, stops multi explosions
 	var/igniting = FALSE
@@ -48,6 +48,12 @@
 	var/list/reaction_info
 	/// Mob that is currently breathing from the tank.
 	var/mob/living/carbon/breathing_mob = null
+
+/// Closes the tank if dropped while open.
+/datum/armor/item_tank
+	bomb = 10
+	fire = 80
+	acid = 30
 
 /obj/item/tank/dropped(mob/living/user, silent)
 	. = ..()
@@ -314,7 +320,7 @@
 	return FALSE
 
 /// Handles the tank springing a leak.
-/obj/item/tank/obj_break(damage_flag)
+/obj/item/tank/atom_break(damage_flag)
 	. = ..()
 	if(leaking)
 		return
@@ -322,13 +328,13 @@
 	leaking = TRUE
 	START_PROCESSING(SSobj, src)
 
-	if(obj_integrity < 0) // So we don't play the alerts while we are exploding or rupturing.
+	if(atom_integrity < 0) // So we don't play the alerts while we are exploding or rupturing.
 		return
 	visible_message(span_warning("[src] springs a leak!"))
 	playsound(src, 'sound/effects/spray.ogg', 10, TRUE, -3)
 
 /// Handles rupturing and fragmenting
-/obj/item/tank/obj_destruction(damage_flag)
+/obj/item/tank/atom_destruction(damage_flag)
 	if(!air_contents)
 		return ..()
 

@@ -5,7 +5,7 @@
 
 
 /datum/crafting_recipe/food/humanburger
-	name = "Бургер с человечиной"
+	name = "Human burger"
 	reqs = list(
 		/obj/item/food/bun = 1,
 		/obj/item/food/patty/human = 1
@@ -17,7 +17,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/burger
-	name = "Бургер"
+	name = "Plain Burger"
 	reqs = list(
 			/obj/item/food/patty/plain = 1,
 			/obj/item/food/bun = 1
@@ -27,7 +27,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/corgiburger
-	name = "Корги бургер"
+	name = "Corgi burger"
 	reqs = list(
 			/obj/item/food/patty/corgi = 1,
 			/obj/item/food/bun = 1
@@ -37,25 +37,25 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/appendixburger
-	name = "Аппендицитный бургер"
+	name = "Appendix burger"
 	reqs = list(
-		/obj/item/organ/appendix = 1,
+		/obj/item/organ/internal/appendix = 1,
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/appendix
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/brainburger
-	name = "Бургер с мозгами"
+	name = "Brain burger"
 	reqs = list(
-		/obj/item/organ/brain = 1,
+		/obj/item/organ/internal/brain = 1,
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/brain
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/xenoburger
-	name = "Ксенобургер"
+	name = "Xeno burger"
 	reqs = list(
 		/obj/item/food/patty/xeno = 1,
 		/obj/item/food/bun = 1
@@ -64,7 +64,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/bearger
-	name = "Медведьбургер"
+	name = "Bearger"
 	reqs = list(
 		/obj/item/food/patty/bear = 1,
 		/obj/item/food/bun = 1
@@ -73,17 +73,17 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/fishburger
-	name = "Сэндвич с филе карпа"
+	name = "Fish burger"
 	reqs = list(
 		/obj/item/food/fishmeat = 1,
 		/obj/item/food/bun = 1,
-		/obj/item/food/cheesewedge = 1
+		/obj/item/food/cheese/wedge = 1
 	)
 	result = /obj/item/food/burger/fish
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/tofuburger
-	name = "Тофу бургер"
+	name = "Tofu burger"
 	reqs = list(
 		/obj/item/food/tofu = 1,
 		/obj/item/food/bun = 1
@@ -92,7 +92,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/ghostburger
-	name = "Призрачный бургер"
+	name = "Ghost burger"
 	reqs = list(
 		/obj/item/ectoplasm = 1,
 		/datum/reagent/consumable/salt = 2,
@@ -102,7 +102,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/clownburger
-	name = "Клоунский бургер"
+	name = "Clown burger"
 	reqs = list(
 		/obj/item/clothing/mask/gas/clown_hat = 1,
 		/obj/item/food/bun = 1
@@ -111,7 +111,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/mimeburger
-	name = "Мимовый бургер"
+	name = "Mime burger"
 	reqs = list(
 		/obj/item/clothing/mask/gas/mime = 1,
 		/obj/item/food/bun = 1
@@ -120,7 +120,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/redburger
-	name = "Красный бургер"
+	name = "Red burger"
 	reqs = list(
 		/obj/item/food/patty/plain = 1,
 		/obj/item/toy/crayon/red = 1,
@@ -130,7 +130,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/orangeburger
-	name = "Оранжевый бургер"
+	name = "Orange burger"
 	reqs = list(
 		/obj/item/food/patty/plain = 1,
 		/obj/item/toy/crayon/orange = 1,
@@ -140,7 +140,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/yellowburger
-	name = "Желтый бургер"
+	name = "Yellow burger"
 	reqs = list(
 		/obj/item/food/patty/plain = 1,
 		/obj/item/toy/crayon/yellow = 1,
@@ -150,7 +150,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/greenburger
-	name = "Зеленый бургер"
+	name = "Green burger"
 	reqs = list(
 		/obj/item/food/patty/plain = 1,
 		/obj/item/toy/crayon/green = 1,
@@ -160,7 +160,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/blueburger
-	name = "Синий бургер"
+	name = "Blue burger"
 	reqs = list(
 		/obj/item/food/patty/plain = 1,
 		/obj/item/toy/crayon/blue = 1,
@@ -170,7 +170,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/purpleburger
-	name = "Фиолетовый бургер"
+	name = "Purple burger"
 	reqs = list(
 		/obj/item/food/patty/plain = 1,
 		/obj/item/toy/crayon/purple = 1,
@@ -180,7 +180,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/blackburger
-	name = "Черный бургер"
+	name = "Black burger"
 	reqs = list(
 		/obj/item/food/patty/plain = 1,
 		/obj/item/toy/crayon/black = 1,
@@ -190,7 +190,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/whiteburger
-	name = "Белый бургер"
+	name = "White burger"
 	reqs = list(
 		/obj/item/food/patty/plain = 1,
 		/obj/item/toy/crayon/white = 1,
@@ -200,16 +200,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/spellburger
-	name = "Магический бургер"
-	reqs = list(
-		/obj/item/clothing/head/wizard/fake = 1,
-		/obj/item/food/bun = 1
-	)
-	result = /obj/item/food/burger/spell
-	category = CAT_BURGER
-
-/datum/crafting_recipe/food/spellburger2
-	name = "Магический бургер"
+	name = "Spell burger"
 	reqs = list(
 		/obj/item/clothing/head/wizard = 1,
 		/obj/item/food/bun = 1
@@ -218,33 +209,34 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/bigbiteburger
-	name = "Биг Шмат Бургер"
+	name = "Big bite burger"
 	reqs = list(
 		/obj/item/food/patty/plain = 3,
 		/obj/item/food/bun = 1,
-		/obj/item/food/cheesewedge = 2
+		/obj/item/food/cheese/wedge = 2
 	)
 	result = /obj/item/food/burger/bigbite
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/superbiteburger
-	name = "Супер Шмат Бургер"
+	name = "Super bite burger"
 	reqs = list(
 		/datum/reagent/consumable/salt = 5,
 		/datum/reagent/consumable/blackpepper = 5,
 		/obj/item/food/patty/plain = 5,
 		/obj/item/food/grown/tomato = 4,
-		/obj/item/food/cheesewedge = 3,
+		/obj/item/food/cheese/wedge = 3,
 		/obj/item/food/boiledegg = 1,
 		/obj/item/food/meat/bacon = 1,
-		/obj/item/food/bun = 1
+		/obj/item/food/bun = 1,
+		/obj/item/food/pickle = 1,
 
 	)
 	result = /obj/item/food/burger/superbite
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/slimeburger
-	name = "Джемовый бургер"
+	name = "Jelly burger"
 	reqs = list(
 		/datum/reagent/toxin/slimejelly = 5,
 		/obj/item/food/bun = 1
@@ -253,7 +245,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/jellyburger
-	name = "Джемовый бургер"
+	name = "Jelly burger"
 	reqs = list(
 			/datum/reagent/consumable/cherryjelly = 5,
 			/obj/item/food/bun = 1
@@ -262,7 +254,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/fivealarmburger
-	name = "Бургер экстренной тревоги"
+	name = "Five alarm burger"
 	reqs = list(
 			/obj/item/food/patty/plain = 1,
 			/obj/item/food/grown/ghost_chili = 2,
@@ -272,7 +264,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/ratburger
-	name = "Крысиный бургер"
+	name = "Rat burger"
 	reqs = list(
 			/obj/item/food/deadmouse = 1,
 			/obj/item/food/bun = 1
@@ -281,7 +273,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/baseballburger
-	name = "Хоум-ран Бейсбольный бургер"
+	name = "Home run baseball burger"
 	reqs = list(
 			/obj/item/melee/baseball_bat = 1,
 			/obj/item/food/bun = 1
@@ -290,7 +282,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/baconburger
-	name = "Беконовый бургер"
+	name = "Bacon Burger"
 	reqs = list(
 			/obj/item/food/meat/bacon = 3,
 			/obj/item/food/bun = 1
@@ -300,7 +292,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/empoweredburger
-	name = "Заряженный бургер"
+	name = "Empowered Burger"
 	reqs = list(
 			/obj/item/stack/sheet/mineral/plasma = 2,
 			/obj/item/food/bun = 1
@@ -310,18 +302,18 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/catburger
-	name = "Котобургер"
+	name = "Cat burger"
 	reqs = list(
 		/obj/item/food/bun = 1,
 		/obj/item/food/patty/plain = 1,
-		/obj/item/organ/ears/cat = 1,
-		/obj/item/organ/tail/cat = 1,
+		/obj/item/organ/internal/ears/cat = 1,
+		/obj/item/organ/external/tail/cat = 1,
 	)
 	result = /obj/item/food/burger/catburger
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/crabburger
-	name = "Крабсбургер"
+	name = "Crab Burger"
 	reqs = list(
 			/obj/item/food/meat/crab = 2,
 			/obj/item/food/bun = 1
@@ -331,27 +323,27 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/cheeseburger
-	name = "Чизбургер"
+	name = "Cheese Burger"
 	reqs = list(
 			/obj/item/food/patty/plain = 1,
 			/obj/item/food/bun = 1,
-			/obj/item/food/cheesewedge = 1,
+			/obj/item/food/cheese/wedge = 1,
 	)
 	result = /obj/item/food/burger/cheese
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/soylentburger
-	name = "Сойлент бургер"
+	name = "Soylent Burger"
 	reqs = list(
 			/obj/item/food/soylentgreen = 1, //two full meats worth.
 			/obj/item/food/bun = 1,
-			/obj/item/food/cheesewedge = 2,
+			/obj/item/food/cheese/wedge = 2,
 	)
 	result = /obj/item/food/burger/soylent
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/ribburger
-	name = "МакРиб"
+	name = "McRib"
 	reqs = list(
 			/obj/item/food/bbqribs = 1,     //The sauce is already included in the ribs
 			/obj/item/food/onion_slice = 1, //feel free to remove if too burdensome.
@@ -361,7 +353,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/mcguffin
-	name = "МакГаффин"
+	name = "McGuffin"
 	reqs = list(
 			/obj/item/food/friedegg = 1,
 			/obj/item/food/meat/bacon = 2,
@@ -371,7 +363,7 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/chickenburger
-	name = "Куриный сэндвич"
+	name = "Chicken Sandwich"
 	reqs = list(
 			/obj/item/food/patty/chicken = 1,
 			/datum/reagent/consumable/mayonnaise = 5,
@@ -381,16 +373,27 @@
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/crazyhamburger
-	name = "Безумный гамбургер"
+	name = "Crazy hamburger"
 	reqs = list(
 			/obj/item/food/patty/plain = 2,
 			/obj/item/food/bun = 1,
-			/obj/item/food/cheesewedge = 2,
+			/obj/item/food/cheese/wedge = 2,
 			/obj/item/food/grown/chili = 1,
 			/obj/item/food/grown/cabbage = 1,
 			/obj/item/toy/crayon/green = 1,
 			/obj/item/flashlight/flare = 1,
-			/datum/reagent/consumable/cooking_oil = 15
+			/datum/reagent/consumable/nutriment/fat/oil = 15
 	)
 	result = /obj/item/food/burger/crazy
+	category = CAT_BURGER
+
+/datum/crafting_recipe/food/sloppy_moe
+	name = "Sloppy moe"
+	reqs = list(
+			/obj/item/food/bun = 1,
+			/obj/item/food/meat/cutlet = 2,
+			/obj/item/food/onion_slice = 1,
+			/datum/reagent/consumable/bbqsauce = 5,
+	)
+	result = /obj/item/food/burger/sloppy_moe
 	category = CAT_BURGER

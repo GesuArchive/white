@@ -259,8 +259,8 @@ GLOBAL_LIST_INIT(wiremod_flag_info, list(
 
 /obj/item/circuit_component/bitflag_helper
 	display_name = "Animation & Filter Bitflag Helper"
-	desc = "Allows you to construct bitflags for BYOND animation and filter parameters without having to manually search for the corresponding values."
 	category = "Admin"
+	desc = "Allows you to construct bitflags for BYOND animation and filter parameters without having to manually search for the corresponding values."
 
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL|CIRCUIT_FLAG_ADMIN
 
@@ -277,7 +277,7 @@ GLOBAL_LIST_INIT(wiremod_flag_info, list(
 /obj/item/circuit_component/bitflag_helper/populate_ports()
 	current_bitflag = bitflag_port.value
 	handle_bitflag_type_changed()
-	output_bitflag = add_output_port("Выход", PORT_TYPE_NUMBER)
+	output_bitflag = add_output_port("Output", PORT_TYPE_NUMBER)
 
 /obj/item/circuit_component/bitflag_helper/pre_input_received(datum/port/input/port)
 	if(port == bitflag_port && bitflag_port.value != current_bitflag)

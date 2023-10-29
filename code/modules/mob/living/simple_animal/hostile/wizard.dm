@@ -1,11 +1,12 @@
 /mob/living/simple_animal/hostile/wizard
 	name = "Space Wizard"
 	desc = "EI NATH?"
-	icon = 'icons/mob/simple_human.dmi'
+	icon = 'icons/mob/simple/simple_human.dmi'
 	icon_state = "wizard"
 	icon_living = "wizard"
 	icon_dead = "wizard_dead"
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
+	sentience_type = SENTIENCE_HUMANOID
 	speak_chance = 0
 	turns_per_move = 3
 	speed = 0
@@ -14,24 +15,23 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 5
-	attack_verb_continuous = "бьёт"
-	attack_verb_simple = "бьёт"
+	attack_verb_continuous = "punches"
+	attack_verb_simple = "punch"
 	attack_sound = 'sound/weapons/punch1.ogg'
-	a_intent = INTENT_HARM
-	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0)
+	combat_mode = TRUE
+	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0)
 	unsuitable_atmos_damage = 7.5
 	faction = list(ROLE_WIZARD)
 	status_flags = CANPUSH
+	footstep_type = FOOTSTEP_MOB_SHOE
 
 	retreat_distance = 3 //out of fireball range
 	minimum_distance = 3
 	del_on_death = 1
-	loot = list(/obj/effect/mob_spawn/human/corpse/wizard,
-				/obj/item/staff)
-
-	discovery_points = 3000
-
-	footstep_type = FOOTSTEP_MOB_SHOE
+	loot = list(
+		/obj/effect/mob_spawn/corpse/human/wizard,
+		/obj/item/staff,
+	)
 
 	var/next_cast = 0
 	var/datum/action/cooldown/spell/pointed/projectile/fireball/fireball
@@ -40,6 +40,7 @@
 
 /mob/living/simple_animal/hostile/wizard/Initialize(mapload)
 	. = ..()
+	apply_dynamic_human_appearance(src, mob_spawn_path = /obj/effect/mob_spawn/corpse/human/wizard, r_hand = /obj/item/staff)
 	var/obj/item/implant/exile/exiled = new /obj/item/implant/exile(src)
 	exiled.implant(src)
 

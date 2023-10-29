@@ -1,53 +1,33 @@
-// 7.12x82mm (SAW)
+// 7mm (SAW)
 
-/obj/item/ammo_casing/mm712x82
-	name = "патрон калибра 7.12x82мм"
-	desc = "Обычный патрон калибра 7.12x82мм. Используется в некоторых пулеметах."
+/obj/item/ammo_casing/m7mm
+	name = "7mm bullet casing"
+	desc = "A 7mm bullet casing."
 	icon_state = "762-casing"
-	caliber = "mm71282"
-	projectile_type = /obj/projectile/bullet/mm712x82
+	caliber = CALIBER_A7MM
+	projectile_type = /obj/projectile/bullet/a7mm
 
-/obj/item/ammo_casing/mm712x82/ap
-	name = "бронебойный патрон калибра 7.12x82мм"
-	desc = "Содержит пулю с закаленным сердечником, это заметно повышает бронепробитие, однако незначительно понижает урон. Используется в некоторых пулеметах."
-	projectile_type = /obj/projectile/bullet/mm712x82_ap
+/obj/item/ammo_casing/m7mm/ap
+	name = "7mm armor-piercing bullet casing"
+	desc = "A 7mm bullet casing designed with a hardened-tipped core to help penetrate armored targets."
+	projectile_type = /obj/projectile/bullet/a7mm/ap
 
-/obj/item/ammo_casing/mm712x82/hollow
-	name = "экспансивный патрон калибра 7.12x82мм"
-	desc = "Снаряжен пулей со смещенным центром тяжести. Наносит повышенный урон, однако заметно хуже пробивает броню. Используется в некоторых пулеметах."
-	projectile_type = /obj/projectile/bullet/mm712x82_hp
+/obj/item/ammo_casing/m7mm/hollow
+	name = "7mm hollow-point bullet casing"
+	desc = "A 7mm bullet casing designed to cause more damage to unarmored targets."
+	projectile_type = /obj/projectile/bullet/a7mm/hp
 
-/obj/item/ammo_casing/mm712x82/incen
-	name = "зажигательный патрон калибра 7.12x82мм"
-	desc = "При удачном попадании поджигает цель. Немного слабее стандартных пуль. Используется в некоторых пулеметах."
-	projectile_type = /obj/projectile/bullet/incendiary/mm712x82
+/obj/item/ammo_casing/m7mm/incen
+	name = "7mm incendiary bullet casing"
+	desc = "A 7mm bullet casing designed with a chemical-filled capsule on the tip that when bursted, reacts with the atmosphere to produce a fireball, engulfing the target in flames."
+	projectile_type = /obj/projectile/bullet/incendiary/a7mm
 
-/obj/item/ammo_casing/mm712x82/match
-	name = "самонаводящийся патрон калибра 7.12x82мм"
-	desc = "Высококачественный патрон, пуля из которого с высокой вероятностью рикошетит и доводится на противника. Используется в некоторых пулеметах."
-	projectile_type = /obj/projectile/bullet/mm712x82_match
+/obj/item/ammo_casing/m7mm/match
+	name = "7mm match bullet casing"
+	desc = "A 7mm bullet casing manufactured to unfailingly high standards, you could pull off some cool trickshots with this."
+	projectile_type = /obj/projectile/bullet/a7mm/match
 
-/obj/item/ammo_casing/mm712x82/bouncy
-	name = "травматический патрон калибра 7.12x82мм"
-	desc = "Стандартная пуля заменена на резиновую болванку. Урон значительно снижен, однако такие попадания сильно изматывают цель, а пули могут рекошетить от стен. Используется в некоторых пулеметах."
-	projectile_type = /obj/projectile/bullet/mm712x82_bouncy
-
-/obj/item/ammo_casing/a792x57
-	name = "гильза 7.92x57mm"
-	caliber = "a792x57"
-	projectile_type = /obj/projectile/bullet/a792x57
-
-/obj/item/ammo_casing/a556carbine
-	desc = "гильза 5.56mm"
-	caliber = "229"
-	projectile_type = /obj/projectile/bullet/a556
-
-/obj/item/ammo_casing/carbine
-	desc = "A 5.56mm bullet casing."
-	caliber = "carab"
-	projectile_type = /obj/projectile/bullet/carab
-
-/obj/item/ammo_casing/assault_rifle
-	desc = "Assault rifle bullet casing."
-	caliber = "asr"
-	projectile_type = /obj/projectile/bullet/assault_rifle
+/obj/item/ammo_casing/m7mm/bouncy
+	name = "7mm rubber bullet casing"
+	desc = "A 7mm rubber bullet casing manufactured to unfailingly disastrous standards, you could piss off a lot of people spraying this down a hallway."
+	projectile_type = /obj/projectile/bullet/a7mm/bouncy

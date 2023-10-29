@@ -1,7 +1,7 @@
 /datum/language/mushroom
-	name = "Грибной"
-	desc = "Язык, состоящий из звуков периодических порывов воздуха, наполненного спорами."
+	name = "Mushroom"
+	desc = "A language that consists of the sound of periodic gusts of spore-filled air being released."
 	key = "y"
 	sentence_chance = 0
 	default_priority = 80
-	syllables = list("пуф", "пфф", "пФфФ", "пифф", "пуфф", "пуууф", "пфффф", "пиффпифф", "пуффпуфф", "пуффпуфф", "пифпафпуф")
+	syllables = list("poof", "pff", "pFfF", "piff", "puff", "pooof", "pfffff", "piffpiff", "puffpuff", "poofpoof", "pifpafpofpuf")

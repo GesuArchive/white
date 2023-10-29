@@ -39,6 +39,9 @@
 #define MODE_DEADMIN "deadmin"
 #define MODE_KEY_DEADMIN "d"
 
+#define MODE_PUPPET "puppet"
+#define MODE_KEY_PUPPET "j"
+
 #define MODE_ALIEN "alientalk"
 #define MODE_HOLOPAD "holopad"
 
@@ -46,15 +49,16 @@
 #define MODE_KEY_CHANGELING "g"
 #define MODE_TOKEN_CHANGELING ":g"
 
-
 #define MODE_VOCALCORDS "cords"
 #define MODE_KEY_VOCALCORDS "x"
-
-#define MODE_MONKEY "monkeyhive"
 
 #define MODE_MAFIA "mafia"
 
 #define MODE_SING "sing"
+
+#define MODE_CUSTOM_SAY_EMOTE "custom_say"
+
+#define MODE_CUSTOM_SAY_ERASE_INPUT "erase_input"
 
 //Spans. Robot speech, italics, etc. Applied in compose_message().
 #define SPAN_ROBOT "robot"
@@ -68,15 +72,17 @@
 #define SPAN_SINGING "singing"
 #define SPAN_TAPE_RECORDER "tape_recorder"
 #define SPAN_HELIUM "small"
-#define SPAN_BRASS "brass"
-#define SPAN_RATVAR "ratvar"
 
 //bitflag #defines for return value of the radio() proc.
-#define ITALICS			(1<<0)
-#define REDUCE_RANGE	(1<<1)
-#define NOPASS			(1<<2)
+#define ITALICS (1<<0)
+#define REDUCE_RANGE (1<<1)
+#define NOPASS (1<<2)
 
-//Eavesdropping
+/// Range to hear normal messages
+#define MESSAGE_RANGE 7
+/// Range to hear whispers normally
+#define WHISPER_RANGE 1
+/// Additional range to partially hear whispers
 #define EAVESDROP_EXTRA_RANGE 1 //how much past the specified message_range does the message get starred, whispering only
 
 /// How close intercoms can be for radio code use
@@ -87,16 +93,12 @@
 #define TURF_LINK(alice, turfy) "<a href=?src=[REF(alice)];x=[turfy.x];y=[turfy.y];z=[turfy.z]>(T)</a>"
 #define FOLLOW_OR_TURF_LINK(alice, bob, turfy) "<a href=?src=[REF(alice)];follow=[REF(bob)];x=[turfy.x];y=[turfy.y];z=[turfy.z]>(F)</a>"
 
-#define LINGHIVE_NONE 0
-#define LINGHIVE_OUTSIDER 1
-#define LINGHIVE_LING 2
-#define LINGHIVE_LINK 3
-
 //Don't set this very much higher then 1024 unless you like inviting people in to dos your server with message spam
-#define MAX_MESSAGE_LEN			1024
-#define MAX_NAME_LEN			84
-#define MAX_BROADCAST_LEN		512
-#define MAX_CHARTER_LEN			80
+#define MAX_MESSAGE_LEN 1024
+#define MAX_NAME_LEN 42
+#define MAX_BROADCAST_LEN 512
+#define MAX_CHARTER_LEN 80
+#define MAX_PLAQUE_LEN 144
 
 // Audio/Visual Flags. Used to determine what sense are required to notice a message.
 #define MSG_VISUAL (1<<0)
@@ -106,4 +108,3 @@
 
 //Used in visible_message_flags, audible_message_flags and runechat_flags
 #define EMOTE_MESSAGE (1<<0)
-#define SPAM_MESSAGE (1<<1)

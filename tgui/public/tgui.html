@@ -56,6 +56,8 @@
   var isByond = (Byond.TRIDENT !== null || window.cef_to_byond)
     && location.hostname === '127.0.0.1'
     && location.search !== '?external';
+    //As of BYOND 515 the path doesn't seem to include tmp dir anymore if you're trying to open tgui in external browser and looking why it doesn't work
+    //&& location.pathname.indexOf('/tmp') === 0
 
   // Version constants
   Byond.IS_BYOND = isByond;
@@ -305,6 +307,7 @@
     if (type === 'js') {
       var node = document.createElement('script');
       node.type = 'text/javascript';
+      node.crossOrigin = 'anonymous';
       // IE8: Prefer non-https protocols
       node.src = Byond.IS_LTE_IE9
         ? url.replace('https://', 'http://')
@@ -488,11 +491,42 @@ window.update.flushQueue = function (listener) {
   }
 };
 
+window.replaceHtml = function (inline_html) {
+  var children = document.body.childNodes;
+
+  for (var i = 0; i < children.length; i++) {
+    if (children[i].nodeValue == " tgui:inline-html-start ") {
+      while (children[i].nodeValue != " tgui:inline-html-end ") {
+        children[i].remove();
+      }
+      children[i].remove();
+    }
+  }
+
+  document.body.insertAdjacentHTML(
+    "afterbegin",
+    "<!-- tgui:inline-html-start -->"
+      + inline_html
+      + "<!-- tgui:inline-html-end -->"
+  );
+};
+
 // Signal tgui that we're ready to receive updates
 Byond.sendMessage('ready');
 </script>
 
 <style>
+/* Blink polyfill, originally authored on /tg/ by @iamgoofball */
+blink {
+  animation: 1s linear infinite condemned-blink-effect;
+}
+
+@keyframes condemned-blink-effect {
+  0% { visibility: hidden; }
+  50% { visibility: hidden; }
+  100% { visibility: visible; }
+}
+
 .FatalError {
   display: none;
   position: absolute;
@@ -584,7 +618,9 @@ Byond.sendMessage('ready');
 
 <!-- tgui:inline-polyfill -->
 <!-- tgui:assets -->
+<!-- tgui:inline-html-start -->
 <!-- tgui:inline-html -->
+<!-- tgui:inline-html-end -->
 <!-- tgui:inline-js -->
 
 <!-- Root element for tgui interfaces -->
@@ -593,24 +629,24 @@ Byond.sendMessage('ready');
 <!-- Fatal error container -->
 <div id="FatalError" class="FatalError">
 <div class="FatalError__logo">
-`7MM"""YMM    `7MP""MMF'  .pM"""MMF'MMP""MM""YMM `7MMF'
-  MM    `7      M   MM   .MM'   MM  P'   MM   `7   MM
-  MM            P   MM    YM.   MM       MM        MM
-  MM"""bg.     j'   MM     YMmmmMM       MM        MM"""bg.
-  MM    `Y    ,9    MM    ,dP'  MM       MM        MM    `Y
-  MM    ,9 ,.,9     MM    dM'   MM       MM        MM    ,9
-.JMMmmmd9  OO'    ,JMML..dM   .JMML.   .JMML.    .JMMmmmd9
+ooooo      ooo     .     .oooooo.    .oooooo..o
+`888b.     `8'   .o8    d8P'  `Y8b  d8P'    `Y8
+ 8 `88b.    8  .o888oo 888      888 Y88bo.
+ 8   `88b.  8    888   888      888  `"Y8888o.
+ 8     `88b.8    888   888      888      `"Y88b
+ 8       `888    888 . `88b    d88' oo     .d8P
+o8o        `8    "888"  `Y8bood8P'  8""88888P'
 </div>
 <marquee class="FatalError__header">
-Что-то сломалось в точке 002B:C562F1B7 нашего TGUI.
-Работа приложения была экстренно завершена.
-Отправьте копию отчёта о данном инциденте в наше
-представительство Нанотрейзен https://github.com/frosty-dev/white.
-Благодарим Вас за содействие.
+A fatal exception has occurred at 002B:C562F1B7 in TGUI.
+The current application will be terminated.
+Send the copy of the following stack trace to an authorized
+Nanotrasen incident handler at https://github.com/tgstation/tgstation.
+Thank you for your cooperation.
 </marquee>
 <div id="FatalError__stack" class="FatalError__stack"></div>
 <div class="FatalError__footer">
-Nanotrasen (c) 2525-2562
+<!-- tgui:nt-copyright -->
 </div>
 </div>
 

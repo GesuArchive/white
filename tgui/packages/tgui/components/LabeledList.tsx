@@ -24,12 +24,14 @@ type LabeledListItemProps = {
   className?: string | BooleanLike;
   label?: string | InfernoNode | BooleanLike;
   labelColor?: string | BooleanLike;
+  labelWrap?: boolean;
   color?: string | BooleanLike;
   textAlign?: string | BooleanLike;
   buttons?: InfernoNode;
   /** @deprecated */
   content?: any;
   children?: InfernoNode;
+  verticalAlign?: string;
 };
 
 const LabeledListItem = (props: LabeledListItemProps) => {
@@ -37,18 +39,25 @@ const LabeledListItem = (props: LabeledListItemProps) => {
     className,
     label,
     labelColor = 'label',
+    labelWrap,
     color,
     textAlign,
     buttons,
     content,
     children,
+    verticalAlign = 'baseline',
   } = props;
   return (
     <tr className={classes(['LabeledList__row', className])}>
       <Box
         as="td"
         color={labelColor}
-        className={classes(['LabeledList__cell', 'LabeledList__label'])}>
+        className={classes([
+          'LabeledList__cell',
+          // Kinda flipped because we want nowrap as default. Cleaner CSS this way though.
+          !labelWrap && 'LabeledList__label--nowrap',
+        ])}
+        verticalAlign={verticalAlign}>
         {label ? (typeof label === 'string' ? label + ':' : label) : null}
       </Box>
       <Box
@@ -56,7 +65,8 @@ const LabeledListItem = (props: LabeledListItemProps) => {
         color={color}
         textAlign={textAlign}
         className={classes(['LabeledList__cell', 'LabeledList__content'])}
-        colSpan={buttons ? undefined : 2}>
+        colSpan={buttons ? undefined : 2}
+        verticalAlign={verticalAlign}>
         {content}
         {children}
       </Box>

@@ -2,8 +2,8 @@
 	icon_state = "mixer_off-0"
 	density = FALSE
 
-	name = "Смеситель газов"
-	desc = "Смешивает газы."
+	name = "gas mixer"
+	desc = "Very useful for mixing gasses."
 
 	can_unwrench = TRUE
 	construction_type = /obj/item/pipe/trinary/flippable
@@ -11,9 +11,9 @@
 
 	///Output pressure target
 	var/target_pressure = ONE_ATMOSPHERE
-	///Ratio between the node 1 and 2, determines the amount of gas transfered, sums up to 1
+	///Ratio between the node 1 and 2, determines the amount of gas transferred, sums up to 1
 	var/node1_concentration = 0.5
-	///Ratio between the node 1 and 2, determines the amount of gas transfered, sums up to 1
+	///Ratio between the node 1 and 2, determines the amount of gas transferred, sums up to 1
 	var/node2_concentration = 0.5
 	//node 3 is the outlet, nodes 1 & 2 are intakes
 
@@ -39,7 +39,7 @@
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)
-		balloon_alert(user, "выкручиваю давление [src] на [target_pressure] кПа.")
+		balloon_alert(user, "pressure output on set to [target_pressure] kPa")
 		update_appearance()
 	return ..()
 
@@ -84,8 +84,12 @@
 	//Calculate necessary moles to transfer using PV=nRT
 	var/general_transfer = (target_pressure - output_starting_pressure) * air3.volume / R_IDEAL_GAS_EQUATION
 
-	var/transfer_moles1 = air1.temperature ? node1_concentration * general_transfer / air1.temperature : 0
-	var/transfer_moles2 = air2.temperature ? node2_concentration * general_transfer / air2.temperature : 0
+	//Calculate combined temperature for accurate output ratio
+	var/combined_heat_capacity = air1.heat_capacity() + air2.heat_capacity()
+	var/equalized_temperature = combined_heat_capacity ? (air1.thermal_energy() + air2.thermal_energy()) / combined_heat_capacity : 0
+
+	var/transfer_moles1 = equalized_temperature ? (node1_concentration * general_transfer) / equalized_temperature : 0
+	var/transfer_moles2 = equalized_temperature ? (node2_concentration * general_transfer) / equalized_temperature : 0
 
 	var/air1_moles = air1.total_moles()
 	var/air2_moles = air2.total_moles()
@@ -228,7 +232,7 @@
 	icon_state = "mixer_on_f_map-4"
 
 /obj/machinery/atmospherics/components/trinary/mixer/airmix //For standard airmix to distro
-	name = "Смешиватель воздуха"
+	name = "air mixer"
 	icon_state = "mixer_on-0"
 	node1_concentration = N2STANDARD
 	node2_concentration = O2STANDARD

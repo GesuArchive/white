@@ -1,7 +1,7 @@
 // Cocoa Pod
 /obj/item/seeds/cocoapod
-	name = "Пачка семян какао-бобов"
-	desc = "Эти семена вырастают в полноценные деревья. Кажется, они набухают."
+	name = "pack of cocoa pod seeds"
+	desc = "These seeds grow into cacao trees. They look fattening." //SIC: cocoa is the seeds. The trees are spelled cacao.
 	icon_state = "seed-cocoapod"
 	species = "cocoapod"
 	plantname = "Cocao Tree"
@@ -12,7 +12,7 @@
 	yield = 2
 	instability = 20
 	growthstages = 5
-	growing_icon = 'icons/obj/hydroponics/growing_fruits.dmi'
+	growing_icon = 'icons/obj/service/hydroponics/growing_fruits.dmi'
 	icon_grow = "cocoapod-grow"
 	icon_dead = "cocoapod-dead"
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
@@ -21,8 +21,8 @@
 
 /obj/item/food/grown/cocoapod
 	seed = /obj/item/seeds/cocoapod
-	name = "Какао-бобы"
-	desc = "Сладенько... Мммммм... шоколад."
+	name = "cocoa pod"
+	desc = "Fattening... Mmmmm... chucklate."
 	icon_state = "cocoapod"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT
@@ -31,29 +31,31 @@
 
 // Vanilla Pod
 /obj/item/seeds/cocoapod/vanillapod
-	name = "Пачка семян ванили"
-	desc = "Эти семена вырастают в деревья. Они выглядят толстеющими."
+	name = "pack of vanilla pod seeds"
+	desc = "These seeds grow into vanilla trees. They look fattening."
 	icon_state = "seed-vanillapod"
 	species = "vanillapod"
 	plantname = "Vanilla Tree"
 	product = /obj/item/food/grown/vanillapod
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
-	mutatelist = list()
+	mutatelist = null
 	reagents_add = list(/datum/reagent/consumable/vanilla = 0.25, /datum/reagent/consumable/nutriment = 0.1)
 
 /obj/item/food/grown/vanillapod
 	seed = /obj/item/seeds/cocoapod/vanillapod
-	name = "Ваниль"
-	desc = "Пряно... Вкуснятина... ваниль."
+	name = "vanilla pod"
+	desc = "Fattening... Mmmmm... vanilla."
 	icon_state = "vanillapod"
+	bite_consumption_mod = 2
 	foodtypes = FRUIT
-	tastes = list("ваниль" = 1)
+	tastes = list("vanilla" = 1)
 	distill_reagent = /datum/reagent/consumable/vanilla //Takes longer, but you can get even more vanilla from it.
 
 /obj/item/seeds/cocoapod/bungotree
-	name = "Пачка семян банго"
-	desc = "Эти семена вырастают в деревья. Они кажутся тяжёлыми и практически идеально сферическими."
+	name = "pack of bungo tree seeds"
+	desc = "These seeds grow into bungo trees. They appear to be heavy and almost perfectly spherical."
 	icon_state = "seed-bungotree"
+	plant_icon_offset = 4
 	species = "bungotree"
 	plantname = "Bungo Tree"
 	product = /obj/item/food/grown/bungofruit
@@ -62,30 +64,32 @@
 	yield = 3
 	production = 7
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
-	mutatelist = list()
+	mutatelist = null
 	reagents_add = list(/datum/reagent/consumable/enzyme = 0.1, /datum/reagent/consumable/nutriment = 0.1)
 	growthstages = 4
-	growing_icon = 'icons/obj/hydroponics/growing_fruits.dmi'
+	growing_icon = 'icons/obj/service/hydroponics/growing_fruits.dmi'
 	icon_grow = "bungotree-grow"
 	icon_dead = "bungotree-dead"
 	rarity = 15
 
 /obj/item/food/grown/bungofruit
 	seed = /obj/item/seeds/cocoapod/bungotree
-	name = "Банго"
-	desc = "Странный фрукт, жёсткая и упругая кожура, которая защищает сочную мякоть и ядовитое семечко."
+	name = "bungo fruit"
+	desc = "A strange fruit, tough leathery skin protects its juicy flesh and large poisonous seed."
 	icon_state = "bungo"
+	bite_consumption_mod = 2
 	trash_type = /obj/item/food/grown/bungopit
 	foodtypes = FRUIT
-	juice_results = list(/datum/reagent/consumable/bungojuice = 0)
+	juice_typepath = /datum/reagent/consumable/bungojuice
 	tastes = list("bungo" = 2, "tropical fruitiness" = 1)
 	distill_reagent = null
 
 /obj/item/food/grown/bungopit
 	seed = /obj/item/seeds/cocoapod/bungotree
-	name = "Семечко банго"
+	name = "bungo pit"
 	icon_state = "bungopit"
-	desc = "Большое семечко, способное остановить сердце взрослого человека."
+	bite_consumption_mod = 5
+	desc = "A large seed, it is said to be potent enough to be able to stop a mans heart."
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 5
 	throw_speed = 3

@@ -1,9 +1,9 @@
 /**********************Mining Scanners**********************/
 /obj/item/mining_scanner
-	desc = "Сканер, проверяющий окружающую породу на наличие полезных минералов; его также можно использовать для остановки детонации гибтонита."
-	name = "ручной шахтёрский сканер"
+	desc = "A scanner that checks surrounding rock for useful minerals; it can also be used to stop gibtonite detonations."
+	name = "manual mining scanner"
 	icon = 'icons/obj/device.dmi'
-	icon_state = "miningmanual"
+	icon_state = "manual_mining"
 	inhand_icon_state = "analyzer"
 	worn_icon_state = "analyzer"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
@@ -31,9 +31,9 @@
 	qdel(src)
 
 /obj/item/t_scanner/adv_mining_scanner
-	desc = "Сканер, автоматически проверяющий окружающую породу на наличие полезных минералов; его также можно использовать для остановки детонации гибтонита. У этого есть расширенный диапазон."
-	name = "продвинутый автоматический шахтёрский сканер"
-	icon_state = "adv_mining0"
+	desc = "A scanner that automatically checks surrounding rock for useful minerals; it can also be used to stop gibtonite detonations. This one has an extended range."
+	name = "advanced automatic mining scanner"
+	icon_state = "advmining0"
 	inhand_icon_state = "analyzer"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
@@ -49,8 +49,8 @@
 	toggle_on()
 
 /obj/item/t_scanner/adv_mining_scanner/lesser
-	name = "автоматический шахтёрский сканер"
-	desc = "Сканер, автоматически проверяющий окружающую породу на наличие полезных минералов; его также можно использовать для остановки детонации гибтонита."
+	name = "automatic mining scanner"
+	desc = "A scanner that automatically checks surrounding rock for useful minerals; it can also be used to stop gibtonite detonations."
 	icon_state = "mining0"
 	range = 4
 	cooldown = 50
@@ -62,54 +62,17 @@
 		mineral_scan_pulse(t, range)
 
 /proc/mineral_scan_pulse(turf/T, range = world.view)
-	var/list/parsedrange = getviewsize(range)
-	var/xrange = (parsedrange[1] - 1) / 2
-	var/yrange = (parsedrange[2] - 1) / 2
-	var/cx = T.x
-	var/cy = T.y
-	for(var/r in 1 to max(xrange, yrange))
-		var/xr = min(xrange, r)
-		var/yr = min(yrange, r)
-		var/turf/TL = locate(cx - xr, cy + yr, T.z)
-		var/turf/BL = locate(cx - xr, cy - yr, T.z)
-		var/turf/TR = locate(cx + xr, cy + yr, T.z)
-		var/turf/BR = locate(cx + xr, cy - yr, T.z)
-		var/list/turfs = list()
-		turfs += block(TL, TR)
-		turfs += block(TL, BL)
-		turfs |= block(BL, BR)
-		turfs |= block(BR, TR)
-		for(var/turf/closed/mineral/M in turfs)
-			new /obj/effect/temp_visual/mining_scanner(M)
-			if(M.scan_state)
-				var/obj/effect/temp_visual/mining_overlay/oldC = locate(/obj/effect/temp_visual/mining_overlay) in M
-				if(oldC)
-					qdel(oldC)
-				var/obj/effect/temp_visual/mining_overlay/C = new /obj/effect/temp_visual/mining_overlay(M)
-				C.icon_state = M.scan_state
-		sleep(1)
-
-/proc/pulse_effect(turf/T, range = world.view)
-	var/list/parsedrange = getviewsize(range)
-	var/xrange = (parsedrange[1] - 1) / 2
-	var/yrange = (parsedrange[2] - 1) / 2
-	var/cx = T.x
-	var/cy = T.y
-	for(var/r in 1 to max(xrange, yrange))
-		var/xr = min(xrange, r)
-		var/yr = min(yrange, r)
-		var/turf/TL = locate(cx - xr, cy + yr, T.z)
-		var/turf/BL = locate(cx - xr, cy - yr, T.z)
-		var/turf/TR = locate(cx + xr, cy + yr, T.z)
-		var/turf/BR = locate(cx + xr, cy - yr, T.z)
-		var/list/turfs = list()
-		turfs += block(TL, TR)
-		turfs += block(TL, BL)
-		turfs |= block(BL, BR)
-		turfs |= block(BR, TR)
-		for(var/turf/M in turfs)
-			new /obj/effect/temp_visual/mining_scanner(M)
-		sleep(1)
+	var/list/minerals = list()
+	for(var/turf/closed/mineral/M in range(range, T))
+		if(M.scan_state)
+			minerals += M
+	if(LAZYLEN(minerals))
+		for(var/turf/closed/mineral/M in minerals)
+			var/obj/effect/temp_visual/mining_overlay/oldC = locate(/obj/effect/temp_visual/mining_overlay) in M
+			if(oldC)
+				qdel(oldC)
+			var/obj/effect/temp_visual/mining_overlay/C = new /obj/effect/temp_visual/mining_overlay(M)
+			C.icon_state = M.scan_state
 
 /obj/effect/temp_visual/mining_overlay
 	plane = HIGH_GAME_PLANE
@@ -121,20 +84,5 @@
 	pixel_y = -224
 
 /obj/effect/temp_visual/mining_overlay/Initialize(mapload)
-	. = ..()
-	animate(src, alpha = 0, time = duration, easing = EASE_IN)
-
-/obj/effect/temp_visual/mining_scanner
-	plane = HIGH_GAME_PLANE
-	layer = FLASH_LAYER
-	icon = 'icons/effects/mining_scanner.dmi'
-	appearance_flags = 0
-	pixel_x = -224
-	pixel_y = -224
-	duration = 3
-	alpha = 100
-	icon_state = "mining_scan"
-
-/obj/effect/temp_visual/mining_scanner/Initialize(mapload)
 	. = ..()
 	animate(src, alpha = 0, time = duration, easing = EASE_IN)

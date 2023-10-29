@@ -1,7 +1,7 @@
 /obj/item/hypernoblium_crystal
 	name = "Hypernoblium Crystal"
 	desc = "Crystalized oxygen and hypernoblium stored in a bottle to pressureproof your clothes or stop reactions occuring in portable atmospheric devices."
-	icon = 'icons/obj/atmos.dmi'
+	icon = 'icons/obj/pipes_n_cables/atmos.dmi'
 	icon_state = "hypernoblium_crystal"
 	var/uses = 1
 
@@ -9,6 +9,7 @@
 	. = ..()
 	if(!proximity)
 		return
+	. |= AFTERATTACK_PROCESSED_ITEM
 	var/obj/machinery/portable_atmospherics/atmos_device = target_object
 	if(istype(atmos_device))
 		if(atmos_device.nob_crystal_inserted)
